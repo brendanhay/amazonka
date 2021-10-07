@@ -1,134 +1,173 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateWorkerBlock
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @CreateWorkerBlock@ operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.
---
---
+-- The @CreateWorkerBlock@ operation allows you to prevent a Worker from
+-- working on your HITs. For example, you can block a Worker who is
+-- producing poor quality work. You can block up to 100,000 Workers.
 module Network.AWS.MechanicalTurk.CreateWorkerBlock
-    (
-    -- * Creating a Request
-      createWorkerBlock
-    , CreateWorkerBlock
+  ( -- * Creating a Request
+    CreateWorkerBlock (..),
+    newCreateWorkerBlock,
+
     -- * Request Lenses
-    , cwbWorkerId
-    , cwbReason
+    createWorkerBlock_workerId,
+    createWorkerBlock_reason,
 
     -- * Destructuring the Response
-    , createWorkerBlockResponse
-    , CreateWorkerBlockResponse
+    CreateWorkerBlockResponse (..),
+    newCreateWorkerBlockResponse,
+
     -- * Response Lenses
-    , cwbrsResponseStatus
-    ) where
+    createWorkerBlockResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createWorkerBlock' smart constructor.
+-- | /See:/ 'newCreateWorkerBlock' smart constructor.
 data CreateWorkerBlock = CreateWorkerBlock'
-  { _cwbWorkerId :: !Text
-  , _cwbReason   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Worker to block.
+    workerId :: Prelude.Text,
+    -- | A message explaining the reason for blocking the Worker. This parameter
+    -- enables you to keep track of your Workers. The Worker does not see this
+    -- message.
+    reason :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateWorkerBlock' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateWorkerBlock' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cwbWorkerId' - The ID of the Worker to block.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cwbReason' - A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
-createWorkerBlock
-    :: Text -- ^ 'cwbWorkerId'
-    -> Text -- ^ 'cwbReason'
-    -> CreateWorkerBlock
-createWorkerBlock pWorkerId_ pReason_ =
-  CreateWorkerBlock' {_cwbWorkerId = pWorkerId_, _cwbReason = pReason_}
-
+-- 'workerId', 'createWorkerBlock_workerId' - The ID of the Worker to block.
+--
+-- 'reason', 'createWorkerBlock_reason' - A message explaining the reason for blocking the Worker. This parameter
+-- enables you to keep track of your Workers. The Worker does not see this
+-- message.
+newCreateWorkerBlock ::
+  -- | 'workerId'
+  Prelude.Text ->
+  -- | 'reason'
+  Prelude.Text ->
+  CreateWorkerBlock
+newCreateWorkerBlock pWorkerId_ pReason_ =
+  CreateWorkerBlock'
+    { workerId = pWorkerId_,
+      reason = pReason_
+    }
 
 -- | The ID of the Worker to block.
-cwbWorkerId :: Lens' CreateWorkerBlock Text
-cwbWorkerId = lens _cwbWorkerId (\ s a -> s{_cwbWorkerId = a});
+createWorkerBlock_workerId :: Lens.Lens' CreateWorkerBlock Prelude.Text
+createWorkerBlock_workerId = Lens.lens (\CreateWorkerBlock' {workerId} -> workerId) (\s@CreateWorkerBlock' {} a -> s {workerId = a} :: CreateWorkerBlock)
 
--- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
-cwbReason :: Lens' CreateWorkerBlock Text
-cwbReason = lens _cwbReason (\ s a -> s{_cwbReason = a});
+-- | A message explaining the reason for blocking the Worker. This parameter
+-- enables you to keep track of your Workers. The Worker does not see this
+-- message.
+createWorkerBlock_reason :: Lens.Lens' CreateWorkerBlock Prelude.Text
+createWorkerBlock_reason = Lens.lens (\CreateWorkerBlock' {reason} -> reason) (\s@CreateWorkerBlock' {} a -> s {reason = a} :: CreateWorkerBlock)
 
-instance AWSRequest CreateWorkerBlock where
-        type Rs CreateWorkerBlock = CreateWorkerBlockResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateWorkerBlockResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest CreateWorkerBlock where
+  type
+    AWSResponse CreateWorkerBlock =
+      CreateWorkerBlockResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateWorkerBlockResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateWorkerBlock where
+instance Prelude.Hashable CreateWorkerBlock
 
-instance NFData CreateWorkerBlock where
+instance Prelude.NFData CreateWorkerBlock
 
-instance ToHeaders CreateWorkerBlock where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.CreateWorkerBlock"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateWorkerBlock where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MTurkRequesterServiceV20170117.CreateWorkerBlock" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateWorkerBlock where
-        toJSON CreateWorkerBlock'{..}
-          = object
-              (catMaybes
-                 [Just ("WorkerId" .= _cwbWorkerId),
-                  Just ("Reason" .= _cwbReason)])
+instance Core.ToJSON CreateWorkerBlock where
+  toJSON CreateWorkerBlock' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("WorkerId" Core..= workerId),
+            Prelude.Just ("Reason" Core..= reason)
+          ]
+      )
 
-instance ToPath CreateWorkerBlock where
-        toPath = const "/"
+instance Core.ToPath CreateWorkerBlock where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateWorkerBlock where
-        toQuery = const mempty
+instance Core.ToQuery CreateWorkerBlock where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createWorkerBlockResponse' smart constructor.
-newtype CreateWorkerBlockResponse = CreateWorkerBlockResponse'
-  { _cwbrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateWorkerBlockResponse' smart constructor.
+data CreateWorkerBlockResponse = CreateWorkerBlockResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateWorkerBlockResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateWorkerBlockResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cwbrsResponseStatus' - -- | The response status code.
-createWorkerBlockResponse
-    :: Int -- ^ 'cwbrsResponseStatus'
-    -> CreateWorkerBlockResponse
-createWorkerBlockResponse pResponseStatus_ =
-  CreateWorkerBlockResponse' {_cwbrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createWorkerBlockResponse_httpStatus' - The response's http status code.
+newCreateWorkerBlockResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateWorkerBlockResponse
+newCreateWorkerBlockResponse pHttpStatus_ =
+  CreateWorkerBlockResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+createWorkerBlockResponse_httpStatus :: Lens.Lens' CreateWorkerBlockResponse Prelude.Int
+createWorkerBlockResponse_httpStatus = Lens.lens (\CreateWorkerBlockResponse' {httpStatus} -> httpStatus) (\s@CreateWorkerBlockResponse' {} a -> s {httpStatus = a} :: CreateWorkerBlockResponse)
 
--- | -- | The response status code.
-cwbrsResponseStatus :: Lens' CreateWorkerBlockResponse Int
-cwbrsResponseStatus = lens _cwbrsResponseStatus (\ s a -> s{_cwbrsResponseStatus = a});
-
-instance NFData CreateWorkerBlockResponse where
+instance Prelude.NFData CreateWorkerBlockResponse

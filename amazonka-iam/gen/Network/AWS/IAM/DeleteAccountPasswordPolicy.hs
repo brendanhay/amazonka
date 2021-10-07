@@ -1,94 +1,107 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the password policy for the AWS account. There are no parameters.
---
---
+-- Deletes the password policy for the Amazon Web Services account. There
+-- are no parameters.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
-    (
-    -- * Creating a Request
-      deleteAccountPasswordPolicy
-    , DeleteAccountPasswordPolicy
+  ( -- * Creating a Request
+    DeleteAccountPasswordPolicy (..),
+    newDeleteAccountPasswordPolicy,
 
     -- * Destructuring the Response
-    , deleteAccountPasswordPolicyResponse
-    , DeleteAccountPasswordPolicyResponse
-    ) where
+    DeleteAccountPasswordPolicyResponse (..),
+    newDeleteAccountPasswordPolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteAccountPasswordPolicy' smart constructor.
-data DeleteAccountPasswordPolicy =
+-- | /See:/ 'newDeleteAccountPasswordPolicy' smart constructor.
+data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteAccountPasswordPolicy' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAccountPasswordPolicy ::
+  DeleteAccountPasswordPolicy
+newDeleteAccountPasswordPolicy =
   DeleteAccountPasswordPolicy'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
+instance Core.AWSRequest DeleteAccountPasswordPolicy where
+  type
+    AWSResponse DeleteAccountPasswordPolicy =
+      DeleteAccountPasswordPolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteAccountPasswordPolicyResponse'
 
--- | Creates a value of 'DeleteAccountPasswordPolicy' with the minimum fields required to make a request.
+instance Prelude.Hashable DeleteAccountPasswordPolicy
+
+instance Prelude.NFData DeleteAccountPasswordPolicy
+
+instance Core.ToHeaders DeleteAccountPasswordPolicy where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteAccountPasswordPolicy where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteAccountPasswordPolicy where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Core.=: ( "DeleteAccountPasswordPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Version"
+              Core.=: ("2010-05-08" :: Prelude.ByteString)
+          ]
+      )
+
+-- | /See:/ 'newDeleteAccountPasswordPolicyResponse' smart constructor.
+data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteAccountPasswordPolicyResponse' with all optional fields omitted.
 --
-deleteAccountPasswordPolicy
-    :: DeleteAccountPasswordPolicy
-deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
-
-
-instance AWSRequest DeleteAccountPasswordPolicy where
-        type Rs DeleteAccountPasswordPolicy =
-             DeleteAccountPasswordPolicyResponse
-        request = postQuery iam
-        response
-          = receiveNull DeleteAccountPasswordPolicyResponse'
-
-instance Hashable DeleteAccountPasswordPolicy where
-
-instance NFData DeleteAccountPasswordPolicy where
-
-instance ToHeaders DeleteAccountPasswordPolicy where
-        toHeaders = const mempty
-
-instance ToPath DeleteAccountPasswordPolicy where
-        toPath = const "/"
-
-instance ToQuery DeleteAccountPasswordPolicy where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =:
-                    ("DeleteAccountPasswordPolicy" :: ByteString),
-                  "Version" =: ("2010-05-08" :: ByteString)])
-
--- | /See:/ 'deleteAccountPasswordPolicyResponse' smart constructor.
-data DeleteAccountPasswordPolicyResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAccountPasswordPolicyResponse ::
+  DeleteAccountPasswordPolicyResponse
+newDeleteAccountPasswordPolicyResponse =
   DeleteAccountPasswordPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteAccountPasswordPolicyResponse' with the minimum fields required to make a request.
---
-deleteAccountPasswordPolicyResponse
-    :: DeleteAccountPasswordPolicyResponse
-deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'
-
-
-instance NFData DeleteAccountPasswordPolicyResponse
-         where
+instance
+  Prelude.NFData
+    DeleteAccountPasswordPolicyResponse

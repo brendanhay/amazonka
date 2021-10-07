@@ -1,0 +1,11 @@
+{
+    "libraryName": "amazonka-kinesis",
+    "typeOverrides": {
+        "SubscribeToShardEventStream": {
+            "replacedBy": {
+                "name": "Core.Value",
+                "underive": ["show", "read", "eq", "ord"]
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-# Amazon CloudWatch Events SDK
+# Amazon EventBridge SDK
 
 * [Version](#version)
 * [Description](#description)
@@ -7,9 +7,8 @@
 
 
 ## Version
-
-`1.5.0`
-
+ 
+`1.6.1` - Derived from API version @2015-10-07@ of the AWS service descriptions, licensed under Apache 2.0.
 
 ## Description
 

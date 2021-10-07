@@ -1,48 +1,50 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.APIGateway
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon API Gateway__
+-- Derived from API version @2015-07-09@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
+-- Amazon API Gateway
 --
+-- Amazon API Gateway helps developers deliver robust, secure, and scalable
+-- mobile and web application back ends. API Gateway allows developers to
+-- securely connect mobile and web applications to APIs that run on AWS
+-- Lambda, Amazon EC2, or other publicly addressable web services that are
+-- hosted outside of AWS.
 module Network.AWS.APIGateway
-    (
-    -- * Service Configuration
-      apiGateway
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    , _ConflictException
-
     -- ** NotFoundException
-    , _NotFoundException
-
-    -- ** TooManyRequestsException
-    , _TooManyRequestsException
-
-    -- ** ServiceUnavailableException
-    , _ServiceUnavailableException
-
-    -- ** UnauthorizedException
-    , _UnauthorizedException
+    _NotFoundException,
 
     -- ** BadRequestException
-    , _BadRequestException
+    _BadRequestException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** LimitExceededException
-    , _LimitExceededException
+    _LimitExceededException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -50,691 +52,948 @@ module Network.AWS.APIGateway
     -- * Operations
     -- $operations
 
-    -- ** GetResource
-    , module Network.AWS.APIGateway.GetResource
-
-    -- ** GetDeployments (Paginated)
-    , module Network.AWS.APIGateway.GetDeployments
-
-    -- ** GetDeployment
-    , module Network.AWS.APIGateway.GetDeployment
-
-    -- ** DeleteGatewayResponse
-    , module Network.AWS.APIGateway.DeleteGatewayResponse
-
-    -- ** UpdateGatewayResponse
-    , module Network.AWS.APIGateway.UpdateGatewayResponse
-
-    -- ** CreateUsagePlan
-    , module Network.AWS.APIGateway.CreateUsagePlan
-
-    -- ** GetDomainNames (Paginated)
-    , module Network.AWS.APIGateway.GetDomainNames
-
-    -- ** GetClientCertificate
-    , module Network.AWS.APIGateway.GetClientCertificate
-
-    -- ** PutGatewayResponse
-    , module Network.AWS.APIGateway.PutGatewayResponse
-
-    -- ** GetSDKType
-    , module Network.AWS.APIGateway.GetSDKType
-
-    -- ** GetMethodResponse
-    , module Network.AWS.APIGateway.GetMethodResponse
-
-    -- ** GetModels (Paginated)
-    , module Network.AWS.APIGateway.GetModels
-
-    -- ** GetBasePathMapping
-    , module Network.AWS.APIGateway.GetBasePathMapping
-
-    -- ** GetRequestValidators
-    , module Network.AWS.APIGateway.GetRequestValidators
-
-    -- ** PutMethodResponse
-    , module Network.AWS.APIGateway.PutMethodResponse
-
-    -- ** ImportRestAPI
-    , module Network.AWS.APIGateway.ImportRestAPI
-
-    -- ** DeleteMethodResponse
-    , module Network.AWS.APIGateway.DeleteMethodResponse
-
-    -- ** UpdateMethodResponse
-    , module Network.AWS.APIGateway.UpdateMethodResponse
-
-    -- ** DeleteStage
-    , module Network.AWS.APIGateway.DeleteStage
-
-    -- ** UpdateStage
-    , module Network.AWS.APIGateway.UpdateStage
-
-    -- ** GetRestAPIs (Paginated)
-    , module Network.AWS.APIGateway.GetRestAPIs
-
-    -- ** GetDocumentationVersions
-    , module Network.AWS.APIGateway.GetDocumentationVersions
-
-    -- ** CreateDeployment
-    , module Network.AWS.APIGateway.CreateDeployment
-
-    -- ** CreateBasePathMapping
-    , module Network.AWS.APIGateway.CreateBasePathMapping
-
-    -- ** GetIntegration
-    , module Network.AWS.APIGateway.GetIntegration
-
-    -- ** GetDocumentationParts
-    , module Network.AWS.APIGateway.GetDocumentationParts
-
-    -- ** UpdateAccount
-    , module Network.AWS.APIGateway.UpdateAccount
-
-    -- ** GetUsagePlan
-    , module Network.AWS.APIGateway.GetUsagePlan
-
-    -- ** DeleteDeployment
-    , module Network.AWS.APIGateway.DeleteDeployment
-
-    -- ** UpdateDeployment
-    , module Network.AWS.APIGateway.UpdateDeployment
-
-    -- ** GetDocumentationPart
-    , module Network.AWS.APIGateway.GetDocumentationPart
-
-    -- ** DeleteResource
-    , module Network.AWS.APIGateway.DeleteResource
-
-    -- ** UpdateResource
-    , module Network.AWS.APIGateway.UpdateResource
-
-    -- ** CreateRequestValidator
-    , module Network.AWS.APIGateway.CreateRequestValidator
-
-    -- ** ImportDocumentationParts
-    , module Network.AWS.APIGateway.ImportDocumentationParts
-
-    -- ** GetUsage (Paginated)
-    , module Network.AWS.APIGateway.GetUsage
-
-    -- ** CreateModel
-    , module Network.AWS.APIGateway.CreateModel
-
-    -- ** GetIntegrationResponse
-    , module Network.AWS.APIGateway.GetIntegrationResponse
-
-    -- ** CreateDomainName
-    , module Network.AWS.APIGateway.CreateDomainName
-
-    -- ** FlushStageAuthorizersCache
-    , module Network.AWS.APIGateway.FlushStageAuthorizersCache
-
-    -- ** GetGatewayResponses
-    , module Network.AWS.APIGateway.GetGatewayResponses
-
-    -- ** DeleteModel
-    , module Network.AWS.APIGateway.DeleteModel
-
-    -- ** UpdateModel
-    , module Network.AWS.APIGateway.UpdateModel
-
-    -- ** GetDocumentationVersion
-    , module Network.AWS.APIGateway.GetDocumentationVersion
-
-    -- ** DeleteAPIKey
-    , module Network.AWS.APIGateway.DeleteAPIKey
-
-    -- ** UpdateAPIKey
-    , module Network.AWS.APIGateway.UpdateAPIKey
-
-    -- ** GetRestAPI
-    , module Network.AWS.APIGateway.GetRestAPI
-
-    -- ** GetStages
-    , module Network.AWS.APIGateway.GetStages
-
-    -- ** PutRestAPI
-    , module Network.AWS.APIGateway.PutRestAPI
-
-    -- ** GetMethod
-    , module Network.AWS.APIGateway.GetMethod
-
-    -- ** GetModel
-    , module Network.AWS.APIGateway.GetModel
-
-    -- ** UpdateRestAPI
-    , module Network.AWS.APIGateway.UpdateRestAPI
-
-    -- ** DeleteRestAPI
-    , module Network.AWS.APIGateway.DeleteRestAPI
-
-    -- ** ImportAPIKeys
-    , module Network.AWS.APIGateway.ImportAPIKeys
-
-    -- ** CreateDocumentationPart
-    , module Network.AWS.APIGateway.CreateDocumentationPart
-
-    -- ** TestInvokeMethod
-    , module Network.AWS.APIGateway.TestInvokeMethod
-
-    -- ** GetRequestValidator
-    , module Network.AWS.APIGateway.GetRequestValidator
-
-    -- ** GetDomainName
-    , module Network.AWS.APIGateway.GetDomainName
-
-    -- ** DeleteDocumentationPart
-    , module Network.AWS.APIGateway.DeleteDocumentationPart
-
-    -- ** UpdateDocumentationPart
-    , module Network.AWS.APIGateway.UpdateDocumentationPart
-
-    -- ** GetAuthorizers
-    , module Network.AWS.APIGateway.GetAuthorizers
-
-    -- ** CreateDocumentationVersion
-    , module Network.AWS.APIGateway.CreateDocumentationVersion
-
-    -- ** PutIntegrationResponse
-    , module Network.AWS.APIGateway.PutIntegrationResponse
-
-    -- ** GetUsagePlanKeys (Paginated)
-    , module Network.AWS.APIGateway.GetUsagePlanKeys
-
-    -- ** FlushStageCache
-    , module Network.AWS.APIGateway.FlushStageCache
-
-    -- ** CreateRestAPI
-    , module Network.AWS.APIGateway.CreateRestAPI
-
-    -- ** DeleteIntegrationResponse
-    , module Network.AWS.APIGateway.DeleteIntegrationResponse
-
-    -- ** UpdateIntegrationResponse
-    , module Network.AWS.APIGateway.UpdateIntegrationResponse
-
-    -- ** UpdateUsage
-    , module Network.AWS.APIGateway.UpdateUsage
-
-    -- ** DeleteIntegration
-    , module Network.AWS.APIGateway.DeleteIntegration
-
     -- ** UpdateIntegration
-    , module Network.AWS.APIGateway.UpdateIntegration
-
-    -- ** TestInvokeAuthorizer
-    , module Network.AWS.APIGateway.TestInvokeAuthorizer
-
-    -- ** GenerateClientCertificate
-    , module Network.AWS.APIGateway.GenerateClientCertificate
-
-    -- ** GetResources (Paginated)
-    , module Network.AWS.APIGateway.GetResources
-
-    -- ** GetUsagePlanKey
-    , module Network.AWS.APIGateway.GetUsagePlanKey
-
-    -- ** GetAccount
-    , module Network.AWS.APIGateway.GetAccount
-
-    -- ** PutIntegration
-    , module Network.AWS.APIGateway.PutIntegration
-
-    -- ** GetAuthorizer
-    , module Network.AWS.APIGateway.GetAuthorizer
-
-    -- ** DeleteUsagePlan
-    , module Network.AWS.APIGateway.DeleteUsagePlan
+    UpdateIntegration (UpdateIntegration'),
+    newUpdateIntegration,
+    Integration (Integration'),
+    newIntegration,
 
     -- ** UpdateUsagePlan
-    , module Network.AWS.APIGateway.UpdateUsagePlan
+    UpdateUsagePlan (UpdateUsagePlan'),
+    newUpdateUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
 
-    -- ** GetStage
-    , module Network.AWS.APIGateway.GetStage
+    -- ** GetAuthorizer
+    GetAuthorizer (GetAuthorizer'),
+    newGetAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
 
-    -- ** GetExport
-    , module Network.AWS.APIGateway.GetExport
+    -- ** DeleteUsagePlan
+    DeleteUsagePlan (DeleteUsagePlan'),
+    newDeleteUsagePlan,
+    DeleteUsagePlanResponse (DeleteUsagePlanResponse'),
+    newDeleteUsagePlanResponse,
 
-    -- ** GetSDK
-    , module Network.AWS.APIGateway.GetSDK
+    -- ** DeleteIntegration
+    DeleteIntegration (DeleteIntegration'),
+    newDeleteIntegration,
+    DeleteIntegrationResponse' (DeleteIntegrationResponse''),
+    newDeleteIntegrationResponse',
 
-    -- ** GetAPIKeys (Paginated)
-    , module Network.AWS.APIGateway.GetAPIKeys
+    -- ** GenerateClientCertificate
+    GenerateClientCertificate (GenerateClientCertificate'),
+    newGenerateClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
 
-    -- ** DeleteBasePathMapping
-    , module Network.AWS.APIGateway.DeleteBasePathMapping
+    -- ** GetUsagePlanKey
+    GetUsagePlanKey (GetUsagePlanKey'),
+    newGetUsagePlanKey,
+    UsagePlanKey (UsagePlanKey'),
+    newUsagePlanKey,
 
-    -- ** UpdateBasePathMapping
-    , module Network.AWS.APIGateway.UpdateBasePathMapping
+    -- ** CreateRestApi
+    CreateRestApi (CreateRestApi'),
+    newCreateRestApi,
+    RestApi (RestApi'),
+    newRestApi,
 
-    -- ** DeleteClientCertificate
-    , module Network.AWS.APIGateway.DeleteClientCertificate
+    -- ** DeleteIntegrationResponse
+    DeleteIntegrationResponse (DeleteIntegrationResponse'),
+    newDeleteIntegrationResponse,
+    DeleteIntegrationResponseResponse (DeleteIntegrationResponseResponse'),
+    newDeleteIntegrationResponseResponse,
 
-    -- ** UpdateClientCertificate
-    , module Network.AWS.APIGateway.UpdateClientCertificate
+    -- ** UpdateDocumentationPart
+    UpdateDocumentationPart (UpdateDocumentationPart'),
+    newUpdateDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
 
-    -- ** GetGatewayResponse
-    , module Network.AWS.APIGateway.GetGatewayResponse
+    -- ** UpdateIntegrationResponse
+    UpdateIntegrationResponse (UpdateIntegrationResponse'),
+    newUpdateIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
 
-    -- ** CreateUsagePlanKey
-    , module Network.AWS.APIGateway.CreateUsagePlanKey
+    -- ** GetDeployments (Paginated)
+    GetDeployments (GetDeployments'),
+    newGetDeployments,
+    GetDeploymentsResponse (GetDeploymentsResponse'),
+    newGetDeploymentsResponse,
 
-    -- ** CreateAuthorizer
-    , module Network.AWS.APIGateway.CreateAuthorizer
+    -- ** DeleteDocumentationPart
+    DeleteDocumentationPart (DeleteDocumentationPart'),
+    newDeleteDocumentationPart,
+    DeleteDocumentationPartResponse (DeleteDocumentationPartResponse'),
+    newDeleteDocumentationPartResponse,
 
-    -- ** UpdateAuthorizer
-    , module Network.AWS.APIGateway.UpdateAuthorizer
+    -- ** UpdateUsage
+    UpdateUsage (UpdateUsage'),
+    newUpdateUsage,
+    Usage (Usage'),
+    newUsage,
 
-    -- ** DeleteAuthorizer
-    , module Network.AWS.APIGateway.DeleteAuthorizer
+    -- ** UpdateVpcLink
+    UpdateVpcLink (UpdateVpcLink'),
+    newUpdateVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
 
-    -- ** CreateStage
-    , module Network.AWS.APIGateway.CreateStage
+    -- ** DeleteVpcLink
+    DeleteVpcLink (DeleteVpcLink'),
+    newDeleteVpcLink,
+    DeleteVpcLinkResponse (DeleteVpcLinkResponse'),
+    newDeleteVpcLinkResponse,
 
-    -- ** DeleteUsagePlanKey
-    , module Network.AWS.APIGateway.DeleteUsagePlanKey
+    -- ** FlushStageCache
+    FlushStageCache (FlushStageCache'),
+    newFlushStageCache,
+    FlushStageCacheResponse (FlushStageCacheResponse'),
+    newFlushStageCacheResponse,
 
-    -- ** CreateAPIKey
-    , module Network.AWS.APIGateway.CreateAPIKey
-
-    -- ** GetUsagePlans (Paginated)
-    , module Network.AWS.APIGateway.GetUsagePlans
-
-    -- ** PutMethod
-    , module Network.AWS.APIGateway.PutMethod
-
-    -- ** UpdateDomainName
-    , module Network.AWS.APIGateway.UpdateDomainName
-
-    -- ** DeleteDomainName
-    , module Network.AWS.APIGateway.DeleteDomainName
-
-    -- ** CreateResource
-    , module Network.AWS.APIGateway.CreateResource
-
-    -- ** DeleteMethod
-    , module Network.AWS.APIGateway.DeleteMethod
-
-    -- ** UpdateMethod
-    , module Network.AWS.APIGateway.UpdateMethod
-
-    -- ** UpdateRequestValidator
-    , module Network.AWS.APIGateway.UpdateRequestValidator
-
-    -- ** DeleteRequestValidator
-    , module Network.AWS.APIGateway.DeleteRequestValidator
-
-    -- ** GetSDKTypes
-    , module Network.AWS.APIGateway.GetSDKTypes
+    -- ** GetModel
+    GetModel (GetModel'),
+    newGetModel,
+    Model (Model'),
+    newModel,
 
     -- ** GetClientCertificates (Paginated)
-    , module Network.AWS.APIGateway.GetClientCertificates
+    GetClientCertificates (GetClientCertificates'),
+    newGetClientCertificates,
+    GetClientCertificatesResponse (GetClientCertificatesResponse'),
+    newGetClientCertificatesResponse,
 
-    -- ** GetModelTemplate
-    , module Network.AWS.APIGateway.GetModelTemplate
+    -- ** PutRestApi
+    PutRestApi (PutRestApi'),
+    newPutRestApi,
+    RestApi (RestApi'),
+    newRestApi,
 
-    -- ** UpdateDocumentationVersion
-    , module Network.AWS.APIGateway.UpdateDocumentationVersion
-
-    -- ** DeleteDocumentationVersion
-    , module Network.AWS.APIGateway.DeleteDocumentationVersion
+    -- ** TestInvokeMethod
+    TestInvokeMethod (TestInvokeMethod'),
+    newTestInvokeMethod,
+    TestInvokeMethodResponse (TestInvokeMethodResponse'),
+    newTestInvokeMethodResponse,
 
     -- ** GetBasePathMappings (Paginated)
-    , module Network.AWS.APIGateway.GetBasePathMappings
+    GetBasePathMappings (GetBasePathMappings'),
+    newGetBasePathMappings,
+    GetBasePathMappingsResponse (GetBasePathMappingsResponse'),
+    newGetBasePathMappingsResponse,
 
-    -- ** GetAPIKey
-    , module Network.AWS.APIGateway.GetAPIKey
+    -- ** GetApiKey
+    GetApiKey (GetApiKey'),
+    newGetApiKey,
+    ApiKey (ApiKey'),
+    newApiKey,
+
+    -- ** GetSdkTypes (Paginated)
+    GetSdkTypes (GetSdkTypes'),
+    newGetSdkTypes,
+    GetSdkTypesResponse (GetSdkTypesResponse'),
+    newGetSdkTypesResponse,
+
+    -- ** UpdateRequestValidator
+    UpdateRequestValidator (UpdateRequestValidator'),
+    newUpdateRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
+
+    -- ** GetGatewayResponses (Paginated)
+    GetGatewayResponses (GetGatewayResponses'),
+    newGetGatewayResponses,
+    GetGatewayResponsesResponse (GetGatewayResponsesResponse'),
+    newGetGatewayResponsesResponse,
+
+    -- ** UpdateModel
+    UpdateModel (UpdateModel'),
+    newUpdateModel,
+    Model (Model'),
+    newModel,
+
+    -- ** DeleteModel
+    DeleteModel (DeleteModel'),
+    newDeleteModel,
+    DeleteModelResponse (DeleteModelResponse'),
+    newDeleteModelResponse,
+
+    -- ** DeleteDomainName
+    DeleteDomainName (DeleteDomainName'),
+    newDeleteDomainName,
+    DeleteDomainNameResponse (DeleteDomainNameResponse'),
+    newDeleteDomainNameResponse,
+
+    -- ** DeleteMethod
+    DeleteMethod (DeleteMethod'),
+    newDeleteMethod,
+    DeleteMethodResponse' (DeleteMethodResponse''),
+    newDeleteMethodResponse',
+
+    -- ** CreateResource
+    CreateResource (CreateResource'),
+    newCreateResource,
+    Resource (Resource'),
+    newResource,
+
+    -- ** UpdateDomainName
+    UpdateDomainName (UpdateDomainName'),
+    newUpdateDomainName,
+    DomainName (DomainName'),
+    newDomainName,
+
+    -- ** DeleteRequestValidator
+    DeleteRequestValidator (DeleteRequestValidator'),
+    newDeleteRequestValidator,
+    DeleteRequestValidatorResponse (DeleteRequestValidatorResponse'),
+    newDeleteRequestValidatorResponse,
+
+    -- ** GetDocumentationVersion
+    GetDocumentationVersion (GetDocumentationVersion'),
+    newGetDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
+
+    -- ** UpdateMethod
+    UpdateMethod (UpdateMethod'),
+    newUpdateMethod,
+    Method (Method'),
+    newMethod,
+
+    -- ** CreateDomainName
+    CreateDomainName (CreateDomainName'),
+    newCreateDomainName,
+    DomainName (DomainName'),
+    newDomainName,
+
+    -- ** ImportDocumentationParts
+    ImportDocumentationParts (ImportDocumentationParts'),
+    newImportDocumentationParts,
+    ImportDocumentationPartsResponse (ImportDocumentationPartsResponse'),
+    newImportDocumentationPartsResponse,
+
+    -- ** UpdateResource
+    UpdateResource (UpdateResource'),
+    newUpdateResource,
+    Resource (Resource'),
+    newResource,
+
+    -- ** DeleteResource
+    DeleteResource (DeleteResource'),
+    newDeleteResource,
+    DeleteResourceResponse (DeleteResourceResponse'),
+    newDeleteResourceResponse,
+
+    -- ** GetDocumentationPart
+    GetDocumentationPart (GetDocumentationPart'),
+    newGetDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
+
+    -- ** GetUsagePlans (Paginated)
+    GetUsagePlans (GetUsagePlans'),
+    newGetUsagePlans,
+    GetUsagePlansResponse (GetUsagePlansResponse'),
+    newGetUsagePlansResponse,
+
+    -- ** GetUsage (Paginated)
+    GetUsage (GetUsage'),
+    newGetUsage,
+    Usage (Usage'),
+    newUsage,
+
+    -- ** GetVpcLink
+    GetVpcLink (GetVpcLink'),
+    newGetVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
+
+    -- ** GetIntegrationResponse
+    GetIntegrationResponse (GetIntegrationResponse'),
+    newGetIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
+
+    -- ** CreateRequestValidator
+    CreateRequestValidator (CreateRequestValidator'),
+    newCreateRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetIntegration
+    GetIntegration (GetIntegration'),
+    newGetIntegration,
+    Integration (Integration'),
+    newIntegration,
+
+    -- ** UpdateDeployment
+    UpdateDeployment (UpdateDeployment'),
+    newUpdateDeployment,
+    Deployment (Deployment'),
+    newDeployment,
+
+    -- ** GetUsagePlan
+    GetUsagePlan (GetUsagePlan'),
+    newGetUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
+
+    -- ** DeleteDeployment
+    DeleteDeployment (DeleteDeployment'),
+    newDeleteDeployment,
+    DeleteDeploymentResponse (DeleteDeploymentResponse'),
+    newDeleteDeploymentResponse,
+
+    -- ** CreateStage
+    CreateStage (CreateStage'),
+    newCreateStage,
+    Stage (Stage'),
+    newStage,
+
+    -- ** CreateUsagePlanKey
+    CreateUsagePlanKey (CreateUsagePlanKey'),
+    newCreateUsagePlanKey,
+    UsagePlanKey (UsagePlanKey'),
+    newUsagePlanKey,
+
+    -- ** PutMethodResponse
+    PutMethodResponse (PutMethodResponse'),
+    newPutMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** DeleteStage
+    DeleteStage (DeleteStage'),
+    newDeleteStage,
+    DeleteStageResponse (DeleteStageResponse'),
+    newDeleteStageResponse,
+
+    -- ** CreateAuthorizer
+    CreateAuthorizer (CreateAuthorizer'),
+    newCreateAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
+
+    -- ** UpdateStage
+    UpdateStage (UpdateStage'),
+    newUpdateStage,
+    Stage (Stage'),
+    newStage,
+
+    -- ** ImportRestApi
+    ImportRestApi (ImportRestApi'),
+    newImportRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** GetRestApis (Paginated)
+    GetRestApis (GetRestApis'),
+    newGetRestApis,
+    GetRestApisResponse (GetRestApisResponse'),
+    newGetRestApisResponse,
+
+    -- ** GetGatewayResponse
+    GetGatewayResponse (GetGatewayResponse'),
+    newGetGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
+
+    -- ** GetRequestValidators (Paginated)
+    GetRequestValidators (GetRequestValidators'),
+    newGetRequestValidators,
+    GetRequestValidatorsResponse (GetRequestValidatorsResponse'),
+    newGetRequestValidatorsResponse,
+
+    -- ** GetExport
+    GetExport (GetExport'),
+    newGetExport,
+    GetExportResponse (GetExportResponse'),
+    newGetExportResponse,
+
+    -- ** GetSdkType
+    GetSdkType (GetSdkType'),
+    newGetSdkType,
+    SdkType (SdkType'),
+    newSdkType,
+
+    -- ** PutGatewayResponse
+    PutGatewayResponse (PutGatewayResponse'),
+    newPutGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
+
+    -- ** GetBasePathMapping
+    GetBasePathMapping (GetBasePathMapping'),
+    newGetBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** GetDomainNames (Paginated)
+    GetDomainNames (GetDomainNames'),
+    newGetDomainNames,
+    GetDomainNamesResponse (GetDomainNamesResponse'),
+    newGetDomainNamesResponse,
+
+    -- ** GetClientCertificate
+    GetClientCertificate (GetClientCertificate'),
+    newGetClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
+
+    -- ** PutIntegration
+    PutIntegration (PutIntegration'),
+    newPutIntegration,
+    Integration (Integration'),
+    newIntegration,
+
+    -- ** GetResources (Paginated)
+    GetResources (GetResources'),
+    newGetResources,
+    GetResourcesResponse (GetResourcesResponse'),
+    newGetResourcesResponse,
+
+    -- ** GetTags
+    GetTags (GetTags'),
+    newGetTags,
+    GetTagsResponse (GetTagsResponse'),
+    newGetTagsResponse,
+
+    -- ** GetDeployment
+    GetDeployment (GetDeployment'),
+    newGetDeployment,
+    Deployment (Deployment'),
+    newDeployment,
+
+    -- ** GetAccount
+    GetAccount (GetAccount'),
+    newGetAccount,
+    Account (Account'),
+    newAccount,
+
+    -- ** TestInvokeAuthorizer
+    TestInvokeAuthorizer (TestInvokeAuthorizer'),
+    newTestInvokeAuthorizer,
+    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
+    newTestInvokeAuthorizerResponse,
+
+    -- ** PutIntegrationResponse
+    PutIntegrationResponse (PutIntegrationResponse'),
+    newPutIntegrationResponse,
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
+
+    -- ** GetResource
+    GetResource (GetResource'),
+    newGetResource,
+    Resource (Resource'),
+    newResource,
+
+    -- ** CreateDocumentationVersion
+    CreateDocumentationVersion (CreateDocumentationVersion'),
+    newCreateDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
+
+    -- ** GetAuthorizers (Paginated)
+    GetAuthorizers (GetAuthorizers'),
+    newGetAuthorizers,
+    GetAuthorizersResponse (GetAuthorizersResponse'),
+    newGetAuthorizersResponse,
+
+    -- ** GetUsagePlanKeys (Paginated)
+    GetUsagePlanKeys (GetUsagePlanKeys'),
+    newGetUsagePlanKeys,
+    GetUsagePlanKeysResponse (GetUsagePlanKeysResponse'),
+    newGetUsagePlanKeysResponse,
+
+    -- ** CreateVpcLink
+    CreateVpcLink (CreateVpcLink'),
+    newCreateVpcLink,
+    VpcLink (VpcLink'),
+    newVpcLink,
+
+    -- ** GetDomainName
+    GetDomainName (GetDomainName'),
+    newGetDomainName,
+    DomainName (DomainName'),
+    newDomainName,
+
+    -- ** GetModelTemplate
+    GetModelTemplate (GetModelTemplate'),
+    newGetModelTemplate,
+    GetModelTemplateResponse (GetModelTemplateResponse'),
+    newGetModelTemplateResponse,
+
+    -- ** UpdateDocumentationVersion
+    UpdateDocumentationVersion (UpdateDocumentationVersion'),
+    newUpdateDocumentationVersion,
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
+
+    -- ** DeleteRestApi
+    DeleteRestApi (DeleteRestApi'),
+    newDeleteRestApi,
+    DeleteRestApiResponse (DeleteRestApiResponse'),
+    newDeleteRestApiResponse,
+
+    -- ** GetRequestValidator
+    GetRequestValidator (GetRequestValidator'),
+    newGetRequestValidator,
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
+
+    -- ** CreateDocumentationPart
+    CreateDocumentationPart (CreateDocumentationPart'),
+    newCreateDocumentationPart,
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
+
+    -- ** DeleteDocumentationVersion
+    DeleteDocumentationVersion (DeleteDocumentationVersion'),
+    newDeleteDocumentationVersion,
+    DeleteDocumentationVersionResponse (DeleteDocumentationVersionResponse'),
+    newDeleteDocumentationVersionResponse,
+
+    -- ** ImportApiKeys
+    ImportApiKeys (ImportApiKeys'),
+    newImportApiKeys,
+    ImportApiKeysResponse (ImportApiKeysResponse'),
+    newImportApiKeysResponse,
+
+    -- ** UpdateRestApi
+    UpdateRestApi (UpdateRestApi'),
+    newUpdateRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** GetStages
+    GetStages (GetStages'),
+    newGetStages,
+    GetStagesResponse (GetStagesResponse'),
+    newGetStagesResponse,
+
+    -- ** GetMethod
+    GetMethod (GetMethod'),
+    newGetMethod,
+    Method (Method'),
+    newMethod,
+
+    -- ** FlushStageAuthorizersCache
+    FlushStageAuthorizersCache (FlushStageAuthorizersCache'),
+    newFlushStageAuthorizersCache,
+    FlushStageAuthorizersCacheResponse (FlushStageAuthorizersCacheResponse'),
+    newFlushStageAuthorizersCacheResponse,
+
+    -- ** DeleteApiKey
+    DeleteApiKey (DeleteApiKey'),
+    newDeleteApiKey,
+    DeleteApiKeyResponse (DeleteApiKeyResponse'),
+    newDeleteApiKeyResponse,
+
+    -- ** GetRestApi
+    GetRestApi (GetRestApi'),
+    newGetRestApi,
+    RestApi (RestApi'),
+    newRestApi,
+
+    -- ** UpdateApiKey
+    UpdateApiKey (UpdateApiKey'),
+    newUpdateApiKey,
+    ApiKey (ApiKey'),
+    newApiKey,
+
+    -- ** PutMethod
+    PutMethod (PutMethod'),
+    newPutMethod,
+    Method (Method'),
+    newMethod,
+
+    -- ** CreateApiKey
+    CreateApiKey (CreateApiKey'),
+    newCreateApiKey,
+    ApiKey (ApiKey'),
+    newApiKey,
+
+    -- ** CreateModel
+    CreateModel (CreateModel'),
+    newCreateModel,
+    Model (Model'),
+    newModel,
+
+    -- ** UpdateAccount
+    UpdateAccount (UpdateAccount'),
+    newUpdateAccount,
+    Account (Account'),
+    newAccount,
+
+    -- ** GetDocumentationParts (Paginated)
+    GetDocumentationParts (GetDocumentationParts'),
+    newGetDocumentationParts,
+    GetDocumentationPartsResponse (GetDocumentationPartsResponse'),
+    newGetDocumentationPartsResponse,
+
+    -- ** UpdateAuthorizer
+    UpdateAuthorizer (UpdateAuthorizer'),
+    newUpdateAuthorizer,
+    Authorizer (Authorizer'),
+    newAuthorizer,
+
+    -- ** GetVpcLinks (Paginated)
+    GetVpcLinks (GetVpcLinks'),
+    newGetVpcLinks,
+    GetVpcLinksResponse (GetVpcLinksResponse'),
+    newGetVpcLinksResponse,
+
+    -- ** DeleteUsagePlanKey
+    DeleteUsagePlanKey (DeleteUsagePlanKey'),
+    newDeleteUsagePlanKey,
+    DeleteUsagePlanKeyResponse (DeleteUsagePlanKeyResponse'),
+    newDeleteUsagePlanKeyResponse,
+
+    -- ** DeleteAuthorizer
+    DeleteAuthorizer (DeleteAuthorizer'),
+    newDeleteAuthorizer,
+    DeleteAuthorizerResponse (DeleteAuthorizerResponse'),
+    newDeleteAuthorizerResponse,
+
+    -- ** CreateBasePathMapping
+    CreateBasePathMapping (CreateBasePathMapping'),
+    newCreateBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** UpdateBasePathMapping
+    UpdateBasePathMapping (UpdateBasePathMapping'),
+    newUpdateBasePathMapping,
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** GetDocumentationVersions (Paginated)
+    GetDocumentationVersions (GetDocumentationVersions'),
+    newGetDocumentationVersions,
+    GetDocumentationVersionsResponse (GetDocumentationVersionsResponse'),
+    newGetDocumentationVersionsResponse,
+
+    -- ** DeleteMethodResponse
+    DeleteMethodResponse (DeleteMethodResponse'),
+    newDeleteMethodResponse,
+    DeleteMethodResponseResponse (DeleteMethodResponseResponse'),
+    newDeleteMethodResponseResponse,
+
+    -- ** UpdateClientCertificate
+    UpdateClientCertificate (UpdateClientCertificate'),
+    newUpdateClientCertificate,
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
+
+    -- ** CreateDeployment
+    CreateDeployment (CreateDeployment'),
+    newCreateDeployment,
+    Deployment (Deployment'),
+    newDeployment,
+
+    -- ** UpdateMethodResponse
+    UpdateMethodResponse (UpdateMethodResponse'),
+    newUpdateMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** DeleteBasePathMapping
+    DeleteBasePathMapping (DeleteBasePathMapping'),
+    newDeleteBasePathMapping,
+    DeleteBasePathMappingResponse (DeleteBasePathMappingResponse'),
+    newDeleteBasePathMappingResponse,
+
+    -- ** DeleteClientCertificate
+    DeleteClientCertificate (DeleteClientCertificate'),
+    newDeleteClientCertificate,
+    DeleteClientCertificateResponse (DeleteClientCertificateResponse'),
+    newDeleteClientCertificateResponse,
+
+    -- ** DeleteGatewayResponse
+    DeleteGatewayResponse (DeleteGatewayResponse'),
+    newDeleteGatewayResponse,
+    DeleteGatewayResponseResponse (DeleteGatewayResponseResponse'),
+    newDeleteGatewayResponseResponse,
+
+    -- ** GetModels (Paginated)
+    GetModels (GetModels'),
+    newGetModels,
+    GetModelsResponse (GetModelsResponse'),
+    newGetModelsResponse,
+
+    -- ** CreateUsagePlan
+    CreateUsagePlan (CreateUsagePlan'),
+    newCreateUsagePlan,
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
+
+    -- ** UpdateGatewayResponse
+    UpdateGatewayResponse (UpdateGatewayResponse'),
+    newUpdateGatewayResponse,
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
+
+    -- ** GetSdk
+    GetSdk (GetSdk'),
+    newGetSdk,
+    GetSdkResponse (GetSdkResponse'),
+    newGetSdkResponse,
+
+    -- ** GetMethodResponse
+    GetMethodResponse (GetMethodResponse'),
+    newGetMethodResponse,
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
+
+    -- ** GetApiKeys (Paginated)
+    GetApiKeys (GetApiKeys'),
+    newGetApiKeys,
+    GetApiKeysResponse (GetApiKeysResponse'),
+    newGetApiKeysResponse,
+
+    -- ** GetStage
+    GetStage (GetStage'),
+    newGetStage,
+    Stage (Stage'),
+    newStage,
 
     -- * Types
 
-    -- ** APIKeysFormat
-    , APIKeysFormat (..)
+    -- ** ApiKeySourceType
+    ApiKeySourceType (..),
+
+    -- ** ApiKeysFormat
+    ApiKeysFormat (..),
 
     -- ** AuthorizerType
-    , AuthorizerType (..)
+    AuthorizerType (..),
 
     -- ** CacheClusterSize
-    , CacheClusterSize (..)
+    CacheClusterSize (..),
 
     -- ** CacheClusterStatus
-    , CacheClusterStatus (..)
+    CacheClusterStatus (..),
+
+    -- ** ConnectionType
+    ConnectionType (..),
 
     -- ** ContentHandlingStrategy
-    , ContentHandlingStrategy (..)
+    ContentHandlingStrategy (..),
 
     -- ** DocumentationPartType
-    , DocumentationPartType (..)
+    DocumentationPartType (..),
+
+    -- ** DomainNameStatus
+    DomainNameStatus (..),
 
     -- ** EndpointType
-    , EndpointType (..)
+    EndpointType (..),
 
     -- ** GatewayResponseType
-    , GatewayResponseType (..)
+    GatewayResponseType (..),
 
     -- ** IntegrationType
-    , IntegrationType (..)
+    IntegrationType (..),
+
+    -- ** LocationStatusType
+    LocationStatusType (..),
 
     -- ** Op
-    , Op (..)
+    Op (..),
 
     -- ** PutMode
-    , PutMode (..)
+    PutMode (..),
 
     -- ** QuotaPeriodType
-    , QuotaPeriodType (..)
+    QuotaPeriodType (..),
+
+    -- ** SecurityPolicy
+    SecurityPolicy (..),
 
     -- ** UnauthorizedCacheControlHeaderStrategy
-    , UnauthorizedCacheControlHeaderStrategy (..)
+    UnauthorizedCacheControlHeaderStrategy (..),
 
-    -- ** APIKey
-    , APIKey
-    , apiKey
-    , akEnabled
-    , akValue
-    , akCustomerId
-    , akCreatedDate
-    , akName
-    , akId
-    , akStageKeys
-    , akLastUpdatedDate
-    , akDescription
+    -- ** VpcLinkStatus
+    VpcLinkStatus (..),
 
-    -- ** APIStage
-    , APIStage
-    , apiStage
-    , asStage
-    , asApiId
+    -- ** AccessLogSettings
+    AccessLogSettings (AccessLogSettings'),
+    newAccessLogSettings,
 
     -- ** Account
-    , Account
-    , account
-    , aApiKeyVersion
-    , aCloudwatchRoleARN
-    , aFeatures
-    , aThrottleSettings
+    Account (Account'),
+    newAccount,
+
+    -- ** ApiKey
+    ApiKey (ApiKey'),
+    newApiKey,
+
+    -- ** ApiStage
+    ApiStage (ApiStage'),
+    newApiStage,
 
     -- ** Authorizer
-    , Authorizer
-    , authorizer
-    , aAuthorizerURI
-    , aIdentityValidationExpression
-    , aProviderARNs
-    , aName
-    , aId
-    , aAuthorizerResultTtlInSeconds
-    , aAuthType
-    , aType
-    , aIdentitySource
-    , aAuthorizerCredentials
+    Authorizer (Authorizer'),
+    newAuthorizer,
 
     -- ** BasePathMapping
-    , BasePathMapping
-    , basePathMapping
-    , bpmStage
-    , bpmBasePath
-    , bpmRestAPIId
+    BasePathMapping (BasePathMapping'),
+    newBasePathMapping,
+
+    -- ** CanarySettings
+    CanarySettings (CanarySettings'),
+    newCanarySettings,
 
     -- ** ClientCertificate
-    , ClientCertificate
-    , clientCertificate
-    , ccPemEncodedCertificate
-    , ccClientCertificateId
-    , ccCreatedDate
-    , ccExpirationDate
-    , ccDescription
+    ClientCertificate (ClientCertificate'),
+    newClientCertificate,
 
     -- ** Deployment
-    , Deployment
-    , deployment
-    , dApiSummary
-    , dCreatedDate
-    , dId
-    , dDescription
+    Deployment (Deployment'),
+    newDeployment,
+
+    -- ** DeploymentCanarySettings
+    DeploymentCanarySettings (DeploymentCanarySettings'),
+    newDeploymentCanarySettings,
 
     -- ** DocumentationPart
-    , DocumentationPart
-    , documentationPart
-    , dpLocation
-    , dpId
-    , dpProperties
+    DocumentationPart (DocumentationPart'),
+    newDocumentationPart,
 
     -- ** DocumentationPartLocation
-    , DocumentationPartLocation
-    , documentationPartLocation
-    , dplPath
-    , dplName
-    , dplMethod
-    , dplStatusCode
-    , dplType
+    DocumentationPartLocation (DocumentationPartLocation'),
+    newDocumentationPartLocation,
 
     -- ** DocumentationVersion
-    , DocumentationVersion
-    , documentationVersion
-    , dvCreatedDate
-    , dvVersion
-    , dvDescription
+    DocumentationVersion (DocumentationVersion'),
+    newDocumentationVersion,
 
     -- ** DomainName
-    , DomainName
-    , domainName
-    , dnCertificateName
-    , dnRegionalCertificateARN
-    , dnCertificateARN
-    , dnDomainName
-    , dnRegionalCertificateName
-    , dnRegionalDomainName
-    , dnCertificateUploadDate
-    , dnDistributionDomainName
-    , dnEndpointConfiguration
+    DomainName (DomainName'),
+    newDomainName,
 
     -- ** EndpointConfiguration
-    , EndpointConfiguration
-    , endpointConfiguration
-    , ecTypes
+    EndpointConfiguration (EndpointConfiguration'),
+    newEndpointConfiguration,
 
     -- ** GatewayResponse
-    , GatewayResponse
-    , gatewayResponse
-    , gDefaultResponse
-    , gResponseTemplates
-    , gResponseType
-    , gStatusCode
-    , gResponseParameters
+    GatewayResponse (GatewayResponse'),
+    newGatewayResponse,
 
     -- ** Integration
-    , Integration
-    , integration
-    , iHttpMethod
-    , iRequestTemplates
-    , iCredentials
-    , iRequestParameters
-    , iContentHandling
-    , iPassthroughBehavior
-    , iUri
-    , iIntegrationResponses
-    , iCacheNamespace
-    , iType
-    , iCacheKeyParameters
+    Integration (Integration'),
+    newIntegration,
 
     -- ** IntegrationResponse
-    , IntegrationResponse
-    , integrationResponse
-    , intContentHandling
-    , intResponseTemplates
-    , intSelectionPattern
-    , intStatusCode
-    , intResponseParameters
+    IntegrationResponse (IntegrationResponse'),
+    newIntegrationResponse,
 
     -- ** Method
-    , Method
-    , method
-    , mMethodResponses
-    , mHttpMethod
-    , mRequestValidatorId
-    , mRequestModels
-    , mRequestParameters
-    , mAuthorizerId
-    , mOperationName
-    , mAuthorizationType
-    , mApiKeyRequired
-    , mMethodIntegration
+    Method (Method'),
+    newMethod,
 
     -- ** MethodResponse
-    , MethodResponse
-    , methodResponse
-    , mResponseModels
-    , mStatusCode
-    , mResponseParameters
+    MethodResponse (MethodResponse'),
+    newMethodResponse,
 
     -- ** MethodSetting
-    , MethodSetting
-    , methodSetting
-    , msCacheTtlInSeconds
-    , msDataTraceEnabled
-    , msThrottlingBurstLimit
-    , msCacheDataEncrypted
-    , msLoggingLevel
-    , msRequireAuthorizationForCacheControl
-    , msCachingEnabled
-    , msMetricsEnabled
-    , msThrottlingRateLimit
-    , msUnauthorizedCacheControlHeaderStrategy
+    MethodSetting (MethodSetting'),
+    newMethodSetting,
 
     -- ** MethodSnapshot
-    , MethodSnapshot
-    , methodSnapshot
-    , msAuthorizationType
-    , msApiKeyRequired
+    MethodSnapshot (MethodSnapshot'),
+    newMethodSnapshot,
 
     -- ** Model
-    , Model
-    , model
-    , mSchema
-    , mName
-    , mId
-    , mDescription
-    , mContentType
+    Model (Model'),
+    newModel,
+
+    -- ** MutualTlsAuthentication
+    MutualTlsAuthentication (MutualTlsAuthentication'),
+    newMutualTlsAuthentication,
+
+    -- ** MutualTlsAuthenticationInput
+    MutualTlsAuthenticationInput (MutualTlsAuthenticationInput'),
+    newMutualTlsAuthenticationInput,
 
     -- ** PatchOperation
-    , PatchOperation
-    , patchOperation
-    , poOp
-    , poPath
-    , poValue
-    , poFrom
+    PatchOperation (PatchOperation'),
+    newPatchOperation,
 
     -- ** QuotaSettings
-    , QuotaSettings
-    , quotaSettings
-    , qsOffset
-    , qsPeriod
-    , qsLimit
+    QuotaSettings (QuotaSettings'),
+    newQuotaSettings,
 
     -- ** RequestValidator
-    , RequestValidator
-    , requestValidator
-    , rvValidateRequestParameters
-    , rvName
-    , rvValidateRequestBody
-    , rvId
+    RequestValidator (RequestValidator'),
+    newRequestValidator,
 
     -- ** Resource
-    , Resource
-    , resource
-    , rPathPart
-    , rPath
-    , rId
-    , rResourceMethods
-    , rParentId
+    Resource (Resource'),
+    newResource,
 
-    -- ** RestAPI
-    , RestAPI
-    , restAPI
-    , raBinaryMediaTypes
-    , raWarnings
-    , raCreatedDate
-    , raName
-    , raVersion
-    , raId
-    , raEndpointConfiguration
-    , raDescription
+    -- ** RestApi
+    RestApi (RestApi'),
+    newRestApi,
 
-    -- ** SDKConfigurationProperty
-    , SDKConfigurationProperty
-    , sdkConfigurationProperty
-    , scpFriendlyName
-    , scpRequired
-    , scpName
-    , scpDefaultValue
-    , scpDescription
+    -- ** SdkConfigurationProperty
+    SdkConfigurationProperty (SdkConfigurationProperty'),
+    newSdkConfigurationProperty,
 
-    -- ** SDKType
-    , SDKType
-    , sdkType
-    , stFriendlyName
-    , stConfigurationProperties
-    , stId
-    , stDescription
+    -- ** SdkType
+    SdkType (SdkType'),
+    newSdkType,
 
     -- ** Stage
-    , Stage
-    , stage
-    , sDeploymentId
-    , sVariables
-    , sDocumentationVersion
-    , sClientCertificateId
-    , sCreatedDate
-    , sCacheClusterStatus
-    , sMethodSettings
-    , sLastUpdatedDate
-    , sCacheClusterSize
-    , sCacheClusterEnabled
-    , sStageName
-    , sDescription
+    Stage (Stage'),
+    newStage,
 
     -- ** StageKey
-    , StageKey
-    , stageKey
-    , skRestAPIId
-    , skStageName
+    StageKey (StageKey'),
+    newStageKey,
 
     -- ** ThrottleSettings
-    , ThrottleSettings
-    , throttleSettings
-    , tsBurstLimit
-    , tsRateLimit
+    ThrottleSettings (ThrottleSettings'),
+    newThrottleSettings,
+
+    -- ** TlsConfig
+    TlsConfig (TlsConfig'),
+    newTlsConfig,
 
     -- ** Usage
-    , Usage
-    , usage
-    , uUsagePlanId
-    , uEndDate
-    , uItems
-    , uStartDate
-    , uPosition
+    Usage (Usage'),
+    newUsage,
 
     -- ** UsagePlan
-    , UsagePlan
-    , usagePlan
-    , upApiStages
-    , upName
-    , upId
-    , upThrottle
-    , upQuota
-    , upDescription
-    , upProductCode
+    UsagePlan (UsagePlan'),
+    newUsagePlan,
 
     -- ** UsagePlanKey
-    , UsagePlanKey
-    , usagePlanKey
-    , upkValue
-    , upkName
-    , upkId
-    , upkType
-    ) where
+    UsagePlanKey (UsagePlanKey'),
+    newUsagePlanKey,
 
-import Network.AWS.APIGateway.CreateAPIKey
+    -- ** VpcLink
+    VpcLink (VpcLink'),
+    newVpcLink,
+  )
+where
+
+import Network.AWS.APIGateway.CreateApiKey
 import Network.AWS.APIGateway.CreateAuthorizer
 import Network.AWS.APIGateway.CreateBasePathMapping
 import Network.AWS.APIGateway.CreateDeployment
@@ -744,11 +1003,12 @@ import Network.AWS.APIGateway.CreateDomainName
 import Network.AWS.APIGateway.CreateModel
 import Network.AWS.APIGateway.CreateRequestValidator
 import Network.AWS.APIGateway.CreateResource
-import Network.AWS.APIGateway.CreateRestAPI
+import Network.AWS.APIGateway.CreateRestApi
 import Network.AWS.APIGateway.CreateStage
 import Network.AWS.APIGateway.CreateUsagePlan
 import Network.AWS.APIGateway.CreateUsagePlanKey
-import Network.AWS.APIGateway.DeleteAPIKey
+import Network.AWS.APIGateway.CreateVpcLink
+import Network.AWS.APIGateway.DeleteApiKey
 import Network.AWS.APIGateway.DeleteAuthorizer
 import Network.AWS.APIGateway.DeleteBasePathMapping
 import Network.AWS.APIGateway.DeleteClientCertificate
@@ -764,16 +1024,17 @@ import Network.AWS.APIGateway.DeleteMethodResponse
 import Network.AWS.APIGateway.DeleteModel
 import Network.AWS.APIGateway.DeleteRequestValidator
 import Network.AWS.APIGateway.DeleteResource
-import Network.AWS.APIGateway.DeleteRestAPI
+import Network.AWS.APIGateway.DeleteRestApi
 import Network.AWS.APIGateway.DeleteStage
 import Network.AWS.APIGateway.DeleteUsagePlan
 import Network.AWS.APIGateway.DeleteUsagePlanKey
+import Network.AWS.APIGateway.DeleteVpcLink
 import Network.AWS.APIGateway.FlushStageAuthorizersCache
 import Network.AWS.APIGateway.FlushStageCache
 import Network.AWS.APIGateway.GenerateClientCertificate
 import Network.AWS.APIGateway.GetAccount
-import Network.AWS.APIGateway.GetAPIKey
-import Network.AWS.APIGateway.GetAPIKeys
+import Network.AWS.APIGateway.GetApiKey
+import Network.AWS.APIGateway.GetApiKeys
 import Network.AWS.APIGateway.GetAuthorizer
 import Network.AWS.APIGateway.GetAuthorizers
 import Network.AWS.APIGateway.GetBasePathMapping
@@ -796,38 +1057,44 @@ import Network.AWS.APIGateway.GetIntegrationResponse
 import Network.AWS.APIGateway.GetMethod
 import Network.AWS.APIGateway.GetMethodResponse
 import Network.AWS.APIGateway.GetModel
-import Network.AWS.APIGateway.GetModels
 import Network.AWS.APIGateway.GetModelTemplate
+import Network.AWS.APIGateway.GetModels
 import Network.AWS.APIGateway.GetRequestValidator
 import Network.AWS.APIGateway.GetRequestValidators
 import Network.AWS.APIGateway.GetResource
 import Network.AWS.APIGateway.GetResources
-import Network.AWS.APIGateway.GetRestAPI
-import Network.AWS.APIGateway.GetRestAPIs
-import Network.AWS.APIGateway.GetSDK
-import Network.AWS.APIGateway.GetSDKType
-import Network.AWS.APIGateway.GetSDKTypes
+import Network.AWS.APIGateway.GetRestApi
+import Network.AWS.APIGateway.GetRestApis
+import Network.AWS.APIGateway.GetSdk
+import Network.AWS.APIGateway.GetSdkType
+import Network.AWS.APIGateway.GetSdkTypes
 import Network.AWS.APIGateway.GetStage
 import Network.AWS.APIGateway.GetStages
+import Network.AWS.APIGateway.GetTags
 import Network.AWS.APIGateway.GetUsage
 import Network.AWS.APIGateway.GetUsagePlan
 import Network.AWS.APIGateway.GetUsagePlanKey
 import Network.AWS.APIGateway.GetUsagePlanKeys
 import Network.AWS.APIGateway.GetUsagePlans
-import Network.AWS.APIGateway.ImportAPIKeys
+import Network.AWS.APIGateway.GetVpcLink
+import Network.AWS.APIGateway.GetVpcLinks
+import Network.AWS.APIGateway.ImportApiKeys
 import Network.AWS.APIGateway.ImportDocumentationParts
-import Network.AWS.APIGateway.ImportRestAPI
+import Network.AWS.APIGateway.ImportRestApi
+import Network.AWS.APIGateway.Lens
 import Network.AWS.APIGateway.PutGatewayResponse
 import Network.AWS.APIGateway.PutIntegration
 import Network.AWS.APIGateway.PutIntegrationResponse
 import Network.AWS.APIGateway.PutMethod
 import Network.AWS.APIGateway.PutMethodResponse
-import Network.AWS.APIGateway.PutRestAPI
+import Network.AWS.APIGateway.PutRestApi
+import Network.AWS.APIGateway.TagResource
 import Network.AWS.APIGateway.TestInvokeAuthorizer
 import Network.AWS.APIGateway.TestInvokeMethod
 import Network.AWS.APIGateway.Types
+import Network.AWS.APIGateway.UntagResource
 import Network.AWS.APIGateway.UpdateAccount
-import Network.AWS.APIGateway.UpdateAPIKey
+import Network.AWS.APIGateway.UpdateApiKey
 import Network.AWS.APIGateway.UpdateAuthorizer
 import Network.AWS.APIGateway.UpdateBasePathMapping
 import Network.AWS.APIGateway.UpdateClientCertificate
@@ -843,38 +1110,36 @@ import Network.AWS.APIGateway.UpdateMethodResponse
 import Network.AWS.APIGateway.UpdateModel
 import Network.AWS.APIGateway.UpdateRequestValidator
 import Network.AWS.APIGateway.UpdateResource
-import Network.AWS.APIGateway.UpdateRestAPI
+import Network.AWS.APIGateway.UpdateRestApi
 import Network.AWS.APIGateway.UpdateStage
 import Network.AWS.APIGateway.UpdateUsage
 import Network.AWS.APIGateway.UpdateUsagePlan
+import Network.AWS.APIGateway.UpdateVpcLink
 import Network.AWS.APIGateway.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'APIGateway'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'APIGateway'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Firehose
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Firehose where
 
 import Data.Proxy
@@ -28,156 +27,252 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPutRecord $
---             putRecord
+--         [ requestStartDeliveryStreamEncryption $
+--             newStartDeliveryStreamEncryption
 --
---         , requestGetKinesisStream $
---             getKinesisStream
---
---         , requestUpdateDestination $
---             updateDestination
---
---         , requestPutRecordBatch $
---             putRecordBatch
---
---         , requestCreateDeliveryStream $
---             createDeliveryStream
---
---         , requestDescribeDeliveryStream $
---             describeDeliveryStream
+--         , requestStopDeliveryStreamEncryption $
+--             newStopDeliveryStreamEncryption
 --
 --         , requestListDeliveryStreams $
---             listDeliveryStreams
+--             newListDeliveryStreams
+--
+--         , requestListTagsForDeliveryStream $
+--             newListTagsForDeliveryStream
+--
+--         , requestPutRecordBatch $
+--             newPutRecordBatch
+--
+--         , requestDescribeDeliveryStream $
+--             newDescribeDeliveryStream
+--
+--         , requestUpdateDestination $
+--             newUpdateDestination
+--
+--         , requestCreateDeliveryStream $
+--             newCreateDeliveryStream
+--
+--         , requestPutRecord $
+--             newPutRecord
+--
+--         , requestUntagDeliveryStream $
+--             newUntagDeliveryStream
 --
 --         , requestDeleteDeliveryStream $
---             deleteDeliveryStream
+--             newDeleteDeliveryStream
+--
+--         , requestTagDeliveryStream $
+--             newTagDeliveryStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePutRecord $
---             putRecordResponse
+--         [ responseStartDeliveryStreamEncryption $
+--             newStartDeliveryStreamEncryptionResponse
 --
---         , responseGetKinesisStream $
---             getKinesisStreamResponse
---
---         , responseUpdateDestination $
---             updateDestinationResponse
---
---         , responsePutRecordBatch $
---             putRecordBatchResponse
---
---         , responseCreateDeliveryStream $
---             createDeliveryStreamResponse
---
---         , responseDescribeDeliveryStream $
---             describeDeliveryStreamResponse
+--         , responseStopDeliveryStreamEncryption $
+--             newStopDeliveryStreamEncryptionResponse
 --
 --         , responseListDeliveryStreams $
---             listDeliveryStreamsResponse
+--             newListDeliveryStreamsResponse
+--
+--         , responseListTagsForDeliveryStream $
+--             newListTagsForDeliveryStreamResponse
+--
+--         , responsePutRecordBatch $
+--             newPutRecordBatchResponse
+--
+--         , responseDescribeDeliveryStream $
+--             newDescribeDeliveryStreamResponse
+--
+--         , responseUpdateDestination $
+--             newUpdateDestinationResponse
+--
+--         , responseCreateDeliveryStream $
+--             newCreateDeliveryStreamResponse
+--
+--         , responsePutRecord $
+--             newPutRecordResponse
+--
+--         , responseUntagDeliveryStream $
+--             newUntagDeliveryStreamResponse
 --
 --         , responseDeleteDeliveryStream $
---             deleteDeliveryStreamResponse
+--             newDeleteDeliveryStreamResponse
+--
+--         , responseTagDeliveryStream $
+--             newTagDeliveryStreamResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestPutRecord :: PutRecord -> TestTree
-requestPutRecord = req
-    "PutRecord"
-    "fixture/PutRecord.yaml"
+requestStartDeliveryStreamEncryption :: StartDeliveryStreamEncryption -> TestTree
+requestStartDeliveryStreamEncryption =
+  req
+    "StartDeliveryStreamEncryption"
+    "fixture/StartDeliveryStreamEncryption.yaml"
 
-requestGetKinesisStream :: GetKinesisStream -> TestTree
-requestGetKinesisStream = req
-    "GetKinesisStream"
-    "fixture/GetKinesisStream.yaml"
-
-requestUpdateDestination :: UpdateDestination -> TestTree
-requestUpdateDestination = req
-    "UpdateDestination"
-    "fixture/UpdateDestination.yaml"
-
-requestPutRecordBatch :: PutRecordBatch -> TestTree
-requestPutRecordBatch = req
-    "PutRecordBatch"
-    "fixture/PutRecordBatch.yaml"
-
-requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
-requestCreateDeliveryStream = req
-    "CreateDeliveryStream"
-    "fixture/CreateDeliveryStream.yaml"
-
-requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
-requestDescribeDeliveryStream = req
-    "DescribeDeliveryStream"
-    "fixture/DescribeDeliveryStream.yaml"
+requestStopDeliveryStreamEncryption :: StopDeliveryStreamEncryption -> TestTree
+requestStopDeliveryStreamEncryption =
+  req
+    "StopDeliveryStreamEncryption"
+    "fixture/StopDeliveryStreamEncryption.yaml"
 
 requestListDeliveryStreams :: ListDeliveryStreams -> TestTree
-requestListDeliveryStreams = req
+requestListDeliveryStreams =
+  req
     "ListDeliveryStreams"
     "fixture/ListDeliveryStreams.yaml"
 
+requestListTagsForDeliveryStream :: ListTagsForDeliveryStream -> TestTree
+requestListTagsForDeliveryStream =
+  req
+    "ListTagsForDeliveryStream"
+    "fixture/ListTagsForDeliveryStream.yaml"
+
+requestPutRecordBatch :: PutRecordBatch -> TestTree
+requestPutRecordBatch =
+  req
+    "PutRecordBatch"
+    "fixture/PutRecordBatch.yaml"
+
+requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
+requestDescribeDeliveryStream =
+  req
+    "DescribeDeliveryStream"
+    "fixture/DescribeDeliveryStream.yaml"
+
+requestUpdateDestination :: UpdateDestination -> TestTree
+requestUpdateDestination =
+  req
+    "UpdateDestination"
+    "fixture/UpdateDestination.yaml"
+
+requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
+requestCreateDeliveryStream =
+  req
+    "CreateDeliveryStream"
+    "fixture/CreateDeliveryStream.yaml"
+
+requestPutRecord :: PutRecord -> TestTree
+requestPutRecord =
+  req
+    "PutRecord"
+    "fixture/PutRecord.yaml"
+
+requestUntagDeliveryStream :: UntagDeliveryStream -> TestTree
+requestUntagDeliveryStream =
+  req
+    "UntagDeliveryStream"
+    "fixture/UntagDeliveryStream.yaml"
+
 requestDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
-requestDeleteDeliveryStream = req
+requestDeleteDeliveryStream =
+  req
     "DeleteDeliveryStream"
     "fixture/DeleteDeliveryStream.yaml"
 
+requestTagDeliveryStream :: TagDeliveryStream -> TestTree
+requestTagDeliveryStream =
+  req
+    "TagDeliveryStream"
+    "fixture/TagDeliveryStream.yaml"
+
 -- Responses
 
-responsePutRecord :: PutRecordResponse -> TestTree
-responsePutRecord = res
-    "PutRecordResponse"
-    "fixture/PutRecordResponse.proto"
-    firehose
-    (Proxy :: Proxy PutRecord)
+responseStartDeliveryStreamEncryption :: StartDeliveryStreamEncryptionResponse -> TestTree
+responseStartDeliveryStreamEncryption =
+  res
+    "StartDeliveryStreamEncryptionResponse"
+    "fixture/StartDeliveryStreamEncryptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartDeliveryStreamEncryption)
 
-responseGetKinesisStream :: GetKinesisStreamResponse -> TestTree
-responseGetKinesisStream = res
-    "GetKinesisStreamResponse"
-    "fixture/GetKinesisStreamResponse.proto"
-    firehose
-    (Proxy :: Proxy GetKinesisStream)
-
-responseUpdateDestination :: UpdateDestinationResponse -> TestTree
-responseUpdateDestination = res
-    "UpdateDestinationResponse"
-    "fixture/UpdateDestinationResponse.proto"
-    firehose
-    (Proxy :: Proxy UpdateDestination)
-
-responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
-responsePutRecordBatch = res
-    "PutRecordBatchResponse"
-    "fixture/PutRecordBatchResponse.proto"
-    firehose
-    (Proxy :: Proxy PutRecordBatch)
-
-responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
-responseCreateDeliveryStream = res
-    "CreateDeliveryStreamResponse"
-    "fixture/CreateDeliveryStreamResponse.proto"
-    firehose
-    (Proxy :: Proxy CreateDeliveryStream)
-
-responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
-responseDescribeDeliveryStream = res
-    "DescribeDeliveryStreamResponse"
-    "fixture/DescribeDeliveryStreamResponse.proto"
-    firehose
-    (Proxy :: Proxy DescribeDeliveryStream)
+responseStopDeliveryStreamEncryption :: StopDeliveryStreamEncryptionResponse -> TestTree
+responseStopDeliveryStreamEncryption =
+  res
+    "StopDeliveryStreamEncryptionResponse"
+    "fixture/StopDeliveryStreamEncryptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopDeliveryStreamEncryption)
 
 responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
-responseListDeliveryStreams = res
+responseListDeliveryStreams =
+  res
     "ListDeliveryStreamsResponse"
     "fixture/ListDeliveryStreamsResponse.proto"
-    firehose
+    defaultService
     (Proxy :: Proxy ListDeliveryStreams)
 
+responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
+responseListTagsForDeliveryStream =
+  res
+    "ListTagsForDeliveryStreamResponse"
+    "fixture/ListTagsForDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForDeliveryStream)
+
+responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
+responsePutRecordBatch =
+  res
+    "PutRecordBatchResponse"
+    "fixture/PutRecordBatchResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutRecordBatch)
+
+responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
+responseDescribeDeliveryStream =
+  res
+    "DescribeDeliveryStreamResponse"
+    "fixture/DescribeDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDeliveryStream)
+
+responseUpdateDestination :: UpdateDestinationResponse -> TestTree
+responseUpdateDestination =
+  res
+    "UpdateDestinationResponse"
+    "fixture/UpdateDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDestination)
+
+responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
+responseCreateDeliveryStream =
+  res
+    "CreateDeliveryStreamResponse"
+    "fixture/CreateDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDeliveryStream)
+
+responsePutRecord :: PutRecordResponse -> TestTree
+responsePutRecord =
+  res
+    "PutRecordResponse"
+    "fixture/PutRecordResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutRecord)
+
+responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
+responseUntagDeliveryStream =
+  res
+    "UntagDeliveryStreamResponse"
+    "fixture/UntagDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagDeliveryStream)
+
 responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
-responseDeleteDeliveryStream = res
+responseDeleteDeliveryStream =
+  res
     "DeleteDeliveryStreamResponse"
     "fixture/DeleteDeliveryStreamResponse.proto"
-    firehose
+    defaultService
     (Proxy :: Proxy DeleteDeliveryStream)
+
+responseTagDeliveryStream :: TagDeliveryStreamResponse -> TestTree
+responseTagDeliveryStream =
+  res
+    "TagDeliveryStreamResponse"
+    "fixture/TagDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagDeliveryStream)

@@ -1,132 +1,157 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a log stream for the specified log group.
+-- Creates a log stream for the specified log group. A log stream is a
+-- sequence of log events that originate from a single source, such as an
+-- application instance or a resource that is being monitored.
 --
---
--- There is no limit on the number of log streams that you can create for a log group.
+-- There is no limit on the number of log streams that you can create for a
+-- log group. There is a limit of 50 TPS on @CreateLogStream@ operations,
+-- after which transactions are throttled.
 --
 -- You must use the following guidelines when naming a log stream:
 --
---     * Log stream names must be unique within the log group.
+-- -   Log stream names must be unique within the log group.
 --
---     * Log stream names can be between 1 and 512 characters long.
+-- -   Log stream names can be between 1 and 512 characters long.
 --
---     * The ':' (colon) and '*' (asterisk) characters are not allowed.
---
---
---
+-- -   The \':\' (colon) and \'*\' (asterisk) characters are not allowed.
 module Network.AWS.CloudWatchLogs.CreateLogStream
-    (
-    -- * Creating a Request
-      createLogStream
-    , CreateLogStream
+  ( -- * Creating a Request
+    CreateLogStream (..),
+    newCreateLogStream,
+
     -- * Request Lenses
-    , clsLogGroupName
-    , clsLogStreamName
+    createLogStream_logGroupName,
+    createLogStream_logStreamName,
 
     -- * Destructuring the Response
-    , createLogStreamResponse
-    , CreateLogStreamResponse
-    ) where
+    CreateLogStreamResponse (..),
+    newCreateLogStreamResponse,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createLogStream' smart constructor.
+-- | /See:/ 'newCreateLogStream' smart constructor.
 data CreateLogStream = CreateLogStream'
-  { _clsLogGroupName  :: !Text
-  , _clsLogStreamName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the log group.
+    logGroupName :: Prelude.Text,
+    -- | The name of the log stream.
+    logStreamName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateLogStream' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateLogStream' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'clsLogGroupName' - The name of the log group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'clsLogStreamName' - The name of the log stream.
-createLogStream
-    :: Text -- ^ 'clsLogGroupName'
-    -> Text -- ^ 'clsLogStreamName'
-    -> CreateLogStream
-createLogStream pLogGroupName_ pLogStreamName_ =
+-- 'logGroupName', 'createLogStream_logGroupName' - The name of the log group.
+--
+-- 'logStreamName', 'createLogStream_logStreamName' - The name of the log stream.
+newCreateLogStream ::
+  -- | 'logGroupName'
+  Prelude.Text ->
+  -- | 'logStreamName'
+  Prelude.Text ->
+  CreateLogStream
+newCreateLogStream pLogGroupName_ pLogStreamName_ =
   CreateLogStream'
-  {_clsLogGroupName = pLogGroupName_, _clsLogStreamName = pLogStreamName_}
-
+    { logGroupName = pLogGroupName_,
+      logStreamName = pLogStreamName_
+    }
 
 -- | The name of the log group.
-clsLogGroupName :: Lens' CreateLogStream Text
-clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a});
+createLogStream_logGroupName :: Lens.Lens' CreateLogStream Prelude.Text
+createLogStream_logGroupName = Lens.lens (\CreateLogStream' {logGroupName} -> logGroupName) (\s@CreateLogStream' {} a -> s {logGroupName = a} :: CreateLogStream)
 
 -- | The name of the log stream.
-clsLogStreamName :: Lens' CreateLogStream Text
-clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
+createLogStream_logStreamName :: Lens.Lens' CreateLogStream Prelude.Text
+createLogStream_logStreamName = Lens.lens (\CreateLogStream' {logStreamName} -> logStreamName) (\s@CreateLogStream' {} a -> s {logStreamName = a} :: CreateLogStream)
 
-instance AWSRequest CreateLogStream where
-        type Rs CreateLogStream = CreateLogStreamResponse
-        request = postJSON cloudWatchLogs
-        response = receiveNull CreateLogStreamResponse'
+instance Core.AWSRequest CreateLogStream where
+  type
+    AWSResponse CreateLogStream =
+      CreateLogStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull CreateLogStreamResponse'
 
-instance Hashable CreateLogStream where
+instance Prelude.Hashable CreateLogStream
 
-instance NFData CreateLogStream where
+instance Prelude.NFData CreateLogStream
 
-instance ToHeaders CreateLogStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.CreateLogStream" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateLogStream where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.CreateLogStream" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateLogStream where
-        toJSON CreateLogStream'{..}
-          = object
-              (catMaybes
-                 [Just ("logGroupName" .= _clsLogGroupName),
-                  Just ("logStreamName" .= _clsLogStreamName)])
+instance Core.ToJSON CreateLogStream where
+  toJSON CreateLogStream' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logGroupName" Core..= logGroupName),
+            Prelude.Just
+              ("logStreamName" Core..= logStreamName)
+          ]
+      )
 
-instance ToPath CreateLogStream where
-        toPath = const "/"
+instance Core.ToPath CreateLogStream where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateLogStream where
-        toQuery = const mempty
+instance Core.ToQuery CreateLogStream where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createLogStreamResponse' smart constructor.
-data CreateLogStreamResponse =
-  CreateLogStreamResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateLogStreamResponse' smart constructor.
+data CreateLogStreamResponse = CreateLogStreamResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateLogStreamResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateLogStreamResponse' with all optional fields omitted.
 --
-createLogStreamResponse
-    :: CreateLogStreamResponse
-createLogStreamResponse = CreateLogStreamResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCreateLogStreamResponse ::
+  CreateLogStreamResponse
+newCreateLogStreamResponse = CreateLogStreamResponse'
 
-
-instance NFData CreateLogStreamResponse where
+instance Prelude.NFData CreateLogStreamResponse

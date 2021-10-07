@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.DynamoDBStreams
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.DynamoDBStreams where
 
 import Data.Proxy
@@ -29,31 +28,31 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetShardIterator $
---             getShardIterator
+--             newGetShardIterator
 --
 --         , requestGetRecords $
---             getRecords
---
---         , requestListStreams $
---             listStreams
+--             newGetRecords
 --
 --         , requestDescribeStream $
---             describeStream
+--             newDescribeStream
+--
+--         , requestListStreams $
+--             newListStreams
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetShardIterator $
---             getShardIteratorResponse
+--             newGetShardIteratorResponse
 --
 --         , responseGetRecords $
---             getRecordsResponse
---
---         , responseListStreams $
---             listStreamsResponse
+--             newGetRecordsResponse
 --
 --         , responseDescribeStream $
---             describeStreamResponse
+--             newDescribeStreamResponse
+--
+--         , responseListStreams $
+--             newListStreamsResponse
 --
 --           ]
 --     ]
@@ -61,51 +60,59 @@ import Test.Tasty
 -- Requests
 
 requestGetShardIterator :: GetShardIterator -> TestTree
-requestGetShardIterator = req
+requestGetShardIterator =
+  req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
 
 requestGetRecords :: GetRecords -> TestTree
-requestGetRecords = req
+requestGetRecords =
+  req
     "GetRecords"
     "fixture/GetRecords.yaml"
 
-requestListStreams :: ListStreams -> TestTree
-requestListStreams = req
-    "ListStreams"
-    "fixture/ListStreams.yaml"
-
 requestDescribeStream :: DescribeStream -> TestTree
-requestDescribeStream = req
+requestDescribeStream =
+  req
     "DescribeStream"
     "fixture/DescribeStream.yaml"
+
+requestListStreams :: ListStreams -> TestTree
+requestListStreams =
+  req
+    "ListStreams"
+    "fixture/ListStreams.yaml"
 
 -- Responses
 
 responseGetShardIterator :: GetShardIteratorResponse -> TestTree
-responseGetShardIterator = res
+responseGetShardIterator =
+  res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
-    dynamoDBStreams
+    defaultService
     (Proxy :: Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
-responseGetRecords = res
+responseGetRecords =
+  res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
-    dynamoDBStreams
+    defaultService
     (Proxy :: Proxy GetRecords)
 
-responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams = res
-    "ListStreamsResponse"
-    "fixture/ListStreamsResponse.proto"
-    dynamoDBStreams
-    (Proxy :: Proxy ListStreams)
-
 responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream = res
+responseDescribeStream =
+  res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
-    dynamoDBStreams
+    defaultService
     (Proxy :: Proxy DescribeStream)
+
+responseListStreams :: ListStreamsResponse -> TestTree
+responseListStreams =
+  res
+    "ListStreamsResponse"
+    "fixture/ListStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStreams)

@@ -1,309 +1,554 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.UpdatePatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an existing patch baseline. Fields not specified in the request are left unchanged.
+-- Modifies an existing patch baseline. Fields not specified in the request
+-- are left unchanged.
 --
---
+-- For information about valid key-value pairs in @PatchFilters@ for each
+-- supported operating system type, see PatchFilter.
 module Network.AWS.SSM.UpdatePatchBaseline
-    (
-    -- * Creating a Request
-      updatePatchBaseline
-    , UpdatePatchBaseline
+  ( -- * Creating a Request
+    UpdatePatchBaseline (..),
+    newUpdatePatchBaseline,
+
     -- * Request Lenses
-    , upbApprovalRules
-    , upbGlobalFilters
-    , upbApprovedPatchesComplianceLevel
-    , upbApprovedPatches
-    , upbRejectedPatches
-    , upbName
-    , upbDescription
-    , upbBaselineId
+    updatePatchBaseline_rejectedPatches,
+    updatePatchBaseline_sources,
+    updatePatchBaseline_approvedPatchesEnableNonSecurity,
+    updatePatchBaseline_approvedPatchesComplianceLevel,
+    updatePatchBaseline_name,
+    updatePatchBaseline_replace,
+    updatePatchBaseline_description,
+    updatePatchBaseline_approvedPatches,
+    updatePatchBaseline_rejectedPatchesAction,
+    updatePatchBaseline_globalFilters,
+    updatePatchBaseline_approvalRules,
+    updatePatchBaseline_baselineId,
 
     -- * Destructuring the Response
-    , updatePatchBaselineResponse
-    , UpdatePatchBaselineResponse
+    UpdatePatchBaselineResponse (..),
+    newUpdatePatchBaselineResponse,
+
     -- * Response Lenses
-    , upbrsApprovalRules
-    , upbrsOperatingSystem
-    , upbrsGlobalFilters
-    , upbrsApprovedPatchesComplianceLevel
-    , upbrsApprovedPatches
-    , upbrsRejectedPatches
-    , upbrsCreatedDate
-    , upbrsName
-    , upbrsModifiedDate
-    , upbrsDescription
-    , upbrsBaselineId
-    , upbrsResponseStatus
-    ) where
+    updatePatchBaselineResponse_createdDate,
+    updatePatchBaselineResponse_rejectedPatches,
+    updatePatchBaselineResponse_baselineId,
+    updatePatchBaselineResponse_sources,
+    updatePatchBaselineResponse_approvedPatchesEnableNonSecurity,
+    updatePatchBaselineResponse_approvedPatchesComplianceLevel,
+    updatePatchBaselineResponse_modifiedDate,
+    updatePatchBaselineResponse_name,
+    updatePatchBaselineResponse_description,
+    updatePatchBaselineResponse_approvedPatches,
+    updatePatchBaselineResponse_rejectedPatchesAction,
+    updatePatchBaselineResponse_operatingSystem,
+    updatePatchBaselineResponse_globalFilters,
+    updatePatchBaselineResponse_approvalRules,
+    updatePatchBaselineResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'updatePatchBaseline' smart constructor.
+-- | /See:/ 'newUpdatePatchBaseline' smart constructor.
 data UpdatePatchBaseline = UpdatePatchBaseline'
-  { _upbApprovalRules                  :: !(Maybe PatchRuleGroup)
-  , _upbGlobalFilters                  :: !(Maybe PatchFilterGroup)
-  , _upbApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-  , _upbApprovedPatches                :: !(Maybe [Text])
-  , _upbRejectedPatches                :: !(Maybe [Text])
-  , _upbName                           :: !(Maybe Text)
-  , _upbDescription                    :: !(Maybe Text)
-  , _upbBaselineId                     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdatePatchBaseline' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upbApprovalRules' - A set of rules used to include patches in the baseline.
---
--- * 'upbGlobalFilters' - A set of global filters used to exclude patches from the baseline.
---
--- * 'upbApprovedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
---
--- * 'upbApprovedPatches' - A list of explicitly approved patches for the baseline.
---
--- * 'upbRejectedPatches' - A list of explicitly rejected patches for the baseline.
---
--- * 'upbName' - The name of the patch baseline.
---
--- * 'upbDescription' - A description of the patch baseline.
---
--- * 'upbBaselineId' - The ID of the patch baseline to update.
-updatePatchBaseline
-    :: Text -- ^ 'upbBaselineId'
-    -> UpdatePatchBaseline
-updatePatchBaseline pBaselineId_ =
-  UpdatePatchBaseline'
-  { _upbApprovalRules = Nothing
-  , _upbGlobalFilters = Nothing
-  , _upbApprovedPatchesComplianceLevel = Nothing
-  , _upbApprovedPatches = Nothing
-  , _upbRejectedPatches = Nothing
-  , _upbName = Nothing
-  , _upbDescription = Nothing
-  , _upbBaselineId = pBaselineId_
+  { -- | A list of explicitly rejected patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and
+    -- rejected patches, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    rejectedPatches :: Prelude.Maybe [Prelude.Text],
+    -- | Information about the patches to use to update the instances, including
+    -- target operating systems and source repositories. Applies to Linux
+    -- instances only.
+    sources :: Prelude.Maybe [PatchSource],
+    -- | Indicates whether the list of approved patches includes non-security
+    -- updates that should be applied to the instances. The default value is
+    -- @false@. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
+    -- | Assigns a new compliance severity level to an existing patch baseline.
+    approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
+    -- | The name of the patch baseline.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | If True, then all fields that are required by the CreatePatchBaseline
+    -- operation are also required for this API request. Optional fields that
+    -- aren\'t specified are set to null.
+    replace :: Prelude.Maybe Prelude.Bool,
+    -- | A description of the patch baseline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of explicitly approved patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and
+    -- rejected patches, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    approvedPatches :: Prelude.Maybe [Prelude.Text],
+    -- | The action for Patch Manager to take on patches included in the
+    -- @RejectedPackages@ list.
+    --
+    -- -   __@ALLOW_AS_DEPENDENCY@__ : A package in the @Rejected@ patches list
+    --     is installed only if it is a dependency of another package. It is
+    --     considered compliant with the patch baseline, and its status is
+    --     reported as @InstalledOther@. This is the default action if no
+    --     option is specified.
+    --
+    -- -   __@BLOCK@__ : Packages in the @RejectedPatches@ list, and packages
+    --     that include them as dependencies, aren\'t installed under any
+    --     circumstances. If a package was installed before it was added to the
+    --     @Rejected@ patches list, it is considered non-compliant with the
+    --     patch baseline, and its status is reported as @InstalledRejected@.
+    rejectedPatchesAction :: Prelude.Maybe PatchAction,
+    -- | A set of global filters used to include patches in the baseline.
+    globalFilters :: Prelude.Maybe PatchFilterGroup,
+    -- | A set of rules used to include patches in the baseline.
+    approvalRules :: Prelude.Maybe PatchRuleGroup,
+    -- | The ID of the patch baseline to update.
+    baselineId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdatePatchBaseline' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'rejectedPatches', 'updatePatchBaseline_rejectedPatches' - A list of explicitly rejected patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- 'sources', 'updatePatchBaseline_sources' - Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
+--
+-- 'approvedPatchesEnableNonSecurity', 'updatePatchBaseline_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
+-- updates that should be applied to the instances. The default value is
+-- @false@. Applies to Linux instances only.
+--
+-- 'approvedPatchesComplianceLevel', 'updatePatchBaseline_approvedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
+--
+-- 'name', 'updatePatchBaseline_name' - The name of the patch baseline.
+--
+-- 'replace', 'updatePatchBaseline_replace' - If True, then all fields that are required by the CreatePatchBaseline
+-- operation are also required for this API request. Optional fields that
+-- aren\'t specified are set to null.
+--
+-- 'description', 'updatePatchBaseline_description' - A description of the patch baseline.
+--
+-- 'approvedPatches', 'updatePatchBaseline_approvedPatches' - A list of explicitly approved patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- 'rejectedPatchesAction', 'updatePatchBaseline_rejectedPatchesAction' - The action for Patch Manager to take on patches included in the
+-- @RejectedPackages@ list.
+--
+-- -   __@ALLOW_AS_DEPENDENCY@__ : A package in the @Rejected@ patches list
+--     is installed only if it is a dependency of another package. It is
+--     considered compliant with the patch baseline, and its status is
+--     reported as @InstalledOther@. This is the default action if no
+--     option is specified.
+--
+-- -   __@BLOCK@__ : Packages in the @RejectedPatches@ list, and packages
+--     that include them as dependencies, aren\'t installed under any
+--     circumstances. If a package was installed before it was added to the
+--     @Rejected@ patches list, it is considered non-compliant with the
+--     patch baseline, and its status is reported as @InstalledRejected@.
+--
+-- 'globalFilters', 'updatePatchBaseline_globalFilters' - A set of global filters used to include patches in the baseline.
+--
+-- 'approvalRules', 'updatePatchBaseline_approvalRules' - A set of rules used to include patches in the baseline.
+--
+-- 'baselineId', 'updatePatchBaseline_baselineId' - The ID of the patch baseline to update.
+newUpdatePatchBaseline ::
+  -- | 'baselineId'
+  Prelude.Text ->
+  UpdatePatchBaseline
+newUpdatePatchBaseline pBaselineId_ =
+  UpdatePatchBaseline'
+    { rejectedPatches =
+        Prelude.Nothing,
+      sources = Prelude.Nothing,
+      approvedPatchesEnableNonSecurity = Prelude.Nothing,
+      approvedPatchesComplianceLevel = Prelude.Nothing,
+      name = Prelude.Nothing,
+      replace = Prelude.Nothing,
+      description = Prelude.Nothing,
+      approvedPatches = Prelude.Nothing,
+      rejectedPatchesAction = Prelude.Nothing,
+      globalFilters = Prelude.Nothing,
+      approvalRules = Prelude.Nothing,
+      baselineId = pBaselineId_
+    }
 
--- | A set of rules used to include patches in the baseline.
-upbApprovalRules :: Lens' UpdatePatchBaseline (Maybe PatchRuleGroup)
-upbApprovalRules = lens _upbApprovalRules (\ s a -> s{_upbApprovalRules = a});
+-- | A list of explicitly rejected patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+updatePatchBaseline_rejectedPatches :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe [Prelude.Text])
+updatePatchBaseline_rejectedPatches = Lens.lens (\UpdatePatchBaseline' {rejectedPatches} -> rejectedPatches) (\s@UpdatePatchBaseline' {} a -> s {rejectedPatches = a} :: UpdatePatchBaseline) Prelude.. Lens.mapping Lens._Coerce
 
--- | A set of global filters used to exclude patches from the baseline.
-upbGlobalFilters :: Lens' UpdatePatchBaseline (Maybe PatchFilterGroup)
-upbGlobalFilters = lens _upbGlobalFilters (\ s a -> s{_upbGlobalFilters = a});
+-- | Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
+updatePatchBaseline_sources :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe [PatchSource])
+updatePatchBaseline_sources = Lens.lens (\UpdatePatchBaseline' {sources} -> sources) (\s@UpdatePatchBaseline' {} a -> s {sources = a} :: UpdatePatchBaseline) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Indicates whether the list of approved patches includes non-security
+-- updates that should be applied to the instances. The default value is
+-- @false@. Applies to Linux instances only.
+updatePatchBaseline_approvedPatchesEnableNonSecurity :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe Prelude.Bool)
+updatePatchBaseline_approvedPatchesEnableNonSecurity = Lens.lens (\UpdatePatchBaseline' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@UpdatePatchBaseline' {} a -> s {approvedPatchesEnableNonSecurity = a} :: UpdatePatchBaseline)
 
 -- | Assigns a new compliance severity level to an existing patch baseline.
-upbApprovedPatchesComplianceLevel :: Lens' UpdatePatchBaseline (Maybe PatchComplianceLevel)
-upbApprovedPatchesComplianceLevel = lens _upbApprovedPatchesComplianceLevel (\ s a -> s{_upbApprovedPatchesComplianceLevel = a});
-
--- | A list of explicitly approved patches for the baseline.
-upbApprovedPatches :: Lens' UpdatePatchBaseline [Text]
-upbApprovedPatches = lens _upbApprovedPatches (\ s a -> s{_upbApprovedPatches = a}) . _Default . _Coerce;
-
--- | A list of explicitly rejected patches for the baseline.
-upbRejectedPatches :: Lens' UpdatePatchBaseline [Text]
-upbRejectedPatches = lens _upbRejectedPatches (\ s a -> s{_upbRejectedPatches = a}) . _Default . _Coerce;
+updatePatchBaseline_approvedPatchesComplianceLevel :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe PatchComplianceLevel)
+updatePatchBaseline_approvedPatchesComplianceLevel = Lens.lens (\UpdatePatchBaseline' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@UpdatePatchBaseline' {} a -> s {approvedPatchesComplianceLevel = a} :: UpdatePatchBaseline)
 
 -- | The name of the patch baseline.
-upbName :: Lens' UpdatePatchBaseline (Maybe Text)
-upbName = lens _upbName (\ s a -> s{_upbName = a});
+updatePatchBaseline_name :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe Prelude.Text)
+updatePatchBaseline_name = Lens.lens (\UpdatePatchBaseline' {name} -> name) (\s@UpdatePatchBaseline' {} a -> s {name = a} :: UpdatePatchBaseline)
+
+-- | If True, then all fields that are required by the CreatePatchBaseline
+-- operation are also required for this API request. Optional fields that
+-- aren\'t specified are set to null.
+updatePatchBaseline_replace :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe Prelude.Bool)
+updatePatchBaseline_replace = Lens.lens (\UpdatePatchBaseline' {replace} -> replace) (\s@UpdatePatchBaseline' {} a -> s {replace = a} :: UpdatePatchBaseline)
 
 -- | A description of the patch baseline.
-upbDescription :: Lens' UpdatePatchBaseline (Maybe Text)
-upbDescription = lens _upbDescription (\ s a -> s{_upbDescription = a});
-
--- | The ID of the patch baseline to update.
-upbBaselineId :: Lens' UpdatePatchBaseline Text
-upbBaselineId = lens _upbBaselineId (\ s a -> s{_upbBaselineId = a});
-
-instance AWSRequest UpdatePatchBaseline where
-        type Rs UpdatePatchBaseline =
-             UpdatePatchBaselineResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdatePatchBaselineResponse' <$>
-                   (x .?> "ApprovalRules") <*> (x .?> "OperatingSystem")
-                     <*> (x .?> "GlobalFilters")
-                     <*> (x .?> "ApprovedPatchesComplianceLevel")
-                     <*> (x .?> "ApprovedPatches" .!@ mempty)
-                     <*> (x .?> "RejectedPatches" .!@ mempty)
-                     <*> (x .?> "CreatedDate")
-                     <*> (x .?> "Name")
-                     <*> (x .?> "ModifiedDate")
-                     <*> (x .?> "Description")
-                     <*> (x .?> "BaselineId")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable UpdatePatchBaseline where
-
-instance NFData UpdatePatchBaseline where
-
-instance ToHeaders UpdatePatchBaseline where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.UpdatePatchBaseline" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdatePatchBaseline where
-        toJSON UpdatePatchBaseline'{..}
-          = object
-              (catMaybes
-                 [("ApprovalRules" .=) <$> _upbApprovalRules,
-                  ("GlobalFilters" .=) <$> _upbGlobalFilters,
-                  ("ApprovedPatchesComplianceLevel" .=) <$>
-                    _upbApprovedPatchesComplianceLevel,
-                  ("ApprovedPatches" .=) <$> _upbApprovedPatches,
-                  ("RejectedPatches" .=) <$> _upbRejectedPatches,
-                  ("Name" .=) <$> _upbName,
-                  ("Description" .=) <$> _upbDescription,
-                  Just ("BaselineId" .= _upbBaselineId)])
-
-instance ToPath UpdatePatchBaseline where
-        toPath = const "/"
-
-instance ToQuery UpdatePatchBaseline where
-        toQuery = const mempty
-
--- | /See:/ 'updatePatchBaselineResponse' smart constructor.
-data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
-  { _upbrsApprovalRules                  :: !(Maybe PatchRuleGroup)
-  , _upbrsOperatingSystem                :: !(Maybe OperatingSystem)
-  , _upbrsGlobalFilters                  :: !(Maybe PatchFilterGroup)
-  , _upbrsApprovedPatchesComplianceLevel :: !(Maybe PatchComplianceLevel)
-  , _upbrsApprovedPatches                :: !(Maybe [Text])
-  , _upbrsRejectedPatches                :: !(Maybe [Text])
-  , _upbrsCreatedDate                    :: !(Maybe POSIX)
-  , _upbrsName                           :: !(Maybe Text)
-  , _upbrsModifiedDate                   :: !(Maybe POSIX)
-  , _upbrsDescription                    :: !(Maybe Text)
-  , _upbrsBaselineId                     :: !(Maybe Text)
-  , _upbrsResponseStatus                 :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdatePatchBaselineResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upbrsApprovalRules' - A set of rules used to include patches in the baseline.
---
--- * 'upbrsOperatingSystem' - The operating system rule used by the updated patch baseline.
---
--- * 'upbrsGlobalFilters' - A set of global filters used to exclude patches from the baseline.
---
--- * 'upbrsApprovedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the update completed.
---
--- * 'upbrsApprovedPatches' - A list of explicitly approved patches for the baseline.
---
--- * 'upbrsRejectedPatches' - A list of explicitly rejected patches for the baseline.
---
--- * 'upbrsCreatedDate' - The date when the patch baseline was created.
---
--- * 'upbrsName' - The name of the patch baseline.
---
--- * 'upbrsModifiedDate' - The date when the patch baseline was last modified.
---
--- * 'upbrsDescription' - A description of the Patch Baseline.
---
--- * 'upbrsBaselineId' - The ID of the deleted patch baseline.
---
--- * 'upbrsResponseStatus' - -- | The response status code.
-updatePatchBaselineResponse
-    :: Int -- ^ 'upbrsResponseStatus'
-    -> UpdatePatchBaselineResponse
-updatePatchBaselineResponse pResponseStatus_ =
-  UpdatePatchBaselineResponse'
-  { _upbrsApprovalRules = Nothing
-  , _upbrsOperatingSystem = Nothing
-  , _upbrsGlobalFilters = Nothing
-  , _upbrsApprovedPatchesComplianceLevel = Nothing
-  , _upbrsApprovedPatches = Nothing
-  , _upbrsRejectedPatches = Nothing
-  , _upbrsCreatedDate = Nothing
-  , _upbrsName = Nothing
-  , _upbrsModifiedDate = Nothing
-  , _upbrsDescription = Nothing
-  , _upbrsBaselineId = Nothing
-  , _upbrsResponseStatus = pResponseStatus_
-  }
-
-
--- | A set of rules used to include patches in the baseline.
-upbrsApprovalRules :: Lens' UpdatePatchBaselineResponse (Maybe PatchRuleGroup)
-upbrsApprovalRules = lens _upbrsApprovalRules (\ s a -> s{_upbrsApprovalRules = a});
-
--- | The operating system rule used by the updated patch baseline.
-upbrsOperatingSystem :: Lens' UpdatePatchBaselineResponse (Maybe OperatingSystem)
-upbrsOperatingSystem = lens _upbrsOperatingSystem (\ s a -> s{_upbrsOperatingSystem = a});
-
--- | A set of global filters used to exclude patches from the baseline.
-upbrsGlobalFilters :: Lens' UpdatePatchBaselineResponse (Maybe PatchFilterGroup)
-upbrsGlobalFilters = lens _upbrsGlobalFilters (\ s a -> s{_upbrsGlobalFilters = a});
-
--- | The compliance severity level assigned to the patch baseline after the update completed.
-upbrsApprovedPatchesComplianceLevel :: Lens' UpdatePatchBaselineResponse (Maybe PatchComplianceLevel)
-upbrsApprovedPatchesComplianceLevel = lens _upbrsApprovedPatchesComplianceLevel (\ s a -> s{_upbrsApprovedPatchesComplianceLevel = a});
+updatePatchBaseline_description :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe Prelude.Text)
+updatePatchBaseline_description = Lens.lens (\UpdatePatchBaseline' {description} -> description) (\s@UpdatePatchBaseline' {} a -> s {description = a} :: UpdatePatchBaseline)
 
 -- | A list of explicitly approved patches for the baseline.
-upbrsApprovedPatches :: Lens' UpdatePatchBaselineResponse [Text]
-upbrsApprovedPatches = lens _upbrsApprovedPatches (\ s a -> s{_upbrsApprovedPatches = a}) . _Default . _Coerce;
+--
+-- For information about accepted formats for lists of approved patches and
+-- rejected patches, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+updatePatchBaseline_approvedPatches :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe [Prelude.Text])
+updatePatchBaseline_approvedPatches = Lens.lens (\UpdatePatchBaseline' {approvedPatches} -> approvedPatches) (\s@UpdatePatchBaseline' {} a -> s {approvedPatches = a} :: UpdatePatchBaseline) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of explicitly rejected patches for the baseline.
-upbrsRejectedPatches :: Lens' UpdatePatchBaselineResponse [Text]
-upbrsRejectedPatches = lens _upbrsRejectedPatches (\ s a -> s{_upbrsRejectedPatches = a}) . _Default . _Coerce;
+-- | The action for Patch Manager to take on patches included in the
+-- @RejectedPackages@ list.
+--
+-- -   __@ALLOW_AS_DEPENDENCY@__ : A package in the @Rejected@ patches list
+--     is installed only if it is a dependency of another package. It is
+--     considered compliant with the patch baseline, and its status is
+--     reported as @InstalledOther@. This is the default action if no
+--     option is specified.
+--
+-- -   __@BLOCK@__ : Packages in the @RejectedPatches@ list, and packages
+--     that include them as dependencies, aren\'t installed under any
+--     circumstances. If a package was installed before it was added to the
+--     @Rejected@ patches list, it is considered non-compliant with the
+--     patch baseline, and its status is reported as @InstalledRejected@.
+updatePatchBaseline_rejectedPatchesAction :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe PatchAction)
+updatePatchBaseline_rejectedPatchesAction = Lens.lens (\UpdatePatchBaseline' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@UpdatePatchBaseline' {} a -> s {rejectedPatchesAction = a} :: UpdatePatchBaseline)
+
+-- | A set of global filters used to include patches in the baseline.
+updatePatchBaseline_globalFilters :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe PatchFilterGroup)
+updatePatchBaseline_globalFilters = Lens.lens (\UpdatePatchBaseline' {globalFilters} -> globalFilters) (\s@UpdatePatchBaseline' {} a -> s {globalFilters = a} :: UpdatePatchBaseline)
+
+-- | A set of rules used to include patches in the baseline.
+updatePatchBaseline_approvalRules :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe PatchRuleGroup)
+updatePatchBaseline_approvalRules = Lens.lens (\UpdatePatchBaseline' {approvalRules} -> approvalRules) (\s@UpdatePatchBaseline' {} a -> s {approvalRules = a} :: UpdatePatchBaseline)
+
+-- | The ID of the patch baseline to update.
+updatePatchBaseline_baselineId :: Lens.Lens' UpdatePatchBaseline Prelude.Text
+updatePatchBaseline_baselineId = Lens.lens (\UpdatePatchBaseline' {baselineId} -> baselineId) (\s@UpdatePatchBaseline' {} a -> s {baselineId = a} :: UpdatePatchBaseline)
+
+instance Core.AWSRequest UpdatePatchBaseline where
+  type
+    AWSResponse UpdatePatchBaseline =
+      UpdatePatchBaselineResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdatePatchBaselineResponse'
+            Prelude.<$> (x Core..?> "CreatedDate")
+            Prelude.<*> ( x Core..?> "RejectedPatches"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "BaselineId")
+            Prelude.<*> (x Core..?> "Sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "ApprovedPatchesEnableNonSecurity")
+            Prelude.<*> (x Core..?> "ApprovedPatchesComplianceLevel")
+            Prelude.<*> (x Core..?> "ModifiedDate")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> ( x Core..?> "ApprovedPatches"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "RejectedPatchesAction")
+            Prelude.<*> (x Core..?> "OperatingSystem")
+            Prelude.<*> (x Core..?> "GlobalFilters")
+            Prelude.<*> (x Core..?> "ApprovalRules")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdatePatchBaseline
+
+instance Prelude.NFData UpdatePatchBaseline
+
+instance Core.ToHeaders UpdatePatchBaseline where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.UpdatePatchBaseline" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdatePatchBaseline where
+  toJSON UpdatePatchBaseline' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("RejectedPatches" Core..=)
+              Prelude.<$> rejectedPatches,
+            ("Sources" Core..=) Prelude.<$> sources,
+            ("ApprovedPatchesEnableNonSecurity" Core..=)
+              Prelude.<$> approvedPatchesEnableNonSecurity,
+            ("ApprovedPatchesComplianceLevel" Core..=)
+              Prelude.<$> approvedPatchesComplianceLevel,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Replace" Core..=) Prelude.<$> replace,
+            ("Description" Core..=) Prelude.<$> description,
+            ("ApprovedPatches" Core..=)
+              Prelude.<$> approvedPatches,
+            ("RejectedPatchesAction" Core..=)
+              Prelude.<$> rejectedPatchesAction,
+            ("GlobalFilters" Core..=) Prelude.<$> globalFilters,
+            ("ApprovalRules" Core..=) Prelude.<$> approvalRules,
+            Prelude.Just ("BaselineId" Core..= baselineId)
+          ]
+      )
+
+instance Core.ToPath UpdatePatchBaseline where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdatePatchBaseline where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdatePatchBaselineResponse' smart constructor.
+data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
+  { -- | The date when the patch baseline was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | A list of explicitly rejected patches for the baseline.
+    rejectedPatches :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the deleted patch baseline.
+    baselineId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the patches to use to update the instances, including
+    -- target operating systems and source repositories. Applies to Linux
+    -- instances only.
+    sources :: Prelude.Maybe [PatchSource],
+    -- | Indicates whether the list of approved patches includes non-security
+    -- updates that should be applied to the instances. The default value is
+    -- @false@. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
+    -- | The compliance severity level assigned to the patch baseline after the
+    -- update completed.
+    approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
+    -- | The date when the patch baseline was last modified.
+    modifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the patch baseline.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A description of the patch baseline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of explicitly approved patches for the baseline.
+    approvedPatches :: Prelude.Maybe [Prelude.Text],
+    -- | The action specified to take on patches included in the
+    -- @RejectedPatches@ list. A patch can be allowed only if it is a
+    -- dependency of another package, or blocked entirely along with packages
+    -- that include it as a dependency.
+    rejectedPatchesAction :: Prelude.Maybe PatchAction,
+    -- | The operating system rule used by the updated patch baseline.
+    operatingSystem :: Prelude.Maybe OperatingSystem,
+    -- | A set of global filters used to exclude patches from the baseline.
+    globalFilters :: Prelude.Maybe PatchFilterGroup,
+    -- | A set of rules used to include patches in the baseline.
+    approvalRules :: Prelude.Maybe PatchRuleGroup,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdatePatchBaselineResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'createdDate', 'updatePatchBaselineResponse_createdDate' - The date when the patch baseline was created.
+--
+-- 'rejectedPatches', 'updatePatchBaselineResponse_rejectedPatches' - A list of explicitly rejected patches for the baseline.
+--
+-- 'baselineId', 'updatePatchBaselineResponse_baselineId' - The ID of the deleted patch baseline.
+--
+-- 'sources', 'updatePatchBaselineResponse_sources' - Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
+--
+-- 'approvedPatchesEnableNonSecurity', 'updatePatchBaselineResponse_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
+-- updates that should be applied to the instances. The default value is
+-- @false@. Applies to Linux instances only.
+--
+-- 'approvedPatchesComplianceLevel', 'updatePatchBaselineResponse_approvedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the
+-- update completed.
+--
+-- 'modifiedDate', 'updatePatchBaselineResponse_modifiedDate' - The date when the patch baseline was last modified.
+--
+-- 'name', 'updatePatchBaselineResponse_name' - The name of the patch baseline.
+--
+-- 'description', 'updatePatchBaselineResponse_description' - A description of the patch baseline.
+--
+-- 'approvedPatches', 'updatePatchBaselineResponse_approvedPatches' - A list of explicitly approved patches for the baseline.
+--
+-- 'rejectedPatchesAction', 'updatePatchBaselineResponse_rejectedPatchesAction' - The action specified to take on patches included in the
+-- @RejectedPatches@ list. A patch can be allowed only if it is a
+-- dependency of another package, or blocked entirely along with packages
+-- that include it as a dependency.
+--
+-- 'operatingSystem', 'updatePatchBaselineResponse_operatingSystem' - The operating system rule used by the updated patch baseline.
+--
+-- 'globalFilters', 'updatePatchBaselineResponse_globalFilters' - A set of global filters used to exclude patches from the baseline.
+--
+-- 'approvalRules', 'updatePatchBaselineResponse_approvalRules' - A set of rules used to include patches in the baseline.
+--
+-- 'httpStatus', 'updatePatchBaselineResponse_httpStatus' - The response's http status code.
+newUpdatePatchBaselineResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdatePatchBaselineResponse
+newUpdatePatchBaselineResponse pHttpStatus_ =
+  UpdatePatchBaselineResponse'
+    { createdDate =
+        Prelude.Nothing,
+      rejectedPatches = Prelude.Nothing,
+      baselineId = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      approvedPatchesEnableNonSecurity =
+        Prelude.Nothing,
+      approvedPatchesComplianceLevel =
+        Prelude.Nothing,
+      modifiedDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      approvedPatches = Prelude.Nothing,
+      rejectedPatchesAction = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
+      globalFilters = Prelude.Nothing,
+      approvalRules = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The date when the patch baseline was created.
-upbrsCreatedDate :: Lens' UpdatePatchBaselineResponse (Maybe UTCTime)
-upbrsCreatedDate = lens _upbrsCreatedDate (\ s a -> s{_upbrsCreatedDate = a}) . mapping _Time;
+updatePatchBaselineResponse_createdDate :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
+updatePatchBaselineResponse_createdDate = Lens.lens (\UpdatePatchBaselineResponse' {createdDate} -> createdDate) (\s@UpdatePatchBaselineResponse' {} a -> s {createdDate = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the patch baseline.
-upbrsName :: Lens' UpdatePatchBaselineResponse (Maybe Text)
-upbrsName = lens _upbrsName (\ s a -> s{_upbrsName = a});
-
--- | The date when the patch baseline was last modified.
-upbrsModifiedDate :: Lens' UpdatePatchBaselineResponse (Maybe UTCTime)
-upbrsModifiedDate = lens _upbrsModifiedDate (\ s a -> s{_upbrsModifiedDate = a}) . mapping _Time;
-
--- | A description of the Patch Baseline.
-upbrsDescription :: Lens' UpdatePatchBaselineResponse (Maybe Text)
-upbrsDescription = lens _upbrsDescription (\ s a -> s{_upbrsDescription = a});
+-- | A list of explicitly rejected patches for the baseline.
+updatePatchBaselineResponse_rejectedPatches :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe [Prelude.Text])
+updatePatchBaselineResponse_rejectedPatches = Lens.lens (\UpdatePatchBaselineResponse' {rejectedPatches} -> rejectedPatches) (\s@UpdatePatchBaselineResponse' {} a -> s {rejectedPatches = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the deleted patch baseline.
-upbrsBaselineId :: Lens' UpdatePatchBaselineResponse (Maybe Text)
-upbrsBaselineId = lens _upbrsBaselineId (\ s a -> s{_upbrsBaselineId = a});
+updatePatchBaselineResponse_baselineId :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.Text)
+updatePatchBaselineResponse_baselineId = Lens.lens (\UpdatePatchBaselineResponse' {baselineId} -> baselineId) (\s@UpdatePatchBaselineResponse' {} a -> s {baselineId = a} :: UpdatePatchBaselineResponse)
 
--- | -- | The response status code.
-upbrsResponseStatus :: Lens' UpdatePatchBaselineResponse Int
-upbrsResponseStatus = lens _upbrsResponseStatus (\ s a -> s{_upbrsResponseStatus = a});
+-- | Information about the patches to use to update the instances, including
+-- target operating systems and source repositories. Applies to Linux
+-- instances only.
+updatePatchBaselineResponse_sources :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe [PatchSource])
+updatePatchBaselineResponse_sources = Lens.lens (\UpdatePatchBaselineResponse' {sources} -> sources) (\s@UpdatePatchBaselineResponse' {} a -> s {sources = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData UpdatePatchBaselineResponse where
+-- | Indicates whether the list of approved patches includes non-security
+-- updates that should be applied to the instances. The default value is
+-- @false@. Applies to Linux instances only.
+updatePatchBaselineResponse_approvedPatchesEnableNonSecurity :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.Bool)
+updatePatchBaselineResponse_approvedPatchesEnableNonSecurity = Lens.lens (\UpdatePatchBaselineResponse' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@UpdatePatchBaselineResponse' {} a -> s {approvedPatchesEnableNonSecurity = a} :: UpdatePatchBaselineResponse)
+
+-- | The compliance severity level assigned to the patch baseline after the
+-- update completed.
+updatePatchBaselineResponse_approvedPatchesComplianceLevel :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe PatchComplianceLevel)
+updatePatchBaselineResponse_approvedPatchesComplianceLevel = Lens.lens (\UpdatePatchBaselineResponse' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@UpdatePatchBaselineResponse' {} a -> s {approvedPatchesComplianceLevel = a} :: UpdatePatchBaselineResponse)
+
+-- | The date when the patch baseline was last modified.
+updatePatchBaselineResponse_modifiedDate :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
+updatePatchBaselineResponse_modifiedDate = Lens.lens (\UpdatePatchBaselineResponse' {modifiedDate} -> modifiedDate) (\s@UpdatePatchBaselineResponse' {} a -> s {modifiedDate = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the patch baseline.
+updatePatchBaselineResponse_name :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.Text)
+updatePatchBaselineResponse_name = Lens.lens (\UpdatePatchBaselineResponse' {name} -> name) (\s@UpdatePatchBaselineResponse' {} a -> s {name = a} :: UpdatePatchBaselineResponse)
+
+-- | A description of the patch baseline.
+updatePatchBaselineResponse_description :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.Text)
+updatePatchBaselineResponse_description = Lens.lens (\UpdatePatchBaselineResponse' {description} -> description) (\s@UpdatePatchBaselineResponse' {} a -> s {description = a} :: UpdatePatchBaselineResponse)
+
+-- | A list of explicitly approved patches for the baseline.
+updatePatchBaselineResponse_approvedPatches :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe [Prelude.Text])
+updatePatchBaselineResponse_approvedPatches = Lens.lens (\UpdatePatchBaselineResponse' {approvedPatches} -> approvedPatches) (\s@UpdatePatchBaselineResponse' {} a -> s {approvedPatches = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The action specified to take on patches included in the
+-- @RejectedPatches@ list. A patch can be allowed only if it is a
+-- dependency of another package, or blocked entirely along with packages
+-- that include it as a dependency.
+updatePatchBaselineResponse_rejectedPatchesAction :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe PatchAction)
+updatePatchBaselineResponse_rejectedPatchesAction = Lens.lens (\UpdatePatchBaselineResponse' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@UpdatePatchBaselineResponse' {} a -> s {rejectedPatchesAction = a} :: UpdatePatchBaselineResponse)
+
+-- | The operating system rule used by the updated patch baseline.
+updatePatchBaselineResponse_operatingSystem :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe OperatingSystem)
+updatePatchBaselineResponse_operatingSystem = Lens.lens (\UpdatePatchBaselineResponse' {operatingSystem} -> operatingSystem) (\s@UpdatePatchBaselineResponse' {} a -> s {operatingSystem = a} :: UpdatePatchBaselineResponse)
+
+-- | A set of global filters used to exclude patches from the baseline.
+updatePatchBaselineResponse_globalFilters :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe PatchFilterGroup)
+updatePatchBaselineResponse_globalFilters = Lens.lens (\UpdatePatchBaselineResponse' {globalFilters} -> globalFilters) (\s@UpdatePatchBaselineResponse' {} a -> s {globalFilters = a} :: UpdatePatchBaselineResponse)
+
+-- | A set of rules used to include patches in the baseline.
+updatePatchBaselineResponse_approvalRules :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe PatchRuleGroup)
+updatePatchBaselineResponse_approvalRules = Lens.lens (\UpdatePatchBaselineResponse' {approvalRules} -> approvalRules) (\s@UpdatePatchBaselineResponse' {} a -> s {approvalRules = a} :: UpdatePatchBaselineResponse)
+
+-- | The response's http status code.
+updatePatchBaselineResponse_httpStatus :: Lens.Lens' UpdatePatchBaselineResponse Prelude.Int
+updatePatchBaselineResponse_httpStatus = Lens.lens (\UpdatePatchBaselineResponse' {httpStatus} -> httpStatus) (\s@UpdatePatchBaselineResponse' {} a -> s {httpStatus = a} :: UpdatePatchBaselineResponse)
+
+instance Prelude.NFData UpdatePatchBaselineResponse

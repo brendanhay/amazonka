@@ -1,108 +1,130 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationVersion
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- -- | Undocumented operation.
 module Network.AWS.APIGateway.GetDocumentationVersion
-    (
-    -- * Creating a Request
-      getDocumentationVersion
-    , GetDocumentationVersion
+  ( -- * Creating a Request
+    GetDocumentationVersion (..),
+    newGetDocumentationVersion,
+
     -- * Request Lenses
-    , gdvdRestAPIId
-    , gdvdDocumentationVersion
+    getDocumentationVersion_restApiId,
+    getDocumentationVersion_documentationVersion,
 
     -- * Destructuring the Response
-    , documentationVersion
-    , DocumentationVersion
+    DocumentationVersion (..),
+    newDocumentationVersion,
+
     -- * Response Lenses
-    , dvCreatedDate
-    , dvVersion
-    , dvDescription
-    ) where
+    documentationVersion_createdDate,
+    documentationVersion_version,
+    documentationVersion_description,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Gets a documentation snapshot of an API.
 --
---
---
--- /See:/ 'getDocumentationVersion' smart constructor.
+-- /See:/ 'newGetDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
-  { _gdvdRestAPIId            :: !Text
-  , _gdvdDocumentationVersion :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDocumentationVersion' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdvdRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gdvdDocumentationVersion' - [Required] The version identifier of the to-be-retrieved documentation snapshot.
-getDocumentationVersion
-    :: Text -- ^ 'gdvdRestAPIId'
-    -> Text -- ^ 'gdvdDocumentationVersion'
-    -> GetDocumentationVersion
-getDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
-  GetDocumentationVersion'
-  { _gdvdRestAPIId = pRestAPIId_
-  , _gdvdDocumentationVersion = pDocumentationVersion_
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The version identifier of the to-be-retrieved documentation
+    -- snapshot.
+    documentationVersion :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetDocumentationVersion' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'restApiId', 'getDocumentationVersion_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'documentationVersion', 'getDocumentationVersion_documentationVersion' - [Required] The version identifier of the to-be-retrieved documentation
+-- snapshot.
+newGetDocumentationVersion ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'documentationVersion'
+  Prelude.Text ->
+  GetDocumentationVersion
+newGetDocumentationVersion
+  pRestApiId_
+  pDocumentationVersion_ =
+    GetDocumentationVersion'
+      { restApiId = pRestApiId_,
+        documentationVersion = pDocumentationVersion_
+      }
 
--- | [Required] The string identifier of the associated 'RestApi' .
-gdvdRestAPIId :: Lens' GetDocumentationVersion Text
-gdvdRestAPIId = lens _gdvdRestAPIId (\ s a -> s{_gdvdRestAPIId = a});
+-- | [Required] The string identifier of the associated RestApi.
+getDocumentationVersion_restApiId :: Lens.Lens' GetDocumentationVersion Prelude.Text
+getDocumentationVersion_restApiId = Lens.lens (\GetDocumentationVersion' {restApiId} -> restApiId) (\s@GetDocumentationVersion' {} a -> s {restApiId = a} :: GetDocumentationVersion)
 
--- | [Required] The version identifier of the to-be-retrieved documentation snapshot.
-gdvdDocumentationVersion :: Lens' GetDocumentationVersion Text
-gdvdDocumentationVersion = lens _gdvdDocumentationVersion (\ s a -> s{_gdvdDocumentationVersion = a});
+-- | [Required] The version identifier of the to-be-retrieved documentation
+-- snapshot.
+getDocumentationVersion_documentationVersion :: Lens.Lens' GetDocumentationVersion Prelude.Text
+getDocumentationVersion_documentationVersion = Lens.lens (\GetDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@GetDocumentationVersion' {} a -> s {documentationVersion = a} :: GetDocumentationVersion)
 
-instance AWSRequest GetDocumentationVersion where
-        type Rs GetDocumentationVersion =
-             DocumentationVersion
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.AWSRequest GetDocumentationVersion where
+  type
+    AWSResponse GetDocumentationVersion =
+      DocumentationVersion
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable GetDocumentationVersion where
+instance Prelude.Hashable GetDocumentationVersion
 
-instance NFData GetDocumentationVersion where
+instance Prelude.NFData GetDocumentationVersion
 
-instance ToHeaders GetDocumentationVersion where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders GetDocumentationVersion where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToPath GetDocumentationVersion where
-        toPath GetDocumentationVersion'{..}
-          = mconcat
-              ["/restapis/", toBS _gdvdRestAPIId,
-               "/documentation/versions/",
-               toBS _gdvdDocumentationVersion]
+instance Core.ToPath GetDocumentationVersion where
+  toPath GetDocumentationVersion' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/documentation/versions/",
+        Core.toBS documentationVersion
+      ]
 
-instance ToQuery GetDocumentationVersion where
-        toQuery = const mempty
+instance Core.ToQuery GetDocumentationVersion where
+  toQuery = Prelude.const Prelude.mempty

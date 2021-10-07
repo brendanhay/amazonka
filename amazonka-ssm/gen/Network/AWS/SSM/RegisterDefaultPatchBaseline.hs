@@ -1,136 +1,173 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterDefaultPatchBaseline
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Defines the default patch baseline.
+-- Defines the default patch baseline for the relevant operating system.
 --
---
+-- To reset the Amazon Web Services-predefined patch baseline as the
+-- default, specify the full patch baseline Amazon Resource Name (ARN) as
+-- the baseline ID value. For example, for CentOS, specify
+-- @arn:aws:ssm:us-east-2:733109147000:patchbaseline\/pb-0574b43a65ea646ed@
+-- instead of @pb-0574b43a65ea646ed@.
 module Network.AWS.SSM.RegisterDefaultPatchBaseline
-    (
-    -- * Creating a Request
-      registerDefaultPatchBaseline
-    , RegisterDefaultPatchBaseline
+  ( -- * Creating a Request
+    RegisterDefaultPatchBaseline (..),
+    newRegisterDefaultPatchBaseline,
+
     -- * Request Lenses
-    , rdpbBaselineId
+    registerDefaultPatchBaseline_baselineId,
 
     -- * Destructuring the Response
-    , registerDefaultPatchBaselineResponse
-    , RegisterDefaultPatchBaselineResponse
+    RegisterDefaultPatchBaselineResponse (..),
+    newRegisterDefaultPatchBaselineResponse,
+
     -- * Response Lenses
-    , rdpbrsBaselineId
-    , rdpbrsResponseStatus
-    ) where
+    registerDefaultPatchBaselineResponse_baselineId,
+    registerDefaultPatchBaselineResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'registerDefaultPatchBaseline' smart constructor.
-newtype RegisterDefaultPatchBaseline = RegisterDefaultPatchBaseline'
-  { _rdpbBaselineId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRegisterDefaultPatchBaseline' smart constructor.
+data RegisterDefaultPatchBaseline = RegisterDefaultPatchBaseline'
+  { -- | The ID of the patch baseline that should be the default patch baseline.
+    baselineId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterDefaultPatchBaseline' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterDefaultPatchBaseline' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rdpbBaselineId' - The ID of the patch baseline that should be the default patch baseline.
-registerDefaultPatchBaseline
-    :: Text -- ^ 'rdpbBaselineId'
-    -> RegisterDefaultPatchBaseline
-registerDefaultPatchBaseline pBaselineId_ =
-  RegisterDefaultPatchBaseline' {_rdpbBaselineId = pBaselineId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'baselineId', 'registerDefaultPatchBaseline_baselineId' - The ID of the patch baseline that should be the default patch baseline.
+newRegisterDefaultPatchBaseline ::
+  -- | 'baselineId'
+  Prelude.Text ->
+  RegisterDefaultPatchBaseline
+newRegisterDefaultPatchBaseline pBaselineId_ =
+  RegisterDefaultPatchBaseline'
+    { baselineId =
+        pBaselineId_
+    }
 
 -- | The ID of the patch baseline that should be the default patch baseline.
-rdpbBaselineId :: Lens' RegisterDefaultPatchBaseline Text
-rdpbBaselineId = lens _rdpbBaselineId (\ s a -> s{_rdpbBaselineId = a});
+registerDefaultPatchBaseline_baselineId :: Lens.Lens' RegisterDefaultPatchBaseline Prelude.Text
+registerDefaultPatchBaseline_baselineId = Lens.lens (\RegisterDefaultPatchBaseline' {baselineId} -> baselineId) (\s@RegisterDefaultPatchBaseline' {} a -> s {baselineId = a} :: RegisterDefaultPatchBaseline)
 
-instance AWSRequest RegisterDefaultPatchBaseline
-         where
-        type Rs RegisterDefaultPatchBaseline =
-             RegisterDefaultPatchBaselineResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterDefaultPatchBaselineResponse' <$>
-                   (x .?> "BaselineId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest RegisterDefaultPatchBaseline where
+  type
+    AWSResponse RegisterDefaultPatchBaseline =
+      RegisterDefaultPatchBaselineResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterDefaultPatchBaselineResponse'
+            Prelude.<$> (x Core..?> "BaselineId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RegisterDefaultPatchBaseline where
+instance
+  Prelude.Hashable
+    RegisterDefaultPatchBaseline
 
-instance NFData RegisterDefaultPatchBaseline where
+instance Prelude.NFData RegisterDefaultPatchBaseline
 
-instance ToHeaders RegisterDefaultPatchBaseline where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.RegisterDefaultPatchBaseline" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders RegisterDefaultPatchBaseline where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.RegisterDefaultPatchBaseline" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RegisterDefaultPatchBaseline where
-        toJSON RegisterDefaultPatchBaseline'{..}
-          = object
-              (catMaybes [Just ("BaselineId" .= _rdpbBaselineId)])
+instance Core.ToJSON RegisterDefaultPatchBaseline where
+  toJSON RegisterDefaultPatchBaseline' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("BaselineId" Core..= baselineId)]
+      )
 
-instance ToPath RegisterDefaultPatchBaseline where
-        toPath = const "/"
+instance Core.ToPath RegisterDefaultPatchBaseline where
+  toPath = Prelude.const "/"
 
-instance ToQuery RegisterDefaultPatchBaseline where
-        toQuery = const mempty
+instance Core.ToQuery RegisterDefaultPatchBaseline where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'registerDefaultPatchBaselineResponse' smart constructor.
+-- | /See:/ 'newRegisterDefaultPatchBaselineResponse' smart constructor.
 data RegisterDefaultPatchBaselineResponse = RegisterDefaultPatchBaselineResponse'
-  { _rdpbrsBaselineId     :: !(Maybe Text)
-  , _rdpbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the default patch baseline.
+    baselineId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterDefaultPatchBaselineResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterDefaultPatchBaselineResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rdpbrsBaselineId' - The ID of the default patch baseline.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rdpbrsResponseStatus' - -- | The response status code.
-registerDefaultPatchBaselineResponse
-    :: Int -- ^ 'rdpbrsResponseStatus'
-    -> RegisterDefaultPatchBaselineResponse
-registerDefaultPatchBaselineResponse pResponseStatus_ =
+-- 'baselineId', 'registerDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.
+--
+-- 'httpStatus', 'registerDefaultPatchBaselineResponse_httpStatus' - The response's http status code.
+newRegisterDefaultPatchBaselineResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterDefaultPatchBaselineResponse
+newRegisterDefaultPatchBaselineResponse pHttpStatus_ =
   RegisterDefaultPatchBaselineResponse'
-  {_rdpbrsBaselineId = Nothing, _rdpbrsResponseStatus = pResponseStatus_}
-
+    { baselineId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ID of the default patch baseline.
-rdpbrsBaselineId :: Lens' RegisterDefaultPatchBaselineResponse (Maybe Text)
-rdpbrsBaselineId = lens _rdpbrsBaselineId (\ s a -> s{_rdpbrsBaselineId = a});
+registerDefaultPatchBaselineResponse_baselineId :: Lens.Lens' RegisterDefaultPatchBaselineResponse (Prelude.Maybe Prelude.Text)
+registerDefaultPatchBaselineResponse_baselineId = Lens.lens (\RegisterDefaultPatchBaselineResponse' {baselineId} -> baselineId) (\s@RegisterDefaultPatchBaselineResponse' {} a -> s {baselineId = a} :: RegisterDefaultPatchBaselineResponse)
 
--- | -- | The response status code.
-rdpbrsResponseStatus :: Lens' RegisterDefaultPatchBaselineResponse Int
-rdpbrsResponseStatus = lens _rdpbrsResponseStatus (\ s a -> s{_rdpbrsResponseStatus = a});
+-- | The response's http status code.
+registerDefaultPatchBaselineResponse_httpStatus :: Lens.Lens' RegisterDefaultPatchBaselineResponse Prelude.Int
+registerDefaultPatchBaselineResponse_httpStatus = Lens.lens (\RegisterDefaultPatchBaselineResponse' {httpStatus} -> httpStatus) (\s@RegisterDefaultPatchBaselineResponse' {} a -> s {httpStatus = a} :: RegisterDefaultPatchBaselineResponse)
 
-instance NFData RegisterDefaultPatchBaselineResponse
-         where
+instance
+  Prelude.NFData
+    RegisterDefaultPatchBaselineResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBParameterGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,151 +22,363 @@
 --
 -- Creates a new DB parameter group.
 --
+-- A DB parameter group is initially created with the default parameters
+-- for the database engine used by the DB instance. To provide custom
+-- values for any of the parameters, you must modify the group after
+-- creating it using /ModifyDBParameterGroup/. Once you\'ve created a DB
+-- parameter group, you need to associate it with your DB instance using
+-- /ModifyDBInstance/. When you associate a new DB parameter group with a
+-- running DB instance, you need to reboot the DB instance without failover
+-- for the new DB parameter group and associated settings to take effect.
 --
--- A DB parameter group is initially created with the default parameters for the database engine used by the DB instance. To provide custom values for any of the parameters, you must modify the group after creating it using /ModifyDBParameterGroup/ . Once you've created a DB parameter group, you need to associate it with your DB instance using /ModifyDBInstance/ . When you associate a new DB parameter group with a running DB instance, you need to reboot the DB instance without failover for the new DB parameter group and associated settings to take effect.
---
--- /Important:/ After you create a DB parameter group, you should wait at least 5 minutes before creating your first DB instance that uses that DB parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the parameter group is used as the default for a new DB instance. This is especially important for parameters that are critical when creating the default database for a DB instance, such as the character set for the default database defined by the @character_set_database@ parameter. You can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the /DescribeDBParameters/ command to verify that your DB parameter group has been created or modified.
---
+-- After you create a DB parameter group, you should wait at least 5
+-- minutes before creating your first DB instance that uses that DB
+-- parameter group as the default parameter group. This allows Amazon RDS
+-- to fully complete the create action before the parameter group is used
+-- as the default for a new DB instance. This is especially important for
+-- parameters that are critical when creating the default database for a DB
+-- instance, such as the character set for the default database defined by
+-- the @character_set_database@ parameter. You can use the /Parameter
+-- Groups/ option of the
+-- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
+-- /DescribeDBParameters/ command to verify that your DB parameter group
+-- has been created or modified.
 module Network.AWS.RDS.CreateDBParameterGroup
-    (
-    -- * Creating a Request
-      createDBParameterGroup
-    , CreateDBParameterGroup
+  ( -- * Creating a Request
+    CreateDBParameterGroup (..),
+    newCreateDBParameterGroup,
+
     -- * Request Lenses
-    , cdbpgTags
-    , cdbpgDBParameterGroupName
-    , cdbpgDBParameterGroupFamily
-    , cdbpgDescription
+    createDBParameterGroup_tags,
+    createDBParameterGroup_dbParameterGroupName,
+    createDBParameterGroup_dbParameterGroupFamily,
+    createDBParameterGroup_description,
 
     -- * Destructuring the Response
-    , createDBParameterGroupResponse
-    , CreateDBParameterGroupResponse
-    -- * Response Lenses
-    , cdpgrsDBParameterGroup
-    , cdpgrsResponseStatus
-    ) where
+    CreateDBParameterGroupResponse (..),
+    newCreateDBParameterGroupResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    createDBParameterGroupResponse_dbParameterGroup,
+    createDBParameterGroupResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'createDBParameterGroup' smart constructor.
+-- /See:/ 'newCreateDBParameterGroup' smart constructor.
 data CreateDBParameterGroup = CreateDBParameterGroup'
-  { _cdbpgTags                   :: !(Maybe [Tag])
-  , _cdbpgDBParameterGroupName   :: !Text
-  , _cdbpgDBParameterGroupFamily :: !Text
-  , _cdbpgDescription            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateDBParameterGroup' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdbpgTags' - Undocumented member.
---
--- * 'cdbpgDBParameterGroupName' - The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
---
--- * 'cdbpgDBParameterGroupFamily' - The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
---
--- * 'cdbpgDescription' - The description for the DB parameter group.
-createDBParameterGroup
-    :: Text -- ^ 'cdbpgDBParameterGroupName'
-    -> Text -- ^ 'cdbpgDBParameterGroupFamily'
-    -> Text -- ^ 'cdbpgDescription'
-    -> CreateDBParameterGroup
-createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
-  CreateDBParameterGroup'
-  { _cdbpgTags = Nothing
-  , _cdbpgDBParameterGroupName = pDBParameterGroupName_
-  , _cdbpgDBParameterGroupFamily = pDBParameterGroupFamily_
-  , _cdbpgDescription = pDescription_
+  { -- | Tags to assign to the DB parameter group.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name of the DB parameter group.
+    --
+    -- Constraints:
+    --
+    -- -   Must be 1 to 255 letters, numbers, or hyphens.
+    --
+    -- -   First character must be a letter
+    --
+    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
+    --
+    -- This value is stored as a lowercase string.
+    dbParameterGroupName :: Prelude.Text,
+    -- | The DB parameter group family name. A DB parameter group can be
+    -- associated with one and only one DB parameter group family, and can be
+    -- applied only to a DB instance running a database engine and engine
+    -- version compatible with that DB parameter group family.
+    --
+    -- To list all of the available parameter group families for a DB engine,
+    -- use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+    --
+    -- For example, to list all of the available parameter group families for
+    -- the MySQL DB engine, use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine mysql@
+    --
+    -- The output contains duplicates.
+    --
+    -- The following are the valid DB engine values:
+    --
+    -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+    --
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+    --
+    -- -   @aurora-postgresql@
+    --
+    -- -   @mariadb@
+    --
+    -- -   @mysql@
+    --
+    -- -   @oracle-ee@
+    --
+    -- -   @oracle-ee-cdb@
+    --
+    -- -   @oracle-se2@
+    --
+    -- -   @oracle-se2-cdb@
+    --
+    -- -   @postgres@
+    --
+    -- -   @sqlserver-ee@
+    --
+    -- -   @sqlserver-se@
+    --
+    -- -   @sqlserver-ex@
+    --
+    -- -   @sqlserver-web@
+    dbParameterGroupFamily :: Prelude.Text,
+    -- | The description for the DB parameter group.
+    description :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateDBParameterGroup' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'createDBParameterGroup_tags' - Tags to assign to the DB parameter group.
+--
+-- 'dbParameterGroupName', 'createDBParameterGroup_dbParameterGroupName' - The name of the DB parameter group.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 letters, numbers, or hyphens.
+--
+-- -   First character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+--
+-- This value is stored as a lowercase string.
+--
+-- 'dbParameterGroupFamily', 'createDBParameterGroup_dbParameterGroupFamily' - The DB parameter group family name. A DB parameter group can be
+-- associated with one and only one DB parameter group family, and can be
+-- applied only to a DB instance running a database engine and engine
+-- version compatible with that DB parameter group family.
+--
+-- To list all of the available parameter group families for a DB engine,
+-- use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+--
+-- For example, to list all of the available parameter group families for
+-- the MySQL DB engine, use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine mysql@
+--
+-- The output contains duplicates.
+--
+-- The following are the valid DB engine values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+--
+-- -   @aurora-postgresql@
+--
+-- -   @mariadb@
+--
+-- -   @mysql@
+--
+-- -   @oracle-ee@
+--
+-- -   @oracle-ee-cdb@
+--
+-- -   @oracle-se2@
+--
+-- -   @oracle-se2-cdb@
+--
+-- -   @postgres@
+--
+-- -   @sqlserver-ee@
+--
+-- -   @sqlserver-se@
+--
+-- -   @sqlserver-ex@
+--
+-- -   @sqlserver-web@
+--
+-- 'description', 'createDBParameterGroup_description' - The description for the DB parameter group.
+newCreateDBParameterGroup ::
+  -- | 'dbParameterGroupName'
+  Prelude.Text ->
+  -- | 'dbParameterGroupFamily'
+  Prelude.Text ->
+  -- | 'description'
+  Prelude.Text ->
+  CreateDBParameterGroup
+newCreateDBParameterGroup
+  pDBParameterGroupName_
+  pDBParameterGroupFamily_
+  pDescription_ =
+    CreateDBParameterGroup'
+      { tags = Prelude.Nothing,
+        dbParameterGroupName = pDBParameterGroupName_,
+        dbParameterGroupFamily = pDBParameterGroupFamily_,
+        description = pDescription_
+      }
 
--- | Undocumented member.
-cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
-cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce;
+-- | Tags to assign to the DB parameter group.
+createDBParameterGroup_tags :: Lens.Lens' CreateDBParameterGroup (Prelude.Maybe [Tag])
+createDBParameterGroup_tags = Lens.lens (\CreateDBParameterGroup' {tags} -> tags) (\s@CreateDBParameterGroup' {} a -> s {tags = a} :: CreateDBParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the DB parameter group. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
-cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
-cdbpgDBParameterGroupName = lens _cdbpgDBParameterGroupName (\ s a -> s{_cdbpgDBParameterGroupName = a});
+-- | The name of the DB parameter group.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 letters, numbers, or hyphens.
+--
+-- -   First character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+--
+-- This value is stored as a lowercase string.
+createDBParameterGroup_dbParameterGroupName :: Lens.Lens' CreateDBParameterGroup Prelude.Text
+createDBParameterGroup_dbParameterGroupName = Lens.lens (\CreateDBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBParameterGroup' {} a -> s {dbParameterGroupName = a} :: CreateDBParameterGroup)
 
--- | The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
-cdbpgDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
-cdbpgDBParameterGroupFamily = lens _cdbpgDBParameterGroupFamily (\ s a -> s{_cdbpgDBParameterGroupFamily = a});
+-- | The DB parameter group family name. A DB parameter group can be
+-- associated with one and only one DB parameter group family, and can be
+-- applied only to a DB instance running a database engine and engine
+-- version compatible with that DB parameter group family.
+--
+-- To list all of the available parameter group families for a DB engine,
+-- use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine \<engine>@
+--
+-- For example, to list all of the available parameter group families for
+-- the MySQL DB engine, use the following command:
+--
+-- @aws rds describe-db-engine-versions --query \"DBEngineVersions[].DBParameterGroupFamily\" --engine mysql@
+--
+-- The output contains duplicates.
+--
+-- The following are the valid DB engine values:
+--
+-- -   @aurora@ (for MySQL 5.6-compatible Aurora)
+--
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+--
+-- -   @aurora-postgresql@
+--
+-- -   @mariadb@
+--
+-- -   @mysql@
+--
+-- -   @oracle-ee@
+--
+-- -   @oracle-ee-cdb@
+--
+-- -   @oracle-se2@
+--
+-- -   @oracle-se2-cdb@
+--
+-- -   @postgres@
+--
+-- -   @sqlserver-ee@
+--
+-- -   @sqlserver-se@
+--
+-- -   @sqlserver-ex@
+--
+-- -   @sqlserver-web@
+createDBParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBParameterGroup Prelude.Text
+createDBParameterGroup_dbParameterGroupFamily = Lens.lens (\CreateDBParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@CreateDBParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: CreateDBParameterGroup)
 
 -- | The description for the DB parameter group.
-cdbpgDescription :: Lens' CreateDBParameterGroup Text
-cdbpgDescription = lens _cdbpgDescription (\ s a -> s{_cdbpgDescription = a});
+createDBParameterGroup_description :: Lens.Lens' CreateDBParameterGroup Prelude.Text
+createDBParameterGroup_description = Lens.lens (\CreateDBParameterGroup' {description} -> description) (\s@CreateDBParameterGroup' {} a -> s {description = a} :: CreateDBParameterGroup)
 
-instance AWSRequest CreateDBParameterGroup where
-        type Rs CreateDBParameterGroup =
-             CreateDBParameterGroupResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "CreateDBParameterGroupResult"
-              (\ s h x ->
-                 CreateDBParameterGroupResponse' <$>
-                   (x .@? "DBParameterGroup") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateDBParameterGroup where
+  type
+    AWSResponse CreateDBParameterGroup =
+      CreateDBParameterGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateDBParameterGroupResult"
+      ( \s h x ->
+          CreateDBParameterGroupResponse'
+            Prelude.<$> (x Core..@? "DBParameterGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateDBParameterGroup where
+instance Prelude.Hashable CreateDBParameterGroup
 
-instance NFData CreateDBParameterGroup where
+instance Prelude.NFData CreateDBParameterGroup
 
-instance ToHeaders CreateDBParameterGroup where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateDBParameterGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CreateDBParameterGroup where
-        toPath = const "/"
+instance Core.ToPath CreateDBParameterGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateDBParameterGroup where
-        toQuery CreateDBParameterGroup'{..}
-          = mconcat
-              ["Action" =:
-                 ("CreateDBParameterGroup" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbpgTags),
-               "DBParameterGroupName" =: _cdbpgDBParameterGroupName,
-               "DBParameterGroupFamily" =:
-                 _cdbpgDBParameterGroupFamily,
-               "Description" =: _cdbpgDescription]
+instance Core.ToQuery CreateDBParameterGroup where
+  toQuery CreateDBParameterGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateDBParameterGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "DBParameterGroupFamily"
+          Core.=: dbParameterGroupFamily,
+        "Description" Core.=: description
+      ]
 
--- | /See:/ 'createDBParameterGroupResponse' smart constructor.
+-- | /See:/ 'newCreateDBParameterGroupResponse' smart constructor.
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
-  { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
-  , _cdpgrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { dbParameterGroup :: Prelude.Maybe DBParameterGroup,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDBParameterGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDBParameterGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdpgrsDBParameterGroup' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdpgrsResponseStatus' - -- | The response status code.
-createDBParameterGroupResponse
-    :: Int -- ^ 'cdpgrsResponseStatus'
-    -> CreateDBParameterGroupResponse
-createDBParameterGroupResponse pResponseStatus_ =
+-- 'dbParameterGroup', 'createDBParameterGroupResponse_dbParameterGroup' - Undocumented member.
+--
+-- 'httpStatus', 'createDBParameterGroupResponse_httpStatus' - The response's http status code.
+newCreateDBParameterGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDBParameterGroupResponse
+newCreateDBParameterGroupResponse pHttpStatus_ =
   CreateDBParameterGroupResponse'
-  {_cdpgrsDBParameterGroup = Nothing, _cdpgrsResponseStatus = pResponseStatus_}
-
+    { dbParameterGroup =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-cdpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
+createDBParameterGroupResponse_dbParameterGroup :: Lens.Lens' CreateDBParameterGroupResponse (Prelude.Maybe DBParameterGroup)
+createDBParameterGroupResponse_dbParameterGroup = Lens.lens (\CreateDBParameterGroupResponse' {dbParameterGroup} -> dbParameterGroup) (\s@CreateDBParameterGroupResponse' {} a -> s {dbParameterGroup = a} :: CreateDBParameterGroupResponse)
 
--- | -- | The response status code.
-cdpgrsResponseStatus :: Lens' CreateDBParameterGroupResponse Int
-cdpgrsResponseStatus = lens _cdpgrsResponseStatus (\ s a -> s{_cdpgrsResponseStatus = a});
+-- | The response's http status code.
+createDBParameterGroupResponse_httpStatus :: Lens.Lens' CreateDBParameterGroupResponse Prelude.Int
+createDBParameterGroupResponse_httpStatus = Lens.lens (\CreateDBParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CreateDBParameterGroupResponse' {} a -> s {httpStatus = a} :: CreateDBParameterGroupResponse)
 
-instance NFData CreateDBParameterGroupResponse where
+instance
+  Prelude.NFData
+    CreateDBParameterGroupResponse

@@ -1,179 +1,259 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ListCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of ACM Certificates and the domain name for each. You can optionally filter the list to return only the certificates that match the specified status.
---
---
+-- Retrieves a list of certificate ARNs and domain names. You can request
+-- that only certificates that match a specific status be listed. You can
+-- also filter by specific attributes of the certificate. Default filtering
+-- returns only @RSA_2048@ certificates. For more information, see Filters.
 --
 -- This operation returns paginated results.
 module Network.AWS.CertificateManager.ListCertificates
-    (
-    -- * Creating a Request
-      listCertificates
-    , ListCertificates
+  ( -- * Creating a Request
+    ListCertificates (..),
+    newListCertificates,
+
     -- * Request Lenses
-    , lcCertificateStatuses
-    , lcNextToken
-    , lcMaxItems
+    listCertificates_nextToken,
+    listCertificates_certificateStatuses,
+    listCertificates_includes,
+    listCertificates_maxItems,
 
     -- * Destructuring the Response
-    , listCertificatesResponse
-    , ListCertificatesResponse
+    ListCertificatesResponse (..),
+    newListCertificatesResponse,
+
     -- * Response Lenses
-    , lcrsCertificateSummaryList
-    , lcrsNextToken
-    , lcrsResponseStatus
-    ) where
+    listCertificatesResponse_nextToken,
+    listCertificatesResponse_certificateSummaryList,
+    listCertificatesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listCertificates' smart constructor.
+-- | /See:/ 'newListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { _lcCertificateStatuses :: !(Maybe [CertificateStatus])
-  , _lcNextToken           :: !(Maybe Text)
-  , _lcMaxItems            :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Use this parameter only when paginating results and only in a subsequent
+    -- request after you receive a response with truncated results. Set it to
+    -- the value of @NextToken@ from the response you just received.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filter the certificate list by status value.
+    certificateStatuses :: Prelude.Maybe [CertificateStatus],
+    -- | Filter the certificate list. For more information, see the Filters
+    -- structure.
+    includes :: Prelude.Maybe Filters,
+    -- | Use this parameter when paginating results to specify the maximum number
+    -- of items to return in the response. If additional items exist beyond the
+    -- number you specify, the @NextToken@ element is sent in the response. Use
+    -- this @NextToken@ value in a subsequent request to retrieve additional
+    -- items.
+    maxItems :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListCertificates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcCertificateStatuses' - The status or statuses on which to filter the list of ACM Certificates.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcNextToken' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
+-- 'nextToken', 'listCertificates_nextToken' - Use this parameter only when paginating results and only in a subsequent
+-- request after you receive a response with truncated results. Set it to
+-- the value of @NextToken@ from the response you just received.
 --
--- * 'lcMaxItems' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-listCertificates
-    :: ListCertificates
-listCertificates =
+-- 'certificateStatuses', 'listCertificates_certificateStatuses' - Filter the certificate list by status value.
+--
+-- 'includes', 'listCertificates_includes' - Filter the certificate list. For more information, see the Filters
+-- structure.
+--
+-- 'maxItems', 'listCertificates_maxItems' - Use this parameter when paginating results to specify the maximum number
+-- of items to return in the response. If additional items exist beyond the
+-- number you specify, the @NextToken@ element is sent in the response. Use
+-- this @NextToken@ value in a subsequent request to retrieve additional
+-- items.
+newListCertificates ::
+  ListCertificates
+newListCertificates =
   ListCertificates'
-  { _lcCertificateStatuses = Nothing
-  , _lcNextToken = Nothing
-  , _lcMaxItems = Nothing
-  }
+    { nextToken = Prelude.Nothing,
+      certificateStatuses = Prelude.Nothing,
+      includes = Prelude.Nothing,
+      maxItems = Prelude.Nothing
+    }
 
+-- | Use this parameter only when paginating results and only in a subsequent
+-- request after you receive a response with truncated results. Set it to
+-- the value of @NextToken@ from the response you just received.
+listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
+listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
 
--- | The status or statuses on which to filter the list of ACM Certificates.
-lcCertificateStatuses :: Lens' ListCertificates [CertificateStatus]
-lcCertificateStatuses = lens _lcCertificateStatuses (\ s a -> s{_lcCertificateStatuses = a}) . _Default . _Coerce;
+-- | Filter the certificate list by status value.
+listCertificates_certificateStatuses :: Lens.Lens' ListCertificates (Prelude.Maybe [CertificateStatus])
+listCertificates_certificateStatuses = Lens.lens (\ListCertificates' {certificateStatuses} -> certificateStatuses) (\s@ListCertificates' {} a -> s {certificateStatuses = a} :: ListCertificates) Prelude.. Lens.mapping Lens._Coerce
 
--- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
-lcNextToken :: Lens' ListCertificates (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
+-- | Filter the certificate list. For more information, see the Filters
+-- structure.
+listCertificates_includes :: Lens.Lens' ListCertificates (Prelude.Maybe Filters)
+listCertificates_includes = Lens.lens (\ListCertificates' {includes} -> includes) (\s@ListCertificates' {} a -> s {includes = a} :: ListCertificates)
 
--- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-lcMaxItems :: Lens' ListCertificates (Maybe Natural)
-lcMaxItems = lens _lcMaxItems (\ s a -> s{_lcMaxItems = a}) . mapping _Nat;
+-- | Use this parameter when paginating results to specify the maximum number
+-- of items to return in the response. If additional items exist beyond the
+-- number you specify, the @NextToken@ element is sent in the response. Use
+-- this @NextToken@ value in a subsequent request to retrieve additional
+-- items.
+listCertificates_maxItems :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
+listCertificates_maxItems = Lens.lens (\ListCertificates' {maxItems} -> maxItems) (\s@ListCertificates' {} a -> s {maxItems = a} :: ListCertificates)
 
-instance AWSPager ListCertificates where
-        page rq rs
-          | stop (rs ^. lcrsNextToken) = Nothing
-          | stop (rs ^. lcrsCertificateSummaryList) = Nothing
-          | otherwise =
-            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+instance Core.AWSPager ListCertificates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listCertificatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listCertificatesResponse_certificateSummaryList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listCertificates_nextToken
+          Lens..~ rs
+          Lens.^? listCertificatesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListCertificates where
-        type Rs ListCertificates = ListCertificatesResponse
-        request = postJSON certificateManager
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListCertificatesResponse' <$>
-                   (x .?> "CertificateSummaryList" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListCertificates where
+  type
+    AWSResponse ListCertificates =
+      ListCertificatesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListCertificatesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "CertificateSummaryList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListCertificates where
+instance Prelude.Hashable ListCertificates
 
-instance NFData ListCertificates where
+instance Prelude.NFData ListCertificates
 
-instance ToHeaders ListCertificates where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CertificateManager.ListCertificates" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListCertificates where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CertificateManager.ListCertificates" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ListCertificates where
-        toJSON ListCertificates'{..}
-          = object
-              (catMaybes
-                 [("CertificateStatuses" .=) <$>
-                    _lcCertificateStatuses,
-                  ("NextToken" .=) <$> _lcNextToken,
-                  ("MaxItems" .=) <$> _lcMaxItems])
+instance Core.ToJSON ListCertificates where
+  toJSON ListCertificates' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CertificateStatuses" Core..=)
+              Prelude.<$> certificateStatuses,
+            ("Includes" Core..=) Prelude.<$> includes,
+            ("MaxItems" Core..=) Prelude.<$> maxItems
+          ]
+      )
 
-instance ToPath ListCertificates where
-        toPath = const "/"
+instance Core.ToPath ListCertificates where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListCertificates where
-        toQuery = const mempty
+instance Core.ToQuery ListCertificates where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listCertificatesResponse' smart constructor.
+-- | /See:/ 'newListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { _lcrsCertificateSummaryList :: !(Maybe [CertificateSummary])
-  , _lcrsNextToken              :: !(Maybe Text)
-  , _lcrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsCertificateSummaryList' - A list of ACM Certificates.
---
--- * 'lcrsNextToken' - When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCertificatesResponse
-    :: Int -- ^ 'lcrsResponseStatus'
-    -> ListCertificatesResponse
-listCertificatesResponse pResponseStatus_ =
-  ListCertificatesResponse'
-  { _lcrsCertificateSummaryList = Nothing
-  , _lcrsNextToken = Nothing
-  , _lcrsResponseStatus = pResponseStatus_
+  { -- | When the list is truncated, this value is present and contains the value
+    -- to use for the @NextToken@ parameter in a subsequent pagination request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of ACM certificates.
+    certificateSummaryList :: Prelude.Maybe [CertificateSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListCertificatesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listCertificatesResponse_nextToken' - When the list is truncated, this value is present and contains the value
+-- to use for the @NextToken@ parameter in a subsequent pagination request.
+--
+-- 'certificateSummaryList', 'listCertificatesResponse_certificateSummaryList' - A list of ACM certificates.
+--
+-- 'httpStatus', 'listCertificatesResponse_httpStatus' - The response's http status code.
+newListCertificatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListCertificatesResponse
+newListCertificatesResponse pHttpStatus_ =
+  ListCertificatesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      certificateSummaryList = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | A list of ACM Certificates.
-lcrsCertificateSummaryList :: Lens' ListCertificatesResponse [CertificateSummary]
-lcrsCertificateSummaryList = lens _lcrsCertificateSummaryList (\ s a -> s{_lcrsCertificateSummaryList = a}) . _Default . _Coerce;
+-- | When the list is truncated, this value is present and contains the value
+-- to use for the @NextToken@ parameter in a subsequent pagination request.
+listCertificatesResponse_nextToken :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe Prelude.Text)
+listCertificatesResponse_nextToken = Lens.lens (\ListCertificatesResponse' {nextToken} -> nextToken) (\s@ListCertificatesResponse' {} a -> s {nextToken = a} :: ListCertificatesResponse)
 
--- | When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
-lcrsNextToken :: Lens' ListCertificatesResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
+-- | A list of ACM certificates.
+listCertificatesResponse_certificateSummaryList :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [CertificateSummary])
+listCertificatesResponse_certificateSummaryList = Lens.lens (\ListCertificatesResponse' {certificateSummaryList} -> certificateSummaryList) (\s@ListCertificatesResponse' {} a -> s {certificateSummaryList = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCertificatesResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a});
+-- | The response's http status code.
+listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Prelude.Int
+listCertificatesResponse_httpStatus = Lens.lens (\ListCertificatesResponse' {httpStatus} -> httpStatus) (\s@ListCertificatesResponse' {} a -> s {httpStatus = a} :: ListCertificatesResponse)
 
-instance NFData ListCertificatesResponse where
+instance Prelude.NFData ListCertificatesResponse

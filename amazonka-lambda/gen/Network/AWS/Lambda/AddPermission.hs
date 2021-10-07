@@ -1,218 +1,351 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.AddPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use /push/ model. In a /push/ model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function.
+-- Grants an Amazon Web Services service or another account permission to
+-- use a function. You can apply the policy at the function level, or
+-- specify a qualifier to restrict access to a single version or alias. If
+-- you use a qualifier, the invoker must use the full Amazon Resource Name
+-- (ARN) of that version or alias to invoke the function.
 --
+-- To grant permission to another account, specify the account ID as the
+-- @Principal@. For Amazon Web Services services, the principal is a
+-- domain-style identifier defined by the service, like @s3.amazonaws.com@
+-- or @sns.amazonaws.com@. For Amazon Web Services services, you can also
+-- specify the ARN of the associated resource as the @SourceArn@. If you
+-- grant permission to a service principal without specifying the source,
+-- other accounts could potentially configure resources in their account to
+-- invoke your Lambda function.
 --
--- For information about the push model, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> .
---
--- If you are using versioning, the permissions you add are specific to the Lambda function version or alias you specify in the @AddPermission@ request via the @Qualifier@ parameter. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
---
--- This operation requires permission for the @lambda:AddPermission@ action.
---
+-- This action adds a statement to a resource-based permissions policy for
+-- the function. For more information about function policies, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html Lambda Function Policies>.
 module Network.AWS.Lambda.AddPermission
-    (
-    -- * Creating a Request
-      addPermission
-    , AddPermission
+  ( -- * Creating a Request
+    AddPermission (..),
+    newAddPermission,
+
     -- * Request Lenses
-    , apSourceAccount
-    , apEventSourceToken
-    , apSourceARN
-    , apQualifier
-    , apFunctionName
-    , apStatementId
-    , apAction
-    , apPrincipal
+    addPermission_revisionId,
+    addPermission_qualifier,
+    addPermission_eventSourceToken,
+    addPermission_sourceAccount,
+    addPermission_sourceArn,
+    addPermission_functionName,
+    addPermission_statementId,
+    addPermission_action,
+    addPermission_principal,
 
     -- * Destructuring the Response
-    , addPermissionResponse
-    , AddPermissionResponse
+    AddPermissionResponse (..),
+    newAddPermissionResponse,
+
     -- * Response Lenses
-    , aprsStatement
-    , aprsResponseStatus
-    ) where
+    addPermissionResponse_statement,
+    addPermissionResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- |
---
---
---
--- /See:/ 'addPermission' smart constructor.
+-- | /See:/ 'newAddPermission' smart constructor.
 data AddPermission = AddPermission'
-  { _apSourceAccount    :: !(Maybe Text)
-  , _apEventSourceToken :: !(Maybe Text)
-  , _apSourceARN        :: !(Maybe Text)
-  , _apQualifier        :: !(Maybe Text)
-  , _apFunctionName     :: !Text
-  , _apStatementId      :: !Text
-  , _apAction           :: !Text
-  , _apPrincipal        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apSourceAccount' - This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
---
--- * 'apEventSourceToken' - A unique token that must be supplied by the principal invoking the function. This is currently only used for Alexa Smart Home functions.
---
--- * 'apSourceARN' - This is optional; however, when granting permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function. /Important:/ If you add a permission without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function.
---
--- * 'apQualifier' - You can use this optional query parameter to describe a qualified ARN using a function version or an alias name. The permission will then apply to the specific qualified ARN. For example, if you specify function version 2 as the qualifier, then permission applies only when request is made using qualified function ARN: @arn:aws:lambda:aws-region:acct-id:function:function-name:2@  If you specify an alias name, for example @PROD@ , then the permission is valid only for requests made using the alias ARN: @arn:aws:lambda:aws-region:acct-id:function:function-name:PROD@  If the qualifier is not specified, the permission is valid only when requests is made using unqualified function ARN. @arn:aws:lambda:aws-region:acct-id:function:function-name@
---
--- * 'apFunctionName' - Name of the Lambda function whose resource policy you are updating by adding a new permission. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
---
--- * 'apStatementId' - A unique statement identifier.
---
--- * 'apAction' - The AWS Lambda action you want to allow in this statement. Each Lambda action is a string starting with @lambda:@ followed by the API name . For example, @lambda:CreateFunction@ . You can use wildcard (@lambda:*@ ) to grant permission for all AWS Lambda actions.
---
--- * 'apPrincipal' - The principal who is getting this permission. It can be Amazon S3 service Principal (@s3.amazonaws.com@ ) if you want Amazon S3 to invoke the function, an AWS account ID if you are granting cross-account permission, or any valid AWS service principal such as @sns.amazonaws.com@ . For example, you might want to allow a custom application in another AWS account to push events to AWS Lambda by invoking your function.
-addPermission
-    :: Text -- ^ 'apFunctionName'
-    -> Text -- ^ 'apStatementId'
-    -> Text -- ^ 'apAction'
-    -> Text -- ^ 'apPrincipal'
-    -> AddPermission
-addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
-  AddPermission'
-  { _apSourceAccount = Nothing
-  , _apEventSourceToken = Nothing
-  , _apSourceARN = Nothing
-  , _apQualifier = Nothing
-  , _apFunctionName = pFunctionName_
-  , _apStatementId = pStatementId_
-  , _apAction = pAction_
-  , _apPrincipal = pPrincipal_
+  { -- | Only update the policy if the revision ID matches the ID that\'s
+    -- specified. Use this option to avoid modifying a policy that has changed
+    -- since you last read it.
+    revisionId :: Prelude.Maybe Prelude.Text,
+    -- | Specify a version or alias to add permissions to a published version of
+    -- the function.
+    qualifier :: Prelude.Maybe Prelude.Text,
+    -- | For Alexa Smart Home functions, a token that must be supplied by the
+    -- invoker.
+    eventSourceToken :: Prelude.Maybe Prelude.Text,
+    -- | For Amazon S3, the ID of the account that owns the resource. Use this
+    -- together with @SourceArn@ to ensure that the resource is owned by the
+    -- specified account. It is possible for an Amazon S3 bucket to be deleted
+    -- by its owner and recreated by another account.
+    sourceAccount :: Prelude.Maybe Prelude.Text,
+    -- | For Amazon Web Services services, the ARN of the Amazon Web Services
+    -- resource that invokes the function. For example, an Amazon S3 bucket or
+    -- Amazon SNS topic.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+    --     (with alias).
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    --
+    -- You can append a version number or alias to any of the formats. The
+    -- length constraint applies only to the full ARN. If you specify only the
+    -- function name, it is limited to 64 characters in length.
+    functionName :: Prelude.Text,
+    -- | A statement identifier that differentiates the statement from others in
+    -- the same policy.
+    statementId :: Prelude.Text,
+    -- | The action that the principal can use on the function. For example,
+    -- @lambda:InvokeFunction@ or @lambda:GetFunction@.
+    action :: Prelude.Text,
+    -- | The Amazon Web Services service or account that invokes the function. If
+    -- you specify a service, use @SourceArn@ or @SourceAccount@ to limit who
+    -- can invoke the function through that service.
+    principal :: Prelude.Text
   }
-
-
--- | This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner. For example, if the @SourceArn@ identifies a bucket, then this is the bucket owner's account ID. You can use this additional condition to ensure the bucket you specify is owned by a specific account (it is possible the bucket owner deleted the bucket and some other AWS account created the bucket). You can also use this condition to specify all sources (that is, you don't specify the @SourceArn@ ) owned by a specific account.
-apSourceAccount :: Lens' AddPermission (Maybe Text)
-apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
-
--- | A unique token that must be supplied by the principal invoking the function. This is currently only used for Alexa Smart Home functions.
-apEventSourceToken :: Lens' AddPermission (Maybe Text)
-apEventSourceToken = lens _apEventSourceToken (\ s a -> s{_apEventSourceToken = a});
-
--- | This is optional; however, when granting permission to invoke your function, you should specify this field with the Amazon Resource Name (ARN) as its value. This ensures that only events generated from the specified source can invoke the function. /Important:/ If you add a permission without providing the source ARN, any AWS account that creates a mapping to your function ARN can send events to invoke your Lambda function.
-apSourceARN :: Lens' AddPermission (Maybe Text)
-apSourceARN = lens _apSourceARN (\ s a -> s{_apSourceARN = a});
-
--- | You can use this optional query parameter to describe a qualified ARN using a function version or an alias name. The permission will then apply to the specific qualified ARN. For example, if you specify function version 2 as the qualifier, then permission applies only when request is made using qualified function ARN: @arn:aws:lambda:aws-region:acct-id:function:function-name:2@  If you specify an alias name, for example @PROD@ , then the permission is valid only for requests made using the alias ARN: @arn:aws:lambda:aws-region:acct-id:function:function-name:PROD@  If the qualifier is not specified, the permission is valid only when requests is made using unqualified function ARN. @arn:aws:lambda:aws-region:acct-id:function:function-name@
-apQualifier :: Lens' AddPermission (Maybe Text)
-apQualifier = lens _apQualifier (\ s a -> s{_apQualifier = a});
-
--- | Name of the Lambda function whose resource policy you are updating by adding a new permission. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-apFunctionName :: Lens' AddPermission Text
-apFunctionName = lens _apFunctionName (\ s a -> s{_apFunctionName = a});
-
--- | A unique statement identifier.
-apStatementId :: Lens' AddPermission Text
-apStatementId = lens _apStatementId (\ s a -> s{_apStatementId = a});
-
--- | The AWS Lambda action you want to allow in this statement. Each Lambda action is a string starting with @lambda:@ followed by the API name . For example, @lambda:CreateFunction@ . You can use wildcard (@lambda:*@ ) to grant permission for all AWS Lambda actions.
-apAction :: Lens' AddPermission Text
-apAction = lens _apAction (\ s a -> s{_apAction = a});
-
--- | The principal who is getting this permission. It can be Amazon S3 service Principal (@s3.amazonaws.com@ ) if you want Amazon S3 to invoke the function, an AWS account ID if you are granting cross-account permission, or any valid AWS service principal such as @sns.amazonaws.com@ . For example, you might want to allow a custom application in another AWS account to push events to AWS Lambda by invoking your function.
-apPrincipal :: Lens' AddPermission Text
-apPrincipal = lens _apPrincipal (\ s a -> s{_apPrincipal = a});
-
-instance AWSRequest AddPermission where
-        type Rs AddPermission = AddPermissionResponse
-        request = postJSON lambda
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AddPermissionResponse' <$>
-                   (x .?> "Statement") <*> (pure (fromEnum s)))
-
-instance Hashable AddPermission where
-
-instance NFData AddPermission where
-
-instance ToHeaders AddPermission where
-        toHeaders = const mempty
-
-instance ToJSON AddPermission where
-        toJSON AddPermission'{..}
-          = object
-              (catMaybes
-                 [("SourceAccount" .=) <$> _apSourceAccount,
-                  ("EventSourceToken" .=) <$> _apEventSourceToken,
-                  ("SourceArn" .=) <$> _apSourceARN,
-                  Just ("StatementId" .= _apStatementId),
-                  Just ("Action" .= _apAction),
-                  Just ("Principal" .= _apPrincipal)])
-
-instance ToPath AddPermission where
-        toPath AddPermission'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toBS _apFunctionName,
-               "/policy"]
-
-instance ToQuery AddPermission where
-        toQuery AddPermission'{..}
-          = mconcat ["Qualifier" =: _apQualifier]
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'AddPermission' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'addPermissionResponse' smart constructor.
+-- 'revisionId', 'addPermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s
+-- specified. Use this option to avoid modifying a policy that has changed
+-- since you last read it.
+--
+-- 'qualifier', 'addPermission_qualifier' - Specify a version or alias to add permissions to a published version of
+-- the function.
+--
+-- 'eventSourceToken', 'addPermission_eventSourceToken' - For Alexa Smart Home functions, a token that must be supplied by the
+-- invoker.
+--
+-- 'sourceAccount', 'addPermission_sourceAccount' - For Amazon S3, the ID of the account that owns the resource. Use this
+-- together with @SourceArn@ to ensure that the resource is owned by the
+-- specified account. It is possible for an Amazon S3 bucket to be deleted
+-- by its owner and recreated by another account.
+--
+-- 'sourceArn', 'addPermission_sourceArn' - For Amazon Web Services services, the ARN of the Amazon Web Services
+-- resource that invokes the function. For example, an Amazon S3 bucket or
+-- Amazon SNS topic.
+--
+-- 'functionName', 'addPermission_functionName' - The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+--     (with alias).
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+--
+-- -   __Partial ARN__ - @123456789012:function:my-function@.
+--
+-- You can append a version number or alias to any of the formats. The
+-- length constraint applies only to the full ARN. If you specify only the
+-- function name, it is limited to 64 characters in length.
+--
+-- 'statementId', 'addPermission_statementId' - A statement identifier that differentiates the statement from others in
+-- the same policy.
+--
+-- 'action', 'addPermission_action' - The action that the principal can use on the function. For example,
+-- @lambda:InvokeFunction@ or @lambda:GetFunction@.
+--
+-- 'principal', 'addPermission_principal' - The Amazon Web Services service or account that invokes the function. If
+-- you specify a service, use @SourceArn@ or @SourceAccount@ to limit who
+-- can invoke the function through that service.
+newAddPermission ::
+  -- | 'functionName'
+  Prelude.Text ->
+  -- | 'statementId'
+  Prelude.Text ->
+  -- | 'action'
+  Prelude.Text ->
+  -- | 'principal'
+  Prelude.Text ->
+  AddPermission
+newAddPermission
+  pFunctionName_
+  pStatementId_
+  pAction_
+  pPrincipal_ =
+    AddPermission'
+      { revisionId = Prelude.Nothing,
+        qualifier = Prelude.Nothing,
+        eventSourceToken = Prelude.Nothing,
+        sourceAccount = Prelude.Nothing,
+        sourceArn = Prelude.Nothing,
+        functionName = pFunctionName_,
+        statementId = pStatementId_,
+        action = pAction_,
+        principal = pPrincipal_
+      }
+
+-- | Only update the policy if the revision ID matches the ID that\'s
+-- specified. Use this option to avoid modifying a policy that has changed
+-- since you last read it.
+addPermission_revisionId :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_revisionId = Lens.lens (\AddPermission' {revisionId} -> revisionId) (\s@AddPermission' {} a -> s {revisionId = a} :: AddPermission)
+
+-- | Specify a version or alias to add permissions to a published version of
+-- the function.
+addPermission_qualifier :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_qualifier = Lens.lens (\AddPermission' {qualifier} -> qualifier) (\s@AddPermission' {} a -> s {qualifier = a} :: AddPermission)
+
+-- | For Alexa Smart Home functions, a token that must be supplied by the
+-- invoker.
+addPermission_eventSourceToken :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -> eventSourceToken) (\s@AddPermission' {} a -> s {eventSourceToken = a} :: AddPermission)
+
+-- | For Amazon S3, the ID of the account that owns the resource. Use this
+-- together with @SourceArn@ to ensure that the resource is owned by the
+-- specified account. It is possible for an Amazon S3 bucket to be deleted
+-- by its owner and recreated by another account.
+addPermission_sourceAccount :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_sourceAccount = Lens.lens (\AddPermission' {sourceAccount} -> sourceAccount) (\s@AddPermission' {} a -> s {sourceAccount = a} :: AddPermission)
+
+-- | For Amazon Web Services services, the ARN of the Amazon Web Services
+-- resource that invokes the function. For example, an Amazon S3 bucket or
+-- Amazon SNS topic.
+addPermission_sourceArn :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_sourceArn = Lens.lens (\AddPermission' {sourceArn} -> sourceArn) (\s@AddPermission' {} a -> s {sourceArn = a} :: AddPermission)
+
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+--     (with alias).
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+--
+-- -   __Partial ARN__ - @123456789012:function:my-function@.
+--
+-- You can append a version number or alias to any of the formats. The
+-- length constraint applies only to the full ARN. If you specify only the
+-- function name, it is limited to 64 characters in length.
+addPermission_functionName :: Lens.Lens' AddPermission Prelude.Text
+addPermission_functionName = Lens.lens (\AddPermission' {functionName} -> functionName) (\s@AddPermission' {} a -> s {functionName = a} :: AddPermission)
+
+-- | A statement identifier that differentiates the statement from others in
+-- the same policy.
+addPermission_statementId :: Lens.Lens' AddPermission Prelude.Text
+addPermission_statementId = Lens.lens (\AddPermission' {statementId} -> statementId) (\s@AddPermission' {} a -> s {statementId = a} :: AddPermission)
+
+-- | The action that the principal can use on the function. For example,
+-- @lambda:InvokeFunction@ or @lambda:GetFunction@.
+addPermission_action :: Lens.Lens' AddPermission Prelude.Text
+addPermission_action = Lens.lens (\AddPermission' {action} -> action) (\s@AddPermission' {} a -> s {action = a} :: AddPermission)
+
+-- | The Amazon Web Services service or account that invokes the function. If
+-- you specify a service, use @SourceArn@ or @SourceAccount@ to limit who
+-- can invoke the function through that service.
+addPermission_principal :: Lens.Lens' AddPermission Prelude.Text
+addPermission_principal = Lens.lens (\AddPermission' {principal} -> principal) (\s@AddPermission' {} a -> s {principal = a} :: AddPermission)
+
+instance Core.AWSRequest AddPermission where
+  type
+    AWSResponse AddPermission =
+      AddPermissionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AddPermissionResponse'
+            Prelude.<$> (x Core..?> "Statement")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable AddPermission
+
+instance Prelude.NFData AddPermission
+
+instance Core.ToHeaders AddPermission where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToJSON AddPermission where
+  toJSON AddPermission' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("RevisionId" Core..=) Prelude.<$> revisionId,
+            ("EventSourceToken" Core..=)
+              Prelude.<$> eventSourceToken,
+            ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
+            ("SourceArn" Core..=) Prelude.<$> sourceArn,
+            Prelude.Just ("StatementId" Core..= statementId),
+            Prelude.Just ("Action" Core..= action),
+            Prelude.Just ("Principal" Core..= principal)
+          ]
+      )
+
+instance Core.ToPath AddPermission where
+  toPath AddPermission' {..} =
+    Prelude.mconcat
+      [ "/2015-03-31/functions/",
+        Core.toBS functionName,
+        "/policy"
+      ]
+
+instance Core.ToQuery AddPermission where
+  toQuery AddPermission' {..} =
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]
+
+-- | /See:/ 'newAddPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse'
-  { _aprsStatement      :: !(Maybe Text)
-  , _aprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The permission statement that\'s added to the function policy.
+    statement :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddPermissionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aprsStatement' - The permission statement you specified in the request. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aprsResponseStatus' - -- | The response status code.
-addPermissionResponse
-    :: Int -- ^ 'aprsResponseStatus'
-    -> AddPermissionResponse
-addPermissionResponse pResponseStatus_ =
+-- 'statement', 'addPermissionResponse_statement' - The permission statement that\'s added to the function policy.
+--
+-- 'httpStatus', 'addPermissionResponse_httpStatus' - The response's http status code.
+newAddPermissionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddPermissionResponse
+newAddPermissionResponse pHttpStatus_ =
   AddPermissionResponse'
-  {_aprsStatement = Nothing, _aprsResponseStatus = pResponseStatus_}
+    { statement = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The permission statement that\'s added to the function policy.
+addPermissionResponse_statement :: Lens.Lens' AddPermissionResponse (Prelude.Maybe Prelude.Text)
+addPermissionResponse_statement = Lens.lens (\AddPermissionResponse' {statement} -> statement) (\s@AddPermissionResponse' {} a -> s {statement = a} :: AddPermissionResponse)
 
--- | The permission statement you specified in the request. The response returns the same as a string using a backslash ("\") as an escape character in the JSON.
-aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
-aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
+-- | The response's http status code.
+addPermissionResponse_httpStatus :: Lens.Lens' AddPermissionResponse Prelude.Int
+addPermissionResponse_httpStatus = Lens.lens (\AddPermissionResponse' {httpStatus} -> httpStatus) (\s@AddPermissionResponse' {} a -> s {httpStatus = a} :: AddPermissionResponse)
 
--- | -- | The response status code.
-aprsResponseStatus :: Lens' AddPermissionResponse Int
-aprsResponseStatus = lens _aprsResponseStatus (\ s a -> s{_aprsResponseStatus = a});
-
-instance NFData AddPermissionResponse where
+instance Prelude.NFData AddPermissionResponse

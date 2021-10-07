@@ -1,120 +1,141 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.FlushStageAuthorizersCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Flushes all authorizer cache entries on a stage.
---
---
 module Network.AWS.APIGateway.FlushStageAuthorizersCache
-    (
-    -- * Creating a Request
-      flushStageAuthorizersCache
-    , FlushStageAuthorizersCache
+  ( -- * Creating a Request
+    FlushStageAuthorizersCache (..),
+    newFlushStageAuthorizersCache,
+
     -- * Request Lenses
-    , fsacRestAPIId
-    , fsacStageName
+    flushStageAuthorizersCache_restApiId,
+    flushStageAuthorizersCache_stageName,
 
     -- * Destructuring the Response
-    , flushStageAuthorizersCacheResponse
-    , FlushStageAuthorizersCacheResponse
-    ) where
+    FlushStageAuthorizersCacheResponse (..),
+    newFlushStageAuthorizersCacheResponse,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to flush authorizer cache entries on a specified stage.
 --
---
---
--- /See:/ 'flushStageAuthorizersCache' smart constructor.
+-- /See:/ 'newFlushStageAuthorizersCache' smart constructor.
 data FlushStageAuthorizersCache = FlushStageAuthorizersCache'
-  { _fsacRestAPIId :: !Text
-  , _fsacStageName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | The name of the stage to flush.
+    stageName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'FlushStageAuthorizersCache' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'FlushStageAuthorizersCache' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'fsacRestAPIId' - The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'fsacStageName' - The name of the stage to flush.
-flushStageAuthorizersCache
-    :: Text -- ^ 'fsacRestAPIId'
-    -> Text -- ^ 'fsacStageName'
-    -> FlushStageAuthorizersCache
-flushStageAuthorizersCache pRestAPIId_ pStageName_ =
+-- 'restApiId', 'flushStageAuthorizersCache_restApiId' - The string identifier of the associated RestApi.
+--
+-- 'stageName', 'flushStageAuthorizersCache_stageName' - The name of the stage to flush.
+newFlushStageAuthorizersCache ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'stageName'
+  Prelude.Text ->
+  FlushStageAuthorizersCache
+newFlushStageAuthorizersCache pRestApiId_ pStageName_ =
   FlushStageAuthorizersCache'
-  {_fsacRestAPIId = pRestAPIId_, _fsacStageName = pStageName_}
+    { restApiId =
+        pRestApiId_,
+      stageName = pStageName_
+    }
 
-
--- | The string identifier of the associated 'RestApi' .
-fsacRestAPIId :: Lens' FlushStageAuthorizersCache Text
-fsacRestAPIId = lens _fsacRestAPIId (\ s a -> s{_fsacRestAPIId = a});
+-- | The string identifier of the associated RestApi.
+flushStageAuthorizersCache_restApiId :: Lens.Lens' FlushStageAuthorizersCache Prelude.Text
+flushStageAuthorizersCache_restApiId = Lens.lens (\FlushStageAuthorizersCache' {restApiId} -> restApiId) (\s@FlushStageAuthorizersCache' {} a -> s {restApiId = a} :: FlushStageAuthorizersCache)
 
 -- | The name of the stage to flush.
-fsacStageName :: Lens' FlushStageAuthorizersCache Text
-fsacStageName = lens _fsacStageName (\ s a -> s{_fsacStageName = a});
+flushStageAuthorizersCache_stageName :: Lens.Lens' FlushStageAuthorizersCache Prelude.Text
+flushStageAuthorizersCache_stageName = Lens.lens (\FlushStageAuthorizersCache' {stageName} -> stageName) (\s@FlushStageAuthorizersCache' {} a -> s {stageName = a} :: FlushStageAuthorizersCache)
 
-instance AWSRequest FlushStageAuthorizersCache where
-        type Rs FlushStageAuthorizersCache =
-             FlushStageAuthorizersCacheResponse
-        request = delete apiGateway
-        response
-          = receiveNull FlushStageAuthorizersCacheResponse'
+instance Core.AWSRequest FlushStageAuthorizersCache where
+  type
+    AWSResponse FlushStageAuthorizersCache =
+      FlushStageAuthorizersCacheResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull
+      FlushStageAuthorizersCacheResponse'
 
-instance Hashable FlushStageAuthorizersCache where
+instance Prelude.Hashable FlushStageAuthorizersCache
 
-instance NFData FlushStageAuthorizersCache where
+instance Prelude.NFData FlushStageAuthorizersCache
 
-instance ToHeaders FlushStageAuthorizersCache where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders FlushStageAuthorizersCache where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToPath FlushStageAuthorizersCache where
-        toPath FlushStageAuthorizersCache'{..}
-          = mconcat
-              ["/restapis/", toBS _fsacRestAPIId, "/stages/",
-               toBS _fsacStageName, "/cache/authorizers"]
+instance Core.ToPath FlushStageAuthorizersCache where
+  toPath FlushStageAuthorizersCache' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/stages/",
+        Core.toBS stageName,
+        "/cache/authorizers"
+      ]
 
-instance ToQuery FlushStageAuthorizersCache where
-        toQuery = const mempty
+instance Core.ToQuery FlushStageAuthorizersCache where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'flushStageAuthorizersCacheResponse' smart constructor.
-data FlushStageAuthorizersCacheResponse =
-  FlushStageAuthorizersCacheResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newFlushStageAuthorizersCacheResponse' smart constructor.
+data FlushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'FlushStageAuthorizersCacheResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'FlushStageAuthorizersCacheResponse' with all optional fields omitted.
 --
-flushStageAuthorizersCacheResponse
-    :: FlushStageAuthorizersCacheResponse
-flushStageAuthorizersCacheResponse = FlushStageAuthorizersCacheResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newFlushStageAuthorizersCacheResponse ::
+  FlushStageAuthorizersCacheResponse
+newFlushStageAuthorizersCacheResponse =
+  FlushStageAuthorizersCacheResponse'
 
-
-instance NFData FlushStageAuthorizersCacheResponse
-         where
+instance
+  Prelude.NFData
+    FlushStageAuthorizersCacheResponse

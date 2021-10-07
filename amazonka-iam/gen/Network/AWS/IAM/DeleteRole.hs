@@ -1,102 +1,133 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified role. The role must not have any policies attached. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles> .
+-- Deletes the specified role. The role must not have any policies
+-- attached. For more information about roles, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with roles>.
 --
---
--- /Important:/ Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.
---
+-- Make sure that you do not have any Amazon EC2 instances running with the
+-- role you are about to delete. Deleting a role or instance profile that
+-- is associated with a running instance will break any applications
+-- running on the instance.
 module Network.AWS.IAM.DeleteRole
-    (
-    -- * Creating a Request
-      deleteRole
-    , DeleteRole
+  ( -- * Creating a Request
+    DeleteRole (..),
+    newDeleteRole,
+
     -- * Request Lenses
-    , drRoleName
+    deleteRole_roleName,
 
     -- * Destructuring the Response
-    , deleteRoleResponse
-    , DeleteRoleResponse
-    ) where
+    DeleteRoleResponse (..),
+    newDeleteRoleResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteRole' smart constructor.
-newtype DeleteRole = DeleteRole'
-  { _drRoleName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteRole' smart constructor.
+data DeleteRole = DeleteRole'
+  { -- | The name of the role to delete.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    roleName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteRole' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteRole' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drRoleName' - The name of the role to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-deleteRole
-    :: Text -- ^ 'drRoleName'
-    -> DeleteRole
-deleteRole pRoleName_ = DeleteRole' {_drRoleName = pRoleName_}
-
-
--- | The name of the role to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-drRoleName :: Lens' DeleteRole Text
-drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
-
-instance AWSRequest DeleteRole where
-        type Rs DeleteRole = DeleteRoleResponse
-        request = postQuery iam
-        response = receiveNull DeleteRoleResponse'
-
-instance Hashable DeleteRole where
-
-instance NFData DeleteRole where
-
-instance ToHeaders DeleteRole where
-        toHeaders = const mempty
-
-instance ToPath DeleteRole where
-        toPath = const "/"
-
-instance ToQuery DeleteRole where
-        toQuery DeleteRole'{..}
-          = mconcat
-              ["Action" =: ("DeleteRole" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _drRoleName]
-
--- | /See:/ 'deleteRoleResponse' smart constructor.
-data DeleteRoleResponse =
-  DeleteRoleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteRoleResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
-deleteRoleResponse
-    :: DeleteRoleResponse
-deleteRoleResponse = DeleteRoleResponse'
+-- 'roleName', 'deleteRole_roleName' - The name of the role to delete.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+newDeleteRole ::
+  -- | 'roleName'
+  Prelude.Text ->
+  DeleteRole
+newDeleteRole pRoleName_ =
+  DeleteRole' {roleName = pRoleName_}
 
+-- | The name of the role to delete.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deleteRole_roleName :: Lens.Lens' DeleteRole Prelude.Text
+deleteRole_roleName = Lens.lens (\DeleteRole' {roleName} -> roleName) (\s@DeleteRole' {} a -> s {roleName = a} :: DeleteRole)
 
-instance NFData DeleteRoleResponse where
+instance Core.AWSRequest DeleteRole where
+  type AWSResponse DeleteRole = DeleteRoleResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull DeleteRoleResponse'
+
+instance Prelude.Hashable DeleteRole
+
+instance Prelude.NFData DeleteRole
+
+instance Core.ToHeaders DeleteRole where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteRole where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteRole where
+  toQuery DeleteRole' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteRole" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Core.=: roleName
+      ]
+
+-- | /See:/ 'newDeleteRoleResponse' smart constructor.
+data DeleteRoleResponse = DeleteRoleResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteRoleResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteRoleResponse ::
+  DeleteRoleResponse
+newDeleteRoleResponse = DeleteRoleResponse'
+
+instance Prelude.NFData DeleteRoleResponse

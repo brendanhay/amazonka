@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.DeleteTargetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,98 +22,126 @@
 --
 -- Deletes the specified target group.
 --
---
--- You can delete a target group if it is not referenced by any actions. Deleting a target group also deletes any associated health checks.
---
+-- You can delete a target group if it is not referenced by any actions.
+-- Deleting a target group also deletes any associated health checks.
+-- Deleting a target group does not affect its registered targets. For
+-- example, any EC2 instances continue to run until you stop or terminate
+-- them.
 module Network.AWS.ELBv2.DeleteTargetGroup
-    (
-    -- * Creating a Request
-      deleteTargetGroup
-    , DeleteTargetGroup
+  ( -- * Creating a Request
+    DeleteTargetGroup (..),
+    newDeleteTargetGroup,
+
     -- * Request Lenses
-    , dtgTargetGroupARN
+    deleteTargetGroup_targetGroupArn,
 
     -- * Destructuring the Response
-    , deleteTargetGroupResponse
-    , DeleteTargetGroupResponse
+    DeleteTargetGroupResponse (..),
+    newDeleteTargetGroupResponse,
+
     -- * Response Lenses
-    , dtgrsResponseStatus
-    ) where
+    deleteTargetGroupResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteTargetGroup' smart constructor.
-newtype DeleteTargetGroup = DeleteTargetGroup'
-  { _dtgTargetGroupARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteTargetGroup' smart constructor.
+data DeleteTargetGroup = DeleteTargetGroup'
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTargetGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTargetGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
-deleteTargetGroup
-    :: Text -- ^ 'dtgTargetGroupARN'
-    -> DeleteTargetGroup
-deleteTargetGroup pTargetGroupARN_ =
-  DeleteTargetGroup' {_dtgTargetGroupARN = pTargetGroupARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'targetGroupArn', 'deleteTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
+newDeleteTargetGroup ::
+  -- | 'targetGroupArn'
+  Prelude.Text ->
+  DeleteTargetGroup
+newDeleteTargetGroup pTargetGroupArn_ =
+  DeleteTargetGroup'
+    { targetGroupArn =
+        pTargetGroupArn_
+    }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-dtgTargetGroupARN :: Lens' DeleteTargetGroup Text
-dtgTargetGroupARN = lens _dtgTargetGroupARN (\ s a -> s{_dtgTargetGroupARN = a});
+deleteTargetGroup_targetGroupArn :: Lens.Lens' DeleteTargetGroup Prelude.Text
+deleteTargetGroup_targetGroupArn = Lens.lens (\DeleteTargetGroup' {targetGroupArn} -> targetGroupArn) (\s@DeleteTargetGroup' {} a -> s {targetGroupArn = a} :: DeleteTargetGroup)
 
-instance AWSRequest DeleteTargetGroup where
-        type Rs DeleteTargetGroup = DeleteTargetGroupResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "DeleteTargetGroupResult"
-              (\ s h x ->
-                 DeleteTargetGroupResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteTargetGroup where
+  type
+    AWSResponse DeleteTargetGroup =
+      DeleteTargetGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteTargetGroupResult"
+      ( \s h x ->
+          DeleteTargetGroupResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteTargetGroup where
+instance Prelude.Hashable DeleteTargetGroup
 
-instance NFData DeleteTargetGroup where
+instance Prelude.NFData DeleteTargetGroup
 
-instance ToHeaders DeleteTargetGroup where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteTargetGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteTargetGroup where
-        toPath = const "/"
+instance Core.ToPath DeleteTargetGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteTargetGroup where
-        toQuery DeleteTargetGroup'{..}
-          = mconcat
-              ["Action" =: ("DeleteTargetGroup" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "TargetGroupArn" =: _dtgTargetGroupARN]
+instance Core.ToQuery DeleteTargetGroup where
+  toQuery DeleteTargetGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteTargetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Core.=: targetGroupArn
+      ]
 
--- | /See:/ 'deleteTargetGroupResponse' smart constructor.
-newtype DeleteTargetGroupResponse = DeleteTargetGroupResponse'
-  { _dtgrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteTargetGroupResponse' smart constructor.
+data DeleteTargetGroupResponse = DeleteTargetGroupResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTargetGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTargetGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtgrsResponseStatus' - -- | The response status code.
-deleteTargetGroupResponse
-    :: Int -- ^ 'dtgrsResponseStatus'
-    -> DeleteTargetGroupResponse
-deleteTargetGroupResponse pResponseStatus_ =
-  DeleteTargetGroupResponse' {_dtgrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteTargetGroupResponse_httpStatus' - The response's http status code.
+newDeleteTargetGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTargetGroupResponse
+newDeleteTargetGroupResponse pHttpStatus_ =
+  DeleteTargetGroupResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteTargetGroupResponse_httpStatus :: Lens.Lens' DeleteTargetGroupResponse Prelude.Int
+deleteTargetGroupResponse_httpStatus = Lens.lens (\DeleteTargetGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteTargetGroupResponse' {} a -> s {httpStatus = a} :: DeleteTargetGroupResponse)
 
--- | -- | The response status code.
-dtgrsResponseStatus :: Lens' DeleteTargetGroupResponse Int
-dtgrsResponseStatus = lens _dtgrsResponseStatus (\ s a -> s{_dtgrsResponseStatus = a});
-
-instance NFData DeleteTargetGroupResponse where
+instance Prelude.NFData DeleteTargetGroupResponse

@@ -1,145 +1,187 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.AcceptQualificationRequest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @AcceptQualificationRequest@ operation approves a Worker's request for a Qualification.
+-- The @AcceptQualificationRequest@ operation approves a Worker\'s request
+-- for a Qualification.
 --
+-- Only the owner of the Qualification type can grant a Qualification
+-- request for that type.
 --
--- Only the owner of the Qualification type can grant a Qualification request for that type.
---
--- A successful request for the @AcceptQualificationRequest@ operation returns with no errors and an empty body.
---
+-- A successful request for the @AcceptQualificationRequest@ operation
+-- returns with no errors and an empty body.
 module Network.AWS.MechanicalTurk.AcceptQualificationRequest
-    (
-    -- * Creating a Request
-      acceptQualificationRequest
-    , AcceptQualificationRequest
+  ( -- * Creating a Request
+    AcceptQualificationRequest (..),
+    newAcceptQualificationRequest,
+
     -- * Request Lenses
-    , aqrIntegerValue
-    , aqrQualificationRequestId
+    acceptQualificationRequest_integerValue,
+    acceptQualificationRequest_qualificationRequestId,
 
     -- * Destructuring the Response
-    , acceptQualificationRequestResponse
-    , AcceptQualificationRequestResponse
+    AcceptQualificationRequestResponse (..),
+    newAcceptQualificationRequestResponse,
+
     -- * Response Lenses
-    , aqrrsResponseStatus
-    ) where
+    acceptQualificationRequestResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'acceptQualificationRequest' smart constructor.
+-- | /See:/ 'newAcceptQualificationRequest' smart constructor.
 data AcceptQualificationRequest = AcceptQualificationRequest'
-  { _aqrIntegerValue           :: !(Maybe Int)
-  , _aqrQualificationRequestId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AcceptQualificationRequest' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aqrIntegerValue' - The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement.
---
--- * 'aqrQualificationRequestId' - The ID of the Qualification request, as returned by the @GetQualificationRequests@ operation.
-acceptQualificationRequest
-    :: Text -- ^ 'aqrQualificationRequestId'
-    -> AcceptQualificationRequest
-acceptQualificationRequest pQualificationRequestId_ =
-  AcceptQualificationRequest'
-  { _aqrIntegerValue = Nothing
-  , _aqrQualificationRequestId = pQualificationRequestId_
+  { -- | The value of the Qualification. You can omit this value if you are using
+    -- the presence or absence of the Qualification as the basis for a HIT
+    -- requirement.
+    integerValue :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the Qualification request, as returned by the
+    -- @GetQualificationRequests@ operation.
+    qualificationRequestId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The value of the Qualification. You can omit this value if you are using the presence or absence of the Qualification as the basis for a HIT requirement.
-aqrIntegerValue :: Lens' AcceptQualificationRequest (Maybe Int)
-aqrIntegerValue = lens _aqrIntegerValue (\ s a -> s{_aqrIntegerValue = a});
-
--- | The ID of the Qualification request, as returned by the @GetQualificationRequests@ operation.
-aqrQualificationRequestId :: Lens' AcceptQualificationRequest Text
-aqrQualificationRequestId = lens _aqrQualificationRequestId (\ s a -> s{_aqrQualificationRequestId = a});
-
-instance AWSRequest AcceptQualificationRequest where
-        type Rs AcceptQualificationRequest =
-             AcceptQualificationRequestResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AcceptQualificationRequestResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable AcceptQualificationRequest where
-
-instance NFData AcceptQualificationRequest where
-
-instance ToHeaders AcceptQualificationRequest where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.AcceptQualificationRequest"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON AcceptQualificationRequest where
-        toJSON AcceptQualificationRequest'{..}
-          = object
-              (catMaybes
-                 [("IntegerValue" .=) <$> _aqrIntegerValue,
-                  Just
-                    ("QualificationRequestId" .=
-                       _aqrQualificationRequestId)])
-
-instance ToPath AcceptQualificationRequest where
-        toPath = const "/"
-
-instance ToQuery AcceptQualificationRequest where
-        toQuery = const mempty
-
--- | /See:/ 'acceptQualificationRequestResponse' smart constructor.
-newtype AcceptQualificationRequestResponse = AcceptQualificationRequestResponse'
-  { _aqrrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AcceptQualificationRequestResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcceptQualificationRequest' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aqrrsResponseStatus' - -- | The response status code.
-acceptQualificationRequestResponse
-    :: Int -- ^ 'aqrrsResponseStatus'
-    -> AcceptQualificationRequestResponse
-acceptQualificationRequestResponse pResponseStatus_ =
-  AcceptQualificationRequestResponse' {_aqrrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'integerValue', 'acceptQualificationRequest_integerValue' - The value of the Qualification. You can omit this value if you are using
+-- the presence or absence of the Qualification as the basis for a HIT
+-- requirement.
+--
+-- 'qualificationRequestId', 'acceptQualificationRequest_qualificationRequestId' - The ID of the Qualification request, as returned by the
+-- @GetQualificationRequests@ operation.
+newAcceptQualificationRequest ::
+  -- | 'qualificationRequestId'
+  Prelude.Text ->
+  AcceptQualificationRequest
+newAcceptQualificationRequest
+  pQualificationRequestId_ =
+    AcceptQualificationRequest'
+      { integerValue =
+          Prelude.Nothing,
+        qualificationRequestId =
+          pQualificationRequestId_
+      }
 
+-- | The value of the Qualification. You can omit this value if you are using
+-- the presence or absence of the Qualification as the basis for a HIT
+-- requirement.
+acceptQualificationRequest_integerValue :: Lens.Lens' AcceptQualificationRequest (Prelude.Maybe Prelude.Int)
+acceptQualificationRequest_integerValue = Lens.lens (\AcceptQualificationRequest' {integerValue} -> integerValue) (\s@AcceptQualificationRequest' {} a -> s {integerValue = a} :: AcceptQualificationRequest)
 
--- | -- | The response status code.
-aqrrsResponseStatus :: Lens' AcceptQualificationRequestResponse Int
-aqrrsResponseStatus = lens _aqrrsResponseStatus (\ s a -> s{_aqrrsResponseStatus = a});
+-- | The ID of the Qualification request, as returned by the
+-- @GetQualificationRequests@ operation.
+acceptQualificationRequest_qualificationRequestId :: Lens.Lens' AcceptQualificationRequest Prelude.Text
+acceptQualificationRequest_qualificationRequestId = Lens.lens (\AcceptQualificationRequest' {qualificationRequestId} -> qualificationRequestId) (\s@AcceptQualificationRequest' {} a -> s {qualificationRequestId = a} :: AcceptQualificationRequest)
 
-instance NFData AcceptQualificationRequestResponse
-         where
+instance Core.AWSRequest AcceptQualificationRequest where
+  type
+    AWSResponse AcceptQualificationRequest =
+      AcceptQualificationRequestResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AcceptQualificationRequestResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable AcceptQualificationRequest
+
+instance Prelude.NFData AcceptQualificationRequest
+
+instance Core.ToHeaders AcceptQualificationRequest where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MTurkRequesterServiceV20170117.AcceptQualificationRequest" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON AcceptQualificationRequest where
+  toJSON AcceptQualificationRequest' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("IntegerValue" Core..=) Prelude.<$> integerValue,
+            Prelude.Just
+              ( "QualificationRequestId"
+                  Core..= qualificationRequestId
+              )
+          ]
+      )
+
+instance Core.ToPath AcceptQualificationRequest where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AcceptQualificationRequest where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newAcceptQualificationRequestResponse' smart constructor.
+data AcceptQualificationRequestResponse = AcceptQualificationRequestResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AcceptQualificationRequestResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'acceptQualificationRequestResponse_httpStatus' - The response's http status code.
+newAcceptQualificationRequestResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AcceptQualificationRequestResponse
+newAcceptQualificationRequestResponse pHttpStatus_ =
+  AcceptQualificationRequestResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+acceptQualificationRequestResponse_httpStatus :: Lens.Lens' AcceptQualificationRequestResponse Prelude.Int
+acceptQualificationRequestResponse_httpStatus = Lens.lens (\AcceptQualificationRequestResponse' {httpStatus} -> httpStatus) (\s@AcceptQualificationRequestResponse' {} a -> s {httpStatus = a} :: AcceptQualificationRequestResponse)
+
+instance
+  Prelude.NFData
+    AcceptQualificationRequestResponse

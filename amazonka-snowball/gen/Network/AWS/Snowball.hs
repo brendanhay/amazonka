@@ -1,50 +1,65 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.Snowball
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data between your on-premises data centers and Amazon Simple Storage Service (Amazon S3). The Snowball commands described here provide access to the same functionality that is available in the AWS Snowball Management Console, which enables you to create and manage jobs for Snowball. To transfer data locally with a Snowball appliance, you'll need to use the Snowball client or the Amazon S3 API adapter for Snowball. For more information, see the <http://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide> .
+-- Derived from API version @2016-06-30@ of the AWS service descriptions, licensed under Apache 2.0.
 --
---
+-- AWS Snow Family is a petabyte-scale data transport solution that uses
+-- secure devices to transfer large amounts of data between your
+-- on-premises data centers and Amazon Simple Storage Service (Amazon S3).
+-- The Snow commands described here provide access to the same
+-- functionality that is available in the AWS Snow Family Management
+-- Console, which enables you to create and manage jobs for a Snow device.
+-- To transfer data locally with a Snow device, you\'ll need to use the
+-- Snowball Edge client or the Amazon S3 API Interface for Snowball or AWS
+-- OpsHub for Snow Family. For more information, see the
+-- <https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html User Guide>.
 module Network.AWS.Snowball
-    (
-    -- * Service Configuration
-      snowball
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
     -- ** InvalidResourceException
-    , _InvalidResourceException
-
-    -- ** UnsupportedAddressException
-    , _UnsupportedAddressException
-
-    -- ** KMSRequestFailedException
-    , _KMSRequestFailedException
-
-    -- ** InvalidJobStateException
-    , _InvalidJobStateException
+    _InvalidResourceException,
 
     -- ** InvalidInputCombinationException
-    , _InvalidInputCombinationException
-
-    -- ** InvalidNextTokenException
-    , _InvalidNextTokenException
-
-    -- ** InvalidAddressException
-    , _InvalidAddressException
+    _InvalidInputCombinationException,
 
     -- ** ClusterLimitExceededException
-    , _ClusterLimitExceededException
+    _ClusterLimitExceededException,
+
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ReturnShippingLabelAlreadyExistsException
+    _ReturnShippingLabelAlreadyExistsException,
+
+    -- ** UnsupportedAddressException
+    _UnsupportedAddressException,
+
+    -- ** Ec2RequestFailedException
+    _Ec2RequestFailedException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InvalidJobStateException
+    _InvalidJobStateException,
+
+    -- ** KMSRequestFailedException
+    _KMSRequestFailedException,
 
     -- * Waiters
     -- $waiters
@@ -52,263 +67,355 @@ module Network.AWS.Snowball
     -- * Operations
     -- $operations
 
-    -- ** CancelCluster
-    , module Network.AWS.Snowball.CancelCluster
+    -- ** ListClusterJobs (Paginated)
+    ListClusterJobs (ListClusterJobs'),
+    newListClusterJobs,
+    ListClusterJobsResponse (ListClusterJobsResponse'),
+    newListClusterJobsResponse,
 
-    -- ** DescribeCluster
-    , module Network.AWS.Snowball.DescribeCluster
-
-    -- ** CreateAddress
-    , module Network.AWS.Snowball.CreateAddress
-
-    -- ** GetSnowballUsage
-    , module Network.AWS.Snowball.GetSnowballUsage
-
-    -- ** DescribeAddresses (Paginated)
-    , module Network.AWS.Snowball.DescribeAddresses
-
-    -- ** UpdateCluster
-    , module Network.AWS.Snowball.UpdateCluster
-
-    -- ** CreateJob
-    , module Network.AWS.Snowball.CreateJob
-
-    -- ** GetJobManifest
-    , module Network.AWS.Snowball.GetJobManifest
-
-    -- ** CreateCluster
-    , module Network.AWS.Snowball.CreateCluster
-
-    -- ** ListJobs (Paginated)
-    , module Network.AWS.Snowball.ListJobs
-
-    -- ** UpdateJob
-    , module Network.AWS.Snowball.UpdateJob
-
-    -- ** GetJobUnlockCode
-    , module Network.AWS.Snowball.GetJobUnlockCode
-
-    -- ** ListClusterJobs
-    , module Network.AWS.Snowball.ListClusterJobs
-
-    -- ** DescribeJob
-    , module Network.AWS.Snowball.DescribeJob
-
-    -- ** ListClusters
-    , module Network.AWS.Snowball.ListClusters
-
-    -- ** DescribeAddress
-    , module Network.AWS.Snowball.DescribeAddress
+    -- ** UpdateJobShipmentState
+    UpdateJobShipmentState (UpdateJobShipmentState'),
+    newUpdateJobShipmentState,
+    UpdateJobShipmentStateResponse (UpdateJobShipmentStateResponse'),
+    newUpdateJobShipmentStateResponse,
 
     -- ** CancelJob
-    , module Network.AWS.Snowball.CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
+    -- ** UpdateJob
+    UpdateJob (UpdateJob'),
+    newUpdateJob,
+    UpdateJobResponse (UpdateJobResponse'),
+    newUpdateJobResponse,
+
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** ListLongTermPricing
+    ListLongTermPricing (ListLongTermPricing'),
+    newListLongTermPricing,
+    ListLongTermPricingResponse (ListLongTermPricingResponse'),
+    newListLongTermPricingResponse,
+
+    -- ** GetSoftwareUpdates
+    GetSoftwareUpdates (GetSoftwareUpdates'),
+    newGetSoftwareUpdates,
+    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
+    newGetSoftwareUpdatesResponse,
+
+    -- ** DescribeReturnShippingLabel
+    DescribeReturnShippingLabel (DescribeReturnShippingLabel'),
+    newDescribeReturnShippingLabel,
+    DescribeReturnShippingLabelResponse (DescribeReturnShippingLabelResponse'),
+    newDescribeReturnShippingLabelResponse,
+
+    -- ** DescribeAddress
+    DescribeAddress (DescribeAddress'),
+    newDescribeAddress,
+    DescribeAddressResponse (DescribeAddressResponse'),
+    newDescribeAddressResponse,
+
+    -- ** ListCompatibleImages (Paginated)
+    ListCompatibleImages (ListCompatibleImages'),
+    newListCompatibleImages,
+    ListCompatibleImagesResponse (ListCompatibleImagesResponse'),
+    newListCompatibleImagesResponse,
+
+    -- ** DescribeAddresses (Paginated)
+    DescribeAddresses (DescribeAddresses'),
+    newDescribeAddresses,
+    DescribeAddressesResponse (DescribeAddressesResponse'),
+    newDescribeAddressesResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    DescribeJobResponse (DescribeJobResponse'),
+    newDescribeJobResponse,
+
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
+
+    -- ** GetJobUnlockCode
+    GetJobUnlockCode (GetJobUnlockCode'),
+    newGetJobUnlockCode,
+    GetJobUnlockCodeResponse (GetJobUnlockCodeResponse'),
+    newGetJobUnlockCodeResponse,
+
+    -- ** CancelCluster
+    CancelCluster (CancelCluster'),
+    newCancelCluster,
+    CancelClusterResponse (CancelClusterResponse'),
+    newCancelClusterResponse,
+
+    -- ** GetJobManifest
+    GetJobManifest (GetJobManifest'),
+    newGetJobManifest,
+    GetJobManifestResponse (GetJobManifestResponse'),
+    newGetJobManifestResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** CreateLongTermPricing
+    CreateLongTermPricing (CreateLongTermPricing'),
+    newCreateLongTermPricing,
+    CreateLongTermPricingResponse (CreateLongTermPricingResponse'),
+    newCreateLongTermPricingResponse,
+
+    -- ** UpdateLongTermPricing
+    UpdateLongTermPricing (UpdateLongTermPricing'),
+    newUpdateLongTermPricing,
+    UpdateLongTermPricingResponse (UpdateLongTermPricingResponse'),
+    newUpdateLongTermPricingResponse,
+
+    -- ** GetSnowballUsage
+    GetSnowballUsage (GetSnowballUsage'),
+    newGetSnowballUsage,
+    GetSnowballUsageResponse (GetSnowballUsageResponse'),
+    newGetSnowballUsageResponse,
+
+    -- ** CreateAddress
+    CreateAddress (CreateAddress'),
+    newCreateAddress,
+    CreateAddressResponse (CreateAddressResponse'),
+    newCreateAddressResponse,
+
+    -- ** CreateReturnShippingLabel
+    CreateReturnShippingLabel (CreateReturnShippingLabel'),
+    newCreateReturnShippingLabel,
+    CreateReturnShippingLabelResponse (CreateReturnShippingLabelResponse'),
+    newCreateReturnShippingLabelResponse,
 
     -- * Types
 
     -- ** ClusterState
-    , ClusterState (..)
+    ClusterState (..),
+
+    -- ** DeviceServiceName
+    DeviceServiceName (..),
 
     -- ** JobState
-    , JobState (..)
+    JobState (..),
 
     -- ** JobType
-    , JobType (..)
+    JobType (..),
+
+    -- ** LongTermPricingType
+    LongTermPricingType (..),
+
+    -- ** RemoteManagement
+    RemoteManagement (..),
+
+    -- ** ShipmentState
+    ShipmentState (..),
+
+    -- ** ShippingLabelStatus
+    ShippingLabelStatus (..),
 
     -- ** ShippingOption
-    , ShippingOption (..)
+    ShippingOption (..),
 
     -- ** SnowballCapacity
-    , SnowballCapacity (..)
+    SnowballCapacity (..),
 
     -- ** SnowballType
-    , SnowballType (..)
+    SnowballType (..),
+
+    -- ** StorageUnit
+    StorageUnit (..),
+
+    -- ** TransferOption
+    TransferOption (..),
 
     -- ** Address
-    , Address
-    , address
-    , aIsRestricted
-    , aStreet3
-    , aLandmark
-    , aPostalCode
-    , aCountry
-    , aStateOrProvince
-    , aStreet2
-    , aAddressId
-    , aCity
-    , aPhoneNumber
-    , aCompany
-    , aName
-    , aPrefectureOrDistrict
-    , aStreet1
+    Address (Address'),
+    newAddress,
 
     -- ** ClusterListEntry
-    , ClusterListEntry
-    , clusterListEntry
-    , cleClusterState
-    , cleClusterId
-    , cleCreationDate
-    , cleDescription
+    ClusterListEntry (ClusterListEntry'),
+    newClusterListEntry,
 
     -- ** ClusterMetadata
-    , ClusterMetadata
-    , clusterMetadata
-    , cmJobType
-    , cmKMSKeyARN
-    , cmClusterState
-    , cmNotification
-    , cmForwardingAddressId
-    , cmAddressId
-    , cmSnowballType
-    , cmShippingOption
-    , cmResources
-    , cmClusterId
-    , cmCreationDate
-    , cmDescription
-    , cmRoleARN
+    ClusterMetadata (ClusterMetadata'),
+    newClusterMetadata,
+
+    -- ** CompatibleImage
+    CompatibleImage (CompatibleImage'),
+    newCompatibleImage,
 
     -- ** DataTransfer
-    , DataTransfer
-    , dataTransfer
-    , dtTotalObjects
-    , dtTotalBytes
-    , dtObjectsTransferred
-    , dtBytesTransferred
+    DataTransfer (DataTransfer'),
+    newDataTransfer,
+
+    -- ** DeviceConfiguration
+    DeviceConfiguration (DeviceConfiguration'),
+    newDeviceConfiguration,
+
+    -- ** Ec2AmiResource
+    Ec2AmiResource (Ec2AmiResource'),
+    newEc2AmiResource,
 
     -- ** EventTriggerDefinition
-    , EventTriggerDefinition
-    , eventTriggerDefinition
-    , etdEventResourceARN
+    EventTriggerDefinition (EventTriggerDefinition'),
+    newEventTriggerDefinition,
+
+    -- ** INDTaxDocuments
+    INDTaxDocuments (INDTaxDocuments'),
+    newINDTaxDocuments,
 
     -- ** JobListEntry
-    , JobListEntry
-    , jobListEntry
-    , jleJobType
-    , jleJobId
-    , jleJobState
-    , jleSnowballType
-    , jleCreationDate
-    , jleDescription
-    , jleIsMaster
+    JobListEntry (JobListEntry'),
+    newJobListEntry,
 
     -- ** JobLogs
-    , JobLogs
-    , jobLogs
-    , jlJobFailureLogURI
-    , jlJobCompletionReportURI
-    , jlJobSuccessLogURI
+    JobLogs (JobLogs'),
+    newJobLogs,
 
     -- ** JobMetadata
-    , JobMetadata
-    , jobMetadata
-    , jmJobType
-    , jmKMSKeyARN
-    , jmJobId
-    , jmJobLogInfo
-    , jmNotification
-    , jmJobState
-    , jmForwardingAddressId
-    , jmShippingDetails
-    , jmAddressId
-    , jmSnowballType
-    , jmDataTransferProgress
-    , jmResources
-    , jmClusterId
-    , jmCreationDate
-    , jmDescription
-    , jmRoleARN
-    , jmSnowballCapacityPreference
+    JobMetadata (JobMetadata'),
+    newJobMetadata,
 
     -- ** JobResource
-    , JobResource
-    , jobResource
-    , jrLambdaResources
-    , jrS3Resources
+    JobResource (JobResource'),
+    newJobResource,
 
     -- ** KeyRange
-    , KeyRange
-    , keyRange
-    , krEndMarker
-    , krBeginMarker
+    KeyRange (KeyRange'),
+    newKeyRange,
 
     -- ** LambdaResource
-    , LambdaResource
-    , lambdaResource
-    , lrEventTriggers
-    , lrLambdaARN
+    LambdaResource (LambdaResource'),
+    newLambdaResource,
+
+    -- ** LongTermPricingListEntry
+    LongTermPricingListEntry (LongTermPricingListEntry'),
+    newLongTermPricingListEntry,
+
+    -- ** NFSOnDeviceServiceConfiguration
+    NFSOnDeviceServiceConfiguration (NFSOnDeviceServiceConfiguration'),
+    newNFSOnDeviceServiceConfiguration,
 
     -- ** Notification
-    , Notification
-    , notification
-    , nNotifyAll
-    , nSNSTopicARN
-    , nJobStatesToNotify
+    Notification (Notification'),
+    newNotification,
+
+    -- ** OnDeviceServiceConfiguration
+    OnDeviceServiceConfiguration (OnDeviceServiceConfiguration'),
+    newOnDeviceServiceConfiguration,
 
     -- ** S3Resource
-    , S3Resource
-    , s3Resource
-    , srKeyRange
-    , srBucketARN
+    S3Resource (S3Resource'),
+    newS3Resource,
 
     -- ** Shipment
-    , Shipment
-    , shipment
-    , sStatus
-    , sTrackingNumber
+    Shipment (Shipment'),
+    newShipment,
 
     -- ** ShippingDetails
-    , ShippingDetails
-    , shippingDetails
-    , sdShippingOption
-    , sdOutboundShipment
-    , sdInboundShipment
-    ) where
+    ShippingDetails (ShippingDetails'),
+    newShippingDetails,
+
+    -- ** SnowconeDeviceConfiguration
+    SnowconeDeviceConfiguration (SnowconeDeviceConfiguration'),
+    newSnowconeDeviceConfiguration,
+
+    -- ** TargetOnDeviceService
+    TargetOnDeviceService (TargetOnDeviceService'),
+    newTargetOnDeviceService,
+
+    -- ** TaxDocuments
+    TaxDocuments (TaxDocuments'),
+    newTaxDocuments,
+
+    -- ** WirelessConnection
+    WirelessConnection (WirelessConnection'),
+    newWirelessConnection,
+  )
+where
 
 import Network.AWS.Snowball.CancelCluster
 import Network.AWS.Snowball.CancelJob
 import Network.AWS.Snowball.CreateAddress
 import Network.AWS.Snowball.CreateCluster
 import Network.AWS.Snowball.CreateJob
+import Network.AWS.Snowball.CreateLongTermPricing
+import Network.AWS.Snowball.CreateReturnShippingLabel
 import Network.AWS.Snowball.DescribeAddress
 import Network.AWS.Snowball.DescribeAddresses
 import Network.AWS.Snowball.DescribeCluster
 import Network.AWS.Snowball.DescribeJob
+import Network.AWS.Snowball.DescribeReturnShippingLabel
 import Network.AWS.Snowball.GetJobManifest
 import Network.AWS.Snowball.GetJobUnlockCode
 import Network.AWS.Snowball.GetSnowballUsage
+import Network.AWS.Snowball.GetSoftwareUpdates
+import Network.AWS.Snowball.Lens
 import Network.AWS.Snowball.ListClusterJobs
 import Network.AWS.Snowball.ListClusters
+import Network.AWS.Snowball.ListCompatibleImages
 import Network.AWS.Snowball.ListJobs
+import Network.AWS.Snowball.ListLongTermPricing
 import Network.AWS.Snowball.Types
 import Network.AWS.Snowball.UpdateCluster
 import Network.AWS.Snowball.UpdateJob
+import Network.AWS.Snowball.UpdateJobShipmentState
+import Network.AWS.Snowball.UpdateLongTermPricing
 import Network.AWS.Snowball.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'Snowball'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'Snowball'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

@@ -1,239 +1,422 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.CreateDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deploys an application revision through the specified deployment group.
---
---
 module Network.AWS.CodeDeploy.CreateDeployment
-    (
-    -- * Creating a Request
-      createDeployment
-    , CreateDeployment
+  ( -- * Creating a Request
+    CreateDeployment (..),
+    newCreateDeployment,
+
     -- * Request Lenses
-    , cdDeploymentConfigName
-    , cdFileExistsBehavior
-    , cdTargetInstances
-    , cdRevision
-    , cdDescription
-    , cdAutoRollbackConfiguration
-    , cdUpdateOutdatedInstancesOnly
-    , cdDeploymentGroupName
-    , cdIgnoreApplicationStopFailures
-    , cdApplicationName
+    createDeployment_deploymentConfigName,
+    createDeployment_deploymentGroupName,
+    createDeployment_autoRollbackConfiguration,
+    createDeployment_updateOutdatedInstancesOnly,
+    createDeployment_ignoreApplicationStopFailures,
+    createDeployment_targetInstances,
+    createDeployment_description,
+    createDeployment_revision,
+    createDeployment_fileExistsBehavior,
+    createDeployment_applicationName,
 
     -- * Destructuring the Response
-    , createDeploymentResponse
-    , CreateDeploymentResponse
+    CreateDeploymentResponse (..),
+    newCreateDeploymentResponse,
+
     -- * Response Lenses
-    , cdrsDeploymentId
-    , cdrsResponseStatus
-    ) where
+    createDeploymentResponse_deploymentId,
+    createDeploymentResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a CreateDeployment operation.
+-- | Represents the input of a @CreateDeployment@ operation.
 --
---
---
--- /See:/ 'createDeployment' smart constructor.
+-- /See:/ 'newCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { _cdDeploymentConfigName          :: !(Maybe Text)
-  , _cdFileExistsBehavior            :: !(Maybe FileExistsBehavior)
-  , _cdTargetInstances               :: !(Maybe TargetInstances)
-  , _cdRevision                      :: !(Maybe RevisionLocation)
-  , _cdDescription                   :: !(Maybe Text)
-  , _cdAutoRollbackConfiguration     :: !(Maybe AutoRollbackConfiguration)
-  , _cdUpdateOutdatedInstancesOnly   :: !(Maybe Bool)
-  , _cdDeploymentGroupName           :: !(Maybe Text)
-  , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
-  , _cdApplicationName               :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
---
--- * 'cdFileExistsBehavior' - Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment. The fileExistsBehavior parameter takes any of the following values:     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
---
--- * 'cdTargetInstances' - Information about the instances that will belong to the replacement environment in a blue/green deployment.
---
--- * 'cdRevision' - The type and location of the revision to deploy.
---
--- * 'cdDescription' - A comment about the deployment.
---
--- * 'cdAutoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a deployment is created.
---
--- * 'cdUpdateOutdatedInstancesOnly' - Indicates whether to deploy to all instances or only to instances that are not running the latest application revision.
---
--- * 'cdDeploymentGroupName' - The name of the deployment group.
---
--- * 'cdIgnoreApplicationStopFailures' - If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
---
--- * 'cdApplicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-createDeployment
-    :: Text -- ^ 'cdApplicationName'
-    -> CreateDeployment
-createDeployment pApplicationName_ =
-  CreateDeployment'
-  { _cdDeploymentConfigName = Nothing
-  , _cdFileExistsBehavior = Nothing
-  , _cdTargetInstances = Nothing
-  , _cdRevision = Nothing
-  , _cdDescription = Nothing
-  , _cdAutoRollbackConfiguration = Nothing
-  , _cdUpdateOutdatedInstancesOnly = Nothing
-  , _cdDeploymentGroupName = Nothing
-  , _cdIgnoreApplicationStopFailures = Nothing
-  , _cdApplicationName = pApplicationName_
+  { -- | The name of a deployment configuration associated with the IAM user or
+    -- AWS account.
+    --
+    -- If not specified, the value configured in the deployment group is used
+    -- as the default. If the deployment group does not have a deployment
+    -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
+    -- used by default.
+    deploymentConfigName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the deployment group.
+    deploymentGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information for an automatic rollback that is added when a
+    -- deployment is created.
+    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
+    -- | Indicates whether to deploy to all instances or only to instances that
+    -- are not running the latest application revision.
+    updateOutdatedInstancesOnly :: Prelude.Maybe Prelude.Bool,
+    -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
+    -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
+    -- then the deployment continues to the next deployment lifecycle event.
+    -- For example, if @ApplicationStop@ fails, the deployment continues with
+    -- @DownloadBundle@. If @BeforeBlockTraffic@ fails, the deployment
+    -- continues with @BlockTraffic@. If @AfterBlockTraffic@ fails, the
+    -- deployment continues with @ApplicationStop@.
+    --
+    -- If false or not specified, then if a lifecycle event fails during a
+    -- deployment to an instance, that deployment fails. If deployment to that
+    -- instance is part of an overall deployment and the number of healthy
+    -- hosts is not less than the minimum number of healthy hosts, then a
+    -- deployment to the next instance is attempted.
+    --
+    -- During a deployment, the AWS CodeDeploy agent runs the scripts specified
+    -- for @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in
+    -- the AppSpec file from the previous successful deployment. (All other
+    -- scripts are run from the AppSpec file in the current deployment.) If one
+    -- of these scripts contains an error and does not run successfully, the
+    -- deployment can fail.
+    --
+    -- If the cause of the failure is a script from the last successful
+    -- deployment that will never run successfully, create a new deployment and
+    -- use @ignoreApplicationStopFailures@ to specify that the
+    -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
+    -- failures should be ignored.
+    ignoreApplicationStopFailures :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the instances that belong to the replacement
+    -- environment in a blue\/green deployment.
+    targetInstances :: Prelude.Maybe TargetInstances,
+    -- | A comment about the deployment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The type and location of the revision to deploy.
+    revision :: Prelude.Maybe RevisionLocation,
+    -- | Information about how AWS CodeDeploy handles files that already exist in
+    -- a deployment target location but weren\'t part of the previous
+    -- successful deployment.
+    --
+    -- The @fileExistsBehavior@ parameter takes any of the following values:
+    --
+    -- -   DISALLOW: The deployment fails. This is also the default behavior if
+    --     no option is specified.
+    --
+    -- -   OVERWRITE: The version of the file from the application revision
+    --     currently being deployed replaces the version already on the
+    --     instance.
+    --
+    -- -   RETAIN: The version of the file already on the instance is kept and
+    --     used as part of the new deployment.
+    fileExistsBehavior :: Prelude.Maybe FileExistsBehavior,
+    -- | The name of an AWS CodeDeploy application associated with the IAM user
+    -- or AWS account.
+    applicationName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateDeployment' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'deploymentConfigName', 'createDeployment_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or
+-- AWS account.
+--
+-- If not specified, the value configured in the deployment group is used
+-- as the default. If the deployment group does not have a deployment
+-- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
+-- used by default.
+--
+-- 'deploymentGroupName', 'createDeployment_deploymentGroupName' - The name of the deployment group.
+--
+-- 'autoRollbackConfiguration', 'createDeployment_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
+-- deployment is created.
+--
+-- 'updateOutdatedInstancesOnly', 'createDeployment_updateOutdatedInstancesOnly' - Indicates whether to deploy to all instances or only to instances that
+-- are not running the latest application revision.
+--
+-- 'ignoreApplicationStopFailures', 'createDeployment_ignoreApplicationStopFailures' - If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
+-- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
+-- then the deployment continues to the next deployment lifecycle event.
+-- For example, if @ApplicationStop@ fails, the deployment continues with
+-- @DownloadBundle@. If @BeforeBlockTraffic@ fails, the deployment
+-- continues with @BlockTraffic@. If @AfterBlockTraffic@ fails, the
+-- deployment continues with @ApplicationStop@.
+--
+-- If false or not specified, then if a lifecycle event fails during a
+-- deployment to an instance, that deployment fails. If deployment to that
+-- instance is part of an overall deployment and the number of healthy
+-- hosts is not less than the minimum number of healthy hosts, then a
+-- deployment to the next instance is attempted.
+--
+-- During a deployment, the AWS CodeDeploy agent runs the scripts specified
+-- for @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in
+-- the AppSpec file from the previous successful deployment. (All other
+-- scripts are run from the AppSpec file in the current deployment.) If one
+-- of these scripts contains an error and does not run successfully, the
+-- deployment can fail.
+--
+-- If the cause of the failure is a script from the last successful
+-- deployment that will never run successfully, create a new deployment and
+-- use @ignoreApplicationStopFailures@ to specify that the
+-- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
+-- failures should be ignored.
+--
+-- 'targetInstances', 'createDeployment_targetInstances' - Information about the instances that belong to the replacement
+-- environment in a blue\/green deployment.
+--
+-- 'description', 'createDeployment_description' - A comment about the deployment.
+--
+-- 'revision', 'createDeployment_revision' - The type and location of the revision to deploy.
+--
+-- 'fileExistsBehavior', 'createDeployment_fileExistsBehavior' - Information about how AWS CodeDeploy handles files that already exist in
+-- a deployment target location but weren\'t part of the previous
+-- successful deployment.
+--
+-- The @fileExistsBehavior@ parameter takes any of the following values:
+--
+-- -   DISALLOW: The deployment fails. This is also the default behavior if
+--     no option is specified.
+--
+-- -   OVERWRITE: The version of the file from the application revision
+--     currently being deployed replaces the version already on the
+--     instance.
+--
+-- -   RETAIN: The version of the file already on the instance is kept and
+--     used as part of the new deployment.
+--
+-- 'applicationName', 'createDeployment_applicationName' - The name of an AWS CodeDeploy application associated with the IAM user
+-- or AWS account.
+newCreateDeployment ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  CreateDeployment
+newCreateDeployment pApplicationName_ =
+  CreateDeployment'
+    { deploymentConfigName =
+        Prelude.Nothing,
+      deploymentGroupName = Prelude.Nothing,
+      autoRollbackConfiguration = Prelude.Nothing,
+      updateOutdatedInstancesOnly = Prelude.Nothing,
+      ignoreApplicationStopFailures = Prelude.Nothing,
+      targetInstances = Prelude.Nothing,
+      description = Prelude.Nothing,
+      revision = Prelude.Nothing,
+      fileExistsBehavior = Prelude.Nothing,
+      applicationName = pApplicationName_
+    }
 
--- | The name of a deployment configuration associated with the applicable IAM user or AWS account. If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.
-cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
-cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
-
--- | Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment. The fileExistsBehavior parameter takes any of the following values:     * DISALLOW: The deployment fails. This is also the default behavior if no option is specified.     * OVERWRITE: The version of the file from the application revision currently being deployed replaces the version already on the instance.     * RETAIN: The version of the file already on the instance is kept and used as part of the new deployment.
-cdFileExistsBehavior :: Lens' CreateDeployment (Maybe FileExistsBehavior)
-cdFileExistsBehavior = lens _cdFileExistsBehavior (\ s a -> s{_cdFileExistsBehavior = a});
-
--- | Information about the instances that will belong to the replacement environment in a blue/green deployment.
-cdTargetInstances :: Lens' CreateDeployment (Maybe TargetInstances)
-cdTargetInstances = lens _cdTargetInstances (\ s a -> s{_cdTargetInstances = a});
-
--- | The type and location of the revision to deploy.
-cdRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
-cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
-
--- | A comment about the deployment.
-cdDescription :: Lens' CreateDeployment (Maybe Text)
-cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
-
--- | Configuration information for an automatic rollback that is added when a deployment is created.
-cdAutoRollbackConfiguration :: Lens' CreateDeployment (Maybe AutoRollbackConfiguration)
-cdAutoRollbackConfiguration = lens _cdAutoRollbackConfiguration (\ s a -> s{_cdAutoRollbackConfiguration = a});
-
--- | Indicates whether to deploy to all instances or only to instances that are not running the latest application revision.
-cdUpdateOutdatedInstancesOnly :: Lens' CreateDeployment (Maybe Bool)
-cdUpdateOutdatedInstancesOnly = lens _cdUpdateOutdatedInstancesOnly (\ s a -> s{_cdUpdateOutdatedInstancesOnly = a});
+-- | The name of a deployment configuration associated with the IAM user or
+-- AWS account.
+--
+-- If not specified, the value configured in the deployment group is used
+-- as the default. If the deployment group does not have a deployment
+-- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
+-- used by default.
+createDeployment_deploymentConfigName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeployment' {} a -> s {deploymentConfigName = a} :: CreateDeployment)
 
 -- | The name of the deployment group.
-cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
-cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
+createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deploymentGroupName} -> deploymentGroupName) (\s@CreateDeployment' {} a -> s {deploymentGroupName = a} :: CreateDeployment)
 
--- | If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event. If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.
-cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
-cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
+-- | Configuration information for an automatic rollback that is added when a
+-- deployment is created.
+createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Prelude.Maybe AutoRollbackConfiguration)
+createDeployment_autoRollbackConfiguration = Lens.lens (\CreateDeployment' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeployment' {} a -> s {autoRollbackConfiguration = a} :: CreateDeployment)
 
--- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-cdApplicationName :: Lens' CreateDeployment Text
-cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
+-- | Indicates whether to deploy to all instances or only to instances that
+-- are not running the latest application revision.
+createDeployment_updateOutdatedInstancesOnly :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
+createDeployment_updateOutdatedInstancesOnly = Lens.lens (\CreateDeployment' {updateOutdatedInstancesOnly} -> updateOutdatedInstancesOnly) (\s@CreateDeployment' {} a -> s {updateOutdatedInstancesOnly = a} :: CreateDeployment)
 
-instance AWSRequest CreateDeployment where
-        type Rs CreateDeployment = CreateDeploymentResponse
-        request = postJSON codeDeploy
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDeploymentResponse' <$>
-                   (x .?> "deploymentId") <*> (pure (fromEnum s)))
-
-instance Hashable CreateDeployment where
-
-instance NFData CreateDeployment where
-
-instance ToHeaders CreateDeployment where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.CreateDeployment" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateDeployment where
-        toJSON CreateDeployment'{..}
-          = object
-              (catMaybes
-                 [("deploymentConfigName" .=) <$>
-                    _cdDeploymentConfigName,
-                  ("fileExistsBehavior" .=) <$> _cdFileExistsBehavior,
-                  ("targetInstances" .=) <$> _cdTargetInstances,
-                  ("revision" .=) <$> _cdRevision,
-                  ("description" .=) <$> _cdDescription,
-                  ("autoRollbackConfiguration" .=) <$>
-                    _cdAutoRollbackConfiguration,
-                  ("updateOutdatedInstancesOnly" .=) <$>
-                    _cdUpdateOutdatedInstancesOnly,
-                  ("deploymentGroupName" .=) <$>
-                    _cdDeploymentGroupName,
-                  ("ignoreApplicationStopFailures" .=) <$>
-                    _cdIgnoreApplicationStopFailures,
-                  Just ("applicationName" .= _cdApplicationName)])
-
-instance ToPath CreateDeployment where
-        toPath = const "/"
-
-instance ToQuery CreateDeployment where
-        toQuery = const mempty
-
--- | Represents the output of a CreateDeployment operation.
+-- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
+-- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
+-- then the deployment continues to the next deployment lifecycle event.
+-- For example, if @ApplicationStop@ fails, the deployment continues with
+-- @DownloadBundle@. If @BeforeBlockTraffic@ fails, the deployment
+-- continues with @BlockTraffic@. If @AfterBlockTraffic@ fails, the
+-- deployment continues with @ApplicationStop@.
 --
+-- If false or not specified, then if a lifecycle event fails during a
+-- deployment to an instance, that deployment fails. If deployment to that
+-- instance is part of an overall deployment and the number of healthy
+-- hosts is not less than the minimum number of healthy hosts, then a
+-- deployment to the next instance is attempted.
 --
+-- During a deployment, the AWS CodeDeploy agent runs the scripts specified
+-- for @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@ in
+-- the AppSpec file from the previous successful deployment. (All other
+-- scripts are run from the AppSpec file in the current deployment.) If one
+-- of these scripts contains an error and does not run successfully, the
+-- deployment can fail.
 --
--- /See:/ 'createDeploymentResponse' smart constructor.
+-- If the cause of the failure is a script from the last successful
+-- deployment that will never run successfully, create a new deployment and
+-- use @ignoreApplicationStopFailures@ to specify that the
+-- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
+-- failures should be ignored.
+createDeployment_ignoreApplicationStopFailures :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
+createDeployment_ignoreApplicationStopFailures = Lens.lens (\CreateDeployment' {ignoreApplicationStopFailures} -> ignoreApplicationStopFailures) (\s@CreateDeployment' {} a -> s {ignoreApplicationStopFailures = a} :: CreateDeployment)
+
+-- | Information about the instances that belong to the replacement
+-- environment in a blue\/green deployment.
+createDeployment_targetInstances :: Lens.Lens' CreateDeployment (Prelude.Maybe TargetInstances)
+createDeployment_targetInstances = Lens.lens (\CreateDeployment' {targetInstances} -> targetInstances) (\s@CreateDeployment' {} a -> s {targetInstances = a} :: CreateDeployment)
+
+-- | A comment about the deployment.
+createDeployment_description :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_description = Lens.lens (\CreateDeployment' {description} -> description) (\s@CreateDeployment' {} a -> s {description = a} :: CreateDeployment)
+
+-- | The type and location of the revision to deploy.
+createDeployment_revision :: Lens.Lens' CreateDeployment (Prelude.Maybe RevisionLocation)
+createDeployment_revision = Lens.lens (\CreateDeployment' {revision} -> revision) (\s@CreateDeployment' {} a -> s {revision = a} :: CreateDeployment)
+
+-- | Information about how AWS CodeDeploy handles files that already exist in
+-- a deployment target location but weren\'t part of the previous
+-- successful deployment.
+--
+-- The @fileExistsBehavior@ parameter takes any of the following values:
+--
+-- -   DISALLOW: The deployment fails. This is also the default behavior if
+--     no option is specified.
+--
+-- -   OVERWRITE: The version of the file from the application revision
+--     currently being deployed replaces the version already on the
+--     instance.
+--
+-- -   RETAIN: The version of the file already on the instance is kept and
+--     used as part of the new deployment.
+createDeployment_fileExistsBehavior :: Lens.Lens' CreateDeployment (Prelude.Maybe FileExistsBehavior)
+createDeployment_fileExistsBehavior = Lens.lens (\CreateDeployment' {fileExistsBehavior} -> fileExistsBehavior) (\s@CreateDeployment' {} a -> s {fileExistsBehavior = a} :: CreateDeployment)
+
+-- | The name of an AWS CodeDeploy application associated with the IAM user
+-- or AWS account.
+createDeployment_applicationName :: Lens.Lens' CreateDeployment Prelude.Text
+createDeployment_applicationName = Lens.lens (\CreateDeployment' {applicationName} -> applicationName) (\s@CreateDeployment' {} a -> s {applicationName = a} :: CreateDeployment)
+
+instance Core.AWSRequest CreateDeployment where
+  type
+    AWSResponse CreateDeployment =
+      CreateDeploymentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDeploymentResponse'
+            Prelude.<$> (x Core..?> "deploymentId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateDeployment
+
+instance Prelude.NFData CreateDeployment
+
+instance Core.ToHeaders CreateDeployment where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.CreateDeployment" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateDeployment where
+  toJSON CreateDeployment' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("deploymentConfigName" Core..=)
+              Prelude.<$> deploymentConfigName,
+            ("deploymentGroupName" Core..=)
+              Prelude.<$> deploymentGroupName,
+            ("autoRollbackConfiguration" Core..=)
+              Prelude.<$> autoRollbackConfiguration,
+            ("updateOutdatedInstancesOnly" Core..=)
+              Prelude.<$> updateOutdatedInstancesOnly,
+            ("ignoreApplicationStopFailures" Core..=)
+              Prelude.<$> ignoreApplicationStopFailures,
+            ("targetInstances" Core..=)
+              Prelude.<$> targetInstances,
+            ("description" Core..=) Prelude.<$> description,
+            ("revision" Core..=) Prelude.<$> revision,
+            ("fileExistsBehavior" Core..=)
+              Prelude.<$> fileExistsBehavior,
+            Prelude.Just
+              ("applicationName" Core..= applicationName)
+          ]
+      )
+
+instance Core.ToPath CreateDeployment where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateDeployment where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @CreateDeployment@ operation.
+--
+-- /See:/ 'newCreateDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-  { _cdrsDeploymentId   :: !(Maybe Text)
-  , _cdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDeploymentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdrsDeploymentId' - A unique deployment ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDeploymentResponse
-    :: Int -- ^ 'cdrsResponseStatus'
-    -> CreateDeploymentResponse
-createDeploymentResponse pResponseStatus_ =
+-- 'deploymentId', 'createDeploymentResponse_deploymentId' - The unique ID of a deployment.
+--
+-- 'httpStatus', 'createDeploymentResponse_httpStatus' - The response's http status code.
+newCreateDeploymentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDeploymentResponse
+newCreateDeploymentResponse pHttpStatus_ =
   CreateDeploymentResponse'
-  {_cdrsDeploymentId = Nothing, _cdrsResponseStatus = pResponseStatus_}
+    { deploymentId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The unique ID of a deployment.
+createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
+createDeploymentResponse_deploymentId = Lens.lens (\CreateDeploymentResponse' {deploymentId} -> deploymentId) (\s@CreateDeploymentResponse' {} a -> s {deploymentId = a} :: CreateDeploymentResponse)
 
--- | A unique deployment ID.
-cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
-cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
+-- | The response's http status code.
+createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
+createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDeploymentResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
-
-instance NFData CreateDeploymentResponse where
+instance Prelude.NFData CreateDeploymentResponse

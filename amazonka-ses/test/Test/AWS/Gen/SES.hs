@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.SES
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.SES where
 
 import Data.Proxy
@@ -28,1092 +27,1432 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateTemplate $
---             createTemplate
---
---         , requestDeleteConfigurationSetTrackingOptions $
---             deleteConfigurationSetTrackingOptions
---
---         , requestUpdateConfigurationSetTrackingOptions $
---             updateConfigurationSetTrackingOptions
---
---         , requestCreateReceiptRuleSet $
---             createReceiptRuleSet
---
---         , requestSetIdentityHeadersInNotificationsEnabled $
---             setIdentityHeadersInNotificationsEnabled
---
---         , requestGetSendQuota $
---             getSendQuota
+--         [ requestPutConfigurationSetDeliveryOptions $
+--             newPutConfigurationSetDeliveryOptions
 --
 --         , requestDescribeConfigurationSet $
---             describeConfigurationSet
---
---         , requestPutIdentityPolicy $
---             putIdentityPolicy
---
---         , requestDeleteIdentityPolicy $
---             deleteIdentityPolicy
---
---         , requestGetIdentityNotificationAttributes $
---             getIdentityNotificationAttributes
---
---         , requestListIdentityPolicies $
---             listIdentityPolicies
---
---         , requestSetIdentityDkimEnabled $
---             setIdentityDkimEnabled
---
---         , requestListReceiptFilters $
---             listReceiptFilters
---
---         , requestDescribeReceiptRuleSet $
---             describeReceiptRuleSet
---
---         , requestGetIdentityMailFromDomainAttributes $
---             getIdentityMailFromDomainAttributes
---
---         , requestCreateReceiptFilter $
---             createReceiptFilter
---
---         , requestUpdateConfigurationSetEventDestination $
---             updateConfigurationSetEventDestination
---
---         , requestDeleteConfigurationSetEventDestination $
---             deleteConfigurationSetEventDestination
---
---         , requestSetIdentityMailFromDomain $
---             setIdentityMailFromDomain
---
---         , requestSetIdentityFeedbackForwardingEnabled $
---             setIdentityFeedbackForwardingEnabled
---
---         , requestListConfigurationSets $
---             listConfigurationSets
---
---         , requestDeleteConfigurationSet $
---             deleteConfigurationSet
---
---         , requestGetIdentityVerificationAttributes $
---             getIdentityVerificationAttributes
---
---         , requestGetIdentityPolicies $
---             getIdentityPolicies
---
---         , requestListTemplates $
---             listTemplates
---
---         , requestVerifyDomainIdentity $
---             verifyDomainIdentity
---
---         , requestUpdateTemplate $
---             updateTemplate
---
---         , requestDeleteTemplate $
---             deleteTemplate
---
---         , requestReorderReceiptRuleSet $
---             reorderReceiptRuleSet
---
---         , requestListReceiptRuleSets $
---             listReceiptRuleSets
---
---         , requestDeleteReceiptRuleSet $
---             deleteReceiptRuleSet
---
---         , requestSetReceiptRulePosition $
---             setReceiptRulePosition
---
---         , requestSendBounce $
---             sendBounce
---
---         , requestGetIdentityDkimAttributes $
---             getIdentityDkimAttributes
---
---         , requestSendTemplatedEmail $
---             sendTemplatedEmail
---
---         , requestVerifyDomainDkim $
---             verifyDomainDkim
---
---         , requestTestRenderTemplate $
---             testRenderTemplate
---
---         , requestSendBulkTemplatedEmail $
---             sendBulkTemplatedEmail
---
---         , requestSendRawEmail $
---             sendRawEmail
---
---         , requestGetSendStatistics $
---             getSendStatistics
---
---         , requestDeleteIdentity $
---             deleteIdentity
+--             newDescribeConfigurationSet
 --
 --         , requestDescribeReceiptRule $
---             describeReceiptRule
+--             newDescribeReceiptRule
 --
---         , requestListIdentities $
---             listIdentities
+--         , requestDeleteIdentityPolicy $
+--             newDeleteIdentityPolicy
 --
---         , requestVerifyEmailIdentity $
---             verifyEmailIdentity
+--         , requestGetSendStatistics $
+--             newGetSendStatistics
 --
---         , requestVerifyEmailAddress $
---             verifyEmailAddress
+--         , requestCreateTemplate $
+--             newCreateTemplate
 --
---         , requestDeleteVerifiedEmailAddress $
---             deleteVerifiedEmailAddress
+--         , requestSetIdentityHeadersInNotificationsEnabled $
+--             newSetIdentityHeadersInNotificationsEnabled
 --
---         , requestDeleteReceiptFilter $
---             deleteReceiptFilter
+--         , requestGetIdentityDkimAttributes $
+--             newGetIdentityDkimAttributes
 --
---         , requestListVerifiedEmailAddresses $
---             listVerifiedEmailAddresses
+--         , requestGetSendQuota $
+--             newGetSendQuota
 --
---         , requestSetIdentityNotificationTopic $
---             setIdentityNotificationTopic
---
---         , requestSendEmail $
---             sendEmail
---
---         , requestDeleteReceiptRule $
---             deleteReceiptRule
---
---         , requestUpdateReceiptRule $
---             updateReceiptRule
---
---         , requestCloneReceiptRuleSet $
---             cloneReceiptRuleSet
---
---         , requestCreateConfigurationSetEventDestination $
---             createConfigurationSetEventDestination
---
---         , requestCreateReceiptRule $
---             createReceiptRule
---
---         , requestGetTemplate $
---             getTemplate
---
---         , requestSetActiveReceiptRuleSet $
---             setActiveReceiptRuleSet
---
---         , requestCreateConfigurationSet $
---             createConfigurationSet
+--         , requestCreateReceiptRuleSet $
+--             newCreateReceiptRuleSet
 --
 --         , requestCreateConfigurationSetTrackingOptions $
---             createConfigurationSetTrackingOptions
+--             newCreateConfigurationSetTrackingOptions
+--
+--         , requestDeleteReceiptRuleSet $
+--             newDeleteReceiptRuleSet
+--
+--         , requestVerifyDomainIdentity $
+--             newVerifyDomainIdentity
+--
+--         , requestUpdateAccountSendingEnabled $
+--             newUpdateAccountSendingEnabled
+--
+--         , requestDeleteTemplate $
+--             newDeleteTemplate
+--
+--         , requestUpdateTemplate $
+--             newUpdateTemplate
+--
+--         , requestSetReceiptRulePosition $
+--             newSetReceiptRulePosition
+--
+--         , requestGetIdentityPolicies $
+--             newGetIdentityPolicies
+--
+--         , requestGetIdentityVerificationAttributes $
+--             newGetIdentityVerificationAttributes
+--
+--         , requestGetAccountSendingEnabled $
+--             newGetAccountSendingEnabled
+--
+--         , requestCreateConfigurationSetEventDestination $
+--             newCreateConfigurationSetEventDestination
+--
+--         , requestCreateConfigurationSet $
+--             newCreateConfigurationSet
+--
+--         , requestDeleteConfigurationSet $
+--             newDeleteConfigurationSet
+--
+--         , requestCloneReceiptRuleSet $
+--             newCloneReceiptRuleSet
+--
+--         , requestUpdateConfigurationSetEventDestination $
+--             newUpdateConfigurationSetEventDestination
+--
+--         , requestDeleteReceiptRule $
+--             newDeleteReceiptRule
+--
+--         , requestUpdateReceiptRule $
+--             newUpdateReceiptRule
+--
+--         , requestDeleteConfigurationSetEventDestination $
+--             newDeleteConfigurationSetEventDestination
+--
+--         , requestSetIdentityFeedbackForwardingEnabled $
+--             newSetIdentityFeedbackForwardingEnabled
+--
+--         , requestSendEmail $
+--             newSendEmail
+--
+--         , requestVerifyEmailAddress $
+--             newVerifyEmailAddress
+--
+--         , requestDeleteVerifiedEmailAddress $
+--             newDeleteVerifiedEmailAddress
+--
+--         , requestListIdentityPolicies $
+--             newListIdentityPolicies
+--
+--         , requestSetIdentityDkimEnabled $
+--             newSetIdentityDkimEnabled
+--
+--         , requestUpdateConfigurationSetReputationMetricsEnabled $
+--             newUpdateConfigurationSetReputationMetricsEnabled
+--
+--         , requestCreateCustomVerificationEmailTemplate $
+--             newCreateCustomVerificationEmailTemplate
+--
+--         , requestDeleteCustomVerificationEmailTemplate $
+--             newDeleteCustomVerificationEmailTemplate
+--
+--         , requestUpdateCustomVerificationEmailTemplate $
+--             newUpdateCustomVerificationEmailTemplate
+--
+--         , requestListCustomVerificationEmailTemplates $
+--             newListCustomVerificationEmailTemplates
+--
+--         , requestDeleteIdentity $
+--             newDeleteIdentity
+--
+--         , requestPutIdentityPolicy $
+--             newPutIdentityPolicy
+--
+--         , requestDeleteConfigurationSetTrackingOptions $
+--             newDeleteConfigurationSetTrackingOptions
+--
+--         , requestSendBulkTemplatedEmail $
+--             newSendBulkTemplatedEmail
+--
+--         , requestVerifyDomainDkim $
+--             newVerifyDomainDkim
+--
+--         , requestSendTemplatedEmail $
+--             newSendTemplatedEmail
+--
+--         , requestSendRawEmail $
+--             newSendRawEmail
+--
+--         , requestSendBounce $
+--             newSendBounce
+--
+--         , requestUpdateConfigurationSetTrackingOptions $
+--             newUpdateConfigurationSetTrackingOptions
+--
+--         , requestTestRenderTemplate $
+--             newTestRenderTemplate
+--
+--         , requestReorderReceiptRuleSet $
+--             newReorderReceiptRuleSet
+--
+--         , requestListReceiptRuleSets $
+--             newListReceiptRuleSets
+--
+--         , requestListTemplates $
+--             newListTemplates
 --
 --         , requestDescribeActiveReceiptRuleSet $
---             describeActiveReceiptRuleSet
+--             newDescribeActiveReceiptRuleSet
+--
+--         , requestGetTemplate $
+--             newGetTemplate
+--
+--         , requestCreateReceiptRule $
+--             newCreateReceiptRule
+--
+--         , requestSetActiveReceiptRuleSet $
+--             newSetActiveReceiptRuleSet
+--
+--         , requestListConfigurationSets $
+--             newListConfigurationSets
+--
+--         , requestSetIdentityMailFromDomain $
+--             newSetIdentityMailFromDomain
+--
+--         , requestGetIdentityMailFromDomainAttributes $
+--             newGetIdentityMailFromDomainAttributes
+--
+--         , requestGetCustomVerificationEmailTemplate $
+--             newGetCustomVerificationEmailTemplate
+--
+--         , requestSetIdentityNotificationTopic $
+--             newSetIdentityNotificationTopic
+--
+--         , requestCreateReceiptFilter $
+--             newCreateReceiptFilter
+--
+--         , requestListVerifiedEmailAddresses $
+--             newListVerifiedEmailAddresses
+--
+--         , requestDeleteReceiptFilter $
+--             newDeleteReceiptFilter
+--
+--         , requestDescribeReceiptRuleSet $
+--             newDescribeReceiptRuleSet
+--
+--         , requestListReceiptFilters $
+--             newListReceiptFilters
+--
+--         , requestVerifyEmailIdentity $
+--             newVerifyEmailIdentity
+--
+--         , requestUpdateConfigurationSetSendingEnabled $
+--             newUpdateConfigurationSetSendingEnabled
+--
+--         , requestListIdentities $
+--             newListIdentities
+--
+--         , requestGetIdentityNotificationAttributes $
+--             newGetIdentityNotificationAttributes
+--
+--         , requestSendCustomVerificationEmail $
+--             newSendCustomVerificationEmail
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateTemplate $
---             createTemplateResponse
---
---         , responseDeleteConfigurationSetTrackingOptions $
---             deleteConfigurationSetTrackingOptionsResponse
---
---         , responseUpdateConfigurationSetTrackingOptions $
---             updateConfigurationSetTrackingOptionsResponse
---
---         , responseCreateReceiptRuleSet $
---             createReceiptRuleSetResponse
---
---         , responseSetIdentityHeadersInNotificationsEnabled $
---             setIdentityHeadersInNotificationsEnabledResponse
---
---         , responseGetSendQuota $
---             getSendQuotaResponse
+--         [ responsePutConfigurationSetDeliveryOptions $
+--             newPutConfigurationSetDeliveryOptionsResponse
 --
 --         , responseDescribeConfigurationSet $
---             describeConfigurationSetResponse
---
---         , responsePutIdentityPolicy $
---             putIdentityPolicyResponse
---
---         , responseDeleteIdentityPolicy $
---             deleteIdentityPolicyResponse
---
---         , responseGetIdentityNotificationAttributes $
---             getIdentityNotificationAttributesResponse
---
---         , responseListIdentityPolicies $
---             listIdentityPoliciesResponse
---
---         , responseSetIdentityDkimEnabled $
---             setIdentityDkimEnabledResponse
---
---         , responseListReceiptFilters $
---             listReceiptFiltersResponse
---
---         , responseDescribeReceiptRuleSet $
---             describeReceiptRuleSetResponse
---
---         , responseGetIdentityMailFromDomainAttributes $
---             getIdentityMailFromDomainAttributesResponse
---
---         , responseCreateReceiptFilter $
---             createReceiptFilterResponse
---
---         , responseUpdateConfigurationSetEventDestination $
---             updateConfigurationSetEventDestinationResponse
---
---         , responseDeleteConfigurationSetEventDestination $
---             deleteConfigurationSetEventDestinationResponse
---
---         , responseSetIdentityMailFromDomain $
---             setIdentityMailFromDomainResponse
---
---         , responseSetIdentityFeedbackForwardingEnabled $
---             setIdentityFeedbackForwardingEnabledResponse
---
---         , responseListConfigurationSets $
---             listConfigurationSetsResponse
---
---         , responseDeleteConfigurationSet $
---             deleteConfigurationSetResponse
---
---         , responseGetIdentityVerificationAttributes $
---             getIdentityVerificationAttributesResponse
---
---         , responseGetIdentityPolicies $
---             getIdentityPoliciesResponse
---
---         , responseListTemplates $
---             listTemplatesResponse
---
---         , responseVerifyDomainIdentity $
---             verifyDomainIdentityResponse
---
---         , responseUpdateTemplate $
---             updateTemplateResponse
---
---         , responseDeleteTemplate $
---             deleteTemplateResponse
---
---         , responseReorderReceiptRuleSet $
---             reorderReceiptRuleSetResponse
---
---         , responseListReceiptRuleSets $
---             listReceiptRuleSetsResponse
---
---         , responseDeleteReceiptRuleSet $
---             deleteReceiptRuleSetResponse
---
---         , responseSetReceiptRulePosition $
---             setReceiptRulePositionResponse
---
---         , responseSendBounce $
---             sendBounceResponse
---
---         , responseGetIdentityDkimAttributes $
---             getIdentityDkimAttributesResponse
---
---         , responseSendTemplatedEmail $
---             sendTemplatedEmailResponse
---
---         , responseVerifyDomainDkim $
---             verifyDomainDkimResponse
---
---         , responseTestRenderTemplate $
---             testRenderTemplateResponse
---
---         , responseSendBulkTemplatedEmail $
---             sendBulkTemplatedEmailResponse
---
---         , responseSendRawEmail $
---             sendRawEmailResponse
---
---         , responseGetSendStatistics $
---             getSendStatisticsResponse
---
---         , responseDeleteIdentity $
---             deleteIdentityResponse
+--             newDescribeConfigurationSetResponse
 --
 --         , responseDescribeReceiptRule $
---             describeReceiptRuleResponse
+--             newDescribeReceiptRuleResponse
 --
---         , responseListIdentities $
---             listIdentitiesResponse
+--         , responseDeleteIdentityPolicy $
+--             newDeleteIdentityPolicyResponse
 --
---         , responseVerifyEmailIdentity $
---             verifyEmailIdentityResponse
+--         , responseGetSendStatistics $
+--             newGetSendStatisticsResponse
 --
---         , responseVerifyEmailAddress $
---             verifyEmailAddressResponse
+--         , responseCreateTemplate $
+--             newCreateTemplateResponse
 --
---         , responseDeleteVerifiedEmailAddress $
---             deleteVerifiedEmailAddressResponse
+--         , responseSetIdentityHeadersInNotificationsEnabled $
+--             newSetIdentityHeadersInNotificationsEnabledResponse
 --
---         , responseDeleteReceiptFilter $
---             deleteReceiptFilterResponse
+--         , responseGetIdentityDkimAttributes $
+--             newGetIdentityDkimAttributesResponse
 --
---         , responseListVerifiedEmailAddresses $
---             listVerifiedEmailAddressesResponse
+--         , responseGetSendQuota $
+--             newGetSendQuotaResponse
 --
---         , responseSetIdentityNotificationTopic $
---             setIdentityNotificationTopicResponse
---
---         , responseSendEmail $
---             sendEmailResponse
---
---         , responseDeleteReceiptRule $
---             deleteReceiptRuleResponse
---
---         , responseUpdateReceiptRule $
---             updateReceiptRuleResponse
---
---         , responseCloneReceiptRuleSet $
---             cloneReceiptRuleSetResponse
---
---         , responseCreateConfigurationSetEventDestination $
---             createConfigurationSetEventDestinationResponse
---
---         , responseCreateReceiptRule $
---             createReceiptRuleResponse
---
---         , responseGetTemplate $
---             getTemplateResponse
---
---         , responseSetActiveReceiptRuleSet $
---             setActiveReceiptRuleSetResponse
---
---         , responseCreateConfigurationSet $
---             createConfigurationSetResponse
+--         , responseCreateReceiptRuleSet $
+--             newCreateReceiptRuleSetResponse
 --
 --         , responseCreateConfigurationSetTrackingOptions $
---             createConfigurationSetTrackingOptionsResponse
+--             newCreateConfigurationSetTrackingOptionsResponse
+--
+--         , responseDeleteReceiptRuleSet $
+--             newDeleteReceiptRuleSetResponse
+--
+--         , responseVerifyDomainIdentity $
+--             newVerifyDomainIdentityResponse
+--
+--         , responseUpdateAccountSendingEnabled $
+--             newUpdateAccountSendingEnabledResponse
+--
+--         , responseDeleteTemplate $
+--             newDeleteTemplateResponse
+--
+--         , responseUpdateTemplate $
+--             newUpdateTemplateResponse
+--
+--         , responseSetReceiptRulePosition $
+--             newSetReceiptRulePositionResponse
+--
+--         , responseGetIdentityPolicies $
+--             newGetIdentityPoliciesResponse
+--
+--         , responseGetIdentityVerificationAttributes $
+--             newGetIdentityVerificationAttributesResponse
+--
+--         , responseGetAccountSendingEnabled $
+--             newGetAccountSendingEnabledResponse
+--
+--         , responseCreateConfigurationSetEventDestination $
+--             newCreateConfigurationSetEventDestinationResponse
+--
+--         , responseCreateConfigurationSet $
+--             newCreateConfigurationSetResponse
+--
+--         , responseDeleteConfigurationSet $
+--             newDeleteConfigurationSetResponse
+--
+--         , responseCloneReceiptRuleSet $
+--             newCloneReceiptRuleSetResponse
+--
+--         , responseUpdateConfigurationSetEventDestination $
+--             newUpdateConfigurationSetEventDestinationResponse
+--
+--         , responseDeleteReceiptRule $
+--             newDeleteReceiptRuleResponse
+--
+--         , responseUpdateReceiptRule $
+--             newUpdateReceiptRuleResponse
+--
+--         , responseDeleteConfigurationSetEventDestination $
+--             newDeleteConfigurationSetEventDestinationResponse
+--
+--         , responseSetIdentityFeedbackForwardingEnabled $
+--             newSetIdentityFeedbackForwardingEnabledResponse
+--
+--         , responseSendEmail $
+--             newSendEmailResponse
+--
+--         , responseVerifyEmailAddress $
+--             newVerifyEmailAddressResponse
+--
+--         , responseDeleteVerifiedEmailAddress $
+--             newDeleteVerifiedEmailAddressResponse
+--
+--         , responseListIdentityPolicies $
+--             newListIdentityPoliciesResponse
+--
+--         , responseSetIdentityDkimEnabled $
+--             newSetIdentityDkimEnabledResponse
+--
+--         , responseUpdateConfigurationSetReputationMetricsEnabled $
+--             newUpdateConfigurationSetReputationMetricsEnabledResponse
+--
+--         , responseCreateCustomVerificationEmailTemplate $
+--             newCreateCustomVerificationEmailTemplateResponse
+--
+--         , responseDeleteCustomVerificationEmailTemplate $
+--             newDeleteCustomVerificationEmailTemplateResponse
+--
+--         , responseUpdateCustomVerificationEmailTemplate $
+--             newUpdateCustomVerificationEmailTemplateResponse
+--
+--         , responseListCustomVerificationEmailTemplates $
+--             newListCustomVerificationEmailTemplatesResponse
+--
+--         , responseDeleteIdentity $
+--             newDeleteIdentityResponse
+--
+--         , responsePutIdentityPolicy $
+--             newPutIdentityPolicyResponse
+--
+--         , responseDeleteConfigurationSetTrackingOptions $
+--             newDeleteConfigurationSetTrackingOptionsResponse
+--
+--         , responseSendBulkTemplatedEmail $
+--             newSendBulkTemplatedEmailResponse
+--
+--         , responseVerifyDomainDkim $
+--             newVerifyDomainDkimResponse
+--
+--         , responseSendTemplatedEmail $
+--             newSendTemplatedEmailResponse
+--
+--         , responseSendRawEmail $
+--             newSendRawEmailResponse
+--
+--         , responseSendBounce $
+--             newSendBounceResponse
+--
+--         , responseUpdateConfigurationSetTrackingOptions $
+--             newUpdateConfigurationSetTrackingOptionsResponse
+--
+--         , responseTestRenderTemplate $
+--             newTestRenderTemplateResponse
+--
+--         , responseReorderReceiptRuleSet $
+--             newReorderReceiptRuleSetResponse
+--
+--         , responseListReceiptRuleSets $
+--             newListReceiptRuleSetsResponse
+--
+--         , responseListTemplates $
+--             newListTemplatesResponse
 --
 --         , responseDescribeActiveReceiptRuleSet $
---             describeActiveReceiptRuleSetResponse
+--             newDescribeActiveReceiptRuleSetResponse
+--
+--         , responseGetTemplate $
+--             newGetTemplateResponse
+--
+--         , responseCreateReceiptRule $
+--             newCreateReceiptRuleResponse
+--
+--         , responseSetActiveReceiptRuleSet $
+--             newSetActiveReceiptRuleSetResponse
+--
+--         , responseListConfigurationSets $
+--             newListConfigurationSetsResponse
+--
+--         , responseSetIdentityMailFromDomain $
+--             newSetIdentityMailFromDomainResponse
+--
+--         , responseGetIdentityMailFromDomainAttributes $
+--             newGetIdentityMailFromDomainAttributesResponse
+--
+--         , responseGetCustomVerificationEmailTemplate $
+--             newGetCustomVerificationEmailTemplateResponse
+--
+--         , responseSetIdentityNotificationTopic $
+--             newSetIdentityNotificationTopicResponse
+--
+--         , responseCreateReceiptFilter $
+--             newCreateReceiptFilterResponse
+--
+--         , responseListVerifiedEmailAddresses $
+--             newListVerifiedEmailAddressesResponse
+--
+--         , responseDeleteReceiptFilter $
+--             newDeleteReceiptFilterResponse
+--
+--         , responseDescribeReceiptRuleSet $
+--             newDescribeReceiptRuleSetResponse
+--
+--         , responseListReceiptFilters $
+--             newListReceiptFiltersResponse
+--
+--         , responseVerifyEmailIdentity $
+--             newVerifyEmailIdentityResponse
+--
+--         , responseUpdateConfigurationSetSendingEnabled $
+--             newUpdateConfigurationSetSendingEnabledResponse
+--
+--         , responseListIdentities $
+--             newListIdentitiesResponse
+--
+--         , responseGetIdentityNotificationAttributes $
+--             newGetIdentityNotificationAttributesResponse
+--
+--         , responseSendCustomVerificationEmail $
+--             newSendCustomVerificationEmailResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestCreateTemplate :: CreateTemplate -> TestTree
-requestCreateTemplate = req
-    "CreateTemplate"
-    "fixture/CreateTemplate.yaml"
-
-requestDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptions -> TestTree
-requestDeleteConfigurationSetTrackingOptions = req
-    "DeleteConfigurationSetTrackingOptions"
-    "fixture/DeleteConfigurationSetTrackingOptions.yaml"
-
-requestUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptions -> TestTree
-requestUpdateConfigurationSetTrackingOptions = req
-    "UpdateConfigurationSetTrackingOptions"
-    "fixture/UpdateConfigurationSetTrackingOptions.yaml"
-
-requestCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
-requestCreateReceiptRuleSet = req
-    "CreateReceiptRuleSet"
-    "fixture/CreateReceiptRuleSet.yaml"
-
-requestSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabled -> TestTree
-requestSetIdentityHeadersInNotificationsEnabled = req
-    "SetIdentityHeadersInNotificationsEnabled"
-    "fixture/SetIdentityHeadersInNotificationsEnabled.yaml"
-
-requestGetSendQuota :: GetSendQuota -> TestTree
-requestGetSendQuota = req
-    "GetSendQuota"
-    "fixture/GetSendQuota.yaml"
+requestPutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptions -> TestTree
+requestPutConfigurationSetDeliveryOptions =
+  req
+    "PutConfigurationSetDeliveryOptions"
+    "fixture/PutConfigurationSetDeliveryOptions.yaml"
 
 requestDescribeConfigurationSet :: DescribeConfigurationSet -> TestTree
-requestDescribeConfigurationSet = req
+requestDescribeConfigurationSet =
+  req
     "DescribeConfigurationSet"
     "fixture/DescribeConfigurationSet.yaml"
 
-requestPutIdentityPolicy :: PutIdentityPolicy -> TestTree
-requestPutIdentityPolicy = req
-    "PutIdentityPolicy"
-    "fixture/PutIdentityPolicy.yaml"
-
-requestDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
-requestDeleteIdentityPolicy = req
-    "DeleteIdentityPolicy"
-    "fixture/DeleteIdentityPolicy.yaml"
-
-requestGetIdentityNotificationAttributes :: GetIdentityNotificationAttributes -> TestTree
-requestGetIdentityNotificationAttributes = req
-    "GetIdentityNotificationAttributes"
-    "fixture/GetIdentityNotificationAttributes.yaml"
-
-requestListIdentityPolicies :: ListIdentityPolicies -> TestTree
-requestListIdentityPolicies = req
-    "ListIdentityPolicies"
-    "fixture/ListIdentityPolicies.yaml"
-
-requestSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
-requestSetIdentityDkimEnabled = req
-    "SetIdentityDkimEnabled"
-    "fixture/SetIdentityDkimEnabled.yaml"
-
-requestListReceiptFilters :: ListReceiptFilters -> TestTree
-requestListReceiptFilters = req
-    "ListReceiptFilters"
-    "fixture/ListReceiptFilters.yaml"
-
-requestDescribeReceiptRuleSet :: DescribeReceiptRuleSet -> TestTree
-requestDescribeReceiptRuleSet = req
-    "DescribeReceiptRuleSet"
-    "fixture/DescribeReceiptRuleSet.yaml"
-
-requestGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributes -> TestTree
-requestGetIdentityMailFromDomainAttributes = req
-    "GetIdentityMailFromDomainAttributes"
-    "fixture/GetIdentityMailFromDomainAttributes.yaml"
-
-requestCreateReceiptFilter :: CreateReceiptFilter -> TestTree
-requestCreateReceiptFilter = req
-    "CreateReceiptFilter"
-    "fixture/CreateReceiptFilter.yaml"
-
-requestUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestination -> TestTree
-requestUpdateConfigurationSetEventDestination = req
-    "UpdateConfigurationSetEventDestination"
-    "fixture/UpdateConfigurationSetEventDestination.yaml"
-
-requestDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestination -> TestTree
-requestDeleteConfigurationSetEventDestination = req
-    "DeleteConfigurationSetEventDestination"
-    "fixture/DeleteConfigurationSetEventDestination.yaml"
-
-requestSetIdentityMailFromDomain :: SetIdentityMailFromDomain -> TestTree
-requestSetIdentityMailFromDomain = req
-    "SetIdentityMailFromDomain"
-    "fixture/SetIdentityMailFromDomain.yaml"
-
-requestSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
-requestSetIdentityFeedbackForwardingEnabled = req
-    "SetIdentityFeedbackForwardingEnabled"
-    "fixture/SetIdentityFeedbackForwardingEnabled.yaml"
-
-requestListConfigurationSets :: ListConfigurationSets -> TestTree
-requestListConfigurationSets = req
-    "ListConfigurationSets"
-    "fixture/ListConfigurationSets.yaml"
-
-requestDeleteConfigurationSet :: DeleteConfigurationSet -> TestTree
-requestDeleteConfigurationSet = req
-    "DeleteConfigurationSet"
-    "fixture/DeleteConfigurationSet.yaml"
-
-requestGetIdentityVerificationAttributes :: GetIdentityVerificationAttributes -> TestTree
-requestGetIdentityVerificationAttributes = req
-    "GetIdentityVerificationAttributes"
-    "fixture/GetIdentityVerificationAttributes.yaml"
-
-requestGetIdentityPolicies :: GetIdentityPolicies -> TestTree
-requestGetIdentityPolicies = req
-    "GetIdentityPolicies"
-    "fixture/GetIdentityPolicies.yaml"
-
-requestListTemplates :: ListTemplates -> TestTree
-requestListTemplates = req
-    "ListTemplates"
-    "fixture/ListTemplates.yaml"
-
-requestVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
-requestVerifyDomainIdentity = req
-    "VerifyDomainIdentity"
-    "fixture/VerifyDomainIdentity.yaml"
-
-requestUpdateTemplate :: UpdateTemplate -> TestTree
-requestUpdateTemplate = req
-    "UpdateTemplate"
-    "fixture/UpdateTemplate.yaml"
-
-requestDeleteTemplate :: DeleteTemplate -> TestTree
-requestDeleteTemplate = req
-    "DeleteTemplate"
-    "fixture/DeleteTemplate.yaml"
-
-requestReorderReceiptRuleSet :: ReorderReceiptRuleSet -> TestTree
-requestReorderReceiptRuleSet = req
-    "ReorderReceiptRuleSet"
-    "fixture/ReorderReceiptRuleSet.yaml"
-
-requestListReceiptRuleSets :: ListReceiptRuleSets -> TestTree
-requestListReceiptRuleSets = req
-    "ListReceiptRuleSets"
-    "fixture/ListReceiptRuleSets.yaml"
-
-requestDeleteReceiptRuleSet :: DeleteReceiptRuleSet -> TestTree
-requestDeleteReceiptRuleSet = req
-    "DeleteReceiptRuleSet"
-    "fixture/DeleteReceiptRuleSet.yaml"
-
-requestSetReceiptRulePosition :: SetReceiptRulePosition -> TestTree
-requestSetReceiptRulePosition = req
-    "SetReceiptRulePosition"
-    "fixture/SetReceiptRulePosition.yaml"
-
-requestSendBounce :: SendBounce -> TestTree
-requestSendBounce = req
-    "SendBounce"
-    "fixture/SendBounce.yaml"
-
-requestGetIdentityDkimAttributes :: GetIdentityDkimAttributes -> TestTree
-requestGetIdentityDkimAttributes = req
-    "GetIdentityDkimAttributes"
-    "fixture/GetIdentityDkimAttributes.yaml"
-
-requestSendTemplatedEmail :: SendTemplatedEmail -> TestTree
-requestSendTemplatedEmail = req
-    "SendTemplatedEmail"
-    "fixture/SendTemplatedEmail.yaml"
-
-requestVerifyDomainDkim :: VerifyDomainDkim -> TestTree
-requestVerifyDomainDkim = req
-    "VerifyDomainDkim"
-    "fixture/VerifyDomainDkim.yaml"
-
-requestTestRenderTemplate :: TestRenderTemplate -> TestTree
-requestTestRenderTemplate = req
-    "TestRenderTemplate"
-    "fixture/TestRenderTemplate.yaml"
-
-requestSendBulkTemplatedEmail :: SendBulkTemplatedEmail -> TestTree
-requestSendBulkTemplatedEmail = req
-    "SendBulkTemplatedEmail"
-    "fixture/SendBulkTemplatedEmail.yaml"
-
-requestSendRawEmail :: SendRawEmail -> TestTree
-requestSendRawEmail = req
-    "SendRawEmail"
-    "fixture/SendRawEmail.yaml"
-
-requestGetSendStatistics :: GetSendStatistics -> TestTree
-requestGetSendStatistics = req
-    "GetSendStatistics"
-    "fixture/GetSendStatistics.yaml"
-
-requestDeleteIdentity :: DeleteIdentity -> TestTree
-requestDeleteIdentity = req
-    "DeleteIdentity"
-    "fixture/DeleteIdentity.yaml"
-
 requestDescribeReceiptRule :: DescribeReceiptRule -> TestTree
-requestDescribeReceiptRule = req
+requestDescribeReceiptRule =
+  req
     "DescribeReceiptRule"
     "fixture/DescribeReceiptRule.yaml"
 
-requestListIdentities :: ListIdentities -> TestTree
-requestListIdentities = req
-    "ListIdentities"
-    "fixture/ListIdentities.yaml"
+requestDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
+requestDeleteIdentityPolicy =
+  req
+    "DeleteIdentityPolicy"
+    "fixture/DeleteIdentityPolicy.yaml"
 
-requestVerifyEmailIdentity :: VerifyEmailIdentity -> TestTree
-requestVerifyEmailIdentity = req
-    "VerifyEmailIdentity"
-    "fixture/VerifyEmailIdentity.yaml"
+requestGetSendStatistics :: GetSendStatistics -> TestTree
+requestGetSendStatistics =
+  req
+    "GetSendStatistics"
+    "fixture/GetSendStatistics.yaml"
 
-requestVerifyEmailAddress :: VerifyEmailAddress -> TestTree
-requestVerifyEmailAddress = req
-    "VerifyEmailAddress"
-    "fixture/VerifyEmailAddress.yaml"
+requestCreateTemplate :: CreateTemplate -> TestTree
+requestCreateTemplate =
+  req
+    "CreateTemplate"
+    "fixture/CreateTemplate.yaml"
 
-requestDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddress -> TestTree
-requestDeleteVerifiedEmailAddress = req
-    "DeleteVerifiedEmailAddress"
-    "fixture/DeleteVerifiedEmailAddress.yaml"
+requestSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabled -> TestTree
+requestSetIdentityHeadersInNotificationsEnabled =
+  req
+    "SetIdentityHeadersInNotificationsEnabled"
+    "fixture/SetIdentityHeadersInNotificationsEnabled.yaml"
 
-requestDeleteReceiptFilter :: DeleteReceiptFilter -> TestTree
-requestDeleteReceiptFilter = req
-    "DeleteReceiptFilter"
-    "fixture/DeleteReceiptFilter.yaml"
+requestGetIdentityDkimAttributes :: GetIdentityDkimAttributes -> TestTree
+requestGetIdentityDkimAttributes =
+  req
+    "GetIdentityDkimAttributes"
+    "fixture/GetIdentityDkimAttributes.yaml"
 
-requestListVerifiedEmailAddresses :: ListVerifiedEmailAddresses -> TestTree
-requestListVerifiedEmailAddresses = req
-    "ListVerifiedEmailAddresses"
-    "fixture/ListVerifiedEmailAddresses.yaml"
+requestGetSendQuota :: GetSendQuota -> TestTree
+requestGetSendQuota =
+  req
+    "GetSendQuota"
+    "fixture/GetSendQuota.yaml"
 
-requestSetIdentityNotificationTopic :: SetIdentityNotificationTopic -> TestTree
-requestSetIdentityNotificationTopic = req
-    "SetIdentityNotificationTopic"
-    "fixture/SetIdentityNotificationTopic.yaml"
+requestCreateReceiptRuleSet :: CreateReceiptRuleSet -> TestTree
+requestCreateReceiptRuleSet =
+  req
+    "CreateReceiptRuleSet"
+    "fixture/CreateReceiptRuleSet.yaml"
 
-requestSendEmail :: SendEmail -> TestTree
-requestSendEmail = req
-    "SendEmail"
-    "fixture/SendEmail.yaml"
+requestCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptions -> TestTree
+requestCreateConfigurationSetTrackingOptions =
+  req
+    "CreateConfigurationSetTrackingOptions"
+    "fixture/CreateConfigurationSetTrackingOptions.yaml"
+
+requestDeleteReceiptRuleSet :: DeleteReceiptRuleSet -> TestTree
+requestDeleteReceiptRuleSet =
+  req
+    "DeleteReceiptRuleSet"
+    "fixture/DeleteReceiptRuleSet.yaml"
+
+requestVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
+requestVerifyDomainIdentity =
+  req
+    "VerifyDomainIdentity"
+    "fixture/VerifyDomainIdentity.yaml"
+
+requestUpdateAccountSendingEnabled :: UpdateAccountSendingEnabled -> TestTree
+requestUpdateAccountSendingEnabled =
+  req
+    "UpdateAccountSendingEnabled"
+    "fixture/UpdateAccountSendingEnabled.yaml"
+
+requestDeleteTemplate :: DeleteTemplate -> TestTree
+requestDeleteTemplate =
+  req
+    "DeleteTemplate"
+    "fixture/DeleteTemplate.yaml"
+
+requestUpdateTemplate :: UpdateTemplate -> TestTree
+requestUpdateTemplate =
+  req
+    "UpdateTemplate"
+    "fixture/UpdateTemplate.yaml"
+
+requestSetReceiptRulePosition :: SetReceiptRulePosition -> TestTree
+requestSetReceiptRulePosition =
+  req
+    "SetReceiptRulePosition"
+    "fixture/SetReceiptRulePosition.yaml"
+
+requestGetIdentityPolicies :: GetIdentityPolicies -> TestTree
+requestGetIdentityPolicies =
+  req
+    "GetIdentityPolicies"
+    "fixture/GetIdentityPolicies.yaml"
+
+requestGetIdentityVerificationAttributes :: GetIdentityVerificationAttributes -> TestTree
+requestGetIdentityVerificationAttributes =
+  req
+    "GetIdentityVerificationAttributes"
+    "fixture/GetIdentityVerificationAttributes.yaml"
+
+requestGetAccountSendingEnabled :: GetAccountSendingEnabled -> TestTree
+requestGetAccountSendingEnabled =
+  req
+    "GetAccountSendingEnabled"
+    "fixture/GetAccountSendingEnabled.yaml"
+
+requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
+requestCreateConfigurationSetEventDestination =
+  req
+    "CreateConfigurationSetEventDestination"
+    "fixture/CreateConfigurationSetEventDestination.yaml"
+
+requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
+requestCreateConfigurationSet =
+  req
+    "CreateConfigurationSet"
+    "fixture/CreateConfigurationSet.yaml"
+
+requestDeleteConfigurationSet :: DeleteConfigurationSet -> TestTree
+requestDeleteConfigurationSet =
+  req
+    "DeleteConfigurationSet"
+    "fixture/DeleteConfigurationSet.yaml"
+
+requestCloneReceiptRuleSet :: CloneReceiptRuleSet -> TestTree
+requestCloneReceiptRuleSet =
+  req
+    "CloneReceiptRuleSet"
+    "fixture/CloneReceiptRuleSet.yaml"
+
+requestUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestination -> TestTree
+requestUpdateConfigurationSetEventDestination =
+  req
+    "UpdateConfigurationSetEventDestination"
+    "fixture/UpdateConfigurationSetEventDestination.yaml"
 
 requestDeleteReceiptRule :: DeleteReceiptRule -> TestTree
-requestDeleteReceiptRule = req
+requestDeleteReceiptRule =
+  req
     "DeleteReceiptRule"
     "fixture/DeleteReceiptRule.yaml"
 
 requestUpdateReceiptRule :: UpdateReceiptRule -> TestTree
-requestUpdateReceiptRule = req
+requestUpdateReceiptRule =
+  req
     "UpdateReceiptRule"
     "fixture/UpdateReceiptRule.yaml"
 
-requestCloneReceiptRuleSet :: CloneReceiptRuleSet -> TestTree
-requestCloneReceiptRuleSet = req
-    "CloneReceiptRuleSet"
-    "fixture/CloneReceiptRuleSet.yaml"
+requestDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestination -> TestTree
+requestDeleteConfigurationSetEventDestination =
+  req
+    "DeleteConfigurationSetEventDestination"
+    "fixture/DeleteConfigurationSetEventDestination.yaml"
 
-requestCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestination -> TestTree
-requestCreateConfigurationSetEventDestination = req
-    "CreateConfigurationSetEventDestination"
-    "fixture/CreateConfigurationSetEventDestination.yaml"
+requestSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
+requestSetIdentityFeedbackForwardingEnabled =
+  req
+    "SetIdentityFeedbackForwardingEnabled"
+    "fixture/SetIdentityFeedbackForwardingEnabled.yaml"
 
-requestCreateReceiptRule :: CreateReceiptRule -> TestTree
-requestCreateReceiptRule = req
-    "CreateReceiptRule"
-    "fixture/CreateReceiptRule.yaml"
+requestSendEmail :: SendEmail -> TestTree
+requestSendEmail =
+  req
+    "SendEmail"
+    "fixture/SendEmail.yaml"
 
-requestGetTemplate :: GetTemplate -> TestTree
-requestGetTemplate = req
-    "GetTemplate"
-    "fixture/GetTemplate.yaml"
+requestVerifyEmailAddress :: VerifyEmailAddress -> TestTree
+requestVerifyEmailAddress =
+  req
+    "VerifyEmailAddress"
+    "fixture/VerifyEmailAddress.yaml"
 
-requestSetActiveReceiptRuleSet :: SetActiveReceiptRuleSet -> TestTree
-requestSetActiveReceiptRuleSet = req
-    "SetActiveReceiptRuleSet"
-    "fixture/SetActiveReceiptRuleSet.yaml"
+requestDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddress -> TestTree
+requestDeleteVerifiedEmailAddress =
+  req
+    "DeleteVerifiedEmailAddress"
+    "fixture/DeleteVerifiedEmailAddress.yaml"
 
-requestCreateConfigurationSet :: CreateConfigurationSet -> TestTree
-requestCreateConfigurationSet = req
-    "CreateConfigurationSet"
-    "fixture/CreateConfigurationSet.yaml"
+requestListIdentityPolicies :: ListIdentityPolicies -> TestTree
+requestListIdentityPolicies =
+  req
+    "ListIdentityPolicies"
+    "fixture/ListIdentityPolicies.yaml"
 
-requestCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptions -> TestTree
-requestCreateConfigurationSetTrackingOptions = req
-    "CreateConfigurationSetTrackingOptions"
-    "fixture/CreateConfigurationSetTrackingOptions.yaml"
+requestSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
+requestSetIdentityDkimEnabled =
+  req
+    "SetIdentityDkimEnabled"
+    "fixture/SetIdentityDkimEnabled.yaml"
+
+requestUpdateConfigurationSetReputationMetricsEnabled :: UpdateConfigurationSetReputationMetricsEnabled -> TestTree
+requestUpdateConfigurationSetReputationMetricsEnabled =
+  req
+    "UpdateConfigurationSetReputationMetricsEnabled"
+    "fixture/UpdateConfigurationSetReputationMetricsEnabled.yaml"
+
+requestCreateCustomVerificationEmailTemplate :: CreateCustomVerificationEmailTemplate -> TestTree
+requestCreateCustomVerificationEmailTemplate =
+  req
+    "CreateCustomVerificationEmailTemplate"
+    "fixture/CreateCustomVerificationEmailTemplate.yaml"
+
+requestDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplate -> TestTree
+requestDeleteCustomVerificationEmailTemplate =
+  req
+    "DeleteCustomVerificationEmailTemplate"
+    "fixture/DeleteCustomVerificationEmailTemplate.yaml"
+
+requestUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplate -> TestTree
+requestUpdateCustomVerificationEmailTemplate =
+  req
+    "UpdateCustomVerificationEmailTemplate"
+    "fixture/UpdateCustomVerificationEmailTemplate.yaml"
+
+requestListCustomVerificationEmailTemplates :: ListCustomVerificationEmailTemplates -> TestTree
+requestListCustomVerificationEmailTemplates =
+  req
+    "ListCustomVerificationEmailTemplates"
+    "fixture/ListCustomVerificationEmailTemplates.yaml"
+
+requestDeleteIdentity :: DeleteIdentity -> TestTree
+requestDeleteIdentity =
+  req
+    "DeleteIdentity"
+    "fixture/DeleteIdentity.yaml"
+
+requestPutIdentityPolicy :: PutIdentityPolicy -> TestTree
+requestPutIdentityPolicy =
+  req
+    "PutIdentityPolicy"
+    "fixture/PutIdentityPolicy.yaml"
+
+requestDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptions -> TestTree
+requestDeleteConfigurationSetTrackingOptions =
+  req
+    "DeleteConfigurationSetTrackingOptions"
+    "fixture/DeleteConfigurationSetTrackingOptions.yaml"
+
+requestSendBulkTemplatedEmail :: SendBulkTemplatedEmail -> TestTree
+requestSendBulkTemplatedEmail =
+  req
+    "SendBulkTemplatedEmail"
+    "fixture/SendBulkTemplatedEmail.yaml"
+
+requestVerifyDomainDkim :: VerifyDomainDkim -> TestTree
+requestVerifyDomainDkim =
+  req
+    "VerifyDomainDkim"
+    "fixture/VerifyDomainDkim.yaml"
+
+requestSendTemplatedEmail :: SendTemplatedEmail -> TestTree
+requestSendTemplatedEmail =
+  req
+    "SendTemplatedEmail"
+    "fixture/SendTemplatedEmail.yaml"
+
+requestSendRawEmail :: SendRawEmail -> TestTree
+requestSendRawEmail =
+  req
+    "SendRawEmail"
+    "fixture/SendRawEmail.yaml"
+
+requestSendBounce :: SendBounce -> TestTree
+requestSendBounce =
+  req
+    "SendBounce"
+    "fixture/SendBounce.yaml"
+
+requestUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptions -> TestTree
+requestUpdateConfigurationSetTrackingOptions =
+  req
+    "UpdateConfigurationSetTrackingOptions"
+    "fixture/UpdateConfigurationSetTrackingOptions.yaml"
+
+requestTestRenderTemplate :: TestRenderTemplate -> TestTree
+requestTestRenderTemplate =
+  req
+    "TestRenderTemplate"
+    "fixture/TestRenderTemplate.yaml"
+
+requestReorderReceiptRuleSet :: ReorderReceiptRuleSet -> TestTree
+requestReorderReceiptRuleSet =
+  req
+    "ReorderReceiptRuleSet"
+    "fixture/ReorderReceiptRuleSet.yaml"
+
+requestListReceiptRuleSets :: ListReceiptRuleSets -> TestTree
+requestListReceiptRuleSets =
+  req
+    "ListReceiptRuleSets"
+    "fixture/ListReceiptRuleSets.yaml"
+
+requestListTemplates :: ListTemplates -> TestTree
+requestListTemplates =
+  req
+    "ListTemplates"
+    "fixture/ListTemplates.yaml"
 
 requestDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSet -> TestTree
-requestDescribeActiveReceiptRuleSet = req
+requestDescribeActiveReceiptRuleSet =
+  req
     "DescribeActiveReceiptRuleSet"
     "fixture/DescribeActiveReceiptRuleSet.yaml"
 
+requestGetTemplate :: GetTemplate -> TestTree
+requestGetTemplate =
+  req
+    "GetTemplate"
+    "fixture/GetTemplate.yaml"
+
+requestCreateReceiptRule :: CreateReceiptRule -> TestTree
+requestCreateReceiptRule =
+  req
+    "CreateReceiptRule"
+    "fixture/CreateReceiptRule.yaml"
+
+requestSetActiveReceiptRuleSet :: SetActiveReceiptRuleSet -> TestTree
+requestSetActiveReceiptRuleSet =
+  req
+    "SetActiveReceiptRuleSet"
+    "fixture/SetActiveReceiptRuleSet.yaml"
+
+requestListConfigurationSets :: ListConfigurationSets -> TestTree
+requestListConfigurationSets =
+  req
+    "ListConfigurationSets"
+    "fixture/ListConfigurationSets.yaml"
+
+requestSetIdentityMailFromDomain :: SetIdentityMailFromDomain -> TestTree
+requestSetIdentityMailFromDomain =
+  req
+    "SetIdentityMailFromDomain"
+    "fixture/SetIdentityMailFromDomain.yaml"
+
+requestGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributes -> TestTree
+requestGetIdentityMailFromDomainAttributes =
+  req
+    "GetIdentityMailFromDomainAttributes"
+    "fixture/GetIdentityMailFromDomainAttributes.yaml"
+
+requestGetCustomVerificationEmailTemplate :: GetCustomVerificationEmailTemplate -> TestTree
+requestGetCustomVerificationEmailTemplate =
+  req
+    "GetCustomVerificationEmailTemplate"
+    "fixture/GetCustomVerificationEmailTemplate.yaml"
+
+requestSetIdentityNotificationTopic :: SetIdentityNotificationTopic -> TestTree
+requestSetIdentityNotificationTopic =
+  req
+    "SetIdentityNotificationTopic"
+    "fixture/SetIdentityNotificationTopic.yaml"
+
+requestCreateReceiptFilter :: CreateReceiptFilter -> TestTree
+requestCreateReceiptFilter =
+  req
+    "CreateReceiptFilter"
+    "fixture/CreateReceiptFilter.yaml"
+
+requestListVerifiedEmailAddresses :: ListVerifiedEmailAddresses -> TestTree
+requestListVerifiedEmailAddresses =
+  req
+    "ListVerifiedEmailAddresses"
+    "fixture/ListVerifiedEmailAddresses.yaml"
+
+requestDeleteReceiptFilter :: DeleteReceiptFilter -> TestTree
+requestDeleteReceiptFilter =
+  req
+    "DeleteReceiptFilter"
+    "fixture/DeleteReceiptFilter.yaml"
+
+requestDescribeReceiptRuleSet :: DescribeReceiptRuleSet -> TestTree
+requestDescribeReceiptRuleSet =
+  req
+    "DescribeReceiptRuleSet"
+    "fixture/DescribeReceiptRuleSet.yaml"
+
+requestListReceiptFilters :: ListReceiptFilters -> TestTree
+requestListReceiptFilters =
+  req
+    "ListReceiptFilters"
+    "fixture/ListReceiptFilters.yaml"
+
+requestVerifyEmailIdentity :: VerifyEmailIdentity -> TestTree
+requestVerifyEmailIdentity =
+  req
+    "VerifyEmailIdentity"
+    "fixture/VerifyEmailIdentity.yaml"
+
+requestUpdateConfigurationSetSendingEnabled :: UpdateConfigurationSetSendingEnabled -> TestTree
+requestUpdateConfigurationSetSendingEnabled =
+  req
+    "UpdateConfigurationSetSendingEnabled"
+    "fixture/UpdateConfigurationSetSendingEnabled.yaml"
+
+requestListIdentities :: ListIdentities -> TestTree
+requestListIdentities =
+  req
+    "ListIdentities"
+    "fixture/ListIdentities.yaml"
+
+requestGetIdentityNotificationAttributes :: GetIdentityNotificationAttributes -> TestTree
+requestGetIdentityNotificationAttributes =
+  req
+    "GetIdentityNotificationAttributes"
+    "fixture/GetIdentityNotificationAttributes.yaml"
+
+requestSendCustomVerificationEmail :: SendCustomVerificationEmail -> TestTree
+requestSendCustomVerificationEmail =
+  req
+    "SendCustomVerificationEmail"
+    "fixture/SendCustomVerificationEmail.yaml"
+
 -- Responses
 
-responseCreateTemplate :: CreateTemplateResponse -> TestTree
-responseCreateTemplate = res
-    "CreateTemplateResponse"
-    "fixture/CreateTemplateResponse.proto"
-    ses
-    (Proxy :: Proxy CreateTemplate)
-
-responseDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptionsResponse -> TestTree
-responseDeleteConfigurationSetTrackingOptions = res
-    "DeleteConfigurationSetTrackingOptionsResponse"
-    "fixture/DeleteConfigurationSetTrackingOptionsResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteConfigurationSetTrackingOptions)
-
-responseUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptionsResponse -> TestTree
-responseUpdateConfigurationSetTrackingOptions = res
-    "UpdateConfigurationSetTrackingOptionsResponse"
-    "fixture/UpdateConfigurationSetTrackingOptionsResponse.proto"
-    ses
-    (Proxy :: Proxy UpdateConfigurationSetTrackingOptions)
-
-responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
-responseCreateReceiptRuleSet = res
-    "CreateReceiptRuleSetResponse"
-    "fixture/CreateReceiptRuleSetResponse.proto"
-    ses
-    (Proxy :: Proxy CreateReceiptRuleSet)
-
-responseSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabledResponse -> TestTree
-responseSetIdentityHeadersInNotificationsEnabled = res
-    "SetIdentityHeadersInNotificationsEnabledResponse"
-    "fixture/SetIdentityHeadersInNotificationsEnabledResponse.proto"
-    ses
-    (Proxy :: Proxy SetIdentityHeadersInNotificationsEnabled)
-
-responseGetSendQuota :: GetSendQuotaResponse -> TestTree
-responseGetSendQuota = res
-    "GetSendQuotaResponse"
-    "fixture/GetSendQuotaResponse.proto"
-    ses
-    (Proxy :: Proxy GetSendQuota)
+responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
+responsePutConfigurationSetDeliveryOptions =
+  res
+    "PutConfigurationSetDeliveryOptionsResponse"
+    "fixture/PutConfigurationSetDeliveryOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutConfigurationSetDeliveryOptions)
 
 responseDescribeConfigurationSet :: DescribeConfigurationSetResponse -> TestTree
-responseDescribeConfigurationSet = res
+responseDescribeConfigurationSet =
+  res
     "DescribeConfigurationSetResponse"
     "fixture/DescribeConfigurationSetResponse.proto"
-    ses
+    defaultService
     (Proxy :: Proxy DescribeConfigurationSet)
 
-responsePutIdentityPolicy :: PutIdentityPolicyResponse -> TestTree
-responsePutIdentityPolicy = res
-    "PutIdentityPolicyResponse"
-    "fixture/PutIdentityPolicyResponse.proto"
-    ses
-    (Proxy :: Proxy PutIdentityPolicy)
-
-responseDeleteIdentityPolicy :: DeleteIdentityPolicyResponse -> TestTree
-responseDeleteIdentityPolicy = res
-    "DeleteIdentityPolicyResponse"
-    "fixture/DeleteIdentityPolicyResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteIdentityPolicy)
-
-responseGetIdentityNotificationAttributes :: GetIdentityNotificationAttributesResponse -> TestTree
-responseGetIdentityNotificationAttributes = res
-    "GetIdentityNotificationAttributesResponse"
-    "fixture/GetIdentityNotificationAttributesResponse.proto"
-    ses
-    (Proxy :: Proxy GetIdentityNotificationAttributes)
-
-responseListIdentityPolicies :: ListIdentityPoliciesResponse -> TestTree
-responseListIdentityPolicies = res
-    "ListIdentityPoliciesResponse"
-    "fixture/ListIdentityPoliciesResponse.proto"
-    ses
-    (Proxy :: Proxy ListIdentityPolicies)
-
-responseSetIdentityDkimEnabled :: SetIdentityDkimEnabledResponse -> TestTree
-responseSetIdentityDkimEnabled = res
-    "SetIdentityDkimEnabledResponse"
-    "fixture/SetIdentityDkimEnabledResponse.proto"
-    ses
-    (Proxy :: Proxy SetIdentityDkimEnabled)
-
-responseListReceiptFilters :: ListReceiptFiltersResponse -> TestTree
-responseListReceiptFilters = res
-    "ListReceiptFiltersResponse"
-    "fixture/ListReceiptFiltersResponse.proto"
-    ses
-    (Proxy :: Proxy ListReceiptFilters)
-
-responseDescribeReceiptRuleSet :: DescribeReceiptRuleSetResponse -> TestTree
-responseDescribeReceiptRuleSet = res
-    "DescribeReceiptRuleSetResponse"
-    "fixture/DescribeReceiptRuleSetResponse.proto"
-    ses
-    (Proxy :: Proxy DescribeReceiptRuleSet)
-
-responseGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> TestTree
-responseGetIdentityMailFromDomainAttributes = res
-    "GetIdentityMailFromDomainAttributesResponse"
-    "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
-    ses
-    (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
-
-responseCreateReceiptFilter :: CreateReceiptFilterResponse -> TestTree
-responseCreateReceiptFilter = res
-    "CreateReceiptFilterResponse"
-    "fixture/CreateReceiptFilterResponse.proto"
-    ses
-    (Proxy :: Proxy CreateReceiptFilter)
-
-responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
-responseUpdateConfigurationSetEventDestination = res
-    "UpdateConfigurationSetEventDestinationResponse"
-    "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
-    ses
-    (Proxy :: Proxy UpdateConfigurationSetEventDestination)
-
-responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
-responseDeleteConfigurationSetEventDestination = res
-    "DeleteConfigurationSetEventDestinationResponse"
-    "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteConfigurationSetEventDestination)
-
-responseSetIdentityMailFromDomain :: SetIdentityMailFromDomainResponse -> TestTree
-responseSetIdentityMailFromDomain = res
-    "SetIdentityMailFromDomainResponse"
-    "fixture/SetIdentityMailFromDomainResponse.proto"
-    ses
-    (Proxy :: Proxy SetIdentityMailFromDomain)
-
-responseSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
-responseSetIdentityFeedbackForwardingEnabled = res
-    "SetIdentityFeedbackForwardingEnabledResponse"
-    "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
-    ses
-    (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
-
-responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
-responseListConfigurationSets = res
-    "ListConfigurationSetsResponse"
-    "fixture/ListConfigurationSetsResponse.proto"
-    ses
-    (Proxy :: Proxy ListConfigurationSets)
-
-responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
-responseDeleteConfigurationSet = res
-    "DeleteConfigurationSetResponse"
-    "fixture/DeleteConfigurationSetResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteConfigurationSet)
-
-responseGetIdentityVerificationAttributes :: GetIdentityVerificationAttributesResponse -> TestTree
-responseGetIdentityVerificationAttributes = res
-    "GetIdentityVerificationAttributesResponse"
-    "fixture/GetIdentityVerificationAttributesResponse.proto"
-    ses
-    (Proxy :: Proxy GetIdentityVerificationAttributes)
-
-responseGetIdentityPolicies :: GetIdentityPoliciesResponse -> TestTree
-responseGetIdentityPolicies = res
-    "GetIdentityPoliciesResponse"
-    "fixture/GetIdentityPoliciesResponse.proto"
-    ses
-    (Proxy :: Proxy GetIdentityPolicies)
-
-responseListTemplates :: ListTemplatesResponse -> TestTree
-responseListTemplates = res
-    "ListTemplatesResponse"
-    "fixture/ListTemplatesResponse.proto"
-    ses
-    (Proxy :: Proxy ListTemplates)
-
-responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
-responseVerifyDomainIdentity = res
-    "VerifyDomainIdentityResponse"
-    "fixture/VerifyDomainIdentityResponse.proto"
-    ses
-    (Proxy :: Proxy VerifyDomainIdentity)
-
-responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
-responseUpdateTemplate = res
-    "UpdateTemplateResponse"
-    "fixture/UpdateTemplateResponse.proto"
-    ses
-    (Proxy :: Proxy UpdateTemplate)
-
-responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
-responseDeleteTemplate = res
-    "DeleteTemplateResponse"
-    "fixture/DeleteTemplateResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteTemplate)
-
-responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
-responseReorderReceiptRuleSet = res
-    "ReorderReceiptRuleSetResponse"
-    "fixture/ReorderReceiptRuleSetResponse.proto"
-    ses
-    (Proxy :: Proxy ReorderReceiptRuleSet)
-
-responseListReceiptRuleSets :: ListReceiptRuleSetsResponse -> TestTree
-responseListReceiptRuleSets = res
-    "ListReceiptRuleSetsResponse"
-    "fixture/ListReceiptRuleSetsResponse.proto"
-    ses
-    (Proxy :: Proxy ListReceiptRuleSets)
-
-responseDeleteReceiptRuleSet :: DeleteReceiptRuleSetResponse -> TestTree
-responseDeleteReceiptRuleSet = res
-    "DeleteReceiptRuleSetResponse"
-    "fixture/DeleteReceiptRuleSetResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteReceiptRuleSet)
-
-responseSetReceiptRulePosition :: SetReceiptRulePositionResponse -> TestTree
-responseSetReceiptRulePosition = res
-    "SetReceiptRulePositionResponse"
-    "fixture/SetReceiptRulePositionResponse.proto"
-    ses
-    (Proxy :: Proxy SetReceiptRulePosition)
-
-responseSendBounce :: SendBounceResponse -> TestTree
-responseSendBounce = res
-    "SendBounceResponse"
-    "fixture/SendBounceResponse.proto"
-    ses
-    (Proxy :: Proxy SendBounce)
-
-responseGetIdentityDkimAttributes :: GetIdentityDkimAttributesResponse -> TestTree
-responseGetIdentityDkimAttributes = res
-    "GetIdentityDkimAttributesResponse"
-    "fixture/GetIdentityDkimAttributesResponse.proto"
-    ses
-    (Proxy :: Proxy GetIdentityDkimAttributes)
-
-responseSendTemplatedEmail :: SendTemplatedEmailResponse -> TestTree
-responseSendTemplatedEmail = res
-    "SendTemplatedEmailResponse"
-    "fixture/SendTemplatedEmailResponse.proto"
-    ses
-    (Proxy :: Proxy SendTemplatedEmail)
-
-responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
-responseVerifyDomainDkim = res
-    "VerifyDomainDkimResponse"
-    "fixture/VerifyDomainDkimResponse.proto"
-    ses
-    (Proxy :: Proxy VerifyDomainDkim)
-
-responseTestRenderTemplate :: TestRenderTemplateResponse -> TestTree
-responseTestRenderTemplate = res
-    "TestRenderTemplateResponse"
-    "fixture/TestRenderTemplateResponse.proto"
-    ses
-    (Proxy :: Proxy TestRenderTemplate)
-
-responseSendBulkTemplatedEmail :: SendBulkTemplatedEmailResponse -> TestTree
-responseSendBulkTemplatedEmail = res
-    "SendBulkTemplatedEmailResponse"
-    "fixture/SendBulkTemplatedEmailResponse.proto"
-    ses
-    (Proxy :: Proxy SendBulkTemplatedEmail)
-
-responseSendRawEmail :: SendRawEmailResponse -> TestTree
-responseSendRawEmail = res
-    "SendRawEmailResponse"
-    "fixture/SendRawEmailResponse.proto"
-    ses
-    (Proxy :: Proxy SendRawEmail)
-
-responseGetSendStatistics :: GetSendStatisticsResponse -> TestTree
-responseGetSendStatistics = res
-    "GetSendStatisticsResponse"
-    "fixture/GetSendStatisticsResponse.proto"
-    ses
-    (Proxy :: Proxy GetSendStatistics)
-
-responseDeleteIdentity :: DeleteIdentityResponse -> TestTree
-responseDeleteIdentity = res
-    "DeleteIdentityResponse"
-    "fixture/DeleteIdentityResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteIdentity)
-
 responseDescribeReceiptRule :: DescribeReceiptRuleResponse -> TestTree
-responseDescribeReceiptRule = res
+responseDescribeReceiptRule =
+  res
     "DescribeReceiptRuleResponse"
     "fixture/DescribeReceiptRuleResponse.proto"
-    ses
+    defaultService
     (Proxy :: Proxy DescribeReceiptRule)
 
-responseListIdentities :: ListIdentitiesResponse -> TestTree
-responseListIdentities = res
-    "ListIdentitiesResponse"
-    "fixture/ListIdentitiesResponse.proto"
-    ses
-    (Proxy :: Proxy ListIdentities)
+responseDeleteIdentityPolicy :: DeleteIdentityPolicyResponse -> TestTree
+responseDeleteIdentityPolicy =
+  res
+    "DeleteIdentityPolicyResponse"
+    "fixture/DeleteIdentityPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteIdentityPolicy)
 
-responseVerifyEmailIdentity :: VerifyEmailIdentityResponse -> TestTree
-responseVerifyEmailIdentity = res
-    "VerifyEmailIdentityResponse"
-    "fixture/VerifyEmailIdentityResponse.proto"
-    ses
-    (Proxy :: Proxy VerifyEmailIdentity)
+responseGetSendStatistics :: GetSendStatisticsResponse -> TestTree
+responseGetSendStatistics =
+  res
+    "GetSendStatisticsResponse"
+    "fixture/GetSendStatisticsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSendStatistics)
 
-responseVerifyEmailAddress :: VerifyEmailAddressResponse -> TestTree
-responseVerifyEmailAddress = res
-    "VerifyEmailAddressResponse"
-    "fixture/VerifyEmailAddressResponse.proto"
-    ses
-    (Proxy :: Proxy VerifyEmailAddress)
+responseCreateTemplate :: CreateTemplateResponse -> TestTree
+responseCreateTemplate =
+  res
+    "CreateTemplateResponse"
+    "fixture/CreateTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTemplate)
 
-responseDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddressResponse -> TestTree
-responseDeleteVerifiedEmailAddress = res
-    "DeleteVerifiedEmailAddressResponse"
-    "fixture/DeleteVerifiedEmailAddressResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteVerifiedEmailAddress)
+responseSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabledResponse -> TestTree
+responseSetIdentityHeadersInNotificationsEnabled =
+  res
+    "SetIdentityHeadersInNotificationsEnabledResponse"
+    "fixture/SetIdentityHeadersInNotificationsEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetIdentityHeadersInNotificationsEnabled)
 
-responseDeleteReceiptFilter :: DeleteReceiptFilterResponse -> TestTree
-responseDeleteReceiptFilter = res
-    "DeleteReceiptFilterResponse"
-    "fixture/DeleteReceiptFilterResponse.proto"
-    ses
-    (Proxy :: Proxy DeleteReceiptFilter)
+responseGetIdentityDkimAttributes :: GetIdentityDkimAttributesResponse -> TestTree
+responseGetIdentityDkimAttributes =
+  res
+    "GetIdentityDkimAttributesResponse"
+    "fixture/GetIdentityDkimAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityDkimAttributes)
 
-responseListVerifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> TestTree
-responseListVerifiedEmailAddresses = res
-    "ListVerifiedEmailAddressesResponse"
-    "fixture/ListVerifiedEmailAddressesResponse.proto"
-    ses
-    (Proxy :: Proxy ListVerifiedEmailAddresses)
+responseGetSendQuota :: GetSendQuotaResponse -> TestTree
+responseGetSendQuota =
+  res
+    "GetSendQuotaResponse"
+    "fixture/GetSendQuotaResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSendQuota)
 
-responseSetIdentityNotificationTopic :: SetIdentityNotificationTopicResponse -> TestTree
-responseSetIdentityNotificationTopic = res
-    "SetIdentityNotificationTopicResponse"
-    "fixture/SetIdentityNotificationTopicResponse.proto"
-    ses
-    (Proxy :: Proxy SetIdentityNotificationTopic)
+responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
+responseCreateReceiptRuleSet =
+  res
+    "CreateReceiptRuleSetResponse"
+    "fixture/CreateReceiptRuleSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateReceiptRuleSet)
 
-responseSendEmail :: SendEmailResponse -> TestTree
-responseSendEmail = res
-    "SendEmailResponse"
-    "fixture/SendEmailResponse.proto"
-    ses
-    (Proxy :: Proxy SendEmail)
+responseCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptionsResponse -> TestTree
+responseCreateConfigurationSetTrackingOptions =
+  res
+    "CreateConfigurationSetTrackingOptionsResponse"
+    "fixture/CreateConfigurationSetTrackingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConfigurationSetTrackingOptions)
+
+responseDeleteReceiptRuleSet :: DeleteReceiptRuleSetResponse -> TestTree
+responseDeleteReceiptRuleSet =
+  res
+    "DeleteReceiptRuleSetResponse"
+    "fixture/DeleteReceiptRuleSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteReceiptRuleSet)
+
+responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
+responseVerifyDomainIdentity =
+  res
+    "VerifyDomainIdentityResponse"
+    "fixture/VerifyDomainIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifyDomainIdentity)
+
+responseUpdateAccountSendingEnabled :: UpdateAccountSendingEnabledResponse -> TestTree
+responseUpdateAccountSendingEnabled =
+  res
+    "UpdateAccountSendingEnabledResponse"
+    "fixture/UpdateAccountSendingEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAccountSendingEnabled)
+
+responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
+responseDeleteTemplate =
+  res
+    "DeleteTemplateResponse"
+    "fixture/DeleteTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTemplate)
+
+responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
+responseUpdateTemplate =
+  res
+    "UpdateTemplateResponse"
+    "fixture/UpdateTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateTemplate)
+
+responseSetReceiptRulePosition :: SetReceiptRulePositionResponse -> TestTree
+responseSetReceiptRulePosition =
+  res
+    "SetReceiptRulePositionResponse"
+    "fixture/SetReceiptRulePositionResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetReceiptRulePosition)
+
+responseGetIdentityPolicies :: GetIdentityPoliciesResponse -> TestTree
+responseGetIdentityPolicies =
+  res
+    "GetIdentityPoliciesResponse"
+    "fixture/GetIdentityPoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityPolicies)
+
+responseGetIdentityVerificationAttributes :: GetIdentityVerificationAttributesResponse -> TestTree
+responseGetIdentityVerificationAttributes =
+  res
+    "GetIdentityVerificationAttributesResponse"
+    "fixture/GetIdentityVerificationAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityVerificationAttributes)
+
+responseGetAccountSendingEnabled :: GetAccountSendingEnabledResponse -> TestTree
+responseGetAccountSendingEnabled =
+  res
+    "GetAccountSendingEnabledResponse"
+    "fixture/GetAccountSendingEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetAccountSendingEnabled)
+
+responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
+responseCreateConfigurationSetEventDestination =
+  res
+    "CreateConfigurationSetEventDestinationResponse"
+    "fixture/CreateConfigurationSetEventDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+
+responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
+responseCreateConfigurationSet =
+  res
+    "CreateConfigurationSetResponse"
+    "fixture/CreateConfigurationSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConfigurationSet)
+
+responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
+responseDeleteConfigurationSet =
+  res
+    "DeleteConfigurationSetResponse"
+    "fixture/DeleteConfigurationSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConfigurationSet)
+
+responseCloneReceiptRuleSet :: CloneReceiptRuleSetResponse -> TestTree
+responseCloneReceiptRuleSet =
+  res
+    "CloneReceiptRuleSetResponse"
+    "fixture/CloneReceiptRuleSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CloneReceiptRuleSet)
+
+responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
+responseUpdateConfigurationSetEventDestination =
+  res
+    "UpdateConfigurationSetEventDestinationResponse"
+    "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateConfigurationSetEventDestination)
 
 responseDeleteReceiptRule :: DeleteReceiptRuleResponse -> TestTree
-responseDeleteReceiptRule = res
+responseDeleteReceiptRule =
+  res
     "DeleteReceiptRuleResponse"
     "fixture/DeleteReceiptRuleResponse.proto"
-    ses
+    defaultService
     (Proxy :: Proxy DeleteReceiptRule)
 
 responseUpdateReceiptRule :: UpdateReceiptRuleResponse -> TestTree
-responseUpdateReceiptRule = res
+responseUpdateReceiptRule =
+  res
     "UpdateReceiptRuleResponse"
     "fixture/UpdateReceiptRuleResponse.proto"
-    ses
+    defaultService
     (Proxy :: Proxy UpdateReceiptRule)
 
-responseCloneReceiptRuleSet :: CloneReceiptRuleSetResponse -> TestTree
-responseCloneReceiptRuleSet = res
-    "CloneReceiptRuleSetResponse"
-    "fixture/CloneReceiptRuleSetResponse.proto"
-    ses
-    (Proxy :: Proxy CloneReceiptRuleSet)
+responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
+responseDeleteConfigurationSetEventDestination =
+  res
+    "DeleteConfigurationSetEventDestinationResponse"
+    "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConfigurationSetEventDestination)
 
-responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
-responseCreateConfigurationSetEventDestination = res
-    "CreateConfigurationSetEventDestinationResponse"
-    "fixture/CreateConfigurationSetEventDestinationResponse.proto"
-    ses
-    (Proxy :: Proxy CreateConfigurationSetEventDestination)
+responseSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
+responseSetIdentityFeedbackForwardingEnabled =
+  res
+    "SetIdentityFeedbackForwardingEnabledResponse"
+    "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
 
-responseCreateReceiptRule :: CreateReceiptRuleResponse -> TestTree
-responseCreateReceiptRule = res
-    "CreateReceiptRuleResponse"
-    "fixture/CreateReceiptRuleResponse.proto"
-    ses
-    (Proxy :: Proxy CreateReceiptRule)
+responseSendEmail :: SendEmailResponse -> TestTree
+responseSendEmail =
+  res
+    "SendEmailResponse"
+    "fixture/SendEmailResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendEmail)
 
-responseGetTemplate :: GetTemplateResponse -> TestTree
-responseGetTemplate = res
-    "GetTemplateResponse"
-    "fixture/GetTemplateResponse.proto"
-    ses
-    (Proxy :: Proxy GetTemplate)
+responseVerifyEmailAddress :: VerifyEmailAddressResponse -> TestTree
+responseVerifyEmailAddress =
+  res
+    "VerifyEmailAddressResponse"
+    "fixture/VerifyEmailAddressResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifyEmailAddress)
 
-responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
-responseSetActiveReceiptRuleSet = res
-    "SetActiveReceiptRuleSetResponse"
-    "fixture/SetActiveReceiptRuleSetResponse.proto"
-    ses
-    (Proxy :: Proxy SetActiveReceiptRuleSet)
+responseDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddressResponse -> TestTree
+responseDeleteVerifiedEmailAddress =
+  res
+    "DeleteVerifiedEmailAddressResponse"
+    "fixture/DeleteVerifiedEmailAddressResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
-responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
-responseCreateConfigurationSet = res
-    "CreateConfigurationSetResponse"
-    "fixture/CreateConfigurationSetResponse.proto"
-    ses
-    (Proxy :: Proxy CreateConfigurationSet)
+responseListIdentityPolicies :: ListIdentityPoliciesResponse -> TestTree
+responseListIdentityPolicies =
+  res
+    "ListIdentityPoliciesResponse"
+    "fixture/ListIdentityPoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListIdentityPolicies)
 
-responseCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptionsResponse -> TestTree
-responseCreateConfigurationSetTrackingOptions = res
-    "CreateConfigurationSetTrackingOptionsResponse"
-    "fixture/CreateConfigurationSetTrackingOptionsResponse.proto"
-    ses
-    (Proxy :: Proxy CreateConfigurationSetTrackingOptions)
+responseSetIdentityDkimEnabled :: SetIdentityDkimEnabledResponse -> TestTree
+responseSetIdentityDkimEnabled =
+  res
+    "SetIdentityDkimEnabledResponse"
+    "fixture/SetIdentityDkimEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetIdentityDkimEnabled)
+
+responseUpdateConfigurationSetReputationMetricsEnabled :: UpdateConfigurationSetReputationMetricsEnabledResponse -> TestTree
+responseUpdateConfigurationSetReputationMetricsEnabled =
+  res
+    "UpdateConfigurationSetReputationMetricsEnabledResponse"
+    "fixture/UpdateConfigurationSetReputationMetricsEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateConfigurationSetReputationMetricsEnabled)
+
+responseCreateCustomVerificationEmailTemplate :: CreateCustomVerificationEmailTemplateResponse -> TestTree
+responseCreateCustomVerificationEmailTemplate =
+  res
+    "CreateCustomVerificationEmailTemplateResponse"
+    "fixture/CreateCustomVerificationEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCustomVerificationEmailTemplate)
+
+responseDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplateResponse -> TestTree
+responseDeleteCustomVerificationEmailTemplate =
+  res
+    "DeleteCustomVerificationEmailTemplateResponse"
+    "fixture/DeleteCustomVerificationEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCustomVerificationEmailTemplate)
+
+responseUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplateResponse -> TestTree
+responseUpdateCustomVerificationEmailTemplate =
+  res
+    "UpdateCustomVerificationEmailTemplateResponse"
+    "fixture/UpdateCustomVerificationEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCustomVerificationEmailTemplate)
+
+responseListCustomVerificationEmailTemplates :: ListCustomVerificationEmailTemplatesResponse -> TestTree
+responseListCustomVerificationEmailTemplates =
+  res
+    "ListCustomVerificationEmailTemplatesResponse"
+    "fixture/ListCustomVerificationEmailTemplatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCustomVerificationEmailTemplates)
+
+responseDeleteIdentity :: DeleteIdentityResponse -> TestTree
+responseDeleteIdentity =
+  res
+    "DeleteIdentityResponse"
+    "fixture/DeleteIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteIdentity)
+
+responsePutIdentityPolicy :: PutIdentityPolicyResponse -> TestTree
+responsePutIdentityPolicy =
+  res
+    "PutIdentityPolicyResponse"
+    "fixture/PutIdentityPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutIdentityPolicy)
+
+responseDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptionsResponse -> TestTree
+responseDeleteConfigurationSetTrackingOptions =
+  res
+    "DeleteConfigurationSetTrackingOptionsResponse"
+    "fixture/DeleteConfigurationSetTrackingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConfigurationSetTrackingOptions)
+
+responseSendBulkTemplatedEmail :: SendBulkTemplatedEmailResponse -> TestTree
+responseSendBulkTemplatedEmail =
+  res
+    "SendBulkTemplatedEmailResponse"
+    "fixture/SendBulkTemplatedEmailResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendBulkTemplatedEmail)
+
+responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
+responseVerifyDomainDkim =
+  res
+    "VerifyDomainDkimResponse"
+    "fixture/VerifyDomainDkimResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifyDomainDkim)
+
+responseSendTemplatedEmail :: SendTemplatedEmailResponse -> TestTree
+responseSendTemplatedEmail =
+  res
+    "SendTemplatedEmailResponse"
+    "fixture/SendTemplatedEmailResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendTemplatedEmail)
+
+responseSendRawEmail :: SendRawEmailResponse -> TestTree
+responseSendRawEmail =
+  res
+    "SendRawEmailResponse"
+    "fixture/SendRawEmailResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendRawEmail)
+
+responseSendBounce :: SendBounceResponse -> TestTree
+responseSendBounce =
+  res
+    "SendBounceResponse"
+    "fixture/SendBounceResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendBounce)
+
+responseUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptionsResponse -> TestTree
+responseUpdateConfigurationSetTrackingOptions =
+  res
+    "UpdateConfigurationSetTrackingOptionsResponse"
+    "fixture/UpdateConfigurationSetTrackingOptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateConfigurationSetTrackingOptions)
+
+responseTestRenderTemplate :: TestRenderTemplateResponse -> TestTree
+responseTestRenderTemplate =
+  res
+    "TestRenderTemplateResponse"
+    "fixture/TestRenderTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy TestRenderTemplate)
+
+responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
+responseReorderReceiptRuleSet =
+  res
+    "ReorderReceiptRuleSetResponse"
+    "fixture/ReorderReceiptRuleSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy ReorderReceiptRuleSet)
+
+responseListReceiptRuleSets :: ListReceiptRuleSetsResponse -> TestTree
+responseListReceiptRuleSets =
+  res
+    "ListReceiptRuleSetsResponse"
+    "fixture/ListReceiptRuleSetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListReceiptRuleSets)
+
+responseListTemplates :: ListTemplatesResponse -> TestTree
+responseListTemplates =
+  res
+    "ListTemplatesResponse"
+    "fixture/ListTemplatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTemplates)
 
 responseDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSetResponse -> TestTree
-responseDescribeActiveReceiptRuleSet = res
+responseDescribeActiveReceiptRuleSet =
+  res
     "DescribeActiveReceiptRuleSetResponse"
     "fixture/DescribeActiveReceiptRuleSetResponse.proto"
-    ses
+    defaultService
     (Proxy :: Proxy DescribeActiveReceiptRuleSet)
+
+responseGetTemplate :: GetTemplateResponse -> TestTree
+responseGetTemplate =
+  res
+    "GetTemplateResponse"
+    "fixture/GetTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTemplate)
+
+responseCreateReceiptRule :: CreateReceiptRuleResponse -> TestTree
+responseCreateReceiptRule =
+  res
+    "CreateReceiptRuleResponse"
+    "fixture/CreateReceiptRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateReceiptRule)
+
+responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
+responseSetActiveReceiptRuleSet =
+  res
+    "SetActiveReceiptRuleSetResponse"
+    "fixture/SetActiveReceiptRuleSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetActiveReceiptRuleSet)
+
+responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
+responseListConfigurationSets =
+  res
+    "ListConfigurationSetsResponse"
+    "fixture/ListConfigurationSetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListConfigurationSets)
+
+responseSetIdentityMailFromDomain :: SetIdentityMailFromDomainResponse -> TestTree
+responseSetIdentityMailFromDomain =
+  res
+    "SetIdentityMailFromDomainResponse"
+    "fixture/SetIdentityMailFromDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetIdentityMailFromDomain)
+
+responseGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> TestTree
+responseGetIdentityMailFromDomainAttributes =
+  res
+    "GetIdentityMailFromDomainAttributesResponse"
+    "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
+
+responseGetCustomVerificationEmailTemplate :: GetCustomVerificationEmailTemplateResponse -> TestTree
+responseGetCustomVerificationEmailTemplate =
+  res
+    "GetCustomVerificationEmailTemplateResponse"
+    "fixture/GetCustomVerificationEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCustomVerificationEmailTemplate)
+
+responseSetIdentityNotificationTopic :: SetIdentityNotificationTopicResponse -> TestTree
+responseSetIdentityNotificationTopic =
+  res
+    "SetIdentityNotificationTopicResponse"
+    "fixture/SetIdentityNotificationTopicResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetIdentityNotificationTopic)
+
+responseCreateReceiptFilter :: CreateReceiptFilterResponse -> TestTree
+responseCreateReceiptFilter =
+  res
+    "CreateReceiptFilterResponse"
+    "fixture/CreateReceiptFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateReceiptFilter)
+
+responseListVerifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> TestTree
+responseListVerifiedEmailAddresses =
+  res
+    "ListVerifiedEmailAddressesResponse"
+    "fixture/ListVerifiedEmailAddressesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListVerifiedEmailAddresses)
+
+responseDeleteReceiptFilter :: DeleteReceiptFilterResponse -> TestTree
+responseDeleteReceiptFilter =
+  res
+    "DeleteReceiptFilterResponse"
+    "fixture/DeleteReceiptFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteReceiptFilter)
+
+responseDescribeReceiptRuleSet :: DescribeReceiptRuleSetResponse -> TestTree
+responseDescribeReceiptRuleSet =
+  res
+    "DescribeReceiptRuleSetResponse"
+    "fixture/DescribeReceiptRuleSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeReceiptRuleSet)
+
+responseListReceiptFilters :: ListReceiptFiltersResponse -> TestTree
+responseListReceiptFilters =
+  res
+    "ListReceiptFiltersResponse"
+    "fixture/ListReceiptFiltersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListReceiptFilters)
+
+responseVerifyEmailIdentity :: VerifyEmailIdentityResponse -> TestTree
+responseVerifyEmailIdentity =
+  res
+    "VerifyEmailIdentityResponse"
+    "fixture/VerifyEmailIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifyEmailIdentity)
+
+responseUpdateConfigurationSetSendingEnabled :: UpdateConfigurationSetSendingEnabledResponse -> TestTree
+responseUpdateConfigurationSetSendingEnabled =
+  res
+    "UpdateConfigurationSetSendingEnabledResponse"
+    "fixture/UpdateConfigurationSetSendingEnabledResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateConfigurationSetSendingEnabled)
+
+responseListIdentities :: ListIdentitiesResponse -> TestTree
+responseListIdentities =
+  res
+    "ListIdentitiesResponse"
+    "fixture/ListIdentitiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListIdentities)
+
+responseGetIdentityNotificationAttributes :: GetIdentityNotificationAttributesResponse -> TestTree
+responseGetIdentityNotificationAttributes =
+  res
+    "GetIdentityNotificationAttributesResponse"
+    "fixture/GetIdentityNotificationAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityNotificationAttributes)
+
+responseSendCustomVerificationEmail :: SendCustomVerificationEmailResponse -> TestTree
+responseSendCustomVerificationEmail =
+  res
+    "SendCustomVerificationEmailResponse"
+    "fixture/SendCustomVerificationEmailResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendCustomVerificationEmail)

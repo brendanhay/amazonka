@@ -1,89 +1,136 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.IoT
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS IoT__
+-- Derived from API version @2015-05-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.
+-- IoT
 --
--- For more information about how AWS IoT works, see the <http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide> .
+-- IoT provides secure, bi-directional communication between
+-- Internet-connected devices (such as sensors, actuators, embedded
+-- devices, or smart appliances) and the Amazon Web Services cloud. You can
+-- discover your custom IoT-Data endpoint to communicate with, configure
+-- rules for data processing and integration with other services, organize
+-- resources associated with each device (Registry), configure logging, and
+-- create and manage policies and credentials to authenticate devices.
 --
+-- The service endpoints that expose this API are listed in
+-- <https://docs.aws.amazon.com/general/latest/gr/iot-core.html Amazon Web Services IoT Core Endpoints and Quotas>.
+-- You must use the endpoint for the region that has the resources you want
+-- to access.
+--
+-- The service name used by
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Amazon Web Services Signature Version 4>
+-- to sign the request is: /execute-api/.
+--
+-- For more information about how IoT works, see the
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html Developer Guide>.
+--
+-- For information about how to use the credentials provider for IoT, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html Authorizing Direct Calls to Amazon Web Services Services>.
 module Network.AWS.IoT
-    (
-    -- * Service Configuration
-      ioT
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** CertificateConflictException
-    , _CertificateConflictException
-
-    -- ** SqlParseException
-    , _SqlParseException
-
-    -- ** InvalidRequestException
-    , _InvalidRequestException
-
-    -- ** TransferConflictException
-    , _TransferConflictException
-
-    -- ** CertificateStateException
-    , _CertificateStateException
-
-    -- ** RegistrationCodeValidationException
-    , _RegistrationCodeValidationException
-
-    -- ** MalformedPolicyException
-    , _MalformedPolicyException
-
-    -- ** DeleteConflictException
-    , _DeleteConflictException
-
-    -- ** ResourceAlreadyExistsException
-    , _ResourceAlreadyExistsException
-
-    -- ** CertificateValidationException
-    , _CertificateValidationException
+    -- ** IndexNotReadyException
+    _IndexNotReadyException,
 
     -- ** TransferAlreadyCompletedException
-    , _TransferAlreadyCompletedException
+    _TransferAlreadyCompletedException,
 
-    -- ** ThrottlingException
-    , _ThrottlingException
+    -- ** InvalidQueryException
+    _InvalidQueryException,
 
-    -- ** InternalFailureException
-    , _InternalFailureException
+    -- ** CertificateConflictException
+    _CertificateConflictException,
 
-    -- ** VersionsLimitExceededException
-    , _VersionsLimitExceededException
+    -- ** TaskAlreadyExistsException
+    _TaskAlreadyExistsException,
 
-    -- ** ServiceUnavailableException
-    , _ServiceUnavailableException
-
-    -- ** InternalException
-    , _InternalException
-
-    -- ** VersionConflictException
-    , _VersionConflictException
+    -- ** CertificateValidationException
+    _CertificateValidationException,
 
     -- ** UnauthorizedException
-    , _UnauthorizedException
+    _UnauthorizedException,
 
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** MalformedPolicyException
+    _MalformedPolicyException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** CertificateStateException
+    _CertificateStateException,
+
+    -- ** InvalidAggregationException
+    _InvalidAggregationException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** ResourceRegistrationFailureException
+    _ResourceRegistrationFailureException,
+
+    -- ** SqlParseException
+    _SqlParseException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** LimitExceededException
-    , _LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
+
+    -- ** NotConfiguredException
+    _NotConfiguredException,
+
+    -- ** VersionConflictException
+    _VersionConflictException,
+
+    -- ** RegistrationCodeValidationException
+    _RegistrationCodeValidationException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** VersionsLimitExceededException
+    _VersionsLimitExceededException,
+
+    -- ** DeleteConflictException
+    _DeleteConflictException,
+
+    -- ** InvalidResponseException
+    _InvalidResponseException,
+
+    -- ** TransferConflictException
+    _TransferConflictException,
+
+    -- ** ConflictingResourceUpdateException
+    _ConflictingResourceUpdateException,
 
     -- * Waiters
     -- $waiters
@@ -91,557 +138,2596 @@ module Network.AWS.IoT
     -- * Operations
     -- $operations
 
-    -- ** ListPolicies (Paginated)
-    , module Network.AWS.IoT.ListPolicies
+    -- ** GetBucketsAggregation
+    GetBucketsAggregation (GetBucketsAggregation'),
+    newGetBucketsAggregation,
+    GetBucketsAggregationResponse (GetBucketsAggregationResponse'),
+    newGetBucketsAggregationResponse,
 
-    -- ** CreatePolicy
-    , module Network.AWS.IoT.CreatePolicy
+    -- ** UpdateIndexingConfiguration
+    UpdateIndexingConfiguration (UpdateIndexingConfiguration'),
+    newUpdateIndexingConfiguration,
+    UpdateIndexingConfigurationResponse (UpdateIndexingConfigurationResponse'),
+    newUpdateIndexingConfigurationResponse,
 
-    -- ** RegisterCertificate
-    , module Network.AWS.IoT.RegisterCertificate
+    -- ** PutVerificationStateOnViolation
+    PutVerificationStateOnViolation (PutVerificationStateOnViolation'),
+    newPutVerificationStateOnViolation,
+    PutVerificationStateOnViolationResponse (PutVerificationStateOnViolationResponse'),
+    newPutVerificationStateOnViolationResponse,
 
-    -- ** ListThingPrincipals
-    , module Network.AWS.IoT.ListThingPrincipals
+    -- ** ListThingRegistrationTaskReports (Paginated)
+    ListThingRegistrationTaskReports (ListThingRegistrationTaskReports'),
+    newListThingRegistrationTaskReports,
+    ListThingRegistrationTaskReportsResponse (ListThingRegistrationTaskReportsResponse'),
+    newListThingRegistrationTaskReportsResponse,
 
-    -- ** ListPrincipalThings (Paginated)
-    , module Network.AWS.IoT.ListPrincipalThings
+    -- ** DescribeFleetMetric
+    DescribeFleetMetric (DescribeFleetMetric'),
+    newDescribeFleetMetric,
+    DescribeFleetMetricResponse (DescribeFleetMetricResponse'),
+    newDescribeFleetMetricResponse,
 
-    -- ** GetLoggingOptions
-    , module Network.AWS.IoT.GetLoggingOptions
-
-    -- ** ListThingTypes (Paginated)
-    , module Network.AWS.IoT.ListThingTypes
-
-    -- ** CreateCertificateFromCSR
-    , module Network.AWS.IoT.CreateCertificateFromCSR
-
-    -- ** DeleteThing
-    , module Network.AWS.IoT.DeleteThing
-
-    -- ** UpdateThing
-    , module Network.AWS.IoT.UpdateThing
-
-    -- ** CreateThingType
-    , module Network.AWS.IoT.CreateThingType
-
-    -- ** CancelCertificateTransfer
-    , module Network.AWS.IoT.CancelCertificateTransfer
-
-    -- ** DeletePolicyVersion
-    , module Network.AWS.IoT.DeletePolicyVersion
-
-    -- ** DisableTopicRule
-    , module Network.AWS.IoT.DisableTopicRule
-
-    -- ** CreateTopicRule
-    , module Network.AWS.IoT.CreateTopicRule
-
-    -- ** CreatePolicyVersion
-    , module Network.AWS.IoT.CreatePolicyVersion
-
-    -- ** ListCACertificates (Paginated)
-    , module Network.AWS.IoT.ListCACertificates
-
-    -- ** DeleteTopicRule
-    , module Network.AWS.IoT.DeleteTopicRule
-
-    -- ** ListPrincipalPolicies (Paginated)
-    , module Network.AWS.IoT.ListPrincipalPolicies
-
-    -- ** DeleteCACertificate
-    , module Network.AWS.IoT.DeleteCACertificate
-
-    -- ** UpdateCACertificate
-    , module Network.AWS.IoT.UpdateCACertificate
-
-    -- ** ListTopicRules (Paginated)
-    , module Network.AWS.IoT.ListTopicRules
-
-    -- ** TransferCertificate
-    , module Network.AWS.IoT.TransferCertificate
-
-    -- ** GetTopicRule
-    , module Network.AWS.IoT.GetTopicRule
-
-    -- ** DescribeThing
-    , module Network.AWS.IoT.DescribeThing
-
-    -- ** DeletePolicy
-    , module Network.AWS.IoT.DeletePolicy
-
-    -- ** ListCertificates (Paginated)
-    , module Network.AWS.IoT.ListCertificates
-
-    -- ** GetPolicyVersion
-    , module Network.AWS.IoT.GetPolicyVersion
-
-    -- ** DeleteCertificate
-    , module Network.AWS.IoT.DeleteCertificate
+    -- ** CreateProvisioningClaim
+    CreateProvisioningClaim (CreateProvisioningClaim'),
+    newCreateProvisioningClaim,
+    CreateProvisioningClaimResponse (CreateProvisioningClaimResponse'),
+    newCreateProvisioningClaimResponse,
 
     -- ** UpdateCertificate
-    , module Network.AWS.IoT.UpdateCertificate
+    UpdateCertificate (UpdateCertificate'),
+    newUpdateCertificate,
+    UpdateCertificateResponse (UpdateCertificateResponse'),
+    newUpdateCertificateResponse,
 
-    -- ** ListOutgoingCertificates (Paginated)
-    , module Network.AWS.IoT.ListOutgoingCertificates
+    -- ** ListMitigationActions (Paginated)
+    ListMitigationActions (ListMitigationActions'),
+    newListMitigationActions,
+    ListMitigationActionsResponse (ListMitigationActionsResponse'),
+    newListMitigationActionsResponse,
 
-    -- ** DescribeCACertificate
-    , module Network.AWS.IoT.DescribeCACertificate
+    -- ** DescribeProvisioningTemplate
+    DescribeProvisioningTemplate (DescribeProvisioningTemplate'),
+    newDescribeProvisioningTemplate,
+    DescribeProvisioningTemplateResponse (DescribeProvisioningTemplateResponse'),
+    newDescribeProvisioningTemplateResponse,
 
-    -- ** GetRegistrationCode
-    , module Network.AWS.IoT.GetRegistrationCode
+    -- ** DeleteJobExecution
+    DeleteJobExecution (DeleteJobExecution'),
+    newDeleteJobExecution,
+    DeleteJobExecutionResponse (DeleteJobExecutionResponse'),
+    newDeleteJobExecutionResponse,
 
-    -- ** DeleteThingType
-    , module Network.AWS.IoT.DeleteThingType
+    -- ** ListSecurityProfiles (Paginated)
+    ListSecurityProfiles (ListSecurityProfiles'),
+    newListSecurityProfiles,
+    ListSecurityProfilesResponse (ListSecurityProfilesResponse'),
+    newListSecurityProfilesResponse,
 
-    -- ** ListCertificatesByCA (Paginated)
-    , module Network.AWS.IoT.ListCertificatesByCA
+    -- ** UpdateMitigationAction
+    UpdateMitigationAction (UpdateMitigationAction'),
+    newUpdateMitigationAction,
+    UpdateMitigationActionResponse (UpdateMitigationActionResponse'),
+    newUpdateMitigationActionResponse,
 
-    -- ** AttachThingPrincipal
-    , module Network.AWS.IoT.AttachThingPrincipal
+    -- ** DeleteMitigationAction
+    DeleteMitigationAction (DeleteMitigationAction'),
+    newDeleteMitigationAction,
+    DeleteMitigationActionResponse (DeleteMitigationActionResponse'),
+    newDeleteMitigationActionResponse,
 
-    -- ** ListThings (Paginated)
-    , module Network.AWS.IoT.ListThings
+    -- ** ListPolicies (Paginated)
+    ListPolicies (ListPolicies'),
+    newListPolicies,
+    ListPoliciesResponse (ListPoliciesResponse'),
+    newListPoliciesResponse,
 
-    -- ** DetachPrincipalPolicy
-    , module Network.AWS.IoT.DetachPrincipalPolicy
+    -- ** StartDetectMitigationActionsTask
+    StartDetectMitigationActionsTask (StartDetectMitigationActionsTask'),
+    newStartDetectMitigationActionsTask,
+    StartDetectMitigationActionsTaskResponse (StartDetectMitigationActionsTaskResponse'),
+    newStartDetectMitigationActionsTaskResponse,
 
-    -- ** DeleteRegistrationCode
-    , module Network.AWS.IoT.DeleteRegistrationCode
+    -- ** GetCardinality
+    GetCardinality (GetCardinality'),
+    newGetCardinality,
+    GetCardinalityResponse (GetCardinalityResponse'),
+    newGetCardinalityResponse,
 
-    -- ** CreateThing
-    , module Network.AWS.IoT.CreateThing
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
 
-    -- ** DescribeCertificate
-    , module Network.AWS.IoT.DescribeCertificate
+    -- ** CreatePolicy
+    CreatePolicy (CreatePolicy'),
+    newCreatePolicy,
+    CreatePolicyResponse (CreatePolicyResponse'),
+    newCreatePolicyResponse,
 
-    -- ** ListPolicyPrincipals (Paginated)
-    , module Network.AWS.IoT.ListPolicyPrincipals
+    -- ** ListViolationEvents (Paginated)
+    ListViolationEvents (ListViolationEvents'),
+    newListViolationEvents,
+    ListViolationEventsResponse (ListViolationEventsResponse'),
+    newListViolationEventsResponse,
 
-    -- ** ReplaceTopicRule
-    , module Network.AWS.IoT.ReplaceTopicRule
+    -- ** CreateDimension
+    CreateDimension (CreateDimension'),
+    newCreateDimension,
+    CreateDimensionResponse (CreateDimensionResponse'),
+    newCreateDimensionResponse,
 
-    -- ** SetDefaultPolicyVersion
-    , module Network.AWS.IoT.SetDefaultPolicyVersion
-
-    -- ** ListPolicyVersions
-    , module Network.AWS.IoT.ListPolicyVersions
-
-    -- ** CreateKeysAndCertificate
-    , module Network.AWS.IoT.CreateKeysAndCertificate
-
-    -- ** EnableTopicRule
-    , module Network.AWS.IoT.EnableTopicRule
-
-    -- ** AcceptCertificateTransfer
-    , module Network.AWS.IoT.AcceptCertificateTransfer
-
-    -- ** GetPolicy
-    , module Network.AWS.IoT.GetPolicy
-
-    -- ** DescribeEndpoint
-    , module Network.AWS.IoT.DescribeEndpoint
-
-    -- ** RegisterCACertificate
-    , module Network.AWS.IoT.RegisterCACertificate
-
-    -- ** SetLoggingOptions
-    , module Network.AWS.IoT.SetLoggingOptions
+    -- ** ListAuditTasks (Paginated)
+    ListAuditTasks (ListAuditTasks'),
+    newListAuditTasks,
+    ListAuditTasksResponse (ListAuditTasksResponse'),
+    newListAuditTasksResponse,
 
     -- ** DescribeThingType
-    , module Network.AWS.IoT.DescribeThingType
+    DescribeThingType (DescribeThingType'),
+    newDescribeThingType,
+    DescribeThingTypeResponse (DescribeThingTypeResponse'),
+    newDescribeThingTypeResponse,
 
-    -- ** AttachPrincipalPolicy
-    , module Network.AWS.IoT.AttachPrincipalPolicy
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
+
+    -- ** CreateMitigationAction
+    CreateMitigationAction (CreateMitigationAction'),
+    newCreateMitigationAction,
+    CreateMitigationActionResponse (CreateMitigationActionResponse'),
+    newCreateMitigationActionResponse,
+
+    -- ** DeleteDomainConfiguration
+    DeleteDomainConfiguration (DeleteDomainConfiguration'),
+    newDeleteDomainConfiguration,
+    DeleteDomainConfigurationResponse (DeleteDomainConfigurationResponse'),
+    newDeleteDomainConfigurationResponse,
+
+    -- ** GetTopicRule
+    GetTopicRule (GetTopicRule'),
+    newGetTopicRule,
+    GetTopicRuleResponse (GetTopicRuleResponse'),
+    newGetTopicRuleResponse,
+
+    -- ** UpdateDomainConfiguration
+    UpdateDomainConfiguration (UpdateDomainConfiguration'),
+    newUpdateDomainConfiguration,
+    UpdateDomainConfigurationResponse (UpdateDomainConfigurationResponse'),
+    newUpdateDomainConfigurationResponse,
 
     -- ** RejectCertificateTransfer
-    , module Network.AWS.IoT.RejectCertificateTransfer
+    RejectCertificateTransfer (RejectCertificateTransfer'),
+    newRejectCertificateTransfer,
+    RejectCertificateTransferResponse (RejectCertificateTransferResponse'),
+    newRejectCertificateTransferResponse,
 
-    -- ** DetachThingPrincipal
-    , module Network.AWS.IoT.DetachThingPrincipal
+    -- ** SetLoggingOptions
+    SetLoggingOptions (SetLoggingOptions'),
+    newSetLoggingOptions,
+    SetLoggingOptionsResponse (SetLoggingOptionsResponse'),
+    newSetLoggingOptionsResponse,
+
+    -- ** CreateSecurityProfile
+    CreateSecurityProfile (CreateSecurityProfile'),
+    newCreateSecurityProfile,
+    CreateSecurityProfileResponse (CreateSecurityProfileResponse'),
+    newCreateSecurityProfileResponse,
+
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
+    -- ** ListDomainConfigurations (Paginated)
+    ListDomainConfigurations (ListDomainConfigurations'),
+    newListDomainConfigurations,
+    ListDomainConfigurationsResponse (ListDomainConfigurationsResponse'),
+    newListDomainConfigurationsResponse,
+
+    -- ** DescribeScheduledAudit
+    DescribeScheduledAudit (DescribeScheduledAudit'),
+    newDescribeScheduledAudit,
+    DescribeScheduledAuditResponse (DescribeScheduledAuditResponse'),
+    newDescribeScheduledAuditResponse,
+
+    -- ** GetV2LoggingOptions
+    GetV2LoggingOptions (GetV2LoggingOptions'),
+    newGetV2LoggingOptions,
+    GetV2LoggingOptionsResponse (GetV2LoggingOptionsResponse'),
+    newGetV2LoggingOptionsResponse,
+
+    -- ** ListThingsInThingGroup (Paginated)
+    ListThingsInThingGroup (ListThingsInThingGroup'),
+    newListThingsInThingGroup,
+    ListThingsInThingGroupResponse (ListThingsInThingGroupResponse'),
+    newListThingsInThingGroupResponse,
+
+    -- ** ListCustomMetrics (Paginated)
+    ListCustomMetrics (ListCustomMetrics'),
+    newListCustomMetrics,
+    ListCustomMetricsResponse (ListCustomMetricsResponse'),
+    newListCustomMetricsResponse,
+
+    -- ** AttachSecurityProfile
+    AttachSecurityProfile (AttachSecurityProfile'),
+    newAttachSecurityProfile,
+    AttachSecurityProfileResponse (AttachSecurityProfileResponse'),
+    newAttachSecurityProfileResponse,
+
+    -- ** UpdateJob
+    UpdateJob (UpdateJob'),
+    newUpdateJob,
+    UpdateJobResponse (UpdateJobResponse'),
+    newUpdateJobResponse,
+
+    -- ** DeleteJob
+    DeleteJob (DeleteJob'),
+    newDeleteJob,
+    DeleteJobResponse (DeleteJobResponse'),
+    newDeleteJobResponse,
+
+    -- ** DeleteCACertificate
+    DeleteCACertificate (DeleteCACertificate'),
+    newDeleteCACertificate,
+    DeleteCACertificateResponse (DeleteCACertificateResponse'),
+    newDeleteCACertificateResponse,
+
+    -- ** DeleteCustomMetric
+    DeleteCustomMetric (DeleteCustomMetric'),
+    newDeleteCustomMetric,
+    DeleteCustomMetricResponse (DeleteCustomMetricResponse'),
+    newDeleteCustomMetricResponse,
+
+    -- ** CreatePolicyVersion
+    CreatePolicyVersion (CreatePolicyVersion'),
+    newCreatePolicyVersion,
+    CreatePolicyVersionResponse (CreatePolicyVersionResponse'),
+    newCreatePolicyVersionResponse,
+
+    -- ** ListRoleAliases (Paginated)
+    ListRoleAliases (ListRoleAliases'),
+    newListRoleAliases,
+    ListRoleAliasesResponse (ListRoleAliasesResponse'),
+    newListRoleAliasesResponse,
+
+    -- ** CancelAuditTask
+    CancelAuditTask (CancelAuditTask'),
+    newCancelAuditTask,
+    CancelAuditTaskResponse (CancelAuditTaskResponse'),
+    newCancelAuditTaskResponse,
+
+    -- ** CreateRoleAlias
+    CreateRoleAlias (CreateRoleAlias'),
+    newCreateRoleAlias,
+    CreateRoleAliasResponse (CreateRoleAliasResponse'),
+    newCreateRoleAliasResponse,
+
+    -- ** ListJobTemplates (Paginated)
+    ListJobTemplates (ListJobTemplates'),
+    newListJobTemplates,
+    ListJobTemplatesResponse (ListJobTemplatesResponse'),
+    newListJobTemplatesResponse,
+
+    -- ** DescribeProvisioningTemplateVersion
+    DescribeProvisioningTemplateVersion (DescribeProvisioningTemplateVersion'),
+    newDescribeProvisioningTemplateVersion,
+    DescribeProvisioningTemplateVersionResponse (DescribeProvisioningTemplateVersionResponse'),
+    newDescribeProvisioningTemplateVersionResponse,
+
+    -- ** CreateKeysAndCertificate
+    CreateKeysAndCertificate (CreateKeysAndCertificate'),
+    newCreateKeysAndCertificate,
+    CreateKeysAndCertificateResponse (CreateKeysAndCertificateResponse'),
+    newCreateKeysAndCertificateResponse,
+
+    -- ** UpdateCACertificate
+    UpdateCACertificate (UpdateCACertificate'),
+    newUpdateCACertificate,
+    UpdateCACertificateResponse (UpdateCACertificateResponse'),
+    newUpdateCACertificateResponse,
+
+    -- ** UpdateCustomMetric
+    UpdateCustomMetric (UpdateCustomMetric'),
+    newUpdateCustomMetric,
+    UpdateCustomMetricResponse (UpdateCustomMetricResponse'),
+    newUpdateCustomMetricResponse,
+
+    -- ** StartAuditMitigationActionsTask
+    StartAuditMitigationActionsTask (StartAuditMitigationActionsTask'),
+    newStartAuditMitigationActionsTask,
+    StartAuditMitigationActionsTaskResponse (StartAuditMitigationActionsTaskResponse'),
+    newStartAuditMitigationActionsTaskResponse,
+
+    -- ** TransferCertificate
+    TransferCertificate (TransferCertificate'),
+    newTransferCertificate,
+    TransferCertificateResponse (TransferCertificateResponse'),
+    newTransferCertificateResponse,
+
+    -- ** GetPercentiles
+    GetPercentiles (GetPercentiles'),
+    newGetPercentiles,
+    GetPercentilesResponse (GetPercentilesResponse'),
+    newGetPercentilesResponse,
+
+    -- ** DeleteTopicRule
+    DeleteTopicRule (DeleteTopicRule'),
+    newDeleteTopicRule,
+    DeleteTopicRuleResponse (DeleteTopicRuleResponse'),
+    newDeleteTopicRuleResponse,
+
+    -- ** ListTargetsForSecurityProfile (Paginated)
+    ListTargetsForSecurityProfile (ListTargetsForSecurityProfile'),
+    newListTargetsForSecurityProfile,
+    ListTargetsForSecurityProfileResponse (ListTargetsForSecurityProfileResponse'),
+    newListTargetsForSecurityProfileResponse,
+
+    -- ** DescribeEndpoint
+    DescribeEndpoint (DescribeEndpoint'),
+    newDescribeEndpoint,
+    DescribeEndpointResponse (DescribeEndpointResponse'),
+    newDescribeEndpointResponse,
+
+    -- ** ListThingsInBillingGroup (Paginated)
+    ListThingsInBillingGroup (ListThingsInBillingGroup'),
+    newListThingsInBillingGroup,
+    ListThingsInBillingGroupResponse (ListThingsInBillingGroupResponse'),
+    newListThingsInBillingGroupResponse,
+
+    -- ** SetV2LoggingLevel
+    SetV2LoggingLevel (SetV2LoggingLevel'),
+    newSetV2LoggingLevel,
+    SetV2LoggingLevelResponse (SetV2LoggingLevelResponse'),
+    newSetV2LoggingLevelResponse,
+
+    -- ** CreateJobTemplate
+    CreateJobTemplate (CreateJobTemplate'),
+    newCreateJobTemplate,
+    CreateJobTemplateResponse (CreateJobTemplateResponse'),
+    newCreateJobTemplateResponse,
+
+    -- ** SetDefaultPolicyVersion
+    SetDefaultPolicyVersion (SetDefaultPolicyVersion'),
+    newSetDefaultPolicyVersion,
+    SetDefaultPolicyVersionResponse (SetDefaultPolicyVersionResponse'),
+    newSetDefaultPolicyVersionResponse,
+
+    -- ** CreateCustomMetric
+    CreateCustomMetric (CreateCustomMetric'),
+    newCreateCustomMetric,
+    CreateCustomMetricResponse (CreateCustomMetricResponse'),
+    newCreateCustomMetricResponse,
+
+    -- ** ListFleetMetrics (Paginated)
+    ListFleetMetrics (ListFleetMetrics'),
+    newListFleetMetrics,
+    ListFleetMetricsResponse (ListFleetMetricsResponse'),
+    newListFleetMetricsResponse,
+
+    -- ** UpdateFleetMetric
+    UpdateFleetMetric (UpdateFleetMetric'),
+    newUpdateFleetMetric,
+    UpdateFleetMetricResponse (UpdateFleetMetricResponse'),
+    newUpdateFleetMetricResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** ListJobExecutionsForThing (Paginated)
+    ListJobExecutionsForThing (ListJobExecutionsForThing'),
+    newListJobExecutionsForThing,
+    ListJobExecutionsForThingResponse (ListJobExecutionsForThingResponse'),
+    newListJobExecutionsForThingResponse,
+
+    -- ** DeleteFleetMetric
+    DeleteFleetMetric (DeleteFleetMetric'),
+    newDeleteFleetMetric,
+    DeleteFleetMetricResponse (DeleteFleetMetricResponse'),
+    newDeleteFleetMetricResponse,
+
+    -- ** DisableTopicRule
+    DisableTopicRule (DisableTopicRule'),
+    newDisableTopicRule,
+    DisableTopicRuleResponse (DisableTopicRuleResponse'),
+    newDisableTopicRuleResponse,
+
+    -- ** DescribeAuditMitigationActionsTask
+    DescribeAuditMitigationActionsTask (DescribeAuditMitigationActionsTask'),
+    newDescribeAuditMitigationActionsTask,
+    DescribeAuditMitigationActionsTaskResponse (DescribeAuditMitigationActionsTaskResponse'),
+    newDescribeAuditMitigationActionsTaskResponse,
+
+    -- ** CreateThing
+    CreateThing (CreateThing'),
+    newCreateThing,
+    CreateThingResponse (CreateThingResponse'),
+    newCreateThingResponse,
+
+    -- ** ListV2LoggingLevels (Paginated)
+    ListV2LoggingLevels (ListV2LoggingLevels'),
+    newListV2LoggingLevels,
+    ListV2LoggingLevelsResponse (ListV2LoggingLevelsResponse'),
+    newListV2LoggingLevelsResponse,
+
+    -- ** ListAuditMitigationActionsExecutions (Paginated)
+    ListAuditMitigationActionsExecutions (ListAuditMitigationActionsExecutions'),
+    newListAuditMitigationActionsExecutions,
+    ListAuditMitigationActionsExecutionsResponse (ListAuditMitigationActionsExecutionsResponse'),
+    newListAuditMitigationActionsExecutionsResponse,
+
+    -- ** ListProvisioningTemplates (Paginated)
+    ListProvisioningTemplates (ListProvisioningTemplates'),
+    newListProvisioningTemplates,
+    ListProvisioningTemplatesResponse (ListProvisioningTemplatesResponse'),
+    newListProvisioningTemplatesResponse,
+
+    -- ** StartThingRegistrationTask
+    StartThingRegistrationTask (StartThingRegistrationTask'),
+    newStartThingRegistrationTask,
+    StartThingRegistrationTaskResponse (StartThingRegistrationTaskResponse'),
+    newStartThingRegistrationTaskResponse,
+
+    -- ** DescribeJobExecution
+    DescribeJobExecution (DescribeJobExecution'),
+    newDescribeJobExecution,
+    DescribeJobExecutionResponse (DescribeJobExecutionResponse'),
+    newDescribeJobExecutionResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
+    -- ** DeleteProvisioningTemplate
+    DeleteProvisioningTemplate (DeleteProvisioningTemplate'),
+    newDeleteProvisioningTemplate,
+    DeleteProvisioningTemplateResponse (DeleteProvisioningTemplateResponse'),
+    newDeleteProvisioningTemplateResponse,
+
+    -- ** UpdateProvisioningTemplate
+    UpdateProvisioningTemplate (UpdateProvisioningTemplate'),
+    newUpdateProvisioningTemplate,
+    UpdateProvisioningTemplateResponse (UpdateProvisioningTemplateResponse'),
+    newUpdateProvisioningTemplateResponse,
+
+    -- ** GetIndexingConfiguration
+    GetIndexingConfiguration (GetIndexingConfiguration'),
+    newGetIndexingConfiguration,
+    GetIndexingConfigurationResponse (GetIndexingConfigurationResponse'),
+    newGetIndexingConfigurationResponse,
+
+    -- ** StopThingRegistrationTask
+    StopThingRegistrationTask (StopThingRegistrationTask'),
+    newStopThingRegistrationTask,
+    StopThingRegistrationTaskResponse (StopThingRegistrationTaskResponse'),
+    newStopThingRegistrationTaskResponse,
+
+    -- ** CreateScheduledAudit
+    CreateScheduledAudit (CreateScheduledAudit'),
+    newCreateScheduledAudit,
+    CreateScheduledAuditResponse (CreateScheduledAuditResponse'),
+    newCreateScheduledAuditResponse,
+
+    -- ** SetDefaultAuthorizer
+    SetDefaultAuthorizer (SetDefaultAuthorizer'),
+    newSetDefaultAuthorizer,
+    SetDefaultAuthorizerResponse (SetDefaultAuthorizerResponse'),
+    newSetDefaultAuthorizerResponse,
+
+    -- ** DeleteV2LoggingLevel
+    DeleteV2LoggingLevel (DeleteV2LoggingLevel'),
+    newDeleteV2LoggingLevel,
+    DeleteV2LoggingLevelResponse (DeleteV2LoggingLevelResponse'),
+    newDeleteV2LoggingLevelResponse,
+
+    -- ** DescribeMitigationAction
+    DescribeMitigationAction (DescribeMitigationAction'),
+    newDescribeMitigationAction,
+    DescribeMitigationActionResponse (DescribeMitigationActionResponse'),
+    newDescribeMitigationActionResponse,
+
+    -- ** DescribeDimension
+    DescribeDimension (DescribeDimension'),
+    newDescribeDimension,
+    DescribeDimensionResponse (DescribeDimensionResponse'),
+    newDescribeDimensionResponse,
+
+    -- ** CreateAuthorizer
+    CreateAuthorizer (CreateAuthorizer'),
+    newCreateAuthorizer,
+    CreateAuthorizerResponse (CreateAuthorizerResponse'),
+    newCreateAuthorizerResponse,
+
+    -- ** SetV2LoggingOptions
+    SetV2LoggingOptions (SetV2LoggingOptions'),
+    newSetV2LoggingOptions,
+    SetV2LoggingOptionsResponse (SetV2LoggingOptionsResponse'),
+    newSetV2LoggingOptionsResponse,
+
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
+
+    -- ** ListDetectMitigationActionsTasks (Paginated)
+    ListDetectMitigationActionsTasks (ListDetectMitigationActionsTasks'),
+    newListDetectMitigationActionsTasks,
+    ListDetectMitigationActionsTasksResponse (ListDetectMitigationActionsTasksResponse'),
+    newListDetectMitigationActionsTasksResponse,
+
+    -- ** UpdateAuditSuppression
+    UpdateAuditSuppression (UpdateAuditSuppression'),
+    newUpdateAuditSuppression,
+    UpdateAuditSuppressionResponse (UpdateAuditSuppressionResponse'),
+    newUpdateAuditSuppressionResponse,
+
+    -- ** UpdateStream
+    UpdateStream (UpdateStream'),
+    newUpdateStream,
+    UpdateStreamResponse (UpdateStreamResponse'),
+    newUpdateStreamResponse,
+
+    -- ** UpdateThing
+    UpdateThing (UpdateThing'),
+    newUpdateThing,
+    UpdateThingResponse (UpdateThingResponse'),
+    newUpdateThingResponse,
+
+    -- ** DescribeThingRegistrationTask
+    DescribeThingRegistrationTask (DescribeThingRegistrationTask'),
+    newDescribeThingRegistrationTask,
+    DescribeThingRegistrationTaskResponse (DescribeThingRegistrationTaskResponse'),
+    newDescribeThingRegistrationTaskResponse,
+
+    -- ** DeleteAccountAuditConfiguration
+    DeleteAccountAuditConfiguration (DeleteAccountAuditConfiguration'),
+    newDeleteAccountAuditConfiguration,
+    DeleteAccountAuditConfigurationResponse (DeleteAccountAuditConfigurationResponse'),
+    newDeleteAccountAuditConfigurationResponse,
+
+    -- ** ListThingGroupsForThing (Paginated)
+    ListThingGroupsForThing (ListThingGroupsForThing'),
+    newListThingGroupsForThing,
+    ListThingGroupsForThingResponse (ListThingGroupsForThingResponse'),
+    newListThingGroupsForThingResponse,
+
+    -- ** ListCertificatesByCA (Paginated)
+    ListCertificatesByCA (ListCertificatesByCA'),
+    newListCertificatesByCA,
+    ListCertificatesByCAResponse (ListCertificatesByCAResponse'),
+    newListCertificatesByCAResponse,
+
+    -- ** ListThings (Paginated)
+    ListThings (ListThings'),
+    newListThings,
+    ListThingsResponse (ListThingsResponse'),
+    newListThingsResponse,
+
+    -- ** AddThingToThingGroup
+    AddThingToThingGroup (AddThingToThingGroup'),
+    newAddThingToThingGroup,
+    AddThingToThingGroupResponse (AddThingToThingGroupResponse'),
+    newAddThingToThingGroupResponse,
+
+    -- ** DeleteBillingGroup
+    DeleteBillingGroup (DeleteBillingGroup'),
+    newDeleteBillingGroup,
+    DeleteBillingGroupResponse (DeleteBillingGroupResponse'),
+    newDeleteBillingGroupResponse,
+
+    -- ** ListScheduledAudits (Paginated)
+    ListScheduledAudits (ListScheduledAudits'),
+    newListScheduledAudits,
+    ListScheduledAuditsResponse (ListScheduledAuditsResponse'),
+    newListScheduledAuditsResponse,
+
+    -- ** DeleteRegistrationCode
+    DeleteRegistrationCode (DeleteRegistrationCode'),
+    newDeleteRegistrationCode,
+    DeleteRegistrationCodeResponse (DeleteRegistrationCodeResponse'),
+    newDeleteRegistrationCodeResponse,
+
+    -- ** DeleteThing
+    DeleteThing (DeleteThing'),
+    newDeleteThing,
+    DeleteThingResponse (DeleteThingResponse'),
+    newDeleteThingResponse,
+
+    -- ** AttachThingPrincipal
+    AttachThingPrincipal (AttachThingPrincipal'),
+    newAttachThingPrincipal,
+    AttachThingPrincipalResponse (AttachThingPrincipalResponse'),
+    newAttachThingPrincipalResponse,
+
+    -- ** UpdateBillingGroup
+    UpdateBillingGroup (UpdateBillingGroup'),
+    newUpdateBillingGroup,
+    UpdateBillingGroupResponse (UpdateBillingGroupResponse'),
+    newUpdateBillingGroupResponse,
+
+    -- ** UpdateAccountAuditConfiguration
+    UpdateAccountAuditConfiguration (UpdateAccountAuditConfiguration'),
+    newUpdateAccountAuditConfiguration,
+    UpdateAccountAuditConfigurationResponse (UpdateAccountAuditConfigurationResponse'),
+    newUpdateAccountAuditConfigurationResponse,
+
+    -- ** GetLoggingOptions
+    GetLoggingOptions (GetLoggingOptions'),
+    newGetLoggingOptions,
+    GetLoggingOptionsResponse (GetLoggingOptionsResponse'),
+    newGetLoggingOptionsResponse,
+
+    -- ** DeleteAuditSuppression
+    DeleteAuditSuppression (DeleteAuditSuppression'),
+    newDeleteAuditSuppression,
+    DeleteAuditSuppressionResponse (DeleteAuditSuppressionResponse'),
+    newDeleteAuditSuppressionResponse,
+
+    -- ** DescribeCustomMetric
+    DescribeCustomMetric (DescribeCustomMetric'),
+    newDescribeCustomMetric,
+    DescribeCustomMetricResponse (DescribeCustomMetricResponse'),
+    newDescribeCustomMetricResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    DescribeJobResponse (DescribeJobResponse'),
+    newDescribeJobResponse,
+
+    -- ** DeleteOTAUpdate
+    DeleteOTAUpdate (DeleteOTAUpdate'),
+    newDeleteOTAUpdate,
+    DeleteOTAUpdateResponse (DeleteOTAUpdateResponse'),
+    newDeleteOTAUpdateResponse,
+
+    -- ** GetRegistrationCode
+    GetRegistrationCode (GetRegistrationCode'),
+    newGetRegistrationCode,
+    GetRegistrationCodeResponse (GetRegistrationCodeResponse'),
+    newGetRegistrationCodeResponse,
+
+    -- ** ListDetectMitigationActionsExecutions (Paginated)
+    ListDetectMitigationActionsExecutions (ListDetectMitigationActionsExecutions'),
+    newListDetectMitigationActionsExecutions,
+    ListDetectMitigationActionsExecutionsResponse (ListDetectMitigationActionsExecutionsResponse'),
+    newListDetectMitigationActionsExecutionsResponse,
+
+    -- ** RegisterCertificateWithoutCA
+    RegisterCertificateWithoutCA (RegisterCertificateWithoutCA'),
+    newRegisterCertificateWithoutCA,
+    RegisterCertificateWithoutCAResponse (RegisterCertificateWithoutCAResponse'),
+    newRegisterCertificateWithoutCAResponse,
+
+    -- ** CreateDynamicThingGroup
+    CreateDynamicThingGroup (CreateDynamicThingGroup'),
+    newCreateDynamicThingGroup,
+    CreateDynamicThingGroupResponse (CreateDynamicThingGroupResponse'),
+    newCreateDynamicThingGroupResponse,
+
+    -- ** DescribeCACertificate
+    DescribeCACertificate (DescribeCACertificate'),
+    newDescribeCACertificate,
+    DescribeCACertificateResponse (DescribeCACertificateResponse'),
+    newDescribeCACertificateResponse,
+
+    -- ** DeleteProvisioningTemplateVersion
+    DeleteProvisioningTemplateVersion (DeleteProvisioningTemplateVersion'),
+    newDeleteProvisioningTemplateVersion,
+    DeleteProvisioningTemplateVersionResponse (DeleteProvisioningTemplateVersionResponse'),
+    newDeleteProvisioningTemplateVersionResponse,
+
+    -- ** DetachSecurityProfile
+    DetachSecurityProfile (DetachSecurityProfile'),
+    newDetachSecurityProfile,
+    DetachSecurityProfileResponse (DetachSecurityProfileResponse'),
+    newDetachSecurityProfileResponse,
+
+    -- ** ListThingPrincipals (Paginated)
+    ListThingPrincipals (ListThingPrincipals'),
+    newListThingPrincipals,
+    ListThingPrincipalsResponse (ListThingPrincipalsResponse'),
+    newListThingPrincipalsResponse,
+
+    -- ** RemoveThingFromThingGroup
+    RemoveThingFromThingGroup (RemoveThingFromThingGroup'),
+    newRemoveThingFromThingGroup,
+    RemoveThingFromThingGroupResponse (RemoveThingFromThingGroupResponse'),
+    newRemoveThingFromThingGroupResponse,
+
+    -- ** GetBehaviorModelTrainingSummaries (Paginated)
+    GetBehaviorModelTrainingSummaries (GetBehaviorModelTrainingSummaries'),
+    newGetBehaviorModelTrainingSummaries,
+    GetBehaviorModelTrainingSummariesResponse (GetBehaviorModelTrainingSummariesResponse'),
+    newGetBehaviorModelTrainingSummariesResponse,
+
+    -- ** UpdateDynamicThingGroup
+    UpdateDynamicThingGroup (UpdateDynamicThingGroup'),
+    newUpdateDynamicThingGroup,
+    UpdateDynamicThingGroupResponse (UpdateDynamicThingGroupResponse'),
+    newUpdateDynamicThingGroupResponse,
+
+    -- ** CreateTopicRuleDestination
+    CreateTopicRuleDestination (CreateTopicRuleDestination'),
+    newCreateTopicRuleDestination,
+    CreateTopicRuleDestinationResponse (CreateTopicRuleDestinationResponse'),
+    newCreateTopicRuleDestinationResponse,
+
+    -- ** ListPrincipalThings (Paginated)
+    ListPrincipalThings (ListPrincipalThings'),
+    newListPrincipalThings,
+    ListPrincipalThingsResponse (ListPrincipalThingsResponse'),
+    newListPrincipalThingsResponse,
+
+    -- ** CreateProvisioningTemplateVersion
+    CreateProvisioningTemplateVersion (CreateProvisioningTemplateVersion'),
+    newCreateProvisioningTemplateVersion,
+    CreateProvisioningTemplateVersionResponse (CreateProvisioningTemplateVersionResponse'),
+    newCreateProvisioningTemplateVersionResponse,
+
+    -- ** DescribeRoleAlias
+    DescribeRoleAlias (DescribeRoleAlias'),
+    newDescribeRoleAlias,
+    DescribeRoleAliasResponse (DescribeRoleAliasResponse'),
+    newDescribeRoleAliasResponse,
+
+    -- ** DeleteDynamicThingGroup
+    DeleteDynamicThingGroup (DeleteDynamicThingGroup'),
+    newDeleteDynamicThingGroup,
+    DeleteDynamicThingGroupResponse (DeleteDynamicThingGroupResponse'),
+    newDeleteDynamicThingGroupResponse,
+
+    -- ** CreateThingGroup
+    CreateThingGroup (CreateThingGroup'),
+    newCreateThingGroup,
+    CreateThingGroupResponse (CreateThingGroupResponse'),
+    newCreateThingGroupResponse,
+
+    -- ** TestInvokeAuthorizer
+    TestInvokeAuthorizer (TestInvokeAuthorizer'),
+    newTestInvokeAuthorizer,
+    TestInvokeAuthorizerResponse (TestInvokeAuthorizerResponse'),
+    newTestInvokeAuthorizerResponse,
+
+    -- ** CreateOTAUpdate
+    CreateOTAUpdate (CreateOTAUpdate'),
+    newCreateOTAUpdate,
+    CreateOTAUpdateResponse (CreateOTAUpdateResponse'),
+    newCreateOTAUpdateResponse,
+
+    -- ** DescribeDefaultAuthorizer
+    DescribeDefaultAuthorizer (DescribeDefaultAuthorizer'),
+    newDescribeDefaultAuthorizer,
+    DescribeDefaultAuthorizerResponse (DescribeDefaultAuthorizerResponse'),
+    newDescribeDefaultAuthorizerResponse,
+
+    -- ** DetachPolicy
+    DetachPolicy (DetachPolicy'),
+    newDetachPolicy,
+    DetachPolicyResponse (DetachPolicyResponse'),
+    newDetachPolicyResponse,
+
+    -- ** ListAuditMitigationActionsTasks (Paginated)
+    ListAuditMitigationActionsTasks (ListAuditMitigationActionsTasks'),
+    newListAuditMitigationActionsTasks,
+    ListAuditMitigationActionsTasksResponse (ListAuditMitigationActionsTasksResponse'),
+    newListAuditMitigationActionsTasksResponse,
+
+    -- ** RegisterCertificate
+    RegisterCertificate (RegisterCertificate'),
+    newRegisterCertificate,
+    RegisterCertificateResponse (RegisterCertificateResponse'),
+    newRegisterCertificateResponse,
+
+    -- ** UpdateSecurityProfile
+    UpdateSecurityProfile (UpdateSecurityProfile'),
+    newUpdateSecurityProfile,
+    UpdateSecurityProfileResponse (UpdateSecurityProfileResponse'),
+    newUpdateSecurityProfileResponse,
+
+    -- ** DescribeAuthorizer
+    DescribeAuthorizer (DescribeAuthorizer'),
+    newDescribeAuthorizer,
+    DescribeAuthorizerResponse (DescribeAuthorizerResponse'),
+    newDescribeAuthorizerResponse,
+
+    -- ** GetPolicyVersion
+    GetPolicyVersion (GetPolicyVersion'),
+    newGetPolicyVersion,
+    GetPolicyVersionResponse (GetPolicyVersionResponse'),
+    newGetPolicyVersionResponse,
+
+    -- ** ListCertificates (Paginated)
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
+
+    -- ** DeleteSecurityProfile
+    DeleteSecurityProfile (DeleteSecurityProfile'),
+    newDeleteSecurityProfile,
+    DeleteSecurityProfileResponse (DeleteSecurityProfileResponse'),
+    newDeleteSecurityProfileResponse,
+
+    -- ** ValidateSecurityProfileBehaviors
+    ValidateSecurityProfileBehaviors (ValidateSecurityProfileBehaviors'),
+    newValidateSecurityProfileBehaviors,
+    ValidateSecurityProfileBehaviorsResponse (ValidateSecurityProfileBehaviorsResponse'),
+    newValidateSecurityProfileBehaviorsResponse,
+
+    -- ** CreateDomainConfiguration
+    CreateDomainConfiguration (CreateDomainConfiguration'),
+    newCreateDomainConfiguration,
+    CreateDomainConfigurationResponse (CreateDomainConfigurationResponse'),
+    newCreateDomainConfigurationResponse,
+
+    -- ** ListActiveViolations (Paginated)
+    ListActiveViolations (ListActiveViolations'),
+    newListActiveViolations,
+    ListActiveViolationsResponse (ListActiveViolationsResponse'),
+    newListActiveViolationsResponse,
+
+    -- ** DescribeBillingGroup
+    DescribeBillingGroup (DescribeBillingGroup'),
+    newDescribeBillingGroup,
+    DescribeBillingGroupResponse (DescribeBillingGroupResponse'),
+    newDescribeBillingGroupResponse,
+
+    -- ** ListThingRegistrationTasks (Paginated)
+    ListThingRegistrationTasks (ListThingRegistrationTasks'),
+    newListThingRegistrationTasks,
+    ListThingRegistrationTasksResponse (ListThingRegistrationTasksResponse'),
+    newListThingRegistrationTasksResponse,
+
+    -- ** UpdateDimension
+    UpdateDimension (UpdateDimension'),
+    newUpdateDimension,
+    UpdateDimensionResponse (UpdateDimensionResponse'),
+    newUpdateDimensionResponse,
+
+    -- ** DescribeAuditSuppression
+    DescribeAuditSuppression (DescribeAuditSuppression'),
+    newDescribeAuditSuppression,
+    DescribeAuditSuppressionResponse (DescribeAuditSuppressionResponse'),
+    newDescribeAuditSuppressionResponse,
+
+    -- ** DescribeAccountAuditConfiguration
+    DescribeAccountAuditConfiguration (DescribeAccountAuditConfiguration'),
+    newDescribeAccountAuditConfiguration,
+    DescribeAccountAuditConfigurationResponse (DescribeAccountAuditConfigurationResponse'),
+    newDescribeAccountAuditConfigurationResponse,
 
     -- ** DeprecateThingType
-    , module Network.AWS.IoT.DeprecateThingType
+    DeprecateThingType (DeprecateThingType'),
+    newDeprecateThingType,
+    DeprecateThingTypeResponse (DeprecateThingTypeResponse'),
+    newDeprecateThingTypeResponse,
+
+    -- ** DescribeDetectMitigationActionsTask
+    DescribeDetectMitigationActionsTask (DescribeDetectMitigationActionsTask'),
+    newDescribeDetectMitigationActionsTask,
+    DescribeDetectMitigationActionsTaskResponse (DescribeDetectMitigationActionsTaskResponse'),
+    newDescribeDetectMitigationActionsTaskResponse,
+
+    -- ** DeleteDimension
+    DeleteDimension (DeleteDimension'),
+    newDeleteDimension,
+    DeleteDimensionResponse (DeleteDimensionResponse'),
+    newDeleteDimensionResponse,
+
+    -- ** ListAuditFindings (Paginated)
+    ListAuditFindings (ListAuditFindings'),
+    newListAuditFindings,
+    ListAuditFindingsResponse (ListAuditFindingsResponse'),
+    newListAuditFindingsResponse,
+
+    -- ** DescribeThing
+    DescribeThing (DescribeThing'),
+    newDescribeThing,
+    DescribeThingResponse (DescribeThingResponse'),
+    newDescribeThingResponse,
+
+    -- ** ListDimensions (Paginated)
+    ListDimensions (ListDimensions'),
+    newListDimensions,
+    ListDimensionsResponse (ListDimensionsResponse'),
+    newListDimensionsResponse,
+
+    -- ** DetachThingPrincipal
+    DetachThingPrincipal (DetachThingPrincipal'),
+    newDetachThingPrincipal,
+    DetachThingPrincipalResponse (DetachThingPrincipalResponse'),
+    newDetachThingPrincipalResponse,
+
+    -- ** DescribeStream
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
+
+    -- ** ConfirmTopicRuleDestination
+    ConfirmTopicRuleDestination (ConfirmTopicRuleDestination'),
+    newConfirmTopicRuleDestination,
+    ConfirmTopicRuleDestinationResponse (ConfirmTopicRuleDestinationResponse'),
+    newConfirmTopicRuleDestinationResponse,
+
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
+
+    -- ** ListTopicRules (Paginated)
+    ListTopicRules (ListTopicRules'),
+    newListTopicRules,
+    ListTopicRulesResponse (ListTopicRulesResponse'),
+    newListTopicRulesResponse,
+
+    -- ** ListCACertificates (Paginated)
+    ListCACertificates (ListCACertificates'),
+    newListCACertificates,
+    ListCACertificatesResponse (ListCACertificatesResponse'),
+    newListCACertificatesResponse,
+
+    -- ** StartOnDemandAuditTask
+    StartOnDemandAuditTask (StartOnDemandAuditTask'),
+    newStartOnDemandAuditTask,
+    StartOnDemandAuditTaskResponse (StartOnDemandAuditTaskResponse'),
+    newStartOnDemandAuditTaskResponse,
+
+    -- ** UpdateEventConfigurations
+    UpdateEventConfigurations (UpdateEventConfigurations'),
+    newUpdateEventConfigurations,
+    UpdateEventConfigurationsResponse (UpdateEventConfigurationsResponse'),
+    newUpdateEventConfigurationsResponse,
+
+    -- ** UpdateThingGroupsForThing
+    UpdateThingGroupsForThing (UpdateThingGroupsForThing'),
+    newUpdateThingGroupsForThing,
+    UpdateThingGroupsForThingResponse (UpdateThingGroupsForThingResponse'),
+    newUpdateThingGroupsForThingResponse,
+
+    -- ** ListSecurityProfilesForTarget (Paginated)
+    ListSecurityProfilesForTarget (ListSecurityProfilesForTarget'),
+    newListSecurityProfilesForTarget,
+    ListSecurityProfilesForTargetResponse (ListSecurityProfilesForTargetResponse'),
+    newListSecurityProfilesForTargetResponse,
+
+    -- ** DeleteJobTemplate
+    DeleteJobTemplate (DeleteJobTemplate'),
+    newDeleteJobTemplate,
+    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
+    newDeleteJobTemplateResponse,
+
+    -- ** EnableTopicRule
+    EnableTopicRule (EnableTopicRule'),
+    newEnableTopicRule,
+    EnableTopicRuleResponse (EnableTopicRuleResponse'),
+    newEnableTopicRuleResponse,
+
+    -- ** AcceptCertificateTransfer
+    AcceptCertificateTransfer (AcceptCertificateTransfer'),
+    newAcceptCertificateTransfer,
+    AcceptCertificateTransferResponse (AcceptCertificateTransferResponse'),
+    newAcceptCertificateTransferResponse,
+
+    -- ** GetJobDocument
+    GetJobDocument (GetJobDocument'),
+    newGetJobDocument,
+    GetJobDocumentResponse (GetJobDocumentResponse'),
+    newGetJobDocumentResponse,
+
+    -- ** ListAttachedPolicies (Paginated)
+    ListAttachedPolicies (ListAttachedPolicies'),
+    newListAttachedPolicies,
+    ListAttachedPoliciesResponse (ListAttachedPoliciesResponse'),
+    newListAttachedPoliciesResponse,
+
+    -- ** DescribeThingGroup
+    DescribeThingGroup (DescribeThingGroup'),
+    newDescribeThingGroup,
+    DescribeThingGroupResponse (DescribeThingGroupResponse'),
+    newDescribeThingGroupResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** CreateFleetMetric
+    CreateFleetMetric (CreateFleetMetric'),
+    newCreateFleetMetric,
+    CreateFleetMetricResponse (CreateFleetMetricResponse'),
+    newCreateFleetMetricResponse,
+
+    -- ** RegisterCACertificate
+    RegisterCACertificate (RegisterCACertificate'),
+    newRegisterCACertificate,
+    RegisterCACertificateResponse (RegisterCACertificateResponse'),
+    newRegisterCACertificateResponse,
+
+    -- ** ReplaceTopicRule
+    ReplaceTopicRule (ReplaceTopicRule'),
+    newReplaceTopicRule,
+    ReplaceTopicRuleResponse (ReplaceTopicRuleResponse'),
+    newReplaceTopicRuleResponse,
+
+    -- ** GetStatistics
+    GetStatistics (GetStatistics'),
+    newGetStatistics,
+    GetStatisticsResponse (GetStatisticsResponse'),
+    newGetStatisticsResponse,
+
+    -- ** DescribeIndex
+    DescribeIndex (DescribeIndex'),
+    newDescribeIndex,
+    DescribeIndexResponse (DescribeIndexResponse'),
+    newDescribeIndexResponse,
+
+    -- ** AttachPolicy
+    AttachPolicy (AttachPolicy'),
+    newAttachPolicy,
+    AttachPolicyResponse (AttachPolicyResponse'),
+    newAttachPolicyResponse,
+
+    -- ** UpdateRoleAlias
+    UpdateRoleAlias (UpdateRoleAlias'),
+    newUpdateRoleAlias,
+    UpdateRoleAliasResponse (UpdateRoleAliasResponse'),
+    newUpdateRoleAliasResponse,
+
+    -- ** ClearDefaultAuthorizer
+    ClearDefaultAuthorizer (ClearDefaultAuthorizer'),
+    newClearDefaultAuthorizer,
+    ClearDefaultAuthorizerResponse (ClearDefaultAuthorizerResponse'),
+    newClearDefaultAuthorizerResponse,
+
+    -- ** CreateTopicRule
+    CreateTopicRule (CreateTopicRule'),
+    newCreateTopicRule,
+    CreateTopicRuleResponse (CreateTopicRuleResponse'),
+    newCreateTopicRuleResponse,
+
+    -- ** CancelJobExecution
+    CancelJobExecution (CancelJobExecution'),
+    newCancelJobExecution,
+    CancelJobExecutionResponse (CancelJobExecutionResponse'),
+    newCancelJobExecutionResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** AssociateTargetsWithJob
+    AssociateTargetsWithJob (AssociateTargetsWithJob'),
+    newAssociateTargetsWithJob,
+    AssociateTargetsWithJobResponse (AssociateTargetsWithJobResponse'),
+    newAssociateTargetsWithJobResponse,
+
+    -- ** DeletePolicyVersion
+    DeletePolicyVersion (DeletePolicyVersion'),
+    newDeletePolicyVersion,
+    DeletePolicyVersionResponse (DeletePolicyVersionResponse'),
+    newDeletePolicyVersionResponse,
+
+    -- ** DeleteRoleAlias
+    DeleteRoleAlias (DeleteRoleAlias'),
+    newDeleteRoleAlias,
+    DeleteRoleAliasResponse (DeleteRoleAliasResponse'),
+    newDeleteRoleAliasResponse,
+
+    -- ** ListPolicyVersions
+    ListPolicyVersions (ListPolicyVersions'),
+    newListPolicyVersions,
+    ListPolicyVersionsResponse (ListPolicyVersionsResponse'),
+    newListPolicyVersionsResponse,
+
+    -- ** ListTargetsForPolicy (Paginated)
+    ListTargetsForPolicy (ListTargetsForPolicy'),
+    newListTargetsForPolicy,
+    ListTargetsForPolicyResponse (ListTargetsForPolicyResponse'),
+    newListTargetsForPolicyResponse,
+
+    -- ** CancelCertificateTransfer
+    CancelCertificateTransfer (CancelCertificateTransfer'),
+    newCancelCertificateTransfer,
+    CancelCertificateTransferResponse (CancelCertificateTransferResponse'),
+    newCancelCertificateTransferResponse,
+
+    -- ** ListAuthorizers (Paginated)
+    ListAuthorizers (ListAuthorizers'),
+    newListAuthorizers,
+    ListAuthorizersResponse (ListAuthorizersResponse'),
+    newListAuthorizersResponse,
+
+    -- ** CreateThingType
+    CreateThingType (CreateThingType'),
+    newCreateThingType,
+    CreateThingTypeResponse (CreateThingTypeResponse'),
+    newCreateThingTypeResponse,
+
+    -- ** UpdateAuthorizer
+    UpdateAuthorizer (UpdateAuthorizer'),
+    newUpdateAuthorizer,
+    UpdateAuthorizerResponse (UpdateAuthorizerResponse'),
+    newUpdateAuthorizerResponse,
+
+    -- ** CreateAuditSuppression
+    CreateAuditSuppression (CreateAuditSuppression'),
+    newCreateAuditSuppression,
+    CreateAuditSuppressionResponse (CreateAuditSuppressionResponse'),
+    newCreateAuditSuppressionResponse,
+
+    -- ** ListJobExecutionsForJob (Paginated)
+    ListJobExecutionsForJob (ListJobExecutionsForJob'),
+    newListJobExecutionsForJob,
+    ListJobExecutionsForJobResponse (ListJobExecutionsForJobResponse'),
+    newListJobExecutionsForJobResponse,
+
+    -- ** DescribeSecurityProfile
+    DescribeSecurityProfile (DescribeSecurityProfile'),
+    newDescribeSecurityProfile,
+    DescribeSecurityProfileResponse (DescribeSecurityProfileResponse'),
+    newDescribeSecurityProfileResponse,
+
+    -- ** RemoveThingFromBillingGroup
+    RemoveThingFromBillingGroup (RemoveThingFromBillingGroup'),
+    newRemoveThingFromBillingGroup,
+    RemoveThingFromBillingGroupResponse (RemoveThingFromBillingGroupResponse'),
+    newRemoveThingFromBillingGroupResponse,
+
+    -- ** CreateStream
+    CreateStream (CreateStream'),
+    newCreateStream,
+    CreateStreamResponse (CreateStreamResponse'),
+    newCreateStreamResponse,
+
+    -- ** SearchIndex
+    SearchIndex (SearchIndex'),
+    newSearchIndex,
+    SearchIndexResponse (SearchIndexResponse'),
+    newSearchIndexResponse,
+
+    -- ** CancelAuditMitigationActionsTask
+    CancelAuditMitigationActionsTask (CancelAuditMitigationActionsTask'),
+    newCancelAuditMitigationActionsTask,
+    CancelAuditMitigationActionsTaskResponse (CancelAuditMitigationActionsTaskResponse'),
+    newCancelAuditMitigationActionsTaskResponse,
+
+    -- ** DeleteAuthorizer
+    DeleteAuthorizer (DeleteAuthorizer'),
+    newDeleteAuthorizer,
+    DeleteAuthorizerResponse (DeleteAuthorizerResponse'),
+    newDeleteAuthorizerResponse,
+
+    -- ** CreateBillingGroup
+    CreateBillingGroup (CreateBillingGroup'),
+    newCreateBillingGroup,
+    CreateBillingGroupResponse (CreateBillingGroupResponse'),
+    newCreateBillingGroupResponse,
+
+    -- ** DescribeAuditFinding
+    DescribeAuditFinding (DescribeAuditFinding'),
+    newDescribeAuditFinding,
+    DescribeAuditFindingResponse (DescribeAuditFindingResponse'),
+    newDescribeAuditFindingResponse,
+
+    -- ** DeleteScheduledAudit
+    DeleteScheduledAudit (DeleteScheduledAudit'),
+    newDeleteScheduledAudit,
+    DeleteScheduledAuditResponse (DeleteScheduledAuditResponse'),
+    newDeleteScheduledAuditResponse,
+
+    -- ** GetEffectivePolicies
+    GetEffectivePolicies (GetEffectivePolicies'),
+    newGetEffectivePolicies,
+    GetEffectivePoliciesResponse (GetEffectivePoliciesResponse'),
+    newGetEffectivePoliciesResponse,
+
+    -- ** GetOTAUpdate
+    GetOTAUpdate (GetOTAUpdate'),
+    newGetOTAUpdate,
+    GetOTAUpdateResponse (GetOTAUpdateResponse'),
+    newGetOTAUpdateResponse,
+
+    -- ** CreateProvisioningTemplate
+    CreateProvisioningTemplate (CreateProvisioningTemplate'),
+    newCreateProvisioningTemplate,
+    CreateProvisioningTemplateResponse (CreateProvisioningTemplateResponse'),
+    newCreateProvisioningTemplateResponse,
+
+    -- ** ListThingTypes (Paginated)
+    ListThingTypes (ListThingTypes'),
+    newListThingTypes,
+    ListThingTypesResponse (ListThingTypesResponse'),
+    newListThingTypesResponse,
+
+    -- ** DeleteThingType
+    DeleteThingType (DeleteThingType'),
+    newDeleteThingType,
+    DeleteThingTypeResponse (DeleteThingTypeResponse'),
+    newDeleteThingTypeResponse,
+
+    -- ** RegisterThing
+    RegisterThing (RegisterThing'),
+    newRegisterThing,
+    RegisterThingResponse (RegisterThingResponse'),
+    newRegisterThingResponse,
+
+    -- ** ListBillingGroups (Paginated)
+    ListBillingGroups (ListBillingGroups'),
+    newListBillingGroups,
+    ListBillingGroupsResponse (ListBillingGroupsResponse'),
+    newListBillingGroupsResponse,
+
+    -- ** ListStreams (Paginated)
+    ListStreams (ListStreams'),
+    newListStreams,
+    ListStreamsResponse (ListStreamsResponse'),
+    newListStreamsResponse,
+
+    -- ** TestAuthorization
+    TestAuthorization (TestAuthorization'),
+    newTestAuthorization,
+    TestAuthorizationResponse (TestAuthorizationResponse'),
+    newTestAuthorizationResponse,
+
+    -- ** ListIndices (Paginated)
+    ListIndices (ListIndices'),
+    newListIndices,
+    ListIndicesResponse (ListIndicesResponse'),
+    newListIndicesResponse,
+
+    -- ** DescribeAuditTask
+    DescribeAuditTask (DescribeAuditTask'),
+    newDescribeAuditTask,
+    DescribeAuditTaskResponse (DescribeAuditTaskResponse'),
+    newDescribeAuditTaskResponse,
+
+    -- ** CreateCertificateFromCsr
+    CreateCertificateFromCsr (CreateCertificateFromCsr'),
+    newCreateCertificateFromCsr,
+    CreateCertificateFromCsrResponse (CreateCertificateFromCsrResponse'),
+    newCreateCertificateFromCsrResponse,
+
+    -- ** ListAuditSuppressions (Paginated)
+    ListAuditSuppressions (ListAuditSuppressions'),
+    newListAuditSuppressions,
+    ListAuditSuppressionsResponse (ListAuditSuppressionsResponse'),
+    newListAuditSuppressionsResponse,
+
+    -- ** DescribeDomainConfiguration
+    DescribeDomainConfiguration (DescribeDomainConfiguration'),
+    newDescribeDomainConfiguration,
+    DescribeDomainConfigurationResponse (DescribeDomainConfigurationResponse'),
+    newDescribeDomainConfigurationResponse,
+
+    -- ** UpdateScheduledAudit
+    UpdateScheduledAudit (UpdateScheduledAudit'),
+    newUpdateScheduledAudit,
+    UpdateScheduledAuditResponse (UpdateScheduledAuditResponse'),
+    newUpdateScheduledAuditResponse,
+
+    -- ** GetTopicRuleDestination
+    GetTopicRuleDestination (GetTopicRuleDestination'),
+    newGetTopicRuleDestination,
+    GetTopicRuleDestinationResponse (GetTopicRuleDestinationResponse'),
+    newGetTopicRuleDestinationResponse,
+
+    -- ** DeleteTopicRuleDestination
+    DeleteTopicRuleDestination (DeleteTopicRuleDestination'),
+    newDeleteTopicRuleDestination,
+    DeleteTopicRuleDestinationResponse (DeleteTopicRuleDestinationResponse'),
+    newDeleteTopicRuleDestinationResponse,
+
+    -- ** ListOutgoingCertificates (Paginated)
+    ListOutgoingCertificates (ListOutgoingCertificates'),
+    newListOutgoingCertificates,
+    ListOutgoingCertificatesResponse (ListOutgoingCertificatesResponse'),
+    newListOutgoingCertificatesResponse,
+
+    -- ** DescribeJobTemplate
+    DescribeJobTemplate (DescribeJobTemplate'),
+    newDescribeJobTemplate,
+    DescribeJobTemplateResponse (DescribeJobTemplateResponse'),
+    newDescribeJobTemplateResponse,
+
+    -- ** AddThingToBillingGroup
+    AddThingToBillingGroup (AddThingToBillingGroup'),
+    newAddThingToBillingGroup,
+    AddThingToBillingGroupResponse (AddThingToBillingGroupResponse'),
+    newAddThingToBillingGroupResponse,
+
+    -- ** ListOTAUpdates (Paginated)
+    ListOTAUpdates (ListOTAUpdates'),
+    newListOTAUpdates,
+    ListOTAUpdatesResponse (ListOTAUpdatesResponse'),
+    newListOTAUpdatesResponse,
+
+    -- ** UpdateThingGroup
+    UpdateThingGroup (UpdateThingGroup'),
+    newUpdateThingGroup,
+    UpdateThingGroupResponse (UpdateThingGroupResponse'),
+    newUpdateThingGroupResponse,
+
+    -- ** DeleteThingGroup
+    DeleteThingGroup (DeleteThingGroup'),
+    newDeleteThingGroup,
+    DeleteThingGroupResponse (DeleteThingGroupResponse'),
+    newDeleteThingGroupResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DescribeEventConfigurations
+    DescribeEventConfigurations (DescribeEventConfigurations'),
+    newDescribeEventConfigurations,
+    DescribeEventConfigurationsResponse (DescribeEventConfigurationsResponse'),
+    newDescribeEventConfigurationsResponse,
+
+    -- ** ListTopicRuleDestinations (Paginated)
+    ListTopicRuleDestinations (ListTopicRuleDestinations'),
+    newListTopicRuleDestinations,
+    ListTopicRuleDestinationsResponse (ListTopicRuleDestinationsResponse'),
+    newListTopicRuleDestinationsResponse,
+
+    -- ** ListProvisioningTemplateVersions (Paginated)
+    ListProvisioningTemplateVersions (ListProvisioningTemplateVersions'),
+    newListProvisioningTemplateVersions,
+    ListProvisioningTemplateVersionsResponse (ListProvisioningTemplateVersionsResponse'),
+    newListProvisioningTemplateVersionsResponse,
+
+    -- ** UpdateTopicRuleDestination
+    UpdateTopicRuleDestination (UpdateTopicRuleDestination'),
+    newUpdateTopicRuleDestination,
+    UpdateTopicRuleDestinationResponse (UpdateTopicRuleDestinationResponse'),
+    newUpdateTopicRuleDestinationResponse,
+
+    -- ** ListThingGroups (Paginated)
+    ListThingGroups (ListThingGroups'),
+    newListThingGroups,
+    ListThingGroupsResponse (ListThingGroupsResponse'),
+    newListThingGroupsResponse,
+
+    -- ** CancelDetectMitigationActionsTask
+    CancelDetectMitigationActionsTask (CancelDetectMitigationActionsTask'),
+    newCancelDetectMitigationActionsTask,
+    CancelDetectMitigationActionsTaskResponse (CancelDetectMitigationActionsTaskResponse'),
+    newCancelDetectMitigationActionsTaskResponse,
 
     -- * Types
 
+    -- ** AbortAction
+    AbortAction (..),
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** AggregationTypeName
+    AggregationTypeName (..),
+
+    -- ** AlertTargetType
+    AlertTargetType (..),
+
+    -- ** AuditCheckRunStatus
+    AuditCheckRunStatus (..),
+
+    -- ** AuditFindingSeverity
+    AuditFindingSeverity (..),
+
+    -- ** AuditFrequency
+    AuditFrequency (..),
+
+    -- ** AuditMitigationActionsExecutionStatus
+    AuditMitigationActionsExecutionStatus (..),
+
+    -- ** AuditMitigationActionsTaskStatus
+    AuditMitigationActionsTaskStatus (..),
+
+    -- ** AuditNotificationType
+    AuditNotificationType (..),
+
+    -- ** AuditTaskStatus
+    AuditTaskStatus (..),
+
+    -- ** AuditTaskType
+    AuditTaskType (..),
+
+    -- ** AuthDecision
+    AuthDecision (..),
+
+    -- ** AuthorizerStatus
+    AuthorizerStatus (..),
+
     -- ** AutoRegistrationStatus
-    , AutoRegistrationStatus (..)
+    AutoRegistrationStatus (..),
+
+    -- ** AwsJobAbortCriteriaAbortAction
+    AwsJobAbortCriteriaAbortAction (..),
+
+    -- ** AwsJobAbortCriteriaFailureType
+    AwsJobAbortCriteriaFailureType (..),
+
+    -- ** BehaviorCriteriaType
+    BehaviorCriteriaType (..),
 
     -- ** CACertificateStatus
-    , CACertificateStatus (..)
+    CACertificateStatus (..),
+
+    -- ** CACertificateUpdateAction
+    CACertificateUpdateAction (..),
 
     -- ** CannedAccessControlList
-    , CannedAccessControlList (..)
+    CannedAccessControlList (..),
+
+    -- ** CertificateMode
+    CertificateMode (..),
 
     -- ** CertificateStatus
-    , CertificateStatus (..)
+    CertificateStatus (..),
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** ConfidenceLevel
+    ConfidenceLevel (..),
+
+    -- ** CustomMetricType
+    CustomMetricType (..),
+
+    -- ** DayOfWeek
+    DayOfWeek (..),
+
+    -- ** DetectMitigationActionExecutionStatus
+    DetectMitigationActionExecutionStatus (..),
+
+    -- ** DetectMitigationActionsTaskStatus
+    DetectMitigationActionsTaskStatus (..),
+
+    -- ** DeviceCertificateUpdateAction
+    DeviceCertificateUpdateAction (..),
+
+    -- ** DimensionType
+    DimensionType (..),
+
+    -- ** DimensionValueOperator
+    DimensionValueOperator (..),
+
+    -- ** DomainConfigurationStatus
+    DomainConfigurationStatus (..),
+
+    -- ** DomainType
+    DomainType (..),
+
+    -- ** DynamicGroupStatus
+    DynamicGroupStatus (..),
 
     -- ** DynamoKeyType
-    , DynamoKeyType (..)
+    DynamoKeyType (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** FieldType
+    FieldType (..),
+
+    -- ** FleetMetricUnit
+    FleetMetricUnit (..),
+
+    -- ** IndexStatus
+    IndexStatus (..),
+
+    -- ** JobExecutionFailureType
+    JobExecutionFailureType (..),
+
+    -- ** JobExecutionStatus
+    JobExecutionStatus (..),
+
+    -- ** JobStatus
+    JobStatus (..),
 
     -- ** LogLevel
-    , LogLevel (..)
+    LogLevel (..),
+
+    -- ** LogTargetType
+    LogTargetType (..),
 
     -- ** MessageFormat
-    , MessageFormat (..)
+    MessageFormat (..),
+
+    -- ** MitigationActionType
+    MitigationActionType (..),
+
+    -- ** ModelStatus
+    ModelStatus (..),
+
+    -- ** OTAUpdateStatus
+    OTAUpdateStatus (..),
+
+    -- ** PolicyTemplateName
+    PolicyTemplateName (..),
+
+    -- ** Protocol
+    Protocol (..),
+
+    -- ** ReportType
+    ReportType (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** ServerCertificateStatus
+    ServerCertificateStatus (..),
+
+    -- ** ServiceType
+    ServiceType (..),
+
+    -- ** TargetSelection
+    TargetSelection (..),
+
+    -- ** TaskStatus
+    TaskStatus (..),
+
+    -- ** ThingConnectivityIndexingMode
+    ThingConnectivityIndexingMode (..),
+
+    -- ** ThingGroupIndexingMode
+    ThingGroupIndexingMode (..),
+
+    -- ** ThingIndexingMode
+    ThingIndexingMode (..),
+
+    -- ** TopicRuleDestinationStatus
+    TopicRuleDestinationStatus (..),
+
+    -- ** VerificationState
+    VerificationState (..),
+
+    -- ** ViolationEventType
+    ViolationEventType (..),
+
+    -- ** AbortConfig
+    AbortConfig (AbortConfig'),
+    newAbortConfig,
+
+    -- ** AbortCriteria
+    AbortCriteria (AbortCriteria'),
+    newAbortCriteria,
 
     -- ** Action
-    , Action
-    , action
-    , aCloudwatchMetric
-    , aDynamoDBv2
-    , aCloudwatchAlarm
-    , aSns
-    , aDynamoDB
-    , aFirehose
-    , aLambda
-    , aSalesforce
-    , aKinesis
-    , aS3
-    , aElasticsearch
-    , aRepublish
-    , aSqs
+    Action (Action'),
+    newAction,
+
+    -- ** ActiveViolation
+    ActiveViolation (ActiveViolation'),
+    newActiveViolation,
+
+    -- ** AddThingsToThingGroupParams
+    AddThingsToThingGroupParams (AddThingsToThingGroupParams'),
+    newAddThingsToThingGroupParams,
+
+    -- ** AggregationType
+    AggregationType (AggregationType'),
+    newAggregationType,
+
+    -- ** AlertTarget
+    AlertTarget (AlertTarget'),
+    newAlertTarget,
+
+    -- ** Allowed
+    Allowed (Allowed'),
+    newAllowed,
+
+    -- ** AssetPropertyTimestamp
+    AssetPropertyTimestamp (AssetPropertyTimestamp'),
+    newAssetPropertyTimestamp,
+
+    -- ** AssetPropertyValue
+    AssetPropertyValue (AssetPropertyValue'),
+    newAssetPropertyValue,
+
+    -- ** AssetPropertyVariant
+    AssetPropertyVariant (AssetPropertyVariant'),
+    newAssetPropertyVariant,
 
     -- ** AttributePayload
-    , AttributePayload
-    , attributePayload
-    , apAttributes
-    , apMerge
+    AttributePayload (AttributePayload'),
+    newAttributePayload,
+
+    -- ** AuditCheckConfiguration
+    AuditCheckConfiguration (AuditCheckConfiguration'),
+    newAuditCheckConfiguration,
+
+    -- ** AuditCheckDetails
+    AuditCheckDetails (AuditCheckDetails'),
+    newAuditCheckDetails,
+
+    -- ** AuditFinding
+    AuditFinding (AuditFinding'),
+    newAuditFinding,
+
+    -- ** AuditMitigationActionExecutionMetadata
+    AuditMitigationActionExecutionMetadata (AuditMitigationActionExecutionMetadata'),
+    newAuditMitigationActionExecutionMetadata,
+
+    -- ** AuditMitigationActionsTaskMetadata
+    AuditMitigationActionsTaskMetadata (AuditMitigationActionsTaskMetadata'),
+    newAuditMitigationActionsTaskMetadata,
+
+    -- ** AuditMitigationActionsTaskTarget
+    AuditMitigationActionsTaskTarget (AuditMitigationActionsTaskTarget'),
+    newAuditMitigationActionsTaskTarget,
+
+    -- ** AuditNotificationTarget
+    AuditNotificationTarget (AuditNotificationTarget'),
+    newAuditNotificationTarget,
+
+    -- ** AuditSuppression
+    AuditSuppression (AuditSuppression'),
+    newAuditSuppression,
+
+    -- ** AuditTaskMetadata
+    AuditTaskMetadata (AuditTaskMetadata'),
+    newAuditTaskMetadata,
+
+    -- ** AuthInfo
+    AuthInfo (AuthInfo'),
+    newAuthInfo,
+
+    -- ** AuthResult
+    AuthResult (AuthResult'),
+    newAuthResult,
+
+    -- ** AuthorizerConfig
+    AuthorizerConfig (AuthorizerConfig'),
+    newAuthorizerConfig,
+
+    -- ** AuthorizerDescription
+    AuthorizerDescription (AuthorizerDescription'),
+    newAuthorizerDescription,
+
+    -- ** AuthorizerSummary
+    AuthorizerSummary (AuthorizerSummary'),
+    newAuthorizerSummary,
+
+    -- ** AwsJobAbortConfig
+    AwsJobAbortConfig (AwsJobAbortConfig'),
+    newAwsJobAbortConfig,
+
+    -- ** AwsJobAbortCriteria
+    AwsJobAbortCriteria (AwsJobAbortCriteria'),
+    newAwsJobAbortCriteria,
+
+    -- ** AwsJobExecutionsRolloutConfig
+    AwsJobExecutionsRolloutConfig (AwsJobExecutionsRolloutConfig'),
+    newAwsJobExecutionsRolloutConfig,
+
+    -- ** AwsJobExponentialRolloutRate
+    AwsJobExponentialRolloutRate (AwsJobExponentialRolloutRate'),
+    newAwsJobExponentialRolloutRate,
+
+    -- ** AwsJobPresignedUrlConfig
+    AwsJobPresignedUrlConfig (AwsJobPresignedUrlConfig'),
+    newAwsJobPresignedUrlConfig,
+
+    -- ** AwsJobRateIncreaseCriteria
+    AwsJobRateIncreaseCriteria (AwsJobRateIncreaseCriteria'),
+    newAwsJobRateIncreaseCriteria,
+
+    -- ** AwsJobTimeoutConfig
+    AwsJobTimeoutConfig (AwsJobTimeoutConfig'),
+    newAwsJobTimeoutConfig,
+
+    -- ** Behavior
+    Behavior (Behavior'),
+    newBehavior,
+
+    -- ** BehaviorCriteria
+    BehaviorCriteria (BehaviorCriteria'),
+    newBehaviorCriteria,
+
+    -- ** BehaviorModelTrainingSummary
+    BehaviorModelTrainingSummary (BehaviorModelTrainingSummary'),
+    newBehaviorModelTrainingSummary,
+
+    -- ** BillingGroupMetadata
+    BillingGroupMetadata (BillingGroupMetadata'),
+    newBillingGroupMetadata,
+
+    -- ** BillingGroupProperties
+    BillingGroupProperties (BillingGroupProperties'),
+    newBillingGroupProperties,
+
+    -- ** Bucket
+    Bucket (Bucket'),
+    newBucket,
+
+    -- ** BucketsAggregationType
+    BucketsAggregationType (BucketsAggregationType'),
+    newBucketsAggregationType,
 
     -- ** CACertificate
-    , CACertificate
-    , cACertificate
-    , cacStatus
-    , cacCertificateARN
-    , cacCertificateId
-    , cacCreationDate
+    CACertificate (CACertificate'),
+    newCACertificate,
 
     -- ** CACertificateDescription
-    , CACertificateDescription
-    , cACertificateDescription
-    , cacdStatus
-    , cacdOwnedBy
-    , cacdCertificatePem
-    , cacdCertificateARN
-    , cacdCertificateId
-    , cacdAutoRegistrationStatus
-    , cacdCreationDate
+    CACertificateDescription (CACertificateDescription'),
+    newCACertificateDescription,
 
     -- ** Certificate
-    , Certificate
-    , certificate
-    , cStatus
-    , cCertificateARN
-    , cCertificateId
-    , cCreationDate
+    Certificate (Certificate'),
+    newCertificate,
 
     -- ** CertificateDescription
-    , CertificateDescription
-    , certificateDescription
-    , cdStatus
-    , cdOwnedBy
-    , cdLastModifiedDate
-    , cdCaCertificateId
-    , cdPreviousOwnedBy
-    , cdCertificatePem
-    , cdCertificateARN
-    , cdCertificateId
-    , cdCreationDate
-    , cdTransferData
+    CertificateDescription (CertificateDescription'),
+    newCertificateDescription,
+
+    -- ** CertificateValidity
+    CertificateValidity (CertificateValidity'),
+    newCertificateValidity,
 
     -- ** CloudwatchAlarmAction
-    , CloudwatchAlarmAction
-    , cloudwatchAlarmAction
-    , caaRoleARN
-    , caaAlarmName
-    , caaStateReason
-    , caaStateValue
+    CloudwatchAlarmAction (CloudwatchAlarmAction'),
+    newCloudwatchAlarmAction,
+
+    -- ** CloudwatchLogsAction
+    CloudwatchLogsAction (CloudwatchLogsAction'),
+    newCloudwatchLogsAction,
 
     -- ** CloudwatchMetricAction
-    , CloudwatchMetricAction
-    , cloudwatchMetricAction
-    , cmaMetricTimestamp
-    , cmaRoleARN
-    , cmaMetricNamespace
-    , cmaMetricName
-    , cmaMetricValue
-    , cmaMetricUnit
+    CloudwatchMetricAction (CloudwatchMetricAction'),
+    newCloudwatchMetricAction,
+
+    -- ** CodeSigning
+    CodeSigning (CodeSigning'),
+    newCodeSigning,
+
+    -- ** CodeSigningCertificateChain
+    CodeSigningCertificateChain (CodeSigningCertificateChain'),
+    newCodeSigningCertificateChain,
+
+    -- ** CodeSigningSignature
+    CodeSigningSignature (CodeSigningSignature'),
+    newCodeSigningSignature,
+
+    -- ** Configuration
+    Configuration (Configuration'),
+    newConfiguration,
+
+    -- ** CustomCodeSigning
+    CustomCodeSigning (CustomCodeSigning'),
+    newCustomCodeSigning,
+
+    -- ** Denied
+    Denied (Denied'),
+    newDenied,
+
+    -- ** Destination
+    Destination (Destination'),
+    newDestination,
+
+    -- ** DetectMitigationActionExecution
+    DetectMitigationActionExecution (DetectMitigationActionExecution'),
+    newDetectMitigationActionExecution,
+
+    -- ** DetectMitigationActionsTaskStatistics
+    DetectMitigationActionsTaskStatistics (DetectMitigationActionsTaskStatistics'),
+    newDetectMitigationActionsTaskStatistics,
+
+    -- ** DetectMitigationActionsTaskSummary
+    DetectMitigationActionsTaskSummary (DetectMitigationActionsTaskSummary'),
+    newDetectMitigationActionsTaskSummary,
+
+    -- ** DetectMitigationActionsTaskTarget
+    DetectMitigationActionsTaskTarget (DetectMitigationActionsTaskTarget'),
+    newDetectMitigationActionsTaskTarget,
+
+    -- ** DomainConfigurationSummary
+    DomainConfigurationSummary (DomainConfigurationSummary'),
+    newDomainConfigurationSummary,
 
     -- ** DynamoDBAction
-    , DynamoDBAction
-    , dynamoDBAction
-    , ddbaHashKeyType
-    , ddbaOperation
-    , ddbaRangeKeyType
-    , ddbaPayloadField
-    , ddbaRangeKeyField
-    , ddbaRangeKeyValue
-    , ddbaTableName
-    , ddbaRoleARN
-    , ddbaHashKeyField
-    , ddbaHashKeyValue
+    DynamoDBAction (DynamoDBAction'),
+    newDynamoDBAction,
 
     -- ** DynamoDBv2Action
-    , DynamoDBv2Action
-    , dynamoDBv2Action
-    , ddaPutItem
-    , ddaRoleARN
+    DynamoDBv2Action (DynamoDBv2Action'),
+    newDynamoDBv2Action,
+
+    -- ** EffectivePolicy
+    EffectivePolicy (EffectivePolicy'),
+    newEffectivePolicy,
 
     -- ** ElasticsearchAction
-    , ElasticsearchAction
-    , elasticsearchAction
-    , eaRoleARN
-    , eaEndpoint
-    , eaIndex
-    , eaType
-    , eaId
+    ElasticsearchAction (ElasticsearchAction'),
+    newElasticsearchAction,
+
+    -- ** EnableIoTLoggingParams
+    EnableIoTLoggingParams (EnableIoTLoggingParams'),
+    newEnableIoTLoggingParams,
+
+    -- ** ErrorInfo
+    ErrorInfo (ErrorInfo'),
+    newErrorInfo,
+
+    -- ** ExplicitDeny
+    ExplicitDeny (ExplicitDeny'),
+    newExplicitDeny,
+
+    -- ** ExponentialRolloutRate
+    ExponentialRolloutRate (ExponentialRolloutRate'),
+    newExponentialRolloutRate,
+
+    -- ** Field
+    Field (Field'),
+    newField,
+
+    -- ** FileLocation
+    FileLocation (FileLocation'),
+    newFileLocation,
 
     -- ** FirehoseAction
-    , FirehoseAction
-    , firehoseAction
-    , faSeparator
-    , faRoleARN
-    , faDeliveryStreamName
+    FirehoseAction (FirehoseAction'),
+    newFirehoseAction,
+
+    -- ** FleetMetricNameAndArn
+    FleetMetricNameAndArn (FleetMetricNameAndArn'),
+    newFleetMetricNameAndArn,
+
+    -- ** GroupNameAndArn
+    GroupNameAndArn (GroupNameAndArn'),
+    newGroupNameAndArn,
+
+    -- ** HttpAction
+    HttpAction (HttpAction'),
+    newHttpAction,
+
+    -- ** HttpActionHeader
+    HttpActionHeader (HttpActionHeader'),
+    newHttpActionHeader,
+
+    -- ** HttpAuthorization
+    HttpAuthorization (HttpAuthorization'),
+    newHttpAuthorization,
+
+    -- ** HttpContext
+    HttpContext (HttpContext'),
+    newHttpContext,
+
+    -- ** HttpUrlDestinationConfiguration
+    HttpUrlDestinationConfiguration (HttpUrlDestinationConfiguration'),
+    newHttpUrlDestinationConfiguration,
+
+    -- ** HttpUrlDestinationProperties
+    HttpUrlDestinationProperties (HttpUrlDestinationProperties'),
+    newHttpUrlDestinationProperties,
+
+    -- ** HttpUrlDestinationSummary
+    HttpUrlDestinationSummary (HttpUrlDestinationSummary'),
+    newHttpUrlDestinationSummary,
+
+    -- ** ImplicitDeny
+    ImplicitDeny (ImplicitDeny'),
+    newImplicitDeny,
+
+    -- ** IotAnalyticsAction
+    IotAnalyticsAction (IotAnalyticsAction'),
+    newIotAnalyticsAction,
+
+    -- ** IotEventsAction
+    IotEventsAction (IotEventsAction'),
+    newIotEventsAction,
+
+    -- ** IotSiteWiseAction
+    IotSiteWiseAction (IotSiteWiseAction'),
+    newIotSiteWiseAction,
+
+    -- ** Job
+    Job (Job'),
+    newJob,
+
+    -- ** JobExecution
+    JobExecution (JobExecution'),
+    newJobExecution,
+
+    -- ** JobExecutionStatusDetails
+    JobExecutionStatusDetails (JobExecutionStatusDetails'),
+    newJobExecutionStatusDetails,
+
+    -- ** JobExecutionSummary
+    JobExecutionSummary (JobExecutionSummary'),
+    newJobExecutionSummary,
+
+    -- ** JobExecutionSummaryForJob
+    JobExecutionSummaryForJob (JobExecutionSummaryForJob'),
+    newJobExecutionSummaryForJob,
+
+    -- ** JobExecutionSummaryForThing
+    JobExecutionSummaryForThing (JobExecutionSummaryForThing'),
+    newJobExecutionSummaryForThing,
+
+    -- ** JobExecutionsRolloutConfig
+    JobExecutionsRolloutConfig (JobExecutionsRolloutConfig'),
+    newJobExecutionsRolloutConfig,
+
+    -- ** JobProcessDetails
+    JobProcessDetails (JobProcessDetails'),
+    newJobProcessDetails,
+
+    -- ** JobSummary
+    JobSummary (JobSummary'),
+    newJobSummary,
+
+    -- ** JobTemplateSummary
+    JobTemplateSummary (JobTemplateSummary'),
+    newJobTemplateSummary,
+
+    -- ** KafkaAction
+    KafkaAction (KafkaAction'),
+    newKafkaAction,
 
     -- ** KeyPair
-    , KeyPair
-    , keyPair
-    , kpPrivateKey
-    , kpPublicKey
+    KeyPair (KeyPair'),
+    newKeyPair,
 
     -- ** KinesisAction
-    , KinesisAction
-    , kinesisAction
-    , kaPartitionKey
-    , kaRoleARN
-    , kaStreamName
+    KinesisAction (KinesisAction'),
+    newKinesisAction,
 
     -- ** LambdaAction
-    , LambdaAction
-    , lambdaAction
-    , laFunctionARN
+    LambdaAction (LambdaAction'),
+    newLambdaAction,
+
+    -- ** LogTarget
+    LogTarget (LogTarget'),
+    newLogTarget,
+
+    -- ** LogTargetConfiguration
+    LogTargetConfiguration (LogTargetConfiguration'),
+    newLogTargetConfiguration,
 
     -- ** LoggingOptionsPayload
-    , LoggingOptionsPayload
-    , loggingOptionsPayload
-    , lopLogLevel
-    , lopRoleARN
+    LoggingOptionsPayload (LoggingOptionsPayload'),
+    newLoggingOptionsPayload,
+
+    -- ** MachineLearningDetectionConfig
+    MachineLearningDetectionConfig (MachineLearningDetectionConfig'),
+    newMachineLearningDetectionConfig,
+
+    -- ** MetricDimension
+    MetricDimension (MetricDimension'),
+    newMetricDimension,
+
+    -- ** MetricToRetain
+    MetricToRetain (MetricToRetain'),
+    newMetricToRetain,
+
+    -- ** MetricValue
+    MetricValue (MetricValue'),
+    newMetricValue,
+
+    -- ** MitigationAction
+    MitigationAction (MitigationAction'),
+    newMitigationAction,
+
+    -- ** MitigationActionIdentifier
+    MitigationActionIdentifier (MitigationActionIdentifier'),
+    newMitigationActionIdentifier,
+
+    -- ** MitigationActionParams
+    MitigationActionParams (MitigationActionParams'),
+    newMitigationActionParams,
+
+    -- ** MqttContext
+    MqttContext (MqttContext'),
+    newMqttContext,
+
+    -- ** NonCompliantResource
+    NonCompliantResource (NonCompliantResource'),
+    newNonCompliantResource,
+
+    -- ** OTAUpdateFile
+    OTAUpdateFile (OTAUpdateFile'),
+    newOTAUpdateFile,
+
+    -- ** OTAUpdateInfo
+    OTAUpdateInfo (OTAUpdateInfo'),
+    newOTAUpdateInfo,
+
+    -- ** OTAUpdateSummary
+    OTAUpdateSummary (OTAUpdateSummary'),
+    newOTAUpdateSummary,
+
+    -- ** OpenSearchAction
+    OpenSearchAction (OpenSearchAction'),
+    newOpenSearchAction,
 
     -- ** OutgoingCertificate
-    , OutgoingCertificate
-    , outgoingCertificate
-    , ocTransferDate
-    , ocCertificateARN
-    , ocCertificateId
-    , ocTransferredTo
-    , ocCreationDate
-    , ocTransferMessage
+    OutgoingCertificate (OutgoingCertificate'),
+    newOutgoingCertificate,
+
+    -- ** PercentPair
+    PercentPair (PercentPair'),
+    newPercentPair,
 
     -- ** Policy
-    , Policy
-    , policy
-    , pPolicyName
-    , pPolicyARN
+    Policy (Policy'),
+    newPolicy,
 
     -- ** PolicyVersion
-    , PolicyVersion
-    , policyVersion
-    , pvVersionId
-    , pvCreateDate
-    , pvIsDefaultVersion
+    PolicyVersion (PolicyVersion'),
+    newPolicyVersion,
+
+    -- ** PolicyVersionIdentifier
+    PolicyVersionIdentifier (PolicyVersionIdentifier'),
+    newPolicyVersionIdentifier,
+
+    -- ** PresignedUrlConfig
+    PresignedUrlConfig (PresignedUrlConfig'),
+    newPresignedUrlConfig,
+
+    -- ** ProvisioningHook
+    ProvisioningHook (ProvisioningHook'),
+    newProvisioningHook,
+
+    -- ** ProvisioningTemplateSummary
+    ProvisioningTemplateSummary (ProvisioningTemplateSummary'),
+    newProvisioningTemplateSummary,
+
+    -- ** ProvisioningTemplateVersionSummary
+    ProvisioningTemplateVersionSummary (ProvisioningTemplateVersionSummary'),
+    newProvisioningTemplateVersionSummary,
+
+    -- ** PublishFindingToSnsParams
+    PublishFindingToSnsParams (PublishFindingToSnsParams'),
+    newPublishFindingToSnsParams,
+
+    -- ** PutAssetPropertyValueEntry
+    PutAssetPropertyValueEntry (PutAssetPropertyValueEntry'),
+    newPutAssetPropertyValueEntry,
 
     -- ** PutItemInput
-    , PutItemInput
-    , putItemInput
-    , piiTableName
+    PutItemInput (PutItemInput'),
+    newPutItemInput,
+
+    -- ** RateIncreaseCriteria
+    RateIncreaseCriteria (RateIncreaseCriteria'),
+    newRateIncreaseCriteria,
+
+    -- ** RegistrationConfig
+    RegistrationConfig (RegistrationConfig'),
+    newRegistrationConfig,
+
+    -- ** RelatedResource
+    RelatedResource (RelatedResource'),
+    newRelatedResource,
+
+    -- ** ReplaceDefaultPolicyVersionParams
+    ReplaceDefaultPolicyVersionParams (ReplaceDefaultPolicyVersionParams'),
+    newReplaceDefaultPolicyVersionParams,
 
     -- ** RepublishAction
-    , RepublishAction
-    , republishAction
-    , raRoleARN
-    , raTopic
+    RepublishAction (RepublishAction'),
+    newRepublishAction,
+
+    -- ** ResourceIdentifier
+    ResourceIdentifier (ResourceIdentifier'),
+    newResourceIdentifier,
+
+    -- ** RoleAliasDescription
+    RoleAliasDescription (RoleAliasDescription'),
+    newRoleAliasDescription,
 
     -- ** S3Action
-    , S3Action
-    , s3Action
-    , sCannedACL
-    , sRoleARN
-    , sBucketName
-    , sKey
+    S3Action (S3Action'),
+    newS3Action,
 
-    -- ** SNSAction
-    , SNSAction
-    , snsAction
-    , snsaMessageFormat
-    , snsaTargetARN
-    , snsaRoleARN
+    -- ** S3Destination
+    S3Destination (S3Destination'),
+    newS3Destination,
+
+    -- ** S3Location
+    S3Location (S3Location'),
+    newS3Location,
 
     -- ** SalesforceAction
-    , SalesforceAction
-    , salesforceAction
-    , saToken
-    , saUrl
+    SalesforceAction (SalesforceAction'),
+    newSalesforceAction,
+
+    -- ** ScheduledAuditMetadata
+    ScheduledAuditMetadata (ScheduledAuditMetadata'),
+    newScheduledAuditMetadata,
+
+    -- ** SecurityProfileIdentifier
+    SecurityProfileIdentifier (SecurityProfileIdentifier'),
+    newSecurityProfileIdentifier,
+
+    -- ** SecurityProfileTarget
+    SecurityProfileTarget (SecurityProfileTarget'),
+    newSecurityProfileTarget,
+
+    -- ** SecurityProfileTargetMapping
+    SecurityProfileTargetMapping (SecurityProfileTargetMapping'),
+    newSecurityProfileTargetMapping,
+
+    -- ** ServerCertificateSummary
+    ServerCertificateSummary (ServerCertificateSummary'),
+    newServerCertificateSummary,
+
+    -- ** SigV4Authorization
+    SigV4Authorization (SigV4Authorization'),
+    newSigV4Authorization,
+
+    -- ** SigningProfileParameter
+    SigningProfileParameter (SigningProfileParameter'),
+    newSigningProfileParameter,
+
+    -- ** SnsAction
+    SnsAction (SnsAction'),
+    newSnsAction,
 
     -- ** SqsAction
-    , SqsAction
-    , sqsAction
-    , saUseBase64
-    , saRoleARN
-    , saQueueURL
+    SqsAction (SqsAction'),
+    newSqsAction,
+
+    -- ** StartSigningJobParameter
+    StartSigningJobParameter (StartSigningJobParameter'),
+    newStartSigningJobParameter,
+
+    -- ** StatisticalThreshold
+    StatisticalThreshold (StatisticalThreshold'),
+    newStatisticalThreshold,
+
+    -- ** Statistics
+    Statistics (Statistics'),
+    newStatistics,
+
+    -- ** StepFunctionsAction
+    StepFunctionsAction (StepFunctionsAction'),
+    newStepFunctionsAction,
+
+    -- ** Stream
+    Stream (Stream'),
+    newStream,
+
+    -- ** StreamFile
+    StreamFile (StreamFile'),
+    newStreamFile,
+
+    -- ** StreamInfo
+    StreamInfo (StreamInfo'),
+    newStreamInfo,
+
+    -- ** StreamSummary
+    StreamSummary (StreamSummary'),
+    newStreamSummary,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+
+    -- ** TaskStatistics
+    TaskStatistics (TaskStatistics'),
+    newTaskStatistics,
+
+    -- ** TaskStatisticsForAuditCheck
+    TaskStatisticsForAuditCheck (TaskStatisticsForAuditCheck'),
+    newTaskStatisticsForAuditCheck,
+
+    -- ** TermsAggregation
+    TermsAggregation (TermsAggregation'),
+    newTermsAggregation,
 
     -- ** ThingAttribute
-    , ThingAttribute
-    , thingAttribute
-    , taThingTypeName
-    , taAttributes
-    , taVersion
-    , taThingName
+    ThingAttribute (ThingAttribute'),
+    newThingAttribute,
+
+    -- ** ThingConnectivity
+    ThingConnectivity (ThingConnectivity'),
+    newThingConnectivity,
+
+    -- ** ThingDocument
+    ThingDocument (ThingDocument'),
+    newThingDocument,
+
+    -- ** ThingGroupDocument
+    ThingGroupDocument (ThingGroupDocument'),
+    newThingGroupDocument,
+
+    -- ** ThingGroupIndexingConfiguration
+    ThingGroupIndexingConfiguration (ThingGroupIndexingConfiguration'),
+    newThingGroupIndexingConfiguration,
+
+    -- ** ThingGroupMetadata
+    ThingGroupMetadata (ThingGroupMetadata'),
+    newThingGroupMetadata,
+
+    -- ** ThingGroupProperties
+    ThingGroupProperties (ThingGroupProperties'),
+    newThingGroupProperties,
+
+    -- ** ThingIndexingConfiguration
+    ThingIndexingConfiguration (ThingIndexingConfiguration'),
+    newThingIndexingConfiguration,
 
     -- ** ThingTypeDefinition
-    , ThingTypeDefinition
-    , thingTypeDefinition
-    , ttdThingTypeProperties
-    , ttdThingTypeName
-    , ttdThingTypeMetadata
+    ThingTypeDefinition (ThingTypeDefinition'),
+    newThingTypeDefinition,
 
     -- ** ThingTypeMetadata
-    , ThingTypeMetadata
-    , thingTypeMetadata
-    , ttmDeprecationDate
-    , ttmCreationDate
-    , ttmDeprecated
+    ThingTypeMetadata (ThingTypeMetadata'),
+    newThingTypeMetadata,
 
     -- ** ThingTypeProperties
-    , ThingTypeProperties
-    , thingTypeProperties
-    , ttpSearchableAttributes
-    , ttpThingTypeDescription
+    ThingTypeProperties (ThingTypeProperties'),
+    newThingTypeProperties,
+
+    -- ** TimeoutConfig
+    TimeoutConfig (TimeoutConfig'),
+    newTimeoutConfig,
+
+    -- ** TimestreamAction
+    TimestreamAction (TimestreamAction'),
+    newTimestreamAction,
+
+    -- ** TimestreamDimension
+    TimestreamDimension (TimestreamDimension'),
+    newTimestreamDimension,
+
+    -- ** TimestreamTimestamp
+    TimestreamTimestamp (TimestreamTimestamp'),
+    newTimestreamTimestamp,
+
+    -- ** TlsContext
+    TlsContext (TlsContext'),
+    newTlsContext,
 
     -- ** TopicRule
-    , TopicRule
-    , topicRule
-    , trCreatedAt
-    , trActions
-    , trAwsIotSqlVersion
-    , trRuleDisabled
-    , trRuleName
-    , trSql
-    , trDescription
+    TopicRule (TopicRule'),
+    newTopicRule,
+
+    -- ** TopicRuleDestination
+    TopicRuleDestination (TopicRuleDestination'),
+    newTopicRuleDestination,
+
+    -- ** TopicRuleDestinationConfiguration
+    TopicRuleDestinationConfiguration (TopicRuleDestinationConfiguration'),
+    newTopicRuleDestinationConfiguration,
+
+    -- ** TopicRuleDestinationSummary
+    TopicRuleDestinationSummary (TopicRuleDestinationSummary'),
+    newTopicRuleDestinationSummary,
 
     -- ** TopicRuleListItem
-    , TopicRuleListItem
-    , topicRuleListItem
-    , trliCreatedAt
-    , trliRuleDisabled
-    , trliRuleName
-    , trliRuleARN
-    , trliTopicPattern
+    TopicRuleListItem (TopicRuleListItem'),
+    newTopicRuleListItem,
 
     -- ** TopicRulePayload
-    , TopicRulePayload
-    , topicRulePayload
-    , trpAwsIotSqlVersion
-    , trpRuleDisabled
-    , trpDescription
-    , trpSql
-    , trpActions
+    TopicRulePayload (TopicRulePayload'),
+    newTopicRulePayload,
 
     -- ** TransferData
-    , TransferData
-    , transferData
-    , tdTransferDate
-    , tdAcceptDate
-    , tdTransferMessage
-    , tdRejectDate
-    , tdRejectReason
-    ) where
+    TransferData (TransferData'),
+    newTransferData,
+
+    -- ** UpdateCACertificateParams
+    UpdateCACertificateParams (UpdateCACertificateParams'),
+    newUpdateCACertificateParams,
+
+    -- ** UpdateDeviceCertificateParams
+    UpdateDeviceCertificateParams (UpdateDeviceCertificateParams'),
+    newUpdateDeviceCertificateParams,
+
+    -- ** ValidationError
+    ValidationError (ValidationError'),
+    newValidationError,
+
+    -- ** ViolationEvent
+    ViolationEvent (ViolationEvent'),
+    newViolationEvent,
+
+    -- ** ViolationEventAdditionalInfo
+    ViolationEventAdditionalInfo (ViolationEventAdditionalInfo'),
+    newViolationEventAdditionalInfo,
+
+    -- ** ViolationEventOccurrenceRange
+    ViolationEventOccurrenceRange (ViolationEventOccurrenceRange'),
+    newViolationEventOccurrenceRange,
+
+    -- ** VpcDestinationConfiguration
+    VpcDestinationConfiguration (VpcDestinationConfiguration'),
+    newVpcDestinationConfiguration,
+
+    -- ** VpcDestinationProperties
+    VpcDestinationProperties (VpcDestinationProperties'),
+    newVpcDestinationProperties,
+
+    -- ** VpcDestinationSummary
+    VpcDestinationSummary (VpcDestinationSummary'),
+    newVpcDestinationSummary,
+  )
+where
 
 import Network.AWS.IoT.AcceptCertificateTransfer
-import Network.AWS.IoT.AttachPrincipalPolicy
+import Network.AWS.IoT.AddThingToBillingGroup
+import Network.AWS.IoT.AddThingToThingGroup
+import Network.AWS.IoT.AssociateTargetsWithJob
+import Network.AWS.IoT.AttachPolicy
+import Network.AWS.IoT.AttachSecurityProfile
 import Network.AWS.IoT.AttachThingPrincipal
+import Network.AWS.IoT.CancelAuditMitigationActionsTask
+import Network.AWS.IoT.CancelAuditTask
 import Network.AWS.IoT.CancelCertificateTransfer
-import Network.AWS.IoT.CreateCertificateFromCSR
+import Network.AWS.IoT.CancelDetectMitigationActionsTask
+import Network.AWS.IoT.CancelJob
+import Network.AWS.IoT.CancelJobExecution
+import Network.AWS.IoT.ClearDefaultAuthorizer
+import Network.AWS.IoT.ConfirmTopicRuleDestination
+import Network.AWS.IoT.CreateAuditSuppression
+import Network.AWS.IoT.CreateAuthorizer
+import Network.AWS.IoT.CreateBillingGroup
+import Network.AWS.IoT.CreateCertificateFromCsr
+import Network.AWS.IoT.CreateCustomMetric
+import Network.AWS.IoT.CreateDimension
+import Network.AWS.IoT.CreateDomainConfiguration
+import Network.AWS.IoT.CreateDynamicThingGroup
+import Network.AWS.IoT.CreateFleetMetric
+import Network.AWS.IoT.CreateJob
+import Network.AWS.IoT.CreateJobTemplate
 import Network.AWS.IoT.CreateKeysAndCertificate
+import Network.AWS.IoT.CreateMitigationAction
+import Network.AWS.IoT.CreateOTAUpdate
 import Network.AWS.IoT.CreatePolicy
 import Network.AWS.IoT.CreatePolicyVersion
+import Network.AWS.IoT.CreateProvisioningClaim
+import Network.AWS.IoT.CreateProvisioningTemplate
+import Network.AWS.IoT.CreateProvisioningTemplateVersion
+import Network.AWS.IoT.CreateRoleAlias
+import Network.AWS.IoT.CreateScheduledAudit
+import Network.AWS.IoT.CreateSecurityProfile
+import Network.AWS.IoT.CreateStream
 import Network.AWS.IoT.CreateThing
+import Network.AWS.IoT.CreateThingGroup
 import Network.AWS.IoT.CreateThingType
 import Network.AWS.IoT.CreateTopicRule
+import Network.AWS.IoT.CreateTopicRuleDestination
+import Network.AWS.IoT.DeleteAccountAuditConfiguration
+import Network.AWS.IoT.DeleteAuditSuppression
+import Network.AWS.IoT.DeleteAuthorizer
+import Network.AWS.IoT.DeleteBillingGroup
 import Network.AWS.IoT.DeleteCACertificate
 import Network.AWS.IoT.DeleteCertificate
+import Network.AWS.IoT.DeleteCustomMetric
+import Network.AWS.IoT.DeleteDimension
+import Network.AWS.IoT.DeleteDomainConfiguration
+import Network.AWS.IoT.DeleteDynamicThingGroup
+import Network.AWS.IoT.DeleteFleetMetric
+import Network.AWS.IoT.DeleteJob
+import Network.AWS.IoT.DeleteJobExecution
+import Network.AWS.IoT.DeleteJobTemplate
+import Network.AWS.IoT.DeleteMitigationAction
+import Network.AWS.IoT.DeleteOTAUpdate
 import Network.AWS.IoT.DeletePolicy
 import Network.AWS.IoT.DeletePolicyVersion
+import Network.AWS.IoT.DeleteProvisioningTemplate
+import Network.AWS.IoT.DeleteProvisioningTemplateVersion
 import Network.AWS.IoT.DeleteRegistrationCode
+import Network.AWS.IoT.DeleteRoleAlias
+import Network.AWS.IoT.DeleteScheduledAudit
+import Network.AWS.IoT.DeleteSecurityProfile
+import Network.AWS.IoT.DeleteStream
 import Network.AWS.IoT.DeleteThing
+import Network.AWS.IoT.DeleteThingGroup
 import Network.AWS.IoT.DeleteThingType
 import Network.AWS.IoT.DeleteTopicRule
+import Network.AWS.IoT.DeleteTopicRuleDestination
+import Network.AWS.IoT.DeleteV2LoggingLevel
 import Network.AWS.IoT.DeprecateThingType
+import Network.AWS.IoT.DescribeAccountAuditConfiguration
+import Network.AWS.IoT.DescribeAuditFinding
+import Network.AWS.IoT.DescribeAuditMitigationActionsTask
+import Network.AWS.IoT.DescribeAuditSuppression
+import Network.AWS.IoT.DescribeAuditTask
+import Network.AWS.IoT.DescribeAuthorizer
+import Network.AWS.IoT.DescribeBillingGroup
 import Network.AWS.IoT.DescribeCACertificate
 import Network.AWS.IoT.DescribeCertificate
+import Network.AWS.IoT.DescribeCustomMetric
+import Network.AWS.IoT.DescribeDefaultAuthorizer
+import Network.AWS.IoT.DescribeDetectMitigationActionsTask
+import Network.AWS.IoT.DescribeDimension
+import Network.AWS.IoT.DescribeDomainConfiguration
 import Network.AWS.IoT.DescribeEndpoint
+import Network.AWS.IoT.DescribeEventConfigurations
+import Network.AWS.IoT.DescribeFleetMetric
+import Network.AWS.IoT.DescribeIndex
+import Network.AWS.IoT.DescribeJob
+import Network.AWS.IoT.DescribeJobExecution
+import Network.AWS.IoT.DescribeJobTemplate
+import Network.AWS.IoT.DescribeMitigationAction
+import Network.AWS.IoT.DescribeProvisioningTemplate
+import Network.AWS.IoT.DescribeProvisioningTemplateVersion
+import Network.AWS.IoT.DescribeRoleAlias
+import Network.AWS.IoT.DescribeScheduledAudit
+import Network.AWS.IoT.DescribeSecurityProfile
+import Network.AWS.IoT.DescribeStream
 import Network.AWS.IoT.DescribeThing
+import Network.AWS.IoT.DescribeThingGroup
+import Network.AWS.IoT.DescribeThingRegistrationTask
 import Network.AWS.IoT.DescribeThingType
-import Network.AWS.IoT.DetachPrincipalPolicy
+import Network.AWS.IoT.DetachPolicy
+import Network.AWS.IoT.DetachSecurityProfile
 import Network.AWS.IoT.DetachThingPrincipal
 import Network.AWS.IoT.DisableTopicRule
 import Network.AWS.IoT.EnableTopicRule
+import Network.AWS.IoT.GetBehaviorModelTrainingSummaries
+import Network.AWS.IoT.GetBucketsAggregation
+import Network.AWS.IoT.GetCardinality
+import Network.AWS.IoT.GetEffectivePolicies
+import Network.AWS.IoT.GetIndexingConfiguration
+import Network.AWS.IoT.GetJobDocument
 import Network.AWS.IoT.GetLoggingOptions
+import Network.AWS.IoT.GetOTAUpdate
+import Network.AWS.IoT.GetPercentiles
 import Network.AWS.IoT.GetPolicy
 import Network.AWS.IoT.GetPolicyVersion
 import Network.AWS.IoT.GetRegistrationCode
+import Network.AWS.IoT.GetStatistics
 import Network.AWS.IoT.GetTopicRule
+import Network.AWS.IoT.GetTopicRuleDestination
+import Network.AWS.IoT.GetV2LoggingOptions
+import Network.AWS.IoT.Lens
+import Network.AWS.IoT.ListActiveViolations
+import Network.AWS.IoT.ListAttachedPolicies
+import Network.AWS.IoT.ListAuditFindings
+import Network.AWS.IoT.ListAuditMitigationActionsExecutions
+import Network.AWS.IoT.ListAuditMitigationActionsTasks
+import Network.AWS.IoT.ListAuditSuppressions
+import Network.AWS.IoT.ListAuditTasks
+import Network.AWS.IoT.ListAuthorizers
+import Network.AWS.IoT.ListBillingGroups
 import Network.AWS.IoT.ListCACertificates
 import Network.AWS.IoT.ListCertificates
 import Network.AWS.IoT.ListCertificatesByCA
+import Network.AWS.IoT.ListCustomMetrics
+import Network.AWS.IoT.ListDetectMitigationActionsExecutions
+import Network.AWS.IoT.ListDetectMitigationActionsTasks
+import Network.AWS.IoT.ListDimensions
+import Network.AWS.IoT.ListDomainConfigurations
+import Network.AWS.IoT.ListFleetMetrics
+import Network.AWS.IoT.ListIndices
+import Network.AWS.IoT.ListJobExecutionsForJob
+import Network.AWS.IoT.ListJobExecutionsForThing
+import Network.AWS.IoT.ListJobTemplates
+import Network.AWS.IoT.ListJobs
+import Network.AWS.IoT.ListMitigationActions
+import Network.AWS.IoT.ListOTAUpdates
 import Network.AWS.IoT.ListOutgoingCertificates
 import Network.AWS.IoT.ListPolicies
-import Network.AWS.IoT.ListPolicyPrincipals
 import Network.AWS.IoT.ListPolicyVersions
-import Network.AWS.IoT.ListPrincipalPolicies
 import Network.AWS.IoT.ListPrincipalThings
+import Network.AWS.IoT.ListProvisioningTemplateVersions
+import Network.AWS.IoT.ListProvisioningTemplates
+import Network.AWS.IoT.ListRoleAliases
+import Network.AWS.IoT.ListScheduledAudits
+import Network.AWS.IoT.ListSecurityProfiles
+import Network.AWS.IoT.ListSecurityProfilesForTarget
+import Network.AWS.IoT.ListStreams
+import Network.AWS.IoT.ListTagsForResource
+import Network.AWS.IoT.ListTargetsForPolicy
+import Network.AWS.IoT.ListTargetsForSecurityProfile
+import Network.AWS.IoT.ListThingGroups
+import Network.AWS.IoT.ListThingGroupsForThing
 import Network.AWS.IoT.ListThingPrincipals
-import Network.AWS.IoT.ListThings
+import Network.AWS.IoT.ListThingRegistrationTaskReports
+import Network.AWS.IoT.ListThingRegistrationTasks
 import Network.AWS.IoT.ListThingTypes
+import Network.AWS.IoT.ListThings
+import Network.AWS.IoT.ListThingsInBillingGroup
+import Network.AWS.IoT.ListThingsInThingGroup
+import Network.AWS.IoT.ListTopicRuleDestinations
 import Network.AWS.IoT.ListTopicRules
+import Network.AWS.IoT.ListV2LoggingLevels
+import Network.AWS.IoT.ListViolationEvents
+import Network.AWS.IoT.PutVerificationStateOnViolation
 import Network.AWS.IoT.RegisterCACertificate
 import Network.AWS.IoT.RegisterCertificate
+import Network.AWS.IoT.RegisterCertificateWithoutCA
+import Network.AWS.IoT.RegisterThing
 import Network.AWS.IoT.RejectCertificateTransfer
+import Network.AWS.IoT.RemoveThingFromBillingGroup
+import Network.AWS.IoT.RemoveThingFromThingGroup
 import Network.AWS.IoT.ReplaceTopicRule
+import Network.AWS.IoT.SearchIndex
+import Network.AWS.IoT.SetDefaultAuthorizer
 import Network.AWS.IoT.SetDefaultPolicyVersion
 import Network.AWS.IoT.SetLoggingOptions
+import Network.AWS.IoT.SetV2LoggingLevel
+import Network.AWS.IoT.SetV2LoggingOptions
+import Network.AWS.IoT.StartAuditMitigationActionsTask
+import Network.AWS.IoT.StartDetectMitigationActionsTask
+import Network.AWS.IoT.StartOnDemandAuditTask
+import Network.AWS.IoT.StartThingRegistrationTask
+import Network.AWS.IoT.StopThingRegistrationTask
+import Network.AWS.IoT.TagResource
+import Network.AWS.IoT.TestAuthorization
+import Network.AWS.IoT.TestInvokeAuthorizer
 import Network.AWS.IoT.TransferCertificate
 import Network.AWS.IoT.Types
+import Network.AWS.IoT.UntagResource
+import Network.AWS.IoT.UpdateAccountAuditConfiguration
+import Network.AWS.IoT.UpdateAuditSuppression
+import Network.AWS.IoT.UpdateAuthorizer
+import Network.AWS.IoT.UpdateBillingGroup
 import Network.AWS.IoT.UpdateCACertificate
 import Network.AWS.IoT.UpdateCertificate
+import Network.AWS.IoT.UpdateCustomMetric
+import Network.AWS.IoT.UpdateDimension
+import Network.AWS.IoT.UpdateDomainConfiguration
+import Network.AWS.IoT.UpdateDynamicThingGroup
+import Network.AWS.IoT.UpdateEventConfigurations
+import Network.AWS.IoT.UpdateFleetMetric
+import Network.AWS.IoT.UpdateIndexingConfiguration
+import Network.AWS.IoT.UpdateJob
+import Network.AWS.IoT.UpdateMitigationAction
+import Network.AWS.IoT.UpdateProvisioningTemplate
+import Network.AWS.IoT.UpdateRoleAlias
+import Network.AWS.IoT.UpdateScheduledAudit
+import Network.AWS.IoT.UpdateSecurityProfile
+import Network.AWS.IoT.UpdateStream
 import Network.AWS.IoT.UpdateThing
+import Network.AWS.IoT.UpdateThingGroup
+import Network.AWS.IoT.UpdateThingGroupsForThing
+import Network.AWS.IoT.UpdateTopicRuleDestination
+import Network.AWS.IoT.ValidateSecurityProfileBehaviors
 import Network.AWS.IoT.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'IoT'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'IoT'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

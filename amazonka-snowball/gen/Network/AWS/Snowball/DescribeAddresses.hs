@@ -1,165 +1,224 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Snowball.DescribeAddresses
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a specified number of @ADDRESS@ objects. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
---
---
+-- Returns a specified number of @ADDRESS@ objects. Calling this API in one
+-- of the US regions will return addresses from the list of all addresses
+-- associated with this account in all US regions.
 --
 -- This operation returns paginated results.
 module Network.AWS.Snowball.DescribeAddresses
-    (
-    -- * Creating a Request
-      describeAddresses
-    , DescribeAddresses
+  ( -- * Creating a Request
+    DescribeAddresses (..),
+    newDescribeAddresses,
+
     -- * Request Lenses
-    , daNextToken
-    , daMaxResults
+    describeAddresses_nextToken,
+    describeAddresses_maxResults,
 
     -- * Destructuring the Response
-    , describeAddressesResponse
-    , DescribeAddressesResponse
+    DescribeAddressesResponse (..),
+    newDescribeAddressesResponse,
+
     -- * Response Lenses
-    , drsAddresses
-    , drsNextToken
-    , drsResponseStatus
-    ) where
+    describeAddressesResponse_nextToken,
+    describeAddressesResponse_addresses,
+    describeAddressesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
-import Network.AWS.Snowball.Types.Product
 
--- | /See:/ 'describeAddresses' smart constructor.
+-- | /See:/ 'newDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { _daNextToken  :: !(Maybe Text)
-  , _daMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | HTTP requests are stateless. To identify what object comes \"next\" in
+    -- the list of @ADDRESS@ objects, you have the option of specifying a value
+    -- for @NextToken@ as the starting point for your list of returned
+    -- addresses.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of @ADDRESS@ objects to return.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAddresses' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daNextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daMaxResults' - The number of @ADDRESS@ objects to return.
-describeAddresses
-    :: DescribeAddresses
-describeAddresses =
-  DescribeAddresses' {_daNextToken = Nothing, _daMaxResults = Nothing}
+-- 'nextToken', 'describeAddresses_nextToken' - HTTP requests are stateless. To identify what object comes \"next\" in
+-- the list of @ADDRESS@ objects, you have the option of specifying a value
+-- for @NextToken@ as the starting point for your list of returned
+-- addresses.
+--
+-- 'maxResults', 'describeAddresses_maxResults' - The number of @ADDRESS@ objects to return.
+newDescribeAddresses ::
+  DescribeAddresses
+newDescribeAddresses =
+  DescribeAddresses'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
-
--- | HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
-daNextToken :: Lens' DescribeAddresses (Maybe Text)
-daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
+-- | HTTP requests are stateless. To identify what object comes \"next\" in
+-- the list of @ADDRESS@ objects, you have the option of specifying a value
+-- for @NextToken@ as the starting point for your list of returned
+-- addresses.
+describeAddresses_nextToken :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Text)
+describeAddresses_nextToken = Lens.lens (\DescribeAddresses' {nextToken} -> nextToken) (\s@DescribeAddresses' {} a -> s {nextToken = a} :: DescribeAddresses)
 
 -- | The number of @ADDRESS@ objects to return.
-daMaxResults :: Lens' DescribeAddresses (Maybe Natural)
-daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a}) . mapping _Nat;
+describeAddresses_maxResults :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Natural)
+describeAddresses_maxResults = Lens.lens (\DescribeAddresses' {maxResults} -> maxResults) (\s@DescribeAddresses' {} a -> s {maxResults = a} :: DescribeAddresses)
 
-instance AWSPager DescribeAddresses where
-        page rq rs
-          | stop (rs ^. drsNextToken) = Nothing
-          | stop (rs ^. drsAddresses) = Nothing
-          | otherwise =
-            Just $ rq & daNextToken .~ rs ^. drsNextToken
+instance Core.AWSPager DescribeAddresses where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeAddressesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeAddressesResponse_addresses
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeAddresses_nextToken
+          Lens..~ rs
+          Lens.^? describeAddressesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeAddresses where
-        type Rs DescribeAddresses = DescribeAddressesResponse
-        request = postJSON snowball
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeAddressesResponse' <$>
-                   (x .?> "Addresses" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeAddresses where
+  type
+    AWSResponse DescribeAddresses =
+      DescribeAddressesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeAddressesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Addresses" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeAddresses where
+instance Prelude.Hashable DescribeAddresses
 
-instance NFData DescribeAddresses where
+instance Prelude.NFData DescribeAddresses
 
-instance ToHeaders DescribeAddresses where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSIESnowballJobManagementService.DescribeAddresses"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeAddresses where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSIESnowballJobManagementService.DescribeAddresses" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeAddresses where
-        toJSON DescribeAddresses'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _daNextToken,
-                  ("MaxResults" .=) <$> _daMaxResults])
+instance Core.ToJSON DescribeAddresses where
+  toJSON DescribeAddresses' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
+      )
 
-instance ToPath DescribeAddresses where
-        toPath = const "/"
+instance Core.ToPath DescribeAddresses where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeAddresses where
-        toQuery = const mempty
+instance Core.ToQuery DescribeAddresses where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeAddressesResponse' smart constructor.
+-- | /See:/ 'newDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { _drsAddresses      :: !(Maybe [Address])
-  , _drsNextToken      :: !(Maybe Text)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsAddresses' - The Snowball shipping addresses that were created for this account.
---
--- * 'drsNextToken' - HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeAddressesResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeAddressesResponse
-describeAddressesResponse pResponseStatus_ =
-  DescribeAddressesResponse'
-  { _drsAddresses = Nothing
-  , _drsNextToken = Nothing
-  , _drsResponseStatus = pResponseStatus_
+  { -- | HTTP requests are stateless. If you use the automatically generated
+    -- @NextToken@ value in your next @DescribeAddresses@ call, your list of
+    -- returned addresses will start from this point in the array.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Snow device shipping addresses that were created for this account.
+    addresses :: Prelude.Maybe [Address],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeAddressesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeAddressesResponse_nextToken' - HTTP requests are stateless. If you use the automatically generated
+-- @NextToken@ value in your next @DescribeAddresses@ call, your list of
+-- returned addresses will start from this point in the array.
+--
+-- 'addresses', 'describeAddressesResponse_addresses' - The Snow device shipping addresses that were created for this account.
+--
+-- 'httpStatus', 'describeAddressesResponse_httpStatus' - The response's http status code.
+newDescribeAddressesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAddressesResponse
+newDescribeAddressesResponse pHttpStatus_ =
+  DescribeAddressesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      addresses = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | The Snowball shipping addresses that were created for this account.
-drsAddresses :: Lens' DescribeAddressesResponse [Address]
-drsAddresses = lens _drsAddresses (\ s a -> s{_drsAddresses = a}) . _Default . _Coerce;
+-- | HTTP requests are stateless. If you use the automatically generated
+-- @NextToken@ value in your next @DescribeAddresses@ call, your list of
+-- returned addresses will start from this point in the array.
+describeAddressesResponse_nextToken :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe Prelude.Text)
+describeAddressesResponse_nextToken = Lens.lens (\DescribeAddressesResponse' {nextToken} -> nextToken) (\s@DescribeAddressesResponse' {} a -> s {nextToken = a} :: DescribeAddressesResponse)
 
--- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
-drsNextToken :: Lens' DescribeAddressesResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+-- | The Snow device shipping addresses that were created for this account.
+describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
+describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeAddressesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | The response's http status code.
+describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Prelude.Int
+describeAddressesResponse_httpStatus = Lens.lens (\DescribeAddressesResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressesResponse' {} a -> s {httpStatus = a} :: DescribeAddressesResponse)
 
-instance NFData DescribeAddressesResponse where
+instance Prelude.NFData DescribeAddressesResponse

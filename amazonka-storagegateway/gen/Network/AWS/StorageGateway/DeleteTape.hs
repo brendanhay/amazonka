@@ -1,151 +1,206 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DeleteTape
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified virtual tape. This operation is only supported in the tape gateway architecture.
---
---
+-- Deletes the specified virtual tape. This operation is only supported in
+-- the tape gateway type.
 module Network.AWS.StorageGateway.DeleteTape
-    (
-    -- * Creating a Request
-      deleteTape
-    , DeleteTape
+  ( -- * Creating a Request
+    DeleteTape (..),
+    newDeleteTape,
+
     -- * Request Lenses
-    , delGatewayARN
-    , delTapeARN
+    deleteTape_bypassGovernanceRetention,
+    deleteTape_gatewayARN,
+    deleteTape_tapeARN,
 
     -- * Destructuring the Response
-    , deleteTapeResponse
-    , DeleteTapeResponse
-    -- * Response Lenses
-    , dtrsTapeARN
-    , dtrsResponseStatus
-    ) where
+    DeleteTapeResponse (..),
+    newDeleteTapeResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    deleteTapeResponse_tapeARN,
+    deleteTapeResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | DeleteTapeInput
 --
---
---
--- /See:/ 'deleteTape' smart constructor.
+-- /See:/ 'newDeleteTape' smart constructor.
 data DeleteTape = DeleteTape'
-  { _delGatewayARN :: !Text
-  , _delTapeARN    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Set to @TRUE@ to delete an archived tape that belongs to a custom pool
+    -- with tape retention lock. Only archived tapes with tape retention lock
+    -- set to @governance@ can be deleted. Archived tapes with tape retention
+    -- lock set to @compliance@ can\'t be deleted.
+    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
+    -- tape to delete is associated with. Use the ListGateways operation to
+    -- return a list of gateways for your account and Region.
+    gatewayARN :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
+    tapeARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTape' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTape' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delGatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delTapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete.
-deleteTape
-    :: Text -- ^ 'delGatewayARN'
-    -> Text -- ^ 'delTapeARN'
-    -> DeleteTape
-deleteTape pGatewayARN_ pTapeARN_ =
-  DeleteTape' {_delGatewayARN = pGatewayARN_, _delTapeARN = pTapeARN_}
+-- 'bypassGovernanceRetention', 'deleteTape_bypassGovernanceRetention' - Set to @TRUE@ to delete an archived tape that belongs to a custom pool
+-- with tape retention lock. Only archived tapes with tape retention lock
+-- set to @governance@ can be deleted. Archived tapes with tape retention
+-- lock set to @compliance@ can\'t be deleted.
+--
+-- 'gatewayARN', 'deleteTape_gatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that the virtual
+-- tape to delete is associated with. Use the ListGateways operation to
+-- return a list of gateways for your account and Region.
+--
+-- 'tapeARN', 'deleteTape_tapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete.
+newDeleteTape ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  -- | 'tapeARN'
+  Prelude.Text ->
+  DeleteTape
+newDeleteTape pGatewayARN_ pTapeARN_ =
+  DeleteTape'
+    { bypassGovernanceRetention =
+        Prelude.Nothing,
+      gatewayARN = pGatewayARN_,
+      tapeARN = pTapeARN_
+    }
 
+-- | Set to @TRUE@ to delete an archived tape that belongs to a custom pool
+-- with tape retention lock. Only archived tapes with tape retention lock
+-- set to @governance@ can be deleted. Archived tapes with tape retention
+-- lock set to @compliance@ can\'t be deleted.
+deleteTape_bypassGovernanceRetention :: Lens.Lens' DeleteTape (Prelude.Maybe Prelude.Bool)
+deleteTape_bypassGovernanceRetention = Lens.lens (\DeleteTape' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteTape' {} a -> s {bypassGovernanceRetention = a} :: DeleteTape)
 
--- | The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to delete is associated with. Use the 'ListGateways' operation to return a list of gateways for your account and region.
-delGatewayARN :: Lens' DeleteTape Text
-delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
+-- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
+-- tape to delete is associated with. Use the ListGateways operation to
+-- return a list of gateways for your account and Region.
+deleteTape_gatewayARN :: Lens.Lens' DeleteTape Prelude.Text
+deleteTape_gatewayARN = Lens.lens (\DeleteTape' {gatewayARN} -> gatewayARN) (\s@DeleteTape' {} a -> s {gatewayARN = a} :: DeleteTape)
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
-delTapeARN :: Lens' DeleteTape Text
-delTapeARN = lens _delTapeARN (\ s a -> s{_delTapeARN = a});
+deleteTape_tapeARN :: Lens.Lens' DeleteTape Prelude.Text
+deleteTape_tapeARN = Lens.lens (\DeleteTape' {tapeARN} -> tapeARN) (\s@DeleteTape' {} a -> s {tapeARN = a} :: DeleteTape)
 
-instance AWSRequest DeleteTape where
-        type Rs DeleteTape = DeleteTapeResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteTapeResponse' <$>
-                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteTape where
+  type AWSResponse DeleteTape = DeleteTapeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteTapeResponse'
+            Prelude.<$> (x Core..?> "TapeARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteTape where
+instance Prelude.Hashable DeleteTape
 
-instance NFData DeleteTape where
+instance Prelude.NFData DeleteTape
 
-instance ToHeaders DeleteTape where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.DeleteTape" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteTape where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.DeleteTape" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteTape where
-        toJSON DeleteTape'{..}
-          = object
-              (catMaybes
-                 [Just ("GatewayARN" .= _delGatewayARN),
-                  Just ("TapeARN" .= _delTapeARN)])
+instance Core.ToJSON DeleteTape where
+  toJSON DeleteTape' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("BypassGovernanceRetention" Core..=)
+              Prelude.<$> bypassGovernanceRetention,
+            Prelude.Just ("GatewayARN" Core..= gatewayARN),
+            Prelude.Just ("TapeARN" Core..= tapeARN)
+          ]
+      )
 
-instance ToPath DeleteTape where
-        toPath = const "/"
+instance Core.ToPath DeleteTape where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteTape where
-        toQuery = const mempty
+instance Core.ToQuery DeleteTape where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DeleteTapeOutput
 --
---
---
--- /See:/ 'deleteTapeResponse' smart constructor.
+-- /See:/ 'newDeleteTapeResponse' smart constructor.
 data DeleteTapeResponse = DeleteTapeResponse'
-  { _dtrsTapeARN        :: !(Maybe Text)
-  , _dtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
+    tapeARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTapeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTapeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsTapeARN' - The Amazon Resource Name (ARN) of the deleted virtual tape.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-deleteTapeResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DeleteTapeResponse
-deleteTapeResponse pResponseStatus_ =
+-- 'tapeARN', 'deleteTapeResponse_tapeARN' - The Amazon Resource Name (ARN) of the deleted virtual tape.
+--
+-- 'httpStatus', 'deleteTapeResponse_httpStatus' - The response's http status code.
+newDeleteTapeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTapeResponse
+newDeleteTapeResponse pHttpStatus_ =
   DeleteTapeResponse'
-  {_dtrsTapeARN = Nothing, _dtrsResponseStatus = pResponseStatus_}
-
+    { tapeARN = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
-dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
-dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
+deleteTapeResponse_tapeARN :: Lens.Lens' DeleteTapeResponse (Prelude.Maybe Prelude.Text)
+deleteTapeResponse_tapeARN = Lens.lens (\DeleteTapeResponse' {tapeARN} -> tapeARN) (\s@DeleteTapeResponse' {} a -> s {tapeARN = a} :: DeleteTapeResponse)
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DeleteTapeResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
+-- | The response's http status code.
+deleteTapeResponse_httpStatus :: Lens.Lens' DeleteTapeResponse Prelude.Int
+deleteTapeResponse_httpStatus = Lens.lens (\DeleteTapeResponse' {httpStatus} -> httpStatus) (\s@DeleteTapeResponse' {} a -> s {httpStatus = a} :: DeleteTapeResponse)
 
-instance NFData DeleteTapeResponse where
+instance Prelude.NFData DeleteTapeResponse

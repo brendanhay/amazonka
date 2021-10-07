@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.RemoveAccountFromOrganization
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,105 +22,165 @@
 --
 -- Removes the specified account from the organization.
 --
+-- The removed account becomes a standalone account that isn\'t a member of
+-- any organization. It\'s no longer subject to any policies and is
+-- responsible for its own bill payments. The organization\'s management
+-- account is no longer charged for any expenses accrued by the member
+-- account after it\'s removed from the organization.
 --
--- The removed account becomes a stand-alone account that is not a member of any organization. It is no longer subject to any policies and is responsible for its own bill payments. The organization's master account is no longer charged for any expenses accrued by the member account after it is removed from the organization.
+-- This operation can be called only from the organization\'s management
+-- account. Member accounts can remove themselves with LeaveOrganization
+-- instead.
 --
--- This operation can be called only from the organization's master account. Member accounts can remove themselves with 'LeaveOrganization' instead.
+-- -   You can remove an account from your organization only if the account
+--     is configured with the information required to operate as a
+--     standalone account. When you create an account in an organization
+--     using the AWS Organizations console, API, or CLI commands, the
+--     information required of standalone accounts is /not/ automatically
+--     collected. For an account that you want to make standalone, you must
+--     choose a support plan, provide and verify the required contact
+--     information, and provide a current payment method. AWS uses the
+--     payment method to charge for any billable (not free tier) AWS
+--     activity that occurs while the account isn\'t attached to an
+--     organization. To remove an account that doesn\'t yet have this
+--     information, you must sign in as the member account and follow the
+--     steps at
+--     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided>
+--     in the /AWS Organizations User Guide./
 --
--- /Important:/     * You can remove an account from your organization only if the account is configured with the information required to operate as a standalone account. When you create an account in an organization using the AWS Organizations console, API, or CLI commands, the information required of standalone accounts is /not/ automatically collected. For an account that you want to make standalone, you must accept the End User License Agreement (EULA), choose a support plan, provide and verify the required contact information, and provide a current payment method. AWS uses the payment method to charge for any billable (not free tier) AWS activity that occurs while the account is not attached to an organization. To remove an account that does not yet have this information, you must sign in as the member account and follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide/ .
+-- -   The account that you want to leave must not be a delegated
+--     administrator account for any AWS service enabled for your
+--     organization. If the account is a delegated administrator, you must
+--     first change the delegated administrator account to another account
+--     that is remaining in the organization.
 --
---     * You can remove a member account only after you enable IAM user access to billing in the member account. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide/ .
---
---
---
+-- -   After the account leaves the organization, all tags that were
+--     attached to the account object in the organization are deleted. AWS
+--     accounts outside of an organization do not support tags.
 module Network.AWS.Organizations.RemoveAccountFromOrganization
-    (
-    -- * Creating a Request
-      removeAccountFromOrganization
-    , RemoveAccountFromOrganization
+  ( -- * Creating a Request
+    RemoveAccountFromOrganization (..),
+    newRemoveAccountFromOrganization,
+
     -- * Request Lenses
-    , rafoAccountId
+    removeAccountFromOrganization_accountId,
 
     -- * Destructuring the Response
-    , removeAccountFromOrganizationResponse
-    , RemoveAccountFromOrganizationResponse
-    ) where
+    RemoveAccountFromOrganizationResponse (..),
+    newRemoveAccountFromOrganizationResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'removeAccountFromOrganization' smart constructor.
-newtype RemoveAccountFromOrganization = RemoveAccountFromOrganization'
-  { _rafoAccountId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRemoveAccountFromOrganization' smart constructor.
+data RemoveAccountFromOrganization = RemoveAccountFromOrganization'
+  { -- | The unique identifier (ID) of the member account that you want to remove
+    -- from the organization.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+    -- string requires exactly 12 digits.
+    accountId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveAccountFromOrganization' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveAccountFromOrganization' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rafoAccountId' - The unique identifier (ID) of the member account that you want to remove from the organization. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-removeAccountFromOrganization
-    :: Text -- ^ 'rafoAccountId'
-    -> RemoveAccountFromOrganization
-removeAccountFromOrganization pAccountId_ =
-  RemoveAccountFromOrganization' {_rafoAccountId = pAccountId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'accountId', 'removeAccountFromOrganization_accountId' - The unique identifier (ID) of the member account that you want to remove
+-- from the organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
+newRemoveAccountFromOrganization ::
+  -- | 'accountId'
+  Prelude.Text ->
+  RemoveAccountFromOrganization
+newRemoveAccountFromOrganization pAccountId_ =
+  RemoveAccountFromOrganization'
+    { accountId =
+        pAccountId_
+    }
 
+-- | The unique identifier (ID) of the member account that you want to remove
+-- from the organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
+removeAccountFromOrganization_accountId :: Lens.Lens' RemoveAccountFromOrganization Prelude.Text
+removeAccountFromOrganization_accountId = Lens.lens (\RemoveAccountFromOrganization' {accountId} -> accountId) (\s@RemoveAccountFromOrganization' {} a -> s {accountId = a} :: RemoveAccountFromOrganization)
 
--- | The unique identifier (ID) of the member account that you want to remove from the organization. The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-rafoAccountId :: Lens' RemoveAccountFromOrganization Text
-rafoAccountId = lens _rafoAccountId (\ s a -> s{_rafoAccountId = a});
+instance
+  Core.AWSRequest
+    RemoveAccountFromOrganization
+  where
+  type
+    AWSResponse RemoveAccountFromOrganization =
+      RemoveAccountFromOrganizationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      RemoveAccountFromOrganizationResponse'
 
-instance AWSRequest RemoveAccountFromOrganization
-         where
-        type Rs RemoveAccountFromOrganization =
-             RemoveAccountFromOrganizationResponse
-        request = postJSON organizations
-        response
-          = receiveNull RemoveAccountFromOrganizationResponse'
+instance
+  Prelude.Hashable
+    RemoveAccountFromOrganization
 
-instance Hashable RemoveAccountFromOrganization where
+instance Prelude.NFData RemoveAccountFromOrganization
 
-instance NFData RemoveAccountFromOrganization where
+instance Core.ToHeaders RemoveAccountFromOrganization where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSOrganizationsV20161128.RemoveAccountFromOrganization" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders RemoveAccountFromOrganization
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.RemoveAccountFromOrganization"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON RemoveAccountFromOrganization where
+  toJSON RemoveAccountFromOrganization' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("AccountId" Core..= accountId)]
+      )
 
-instance ToJSON RemoveAccountFromOrganization where
-        toJSON RemoveAccountFromOrganization'{..}
-          = object
-              (catMaybes [Just ("AccountId" .= _rafoAccountId)])
+instance Core.ToPath RemoveAccountFromOrganization where
+  toPath = Prelude.const "/"
 
-instance ToPath RemoveAccountFromOrganization where
-        toPath = const "/"
+instance Core.ToQuery RemoveAccountFromOrganization where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery RemoveAccountFromOrganization where
-        toQuery = const mempty
+-- | /See:/ 'newRemoveAccountFromOrganizationResponse' smart constructor.
+data RemoveAccountFromOrganizationResponse = RemoveAccountFromOrganizationResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'removeAccountFromOrganizationResponse' smart constructor.
-data RemoveAccountFromOrganizationResponse =
+-- |
+-- Create a value of 'RemoveAccountFromOrganizationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRemoveAccountFromOrganizationResponse ::
+  RemoveAccountFromOrganizationResponse
+newRemoveAccountFromOrganizationResponse =
   RemoveAccountFromOrganizationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'RemoveAccountFromOrganizationResponse' with the minimum fields required to make a request.
---
-removeAccountFromOrganizationResponse
-    :: RemoveAccountFromOrganizationResponse
-removeAccountFromOrganizationResponse = RemoveAccountFromOrganizationResponse'
-
-
-instance NFData RemoveAccountFromOrganizationResponse
-         where
+instance
+  Prelude.NFData
+    RemoveAccountFromOrganizationResponse

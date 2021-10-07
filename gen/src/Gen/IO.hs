@@ -1,9 +1,5 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections     #-}
-
 -- Module      : Gen.IO
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -17,32 +13,26 @@ module Gen.IO where
 import Control.Error
 import Control.Monad.Except
 import Control.Monad.State
-
 import Data.Bifunctor
-import Data.ByteString        (ByteString)
-import Data.Text              (Text)
+import Data.ByteString (ByteString)
+import Data.Text (Text)
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
 import Data.Text.Lazy.Builder (toLazyText)
-
+import qualified Data.Text.Lazy.IO as LText
+import qualified Filesystem as FS
 import Filesystem.Path.CurrentOS
-
 import Gen.Formatting
 import Gen.Types
-
 import System.IO
-
-import UnexceptionalIO (fromIO, runUIO)
-
-import qualified Data.Text         as Text
-import qualified Data.Text.Lazy    as LText
-import qualified Data.Text.Lazy.IO as LText
-import qualified Filesystem        as FS
-import qualified Text.EDE          as EDE
+import qualified Text.EDE as EDE
+import qualified UnexceptionalIO as UIO
 
 run :: ExceptT Error IO a -> IO a
 run = runScript . fmapLT LText.toStrict
 
 io :: MonadIO m => IO a -> ExceptT Error m a
-io = ExceptT . fmap (first (LText.pack . show)) . liftIO . runUIO . fromIO
+io = ExceptT . fmap (first (LText.pack . show)) . liftIO . UIO.lift . UIO.fromIO
 
 title :: MonadIO m => Format (ExceptT Error m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)
@@ -61,50 +51,52 @@ listDir = io . FS.listDirectory
 
 readBSFile :: MonadIO m => Path -> ExceptT Error m ByteString
 readBSFile f = do
-    p <- isFile f
-    if p
-        then say ("Reading "  % path) f >> io (FS.readFile f)
-        else failure ("Missing " % path) f
+  p <- isFile f
+  if p
+    then say ("Reading " % path) f >> io (FS.readFile f)
+    else failure ("Missing " % path) f
 
 writeLTFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
 writeLTFile f t = do
-    say ("Writing " % path) f
-    io . FS.withFile f FS.WriteMode $ \h -> do
-        hSetEncoding  h utf8
-        LText.hPutStr h t
+  say ("Writing " % path) f
+  io . FS.withFile f FS.WriteMode $ \h -> do
+    hSetEncoding h utf8
+    LText.hPutStr h t
 
 touchFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
 touchFile f t = do
-    p <- isFile f
-    unless p $
-        writeLTFile f t
+  p <- isFile f
+  unless p $
+    writeLTFile f t
 
 createDir :: MonadIO m => Path -> ExceptT Error m ()
 createDir d = do
-    p <- io (FS.isDirectory d)
-    unless p $ do
-        say ("Creating " % path) d
-        io (FS.createTree d)
+  p <- io (FS.isDirectory d)
+  unless p $ do
+    say ("Creating " % path) d
+    io (FS.createTree d)
 
 copyDir :: MonadIO m => Path -> Path -> ExceptT Error m ()
 copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
   where
     copy f = do
-        let p = dst </> filename f
-        fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
-        FS.copyFile f p
+      let p = dst </> filename f
+      fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
+      FS.copyFile f p
 
-readTemplate :: MonadIO m
-             => Path
-             -> Path
-             -> StateT (Map Text (EDE.Result EDE.Template)) (ExceptT Error m) EDE.Template
+readTemplate ::
+  MonadIO m =>
+  Path ->
+  Path ->
+  StateT (Map Text (EDE.Result EDE.Template)) (ExceptT Error m) EDE.Template
 readTemplate d f = do
-    let tmpl = d </> f
-    lift (readBSFile tmpl)
-        >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
-        >>= EDE.result (throwError . LText.pack . show) return
+  let tmpl = d </> f
+  lift (readBSFile tmpl)
+    >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
+    >>= EDE.result (throwError . LText.pack . show) return
   where
     load p o k _ = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
       where
-        x | Text.null k = fromText k
-          | otherwise   = p </> fromText k
+        x
+          | Text.null k = fromText k
+          | otherwise = p </> fromText k

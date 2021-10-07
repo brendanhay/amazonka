@@ -1,134 +1,170 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.DeleteReportDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a specified report definition
+-- Deletes the specified report.
 module Network.AWS.CostAndUsageReport.DeleteReportDefinition
-    (
-    -- * Creating a Request
-      deleteReportDefinition
-    , DeleteReportDefinition
+  ( -- * Creating a Request
+    DeleteReportDefinition (..),
+    newDeleteReportDefinition,
+
     -- * Request Lenses
-    , drdReportName
+    deleteReportDefinition_reportName,
 
     -- * Destructuring the Response
-    , deleteReportDefinitionResponse
-    , DeleteReportDefinitionResponse
+    DeleteReportDefinitionResponse (..),
+    newDeleteReportDefinitionResponse,
+
     -- * Response Lenses
-    , drsResponseMessage
-    , drsResponseStatus
-    ) where
+    deleteReportDefinitionResponse_responseMessage,
+    deleteReportDefinitionResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
-import Network.AWS.CostAndUsageReport.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request of DeleteReportDefinition
+-- | Deletes the specified report.
 --
--- /See:/ 'deleteReportDefinition' smart constructor.
-newtype DeleteReportDefinition = DeleteReportDefinition'
-  { _drdReportName :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteReportDefinition' smart constructor.
+data DeleteReportDefinition = DeleteReportDefinition'
+  { -- | The name of the report that you want to delete. The name must be unique,
+    -- is case sensitive, and can\'t include spaces.
+    reportName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteReportDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteReportDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drdReportName' - Undocumented member.
-deleteReportDefinition
-    :: DeleteReportDefinition
-deleteReportDefinition = DeleteReportDefinition' {_drdReportName = Nothing}
-
-
--- | Undocumented member.
-drdReportName :: Lens' DeleteReportDefinition (Maybe Text)
-drdReportName = lens _drdReportName (\ s a -> s{_drdReportName = a});
-
-instance AWSRequest DeleteReportDefinition where
-        type Rs DeleteReportDefinition =
-             DeleteReportDefinitionResponse
-        request = postJSON costAndUsageReport
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteReportDefinitionResponse' <$>
-                   (x .?> "ResponseMessage") <*> (pure (fromEnum s)))
-
-instance Hashable DeleteReportDefinition where
-
-instance NFData DeleteReportDefinition where
-
-instance ToHeaders DeleteReportDefinition where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrigamiServiceGatewayService.DeleteReportDefinition"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteReportDefinition where
-        toJSON DeleteReportDefinition'{..}
-          = object
-              (catMaybes [("ReportName" .=) <$> _drdReportName])
-
-instance ToPath DeleteReportDefinition where
-        toPath = const "/"
-
-instance ToQuery DeleteReportDefinition where
-        toQuery = const mempty
-
--- | Response of DeleteReportDefinition
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'deleteReportDefinitionResponse' smart constructor.
+-- 'reportName', 'deleteReportDefinition_reportName' - The name of the report that you want to delete. The name must be unique,
+-- is case sensitive, and can\'t include spaces.
+newDeleteReportDefinition ::
+  DeleteReportDefinition
+newDeleteReportDefinition =
+  DeleteReportDefinition'
+    { reportName =
+        Prelude.Nothing
+    }
+
+-- | The name of the report that you want to delete. The name must be unique,
+-- is case sensitive, and can\'t include spaces.
+deleteReportDefinition_reportName :: Lens.Lens' DeleteReportDefinition (Prelude.Maybe Prelude.Text)
+deleteReportDefinition_reportName = Lens.lens (\DeleteReportDefinition' {reportName} -> reportName) (\s@DeleteReportDefinition' {} a -> s {reportName = a} :: DeleteReportDefinition)
+
+instance Core.AWSRequest DeleteReportDefinition where
+  type
+    AWSResponse DeleteReportDefinition =
+      DeleteReportDefinitionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteReportDefinitionResponse'
+            Prelude.<$> (x Core..?> "ResponseMessage")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteReportDefinition
+
+instance Prelude.NFData DeleteReportDefinition
+
+instance Core.ToHeaders DeleteReportDefinition where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSOrigamiServiceGatewayService.DeleteReportDefinition" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteReportDefinition where
+  toJSON DeleteReportDefinition' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("ReportName" Core..=) Prelude.<$> reportName]
+      )
+
+instance Core.ToPath DeleteReportDefinition where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteReportDefinition where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | If the action is successful, the service sends back an HTTP 200
+-- response.
+--
+-- /See:/ 'newDeleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
-  { _drsResponseMessage :: !(Maybe Text)
-  , _drsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { responseMessage :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteReportDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteReportDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsResponseMessage' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteReportDefinitionResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DeleteReportDefinitionResponse
-deleteReportDefinitionResponse pResponseStatus_ =
+-- 'responseMessage', 'deleteReportDefinitionResponse_responseMessage' - Undocumented member.
+--
+-- 'httpStatus', 'deleteReportDefinitionResponse_httpStatus' - The response's http status code.
+newDeleteReportDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteReportDefinitionResponse
+newDeleteReportDefinitionResponse pHttpStatus_ =
   DeleteReportDefinitionResponse'
-  {_drsResponseMessage = Nothing, _drsResponseStatus = pResponseStatus_}
-
+    { responseMessage =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-drsResponseMessage :: Lens' DeleteReportDefinitionResponse (Maybe Text)
-drsResponseMessage = lens _drsResponseMessage (\ s a -> s{_drsResponseMessage = a});
+deleteReportDefinitionResponse_responseMessage :: Lens.Lens' DeleteReportDefinitionResponse (Prelude.Maybe Prelude.Text)
+deleteReportDefinitionResponse_responseMessage = Lens.lens (\DeleteReportDefinitionResponse' {responseMessage} -> responseMessage) (\s@DeleteReportDefinitionResponse' {} a -> s {responseMessage = a} :: DeleteReportDefinitionResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteReportDefinitionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | The response's http status code.
+deleteReportDefinitionResponse_httpStatus :: Lens.Lens' DeleteReportDefinitionResponse Prelude.Int
+deleteReportDefinitionResponse_httpStatus = Lens.lens (\DeleteReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteReportDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteReportDefinitionResponse)
 
-instance NFData DeleteReportDefinitionResponse where
+instance
+  Prelude.NFData
+    DeleteReportDefinitionResponse

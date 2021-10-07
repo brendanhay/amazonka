@@ -1,156 +1,201 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocatePublicVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provisions a public virtual interface to be owned by a different customer.
+-- Provisions a public virtual interface to be owned by the specified
+-- account.
 --
+-- The owner of a connection calls this function to provision a public
+-- virtual interface to be owned by the specified account.
 --
--- The owner of a connection calls this function to provision a public virtual interface which will be owned by another AWS customer.
+-- Virtual interfaces created using this function must be confirmed by the
+-- owner using ConfirmPublicVirtualInterface. Until this step has been
+-- completed, the virtual interface is in the @confirming@ state and is not
+-- available to handle traffic.
 --
--- Virtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.
---
--- When creating an IPv6 public virtual interface (addressFamily is 'ipv6'), the customer and amazon address fields should be left blank to use auto-assigned IPv6 space. Custom IPv6 Addresses are currently not supported.
---
+-- When creating an IPv6 public virtual interface, omit the Amazon address
+-- and customer address. IPv6 addresses are automatically assigned from the
+-- Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-    (
-    -- * Creating a Request
-      allocatePublicVirtualInterface
-    , AllocatePublicVirtualInterface
+  ( -- * Creating a Request
+    AllocatePublicVirtualInterface (..),
+    newAllocatePublicVirtualInterface,
+
     -- * Request Lenses
-    , aConnectionId
-    , aOwnerAccount
-    , aNewPublicVirtualInterfaceAllocation
+    allocatePublicVirtualInterface_connectionId,
+    allocatePublicVirtualInterface_ownerAccount,
+    allocatePublicVirtualInterface_newPublicVirtualInterfaceAllocation,
 
     -- * Destructuring the Response
-    , virtualInterface
-    , VirtualInterface
+    VirtualInterface (..),
+    newVirtualInterface,
+
     -- * Response Lenses
-    , viBgpPeers
-    , viVirtualGatewayId
-    , viRouteFilterPrefixes
-    , viCustomerAddress
-    , viVlan
-    , viLocation
-    , viAmazonAddress
-    , viAddressFamily
-    , viVirtualInterfaceState
-    , viConnectionId
-    , viDirectConnectGatewayId
-    , viAmazonSideASN
-    , viVirtualInterfaceType
-    , viAsn
-    , viAuthKey
-    , viCustomerRouterConfig
-    , viOwnerAccount
-    , viVirtualInterfaceName
-    , viVirtualInterfaceId
-    ) where
+    virtualInterface_authKey,
+    virtualInterface_bgpPeers,
+    virtualInterface_virtualGatewayId,
+    virtualInterface_asn,
+    virtualInterface_awsDeviceV2,
+    virtualInterface_connectionId,
+    virtualInterface_awsLogicalDeviceId,
+    virtualInterface_customerRouterConfig,
+    virtualInterface_jumboFrameCapable,
+    virtualInterface_routeFilterPrefixes,
+    virtualInterface_mtu,
+    virtualInterface_virtualInterfaceType,
+    virtualInterface_amazonSideAsn,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_tags,
+    virtualInterface_directConnectGatewayId,
+    virtualInterface_virtualInterfaceName,
+    virtualInterface_virtualInterfaceState,
+    virtualInterface_amazonAddress,
+    virtualInterface_addressFamily,
+    virtualInterface_ownerAccount,
+    virtualInterface_region,
+    virtualInterface_vlan,
+    virtualInterface_location,
+    virtualInterface_customerAddress,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the AllocatePublicVirtualInterface operation.
---
---
---
--- /See:/ 'allocatePublicVirtualInterface' smart constructor.
+-- | /See:/ 'newAllocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
-  { _aConnectionId :: !Text
-  , _aOwnerAccount :: !Text
-  , _aNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AllocatePublicVirtualInterface' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aConnectionId' - The connection ID on which the public virtual interface is provisioned. Default: None
---
--- * 'aOwnerAccount' - The AWS account that will own the new public virtual interface. Default: None
---
--- * 'aNewPublicVirtualInterfaceAllocation' - Detailed information for the public virtual interface to be provisioned. Default: None
-allocatePublicVirtualInterface
-    :: Text -- ^ 'aConnectionId'
-    -> Text -- ^ 'aOwnerAccount'
-    -> NewPublicVirtualInterfaceAllocation -- ^ 'aNewPublicVirtualInterfaceAllocation'
-    -> AllocatePublicVirtualInterface
-allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ =
-  AllocatePublicVirtualInterface'
-  { _aConnectionId = pConnectionId_
-  , _aOwnerAccount = pOwnerAccount_
-  , _aNewPublicVirtualInterfaceAllocation =
-      pNewPublicVirtualInterfaceAllocation_
+  { -- | The ID of the connection on which the public virtual interface is
+    -- provisioned.
+    connectionId :: Prelude.Text,
+    -- | The ID of the account that owns the public virtual interface.
+    ownerAccount :: Prelude.Text,
+    -- | Information about the public virtual interface.
+    newPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AllocatePublicVirtualInterface' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'connectionId', 'allocatePublicVirtualInterface_connectionId' - The ID of the connection on which the public virtual interface is
+-- provisioned.
+--
+-- 'ownerAccount', 'allocatePublicVirtualInterface_ownerAccount' - The ID of the account that owns the public virtual interface.
+--
+-- 'newPublicVirtualInterfaceAllocation'', 'allocatePublicVirtualInterface_newPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
+newAllocatePublicVirtualInterface ::
+  -- | 'connectionId'
+  Prelude.Text ->
+  -- | 'ownerAccount'
+  Prelude.Text ->
+  -- | 'newPublicVirtualInterfaceAllocation''
+  NewPublicVirtualInterfaceAllocation ->
+  AllocatePublicVirtualInterface
+newAllocatePublicVirtualInterface
+  pConnectionId_
+  pOwnerAccount_
+  pNewPublicVirtualInterfaceAllocation_ =
+    AllocatePublicVirtualInterface'
+      { connectionId =
+          pConnectionId_,
+        ownerAccount = pOwnerAccount_,
+        newPublicVirtualInterfaceAllocation' =
+          pNewPublicVirtualInterfaceAllocation_
+      }
 
--- | The connection ID on which the public virtual interface is provisioned. Default: None
-aConnectionId :: Lens' AllocatePublicVirtualInterface Text
-aConnectionId = lens _aConnectionId (\ s a -> s{_aConnectionId = a});
+-- | The ID of the connection on which the public virtual interface is
+-- provisioned.
+allocatePublicVirtualInterface_connectionId :: Lens.Lens' AllocatePublicVirtualInterface Prelude.Text
+allocatePublicVirtualInterface_connectionId = Lens.lens (\AllocatePublicVirtualInterface' {connectionId} -> connectionId) (\s@AllocatePublicVirtualInterface' {} a -> s {connectionId = a} :: AllocatePublicVirtualInterface)
 
--- | The AWS account that will own the new public virtual interface. Default: None
-aOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
-aOwnerAccount = lens _aOwnerAccount (\ s a -> s{_aOwnerAccount = a});
+-- | The ID of the account that owns the public virtual interface.
+allocatePublicVirtualInterface_ownerAccount :: Lens.Lens' AllocatePublicVirtualInterface Prelude.Text
+allocatePublicVirtualInterface_ownerAccount = Lens.lens (\AllocatePublicVirtualInterface' {ownerAccount} -> ownerAccount) (\s@AllocatePublicVirtualInterface' {} a -> s {ownerAccount = a} :: AllocatePublicVirtualInterface)
 
--- | Detailed information for the public virtual interface to be provisioned. Default: None
-aNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
-aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\ s a -> s{_aNewPublicVirtualInterfaceAllocation = a});
+-- | Information about the public virtual interface.
+allocatePublicVirtualInterface_newPublicVirtualInterfaceAllocation :: Lens.Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
+allocatePublicVirtualInterface_newPublicVirtualInterfaceAllocation = Lens.lens (\AllocatePublicVirtualInterface' {newPublicVirtualInterfaceAllocation'} -> newPublicVirtualInterfaceAllocation') (\s@AllocatePublicVirtualInterface' {} a -> s {newPublicVirtualInterfaceAllocation' = a} :: AllocatePublicVirtualInterface)
 
-instance AWSRequest AllocatePublicVirtualInterface
-         where
-        type Rs AllocatePublicVirtualInterface =
-             VirtualInterface
-        request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance
+  Core.AWSRequest
+    AllocatePublicVirtualInterface
+  where
+  type
+    AWSResponse AllocatePublicVirtualInterface =
+      VirtualInterface
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable AllocatePublicVirtualInterface
-         where
+instance
+  Prelude.Hashable
+    AllocatePublicVirtualInterface
 
-instance NFData AllocatePublicVirtualInterface where
+instance
+  Prelude.NFData
+    AllocatePublicVirtualInterface
 
-instance ToHeaders AllocatePublicVirtualInterface
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.AllocatePublicVirtualInterface" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    AllocatePublicVirtualInterface
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.AllocatePublicVirtualInterface" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AllocatePublicVirtualInterface where
-        toJSON AllocatePublicVirtualInterface'{..}
-          = object
-              (catMaybes
-                 [Just ("connectionId" .= _aConnectionId),
-                  Just ("ownerAccount" .= _aOwnerAccount),
-                  Just
-                    ("newPublicVirtualInterfaceAllocation" .=
-                       _aNewPublicVirtualInterfaceAllocation)])
+instance Core.ToJSON AllocatePublicVirtualInterface where
+  toJSON AllocatePublicVirtualInterface' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("connectionId" Core..= connectionId),
+            Prelude.Just ("ownerAccount" Core..= ownerAccount),
+            Prelude.Just
+              ( "newPublicVirtualInterfaceAllocation"
+                  Core..= newPublicVirtualInterfaceAllocation'
+              )
+          ]
+      )
 
-instance ToPath AllocatePublicVirtualInterface where
-        toPath = const "/"
+instance Core.ToPath AllocatePublicVirtualInterface where
+  toPath = Prelude.const "/"
 
-instance ToQuery AllocatePublicVirtualInterface where
-        toQuery = const mempty
+instance Core.ToQuery AllocatePublicVirtualInterface where
+  toQuery = Prelude.const Prelude.mempty

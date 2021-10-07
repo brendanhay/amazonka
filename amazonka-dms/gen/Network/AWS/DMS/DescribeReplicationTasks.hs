@@ -1,175 +1,288 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeReplicationTasks
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about replication tasks for your account in the current region.
+-- Returns information about replication tasks for your account in the
+-- current region.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeReplicationTasks
-    (
-    -- * Creating a Request
-      describeReplicationTasks
-    , DescribeReplicationTasks
+  ( -- * Creating a Request
+    DescribeReplicationTasks (..),
+    newDescribeReplicationTasks,
+
     -- * Request Lenses
-    , drtFilters
-    , drtMarker
-    , drtMaxRecords
+    describeReplicationTasks_withoutSettings,
+    describeReplicationTasks_filters,
+    describeReplicationTasks_maxRecords,
+    describeReplicationTasks_marker,
 
     -- * Destructuring the Response
-    , describeReplicationTasksResponse
-    , DescribeReplicationTasksResponse
+    DescribeReplicationTasksResponse (..),
+    newDescribeReplicationTasksResponse,
+
     -- * Response Lenses
-    , drtsrsReplicationTasks
-    , drtsrsMarker
-    , drtsrsResponseStatus
-    ) where
+    describeReplicationTasksResponse_replicationTasks,
+    describeReplicationTasksResponse_marker,
+    describeReplicationTasksResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeReplicationTasks' smart constructor.
+-- /See:/ 'newDescribeReplicationTasks' smart constructor.
 data DescribeReplicationTasks = DescribeReplicationTasks'
-  { _drtFilters    :: !(Maybe [Filter])
-  , _drtMarker     :: !(Maybe Text)
-  , _drtMaxRecords :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An option to set to avoid returning information about settings. Use this
+    -- to reduce overhead when setting information is too large. To use this
+    -- option, choose @true@; otherwise, choose @false@ (the default).
+    withoutSettings :: Prelude.Maybe Prelude.Bool,
+    -- | Filters applied to replication tasks.
+    --
+    -- Valid filter names: replication-task-arn | replication-task-id |
+    -- migration-type | endpoint-arn | replication-instance-arn
+    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that the remaining
+    -- results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeReplicationTasks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeReplicationTasks' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drtFilters' - Filters applied to the describe action. Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drtMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- 'withoutSettings', 'describeReplicationTasks_withoutSettings' - An option to set to avoid returning information about settings. Use this
+-- to reduce overhead when setting information is too large. To use this
+-- option, choose @true@; otherwise, choose @false@ (the default).
 --
--- * 'drtMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeReplicationTasks
-    :: DescribeReplicationTasks
-describeReplicationTasks =
+-- 'filters', 'describeReplicationTasks_filters' - Filters applied to replication tasks.
+--
+-- Valid filter names: replication-task-arn | replication-task-id |
+-- migration-type | endpoint-arn | replication-instance-arn
+--
+-- 'maxRecords', 'describeReplicationTasks_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeReplicationTasks_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+newDescribeReplicationTasks ::
+  DescribeReplicationTasks
+newDescribeReplicationTasks =
   DescribeReplicationTasks'
-  {_drtFilters = Nothing, _drtMarker = Nothing, _drtMaxRecords = Nothing}
+    { withoutSettings =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
+-- | An option to set to avoid returning information about settings. Use this
+-- to reduce overhead when setting information is too large. To use this
+-- option, choose @true@; otherwise, choose @false@ (the default).
+describeReplicationTasks_withoutSettings :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Bool)
+describeReplicationTasks_withoutSettings = Lens.lens (\DescribeReplicationTasks' {withoutSettings} -> withoutSettings) (\s@DescribeReplicationTasks' {} a -> s {withoutSettings = a} :: DescribeReplicationTasks)
 
--- | Filters applied to the describe action. Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
-drtFilters :: Lens' DescribeReplicationTasks [Filter]
-drtFilters = lens _drtFilters (\ s a -> s{_drtFilters = a}) . _Default . _Coerce;
+-- | Filters applied to replication tasks.
+--
+-- Valid filter names: replication-task-arn | replication-task-id |
+-- migration-type | endpoint-arn | replication-instance-arn
+describeReplicationTasks_filters :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe [Filter])
+describeReplicationTasks_filters = Lens.lens (\DescribeReplicationTasks' {filters} -> filters) (\s@DescribeReplicationTasks' {} a -> s {filters = a} :: DescribeReplicationTasks) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drtMarker :: Lens' DescribeReplicationTasks (Maybe Text)
-drtMarker = lens _drtMarker (\ s a -> s{_drtMarker = a});
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeReplicationTasks_maxRecords :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Int)
+describeReplicationTasks_maxRecords = Lens.lens (\DescribeReplicationTasks' {maxRecords} -> maxRecords) (\s@DescribeReplicationTasks' {} a -> s {maxRecords = a} :: DescribeReplicationTasks)
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-drtMaxRecords :: Lens' DescribeReplicationTasks (Maybe Int)
-drtMaxRecords = lens _drtMaxRecords (\ s a -> s{_drtMaxRecords = a});
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationTasks_marker :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Text)
+describeReplicationTasks_marker = Lens.lens (\DescribeReplicationTasks' {marker} -> marker) (\s@DescribeReplicationTasks' {} a -> s {marker = a} :: DescribeReplicationTasks)
 
-instance AWSRequest DescribeReplicationTasks where
-        type Rs DescribeReplicationTasks =
-             DescribeReplicationTasksResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeReplicationTasksResponse' <$>
-                   (x .?> "ReplicationTasks" .!@ mempty) <*>
-                     (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSPager DescribeReplicationTasks where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeReplicationTasksResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeReplicationTasksResponse_replicationTasks
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeReplicationTasks_marker
+          Lens..~ rs
+          Lens.^? describeReplicationTasksResponse_marker
+            Prelude.. Lens._Just
 
-instance Hashable DescribeReplicationTasks where
+instance Core.AWSRequest DescribeReplicationTasks where
+  type
+    AWSResponse DescribeReplicationTasks =
+      DescribeReplicationTasksResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeReplicationTasksResponse'
+            Prelude.<$> ( x Core..?> "ReplicationTasks"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeReplicationTasks where
+instance Prelude.Hashable DescribeReplicationTasks
 
-instance ToHeaders DescribeReplicationTasks where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.DescribeReplicationTasks" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData DescribeReplicationTasks
 
-instance ToJSON DescribeReplicationTasks where
-        toJSON DescribeReplicationTasks'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _drtFilters,
-                  ("Marker" .=) <$> _drtMarker,
-                  ("MaxRecords" .=) <$> _drtMaxRecords])
+instance Core.ToHeaders DescribeReplicationTasks where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDMSv20160101.DescribeReplicationTasks" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DescribeReplicationTasks where
-        toPath = const "/"
+instance Core.ToJSON DescribeReplicationTasks where
+  toJSON DescribeReplicationTasks' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("WithoutSettings" Core..=)
+              Prelude.<$> withoutSettings,
+            ("Filters" Core..=) Prelude.<$> filters,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker
+          ]
+      )
 
-instance ToQuery DescribeReplicationTasks where
-        toQuery = const mempty
+instance Core.ToPath DescribeReplicationTasks where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeReplicationTasks where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeReplicationTasksResponse' smart constructor.
+-- /See:/ 'newDescribeReplicationTasksResponse' smart constructor.
 data DescribeReplicationTasksResponse = DescribeReplicationTasksResponse'
-  { _drtsrsReplicationTasks :: !(Maybe [ReplicationTask])
-  , _drtsrsMarker           :: !(Maybe Text)
-  , _drtsrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeReplicationTasksResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drtsrsReplicationTasks' - A description of the replication tasks.
---
--- * 'drtsrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'drtsrsResponseStatus' - -- | The response status code.
-describeReplicationTasksResponse
-    :: Int -- ^ 'drtsrsResponseStatus'
-    -> DescribeReplicationTasksResponse
-describeReplicationTasksResponse pResponseStatus_ =
-  DescribeReplicationTasksResponse'
-  { _drtsrsReplicationTasks = Nothing
-  , _drtsrsMarker = Nothing
-  , _drtsrsResponseStatus = pResponseStatus_
+  { -- | A description of the replication tasks.
+    replicationTasks :: Prelude.Maybe [ReplicationTask],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeReplicationTasksResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'replicationTasks', 'describeReplicationTasksResponse_replicationTasks' - A description of the replication tasks.
+--
+-- 'marker', 'describeReplicationTasksResponse_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
+-- 'httpStatus', 'describeReplicationTasksResponse_httpStatus' - The response's http status code.
+newDescribeReplicationTasksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeReplicationTasksResponse
+newDescribeReplicationTasksResponse pHttpStatus_ =
+  DescribeReplicationTasksResponse'
+    { replicationTasks =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A description of the replication tasks.
-drtsrsReplicationTasks :: Lens' DescribeReplicationTasksResponse [ReplicationTask]
-drtsrsReplicationTasks = lens _drtsrsReplicationTasks (\ s a -> s{_drtsrsReplicationTasks = a}) . _Default . _Coerce;
+describeReplicationTasksResponse_replicationTasks :: Lens.Lens' DescribeReplicationTasksResponse (Prelude.Maybe [ReplicationTask])
+describeReplicationTasksResponse_replicationTasks = Lens.lens (\DescribeReplicationTasksResponse' {replicationTasks} -> replicationTasks) (\s@DescribeReplicationTasksResponse' {} a -> s {replicationTasks = a} :: DescribeReplicationTasksResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drtsrsMarker :: Lens' DescribeReplicationTasksResponse (Maybe Text)
-drtsrsMarker = lens _drtsrsMarker (\ s a -> s{_drtsrsMarker = a});
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationTasksResponse_marker :: Lens.Lens' DescribeReplicationTasksResponse (Prelude.Maybe Prelude.Text)
+describeReplicationTasksResponse_marker = Lens.lens (\DescribeReplicationTasksResponse' {marker} -> marker) (\s@DescribeReplicationTasksResponse' {} a -> s {marker = a} :: DescribeReplicationTasksResponse)
 
--- | -- | The response status code.
-drtsrsResponseStatus :: Lens' DescribeReplicationTasksResponse Int
-drtsrsResponseStatus = lens _drtsrsResponseStatus (\ s a -> s{_drtsrsResponseStatus = a});
+-- | The response's http status code.
+describeReplicationTasksResponse_httpStatus :: Lens.Lens' DescribeReplicationTasksResponse Prelude.Int
+describeReplicationTasksResponse_httpStatus = Lens.lens (\DescribeReplicationTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationTasksResponse' {} a -> s {httpStatus = a} :: DescribeReplicationTasksResponse)
 
-instance NFData DescribeReplicationTasksResponse
-         where
+instance
+  Prelude.NFData
+    DescribeReplicationTasksResponse

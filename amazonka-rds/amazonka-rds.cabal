@@ -1,175 +1,331 @@
-name:                  amazonka-rds
-version:               1.5.0
-synopsis:              Amazon Relational Database Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-rds
+version:            1.6.1
+synopsis:           Amazon Relational Database Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.RDS" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2014-10-31@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.RDS.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.RDS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-rds
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-rds
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.RDS
+    Network.AWS.RDS.AddRoleToDBCluster
+    Network.AWS.RDS.AddRoleToDBInstance
+    Network.AWS.RDS.AddSourceIdentifierToSubscription
+    Network.AWS.RDS.AddTagsToResource
+    Network.AWS.RDS.ApplyPendingMaintenanceAction
+    Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+    Network.AWS.RDS.BacktrackDBCluster
+    Network.AWS.RDS.CancelExportTask
+    Network.AWS.RDS.CopyDBClusterParameterGroup
+    Network.AWS.RDS.CopyDBClusterSnapshot
+    Network.AWS.RDS.CopyDBParameterGroup
+    Network.AWS.RDS.CopyDBSnapshot
+    Network.AWS.RDS.CopyOptionGroup
+    Network.AWS.RDS.CreateCustomAvailabilityZone
+    Network.AWS.RDS.CreateDBCluster
+    Network.AWS.RDS.CreateDBClusterEndpoint
+    Network.AWS.RDS.CreateDBClusterParameterGroup
+    Network.AWS.RDS.CreateDBClusterSnapshot
+    Network.AWS.RDS.CreateDBInstance
+    Network.AWS.RDS.CreateDBInstanceReadReplica
+    Network.AWS.RDS.CreateDBParameterGroup
+    Network.AWS.RDS.CreateDBProxy
+    Network.AWS.RDS.CreateDBProxyEndpoint
+    Network.AWS.RDS.CreateDBSecurityGroup
+    Network.AWS.RDS.CreateDBSnapshot
+    Network.AWS.RDS.CreateDBSubnetGroup
+    Network.AWS.RDS.CreateEventSubscription
+    Network.AWS.RDS.CreateGlobalCluster
+    Network.AWS.RDS.CreateOptionGroup
+    Network.AWS.RDS.DeleteCustomAvailabilityZone
+    Network.AWS.RDS.DeleteDBCluster
+    Network.AWS.RDS.DeleteDBClusterEndpoint
+    Network.AWS.RDS.DeleteDBClusterParameterGroup
+    Network.AWS.RDS.DeleteDBClusterSnapshot
+    Network.AWS.RDS.DeleteDBInstance
+    Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
+    Network.AWS.RDS.DeleteDBParameterGroup
+    Network.AWS.RDS.DeleteDBProxy
+    Network.AWS.RDS.DeleteDBProxyEndpoint
+    Network.AWS.RDS.DeleteDBSecurityGroup
+    Network.AWS.RDS.DeleteDBSnapshot
+    Network.AWS.RDS.DeleteDBSubnetGroup
+    Network.AWS.RDS.DeleteEventSubscription
+    Network.AWS.RDS.DeleteGlobalCluster
+    Network.AWS.RDS.DeleteInstallationMedia
+    Network.AWS.RDS.DeleteOptionGroup
+    Network.AWS.RDS.DeregisterDBProxyTargets
+    Network.AWS.RDS.DescribeAccountAttributes
+    Network.AWS.RDS.DescribeCertificates
+    Network.AWS.RDS.DescribeCustomAvailabilityZones
+    Network.AWS.RDS.DescribeDBClusterBacktracks
+    Network.AWS.RDS.DescribeDBClusterEndpoints
+    Network.AWS.RDS.DescribeDBClusterParameterGroups
+    Network.AWS.RDS.DescribeDBClusterParameters
+    Network.AWS.RDS.DescribeDBClusters
+    Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
+    Network.AWS.RDS.DescribeDBClusterSnapshots
+    Network.AWS.RDS.DescribeDBEngineVersions
+    Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
+    Network.AWS.RDS.DescribeDBInstances
+    Network.AWS.RDS.DescribeDBLogFiles
+    Network.AWS.RDS.DescribeDBParameterGroups
+    Network.AWS.RDS.DescribeDBParameters
+    Network.AWS.RDS.DescribeDBProxies
+    Network.AWS.RDS.DescribeDBProxyEndpoints
+    Network.AWS.RDS.DescribeDBProxyTargetGroups
+    Network.AWS.RDS.DescribeDBProxyTargets
+    Network.AWS.RDS.DescribeDBSecurityGroups
+    Network.AWS.RDS.DescribeDBSnapshotAttributes
+    Network.AWS.RDS.DescribeDBSnapshots
+    Network.AWS.RDS.DescribeDBSubnetGroups
+    Network.AWS.RDS.DescribeEngineDefaultClusterParameters
+    Network.AWS.RDS.DescribeEngineDefaultParameters
+    Network.AWS.RDS.DescribeEventCategories
+    Network.AWS.RDS.DescribeEvents
+    Network.AWS.RDS.DescribeEventSubscriptions
+    Network.AWS.RDS.DescribeExportTasks
+    Network.AWS.RDS.DescribeGlobalClusters
+    Network.AWS.RDS.DescribeInstallationMedia
+    Network.AWS.RDS.DescribeOptionGroupOptions
+    Network.AWS.RDS.DescribeOptionGroups
+    Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+    Network.AWS.RDS.DescribePendingMaintenanceActions
+    Network.AWS.RDS.DescribeReservedDBInstances
+    Network.AWS.RDS.DescribeReservedDBInstancesOfferings
+    Network.AWS.RDS.DescribeSourceRegions
+    Network.AWS.RDS.DescribeValidDBInstanceModifications
+    Network.AWS.RDS.DownloadDBLogFilePortion
+    Network.AWS.RDS.FailoverDBCluster
+    Network.AWS.RDS.FailoverGlobalCluster
+    Network.AWS.RDS.ImportInstallationMedia
+    Network.AWS.RDS.Lens
+    Network.AWS.RDS.ListTagsForResource
+    Network.AWS.RDS.ModifyCertificates
+    Network.AWS.RDS.ModifyCurrentDBClusterCapacity
+    Network.AWS.RDS.ModifyDBCluster
+    Network.AWS.RDS.ModifyDBClusterEndpoint
+    Network.AWS.RDS.ModifyDBClusterParameterGroup
+    Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
+    Network.AWS.RDS.ModifyDBInstance
+    Network.AWS.RDS.ModifyDBParameterGroup
+    Network.AWS.RDS.ModifyDBProxy
+    Network.AWS.RDS.ModifyDBProxyEndpoint
+    Network.AWS.RDS.ModifyDBProxyTargetGroup
+    Network.AWS.RDS.ModifyDBSnapshot
+    Network.AWS.RDS.ModifyDBSnapshotAttribute
+    Network.AWS.RDS.ModifyDBSubnetGroup
+    Network.AWS.RDS.ModifyEventSubscription
+    Network.AWS.RDS.ModifyGlobalCluster
+    Network.AWS.RDS.ModifyOptionGroup
+    Network.AWS.RDS.PromoteReadReplica
+    Network.AWS.RDS.PromoteReadReplicaDBCluster
+    Network.AWS.RDS.PurchaseReservedDBInstancesOffering
+    Network.AWS.RDS.RebootDBInstance
+    Network.AWS.RDS.RegisterDBProxyTargets
+    Network.AWS.RDS.RemoveFromGlobalCluster
+    Network.AWS.RDS.RemoveRoleFromDBCluster
+    Network.AWS.RDS.RemoveRoleFromDBInstance
+    Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
+    Network.AWS.RDS.RemoveTagsFromResource
+    Network.AWS.RDS.ResetDBClusterParameterGroup
+    Network.AWS.RDS.ResetDBParameterGroup
+    Network.AWS.RDS.RestoreDBClusterFromS
+    Network.AWS.RDS.RestoreDBClusterFromSnapshot
+    Network.AWS.RDS.RestoreDBClusterToPointInTime
+    Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
+    Network.AWS.RDS.RestoreDBInstanceFromS
+    Network.AWS.RDS.RestoreDBInstanceToPointInTime
+    Network.AWS.RDS.RevokeDBSecurityGroupIngress
+    Network.AWS.RDS.StartActivityStream
+    Network.AWS.RDS.StartDBCluster
+    Network.AWS.RDS.StartDBInstance
+    Network.AWS.RDS.StartDBInstanceAutomatedBackupsReplication
+    Network.AWS.RDS.StartExportTask
+    Network.AWS.RDS.StopActivityStream
+    Network.AWS.RDS.StopDBCluster
+    Network.AWS.RDS.StopDBInstance
+    Network.AWS.RDS.StopDBInstanceAutomatedBackupsReplication
+    Network.AWS.RDS.Types
+    Network.AWS.RDS.Types.AccountQuota
+    Network.AWS.RDS.Types.ActivityStreamMode
+    Network.AWS.RDS.Types.ActivityStreamStatus
+    Network.AWS.RDS.Types.ApplyMethod
+    Network.AWS.RDS.Types.AuthScheme
+    Network.AWS.RDS.Types.AvailabilityZone
+    Network.AWS.RDS.Types.AvailableProcessorFeature
+    Network.AWS.RDS.Types.Certificate
+    Network.AWS.RDS.Types.CharacterSet
+    Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration
+    Network.AWS.RDS.Types.ClusterPendingModifiedValues
+    Network.AWS.RDS.Types.ConnectionPoolConfiguration
+    Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
+    Network.AWS.RDS.Types.CustomAvailabilityZone
+    Network.AWS.RDS.Types.DBCluster
+    Network.AWS.RDS.Types.DBClusterBacktrack
+    Network.AWS.RDS.Types.DBClusterEndpoint
+    Network.AWS.RDS.Types.DBClusterMember
+    Network.AWS.RDS.Types.DBClusterOptionGroupStatus
+    Network.AWS.RDS.Types.DBClusterParameterGroup
+    Network.AWS.RDS.Types.DBClusterParameterGroupNameMessage
+    Network.AWS.RDS.Types.DBClusterRole
+    Network.AWS.RDS.Types.DBClusterSnapshot
+    Network.AWS.RDS.Types.DBClusterSnapshotAttribute
+    Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult
+    Network.AWS.RDS.Types.DBEngineVersion
+    Network.AWS.RDS.Types.DBInstance
+    Network.AWS.RDS.Types.DBInstanceAutomatedBackup
+    Network.AWS.RDS.Types.DBInstanceAutomatedBackupsReplication
+    Network.AWS.RDS.Types.DBInstanceRole
+    Network.AWS.RDS.Types.DBInstanceStatusInfo
+    Network.AWS.RDS.Types.DBParameterGroup
+    Network.AWS.RDS.Types.DBParameterGroupNameMessage
+    Network.AWS.RDS.Types.DBParameterGroupStatus
+    Network.AWS.RDS.Types.DBProxy
+    Network.AWS.RDS.Types.DBProxyEndpoint
+    Network.AWS.RDS.Types.DBProxyEndpointStatus
+    Network.AWS.RDS.Types.DBProxyEndpointTargetRole
+    Network.AWS.RDS.Types.DBProxyStatus
+    Network.AWS.RDS.Types.DBProxyTarget
+    Network.AWS.RDS.Types.DBProxyTargetGroup
+    Network.AWS.RDS.Types.DBSecurityGroup
+    Network.AWS.RDS.Types.DBSecurityGroupMembership
+    Network.AWS.RDS.Types.DBSnapshot
+    Network.AWS.RDS.Types.DBSnapshotAttribute
+    Network.AWS.RDS.Types.DBSnapshotAttributesResult
+    Network.AWS.RDS.Types.DBSubnetGroup
+    Network.AWS.RDS.Types.DescribeDBLogFilesDetails
+    Network.AWS.RDS.Types.DomainMembership
+    Network.AWS.RDS.Types.DoubleRange
+    Network.AWS.RDS.Types.EC2SecurityGroup
+    Network.AWS.RDS.Types.Endpoint
+    Network.AWS.RDS.Types.EngineDefaults
+    Network.AWS.RDS.Types.EngineFamily
+    Network.AWS.RDS.Types.Event
+    Network.AWS.RDS.Types.EventCategoriesMap
+    Network.AWS.RDS.Types.EventSubscription
+    Network.AWS.RDS.Types.ExportTask
+    Network.AWS.RDS.Types.FailoverState
+    Network.AWS.RDS.Types.FailoverStatus
+    Network.AWS.RDS.Types.Filter
+    Network.AWS.RDS.Types.GlobalCluster
+    Network.AWS.RDS.Types.GlobalClusterMember
+    Network.AWS.RDS.Types.IAMAuthMode
+    Network.AWS.RDS.Types.InstallationMedia
+    Network.AWS.RDS.Types.InstallationMediaFailureCause
+    Network.AWS.RDS.Types.IPRange
+    Network.AWS.RDS.Types.MinimumEngineVersionPerAllowedValue
+    Network.AWS.RDS.Types.Option
+    Network.AWS.RDS.Types.OptionConfiguration
+    Network.AWS.RDS.Types.OptionGroup
+    Network.AWS.RDS.Types.OptionGroupMembership
+    Network.AWS.RDS.Types.OptionGroupOption
+    Network.AWS.RDS.Types.OptionGroupOptionSetting
+    Network.AWS.RDS.Types.OptionSetting
+    Network.AWS.RDS.Types.OptionVersion
+    Network.AWS.RDS.Types.OrderableDBInstanceOption
+    Network.AWS.RDS.Types.Outpost
+    Network.AWS.RDS.Types.Parameter
+    Network.AWS.RDS.Types.PendingCloudwatchLogsExports
+    Network.AWS.RDS.Types.PendingMaintenanceAction
+    Network.AWS.RDS.Types.PendingModifiedValues
+    Network.AWS.RDS.Types.ProcessorFeature
+    Network.AWS.RDS.Types.Range
+    Network.AWS.RDS.Types.RecurringCharge
+    Network.AWS.RDS.Types.ReplicaMode
+    Network.AWS.RDS.Types.ReservedDBInstance
+    Network.AWS.RDS.Types.ReservedDBInstancesOffering
+    Network.AWS.RDS.Types.ResourcePendingMaintenanceActions
+    Network.AWS.RDS.Types.RestoreWindow
+    Network.AWS.RDS.Types.ScalingConfiguration
+    Network.AWS.RDS.Types.ScalingConfigurationInfo
+    Network.AWS.RDS.Types.SourceRegion
+    Network.AWS.RDS.Types.SourceType
+    Network.AWS.RDS.Types.Subnet
+    Network.AWS.RDS.Types.Tag
+    Network.AWS.RDS.Types.TargetHealth
+    Network.AWS.RDS.Types.TargetHealthReason
+    Network.AWS.RDS.Types.TargetRole
+    Network.AWS.RDS.Types.TargetState
+    Network.AWS.RDS.Types.TargetType
+    Network.AWS.RDS.Types.Timezone
+    Network.AWS.RDS.Types.UpgradeTarget
+    Network.AWS.RDS.Types.UserAuthConfig
+    Network.AWS.RDS.Types.UserAuthConfigInfo
+    Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage
+    Network.AWS.RDS.Types.ValidStorageOptions
+    Network.AWS.RDS.Types.VpcSecurityGroupMembership
+    Network.AWS.RDS.Types.VpnDetails
+    Network.AWS.RDS.Types.WriteForwardingStatus
+    Network.AWS.RDS.Waiters
 
-    exposed-modules:
-          Network.AWS.RDS
-        , Network.AWS.RDS.AddRoleToDBCluster
-        , Network.AWS.RDS.AddSourceIdentifierToSubscription
-        , Network.AWS.RDS.AddTagsToResource
-        , Network.AWS.RDS.ApplyPendingMaintenanceAction
-        , Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
-        , Network.AWS.RDS.CopyDBClusterParameterGroup
-        , Network.AWS.RDS.CopyDBClusterSnapshot
-        , Network.AWS.RDS.CopyDBParameterGroup
-        , Network.AWS.RDS.CopyDBSnapshot
-        , Network.AWS.RDS.CopyOptionGroup
-        , Network.AWS.RDS.CreateDBCluster
-        , Network.AWS.RDS.CreateDBClusterParameterGroup
-        , Network.AWS.RDS.CreateDBClusterSnapshot
-        , Network.AWS.RDS.CreateDBInstance
-        , Network.AWS.RDS.CreateDBInstanceReadReplica
-        , Network.AWS.RDS.CreateDBParameterGroup
-        , Network.AWS.RDS.CreateDBSecurityGroup
-        , Network.AWS.RDS.CreateDBSnapshot
-        , Network.AWS.RDS.CreateDBSubnetGroup
-        , Network.AWS.RDS.CreateEventSubscription
-        , Network.AWS.RDS.CreateOptionGroup
-        , Network.AWS.RDS.DeleteDBCluster
-        , Network.AWS.RDS.DeleteDBClusterParameterGroup
-        , Network.AWS.RDS.DeleteDBClusterSnapshot
-        , Network.AWS.RDS.DeleteDBInstance
-        , Network.AWS.RDS.DeleteDBParameterGroup
-        , Network.AWS.RDS.DeleteDBSecurityGroup
-        , Network.AWS.RDS.DeleteDBSnapshot
-        , Network.AWS.RDS.DeleteDBSubnetGroup
-        , Network.AWS.RDS.DeleteEventSubscription
-        , Network.AWS.RDS.DeleteOptionGroup
-        , Network.AWS.RDS.DescribeAccountAttributes
-        , Network.AWS.RDS.DescribeCertificates
-        , Network.AWS.RDS.DescribeDBClusterParameterGroups
-        , Network.AWS.RDS.DescribeDBClusterParameters
-        , Network.AWS.RDS.DescribeDBClusterSnapshotAttributes
-        , Network.AWS.RDS.DescribeDBClusterSnapshots
-        , Network.AWS.RDS.DescribeDBClusters
-        , Network.AWS.RDS.DescribeDBEngineVersions
-        , Network.AWS.RDS.DescribeDBInstances
-        , Network.AWS.RDS.DescribeDBLogFiles
-        , Network.AWS.RDS.DescribeDBParameterGroups
-        , Network.AWS.RDS.DescribeDBParameters
-        , Network.AWS.RDS.DescribeDBSecurityGroups
-        , Network.AWS.RDS.DescribeDBSnapshotAttributes
-        , Network.AWS.RDS.DescribeDBSnapshots
-        , Network.AWS.RDS.DescribeDBSubnetGroups
-        , Network.AWS.RDS.DescribeEngineDefaultClusterParameters
-        , Network.AWS.RDS.DescribeEngineDefaultParameters
-        , Network.AWS.RDS.DescribeEventCategories
-        , Network.AWS.RDS.DescribeEventSubscriptions
-        , Network.AWS.RDS.DescribeEvents
-        , Network.AWS.RDS.DescribeOptionGroupOptions
-        , Network.AWS.RDS.DescribeOptionGroups
-        , Network.AWS.RDS.DescribeOrderableDBInstanceOptions
-        , Network.AWS.RDS.DescribePendingMaintenanceActions
-        , Network.AWS.RDS.DescribeReservedDBInstances
-        , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
-        , Network.AWS.RDS.DescribeSourceRegions
-        , Network.AWS.RDS.DescribeValidDBInstanceModifications
-        , Network.AWS.RDS.DownloadDBLogFilePortion
-        , Network.AWS.RDS.FailoverDBCluster
-        , Network.AWS.RDS.ListTagsForResource
-        , Network.AWS.RDS.ModifyDBCluster
-        , Network.AWS.RDS.ModifyDBClusterParameterGroup
-        , Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
-        , Network.AWS.RDS.ModifyDBInstance
-        , Network.AWS.RDS.ModifyDBParameterGroup
-        , Network.AWS.RDS.ModifyDBSnapshot
-        , Network.AWS.RDS.ModifyDBSnapshotAttribute
-        , Network.AWS.RDS.ModifyDBSubnetGroup
-        , Network.AWS.RDS.ModifyEventSubscription
-        , Network.AWS.RDS.ModifyOptionGroup
-        , Network.AWS.RDS.PromoteReadReplica
-        , Network.AWS.RDS.PromoteReadReplicaDBCluster
-        , Network.AWS.RDS.PurchaseReservedDBInstancesOffering
-        , Network.AWS.RDS.RebootDBInstance
-        , Network.AWS.RDS.RemoveRoleFromDBCluster
-        , Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
-        , Network.AWS.RDS.RemoveTagsFromResource
-        , Network.AWS.RDS.ResetDBClusterParameterGroup
-        , Network.AWS.RDS.ResetDBParameterGroup
-        , Network.AWS.RDS.RestoreDBClusterFromS3
-        , Network.AWS.RDS.RestoreDBClusterFromSnapshot
-        , Network.AWS.RDS.RestoreDBClusterToPointInTime
-        , Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
-        , Network.AWS.RDS.RestoreDBInstanceToPointInTime
-        , Network.AWS.RDS.RevokeDBSecurityGroupIngress
-        , Network.AWS.RDS.StartDBInstance
-        , Network.AWS.RDS.StopDBInstance
-        , Network.AWS.RDS.Types
-        , Network.AWS.RDS.Waiters
-
-    other-modules:
-          Network.AWS.RDS.Types.Product
-        , Network.AWS.RDS.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-rds-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.RDS
+    Test.AWS.RDS
+    Test.AWS.RDS.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.RDS
-        , Test.AWS.Gen.RDS
-        , Test.AWS.RDS.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-rds
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-rds
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,0 +1,2286 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.SageMaker.Types.HumanTaskConfig
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.SageMaker.Types.HumanTaskConfig where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.SageMaker.Types.AnnotationConsolidationConfig
+import Network.AWS.SageMaker.Types.PublicWorkforceTaskPrice
+import Network.AWS.SageMaker.Types.UiConfig
+
+-- | Information required for human workers to complete a labeling task.
+--
+-- /See:/ 'newHumanTaskConfig' smart constructor.
+data HumanTaskConfig = HumanTaskConfig'
+  { -- | Keywords used to describe the task so that workers on Amazon Mechanical
+    -- Turk can discover the task.
+    taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The length of time that a task remains available for labeling by human
+    -- workers. The default and maximum values for this parameter depend on the
+    -- type of workforce you use.
+    --
+    -- -   If you choose the Amazon Mechanical Turk workforce, the maximum is
+    --     12 hours (43,200 seconds). The default is 6 hours (21,600 seconds).
+    --
+    -- -   If you choose a private or vendor workforce, the default value is 10
+    --     days (864,000 seconds). For most users, the maximum is also 10 days.
+    --     If you want to change this limit, contact Amazon Web Services
+    --     Support.
+    taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Defines the maximum number of data objects that can be labeled by human
+    -- workers at the same time. Also referred to as batch size. Each object
+    -- may have more than one worker at one time. The default value is 1000
+    -- objects.
+    maxConcurrentTaskCount :: Prelude.Maybe Prelude.Natural,
+    -- | The price that you pay for each task performed by an Amazon Mechanical
+    -- Turk worker.
+    publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
+    -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
+    -- tasks.
+    workteamArn :: Prelude.Text,
+    -- | Information about the user interface that workers use to complete the
+    -- labeling task.
+    uiConfig :: UiConfig,
+    -- | The Amazon Resource Name (ARN) of a Lambda function that is run before a
+    -- data object is sent to a human worker. Use this function to provide
+    -- input to a custom labeling job.
+    --
+    -- For
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types>,
+    -- use one of the following Amazon SageMaker Ground Truth Lambda function
+    -- ARNs for @PreHumanTaskLambdaArn@. For custom labeling workflows, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda Pre-annotation Lambda>.
+    --
+    -- __Bounding box__ - Finds the most similar boxes from different workers
+    -- based on the Jaccard index of the boxes.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox@
+    --
+    -- __Image classification__ - Uses a variant of the Expectation
+    -- Maximization approach to estimate the true class of an image based on
+    -- annotations from individual workers.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass@
+    --
+    -- __Multi-label image classification__ - Uses a variant of the Expectation
+    -- Maximization approach to estimate the true classes of an image based on
+    -- annotations from individual workers.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClassMultiLabel@
+    --
+    -- __Semantic segmentation__ - Treats each pixel in an image as a
+    -- multi-class classification and treats pixel annotations from workers as
+    -- \"votes\" for the correct label.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation@
+    --
+    -- __Text classification__ - Uses a variant of the Expectation Maximization
+    -- approach to estimate the true class of text based on annotations from
+    -- individual workers.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass@
+    --
+    -- __Multi-label text classification__ - Uses a variant of the Expectation
+    -- Maximization approach to estimate the true classes of text based on
+    -- annotations from individual workers.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClassMultiLabel@
+    --
+    -- __Named entity recognition__ - Groups similar selections and calculates
+    -- aggregate boundaries, resolving to most-assigned label.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition@
+    --
+    -- __Video Classification__ - Use this task type when you need workers to
+    -- classify videos using predefined labels that you specify. Workers are
+    -- shown videos and are asked to choose one label for each video.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoMultiClass@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoMultiClass@
+    --
+    -- __Video Frame Object Detection__ - Use this task type to have workers
+    -- identify and locate objects in a sequence of video frames (images
+    -- extracted from a video) using bounding boxes. For example, you can use
+    -- this task to ask workers to identify and localize various objects in a
+    -- series of video frames, such as cars, bikes, and pedestrians.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectDetection@
+    --
+    -- __Video Frame Object Tracking__ - Use this task type to have workers
+    -- track the movement of objects in a sequence of video frames (images
+    -- extracted from a video) using bounding boxes. For example, you can use
+    -- this task to ask workers to track the movement of objects, such as cars,
+    -- bikes, and pedestrians.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectTracking@
+    --
+    -- __3D Point Cloud Modalities__
+    --
+    -- Use the following pre-annotation lambdas for 3D point cloud labeling
+    -- modality tasks. See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-task-types.html 3D Point Cloud Task types>
+    -- to learn more.
+    --
+    -- __3D Point Cloud Object Detection__ - Use this task type when you want
+    -- workers to classify objects in a 3D point cloud by drawing 3D cuboids
+    -- around objects. For example, you can use this task type to ask workers
+    -- to identify different types of objects in a point cloud, such as cars,
+    -- bikes, and pedestrians.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectDetection@
+    --
+    -- __3D Point Cloud Object Tracking__ - Use this task type when you want
+    -- workers to draw 3D cuboids around objects that appear in a sequence of
+    -- 3D point cloud frames. For example, you can use this task type to ask
+    -- workers to track the movement of vehicles across multiple point cloud
+    -- frames.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectTracking@
+    --
+    -- __3D Point Cloud Semantic Segmentation__ - Use this task type when you
+    -- want workers to create a point-level semantic segmentation masks by
+    -- painting objects in a 3D point cloud using different colors where each
+    -- color is assigned to one of the classes you specify.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    -- __Use the following ARNs for Label Verification and Adjustment Jobs__
+    --
+    -- Use label verification and adjustment jobs to review and adjust labels.
+    -- To learn more, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html Verify and Adjust Labels>
+    -- .
+    --
+    -- __Bounding box verification__ - Uses a variant of the Expectation
+    -- Maximization approach to estimate the true class of verification
+    -- judgement for bounding box labels based on annotations from individual
+    -- workers.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox@
+    --
+    -- __Bounding box adjustment__ - Finds the most similar boxes from
+    -- different workers based on the Jaccard index of the adjusted
+    -- annotations.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox@
+    --
+    -- __Semantic segmentation verification__ - Uses a variant of the
+    -- Expectation Maximization approach to estimate the true class of
+    -- verification judgment for semantic segmentation labels based on
+    -- annotations from individual workers.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation@
+    --
+    -- __Semantic segmentation adjustment__ - Treats each pixel in an image as
+    -- a multi-class classification and treats pixel adjusted annotations from
+    -- workers as \"votes\" for the correct label.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    -- __Video Frame Object Detection Adjustment__ - Use this task type when
+    -- you want workers to adjust bounding boxes that workers have added to
+    -- video frames to classify and localize objects in a sequence of video
+    -- frames.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    -- __Video Frame Object Tracking Adjustment__ - Use this task type when you
+    -- want workers to adjust bounding boxes that workers have added to video
+    -- frames to track object movement across a sequence of video frames.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    -- __3D point cloud object detection adjustment__ - Adjust 3D cuboids in a
+    -- point cloud frame.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    -- __3D point cloud object tracking adjustment__ - Adjust 3D cuboids across
+    -- a sequence of point cloud frames.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    -- __3D point cloud semantic segmentation adjustment__ - Adjust semantic
+    -- segmentation masks in a 3D point cloud.
+    --
+    -- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    preHumanTaskLambdaArn :: Prelude.Text,
+    -- | A title for the task for your human workers.
+    taskTitle :: Prelude.Text,
+    -- | A description of the task for your human workers.
+    taskDescription :: Prelude.Text,
+    -- | The number of human workers that will label an object.
+    numberOfHumanWorkersPerDataObject :: Prelude.Natural,
+    -- | The amount of time that a worker has to complete a task.
+    --
+    -- If you create a custom labeling job, the maximum value for this
+    -- parameter is 8 hours (28,800 seconds).
+    --
+    -- If you create a labeling job using a
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task type>
+    -- the maximum for this parameter depends on the task type you use:
+    --
+    -- -   For
+    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html image>
+    --     and
+    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html text>
+    --     labeling jobs, the maximum is 8 hours (28,800 seconds).
+    --
+    -- -   For
+    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html 3D point cloud>
+    --     and
+    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
+    --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
+    --     to change these limits, contact Amazon Web Services Support.
+    taskTimeLimitInSeconds :: Prelude.Natural,
+    -- | Configures how labels are consolidated across human workers.
+    annotationConsolidationConfig :: AnnotationConsolidationConfig
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'HumanTaskConfig' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'taskKeywords', 'humanTaskConfig_taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical
+-- Turk can discover the task.
+--
+-- 'taskAvailabilityLifetimeInSeconds', 'humanTaskConfig_taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for labeling by human
+-- workers. The default and maximum values for this parameter depend on the
+-- type of workforce you use.
+--
+-- -   If you choose the Amazon Mechanical Turk workforce, the maximum is
+--     12 hours (43,200 seconds). The default is 6 hours (21,600 seconds).
+--
+-- -   If you choose a private or vendor workforce, the default value is 10
+--     days (864,000 seconds). For most users, the maximum is also 10 days.
+--     If you want to change this limit, contact Amazon Web Services
+--     Support.
+--
+-- 'maxConcurrentTaskCount', 'humanTaskConfig_maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human
+-- workers at the same time. Also referred to as batch size. Each object
+-- may have more than one worker at one time. The default value is 1000
+-- objects.
+--
+-- 'publicWorkforceTaskPrice', 'humanTaskConfig_publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical
+-- Turk worker.
+--
+-- 'workteamArn', 'humanTaskConfig_workteamArn' - The Amazon Resource Name (ARN) of the work team assigned to complete the
+-- tasks.
+--
+-- 'uiConfig', 'humanTaskConfig_uiConfig' - Information about the user interface that workers use to complete the
+-- labeling task.
+--
+-- 'preHumanTaskLambdaArn', 'humanTaskConfig_preHumanTaskLambdaArn' - The Amazon Resource Name (ARN) of a Lambda function that is run before a
+-- data object is sent to a human worker. Use this function to provide
+-- input to a custom labeling job.
+--
+-- For
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types>,
+-- use one of the following Amazon SageMaker Ground Truth Lambda function
+-- ARNs for @PreHumanTaskLambdaArn@. For custom labeling workflows, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda Pre-annotation Lambda>.
+--
+-- __Bounding box__ - Finds the most similar boxes from different workers
+-- based on the Jaccard index of the boxes.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox@
+--
+-- __Image classification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true class of an image based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass@
+--
+-- __Multi-label image classification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true classes of an image based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClassMultiLabel@
+--
+-- __Semantic segmentation__ - Treats each pixel in an image as a
+-- multi-class classification and treats pixel annotations from workers as
+-- \"votes\" for the correct label.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation@
+--
+-- __Text classification__ - Uses a variant of the Expectation Maximization
+-- approach to estimate the true class of text based on annotations from
+-- individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass@
+--
+-- __Multi-label text classification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true classes of text based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClassMultiLabel@
+--
+-- __Named entity recognition__ - Groups similar selections and calculates
+-- aggregate boundaries, resolving to most-assigned label.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition@
+--
+-- __Video Classification__ - Use this task type when you need workers to
+-- classify videos using predefined labels that you specify. Workers are
+-- shown videos and are asked to choose one label for each video.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoMultiClass@
+--
+-- __Video Frame Object Detection__ - Use this task type to have workers
+-- identify and locate objects in a sequence of video frames (images
+-- extracted from a video) using bounding boxes. For example, you can use
+-- this task to ask workers to identify and localize various objects in a
+-- series of video frames, such as cars, bikes, and pedestrians.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectDetection@
+--
+-- __Video Frame Object Tracking__ - Use this task type to have workers
+-- track the movement of objects in a sequence of video frames (images
+-- extracted from a video) using bounding boxes. For example, you can use
+-- this task to ask workers to track the movement of objects, such as cars,
+-- bikes, and pedestrians.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectTracking@
+--
+-- __3D Point Cloud Modalities__
+--
+-- Use the following pre-annotation lambdas for 3D point cloud labeling
+-- modality tasks. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-task-types.html 3D Point Cloud Task types>
+-- to learn more.
+--
+-- __3D Point Cloud Object Detection__ - Use this task type when you want
+-- workers to classify objects in a 3D point cloud by drawing 3D cuboids
+-- around objects. For example, you can use this task type to ask workers
+-- to identify different types of objects in a point cloud, such as cars,
+-- bikes, and pedestrians.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectDetection@
+--
+-- __3D Point Cloud Object Tracking__ - Use this task type when you want
+-- workers to draw 3D cuboids around objects that appear in a sequence of
+-- 3D point cloud frames. For example, you can use this task type to ask
+-- workers to track the movement of vehicles across multiple point cloud
+-- frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectTracking@
+--
+-- __3D Point Cloud Semantic Segmentation__ - Use this task type when you
+-- want workers to create a point-level semantic segmentation masks by
+-- painting objects in a 3D point cloud using different colors where each
+-- color is assigned to one of the classes you specify.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- __Use the following ARNs for Label Verification and Adjustment Jobs__
+--
+-- Use label verification and adjustment jobs to review and adjust labels.
+-- To learn more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html Verify and Adjust Labels>
+-- .
+--
+-- __Bounding box verification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true class of verification
+-- judgement for bounding box labels based on annotations from individual
+-- workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox@
+--
+-- __Bounding box adjustment__ - Finds the most similar boxes from
+-- different workers based on the Jaccard index of the adjusted
+-- annotations.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox@
+--
+-- __Semantic segmentation verification__ - Uses a variant of the
+-- Expectation Maximization approach to estimate the true class of
+-- verification judgment for semantic segmentation labels based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation@
+--
+-- __Semantic segmentation adjustment__ - Treats each pixel in an image as
+-- a multi-class classification and treats pixel adjusted annotations from
+-- workers as \"votes\" for the correct label.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- __Video Frame Object Detection Adjustment__ - Use this task type when
+-- you want workers to adjust bounding boxes that workers have added to
+-- video frames to classify and localize objects in a sequence of video
+-- frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- __Video Frame Object Tracking Adjustment__ - Use this task type when you
+-- want workers to adjust bounding boxes that workers have added to video
+-- frames to track object movement across a sequence of video frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- __3D point cloud object detection adjustment__ - Adjust 3D cuboids in a
+-- point cloud frame.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- __3D point cloud object tracking adjustment__ - Adjust 3D cuboids across
+-- a sequence of point cloud frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- __3D point cloud semantic segmentation adjustment__ - Adjust semantic
+-- segmentation masks in a 3D point cloud.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- 'taskTitle', 'humanTaskConfig_taskTitle' - A title for the task for your human workers.
+--
+-- 'taskDescription', 'humanTaskConfig_taskDescription' - A description of the task for your human workers.
+--
+-- 'numberOfHumanWorkersPerDataObject', 'humanTaskConfig_numberOfHumanWorkersPerDataObject' - The number of human workers that will label an object.
+--
+-- 'taskTimeLimitInSeconds', 'humanTaskConfig_taskTimeLimitInSeconds' - The amount of time that a worker has to complete a task.
+--
+-- If you create a custom labeling job, the maximum value for this
+-- parameter is 8 hours (28,800 seconds).
+--
+-- If you create a labeling job using a
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task type>
+-- the maximum for this parameter depends on the task type you use:
+--
+-- -   For
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html image>
+--     and
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html text>
+--     labeling jobs, the maximum is 8 hours (28,800 seconds).
+--
+-- -   For
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html 3D point cloud>
+--     and
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
+--     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
+--     to change these limits, contact Amazon Web Services Support.
+--
+-- 'annotationConsolidationConfig', 'humanTaskConfig_annotationConsolidationConfig' - Configures how labels are consolidated across human workers.
+newHumanTaskConfig ::
+  -- | 'workteamArn'
+  Prelude.Text ->
+  -- | 'uiConfig'
+  UiConfig ->
+  -- | 'preHumanTaskLambdaArn'
+  Prelude.Text ->
+  -- | 'taskTitle'
+  Prelude.Text ->
+  -- | 'taskDescription'
+  Prelude.Text ->
+  -- | 'numberOfHumanWorkersPerDataObject'
+  Prelude.Natural ->
+  -- | 'taskTimeLimitInSeconds'
+  Prelude.Natural ->
+  -- | 'annotationConsolidationConfig'
+  AnnotationConsolidationConfig ->
+  HumanTaskConfig
+newHumanTaskConfig
+  pWorkteamArn_
+  pUiConfig_
+  pPreHumanTaskLambdaArn_
+  pTaskTitle_
+  pTaskDescription_
+  pNumberOfHumanWorkersPerDataObject_
+  pTaskTimeLimitInSeconds_
+  pAnnotationConsolidationConfig_ =
+    HumanTaskConfig'
+      { taskKeywords = Prelude.Nothing,
+        taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
+        maxConcurrentTaskCount = Prelude.Nothing,
+        publicWorkforceTaskPrice = Prelude.Nothing,
+        workteamArn = pWorkteamArn_,
+        uiConfig = pUiConfig_,
+        preHumanTaskLambdaArn = pPreHumanTaskLambdaArn_,
+        taskTitle = pTaskTitle_,
+        taskDescription = pTaskDescription_,
+        numberOfHumanWorkersPerDataObject =
+          pNumberOfHumanWorkersPerDataObject_,
+        taskTimeLimitInSeconds = pTaskTimeLimitInSeconds_,
+        annotationConsolidationConfig =
+          pAnnotationConsolidationConfig_
+      }
+
+-- | Keywords used to describe the task so that workers on Amazon Mechanical
+-- Turk can discover the task.
+humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The length of time that a task remains available for labeling by human
+-- workers. The default and maximum values for this parameter depend on the
+-- type of workforce you use.
+--
+-- -   If you choose the Amazon Mechanical Turk workforce, the maximum is
+--     12 hours (43,200 seconds). The default is 6 hours (21,600 seconds).
+--
+-- -   If you choose a private or vendor workforce, the default value is 10
+--     days (864,000 seconds). For most users, the maximum is also 10 days.
+--     If you want to change this limit, contact Amazon Web Services
+--     Support.
+humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
+humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanTaskConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
+
+-- | Defines the maximum number of data objects that can be labeled by human
+-- workers at the same time. Also referred to as batch size. Each object
+-- may have more than one worker at one time. The default value is 1000
+-- objects.
+humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
+humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcurrentTaskCount} -> maxConcurrentTaskCount) (\s@HumanTaskConfig' {} a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
+
+-- | The price that you pay for each task performed by an Amazon Mechanical
+-- Turk worker.
+humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Prelude.Maybe PublicWorkforceTaskPrice)
+humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanTaskConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
+
+-- | The Amazon Resource Name (ARN) of the work team assigned to complete the
+-- tasks.
+humanTaskConfig_workteamArn :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_workteamArn = Lens.lens (\HumanTaskConfig' {workteamArn} -> workteamArn) (\s@HumanTaskConfig' {} a -> s {workteamArn = a} :: HumanTaskConfig)
+
+-- | Information about the user interface that workers use to complete the
+-- labeling task.
+humanTaskConfig_uiConfig :: Lens.Lens' HumanTaskConfig UiConfig
+humanTaskConfig_uiConfig = Lens.lens (\HumanTaskConfig' {uiConfig} -> uiConfig) (\s@HumanTaskConfig' {} a -> s {uiConfig = a} :: HumanTaskConfig)
+
+-- | The Amazon Resource Name (ARN) of a Lambda function that is run before a
+-- data object is sent to a human worker. Use this function to provide
+-- input to a custom labeling job.
+--
+-- For
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types>,
+-- use one of the following Amazon SageMaker Ground Truth Lambda function
+-- ARNs for @PreHumanTaskLambdaArn@. For custom labeling workflows, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda Pre-annotation Lambda>.
+--
+-- __Bounding box__ - Finds the most similar boxes from different workers
+-- based on the Jaccard index of the boxes.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox@
+--
+-- __Image classification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true class of an image based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass@
+--
+-- __Multi-label image classification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true classes of an image based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClassMultiLabel@
+--
+-- __Semantic segmentation__ - Treats each pixel in an image as a
+-- multi-class classification and treats pixel annotations from workers as
+-- \"votes\" for the correct label.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation@
+--
+-- __Text classification__ - Uses a variant of the Expectation Maximization
+-- approach to estimate the true class of text based on annotations from
+-- individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass@
+--
+-- __Multi-label text classification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true classes of text based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClassMultiLabel@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClassMultiLabel@
+--
+-- __Named entity recognition__ - Groups similar selections and calculates
+-- aggregate boundaries, resolving to most-assigned label.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition@
+--
+-- __Video Classification__ - Use this task type when you need workers to
+-- classify videos using predefined labels that you specify. Workers are
+-- shown videos and are asked to choose one label for each video.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoMultiClass@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoMultiClass@
+--
+-- __Video Frame Object Detection__ - Use this task type to have workers
+-- identify and locate objects in a sequence of video frames (images
+-- extracted from a video) using bounding boxes. For example, you can use
+-- this task to ask workers to identify and localize various objects in a
+-- series of video frames, such as cars, bikes, and pedestrians.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectDetection@
+--
+-- __Video Frame Object Tracking__ - Use this task type to have workers
+-- track the movement of objects in a sequence of video frames (images
+-- extracted from a video) using bounding boxes. For example, you can use
+-- this task to ask workers to track the movement of objects, such as cars,
+-- bikes, and pedestrians.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectTracking@
+--
+-- __3D Point Cloud Modalities__
+--
+-- Use the following pre-annotation lambdas for 3D point cloud labeling
+-- modality tasks. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-task-types.html 3D Point Cloud Task types>
+-- to learn more.
+--
+-- __3D Point Cloud Object Detection__ - Use this task type when you want
+-- workers to classify objects in a 3D point cloud by drawing 3D cuboids
+-- around objects. For example, you can use this task type to ask workers
+-- to identify different types of objects in a point cloud, such as cars,
+-- bikes, and pedestrians.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectDetection@
+--
+-- __3D Point Cloud Object Tracking__ - Use this task type when you want
+-- workers to draw 3D cuboids around objects that appear in a sequence of
+-- 3D point cloud frames. For example, you can use this task type to ask
+-- workers to track the movement of vehicles across multiple point cloud
+-- frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectTracking@
+--
+-- __3D Point Cloud Semantic Segmentation__ - Use this task type when you
+-- want workers to create a point-level semantic segmentation masks by
+-- painting objects in a 3D point cloud using different colors where each
+-- color is assigned to one of the classes you specify.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudSemanticSegmentation@
+--
+-- __Use the following ARNs for Label Verification and Adjustment Jobs__
+--
+-- Use label verification and adjustment jobs to review and adjust labels.
+-- To learn more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html Verify and Adjust Labels>
+-- .
+--
+-- __Bounding box verification__ - Uses a variant of the Expectation
+-- Maximization approach to estimate the true class of verification
+-- judgement for bounding box labels based on annotations from individual
+-- workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox@
+--
+-- __Bounding box adjustment__ - Finds the most similar boxes from
+-- different workers based on the Jaccard index of the adjusted
+-- annotations.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox@
+--
+-- __Semantic segmentation verification__ - Uses a variant of the
+-- Expectation Maximization approach to estimate the true class of
+-- verification judgment for semantic segmentation labels based on
+-- annotations from individual workers.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation@
+--
+-- __Semantic segmentation adjustment__ - Treats each pixel in an image as
+-- a multi-class classification and treats pixel adjusted annotations from
+-- workers as \"votes\" for the correct label.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation@
+--
+-- __Video Frame Object Detection Adjustment__ - Use this task type when
+-- you want workers to adjust bounding boxes that workers have added to
+-- video frames to classify and localize objects in a sequence of video
+-- frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectDetection@
+--
+-- __Video Frame Object Tracking Adjustment__ - Use this task type when you
+-- want workers to adjust bounding boxes that workers have added to video
+-- frames to track object movement across a sequence of video frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectTracking@
+--
+-- __3D point cloud object detection adjustment__ - Adjust 3D cuboids in a
+-- point cloud frame.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectDetection@
+--
+-- __3D point cloud object tracking adjustment__ - Adjust 3D cuboids across
+-- a sequence of point cloud frames.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking@
+--
+-- __3D point cloud semantic segmentation adjustment__ - Adjust semantic
+-- segmentation masks in a 3D point cloud.
+--
+-- -   @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+--
+-- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+humanTaskConfig_preHumanTaskLambdaArn :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_preHumanTaskLambdaArn = Lens.lens (\HumanTaskConfig' {preHumanTaskLambdaArn} -> preHumanTaskLambdaArn) (\s@HumanTaskConfig' {} a -> s {preHumanTaskLambdaArn = a} :: HumanTaskConfig)
+
+-- | A title for the task for your human workers.
+humanTaskConfig_taskTitle :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_taskTitle = Lens.lens (\HumanTaskConfig' {taskTitle} -> taskTitle) (\s@HumanTaskConfig' {} a -> s {taskTitle = a} :: HumanTaskConfig)
+
+-- | A description of the task for your human workers.
+humanTaskConfig_taskDescription :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_taskDescription = Lens.lens (\HumanTaskConfig' {taskDescription} -> taskDescription) (\s@HumanTaskConfig' {} a -> s {taskDescription = a} :: HumanTaskConfig)
+
+-- | The number of human workers that will label an object.
+humanTaskConfig_numberOfHumanWorkersPerDataObject :: Lens.Lens' HumanTaskConfig Prelude.Natural
+humanTaskConfig_numberOfHumanWorkersPerDataObject = Lens.lens (\HumanTaskConfig' {numberOfHumanWorkersPerDataObject} -> numberOfHumanWorkersPerDataObject) (\s@HumanTaskConfig' {} a -> s {numberOfHumanWorkersPerDataObject = a} :: HumanTaskConfig)
+
+-- | The amount of time that a worker has to complete a task.
+--
+-- If you create a custom labeling job, the maximum value for this
+-- parameter is 8 hours (28,800 seconds).
+--
+-- If you create a labeling job using a
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task type>
+-- the maximum for this parameter depends on the task type you use:
+--
+-- -   For
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html image>
+--     and
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html text>
+--     labeling jobs, the maximum is 8 hours (28,800 seconds).
+--
+-- -   For
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html 3D point cloud>
+--     and
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
+--     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
+--     to change these limits, contact Amazon Web Services Support.
+humanTaskConfig_taskTimeLimitInSeconds :: Lens.Lens' HumanTaskConfig Prelude.Natural
+humanTaskConfig_taskTimeLimitInSeconds = Lens.lens (\HumanTaskConfig' {taskTimeLimitInSeconds} -> taskTimeLimitInSeconds) (\s@HumanTaskConfig' {} a -> s {taskTimeLimitInSeconds = a} :: HumanTaskConfig)
+
+-- | Configures how labels are consolidated across human workers.
+humanTaskConfig_annotationConsolidationConfig :: Lens.Lens' HumanTaskConfig AnnotationConsolidationConfig
+humanTaskConfig_annotationConsolidationConfig = Lens.lens (\HumanTaskConfig' {annotationConsolidationConfig} -> annotationConsolidationConfig) (\s@HumanTaskConfig' {} a -> s {annotationConsolidationConfig = a} :: HumanTaskConfig)
+
+instance Core.FromJSON HumanTaskConfig where
+  parseJSON =
+    Core.withObject
+      "HumanTaskConfig"
+      ( \x ->
+          HumanTaskConfig'
+            Prelude.<$> (x Core..:? "TaskKeywords")
+            Prelude.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
+            Prelude.<*> (x Core..:? "MaxConcurrentTaskCount")
+            Prelude.<*> (x Core..:? "PublicWorkforceTaskPrice")
+            Prelude.<*> (x Core..: "WorkteamArn")
+            Prelude.<*> (x Core..: "UiConfig")
+            Prelude.<*> (x Core..: "PreHumanTaskLambdaArn")
+            Prelude.<*> (x Core..: "TaskTitle")
+            Prelude.<*> (x Core..: "TaskDescription")
+            Prelude.<*> (x Core..: "NumberOfHumanWorkersPerDataObject")
+            Prelude.<*> (x Core..: "TaskTimeLimitInSeconds")
+            Prelude.<*> (x Core..: "AnnotationConsolidationConfig")
+      )
+
+instance Prelude.Hashable HumanTaskConfig
+
+instance Prelude.NFData HumanTaskConfig
+
+instance Core.ToJSON HumanTaskConfig where
+  toJSON HumanTaskConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
+            ("TaskAvailabilityLifetimeInSeconds" Core..=)
+              Prelude.<$> taskAvailabilityLifetimeInSeconds,
+            ("MaxConcurrentTaskCount" Core..=)
+              Prelude.<$> maxConcurrentTaskCount,
+            ("PublicWorkforceTaskPrice" Core..=)
+              Prelude.<$> publicWorkforceTaskPrice,
+            Prelude.Just ("WorkteamArn" Core..= workteamArn),
+            Prelude.Just ("UiConfig" Core..= uiConfig),
+            Prelude.Just
+              ( "PreHumanTaskLambdaArn"
+                  Core..= preHumanTaskLambdaArn
+              ),
+            Prelude.Just ("TaskTitle" Core..= taskTitle),
+            Prelude.Just
+              ("TaskDescription" Core..= taskDescription),
+            Prelude.Just
+              ( "NumberOfHumanWorkersPerDataObject"
+                  Core..= numberOfHumanWorkersPerDataObject
+              ),
+            Prelude.Just
+              ( "TaskTimeLimitInSeconds"
+                  Core..= taskTimeLimitInSeconds
+              ),
+            Prelude.Just
+              ( "AnnotationConsolidationConfig"
+                  Core..= annotationConsolidationConfig
+              )
+          ]
+      )

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,105 +22,136 @@
 --
 -- Deletes the specified Auto Scaling group.
 --
+-- If the group has instances or scaling activities in progress, you must
+-- specify the option to force the deletion in order for it to succeed.
 --
--- If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.
+-- If the group has policies, deleting the group deletes the policies, the
+-- underlying alarm actions, and any alarm that no longer has an associated
+-- action.
 --
--- If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.
+-- To remove instances from the Auto Scaling group before deleting it, call
+-- the DetachInstances API with the list of instances and the option to
+-- decrement the desired capacity. This ensures that Amazon EC2 Auto
+-- Scaling does not launch replacement instances.
 --
--- To remove instances from the Auto Scaling group before deleting it, call 'DetachInstances' with the list of instances and the option to decrement the desired capacity so that Auto Scaling does not launch replacement instances.
---
--- To terminate all instances before deleting the Auto Scaling group, call 'UpdateAutoScalingGroup' and set the minimum size and desired capacity of the Auto Scaling group to zero.
---
+-- To terminate all instances before deleting the Auto Scaling group, call
+-- the UpdateAutoScalingGroup API and set the minimum size and desired
+-- capacity of the Auto Scaling group to zero.
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
-    (
-    -- * Creating a Request
-      deleteAutoScalingGroup
-    , DeleteAutoScalingGroup
+  ( -- * Creating a Request
+    DeleteAutoScalingGroup (..),
+    newDeleteAutoScalingGroup,
+
     -- * Request Lenses
-    , dasgForceDelete
-    , dasgAutoScalingGroupName
+    deleteAutoScalingGroup_forceDelete,
+    deleteAutoScalingGroup_autoScalingGroupName,
 
     -- * Destructuring the Response
-    , deleteAutoScalingGroupResponse
-    , DeleteAutoScalingGroupResponse
-    ) where
+    DeleteAutoScalingGroupResponse (..),
+    newDeleteAutoScalingGroupResponse,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteAutoScalingGroup' smart constructor.
+-- | /See:/ 'newDeleteAutoScalingGroup' smart constructor.
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
-  { _dasgForceDelete          :: !(Maybe Bool)
-  , _dasgAutoScalingGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteAutoScalingGroup' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasgForceDelete' - Specifies that the group will be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
---
--- * 'dasgAutoScalingGroupName' - The name of the group to delete.
-deleteAutoScalingGroup
-    :: Text -- ^ 'dasgAutoScalingGroupName'
-    -> DeleteAutoScalingGroup
-deleteAutoScalingGroup pAutoScalingGroupName_ =
-  DeleteAutoScalingGroup'
-  { _dasgForceDelete = Nothing
-  , _dasgAutoScalingGroupName = pAutoScalingGroupName_
+  { -- | Specifies that the group is to be deleted along with all instances
+    -- associated with the group, without waiting for all instances to be
+    -- terminated. This parameter also deletes any outstanding lifecycle
+    -- actions associated with the group.
+    forceDelete :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Specifies that the group will be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
-dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
-dasgForceDelete = lens _dasgForceDelete (\ s a -> s{_dasgForceDelete = a});
-
--- | The name of the group to delete.
-dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
-dasgAutoScalingGroupName = lens _dasgAutoScalingGroupName (\ s a -> s{_dasgAutoScalingGroupName = a});
-
-instance AWSRequest DeleteAutoScalingGroup where
-        type Rs DeleteAutoScalingGroup =
-             DeleteAutoScalingGroupResponse
-        request = postQuery autoScaling
-        response
-          = receiveNull DeleteAutoScalingGroupResponse'
-
-instance Hashable DeleteAutoScalingGroup where
-
-instance NFData DeleteAutoScalingGroup where
-
-instance ToHeaders DeleteAutoScalingGroup where
-        toHeaders = const mempty
-
-instance ToPath DeleteAutoScalingGroup where
-        toPath = const "/"
-
-instance ToQuery DeleteAutoScalingGroup where
-        toQuery DeleteAutoScalingGroup'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteAutoScalingGroup" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "ForceDelete" =: _dasgForceDelete,
-               "AutoScalingGroupName" =: _dasgAutoScalingGroupName]
-
--- | /See:/ 'deleteAutoScalingGroupResponse' smart constructor.
-data DeleteAutoScalingGroupResponse =
-  DeleteAutoScalingGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteAutoScalingGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAutoScalingGroup' with all optional fields omitted.
 --
-deleteAutoScalingGroupResponse
-    :: DeleteAutoScalingGroupResponse
-deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'forceDelete', 'deleteAutoScalingGroup_forceDelete' - Specifies that the group is to be deleted along with all instances
+-- associated with the group, without waiting for all instances to be
+-- terminated. This parameter also deletes any outstanding lifecycle
+-- actions associated with the group.
+--
+-- 'autoScalingGroupName', 'deleteAutoScalingGroup_autoScalingGroupName' - The name of the Auto Scaling group.
+newDeleteAutoScalingGroup ::
+  -- | 'autoScalingGroupName'
+  Prelude.Text ->
+  DeleteAutoScalingGroup
+newDeleteAutoScalingGroup pAutoScalingGroupName_ =
+  DeleteAutoScalingGroup'
+    { forceDelete =
+        Prelude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
+    }
 
+-- | Specifies that the group is to be deleted along with all instances
+-- associated with the group, without waiting for all instances to be
+-- terminated. This parameter also deletes any outstanding lifecycle
+-- actions associated with the group.
+deleteAutoScalingGroup_forceDelete :: Lens.Lens' DeleteAutoScalingGroup (Prelude.Maybe Prelude.Bool)
+deleteAutoScalingGroup_forceDelete = Lens.lens (\DeleteAutoScalingGroup' {forceDelete} -> forceDelete) (\s@DeleteAutoScalingGroup' {} a -> s {forceDelete = a} :: DeleteAutoScalingGroup)
 
-instance NFData DeleteAutoScalingGroupResponse where
+-- | The name of the Auto Scaling group.
+deleteAutoScalingGroup_autoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Prelude.Text
+deleteAutoScalingGroup_autoScalingGroupName = Lens.lens (\DeleteAutoScalingGroup' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeleteAutoScalingGroup' {} a -> s {autoScalingGroupName = a} :: DeleteAutoScalingGroup)
+
+instance Core.AWSRequest DeleteAutoScalingGroup where
+  type
+    AWSResponse DeleteAutoScalingGroup =
+      DeleteAutoScalingGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteAutoScalingGroupResponse'
+
+instance Prelude.Hashable DeleteAutoScalingGroup
+
+instance Prelude.NFData DeleteAutoScalingGroup
+
+instance Core.ToHeaders DeleteAutoScalingGroup where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteAutoScalingGroup where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteAutoScalingGroup where
+  toQuery DeleteAutoScalingGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteAutoScalingGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "ForceDelete" Core.=: forceDelete,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
+      ]
+
+-- | /See:/ 'newDeleteAutoScalingGroupResponse' smart constructor.
+data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteAutoScalingGroupResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAutoScalingGroupResponse ::
+  DeleteAutoScalingGroupResponse
+newDeleteAutoScalingGroupResponse =
+  DeleteAutoScalingGroupResponse'
+
+instance
+  Prelude.NFData
+    DeleteAutoScalingGroupResponse

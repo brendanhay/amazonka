@@ -1,144 +1,174 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Mobile.DescribeProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets details about a project in AWS Mobile Hub.
---
---
 module Network.AWS.Mobile.DescribeProject
-    (
-    -- * Creating a Request
-      describeProject
-    , DescribeProject
+  ( -- * Creating a Request
+    DescribeProject (..),
+    newDescribeProject,
+
     -- * Request Lenses
-    , dSyncFromResources
-    , dProjectId
+    describeProject_syncFromResources,
+    describeProject_projectId,
 
     -- * Destructuring the Response
-    , describeProjectResponse
-    , DescribeProjectResponse
-    -- * Response Lenses
-    , drsDetails
-    , drsResponseStatus
-    ) where
+    DescribeProjectResponse (..),
+    newDescribeProjectResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    describeProjectResponse_details,
+    describeProjectResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Mobile.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure used to request details about a project.
 --
---
---
--- /See:/ 'describeProject' smart constructor.
+-- /See:/ 'newDescribeProject' smart constructor.
 data DescribeProject = DescribeProject'
-  { _dSyncFromResources :: !(Maybe Bool)
-  , _dProjectId         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If set to true, causes AWS Mobile Hub to synchronize information from
+    -- other services, e.g., update state of AWS CloudFormation stacks in the
+    -- AWS Mobile Hub project.
+    syncFromResources :: Prelude.Maybe Prelude.Bool,
+    -- | Unique project identifier.
+    projectId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeProject' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeProject' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dSyncFromResources' - If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dProjectId' - Unique project identifier.
-describeProject
-    :: Text -- ^ 'dProjectId'
-    -> DescribeProject
-describeProject pProjectId_ =
-  DescribeProject' {_dSyncFromResources = Nothing, _dProjectId = pProjectId_}
+-- 'syncFromResources', 'describeProject_syncFromResources' - If set to true, causes AWS Mobile Hub to synchronize information from
+-- other services, e.g., update state of AWS CloudFormation stacks in the
+-- AWS Mobile Hub project.
+--
+-- 'projectId', 'describeProject_projectId' - Unique project identifier.
+newDescribeProject ::
+  -- | 'projectId'
+  Prelude.Text ->
+  DescribeProject
+newDescribeProject pProjectId_ =
+  DescribeProject'
+    { syncFromResources =
+        Prelude.Nothing,
+      projectId = pProjectId_
+    }
 
-
--- | If set to true, causes AWS Mobile Hub to synchronize information from other services, e.g., update state of AWS CloudFormation stacks in the AWS Mobile Hub project.
-dSyncFromResources :: Lens' DescribeProject (Maybe Bool)
-dSyncFromResources = lens _dSyncFromResources (\ s a -> s{_dSyncFromResources = a});
+-- | If set to true, causes AWS Mobile Hub to synchronize information from
+-- other services, e.g., update state of AWS CloudFormation stacks in the
+-- AWS Mobile Hub project.
+describeProject_syncFromResources :: Lens.Lens' DescribeProject (Prelude.Maybe Prelude.Bool)
+describeProject_syncFromResources = Lens.lens (\DescribeProject' {syncFromResources} -> syncFromResources) (\s@DescribeProject' {} a -> s {syncFromResources = a} :: DescribeProject)
 
 -- | Unique project identifier.
-dProjectId :: Lens' DescribeProject Text
-dProjectId = lens _dProjectId (\ s a -> s{_dProjectId = a});
+describeProject_projectId :: Lens.Lens' DescribeProject Prelude.Text
+describeProject_projectId = Lens.lens (\DescribeProject' {projectId} -> projectId) (\s@DescribeProject' {} a -> s {projectId = a} :: DescribeProject)
 
-instance AWSRequest DescribeProject where
-        type Rs DescribeProject = DescribeProjectResponse
-        request = get mobile
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeProjectResponse' <$>
-                   (x .?> "details") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeProject where
+  type
+    AWSResponse DescribeProject =
+      DescribeProjectResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeProjectResponse'
+            Prelude.<$> (x Core..?> "details")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeProject where
+instance Prelude.Hashable DescribeProject
 
-instance NFData DescribeProject where
+instance Prelude.NFData DescribeProject
 
-instance ToHeaders DescribeProject where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeProject where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DescribeProject where
-        toPath = const "/project"
+instance Core.ToPath DescribeProject where
+  toPath = Prelude.const "/project"
 
-instance ToQuery DescribeProject where
-        toQuery DescribeProject'{..}
-          = mconcat
-              ["syncFromResources" =: _dSyncFromResources,
-               "projectId" =: _dProjectId]
+instance Core.ToQuery DescribeProject where
+  toQuery DescribeProject' {..} =
+    Prelude.mconcat
+      [ "syncFromResources" Core.=: syncFromResources,
+        "projectId" Core.=: projectId
+      ]
 
 -- | Result structure used for requests of project details.
 --
---
---
--- /See:/ 'describeProjectResponse' smart constructor.
+-- /See:/ 'newDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { _drsDetails        :: !(Maybe ProjectDetails)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { details :: Prelude.Maybe ProjectDetails,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeProjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeProjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsDetails' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeProjectResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeProjectResponse
-describeProjectResponse pResponseStatus_ =
+-- 'details', 'describeProjectResponse_details' - Undocumented member.
+--
+-- 'httpStatus', 'describeProjectResponse_httpStatus' - The response's http status code.
+newDescribeProjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeProjectResponse
+newDescribeProjectResponse pHttpStatus_ =
   DescribeProjectResponse'
-  {_drsDetails = Nothing, _drsResponseStatus = pResponseStatus_}
-
+    { details = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-drsDetails :: Lens' DescribeProjectResponse (Maybe ProjectDetails)
-drsDetails = lens _drsDetails (\ s a -> s{_drsDetails = a});
+describeProjectResponse_details :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ProjectDetails)
+describeProjectResponse_details = Lens.lens (\DescribeProjectResponse' {details} -> details) (\s@DescribeProjectResponse' {} a -> s {details = a} :: DescribeProjectResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeProjectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | The response's http status code.
+describeProjectResponse_httpStatus :: Lens.Lens' DescribeProjectResponse Prelude.Int
+describeProjectResponse_httpStatus = Lens.lens (\DescribeProjectResponse' {httpStatus} -> httpStatus) (\s@DescribeProjectResponse' {} a -> s {httpStatus = a} :: DescribeProjectResponse)
 
-instance NFData DescribeProjectResponse where
+instance Prelude.NFData DescribeProjectResponse

@@ -1,188 +1,247 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetTables
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the definitions of some or all of the tables in a given @Database@ .
+-- Retrieves the definitions of some or all of the tables in a given
+-- @Database@.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetTables
-    (
-    -- * Creating a Request
-      getTables
-    , GetTables
+  ( -- * Creating a Request
+    GetTables (..),
+    newGetTables,
+
     -- * Request Lenses
-    , gtCatalogId
-    , gtNextToken
-    , gtExpression
-    , gtMaxResults
-    , gtDatabaseName
+    getTables_nextToken,
+    getTables_maxResults,
+    getTables_catalogId,
+    getTables_expression,
+    getTables_databaseName,
 
     -- * Destructuring the Response
-    , getTablesResponse
-    , GetTablesResponse
+    GetTablesResponse (..),
+    newGetTablesResponse,
+
     -- * Response Lenses
-    , gtsrsTableList
-    , gtsrsNextToken
-    , gtsrsResponseStatus
-    ) where
+    getTablesResponse_nextToken,
+    getTablesResponse_tableList,
+    getTablesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getTables' smart constructor.
+-- | /See:/ 'newGetTables' smart constructor.
 data GetTables = GetTables'
-  { _gtCatalogId    :: !(Maybe Text)
-  , _gtNextToken    :: !(Maybe Text)
-  , _gtExpression   :: !(Maybe Text)
-  , _gtMaxResults   :: !(Maybe Nat)
-  , _gtDatabaseName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetTables' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtCatalogId' - The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
---
--- * 'gtNextToken' - A continuation token, included if this is a continuation call.
---
--- * 'gtExpression' - A regular expression pattern. If present, only those tables whose names match the pattern are returned.
---
--- * 'gtMaxResults' - The maximum number of tables to return in a single response.
---
--- * 'gtDatabaseName' - The database in the catalog whose tables to list.
-getTables
-    :: Text -- ^ 'gtDatabaseName'
-    -> GetTables
-getTables pDatabaseName_ =
-  GetTables'
-  { _gtCatalogId = Nothing
-  , _gtNextToken = Nothing
-  , _gtExpression = Nothing
-  , _gtMaxResults = Nothing
-  , _gtDatabaseName = pDatabaseName_
+  { -- | A continuation token, included if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of tables to return in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A regular expression pattern. If present, only those tables whose names
+    -- match the pattern are returned.
+    expression :: Prelude.Maybe Prelude.Text,
+    -- | The database in the catalog whose tables to list. For Hive
+    -- compatibility, this name is entirely lowercase.
+    databaseName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The ID of the Data Catalog where the tables reside. If none is supplied, the AWS account ID is used by default.
-gtCatalogId :: Lens' GetTables (Maybe Text)
-gtCatalogId = lens _gtCatalogId (\ s a -> s{_gtCatalogId = a});
+-- |
+-- Create a value of 'GetTables' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'getTables_nextToken' - A continuation token, included if this is a continuation call.
+--
+-- 'maxResults', 'getTables_maxResults' - The maximum number of tables to return in a single response.
+--
+-- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+--
+-- 'expression', 'getTables_expression' - A regular expression pattern. If present, only those tables whose names
+-- match the pattern are returned.
+--
+-- 'databaseName', 'getTables_databaseName' - The database in the catalog whose tables to list. For Hive
+-- compatibility, this name is entirely lowercase.
+newGetTables ::
+  -- | 'databaseName'
+  Prelude.Text ->
+  GetTables
+newGetTables pDatabaseName_ =
+  GetTables'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      expression = Prelude.Nothing,
+      databaseName = pDatabaseName_
+    }
 
 -- | A continuation token, included if this is a continuation call.
-gtNextToken :: Lens' GetTables (Maybe Text)
-gtNextToken = lens _gtNextToken (\ s a -> s{_gtNextToken = a});
-
--- | A regular expression pattern. If present, only those tables whose names match the pattern are returned.
-gtExpression :: Lens' GetTables (Maybe Text)
-gtExpression = lens _gtExpression (\ s a -> s{_gtExpression = a});
+getTables_nextToken :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_nextToken = Lens.lens (\GetTables' {nextToken} -> nextToken) (\s@GetTables' {} a -> s {nextToken = a} :: GetTables)
 
 -- | The maximum number of tables to return in a single response.
-gtMaxResults :: Lens' GetTables (Maybe Natural)
-gtMaxResults = lens _gtMaxResults (\ s a -> s{_gtMaxResults = a}) . mapping _Nat;
+getTables_maxResults :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Natural)
+getTables_maxResults = Lens.lens (\GetTables' {maxResults} -> maxResults) (\s@GetTables' {} a -> s {maxResults = a} :: GetTables)
 
--- | The database in the catalog whose tables to list.
-gtDatabaseName :: Lens' GetTables Text
-gtDatabaseName = lens _gtDatabaseName (\ s a -> s{_gtDatabaseName = a});
+-- | The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
 
-instance AWSRequest GetTables where
-        type Rs GetTables = GetTablesResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetTablesResponse' <$>
-                   (x .?> "TableList" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+-- | A regular expression pattern. If present, only those tables whose names
+-- match the pattern are returned.
+getTables_expression :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_expression = Lens.lens (\GetTables' {expression} -> expression) (\s@GetTables' {} a -> s {expression = a} :: GetTables)
 
-instance Hashable GetTables where
+-- | The database in the catalog whose tables to list. For Hive
+-- compatibility, this name is entirely lowercase.
+getTables_databaseName :: Lens.Lens' GetTables Prelude.Text
+getTables_databaseName = Lens.lens (\GetTables' {databaseName} -> databaseName) (\s@GetTables' {} a -> s {databaseName = a} :: GetTables)
 
-instance NFData GetTables where
+instance Core.AWSPager GetTables where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getTablesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getTablesResponse_tableList Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getTables_nextToken
+          Lens..~ rs
+          Lens.^? getTablesResponse_nextToken Prelude.. Lens._Just
 
-instance ToHeaders GetTables where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetTables" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.AWSRequest GetTables where
+  type AWSResponse GetTables = GetTablesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetTablesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToJSON GetTables where
-        toJSON GetTables'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _gtCatalogId,
-                  ("NextToken" .=) <$> _gtNextToken,
-                  ("Expression" .=) <$> _gtExpression,
-                  ("MaxResults" .=) <$> _gtMaxResults,
-                  Just ("DatabaseName" .= _gtDatabaseName)])
+instance Prelude.Hashable GetTables
 
-instance ToPath GetTables where
-        toPath = const "/"
+instance Prelude.NFData GetTables
 
-instance ToQuery GetTables where
-        toQuery = const mempty
+instance Core.ToHeaders GetTables where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetTables" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
--- | /See:/ 'getTablesResponse' smart constructor.
+instance Core.ToJSON GetTables where
+  toJSON GetTables' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("Expression" Core..=) Prelude.<$> expression,
+            Prelude.Just ("DatabaseName" Core..= databaseName)
+          ]
+      )
+
+instance Core.ToPath GetTables where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetTables where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetTablesResponse' smart constructor.
 data GetTablesResponse = GetTablesResponse'
-  { _gtsrsTableList      :: !(Maybe [Table])
-  , _gtsrsNextToken      :: !(Maybe Text)
-  , _gtsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetTablesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtsrsTableList' - A list of the requested @Table@ objects.
---
--- * 'gtsrsNextToken' - A continuation token, present if the current list segment is not the last.
---
--- * 'gtsrsResponseStatus' - -- | The response status code.
-getTablesResponse
-    :: Int -- ^ 'gtsrsResponseStatus'
-    -> GetTablesResponse
-getTablesResponse pResponseStatus_ =
-  GetTablesResponse'
-  { _gtsrsTableList = Nothing
-  , _gtsrsNextToken = Nothing
-  , _gtsrsResponseStatus = pResponseStatus_
+  { -- | A continuation token, present if the current list segment is not the
+    -- last.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the requested @Table@ objects.
+    tableList :: Prelude.Maybe [Table],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetTablesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'getTablesResponse_nextToken' - A continuation token, present if the current list segment is not the
+-- last.
+--
+-- 'tableList', 'getTablesResponse_tableList' - A list of the requested @Table@ objects.
+--
+-- 'httpStatus', 'getTablesResponse_httpStatus' - The response's http status code.
+newGetTablesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTablesResponse
+newGetTablesResponse pHttpStatus_ =
+  GetTablesResponse'
+    { nextToken = Prelude.Nothing,
+      tableList = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A continuation token, present if the current list segment is not the
+-- last.
+getTablesResponse_nextToken :: Lens.Lens' GetTablesResponse (Prelude.Maybe Prelude.Text)
+getTablesResponse_nextToken = Lens.lens (\GetTablesResponse' {nextToken} -> nextToken) (\s@GetTablesResponse' {} a -> s {nextToken = a} :: GetTablesResponse)
 
 -- | A list of the requested @Table@ objects.
-gtsrsTableList :: Lens' GetTablesResponse [Table]
-gtsrsTableList = lens _gtsrsTableList (\ s a -> s{_gtsrsTableList = a}) . _Default . _Coerce;
+getTablesResponse_tableList :: Lens.Lens' GetTablesResponse (Prelude.Maybe [Table])
+getTablesResponse_tableList = Lens.lens (\GetTablesResponse' {tableList} -> tableList) (\s@GetTablesResponse' {} a -> s {tableList = a} :: GetTablesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A continuation token, present if the current list segment is not the last.
-gtsrsNextToken :: Lens' GetTablesResponse (Maybe Text)
-gtsrsNextToken = lens _gtsrsNextToken (\ s a -> s{_gtsrsNextToken = a});
+-- | The response's http status code.
+getTablesResponse_httpStatus :: Lens.Lens' GetTablesResponse Prelude.Int
+getTablesResponse_httpStatus = Lens.lens (\GetTablesResponse' {httpStatus} -> httpStatus) (\s@GetTablesResponse' {} a -> s {httpStatus = a} :: GetTablesResponse)
 
--- | -- | The response status code.
-gtsrsResponseStatus :: Lens' GetTablesResponse Int
-gtsrsResponseStatus = lens _gtsrsResponseStatus (\ s a -> s{_gtsrsResponseStatus = a});
-
-instance NFData GetTablesResponse where
+instance Prelude.NFData GetTablesResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DetachRolePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,94 +22,144 @@
 --
 -- Removes the specified managed policy from the specified role.
 --
---
--- A role can also have inline policies embedded with it. To delete an inline policy, use the 'DeleteRolePolicy' API. For information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
+-- A role can also have inline policies embedded with it. To delete an
+-- inline policy, use DeleteRolePolicy. For information about policies, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.DetachRolePolicy
-    (
-    -- * Creating a Request
-      detachRolePolicy
-    , DetachRolePolicy
+  ( -- * Creating a Request
+    DetachRolePolicy (..),
+    newDetachRolePolicy,
+
     -- * Request Lenses
-    , drpRoleName
-    , drpPolicyARN
+    detachRolePolicy_roleName,
+    detachRolePolicy_policyArn,
 
     -- * Destructuring the Response
-    , detachRolePolicyResponse
-    , DetachRolePolicyResponse
-    ) where
+    DetachRolePolicyResponse (..),
+    newDetachRolePolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'detachRolePolicy' smart constructor.
+-- | /See:/ 'newDetachRolePolicy' smart constructor.
 data DetachRolePolicy = DetachRolePolicy'
-  { _drpRoleName  :: !Text
-  , _drpPolicyARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name (friendly name, not ARN) of the IAM role to detach the policy
+    -- from.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    roleName :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /Amazon Web Services General Reference/.
+    policyArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachRolePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachRolePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drpRoleName' - The name (friendly name, not ARN) of the IAM role to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-detachRolePolicy
-    :: Text -- ^ 'drpRoleName'
-    -> Text -- ^ 'drpPolicyARN'
-    -> DetachRolePolicy
-detachRolePolicy pRoleName_ pPolicyARN_ =
-  DetachRolePolicy' {_drpRoleName = pRoleName_, _drpPolicyARN = pPolicyARN_}
+-- 'roleName', 'detachRolePolicy_roleName' - The name (friendly name, not ARN) of the IAM role to detach the policy
+-- from.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'policyArn', 'detachRolePolicy_policyArn' - The Amazon Resource Name (ARN) of the IAM policy you want to detach.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+newDetachRolePolicy ::
+  -- | 'roleName'
+  Prelude.Text ->
+  -- | 'policyArn'
+  Prelude.Text ->
+  DetachRolePolicy
+newDetachRolePolicy pRoleName_ pPolicyArn_ =
+  DetachRolePolicy'
+    { roleName = pRoleName_,
+      policyArn = pPolicyArn_
+    }
 
+-- | The name (friendly name, not ARN) of the IAM role to detach the policy
+-- from.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+detachRolePolicy_roleName :: Lens.Lens' DetachRolePolicy Prelude.Text
+detachRolePolicy_roleName = Lens.lens (\DetachRolePolicy' {roleName} -> roleName) (\s@DetachRolePolicy' {} a -> s {roleName = a} :: DetachRolePolicy)
 
--- | The name (friendly name, not ARN) of the IAM role to detach the policy from. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-drpRoleName :: Lens' DetachRolePolicy Text
-drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a});
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+detachRolePolicy_policyArn :: Lens.Lens' DetachRolePolicy Prelude.Text
+detachRolePolicy_policyArn = Lens.lens (\DetachRolePolicy' {policyArn} -> policyArn) (\s@DetachRolePolicy' {} a -> s {policyArn = a} :: DetachRolePolicy)
 
--- | The Amazon Resource Name (ARN) of the IAM policy you want to detach. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-drpPolicyARN :: Lens' DetachRolePolicy Text
-drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
+instance Core.AWSRequest DetachRolePolicy where
+  type
+    AWSResponse DetachRolePolicy =
+      DetachRolePolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DetachRolePolicyResponse'
 
-instance AWSRequest DetachRolePolicy where
-        type Rs DetachRolePolicy = DetachRolePolicyResponse
-        request = postQuery iam
-        response = receiveNull DetachRolePolicyResponse'
+instance Prelude.Hashable DetachRolePolicy
 
-instance Hashable DetachRolePolicy where
+instance Prelude.NFData DetachRolePolicy
 
-instance NFData DetachRolePolicy where
+instance Core.ToHeaders DetachRolePolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DetachRolePolicy where
-        toHeaders = const mempty
+instance Core.ToPath DetachRolePolicy where
+  toPath = Prelude.const "/"
 
-instance ToPath DetachRolePolicy where
-        toPath = const "/"
+instance Core.ToQuery DetachRolePolicy where
+  toQuery DetachRolePolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DetachRolePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "RoleName" Core.=: roleName,
+        "PolicyArn" Core.=: policyArn
+      ]
 
-instance ToQuery DetachRolePolicy where
-        toQuery DetachRolePolicy'{..}
-          = mconcat
-              ["Action" =: ("DetachRolePolicy" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _drpRoleName,
-               "PolicyArn" =: _drpPolicyARN]
+-- | /See:/ 'newDetachRolePolicyResponse' smart constructor.
+data DetachRolePolicyResponse = DetachRolePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'detachRolePolicyResponse' smart constructor.
-data DetachRolePolicyResponse =
+-- |
+-- Create a value of 'DetachRolePolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDetachRolePolicyResponse ::
+  DetachRolePolicyResponse
+newDetachRolePolicyResponse =
   DetachRolePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DetachRolePolicyResponse' with the minimum fields required to make a request.
---
-detachRolePolicyResponse
-    :: DetachRolePolicyResponse
-detachRolePolicyResponse = DetachRolePolicyResponse'
-
-
-instance NFData DetachRolePolicyResponse where
+instance Prelude.NFData DetachRolePolicyResponse

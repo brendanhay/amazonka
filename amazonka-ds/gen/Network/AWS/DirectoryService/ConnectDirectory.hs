@@ -1,199 +1,256 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AD Connector to connect to an on-premises directory.
+-- Creates an AD Connector to connect to a self-managed directory.
 --
---
--- Before you call /ConnectDirectory/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /ConnectDirectory/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
---
+-- Before you call @ConnectDirectory@, ensure that all of the required
+-- permissions have been explicitly granted through a policy. For details
+-- about what permissions are required to run the @ConnectDirectory@
+-- operation, see
+-- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
 module Network.AWS.DirectoryService.ConnectDirectory
-    (
-    -- * Creating a Request
-      connectDirectory
-    , ConnectDirectory
+  ( -- * Creating a Request
+    ConnectDirectory (..),
+    newConnectDirectory,
+
     -- * Request Lenses
-    , cdShortName
-    , cdDescription
-    , cdName
-    , cdPassword
-    , cdSize
-    , cdConnectSettings
+    connectDirectory_shortName,
+    connectDirectory_tags,
+    connectDirectory_description,
+    connectDirectory_name,
+    connectDirectory_password,
+    connectDirectory_size,
+    connectDirectory_connectSettings,
 
     -- * Destructuring the Response
-    , connectDirectoryResponse
-    , ConnectDirectoryResponse
+    ConnectDirectoryResponse (..),
+    newConnectDirectoryResponse,
+
     -- * Response Lenses
-    , cdrsDirectoryId
-    , cdrsResponseStatus
-    ) where
+    connectDirectoryResponse_directoryId,
+    connectDirectoryResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'ConnectDirectory' operation.
+-- | Contains the inputs for the ConnectDirectory operation.
 --
---
---
--- /See:/ 'connectDirectory' smart constructor.
+-- /See:/ 'newConnectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
-  { _cdShortName       :: !(Maybe Text)
-  , _cdDescription     :: !(Maybe Text)
-  , _cdName            :: !Text
-  , _cdPassword        :: !(Sensitive Text)
-  , _cdSize            :: !DirectorySize
-  , _cdConnectSettings :: !DirectoryConnectSettings
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ConnectDirectory' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdShortName' - The NetBIOS name of the on-premises directory, such as @CORP@ .
---
--- * 'cdDescription' - A textual description for the directory.
---
--- * 'cdName' - The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
---
--- * 'cdPassword' - The password for the on-premises user account.
---
--- * 'cdSize' - The size of the directory.
---
--- * 'cdConnectSettings' - A 'DirectoryConnectSettings' object that contains additional information for the operation.
-connectDirectory
-    :: Text -- ^ 'cdName'
-    -> Text -- ^ 'cdPassword'
-    -> DirectorySize -- ^ 'cdSize'
-    -> DirectoryConnectSettings -- ^ 'cdConnectSettings'
-    -> ConnectDirectory
-connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
-  ConnectDirectory'
-  { _cdShortName = Nothing
-  , _cdDescription = Nothing
-  , _cdName = pName_
-  , _cdPassword = _Sensitive # pPassword_
-  , _cdSize = pSize_
-  , _cdConnectSettings = pConnectSettings_
+  { -- | The NetBIOS name of your self-managed directory, such as @CORP@.
+    shortName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be assigned to AD Connector.
+    tags :: Prelude.Maybe [Tag],
+    -- | A description for the directory.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The fully qualified name of your self-managed directory, such as
+    -- @corp.example.com@.
+    name :: Prelude.Text,
+    -- | The password for your self-managed user account.
+    password :: Core.Sensitive Prelude.Text,
+    -- | The size of the directory.
+    size :: DirectorySize,
+    -- | A DirectoryConnectSettings object that contains additional information
+    -- for the operation.
+    connectSettings :: DirectoryConnectSettings
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ConnectDirectory' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'shortName', 'connectDirectory_shortName' - The NetBIOS name of your self-managed directory, such as @CORP@.
+--
+-- 'tags', 'connectDirectory_tags' - The tags to be assigned to AD Connector.
+--
+-- 'description', 'connectDirectory_description' - A description for the directory.
+--
+-- 'name', 'connectDirectory_name' - The fully qualified name of your self-managed directory, such as
+-- @corp.example.com@.
+--
+-- 'password', 'connectDirectory_password' - The password for your self-managed user account.
+--
+-- 'size', 'connectDirectory_size' - The size of the directory.
+--
+-- 'connectSettings', 'connectDirectory_connectSettings' - A DirectoryConnectSettings object that contains additional information
+-- for the operation.
+newConnectDirectory ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'password'
+  Prelude.Text ->
+  -- | 'size'
+  DirectorySize ->
+  -- | 'connectSettings'
+  DirectoryConnectSettings ->
+  ConnectDirectory
+newConnectDirectory
+  pName_
+  pPassword_
+  pSize_
+  pConnectSettings_ =
+    ConnectDirectory'
+      { shortName = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        description = Prelude.Nothing,
+        name = pName_,
+        password = Core._Sensitive Lens.# pPassword_,
+        size = pSize_,
+        connectSettings = pConnectSettings_
+      }
 
--- | The NetBIOS name of the on-premises directory, such as @CORP@ .
-cdShortName :: Lens' ConnectDirectory (Maybe Text)
-cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
+-- | The NetBIOS name of your self-managed directory, such as @CORP@.
+connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
+connectDirectory_shortName = Lens.lens (\ConnectDirectory' {shortName} -> shortName) (\s@ConnectDirectory' {} a -> s {shortName = a} :: ConnectDirectory)
 
--- | A textual description for the directory.
-cdDescription :: Lens' ConnectDirectory (Maybe Text)
-cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
+-- | The tags to be assigned to AD Connector.
+connectDirectory_tags :: Lens.Lens' ConnectDirectory (Prelude.Maybe [Tag])
+connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Prelude.. Lens.mapping Lens._Coerce
 
--- | The fully-qualified name of the on-premises directory, such as @corp.example.com@ .
-cdName :: Lens' ConnectDirectory Text
-cdName = lens _cdName (\ s a -> s{_cdName = a});
+-- | A description for the directory.
+connectDirectory_description :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
+connectDirectory_description = Lens.lens (\ConnectDirectory' {description} -> description) (\s@ConnectDirectory' {} a -> s {description = a} :: ConnectDirectory)
 
--- | The password for the on-premises user account.
-cdPassword :: Lens' ConnectDirectory Text
-cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
+-- | The fully qualified name of your self-managed directory, such as
+-- @corp.example.com@.
+connectDirectory_name :: Lens.Lens' ConnectDirectory Prelude.Text
+connectDirectory_name = Lens.lens (\ConnectDirectory' {name} -> name) (\s@ConnectDirectory' {} a -> s {name = a} :: ConnectDirectory)
+
+-- | The password for your self-managed user account.
+connectDirectory_password :: Lens.Lens' ConnectDirectory Prelude.Text
+connectDirectory_password = Lens.lens (\ConnectDirectory' {password} -> password) (\s@ConnectDirectory' {} a -> s {password = a} :: ConnectDirectory) Prelude.. Core._Sensitive
 
 -- | The size of the directory.
-cdSize :: Lens' ConnectDirectory DirectorySize
-cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
+connectDirectory_size :: Lens.Lens' ConnectDirectory DirectorySize
+connectDirectory_size = Lens.lens (\ConnectDirectory' {size} -> size) (\s@ConnectDirectory' {} a -> s {size = a} :: ConnectDirectory)
 
--- | A 'DirectoryConnectSettings' object that contains additional information for the operation.
-cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
-cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
+-- | A DirectoryConnectSettings object that contains additional information
+-- for the operation.
+connectDirectory_connectSettings :: Lens.Lens' ConnectDirectory DirectoryConnectSettings
+connectDirectory_connectSettings = Lens.lens (\ConnectDirectory' {connectSettings} -> connectSettings) (\s@ConnectDirectory' {} a -> s {connectSettings = a} :: ConnectDirectory)
 
-instance AWSRequest ConnectDirectory where
-        type Rs ConnectDirectory = ConnectDirectoryResponse
-        request = postJSON directoryService
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ConnectDirectoryResponse' <$>
-                   (x .?> "DirectoryId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest ConnectDirectory where
+  type
+    AWSResponse ConnectDirectory =
+      ConnectDirectoryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ConnectDirectoryResponse'
+            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ConnectDirectory where
+instance Prelude.Hashable ConnectDirectory
 
-instance NFData ConnectDirectory where
+instance Prelude.NFData ConnectDirectory
 
-instance ToHeaders ConnectDirectory where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.ConnectDirectory" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ConnectDirectory where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DirectoryService_20150416.ConnectDirectory" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ConnectDirectory where
-        toJSON ConnectDirectory'{..}
-          = object
-              (catMaybes
-                 [("ShortName" .=) <$> _cdShortName,
-                  ("Description" .=) <$> _cdDescription,
-                  Just ("Name" .= _cdName),
-                  Just ("Password" .= _cdPassword),
-                  Just ("Size" .= _cdSize),
-                  Just ("ConnectSettings" .= _cdConnectSettings)])
+instance Core.ToJSON ConnectDirectory where
+  toJSON ConnectDirectory' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ShortName" Core..=) Prelude.<$> shortName,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just ("Password" Core..= password),
+            Prelude.Just ("Size" Core..= size),
+            Prelude.Just
+              ("ConnectSettings" Core..= connectSettings)
+          ]
+      )
 
-instance ToPath ConnectDirectory where
-        toPath = const "/"
+instance Core.ToPath ConnectDirectory where
+  toPath = Prelude.const "/"
 
-instance ToQuery ConnectDirectory where
-        toQuery = const mempty
+instance Core.ToQuery ConnectDirectory where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the results of the 'ConnectDirectory' operation.
+-- | Contains the results of the ConnectDirectory operation.
 --
---
---
--- /See:/ 'connectDirectoryResponse' smart constructor.
+-- /See:/ 'newConnectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
-  { _cdrsDirectoryId    :: !(Maybe Text)
-  , _cdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier of the new directory.
+    directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ConnectDirectoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ConnectDirectoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdrsDirectoryId' - The identifier of the new directory.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdrsResponseStatus' - -- | The response status code.
-connectDirectoryResponse
-    :: Int -- ^ 'cdrsResponseStatus'
-    -> ConnectDirectoryResponse
-connectDirectoryResponse pResponseStatus_ =
+-- 'directoryId', 'connectDirectoryResponse_directoryId' - The identifier of the new directory.
+--
+-- 'httpStatus', 'connectDirectoryResponse_httpStatus' - The response's http status code.
+newConnectDirectoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ConnectDirectoryResponse
+newConnectDirectoryResponse pHttpStatus_ =
   ConnectDirectoryResponse'
-  {_cdrsDirectoryId = Nothing, _cdrsResponseStatus = pResponseStatus_}
-
+    { directoryId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The identifier of the new directory.
-cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
-cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
+connectDirectoryResponse_directoryId :: Lens.Lens' ConnectDirectoryResponse (Prelude.Maybe Prelude.Text)
+connectDirectoryResponse_directoryId = Lens.lens (\ConnectDirectoryResponse' {directoryId} -> directoryId) (\s@ConnectDirectoryResponse' {} a -> s {directoryId = a} :: ConnectDirectoryResponse)
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' ConnectDirectoryResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+-- | The response's http status code.
+connectDirectoryResponse_httpStatus :: Lens.Lens' ConnectDirectoryResponse Prelude.Int
+connectDirectoryResponse_httpStatus = Lens.lens (\ConnectDirectoryResponse' {httpStatus} -> httpStatus) (\s@ConnectDirectoryResponse' {} a -> s {httpStatus = a} :: ConnectDirectoryResponse)
 
-instance NFData ConnectDirectoryResponse where
+instance Prelude.NFData ConnectDirectoryResponse

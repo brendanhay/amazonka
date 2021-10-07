@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,112 +22,147 @@
 --
 -- Deletes the specified domain recordset and all of its domain records.
 --
---
+-- The @delete domain@ operation supports tag-based access control via
+-- resource tags applied to the resource identified by @domain name@. For
+-- more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.DeleteDomain
-    (
-    -- * Creating a Request
-      deleteDomain
-    , DeleteDomain
+  ( -- * Creating a Request
+    DeleteDomain (..),
+    newDeleteDomain,
+
     -- * Request Lenses
-    , ddDomainName
+    deleteDomain_domainName,
 
     -- * Destructuring the Response
-    , deleteDomainResponse
-    , DeleteDomainResponse
+    DeleteDomainResponse (..),
+    newDeleteDomainResponse,
+
     -- * Response Lenses
-    , ddrsOperation
-    , ddrsResponseStatus
-    ) where
+    deleteDomainResponse_operation,
+    deleteDomainResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteDomain' smart constructor.
-newtype DeleteDomain = DeleteDomain'
-  { _ddDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDomain' smart constructor.
+data DeleteDomain = DeleteDomain'
+  { -- | The specific domain name to delete.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDomain' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDomainName' - The specific domain name to delete.
-deleteDomain
-    :: Text -- ^ 'ddDomainName'
-    -> DeleteDomain
-deleteDomain pDomainName_ = DeleteDomain' {_ddDomainName = pDomainName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'deleteDomain_domainName' - The specific domain name to delete.
+newDeleteDomain ::
+  -- | 'domainName'
+  Prelude.Text ->
+  DeleteDomain
+newDeleteDomain pDomainName_ =
+  DeleteDomain' {domainName = pDomainName_}
 
 -- | The specific domain name to delete.
-ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+deleteDomain_domainName :: Lens.Lens' DeleteDomain Prelude.Text
+deleteDomain_domainName = Lens.lens (\DeleteDomain' {domainName} -> domainName) (\s@DeleteDomain' {} a -> s {domainName = a} :: DeleteDomain)
 
-instance AWSRequest DeleteDomain where
-        type Rs DeleteDomain = DeleteDomainResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteDomainResponse' <$>
-                   (x .?> "operation") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteDomain where
+  type AWSResponse DeleteDomain = DeleteDomainResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteDomainResponse'
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteDomain where
+instance Prelude.Hashable DeleteDomain
 
-instance NFData DeleteDomain where
+instance Prelude.NFData DeleteDomain
 
-instance ToHeaders DeleteDomain where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.DeleteDomain" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteDomain where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.DeleteDomain" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteDomain where
-        toJSON DeleteDomain'{..}
-          = object
-              (catMaybes [Just ("domainName" .= _ddDomainName)])
+instance Core.ToJSON DeleteDomain where
+  toJSON DeleteDomain' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("domainName" Core..= domainName)]
+      )
 
-instance ToPath DeleteDomain where
-        toPath = const "/"
+instance Core.ToPath DeleteDomain where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteDomain where
-        toQuery = const mempty
+instance Core.ToQuery DeleteDomain where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteDomainResponse' smart constructor.
+-- | /See:/ 'newDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { _ddrsOperation      :: !(Maybe Operation)
-  , _ddrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDomainResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddrsOperation' - An array of key-value pairs containing information about the results of your delete domain request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteDomainResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DeleteDomainResponse
-deleteDomainResponse pResponseStatus_ =
+-- 'operation', 'deleteDomainResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'deleteDomainResponse_httpStatus' - The response's http status code.
+newDeleteDomainResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteDomainResponse
+newDeleteDomainResponse pHttpStatus_ =
   DeleteDomainResponse'
-  {_ddrsOperation = Nothing, _ddrsResponseStatus = pResponseStatus_}
+    { operation = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+deleteDomainResponse_operation :: Lens.Lens' DeleteDomainResponse (Prelude.Maybe Operation)
+deleteDomainResponse_operation = Lens.lens (\DeleteDomainResponse' {operation} -> operation) (\s@DeleteDomainResponse' {} a -> s {operation = a} :: DeleteDomainResponse)
 
--- | An array of key-value pairs containing information about the results of your delete domain request.
-ddrsOperation :: Lens' DeleteDomainResponse (Maybe Operation)
-ddrsOperation = lens _ddrsOperation (\ s a -> s{_ddrsOperation = a});
+-- | The response's http status code.
+deleteDomainResponse_httpStatus :: Lens.Lens' DeleteDomainResponse Prelude.Int
+deleteDomainResponse_httpStatus = Lens.lens (\DeleteDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteDomainResponse' {} a -> s {httpStatus = a} :: DeleteDomainResponse)
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a});
-
-instance NFData DeleteDomainResponse where
+instance Prelude.NFData DeleteDomainResponse

@@ -1,260 +1,475 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.DescribeBatchPredictions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of @BatchPrediction@ operations that match the search criteria in the request.
---
---
+-- Returns a list of @BatchPrediction@ operations that match the search
+-- criteria in the request.
 --
 -- This operation returns paginated results.
 module Network.AWS.MachineLearning.DescribeBatchPredictions
-    (
-    -- * Creating a Request
-      describeBatchPredictions
-    , DescribeBatchPredictions
+  ( -- * Creating a Request
+    DescribeBatchPredictions (..),
+    newDescribeBatchPredictions,
+
     -- * Request Lenses
-    , dbpEQ
-    , dbpGE
-    , dbpPrefix
-    , dbpGT
-    , dbpNE
-    , dbpNextToken
-    , dbpSortOrder
-    , dbpLimit
-    , dbpLT
-    , dbpFilterVariable
-    , dbpLE
+    describeBatchPredictions_eq,
+    describeBatchPredictions_nextToken,
+    describeBatchPredictions_sortOrder,
+    describeBatchPredictions_filterVariable,
+    describeBatchPredictions_gt,
+    describeBatchPredictions_ne,
+    describeBatchPredictions_prefix,
+    describeBatchPredictions_ge,
+    describeBatchPredictions_le,
+    describeBatchPredictions_lt,
+    describeBatchPredictions_limit,
 
     -- * Destructuring the Response
-    , describeBatchPredictionsResponse
-    , DescribeBatchPredictionsResponse
+    DescribeBatchPredictionsResponse (..),
+    newDescribeBatchPredictionsResponse,
+
     -- * Response Lenses
-    , dbpsrsResults
-    , dbpsrsNextToken
-    , dbpsrsResponseStatus
-    ) where
+    describeBatchPredictionsResponse_nextToken,
+    describeBatchPredictionsResponse_results,
+    describeBatchPredictionsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeBatchPredictions' smart constructor.
+-- | /See:/ 'newDescribeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
-  { _dbpEQ             :: !(Maybe Text)
-  , _dbpGE             :: !(Maybe Text)
-  , _dbpPrefix         :: !(Maybe Text)
-  , _dbpGT             :: !(Maybe Text)
-  , _dbpNE             :: !(Maybe Text)
-  , _dbpNextToken      :: !(Maybe Text)
-  , _dbpSortOrder      :: !(Maybe SortOrder)
-  , _dbpLimit          :: !(Maybe Nat)
-  , _dbpLT             :: !(Maybe Text)
-  , _dbpFilterVariable :: !(Maybe BatchPredictionFilterVariable)
-  , _dbpLE             :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeBatchPredictions' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbpEQ' - The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
---
--- * 'dbpGE' - The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
---
--- * 'dbpPrefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ . For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :      * 2014-09     * 2014-09-09     * 2014-09-09-Holiday
---
--- * 'dbpGT' - The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
---
--- * 'dbpNE' - The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
---
--- * 'dbpNextToken' - An ID of the page in the paginated results.
---
--- * 'dbpSortOrder' - A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).    * @dsc@ - Arranges the list in descending order (Z-A, 9-0). Results are sorted by @FilterVariable@ .
---
--- * 'dbpLimit' - The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
---
--- * 'dbpLT' - The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
---
--- * 'dbpFilterVariable' - Use one of the following variables to filter a list of @BatchPrediction@ :     * @CreatedAt@ - Sets the search criteria to the @BatchPrediction@ creation date.    * @Status@ - Sets the search criteria to the @BatchPrediction@ status.    * @Name@ - Sets the search criteria to the contents of the @BatchPrediction@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.    * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .    * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
---
--- * 'dbpLE' - The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
-describeBatchPredictions
-    :: DescribeBatchPredictions
-describeBatchPredictions =
-  DescribeBatchPredictions'
-  { _dbpEQ = Nothing
-  , _dbpGE = Nothing
-  , _dbpPrefix = Nothing
-  , _dbpGT = Nothing
-  , _dbpNE = Nothing
-  , _dbpNextToken = Nothing
-  , _dbpSortOrder = Nothing
-  , _dbpLimit = Nothing
-  , _dbpLT = Nothing
-  , _dbpFilterVariable = Nothing
-  , _dbpLE = Nothing
+  { -- | The equal to operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values that exactly match the value specified with
+    -- @EQ@.
+    eq :: Prelude.Maybe Prelude.Text,
+    -- | An ID of the page in the paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @MLModel@s.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | Use one of the following variables to filter a list of
+    -- @BatchPrediction@:
+    --
+    -- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
+    --     creation date.
+    --
+    -- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+    --
+    -- -   @Name@ - Sets the search criteria to the contents of the
+    --     @BatchPrediction@ ____ @Name@.
+    --
+    -- -   @IAMUser@ - Sets the search criteria to the user account that
+    --     invoked the @BatchPrediction@ creation.
+    --
+    -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
+    --     @BatchPrediction@.
+    --
+    -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+    --     in the @BatchPrediction@.
+    --
+    -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
+    --     @BatchPrediction@. The URL can identify either a file or an Amazon
+    --     Simple Storage Solution (Amazon S3) bucket or directory.
+    filterVariable :: Prelude.Maybe BatchPredictionFilterVariable,
+    -- | The greater than operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values that are greater than the value specified with
+    -- @GT@.
+    gt :: Prelude.Maybe Prelude.Text,
+    -- | The not equal to operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values not equal to the value specified with @NE@.
+    ne :: Prelude.Maybe Prelude.Text,
+    -- | A string that is found at the beginning of a variable, such as @Name@ or
+    -- @Id@.
+    --
+    -- For example, a @Batch Prediction@ operation could have the @Name@
+    -- @2014-09-09-HolidayGiftMailer@. To search for this @BatchPrediction@,
+    -- select @Name@ for the @FilterVariable@ and any of the following strings
+    -- for the @Prefix@:
+    --
+    -- -   2014-09
+    --
+    -- -   2014-09-09
+    --
+    -- -   2014-09-09-Holiday
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The greater than or equal to operator. The @BatchPrediction@ results
+    -- will have @FilterVariable@ values that are greater than or equal to the
+    -- value specified with @GE@.
+    ge :: Prelude.Maybe Prelude.Text,
+    -- | The less than or equal to operator. The @BatchPrediction@ results will
+    -- have @FilterVariable@ values that are less than or equal to the value
+    -- specified with @LE@.
+    le :: Prelude.Maybe Prelude.Text,
+    -- | The less than operator. The @BatchPrediction@ results will have
+    -- @FilterVariable@ values that are less than the value specified with
+    -- @LT@.
+    lt :: Prelude.Maybe Prelude.Text,
+    -- | The number of pages of information to include in the result. The range
+    -- of acceptable values is @1@ through @100@. The default value is @100@.
+    limit :: Prelude.Maybe Prelude.Natural
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeBatchPredictions' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'eq', 'describeBatchPredictions_eq' - The equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+--
+-- 'nextToken', 'describeBatchPredictions_nextToken' - An ID of the page in the paginated results.
+--
+-- 'sortOrder', 'describeBatchPredictions_sortOrder' - A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@s.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+--
+-- 'filterVariable', 'describeBatchPredictions_filterVariable' - Use one of the following variables to filter a list of
+-- @BatchPrediction@:
+--
+-- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
+--     creation date.
+--
+-- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+--
+-- -   @Name@ - Sets the search criteria to the contents of the
+--     @BatchPrediction@ ____ @Name@.
+--
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @BatchPrediction@ creation.
+--
+-- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
+--     @BatchPrediction@.
+--
+-- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+--     in the @BatchPrediction@.
+--
+-- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
+--     @BatchPrediction@. The URL can identify either a file or an Amazon
+--     Simple Storage Solution (Amazon S3) bucket or directory.
+--
+-- 'gt', 'describeBatchPredictions_gt' - The greater than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+--
+-- 'ne', 'describeBatchPredictions_ne' - The not equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+--
+-- 'prefix', 'describeBatchPredictions_prefix' - A string that is found at the beginning of a variable, such as @Name@ or
+-- @Id@.
+--
+-- For example, a @Batch Prediction@ operation could have the @Name@
+-- @2014-09-09-HolidayGiftMailer@. To search for this @BatchPrediction@,
+-- select @Name@ for the @FilterVariable@ and any of the following strings
+-- for the @Prefix@:
+--
+-- -   2014-09
+--
+-- -   2014-09-09
+--
+-- -   2014-09-09-Holiday
+--
+-- 'ge', 'describeBatchPredictions_ge' - The greater than or equal to operator. The @BatchPrediction@ results
+-- will have @FilterVariable@ values that are greater than or equal to the
+-- value specified with @GE@.
+--
+-- 'le', 'describeBatchPredictions_le' - The less than or equal to operator. The @BatchPrediction@ results will
+-- have @FilterVariable@ values that are less than or equal to the value
+-- specified with @LE@.
+--
+-- 'lt', 'describeBatchPredictions_lt' - The less than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are less than the value specified with
+-- @LT@.
+--
+-- 'limit', 'describeBatchPredictions_limit' - The number of pages of information to include in the result. The range
+-- of acceptable values is @1@ through @100@. The default value is @100@.
+newDescribeBatchPredictions ::
+  DescribeBatchPredictions
+newDescribeBatchPredictions =
+  DescribeBatchPredictions'
+    { eq = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      filterVariable = Prelude.Nothing,
+      gt = Prelude.Nothing,
+      ne = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      ge = Prelude.Nothing,
+      le = Prelude.Nothing,
+      lt = Prelude.Nothing,
+      limit = Prelude.Nothing
+    }
 
--- | The equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
-dbpEQ :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpEQ = lens _dbpEQ (\ s a -> s{_dbpEQ = a});
-
--- | The greater than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
-dbpGE :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpGE = lens _dbpGE (\ s a -> s{_dbpGE = a});
-
--- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ . For example, a @Batch Prediction@ operation could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @BatchPrediction@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :      * 2014-09     * 2014-09-09     * 2014-09-09-Holiday
-dbpPrefix :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpPrefix = lens _dbpPrefix (\ s a -> s{_dbpPrefix = a});
-
--- | The greater than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
-dbpGT :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpGT = lens _dbpGT (\ s a -> s{_dbpGT = a});
-
--- | The not equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
-dbpNE :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpNE = lens _dbpNE (\ s a -> s{_dbpNE = a});
+-- | The equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+describeBatchPredictions_eq :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_eq = Lens.lens (\DescribeBatchPredictions' {eq} -> eq) (\s@DescribeBatchPredictions' {} a -> s {eq = a} :: DescribeBatchPredictions)
 
 -- | An ID of the page in the paginated results.
-dbpNextToken :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpNextToken = lens _dbpNextToken (\ s a -> s{_dbpNextToken = a});
+describeBatchPredictions_nextToken :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {nextToken} -> nextToken) (\s@DescribeBatchPredictions' {} a -> s {nextToken = a} :: DescribeBatchPredictions)
 
--- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ s.     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).    * @dsc@ - Arranges the list in descending order (Z-A, 9-0). Results are sorted by @FilterVariable@ .
-dbpSortOrder :: Lens' DescribeBatchPredictions (Maybe SortOrder)
-dbpSortOrder = lens _dbpSortOrder (\ s a -> s{_dbpSortOrder = a});
-
--- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
-dbpLimit :: Lens' DescribeBatchPredictions (Maybe Natural)
-dbpLimit = lens _dbpLimit (\ s a -> s{_dbpLimit = a}) . mapping _Nat;
-
--- | The less than operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
-dbpLT :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpLT = lens _dbpLT (\ s a -> s{_dbpLT = a});
-
--- | Use one of the following variables to filter a list of @BatchPrediction@ :     * @CreatedAt@ - Sets the search criteria to the @BatchPrediction@ creation date.    * @Status@ - Sets the search criteria to the @BatchPrediction@ status.    * @Name@ - Sets the search criteria to the contents of the @BatchPrediction@ ____ @Name@ .    * @IAMUser@ - Sets the search criteria to the user account that invoked the @BatchPrediction@ creation.    * @MLModelId@ - Sets the search criteria to the @MLModel@ used in the @BatchPrediction@ .    * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .    * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or directory.
-dbpFilterVariable :: Lens' DescribeBatchPredictions (Maybe BatchPredictionFilterVariable)
-dbpFilterVariable = lens _dbpFilterVariable (\ s a -> s{_dbpFilterVariable = a});
-
--- | The less than or equal to operator. The @BatchPrediction@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
-dbpLE :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
-
-instance AWSPager DescribeBatchPredictions where
-        page rq rs
-          | stop (rs ^. dbpsrsNextToken) = Nothing
-          | stop (rs ^. dbpsrsResults) = Nothing
-          | otherwise =
-            Just $ rq & dbpNextToken .~ rs ^. dbpsrsNextToken
-
-instance AWSRequest DescribeBatchPredictions where
-        type Rs DescribeBatchPredictions =
-             DescribeBatchPredictionsResponse
-        request = postJSON machineLearning
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeBatchPredictionsResponse' <$>
-                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeBatchPredictions where
-
-instance NFData DescribeBatchPredictions where
-
-instance ToHeaders DescribeBatchPredictions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonML_20141212.DescribeBatchPredictions" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeBatchPredictions where
-        toJSON DescribeBatchPredictions'{..}
-          = object
-              (catMaybes
-                 [("EQ" .=) <$> _dbpEQ, ("GE" .=) <$> _dbpGE,
-                  ("Prefix" .=) <$> _dbpPrefix, ("GT" .=) <$> _dbpGT,
-                  ("NE" .=) <$> _dbpNE,
-                  ("NextToken" .=) <$> _dbpNextToken,
-                  ("SortOrder" .=) <$> _dbpSortOrder,
-                  ("Limit" .=) <$> _dbpLimit, ("LT" .=) <$> _dbpLT,
-                  ("FilterVariable" .=) <$> _dbpFilterVariable,
-                  ("LE" .=) <$> _dbpLE])
-
-instance ToPath DescribeBatchPredictions where
-        toPath = const "/"
-
-instance ToQuery DescribeBatchPredictions where
-        toQuery = const mempty
-
--- | Represents the output of a @DescribeBatchPredictions@ operation. The content is essentially a list of @BatchPrediction@ s.
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@s.
 --
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
 --
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
--- /See:/ 'describeBatchPredictionsResponse' smart constructor.
+-- Results are sorted by @FilterVariable@.
+describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe SortOrder)
+describeBatchPredictions_sortOrder = Lens.lens (\DescribeBatchPredictions' {sortOrder} -> sortOrder) (\s@DescribeBatchPredictions' {} a -> s {sortOrder = a} :: DescribeBatchPredictions)
+
+-- | Use one of the following variables to filter a list of
+-- @BatchPrediction@:
+--
+-- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
+--     creation date.
+--
+-- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+--
+-- -   @Name@ - Sets the search criteria to the contents of the
+--     @BatchPrediction@ ____ @Name@.
+--
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @BatchPrediction@ creation.
+--
+-- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
+--     @BatchPrediction@.
+--
+-- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+--     in the @BatchPrediction@.
+--
+-- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
+--     @BatchPrediction@. The URL can identify either a file or an Amazon
+--     Simple Storage Solution (Amazon S3) bucket or directory.
+describeBatchPredictions_filterVariable :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe BatchPredictionFilterVariable)
+describeBatchPredictions_filterVariable = Lens.lens (\DescribeBatchPredictions' {filterVariable} -> filterVariable) (\s@DescribeBatchPredictions' {} a -> s {filterVariable = a} :: DescribeBatchPredictions)
+
+-- | The greater than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+describeBatchPredictions_gt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_gt = Lens.lens (\DescribeBatchPredictions' {gt} -> gt) (\s@DescribeBatchPredictions' {} a -> s {gt = a} :: DescribeBatchPredictions)
+
+-- | The not equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+describeBatchPredictions_ne :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_ne = Lens.lens (\DescribeBatchPredictions' {ne} -> ne) (\s@DescribeBatchPredictions' {} a -> s {ne = a} :: DescribeBatchPredictions)
+
+-- | A string that is found at the beginning of a variable, such as @Name@ or
+-- @Id@.
+--
+-- For example, a @Batch Prediction@ operation could have the @Name@
+-- @2014-09-09-HolidayGiftMailer@. To search for this @BatchPrediction@,
+-- select @Name@ for the @FilterVariable@ and any of the following strings
+-- for the @Prefix@:
+--
+-- -   2014-09
+--
+-- -   2014-09-09
+--
+-- -   2014-09-09-Holiday
+describeBatchPredictions_prefix :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_prefix = Lens.lens (\DescribeBatchPredictions' {prefix} -> prefix) (\s@DescribeBatchPredictions' {} a -> s {prefix = a} :: DescribeBatchPredictions)
+
+-- | The greater than or equal to operator. The @BatchPrediction@ results
+-- will have @FilterVariable@ values that are greater than or equal to the
+-- value specified with @GE@.
+describeBatchPredictions_ge :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_ge = Lens.lens (\DescribeBatchPredictions' {ge} -> ge) (\s@DescribeBatchPredictions' {} a -> s {ge = a} :: DescribeBatchPredictions)
+
+-- | The less than or equal to operator. The @BatchPrediction@ results will
+-- have @FilterVariable@ values that are less than or equal to the value
+-- specified with @LE@.
+describeBatchPredictions_le :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_le = Lens.lens (\DescribeBatchPredictions' {le} -> le) (\s@DescribeBatchPredictions' {} a -> s {le = a} :: DescribeBatchPredictions)
+
+-- | The less than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are less than the value specified with
+-- @LT@.
+describeBatchPredictions_lt :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
+describeBatchPredictions_lt = Lens.lens (\DescribeBatchPredictions' {lt} -> lt) (\s@DescribeBatchPredictions' {} a -> s {lt = a} :: DescribeBatchPredictions)
+
+-- | The number of pages of information to include in the result. The range
+-- of acceptable values is @1@ through @100@. The default value is @100@.
+describeBatchPredictions_limit :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Natural)
+describeBatchPredictions_limit = Lens.lens (\DescribeBatchPredictions' {limit} -> limit) (\s@DescribeBatchPredictions' {} a -> s {limit = a} :: DescribeBatchPredictions)
+
+instance Core.AWSPager DescribeBatchPredictions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeBatchPredictionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeBatchPredictionsResponse_results
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeBatchPredictions_nextToken
+          Lens..~ rs
+          Lens.^? describeBatchPredictionsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeBatchPredictions where
+  type
+    AWSResponse DescribeBatchPredictions =
+      DescribeBatchPredictionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeBatchPredictionsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeBatchPredictions
+
+instance Prelude.NFData DescribeBatchPredictions
+
+instance Core.ToHeaders DescribeBatchPredictions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonML_20141212.DescribeBatchPredictions" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeBatchPredictions where
+  toJSON DescribeBatchPredictions' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("EQ" Core..=) Prelude.<$> eq,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("FilterVariable" Core..=)
+              Prelude.<$> filterVariable,
+            ("GT" Core..=) Prelude.<$> gt,
+            ("NE" Core..=) Prelude.<$> ne,
+            ("Prefix" Core..=) Prelude.<$> prefix,
+            ("GE" Core..=) Prelude.<$> ge,
+            ("LE" Core..=) Prelude.<$> le,
+            ("LT" Core..=) Prelude.<$> lt,
+            ("Limit" Core..=) Prelude.<$> limit
+          ]
+      )
+
+instance Core.ToPath DescribeBatchPredictions where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeBatchPredictions where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @DescribeBatchPredictions@ operation. The
+-- content is essentially a list of @BatchPrediction@s.
+--
+-- /See:/ 'newDescribeBatchPredictionsResponse' smart constructor.
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-  { _dbpsrsResults        :: !(Maybe [BatchPrediction])
-  , _dbpsrsNextToken      :: !(Maybe Text)
-  , _dbpsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeBatchPredictionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbpsrsResults' - A list of @BatchPrediction@ objects that meet the search criteria.
---
--- * 'dbpsrsNextToken' - The ID of the next page in the paginated results that indicates at least one more page follows.
---
--- * 'dbpsrsResponseStatus' - -- | The response status code.
-describeBatchPredictionsResponse
-    :: Int -- ^ 'dbpsrsResponseStatus'
-    -> DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse pResponseStatus_ =
-  DescribeBatchPredictionsResponse'
-  { _dbpsrsResults = Nothing
-  , _dbpsrsNextToken = Nothing
-  , _dbpsrsResponseStatus = pResponseStatus_
+  { -- | The ID of the next page in the paginated results that indicates at least
+    -- one more page follows.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of @BatchPrediction@ objects that meet the search criteria.
+    results :: Prelude.Maybe [BatchPrediction],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeBatchPredictionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeBatchPredictionsResponse_nextToken' - The ID of the next page in the paginated results that indicates at least
+-- one more page follows.
+--
+-- 'results', 'describeBatchPredictionsResponse_results' - A list of @BatchPrediction@ objects that meet the search criteria.
+--
+-- 'httpStatus', 'describeBatchPredictionsResponse_httpStatus' - The response's http status code.
+newDescribeBatchPredictionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeBatchPredictionsResponse
+newDescribeBatchPredictionsResponse pHttpStatus_ =
+  DescribeBatchPredictionsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      results = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The ID of the next page in the paginated results that indicates at least
+-- one more page follows.
+describeBatchPredictionsResponse_nextToken :: Lens.Lens' DescribeBatchPredictionsResponse (Prelude.Maybe Prelude.Text)
+describeBatchPredictionsResponse_nextToken = Lens.lens (\DescribeBatchPredictionsResponse' {nextToken} -> nextToken) (\s@DescribeBatchPredictionsResponse' {} a -> s {nextToken = a} :: DescribeBatchPredictionsResponse)
 
 -- | A list of @BatchPrediction@ objects that meet the search criteria.
-dbpsrsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
-dbpsrsResults = lens _dbpsrsResults (\ s a -> s{_dbpsrsResults = a}) . _Default . _Coerce;
+describeBatchPredictionsResponse_results :: Lens.Lens' DescribeBatchPredictionsResponse (Prelude.Maybe [BatchPrediction])
+describeBatchPredictionsResponse_results = Lens.lens (\DescribeBatchPredictionsResponse' {results} -> results) (\s@DescribeBatchPredictionsResponse' {} a -> s {results = a} :: DescribeBatchPredictionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the next page in the paginated results that indicates at least one more page follows.
-dbpsrsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
-dbpsrsNextToken = lens _dbpsrsNextToken (\ s a -> s{_dbpsrsNextToken = a});
+-- | The response's http status code.
+describeBatchPredictionsResponse_httpStatus :: Lens.Lens' DescribeBatchPredictionsResponse Prelude.Int
+describeBatchPredictionsResponse_httpStatus = Lens.lens (\DescribeBatchPredictionsResponse' {httpStatus} -> httpStatus) (\s@DescribeBatchPredictionsResponse' {} a -> s {httpStatus = a} :: DescribeBatchPredictionsResponse)
 
--- | -- | The response status code.
-dbpsrsResponseStatus :: Lens' DescribeBatchPredictionsResponse Int
-dbpsrsResponseStatus = lens _dbpsrsResponseStatus (\ s a -> s{_dbpsrsResponseStatus = a});
-
-instance NFData DescribeBatchPredictionsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeBatchPredictionsResponse

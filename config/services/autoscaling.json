@@ -1,0 +1,48 @@
+{
+    "libraryName": "amazonka-autoscaling",
+    "typeOverrides": {
+        "Activity": {
+            "optionalFields": [
+                "AutoScalingGroupName"
+            ]
+        },
+        "AutoScalingGroup": {
+            "optionalFields": [
+                "LaunchConfigurationName"
+            ]
+        },
+        "AutoScalingInstanceDetails": {
+            "optionalFields": [
+                "LaunchConfigurationName"
+            ]
+        },
+        "Instance": {
+            "optionalFields": [
+                "LaunchConfigurationName"
+            ]
+        },
+        "Filter": {
+            "requiredFields": [
+                "Name"
+            ]
+        },
+        "Tag": {
+            "requiredFields": [
+                "ResourceId",
+                "ResourceType",
+                "Key",
+                "PropagateAtLaunch",
+                "Value"
+            ]
+        },
+        "TagDescription": {
+            "requiredFields": [
+                "ResourceId",
+                "ResourceType",
+                "Key",
+                "PropagateAtLaunch",
+                "Value"
+            ]
+        }
+    }
+}

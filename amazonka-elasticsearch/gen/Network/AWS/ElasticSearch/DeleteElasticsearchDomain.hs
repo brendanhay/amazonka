@@ -1,133 +1,160 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.DeleteElasticsearchDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.
---
---
+-- Permanently deletes the specified Elasticsearch domain and all of its
+-- data. Once a domain is deleted, it cannot be recovered.
 module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
-    (
-    -- * Creating a Request
-      deleteElasticsearchDomain
-    , DeleteElasticsearchDomain
+  ( -- * Creating a Request
+    DeleteElasticsearchDomain (..),
+    newDeleteElasticsearchDomain,
+
     -- * Request Lenses
-    , dDomainName
+    deleteElasticsearchDomain_domainName,
 
     -- * Destructuring the Response
-    , deleteElasticsearchDomainResponse
-    , DeleteElasticsearchDomainResponse
+    DeleteElasticsearchDomainResponse (..),
+    newDeleteElasticsearchDomainResponse,
+
     -- * Response Lenses
-    , delrsDomainStatus
-    , delrsResponseStatus
-    ) where
+    deleteElasticsearchDomainResponse_domainStatus,
+    deleteElasticsearchDomainResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'DeleteElasticsearchDomain' @ operation. Specifies the name of the Elasticsearch domain that you want to delete.
+-- | Container for the parameters to the @DeleteElasticsearchDomain@
+-- operation. Specifies the name of the Elasticsearch domain that you want
+-- to delete.
 --
+-- /See:/ 'newDeleteElasticsearchDomain' smart constructor.
+data DeleteElasticsearchDomain = DeleteElasticsearchDomain'
+  { -- | The name of the Elasticsearch domain that you want to permanently
+    -- delete.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteElasticsearchDomain' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteElasticsearchDomain' smart constructor.
-newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
-  { _dDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteElasticsearchDomain' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'domainName', 'deleteElasticsearchDomain_domainName' - The name of the Elasticsearch domain that you want to permanently
+-- delete.
+newDeleteElasticsearchDomain ::
+  -- | 'domainName'
+  Prelude.Text ->
+  DeleteElasticsearchDomain
+newDeleteElasticsearchDomain pDomainName_ =
+  DeleteElasticsearchDomain'
+    { domainName =
+        pDomainName_
+    }
+
+-- | The name of the Elasticsearch domain that you want to permanently
+-- delete.
+deleteElasticsearchDomain_domainName :: Lens.Lens' DeleteElasticsearchDomain Prelude.Text
+deleteElasticsearchDomain_domainName = Lens.lens (\DeleteElasticsearchDomain' {domainName} -> domainName) (\s@DeleteElasticsearchDomain' {} a -> s {domainName = a} :: DeleteElasticsearchDomain)
+
+instance Core.AWSRequest DeleteElasticsearchDomain where
+  type
+    AWSResponse DeleteElasticsearchDomain =
+      DeleteElasticsearchDomainResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteElasticsearchDomainResponse'
+            Prelude.<$> (x Core..?> "DomainStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteElasticsearchDomain
+
+instance Prelude.NFData DeleteElasticsearchDomain
+
+instance Core.ToHeaders DeleteElasticsearchDomain where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteElasticsearchDomain where
+  toPath DeleteElasticsearchDomain' {..} =
+    Prelude.mconcat
+      ["/2015-01-01/es/domain/", Core.toBS domainName]
+
+instance Core.ToQuery DeleteElasticsearchDomain where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | The result of a @DeleteElasticsearchDomain@ request. Contains the status
+-- of the pending deletion, or no status if the domain and all of its
+-- resources have been deleted.
 --
--- * 'dDomainName' - The name of the Elasticsearch domain that you want to permanently delete.
-deleteElasticsearchDomain
-    :: Text -- ^ 'dDomainName'
-    -> DeleteElasticsearchDomain
-deleteElasticsearchDomain pDomainName_ =
-  DeleteElasticsearchDomain' {_dDomainName = pDomainName_}
-
-
--- | The name of the Elasticsearch domain that you want to permanently delete.
-dDomainName :: Lens' DeleteElasticsearchDomain Text
-dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
-
-instance AWSRequest DeleteElasticsearchDomain where
-        type Rs DeleteElasticsearchDomain =
-             DeleteElasticsearchDomainResponse
-        request = delete elasticSearch
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteElasticsearchDomainResponse' <$>
-                   (x .?> "DomainStatus") <*> (pure (fromEnum s)))
-
-instance Hashable DeleteElasticsearchDomain where
-
-instance NFData DeleteElasticsearchDomain where
-
-instance ToHeaders DeleteElasticsearchDomain where
-        toHeaders = const mempty
-
-instance ToPath DeleteElasticsearchDomain where
-        toPath DeleteElasticsearchDomain'{..}
-          = mconcat
-              ["/2015-01-01/es/domain/", toBS _dDomainName]
-
-instance ToQuery DeleteElasticsearchDomain where
-        toQuery = const mempty
-
--- | The result of a @DeleteElasticsearchDomain@ request. Contains the status of the pending deletion, or no status if the domain and all of its resources have been deleted.
---
---
---
--- /See:/ 'deleteElasticsearchDomainResponse' smart constructor.
+-- /See:/ 'newDeleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
-  { _delrsDomainStatus   :: !(Maybe ElasticsearchDomainStatus)
-  , _delrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The status of the Elasticsearch domain being deleted.
+    domainStatus :: Prelude.Maybe ElasticsearchDomainStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteElasticsearchDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteElasticsearchDomainResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delrsDomainStatus' - The status of the Elasticsearch domain being deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteElasticsearchDomainResponse
-    :: Int -- ^ 'delrsResponseStatus'
-    -> DeleteElasticsearchDomainResponse
-deleteElasticsearchDomainResponse pResponseStatus_ =
+-- 'domainStatus', 'deleteElasticsearchDomainResponse_domainStatus' - The status of the Elasticsearch domain being deleted.
+--
+-- 'httpStatus', 'deleteElasticsearchDomainResponse_httpStatus' - The response's http status code.
+newDeleteElasticsearchDomainResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteElasticsearchDomainResponse
+newDeleteElasticsearchDomainResponse pHttpStatus_ =
   DeleteElasticsearchDomainResponse'
-  {_delrsDomainStatus = Nothing, _delrsResponseStatus = pResponseStatus_}
-
+    { domainStatus =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The status of the Elasticsearch domain being deleted.
-delrsDomainStatus :: Lens' DeleteElasticsearchDomainResponse (Maybe ElasticsearchDomainStatus)
-delrsDomainStatus = lens _delrsDomainStatus (\ s a -> s{_delrsDomainStatus = a});
+deleteElasticsearchDomainResponse_domainStatus :: Lens.Lens' DeleteElasticsearchDomainResponse (Prelude.Maybe ElasticsearchDomainStatus)
+deleteElasticsearchDomainResponse_domainStatus = Lens.lens (\DeleteElasticsearchDomainResponse' {domainStatus} -> domainStatus) (\s@DeleteElasticsearchDomainResponse' {} a -> s {domainStatus = a} :: DeleteElasticsearchDomainResponse)
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteElasticsearchDomainResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+-- | The response's http status code.
+deleteElasticsearchDomainResponse_httpStatus :: Lens.Lens' DeleteElasticsearchDomainResponse Prelude.Int
+deleteElasticsearchDomainResponse_httpStatus = Lens.lens (\DeleteElasticsearchDomainResponse' {httpStatus} -> httpStatus) (\s@DeleteElasticsearchDomainResponse' {} a -> s {httpStatus = a} :: DeleteElasticsearchDomainResponse)
 
-instance NFData DeleteElasticsearchDomainResponse
-         where
+instance
+  Prelude.NFData
+    DeleteElasticsearchDomainResponse

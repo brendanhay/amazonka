@@ -1,143 +1,175 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.DetachPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detaches a policy from an object.
---
---
 module Network.AWS.CloudDirectory.DetachPolicy
-    (
-    -- * Creating a Request
-      detachPolicy
-    , DetachPolicy
+  ( -- * Creating a Request
+    DetachPolicy (..),
+    newDetachPolicy,
+
     -- * Request Lenses
-    , dpDirectoryARN
-    , dpPolicyReference
-    , dpObjectReference
+    detachPolicy_directoryArn,
+    detachPolicy_policyReference,
+    detachPolicy_objectReference,
 
     -- * Destructuring the Response
-    , detachPolicyResponse
-    , DetachPolicyResponse
+    DetachPolicyResponse (..),
+    newDetachPolicyResponse,
+
     -- * Response Lenses
-    , dprsResponseStatus
-    ) where
+    detachPolicyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'detachPolicy' smart constructor.
+-- | /See:/ 'newDetachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-  { _dpDirectoryARN    :: !Text
-  , _dpPolicyReference :: !ObjectReference
-  , _dpObjectReference :: !ObjectReference
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
---
--- * 'dpPolicyReference' - Reference that identifies the policy object.
---
--- * 'dpObjectReference' - Reference that identifies the object whose policy object will be detached.
-detachPolicy
-    :: Text -- ^ 'dpDirectoryARN'
-    -> ObjectReference -- ^ 'dpPolicyReference'
-    -> ObjectReference -- ^ 'dpObjectReference'
-    -> DetachPolicy
-detachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
-  DetachPolicy'
-  { _dpDirectoryARN = pDirectoryARN_
-  , _dpPolicyReference = pPolicyReference_
-  , _dpObjectReference = pObjectReference_
+  { -- | The Amazon Resource Name (ARN) that is associated with the Directory
+    -- where both objects reside. For more information, see arns.
+    directoryArn :: Prelude.Text,
+    -- | Reference that identifies the policy object.
+    policyReference :: ObjectReference,
+    -- | Reference that identifies the object whose policy object will be
+    -- detached.
+    objectReference :: ObjectReference
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DetachPolicy' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryArn', 'detachPolicy_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
+-- where both objects reside. For more information, see arns.
+--
+-- 'policyReference', 'detachPolicy_policyReference' - Reference that identifies the policy object.
+--
+-- 'objectReference', 'detachPolicy_objectReference' - Reference that identifies the object whose policy object will be
+-- detached.
+newDetachPolicy ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'policyReference'
+  ObjectReference ->
+  -- | 'objectReference'
+  ObjectReference ->
+  DetachPolicy
+newDetachPolicy
+  pDirectoryArn_
+  pPolicyReference_
+  pObjectReference_ =
+    DetachPolicy'
+      { directoryArn = pDirectoryArn_,
+        policyReference = pPolicyReference_,
+        objectReference = pObjectReference_
+      }
 
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
-dpDirectoryARN :: Lens' DetachPolicy Text
-dpDirectoryARN = lens _dpDirectoryARN (\ s a -> s{_dpDirectoryARN = a});
+-- | The Amazon Resource Name (ARN) that is associated with the Directory
+-- where both objects reside. For more information, see arns.
+detachPolicy_directoryArn :: Lens.Lens' DetachPolicy Prelude.Text
+detachPolicy_directoryArn = Lens.lens (\DetachPolicy' {directoryArn} -> directoryArn) (\s@DetachPolicy' {} a -> s {directoryArn = a} :: DetachPolicy)
 
 -- | Reference that identifies the policy object.
-dpPolicyReference :: Lens' DetachPolicy ObjectReference
-dpPolicyReference = lens _dpPolicyReference (\ s a -> s{_dpPolicyReference = a});
+detachPolicy_policyReference :: Lens.Lens' DetachPolicy ObjectReference
+detachPolicy_policyReference = Lens.lens (\DetachPolicy' {policyReference} -> policyReference) (\s@DetachPolicy' {} a -> s {policyReference = a} :: DetachPolicy)
 
--- | Reference that identifies the object whose policy object will be detached.
-dpObjectReference :: Lens' DetachPolicy ObjectReference
-dpObjectReference = lens _dpObjectReference (\ s a -> s{_dpObjectReference = a});
+-- | Reference that identifies the object whose policy object will be
+-- detached.
+detachPolicy_objectReference :: Lens.Lens' DetachPolicy ObjectReference
+detachPolicy_objectReference = Lens.lens (\DetachPolicy' {objectReference} -> objectReference) (\s@DetachPolicy' {} a -> s {objectReference = a} :: DetachPolicy)
 
-instance AWSRequest DetachPolicy where
-        type Rs DetachPolicy = DetachPolicyResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DetachPolicyResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DetachPolicy where
+  type AWSResponse DetachPolicy = DetachPolicyResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DetachPolicyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DetachPolicy where
+instance Prelude.Hashable DetachPolicy
 
-instance NFData DetachPolicy where
+instance Prelude.NFData DetachPolicy
 
-instance ToHeaders DetachPolicy where
-        toHeaders DetachPolicy'{..}
-          = mconcat ["x-amz-data-partition" =# _dpDirectoryARN]
+instance Core.ToHeaders DetachPolicy where
+  toHeaders DetachPolicy' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance ToJSON DetachPolicy where
-        toJSON DetachPolicy'{..}
-          = object
-              (catMaybes
-                 [Just ("PolicyReference" .= _dpPolicyReference),
-                  Just ("ObjectReference" .= _dpObjectReference)])
+instance Core.ToJSON DetachPolicy where
+  toJSON DetachPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("PolicyReference" Core..= policyReference),
+            Prelude.Just
+              ("ObjectReference" Core..= objectReference)
+          ]
+      )
 
-instance ToPath DetachPolicy where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/policy/detach"
+instance Core.ToPath DetachPolicy where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/policy/detach"
 
-instance ToQuery DetachPolicy where
-        toQuery = const mempty
+instance Core.ToQuery DetachPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'detachPolicyResponse' smart constructor.
-newtype DetachPolicyResponse = DetachPolicyResponse'
-  { _dprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDetachPolicyResponse' smart constructor.
+data DetachPolicyResponse = DetachPolicyResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachPolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dprsResponseStatus' - -- | The response status code.
-detachPolicyResponse
-    :: Int -- ^ 'dprsResponseStatus'
-    -> DetachPolicyResponse
-detachPolicyResponse pResponseStatus_ =
-  DetachPolicyResponse' {_dprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'detachPolicyResponse_httpStatus' - The response's http status code.
+newDetachPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DetachPolicyResponse
+newDetachPolicyResponse pHttpStatus_ =
+  DetachPolicyResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+detachPolicyResponse_httpStatus :: Lens.Lens' DetachPolicyResponse Prelude.Int
+detachPolicyResponse_httpStatus = Lens.lens (\DetachPolicyResponse' {httpStatus} -> httpStatus) (\s@DetachPolicyResponse' {} a -> s {httpStatus = a} :: DetachPolicyResponse)
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DetachPolicyResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
-
-instance NFData DetachPolicyResponse where
+instance Prelude.NFData DetachPolicyResponse

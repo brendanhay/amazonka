@@ -1,120 +1,145 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.DeleteParameter
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a parameter from the system.
---
---
+-- Delete a parameter from the system. After deleting a parameter, wait for
+-- at least 30 seconds to create a parameter with the same name.
 module Network.AWS.SSM.DeleteParameter
-    (
-    -- * Creating a Request
-      deleteParameter
-    , DeleteParameter
+  ( -- * Creating a Request
+    DeleteParameter (..),
+    newDeleteParameter,
+
     -- * Request Lenses
-    , delName
+    deleteParameter_name,
 
     -- * Destructuring the Response
-    , deleteParameterResponse
-    , DeleteParameterResponse
+    DeleteParameterResponse (..),
+    newDeleteParameterResponse,
+
     -- * Response Lenses
-    , dpprsResponseStatus
-    ) where
+    deleteParameterResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'deleteParameter' smart constructor.
-newtype DeleteParameter = DeleteParameter'
-  { _delName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteParameter' smart constructor.
+data DeleteParameter = DeleteParameter'
+  { -- | The name of the parameter to delete.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteParameter' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteParameter' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delName' - The name of the parameter to delete.
-deleteParameter
-    :: Text -- ^ 'delName'
-    -> DeleteParameter
-deleteParameter pName_ = DeleteParameter' {_delName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'deleteParameter_name' - The name of the parameter to delete.
+newDeleteParameter ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteParameter
+newDeleteParameter pName_ =
+  DeleteParameter' {name = pName_}
 
 -- | The name of the parameter to delete.
-delName :: Lens' DeleteParameter Text
-delName = lens _delName (\ s a -> s{_delName = a});
+deleteParameter_name :: Lens.Lens' DeleteParameter Prelude.Text
+deleteParameter_name = Lens.lens (\DeleteParameter' {name} -> name) (\s@DeleteParameter' {} a -> s {name = a} :: DeleteParameter)
 
-instance AWSRequest DeleteParameter where
-        type Rs DeleteParameter = DeleteParameterResponse
-        request = postJSON ssm
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteParameterResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteParameter where
+  type
+    AWSResponse DeleteParameter =
+      DeleteParameterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteParameterResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteParameter where
+instance Prelude.Hashable DeleteParameter
 
-instance NFData DeleteParameter where
+instance Prelude.NFData DeleteParameter
 
-instance ToHeaders DeleteParameter where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.DeleteParameter" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteParameter where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AmazonSSM.DeleteParameter" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteParameter where
-        toJSON DeleteParameter'{..}
-          = object (catMaybes [Just ("Name" .= _delName)])
+instance Core.ToJSON DeleteParameter where
+  toJSON DeleteParameter' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
-instance ToPath DeleteParameter where
-        toPath = const "/"
+instance Core.ToPath DeleteParameter where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteParameter where
-        toQuery = const mempty
+instance Core.ToQuery DeleteParameter where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteParameterResponse' smart constructor.
-newtype DeleteParameterResponse = DeleteParameterResponse'
-  { _dpprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteParameterResponse' smart constructor.
+data DeleteParameterResponse = DeleteParameterResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteParameterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteParameterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpprsResponseStatus' - -- | The response status code.
-deleteParameterResponse
-    :: Int -- ^ 'dpprsResponseStatus'
-    -> DeleteParameterResponse
-deleteParameterResponse pResponseStatus_ =
-  DeleteParameterResponse' {_dpprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteParameterResponse_httpStatus' - The response's http status code.
+newDeleteParameterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteParameterResponse
+newDeleteParameterResponse pHttpStatus_ =
+  DeleteParameterResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteParameterResponse_httpStatus :: Lens.Lens' DeleteParameterResponse Prelude.Int
+deleteParameterResponse_httpStatus = Lens.lens (\DeleteParameterResponse' {httpStatus} -> httpStatus) (\s@DeleteParameterResponse' {} a -> s {httpStatus = a} :: DeleteParameterResponse)
 
--- | -- | The response status code.
-dpprsResponseStatus :: Lens' DeleteParameterResponse Int
-dpprsResponseStatus = lens _dpprsResponseStatus (\ s a -> s{_dpprsResponseStatus = a});
-
-instance NFData DeleteParameterResponse where
+instance Prelude.NFData DeleteParameterResponse

@@ -1,116 +1,142 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.
+-- Adds metadata tags to an Amazon RDS resource. These tags can also be
+-- used with cost allocation reporting to track cost associated with Amazon
+-- RDS resources, or used in a Condition statement in an IAM policy for
+-- Amazon RDS.
 --
---
--- For an overview on tagging Amazon RDS resources, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> .
---
+-- For an overview on tagging Amazon RDS resources, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
 module Network.AWS.RDS.AddTagsToResource
-    (
-    -- * Creating a Request
-      addTagsToResource
-    , AddTagsToResource
+  ( -- * Creating a Request
+    AddTagsToResource (..),
+    newAddTagsToResource,
+
     -- * Request Lenses
-    , attrResourceName
-    , attrTags
+    addTagsToResource_resourceName,
+    addTagsToResource_tags,
 
     -- * Destructuring the Response
-    , addTagsToResourceResponse
-    , AddTagsToResourceResponse
-    ) where
+    AddTagsToResourceResponse (..),
+    newAddTagsToResourceResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'addTagsToResource' smart constructor.
+-- /See:/ 'newAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceName :: !Text
-  , _attrTags         :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon RDS resource that the tags are added to. This value is an
+    -- Amazon Resource Name (ARN). For information about creating an ARN, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
+    resourceName :: Prelude.Text,
+    -- | The tags to be assigned to the Amazon RDS resource.
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'attrResourceName' - The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'attrTags' - The tags to be assigned to the Amazon RDS resource.
-addTagsToResource
-    :: Text -- ^ 'attrResourceName'
-    -> AddTagsToResource
-addTagsToResource pResourceName_ =
-  AddTagsToResource' {_attrResourceName = pResourceName_, _attrTags = mempty}
+-- 'resourceName', 'addTagsToResource_resourceName' - The Amazon RDS resource that the tags are added to. This value is an
+-- Amazon Resource Name (ARN). For information about creating an ARN, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
+--
+-- 'tags', 'addTagsToResource_tags' - The tags to be assigned to the Amazon RDS resource.
+newAddTagsToResource ::
+  -- | 'resourceName'
+  Prelude.Text ->
+  AddTagsToResource
+newAddTagsToResource pResourceName_ =
+  AddTagsToResource'
+    { resourceName = pResourceName_,
+      tags = Prelude.mempty
+    }
 
-
--- | The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
-attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
+-- | The Amazon RDS resource that the tags are added to. This value is an
+-- Amazon Resource Name (ARN). For information about creating an ARN, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)>.
+addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Prelude.Text
+addTagsToResource_resourceName = Lens.lens (\AddTagsToResource' {resourceName} -> resourceName) (\s@AddTagsToResource' {} a -> s {resourceName = a} :: AddTagsToResource)
 
 -- | The tags to be assigned to the Amazon RDS resource.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 
-instance AWSRequest AddTagsToResource where
-        type Rs AddTagsToResource = AddTagsToResourceResponse
-        request = postQuery rds
-        response = receiveNull AddTagsToResourceResponse'
+instance Core.AWSRequest AddTagsToResource where
+  type
+    AWSResponse AddTagsToResource =
+      AddTagsToResourceResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull AddTagsToResourceResponse'
 
-instance Hashable AddTagsToResource where
+instance Prelude.Hashable AddTagsToResource
 
-instance NFData AddTagsToResource where
+instance Prelude.NFData AddTagsToResource
 
-instance ToHeaders AddTagsToResource where
-        toHeaders = const mempty
+instance Core.ToHeaders AddTagsToResource where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath AddTagsToResource where
-        toPath = const "/"
+instance Core.ToPath AddTagsToResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery AddTagsToResource where
-        toQuery AddTagsToResource'{..}
-          = mconcat
-              ["Action" =: ("AddTagsToResource" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "ResourceName" =: _attrResourceName,
-               "Tags" =: toQueryList "Tag" _attrTags]
+instance Core.ToQuery AddTagsToResource where
+  toQuery AddTagsToResource' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AddTagsToResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "ResourceName" Core.=: resourceName,
+        "Tags" Core.=: Core.toQueryList "Tag" tags
+      ]
 
--- | /See:/ 'addTagsToResourceResponse' smart constructor.
-data AddTagsToResourceResponse =
-  AddTagsToResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAddTagsToResourceResponse' smart constructor.
+data AddTagsToResourceResponse = AddTagsToResourceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToResourceResponse' with all optional fields omitted.
 --
-addTagsToResourceResponse
-    :: AddTagsToResourceResponse
-addTagsToResourceResponse = AddTagsToResourceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAddTagsToResourceResponse ::
+  AddTagsToResourceResponse
+newAddTagsToResourceResponse =
+  AddTagsToResourceResponse'
 
-
-instance NFData AddTagsToResourceResponse where
+instance Prelude.NFData AddTagsToResourceResponse

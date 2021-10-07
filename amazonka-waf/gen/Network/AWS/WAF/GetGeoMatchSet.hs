@@ -1,133 +1,186 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAF.GetGeoMatchSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the 'GeoMatchSet' that is specified by @GeoMatchSetId@ .
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
+-- Returns the GeoMatchSet that is specified by @GeoMatchSetId@.
 module Network.AWS.WAF.GetGeoMatchSet
-    (
-    -- * Creating a Request
-      getGeoMatchSet
-    , GetGeoMatchSet
+  ( -- * Creating a Request
+    GetGeoMatchSet (..),
+    newGetGeoMatchSet,
+
     -- * Request Lenses
-    , ggmsGeoMatchSetId
+    getGeoMatchSet_geoMatchSetId,
 
     -- * Destructuring the Response
-    , getGeoMatchSetResponse
-    , GetGeoMatchSetResponse
+    GetGeoMatchSetResponse (..),
+    newGetGeoMatchSetResponse,
+
     -- * Response Lenses
-    , ggmsrsGeoMatchSet
-    , ggmsrsResponseStatus
-    ) where
+    getGeoMatchSetResponse_geoMatchSet,
+    getGeoMatchSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
-import Network.AWS.WAF.Types.Product
 
--- | /See:/ 'getGeoMatchSet' smart constructor.
-newtype GetGeoMatchSet = GetGeoMatchSet'
-  { _ggmsGeoMatchSetId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetGeoMatchSet' smart constructor.
+data GetGeoMatchSet = GetGeoMatchSet'
+  { -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to get.
+    -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
+    -- ListGeoMatchSets.
+    geoMatchSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGeoMatchSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGeoMatchSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggmsGeoMatchSetId' - The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-getGeoMatchSet
-    :: Text -- ^ 'ggmsGeoMatchSetId'
-    -> GetGeoMatchSet
-getGeoMatchSet pGeoMatchSetId_ =
-  GetGeoMatchSet' {_ggmsGeoMatchSetId = pGeoMatchSetId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'geoMatchSetId', 'getGeoMatchSet_geoMatchSetId' - The @GeoMatchSetId@ of the GeoMatchSet that you want to get.
+-- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
+-- ListGeoMatchSets.
+newGetGeoMatchSet ::
+  -- | 'geoMatchSetId'
+  Prelude.Text ->
+  GetGeoMatchSet
+newGetGeoMatchSet pGeoMatchSetId_ =
+  GetGeoMatchSet' {geoMatchSetId = pGeoMatchSetId_}
 
+-- | The @GeoMatchSetId@ of the GeoMatchSet that you want to get.
+-- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
+-- ListGeoMatchSets.
+getGeoMatchSet_geoMatchSetId :: Lens.Lens' GetGeoMatchSet Prelude.Text
+getGeoMatchSet_geoMatchSetId = Lens.lens (\GetGeoMatchSet' {geoMatchSetId} -> geoMatchSetId) (\s@GetGeoMatchSet' {} a -> s {geoMatchSetId = a} :: GetGeoMatchSet)
 
--- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-ggmsGeoMatchSetId :: Lens' GetGeoMatchSet Text
-ggmsGeoMatchSetId = lens _ggmsGeoMatchSetId (\ s a -> s{_ggmsGeoMatchSetId = a});
+instance Core.AWSRequest GetGeoMatchSet where
+  type
+    AWSResponse GetGeoMatchSet =
+      GetGeoMatchSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetGeoMatchSetResponse'
+            Prelude.<$> (x Core..?> "GeoMatchSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetGeoMatchSet where
-        type Rs GetGeoMatchSet = GetGeoMatchSetResponse
-        request = postJSON waf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetGeoMatchSetResponse' <$>
-                   (x .?> "GeoMatchSet") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetGeoMatchSet
 
-instance Hashable GetGeoMatchSet where
+instance Prelude.NFData GetGeoMatchSet
 
-instance NFData GetGeoMatchSet where
+instance Core.ToHeaders GetGeoMatchSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_20150824.GetGeoMatchSet" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetGeoMatchSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_20150824.GetGeoMatchSet" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetGeoMatchSet where
+  toJSON GetGeoMatchSet' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("GeoMatchSetId" Core..= geoMatchSetId)
+          ]
+      )
 
-instance ToJSON GetGeoMatchSet where
-        toJSON GetGeoMatchSet'{..}
-          = object
-              (catMaybes
-                 [Just ("GeoMatchSetId" .= _ggmsGeoMatchSetId)])
+instance Core.ToPath GetGeoMatchSet where
+  toPath = Prelude.const "/"
 
-instance ToPath GetGeoMatchSet where
-        toPath = const "/"
+instance Core.ToQuery GetGeoMatchSet where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetGeoMatchSet where
-        toQuery = const mempty
-
--- | /See:/ 'getGeoMatchSetResponse' smart constructor.
+-- | /See:/ 'newGetGeoMatchSetResponse' smart constructor.
 data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
-  { _ggmsrsGeoMatchSet    :: !(Maybe GeoMatchSet)
-  , _ggmsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the GeoMatchSet that you specified in the
+    -- @GetGeoMatchSet@ request. This includes the @Type@, which for a
+    -- @GeoMatchContraint@ is always @Country@, as well as the @Value@, which
+    -- is the identifier for a specific country.
+    geoMatchSet :: Prelude.Maybe GeoMatchSet,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGeoMatchSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGeoMatchSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggmsrsGeoMatchSet' - Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ggmsrsResponseStatus' - -- | The response status code.
-getGeoMatchSetResponse
-    :: Int -- ^ 'ggmsrsResponseStatus'
-    -> GetGeoMatchSetResponse
-getGeoMatchSetResponse pResponseStatus_ =
+-- 'geoMatchSet', 'getGeoMatchSetResponse_geoMatchSet' - Information about the GeoMatchSet that you specified in the
+-- @GetGeoMatchSet@ request. This includes the @Type@, which for a
+-- @GeoMatchContraint@ is always @Country@, as well as the @Value@, which
+-- is the identifier for a specific country.
+--
+-- 'httpStatus', 'getGeoMatchSetResponse_httpStatus' - The response's http status code.
+newGetGeoMatchSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetGeoMatchSetResponse
+newGetGeoMatchSetResponse pHttpStatus_ =
   GetGeoMatchSetResponse'
-  {_ggmsrsGeoMatchSet = Nothing, _ggmsrsResponseStatus = pResponseStatus_}
+    { geoMatchSet =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the GeoMatchSet that you specified in the
+-- @GetGeoMatchSet@ request. This includes the @Type@, which for a
+-- @GeoMatchContraint@ is always @Country@, as well as the @Value@, which
+-- is the identifier for a specific country.
+getGeoMatchSetResponse_geoMatchSet :: Lens.Lens' GetGeoMatchSetResponse (Prelude.Maybe GeoMatchSet)
+getGeoMatchSetResponse_geoMatchSet = Lens.lens (\GetGeoMatchSetResponse' {geoMatchSet} -> geoMatchSet) (\s@GetGeoMatchSetResponse' {} a -> s {geoMatchSet = a} :: GetGeoMatchSetResponse)
 
--- | Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
-ggmsrsGeoMatchSet :: Lens' GetGeoMatchSetResponse (Maybe GeoMatchSet)
-ggmsrsGeoMatchSet = lens _ggmsrsGeoMatchSet (\ s a -> s{_ggmsrsGeoMatchSet = a});
+-- | The response's http status code.
+getGeoMatchSetResponse_httpStatus :: Lens.Lens' GetGeoMatchSetResponse Prelude.Int
+getGeoMatchSetResponse_httpStatus = Lens.lens (\GetGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetGeoMatchSetResponse' {} a -> s {httpStatus = a} :: GetGeoMatchSetResponse)
 
--- | -- | The response status code.
-ggmsrsResponseStatus :: Lens' GetGeoMatchSetResponse Int
-ggmsrsResponseStatus = lens _ggmsrsResponseStatus (\ s a -> s{_ggmsrsResponseStatus = a});
-
-instance NFData GetGeoMatchSetResponse where
+instance Prelude.NFData GetGeoMatchSetResponse

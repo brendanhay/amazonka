@@ -1,124 +1,154 @@
-name:                  amazonka-mechanicalturk
-version:               1.5.0
-synopsis:              Amazon Mechanical Turk SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-mechanicalturk
+version:            1.6.1
+synopsis:           Amazon Mechanical Turk SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.MechanicalTurk" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2017-01-17@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.MechanicalTurk.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.MechanicalTurk" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-mechanicalturk
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-mechanicalturk
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.MechanicalTurk
+    Network.AWS.MechanicalTurk.AcceptQualificationRequest
+    Network.AWS.MechanicalTurk.ApproveAssignment
+    Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
+    Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
+    Network.AWS.MechanicalTurk.CreateHIT
+    Network.AWS.MechanicalTurk.CreateHITType
+    Network.AWS.MechanicalTurk.CreateHITWithHITType
+    Network.AWS.MechanicalTurk.CreateQualificationType
+    Network.AWS.MechanicalTurk.CreateWorkerBlock
+    Network.AWS.MechanicalTurk.DeleteHIT
+    Network.AWS.MechanicalTurk.DeleteQualificationType
+    Network.AWS.MechanicalTurk.DeleteWorkerBlock
+    Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
+    Network.AWS.MechanicalTurk.GetAccountBalance
+    Network.AWS.MechanicalTurk.GetAssignment
+    Network.AWS.MechanicalTurk.GetFileUploadURL
+    Network.AWS.MechanicalTurk.GetHIT
+    Network.AWS.MechanicalTurk.GetQualificationScore
+    Network.AWS.MechanicalTurk.GetQualificationType
+    Network.AWS.MechanicalTurk.Lens
+    Network.AWS.MechanicalTurk.ListAssignmentsForHIT
+    Network.AWS.MechanicalTurk.ListBonusPayments
+    Network.AWS.MechanicalTurk.ListHITs
+    Network.AWS.MechanicalTurk.ListHITsForQualificationType
+    Network.AWS.MechanicalTurk.ListQualificationRequests
+    Network.AWS.MechanicalTurk.ListQualificationTypes
+    Network.AWS.MechanicalTurk.ListReviewableHITs
+    Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
+    Network.AWS.MechanicalTurk.ListWorkerBlocks
+    Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
+    Network.AWS.MechanicalTurk.NotifyWorkers
+    Network.AWS.MechanicalTurk.RejectAssignment
+    Network.AWS.MechanicalTurk.RejectQualificationRequest
+    Network.AWS.MechanicalTurk.SendBonus
+    Network.AWS.MechanicalTurk.SendTestEventNotification
+    Network.AWS.MechanicalTurk.Types
+    Network.AWS.MechanicalTurk.Types.Assignment
+    Network.AWS.MechanicalTurk.Types.AssignmentStatus
+    Network.AWS.MechanicalTurk.Types.BonusPayment
+    Network.AWS.MechanicalTurk.Types.Comparator
+    Network.AWS.MechanicalTurk.Types.EventType
+    Network.AWS.MechanicalTurk.Types.HIT
+    Network.AWS.MechanicalTurk.Types.HITAccessActions
+    Network.AWS.MechanicalTurk.Types.HITLayoutParameter
+    Network.AWS.MechanicalTurk.Types.HITReviewStatus
+    Network.AWS.MechanicalTurk.Types.HITStatus
+    Network.AWS.MechanicalTurk.Types.Locale
+    Network.AWS.MechanicalTurk.Types.NotificationSpecification
+    Network.AWS.MechanicalTurk.Types.NotificationTransport
+    Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
+    Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus
+    Network.AWS.MechanicalTurk.Types.ParameterMapEntry
+    Network.AWS.MechanicalTurk.Types.PolicyParameter
+    Network.AWS.MechanicalTurk.Types.Qualification
+    Network.AWS.MechanicalTurk.Types.QualificationRequest
+    Network.AWS.MechanicalTurk.Types.QualificationRequirement
+    Network.AWS.MechanicalTurk.Types.QualificationStatus
+    Network.AWS.MechanicalTurk.Types.QualificationType
+    Network.AWS.MechanicalTurk.Types.QualificationTypeStatus
+    Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
+    Network.AWS.MechanicalTurk.Types.ReviewActionDetail
+    Network.AWS.MechanicalTurk.Types.ReviewActionStatus
+    Network.AWS.MechanicalTurk.Types.ReviewPolicy
+    Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
+    Network.AWS.MechanicalTurk.Types.ReviewReport
+    Network.AWS.MechanicalTurk.Types.ReviewResultDetail
+    Network.AWS.MechanicalTurk.Types.WorkerBlock
+    Network.AWS.MechanicalTurk.UpdateExpirationForHIT
+    Network.AWS.MechanicalTurk.UpdateHITReviewStatus
+    Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
+    Network.AWS.MechanicalTurk.UpdateNotificationSettings
+    Network.AWS.MechanicalTurk.UpdateQualificationType
+    Network.AWS.MechanicalTurk.Waiters
 
-    exposed-modules:
-          Network.AWS.MechanicalTurk
-        , Network.AWS.MechanicalTurk.AcceptQualificationRequest
-        , Network.AWS.MechanicalTurk.ApproveAssignment
-        , Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
-        , Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
-        , Network.AWS.MechanicalTurk.CreateHIT
-        , Network.AWS.MechanicalTurk.CreateHITType
-        , Network.AWS.MechanicalTurk.CreateHITWithHITType
-        , Network.AWS.MechanicalTurk.CreateQualificationType
-        , Network.AWS.MechanicalTurk.CreateWorkerBlock
-        , Network.AWS.MechanicalTurk.DeleteHIT
-        , Network.AWS.MechanicalTurk.DeleteQualificationType
-        , Network.AWS.MechanicalTurk.DeleteWorkerBlock
-        , Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
-        , Network.AWS.MechanicalTurk.GetAccountBalance
-        , Network.AWS.MechanicalTurk.GetAssignment
-        , Network.AWS.MechanicalTurk.GetFileUploadURL
-        , Network.AWS.MechanicalTurk.GetHIT
-        , Network.AWS.MechanicalTurk.GetQualificationScore
-        , Network.AWS.MechanicalTurk.GetQualificationType
-        , Network.AWS.MechanicalTurk.ListAssignmentsForHIT
-        , Network.AWS.MechanicalTurk.ListBonusPayments
-        , Network.AWS.MechanicalTurk.ListHITs
-        , Network.AWS.MechanicalTurk.ListHITsForQualificationType
-        , Network.AWS.MechanicalTurk.ListQualificationRequests
-        , Network.AWS.MechanicalTurk.ListQualificationTypes
-        , Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
-        , Network.AWS.MechanicalTurk.ListReviewableHITs
-        , Network.AWS.MechanicalTurk.ListWorkerBlocks
-        , Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
-        , Network.AWS.MechanicalTurk.NotifyWorkers
-        , Network.AWS.MechanicalTurk.RejectAssignment
-        , Network.AWS.MechanicalTurk.RejectQualificationRequest
-        , Network.AWS.MechanicalTurk.SendBonus
-        , Network.AWS.MechanicalTurk.SendTestEventNotification
-        , Network.AWS.MechanicalTurk.Types
-        , Network.AWS.MechanicalTurk.UpdateExpirationForHIT
-        , Network.AWS.MechanicalTurk.UpdateHITReviewStatus
-        , Network.AWS.MechanicalTurk.UpdateHITTypeOfHIT
-        , Network.AWS.MechanicalTurk.UpdateNotificationSettings
-        , Network.AWS.MechanicalTurk.UpdateQualificationType
-        , Network.AWS.MechanicalTurk.Waiters
-
-    other-modules:
-          Network.AWS.MechanicalTurk.Types.Product
-        , Network.AWS.MechanicalTurk.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-mechanicalturk-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MechanicalTurk
+    Test.AWS.MechanicalTurk
+    Test.AWS.MechanicalTurk.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.MechanicalTurk
-        , Test.AWS.Gen.MechanicalTurk
-        , Test.AWS.MechanicalTurk.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-mechanicalturk
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka                 >=1.6.1 && <1.6.2
+    , amazonka-mechanicalturk
+    , amazonka-test            >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

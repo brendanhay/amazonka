@@ -1,192 +1,283 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of @DBParameterGroup@ descriptions. If a @DBParameterGroupName@ is specified, the list will contain only the description of the specified DB parameter group.
---
---
+-- Returns a list of @DBParameterGroup@ descriptions. If a
+-- @DBParameterGroupName@ is specified, the list will contain only the
+-- description of the specified DB parameter group.
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameterGroups
-    (
-    -- * Creating a Request
-      describeDBParameterGroups
-    , DescribeDBParameterGroups
+  ( -- * Creating a Request
+    DescribeDBParameterGroups (..),
+    newDescribeDBParameterGroups,
+
     -- * Request Lenses
-    , ddpgFilters
-    , ddpgDBParameterGroupName
-    , ddpgMarker
-    , ddpgMaxRecords
+    describeDBParameterGroups_dbParameterGroupName,
+    describeDBParameterGroups_filters,
+    describeDBParameterGroups_maxRecords,
+    describeDBParameterGroups_marker,
 
     -- * Destructuring the Response
-    , describeDBParameterGroupsResponse
-    , DescribeDBParameterGroupsResponse
-    -- * Response Lenses
-    , ddpgrsMarker
-    , ddpgrsDBParameterGroups
-    , ddpgrsResponseStatus
-    ) where
+    DescribeDBParameterGroupsResponse (..),
+    newDescribeDBParameterGroupsResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeDBParameterGroupsResponse_dbParameterGroups,
+    describeDBParameterGroupsResponse_marker,
+    describeDBParameterGroupsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeDBParameterGroups' smart constructor.
+-- /See:/ 'newDescribeDBParameterGroups' smart constructor.
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-  { _ddpgFilters              :: !(Maybe [Filter])
-  , _ddpgDBParameterGroupName :: !(Maybe Text)
-  , _ddpgMarker               :: !(Maybe Text)
-  , _ddpgMaxRecords           :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of a specific DB parameter group to return details for.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match the name of an existing
+    --     DBClusterParameterGroup.
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that you can retrieve the
+    -- remaining results.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDBParameterGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDBParameterGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddpgFilters' - This parameter is not currently supported.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddpgDBParameterGroupName' - The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
+-- 'dbParameterGroupName', 'describeDBParameterGroups_dbParameterGroupName' - The name of a specific DB parameter group to return details for.
 --
--- * 'ddpgMarker' - An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- Constraints:
 --
--- * 'ddpgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeDBParameterGroups
-    :: DescribeDBParameterGroups
-describeDBParameterGroups =
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+--
+-- 'filters', 'describeDBParameterGroups_filters' - This parameter isn\'t currently supported.
+--
+-- 'maxRecords', 'describeDBParameterGroups_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBParameterGroups_marker' - An optional pagination token provided by a previous
+-- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+newDescribeDBParameterGroups ::
+  DescribeDBParameterGroups
+newDescribeDBParameterGroups =
   DescribeDBParameterGroups'
-  { _ddpgFilters = Nothing
-  , _ddpgDBParameterGroupName = Nothing
-  , _ddpgMarker = Nothing
-  , _ddpgMaxRecords = Nothing
-  }
+    { dbParameterGroupName =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
-
--- | This parameter is not currently supported.
-ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
-ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coerce;
-
--- | The name of a specific DB parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
-ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
-
--- | An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-ddpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
-ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
-
-instance AWSPager DescribeDBParameterGroups where
-        page rq rs
-          | stop (rs ^. ddpgrsMarker) = Nothing
-          | stop (rs ^. ddpgrsDBParameterGroups) = Nothing
-          | otherwise =
-            Just $ rq & ddpgMarker .~ rs ^. ddpgrsMarker
-
-instance AWSRequest DescribeDBParameterGroups where
-        type Rs DescribeDBParameterGroups =
-             DescribeDBParameterGroupsResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "DescribeDBParameterGroupsResult"
-              (\ s h x ->
-                 DescribeDBParameterGroupsResponse' <$>
-                   (x .@? "Marker") <*>
-                     (x .@? "DBParameterGroups" .!@ mempty >>=
-                        may (parseXMLList "DBParameterGroup"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeDBParameterGroups where
-
-instance NFData DescribeDBParameterGroups where
-
-instance ToHeaders DescribeDBParameterGroups where
-        toHeaders = const mempty
-
-instance ToPath DescribeDBParameterGroups where
-        toPath = const "/"
-
-instance ToQuery DescribeDBParameterGroups where
-        toQuery DescribeDBParameterGroups'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeDBParameterGroups" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddpgFilters),
-               "DBParameterGroupName" =: _ddpgDBParameterGroupName,
-               "Marker" =: _ddpgMarker,
-               "MaxRecords" =: _ddpgMaxRecords]
-
--- | Contains the result of a successful invocation of the 'DescribeDBParameterGroups' action.
+-- | The name of a specific DB parameter group to return details for.
 --
+-- Constraints:
 --
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+describeDBParameterGroups_dbParameterGroupName :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Text)
+describeDBParameterGroups_dbParameterGroupName = Lens.lens (\DescribeDBParameterGroups' {dbParameterGroupName} -> dbParameterGroupName) (\s@DescribeDBParameterGroups' {} a -> s {dbParameterGroupName = a} :: DescribeDBParameterGroups)
+
+-- | This parameter isn\'t currently supported.
+describeDBParameterGroups_filters :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe [Filter])
+describeDBParameterGroups_filters = Lens.lens (\DescribeDBParameterGroups' {filters} -> filters) (\s@DescribeDBParameterGroups' {} a -> s {filters = a} :: DescribeDBParameterGroups) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that you can retrieve the
+-- remaining results.
 --
--- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeDBParameterGroups_maxRecords :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Int)
+describeDBParameterGroups_maxRecords = Lens.lens (\DescribeDBParameterGroups' {maxRecords} -> maxRecords) (\s@DescribeDBParameterGroups' {} a -> s {maxRecords = a} :: DescribeDBParameterGroups)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBParameterGroups_marker :: Lens.Lens' DescribeDBParameterGroups (Prelude.Maybe Prelude.Text)
+describeDBParameterGroups_marker = Lens.lens (\DescribeDBParameterGroups' {marker} -> marker) (\s@DescribeDBParameterGroups' {} a -> s {marker = a} :: DescribeDBParameterGroups)
+
+instance Core.AWSPager DescribeDBParameterGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeDBParameterGroupsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeDBParameterGroupsResponse_dbParameterGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeDBParameterGroups_marker
+          Lens..~ rs
+          Lens.^? describeDBParameterGroupsResponse_marker
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeDBParameterGroups where
+  type
+    AWSResponse DescribeDBParameterGroups =
+      DescribeDBParameterGroupsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeDBParameterGroupsResult"
+      ( \s h x ->
+          DescribeDBParameterGroupsResponse'
+            Prelude.<$> ( x Core..@? "DBParameterGroups"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "DBParameterGroup")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeDBParameterGroups
+
+instance Prelude.NFData DescribeDBParameterGroups
+
+instance Core.ToHeaders DescribeDBParameterGroups where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeDBParameterGroups where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeDBParameterGroups where
+  toQuery DescribeDBParameterGroups' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeDBParameterGroups" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "Filters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
+      ]
+
+-- | Contains the result of a successful invocation of the
+-- @DescribeDBParameterGroups@ action.
+--
+-- /See:/ 'newDescribeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-  { _ddpgrsMarker            :: !(Maybe Text)
-  , _ddpgrsDBParameterGroups :: !(Maybe [DBParameterGroup])
-  , _ddpgrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeDBParameterGroupsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddpgrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddpgrsDBParameterGroups' - A list of 'DBParameterGroup' instances.
---
--- * 'ddpgrsResponseStatus' - -- | The response status code.
-describeDBParameterGroupsResponse
-    :: Int -- ^ 'ddpgrsResponseStatus'
-    -> DescribeDBParameterGroupsResponse
-describeDBParameterGroupsResponse pResponseStatus_ =
-  DescribeDBParameterGroupsResponse'
-  { _ddpgrsMarker = Nothing
-  , _ddpgrsDBParameterGroups = Nothing
-  , _ddpgrsResponseStatus = pResponseStatus_
+  { -- | A list of @DBParameterGroup@ instances.
+    dbParameterGroups :: Prelude.Maybe [DBParameterGroup],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeDBParameterGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dbParameterGroups', 'describeDBParameterGroupsResponse_dbParameterGroups' - A list of @DBParameterGroup@ instances.
+--
+-- 'marker', 'describeDBParameterGroupsResponse_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
+-- 'httpStatus', 'describeDBParameterGroupsResponse_httpStatus' - The response's http status code.
+newDescribeDBParameterGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDBParameterGroupsResponse
+newDescribeDBParameterGroupsResponse pHttpStatus_ =
+  DescribeDBParameterGroupsResponse'
+    { dbParameterGroups =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
-ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
+-- | A list of @DBParameterGroup@ instances.
+describeDBParameterGroupsResponse_dbParameterGroups :: Lens.Lens' DescribeDBParameterGroupsResponse (Prelude.Maybe [DBParameterGroup])
+describeDBParameterGroupsResponse_dbParameterGroups = Lens.lens (\DescribeDBParameterGroupsResponse' {dbParameterGroups} -> dbParameterGroups) (\s@DescribeDBParameterGroupsResponse' {} a -> s {dbParameterGroups = a} :: DescribeDBParameterGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of 'DBParameterGroup' instances.
-ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
-ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeDBParameterGroupsResponse_marker :: Lens.Lens' DescribeDBParameterGroupsResponse (Prelude.Maybe Prelude.Text)
+describeDBParameterGroupsResponse_marker = Lens.lens (\DescribeDBParameterGroupsResponse' {marker} -> marker) (\s@DescribeDBParameterGroupsResponse' {} a -> s {marker = a} :: DescribeDBParameterGroupsResponse)
 
--- | -- | The response status code.
-ddpgrsResponseStatus :: Lens' DescribeDBParameterGroupsResponse Int
-ddpgrsResponseStatus = lens _ddpgrsResponseStatus (\ s a -> s{_ddpgrsResponseStatus = a});
+-- | The response's http status code.
+describeDBParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeDBParameterGroupsResponse Prelude.Int
+describeDBParameterGroupsResponse_httpStatus = Lens.lens (\DescribeDBParameterGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBParameterGroupsResponse' {} a -> s {httpStatus = a} :: DescribeDBParameterGroupsResponse)
 
-instance NFData DescribeDBParameterGroupsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeDBParameterGroupsResponse

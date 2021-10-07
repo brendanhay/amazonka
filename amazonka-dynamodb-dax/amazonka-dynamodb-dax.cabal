@@ -1,106 +1,127 @@
-name:                  amazonka-dynamodb-dax
-version:               1.5.0
-synopsis:              Amazon DynamoDB Accelerator (DAX) SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-dynamodb-dax
+version:            1.6.1
+synopsis:           Amazon DynamoDB Accelerator (DAX) SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.DAX" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2017-04-19@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.DAX.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.DAX" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-dynamodb-dax
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-dynamodb-dax
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.DAX
+    Network.AWS.DAX.CreateCluster
+    Network.AWS.DAX.CreateParameterGroup
+    Network.AWS.DAX.CreateSubnetGroup
+    Network.AWS.DAX.DecreaseReplicationFactor
+    Network.AWS.DAX.DeleteCluster
+    Network.AWS.DAX.DeleteParameterGroup
+    Network.AWS.DAX.DeleteSubnetGroup
+    Network.AWS.DAX.DescribeClusters
+    Network.AWS.DAX.DescribeDefaultParameters
+    Network.AWS.DAX.DescribeEvents
+    Network.AWS.DAX.DescribeParameterGroups
+    Network.AWS.DAX.DescribeParameters
+    Network.AWS.DAX.DescribeSubnetGroups
+    Network.AWS.DAX.IncreaseReplicationFactor
+    Network.AWS.DAX.Lens
+    Network.AWS.DAX.ListTags
+    Network.AWS.DAX.RebootNode
+    Network.AWS.DAX.TagResource
+    Network.AWS.DAX.Types
+    Network.AWS.DAX.Types.ChangeType
+    Network.AWS.DAX.Types.Cluster
+    Network.AWS.DAX.Types.ClusterEndpointEncryptionType
+    Network.AWS.DAX.Types.Endpoint
+    Network.AWS.DAX.Types.Event
+    Network.AWS.DAX.Types.IsModifiable
+    Network.AWS.DAX.Types.Node
+    Network.AWS.DAX.Types.NodeTypeSpecificValue
+    Network.AWS.DAX.Types.NotificationConfiguration
+    Network.AWS.DAX.Types.Parameter
+    Network.AWS.DAX.Types.ParameterGroup
+    Network.AWS.DAX.Types.ParameterGroupStatus
+    Network.AWS.DAX.Types.ParameterNameValue
+    Network.AWS.DAX.Types.ParameterType
+    Network.AWS.DAX.Types.SecurityGroupMembership
+    Network.AWS.DAX.Types.SourceType
+    Network.AWS.DAX.Types.SSEDescription
+    Network.AWS.DAX.Types.SSESpecification
+    Network.AWS.DAX.Types.SSEStatus
+    Network.AWS.DAX.Types.Subnet
+    Network.AWS.DAX.Types.SubnetGroup
+    Network.AWS.DAX.Types.Tag
+    Network.AWS.DAX.UntagResource
+    Network.AWS.DAX.UpdateCluster
+    Network.AWS.DAX.UpdateParameterGroup
+    Network.AWS.DAX.UpdateSubnetGroup
+    Network.AWS.DAX.Waiters
 
-    exposed-modules:
-          Network.AWS.DAX
-        , Network.AWS.DAX.CreateCluster
-        , Network.AWS.DAX.CreateParameterGroup
-        , Network.AWS.DAX.CreateSubnetGroup
-        , Network.AWS.DAX.DecreaseReplicationFactor
-        , Network.AWS.DAX.DeleteCluster
-        , Network.AWS.DAX.DeleteParameterGroup
-        , Network.AWS.DAX.DeleteSubnetGroup
-        , Network.AWS.DAX.DescribeClusters
-        , Network.AWS.DAX.DescribeDefaultParameters
-        , Network.AWS.DAX.DescribeEvents
-        , Network.AWS.DAX.DescribeParameterGroups
-        , Network.AWS.DAX.DescribeParameters
-        , Network.AWS.DAX.DescribeSubnetGroups
-        , Network.AWS.DAX.IncreaseReplicationFactor
-        , Network.AWS.DAX.ListTags
-        , Network.AWS.DAX.RebootNode
-        , Network.AWS.DAX.TagResource
-        , Network.AWS.DAX.Types
-        , Network.AWS.DAX.UntagResource
-        , Network.AWS.DAX.UpdateCluster
-        , Network.AWS.DAX.UpdateParameterGroup
-        , Network.AWS.DAX.UpdateSubnetGroup
-        , Network.AWS.DAX.Waiters
-
-    other-modules:
-          Network.AWS.DAX.Types.Product
-        , Network.AWS.DAX.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-dynamodb-dax-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.DAX
+    Test.AWS.DAX.Internal
+    Test.AWS.Gen.DAX
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.DAX
-        , Test.AWS.Gen.DAX
-        , Test.AWS.DAX.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-dynamodb-dax
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka               >=1.6.1 && <1.6.2
+    , amazonka-dynamodb-dax
+    , amazonka-test          >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

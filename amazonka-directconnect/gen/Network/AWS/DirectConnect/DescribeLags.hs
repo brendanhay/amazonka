@@ -1,139 +1,155 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the link aggregation groups (LAGs) in your account.
---
---
--- If a LAG ID is provided, only information about the specified LAG is returned.
---
+-- Describes all your link aggregation groups (LAG) or the specified LAG.
 module Network.AWS.DirectConnect.DescribeLags
-    (
-    -- * Creating a Request
-      describeLags
-    , DescribeLags
+  ( -- * Creating a Request
+    DescribeLags (..),
+    newDescribeLags,
+
     -- * Request Lenses
-    , dlLagId
+    describeLags_lagId,
 
     -- * Destructuring the Response
-    , describeLagsResponse
-    , DescribeLagsResponse
+    DescribeLagsResponse (..),
+    newDescribeLagsResponse,
+
     -- * Response Lenses
-    , desrsLags
-    , desrsResponseStatus
-    ) where
+    describeLagsResponse_lags,
+    describeLagsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the DescribeLags operation.
+-- | /See:/ 'newDescribeLags' smart constructor.
+data DescribeLags = DescribeLags'
+  { -- | The ID of the LAG.
+    lagId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeLags' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'describeLags' smart constructor.
-newtype DescribeLags = DescribeLags'
-  { _dlLagId :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- 'lagId', 'describeLags_lagId' - The ID of the LAG.
+newDescribeLags ::
+  DescribeLags
+newDescribeLags =
+  DescribeLags' {lagId = Prelude.Nothing}
 
+-- | The ID of the LAG.
+describeLags_lagId :: Lens.Lens' DescribeLags (Prelude.Maybe Prelude.Text)
+describeLags_lagId = Lens.lens (\DescribeLags' {lagId} -> lagId) (\s@DescribeLags' {} a -> s {lagId = a} :: DescribeLags)
 
--- | Creates a value of 'DescribeLags' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlLagId' - The ID of the LAG. Example: dxlag-abc123 Default: None
-describeLags
-    :: DescribeLags
-describeLags = DescribeLags' {_dlLagId = Nothing}
+instance Core.AWSRequest DescribeLags where
+  type AWSResponse DescribeLags = DescribeLagsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeLagsResponse'
+            Prelude.<$> (x Core..?> "lags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
+instance Prelude.Hashable DescribeLags
 
--- | The ID of the LAG. Example: dxlag-abc123 Default: None
-dlLagId :: Lens' DescribeLags (Maybe Text)
-dlLagId = lens _dlLagId (\ s a -> s{_dlLagId = a});
+instance Prelude.NFData DescribeLags
 
-instance AWSRequest DescribeLags where
-        type Rs DescribeLags = DescribeLagsResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeLagsResponse' <$>
-                   (x .?> "lags" .!@ mempty) <*> (pure (fromEnum s)))
+instance Core.ToHeaders DescribeLags where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.DescribeLags" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance Hashable DescribeLags where
+instance Core.ToJSON DescribeLags where
+  toJSON DescribeLags' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("lagId" Core..=) Prelude.<$> lagId]
+      )
 
-instance NFData DescribeLags where
+instance Core.ToPath DescribeLags where
+  toPath = Prelude.const "/"
 
-instance ToHeaders DescribeLags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.DescribeLags" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToQuery DescribeLags where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToJSON DescribeLags where
-        toJSON DescribeLags'{..}
-          = object (catMaybes [("lagId" .=) <$> _dlLagId])
-
-instance ToPath DescribeLags where
-        toPath = const "/"
-
-instance ToQuery DescribeLags where
-        toQuery = const mempty
-
--- | A structure containing a list of LAGs.
---
---
---
--- /See:/ 'describeLagsResponse' smart constructor.
+-- | /See:/ 'newDescribeLagsResponse' smart constructor.
 data DescribeLagsResponse = DescribeLagsResponse'
-  { _desrsLags           :: !(Maybe [Lag])
-  , _desrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The LAGs.
+    lags :: Prelude.Maybe [Lag],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsLags' - A list of LAGs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeLagsResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeLagsResponse
-describeLagsResponse pResponseStatus_ =
+-- 'lags', 'describeLagsResponse_lags' - The LAGs.
+--
+-- 'httpStatus', 'describeLagsResponse_httpStatus' - The response's http status code.
+newDescribeLagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeLagsResponse
+newDescribeLagsResponse pHttpStatus_ =
   DescribeLagsResponse'
-  {_desrsLags = Nothing, _desrsResponseStatus = pResponseStatus_}
+    { lags = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The LAGs.
+describeLagsResponse_lags :: Lens.Lens' DescribeLagsResponse (Prelude.Maybe [Lag])
+describeLagsResponse_lags = Lens.lens (\DescribeLagsResponse' {lags} -> lags) (\s@DescribeLagsResponse' {} a -> s {lags = a} :: DescribeLagsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of LAGs.
-desrsLags :: Lens' DescribeLagsResponse [Lag]
-desrsLags = lens _desrsLags (\ s a -> s{_desrsLags = a}) . _Default . _Coerce;
+-- | The response's http status code.
+describeLagsResponse_httpStatus :: Lens.Lens' DescribeLagsResponse Prelude.Int
+describeLagsResponse_httpStatus = Lens.lens (\DescribeLagsResponse' {httpStatus} -> httpStatus) (\s@DescribeLagsResponse' {} a -> s {httpStatus = a} :: DescribeLagsResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeLagsResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
-
-instance NFData DescribeLagsResponse where
+instance Prelude.NFData DescribeLagsResponse

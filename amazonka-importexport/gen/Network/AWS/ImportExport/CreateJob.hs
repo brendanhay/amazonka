@@ -1,225 +1,252 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ImportExport.CreateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation initiates the process of scheduling an upload or download of your data. You include in the request a manifest that describes the data transfer specifics. The response to the request includes a job ID, which you can use in other operations, a signature that you use to identify your storage device, and the address where you should ship your storage device.
+-- This operation initiates the process of scheduling an upload or download
+-- of your data. You include in the request a manifest that describes the
+-- data transfer specifics. The response to the request includes a job ID,
+-- which you can use in other operations, a signature that you use to
+-- identify your storage device, and the address where you should ship your
+-- storage device.
 module Network.AWS.ImportExport.CreateJob
-    (
-    -- * Creating a Request
-      createJob
-    , CreateJob
+  ( -- * Creating a Request
+    CreateJob (..),
+    newCreateJob,
+
     -- * Request Lenses
-    , cjAPIVersion
-    , cjManifestAddendum
-    , cjJobType
-    , cjManifest
-    , cjValidateOnly
+    createJob_aPIVersion,
+    createJob_manifestAddendum,
+    createJob_jobType,
+    createJob_manifest,
+    createJob_validateOnly,
 
     -- * Destructuring the Response
-    , createJobResponse
-    , CreateJobResponse
-    -- * Response Lenses
-    , cjrsSignature
-    , cjrsJobType
-    , cjrsJobId
-    , cjrsSignatureFileContents
-    , cjrsWarningMessage
-    , cjrsArtifactList
-    , cjrsResponseStatus
-    ) where
+    CreateJobResponse (..),
+    newCreateJobResponse,
 
+    -- * Response Lenses
+    createJobResponse_warningMessage,
+    createJobResponse_jobType,
+    createJobResponse_signature,
+    createJobResponse_artifactList,
+    createJobResponse_signatureFileContents,
+    createJobResponse_jobId,
+    createJobResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input structure for the CreateJob operation.
 --
--- /See:/ 'createJob' smart constructor.
+-- /See:/ 'newCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { _cjAPIVersion       :: !(Maybe Text)
-  , _cjManifestAddendum :: !(Maybe Text)
-  , _cjJobType          :: !JobType
-  , _cjManifest         :: !Text
-  , _cjValidateOnly     :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cjAPIVersion' - Undocumented member.
---
--- * 'cjManifestAddendum' - Undocumented member.
---
--- * 'cjJobType' - Undocumented member.
---
--- * 'cjManifest' - Undocumented member.
---
--- * 'cjValidateOnly' - Undocumented member.
-createJob
-    :: JobType -- ^ 'cjJobType'
-    -> Text -- ^ 'cjManifest'
-    -> Bool -- ^ 'cjValidateOnly'
-    -> CreateJob
-createJob pJobType_ pManifest_ pValidateOnly_ =
-  CreateJob'
-  { _cjAPIVersion = Nothing
-  , _cjManifestAddendum = Nothing
-  , _cjJobType = pJobType_
-  , _cjManifest = pManifest_
-  , _cjValidateOnly = pValidateOnly_
+  { aPIVersion :: Prelude.Maybe Prelude.Text,
+    manifestAddendum :: Prelude.Maybe Prelude.Text,
+    jobType :: JobType,
+    manifest :: Prelude.Text,
+    validateOnly :: Prelude.Bool
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateJob' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'aPIVersion', 'createJob_aPIVersion' - Undocumented member.
+--
+-- 'manifestAddendum', 'createJob_manifestAddendum' - Undocumented member.
+--
+-- 'jobType', 'createJob_jobType' - Undocumented member.
+--
+-- 'manifest', 'createJob_manifest' - Undocumented member.
+--
+-- 'validateOnly', 'createJob_validateOnly' - Undocumented member.
+newCreateJob ::
+  -- | 'jobType'
+  JobType ->
+  -- | 'manifest'
+  Prelude.Text ->
+  -- | 'validateOnly'
+  Prelude.Bool ->
+  CreateJob
+newCreateJob pJobType_ pManifest_ pValidateOnly_ =
+  CreateJob'
+    { aPIVersion = Prelude.Nothing,
+      manifestAddendum = Prelude.Nothing,
+      jobType = pJobType_,
+      manifest = pManifest_,
+      validateOnly = pValidateOnly_
+    }
 
 -- | Undocumented member.
-cjAPIVersion :: Lens' CreateJob (Maybe Text)
-cjAPIVersion = lens _cjAPIVersion (\ s a -> s{_cjAPIVersion = a});
+createJob_aPIVersion :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_aPIVersion = Lens.lens (\CreateJob' {aPIVersion} -> aPIVersion) (\s@CreateJob' {} a -> s {aPIVersion = a} :: CreateJob)
 
 -- | Undocumented member.
-cjManifestAddendum :: Lens' CreateJob (Maybe Text)
-cjManifestAddendum = lens _cjManifestAddendum (\ s a -> s{_cjManifestAddendum = a});
+createJob_manifestAddendum :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
+createJob_manifestAddendum = Lens.lens (\CreateJob' {manifestAddendum} -> manifestAddendum) (\s@CreateJob' {} a -> s {manifestAddendum = a} :: CreateJob)
 
 -- | Undocumented member.
-cjJobType :: Lens' CreateJob JobType
-cjJobType = lens _cjJobType (\ s a -> s{_cjJobType = a});
+createJob_jobType :: Lens.Lens' CreateJob JobType
+createJob_jobType = Lens.lens (\CreateJob' {jobType} -> jobType) (\s@CreateJob' {} a -> s {jobType = a} :: CreateJob)
 
 -- | Undocumented member.
-cjManifest :: Lens' CreateJob Text
-cjManifest = lens _cjManifest (\ s a -> s{_cjManifest = a});
+createJob_manifest :: Lens.Lens' CreateJob Prelude.Text
+createJob_manifest = Lens.lens (\CreateJob' {manifest} -> manifest) (\s@CreateJob' {} a -> s {manifest = a} :: CreateJob)
 
 -- | Undocumented member.
-cjValidateOnly :: Lens' CreateJob Bool
-cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a});
+createJob_validateOnly :: Lens.Lens' CreateJob Prelude.Bool
+createJob_validateOnly = Lens.lens (\CreateJob' {validateOnly} -> validateOnly) (\s@CreateJob' {} a -> s {validateOnly = a} :: CreateJob)
 
-instance AWSRequest CreateJob where
-        type Rs CreateJob = CreateJobResponse
-        request = postQuery importExport
-        response
-          = receiveXMLWrapper "CreateJobResult"
-              (\ s h x ->
-                 CreateJobResponse' <$>
-                   (x .@? "Signature") <*> (x .@? "JobType") <*>
-                     (x .@? "JobId")
-                     <*> (x .@? "SignatureFileContents")
-                     <*> (x .@? "WarningMessage")
-                     <*>
-                     (x .@? "ArtifactList" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateJob where
+  type AWSResponse CreateJob = CreateJobResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateJobResult"
+      ( \s h x ->
+          CreateJobResponse'
+            Prelude.<$> (x Core..@? "WarningMessage")
+            Prelude.<*> (x Core..@? "JobType")
+            Prelude.<*> (x Core..@? "Signature")
+            Prelude.<*> ( x Core..@? "ArtifactList" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "SignatureFileContents")
+            Prelude.<*> (x Core..@? "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateJob where
+instance Prelude.Hashable CreateJob
 
-instance NFData CreateJob where
+instance Prelude.NFData CreateJob
 
-instance ToHeaders CreateJob where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateJob where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CreateJob where
-        toPath = const "/"
+instance Core.ToPath CreateJob where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateJob where
-        toQuery CreateJob'{..}
-          = mconcat
-              ["Operation=CreateJob",
-               "Action" =: ("CreateJob" :: ByteString),
-               "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _cjAPIVersion,
-               "ManifestAddendum" =: _cjManifestAddendum,
-               "JobType" =: _cjJobType, "Manifest" =: _cjManifest,
-               "ValidateOnly" =: _cjValidateOnly]
+instance Core.ToQuery CreateJob where
+  toQuery CreateJob' {..} =
+    Prelude.mconcat
+      [ "Operation=CreateJob",
+        "Action" Core.=: ("CreateJob" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-06-01" :: Prelude.ByteString),
+        "APIVersion" Core.=: aPIVersion,
+        "ManifestAddendum" Core.=: manifestAddendum,
+        "JobType" Core.=: jobType,
+        "Manifest" Core.=: manifest,
+        "ValidateOnly" Core.=: validateOnly
+      ]
 
 -- | Output structure for the CreateJob operation.
 --
--- /See:/ 'createJobResponse' smart constructor.
+-- /See:/ 'newCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { _cjrsSignature             :: !(Maybe Text)
-  , _cjrsJobType               :: !(Maybe JobType)
-  , _cjrsJobId                 :: !(Maybe Text)
-  , _cjrsSignatureFileContents :: !(Maybe Text)
-  , _cjrsWarningMessage        :: !(Maybe Text)
-  , _cjrsArtifactList          :: !(Maybe [Artifact])
-  , _cjrsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cjrsSignature' - Undocumented member.
---
--- * 'cjrsJobType' - Undocumented member.
---
--- * 'cjrsJobId' - Undocumented member.
---
--- * 'cjrsSignatureFileContents' - Undocumented member.
---
--- * 'cjrsWarningMessage' - Undocumented member.
---
--- * 'cjrsArtifactList' - Undocumented member.
---
--- * 'cjrsResponseStatus' - -- | The response status code.
-createJobResponse
-    :: Int -- ^ 'cjrsResponseStatus'
-    -> CreateJobResponse
-createJobResponse pResponseStatus_ =
-  CreateJobResponse'
-  { _cjrsSignature = Nothing
-  , _cjrsJobType = Nothing
-  , _cjrsJobId = Nothing
-  , _cjrsSignatureFileContents = Nothing
-  , _cjrsWarningMessage = Nothing
-  , _cjrsArtifactList = Nothing
-  , _cjrsResponseStatus = pResponseStatus_
+  { warningMessage :: Prelude.Maybe Prelude.Text,
+    jobType :: Prelude.Maybe JobType,
+    signature :: Prelude.Maybe Prelude.Text,
+    artifactList :: Prelude.Maybe [Artifact],
+    signatureFileContents :: Prelude.Maybe Prelude.Text,
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateJobResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'warningMessage', 'createJobResponse_warningMessage' - Undocumented member.
+--
+-- 'jobType', 'createJobResponse_jobType' - Undocumented member.
+--
+-- 'signature', 'createJobResponse_signature' - Undocumented member.
+--
+-- 'artifactList', 'createJobResponse_artifactList' - Undocumented member.
+--
+-- 'signatureFileContents', 'createJobResponse_signatureFileContents' - Undocumented member.
+--
+-- 'jobId', 'createJobResponse_jobId' - Undocumented member.
+--
+-- 'httpStatus', 'createJobResponse_httpStatus' - The response's http status code.
+newCreateJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateJobResponse
+newCreateJobResponse pHttpStatus_ =
+  CreateJobResponse'
+    { warningMessage =
+        Prelude.Nothing,
+      jobType = Prelude.Nothing,
+      signature = Prelude.Nothing,
+      artifactList = Prelude.Nothing,
+      signatureFileContents = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-cjrsSignature :: Lens' CreateJobResponse (Maybe Text)
-cjrsSignature = lens _cjrsSignature (\ s a -> s{_cjrsSignature = a});
+createJobResponse_warningMessage :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
+createJobResponse_warningMessage = Lens.lens (\CreateJobResponse' {warningMessage} -> warningMessage) (\s@CreateJobResponse' {} a -> s {warningMessage = a} :: CreateJobResponse)
 
 -- | Undocumented member.
-cjrsJobType :: Lens' CreateJobResponse (Maybe JobType)
-cjrsJobType = lens _cjrsJobType (\ s a -> s{_cjrsJobType = a});
+createJobResponse_jobType :: Lens.Lens' CreateJobResponse (Prelude.Maybe JobType)
+createJobResponse_jobType = Lens.lens (\CreateJobResponse' {jobType} -> jobType) (\s@CreateJobResponse' {} a -> s {jobType = a} :: CreateJobResponse)
 
 -- | Undocumented member.
-cjrsJobId :: Lens' CreateJobResponse (Maybe Text)
-cjrsJobId = lens _cjrsJobId (\ s a -> s{_cjrsJobId = a});
+createJobResponse_signature :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
+createJobResponse_signature = Lens.lens (\CreateJobResponse' {signature} -> signature) (\s@CreateJobResponse' {} a -> s {signature = a} :: CreateJobResponse)
 
 -- | Undocumented member.
-cjrsSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
-cjrsSignatureFileContents = lens _cjrsSignatureFileContents (\ s a -> s{_cjrsSignatureFileContents = a});
+createJobResponse_artifactList :: Lens.Lens' CreateJobResponse (Prelude.Maybe [Artifact])
+createJobResponse_artifactList = Lens.lens (\CreateJobResponse' {artifactList} -> artifactList) (\s@CreateJobResponse' {} a -> s {artifactList = a} :: CreateJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-cjrsWarningMessage :: Lens' CreateJobResponse (Maybe Text)
-cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = a});
+createJobResponse_signatureFileContents :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
+createJobResponse_signatureFileContents = Lens.lens (\CreateJobResponse' {signatureFileContents} -> signatureFileContents) (\s@CreateJobResponse' {} a -> s {signatureFileContents = a} :: CreateJobResponse)
 
 -- | Undocumented member.
-cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
-cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
+createJobResponse_jobId :: Lens.Lens' CreateJobResponse (Prelude.Maybe Prelude.Text)
+createJobResponse_jobId = Lens.lens (\CreateJobResponse' {jobId} -> jobId) (\s@CreateJobResponse' {} a -> s {jobId = a} :: CreateJobResponse)
 
--- | -- | The response status code.
-cjrsResponseStatus :: Lens' CreateJobResponse Int
-cjrsResponseStatus = lens _cjrsResponseStatus (\ s a -> s{_cjrsResponseStatus = a});
+-- | The response's http status code.
+createJobResponse_httpStatus :: Lens.Lens' CreateJobResponse Prelude.Int
+createJobResponse_httpStatus = Lens.lens (\CreateJobResponse' {httpStatus} -> httpStatus) (\s@CreateJobResponse' {} a -> s {httpStatus = a} :: CreateJobResponse)
 
-instance NFData CreateJobResponse where
+instance Prelude.NFData CreateJobResponse

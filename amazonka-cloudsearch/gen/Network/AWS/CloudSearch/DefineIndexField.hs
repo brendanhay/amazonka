@@ -1,145 +1,179 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an @'IndexField' @ for the search domain. Used to create new fields and modify existing ones. You must specify the name of the domain you are configuring and an index field configuration. The index field configuration specifies a unique name, the index field type, and the options you want to configure for the field. The options you can specify depend on the @'IndexFieldType' @ . If the field exists, the new configuration replaces the old one. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/ .
---
---
+-- Configures an @IndexField@ for the search domain. Used to create new
+-- fields and modify existing ones. You must specify the name of the domain
+-- you are configuring and an index field configuration. The index field
+-- configuration specifies a unique name, the index field type, and the
+-- options you want to configure for the field. The options you can specify
+-- depend on the @IndexFieldType@. If the field exists, the new
+-- configuration replaces the old one. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
+-- in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DefineIndexField
-    (
-    -- * Creating a Request
-      defineIndexField
-    , DefineIndexField
+  ( -- * Creating a Request
+    DefineIndexField (..),
+    newDefineIndexField,
+
     -- * Request Lenses
-    , defeDomainName
-    , defeIndexField
+    defineIndexField_domainName,
+    defineIndexField_indexField,
 
     -- * Destructuring the Response
-    , defineIndexFieldResponse
-    , DefineIndexFieldResponse
+    DefineIndexFieldResponse (..),
+    newDefineIndexFieldResponse,
+
     -- * Response Lenses
-    , defrsResponseStatus
-    , defrsIndexField
-    ) where
+    defineIndexFieldResponse_httpStatus,
+    defineIndexFieldResponse_indexField,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'DefineIndexField' @ operation. Specifies the name of the domain you want to update and the index field configuration.
+-- | Container for the parameters to the @DefineIndexField@ operation.
+-- Specifies the name of the domain you want to update and the index field
+-- configuration.
 --
---
---
--- /See:/ 'defineIndexField' smart constructor.
+-- /See:/ 'newDefineIndexField' smart constructor.
 data DefineIndexField = DefineIndexField'
-  { _defeDomainName :: !Text
-  , _defeIndexField :: !IndexField
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { domainName :: Prelude.Text,
+    -- | The index field and field options you want to configure.
+    indexField :: IndexField
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DefineIndexField' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DefineIndexField' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'defeDomainName' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'defeIndexField' - The index field and field options you want to configure.
-defineIndexField
-    :: Text -- ^ 'defeDomainName'
-    -> IndexField -- ^ 'defeIndexField'
-    -> DefineIndexField
-defineIndexField pDomainName_ pIndexField_ =
+-- 'domainName', 'defineIndexField_domainName' - Undocumented member.
+--
+-- 'indexField', 'defineIndexField_indexField' - The index field and field options you want to configure.
+newDefineIndexField ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'indexField'
+  IndexField ->
+  DefineIndexField
+newDefineIndexField pDomainName_ pIndexField_ =
   DefineIndexField'
-  {_defeDomainName = pDomainName_, _defeIndexField = pIndexField_}
-
+    { domainName = pDomainName_,
+      indexField = pIndexField_
+    }
 
 -- | Undocumented member.
-defeDomainName :: Lens' DefineIndexField Text
-defeDomainName = lens _defeDomainName (\ s a -> s{_defeDomainName = a});
+defineIndexField_domainName :: Lens.Lens' DefineIndexField Prelude.Text
+defineIndexField_domainName = Lens.lens (\DefineIndexField' {domainName} -> domainName) (\s@DefineIndexField' {} a -> s {domainName = a} :: DefineIndexField)
 
 -- | The index field and field options you want to configure.
-defeIndexField :: Lens' DefineIndexField IndexField
-defeIndexField = lens _defeIndexField (\ s a -> s{_defeIndexField = a});
+defineIndexField_indexField :: Lens.Lens' DefineIndexField IndexField
+defineIndexField_indexField = Lens.lens (\DefineIndexField' {indexField} -> indexField) (\s@DefineIndexField' {} a -> s {indexField = a} :: DefineIndexField)
 
-instance AWSRequest DefineIndexField where
-        type Rs DefineIndexField = DefineIndexFieldResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "DefineIndexFieldResult"
-              (\ s h x ->
-                 DefineIndexFieldResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "IndexField"))
+instance Core.AWSRequest DefineIndexField where
+  type
+    AWSResponse DefineIndexField =
+      DefineIndexFieldResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DefineIndexFieldResult"
+      ( \s h x ->
+          DefineIndexFieldResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "IndexField")
+      )
 
-instance Hashable DefineIndexField where
+instance Prelude.Hashable DefineIndexField
 
-instance NFData DefineIndexField where
+instance Prelude.NFData DefineIndexField
 
-instance ToHeaders DefineIndexField where
-        toHeaders = const mempty
+instance Core.ToHeaders DefineIndexField where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DefineIndexField where
-        toPath = const "/"
+instance Core.ToPath DefineIndexField where
+  toPath = Prelude.const "/"
 
-instance ToQuery DefineIndexField where
-        toQuery DefineIndexField'{..}
-          = mconcat
-              ["Action" =: ("DefineIndexField" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _defeDomainName,
-               "IndexField" =: _defeIndexField]
+instance Core.ToQuery DefineIndexField where
+  toQuery DefineIndexField' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DefineIndexField" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Core.=: domainName,
+        "IndexField" Core.=: indexField
+      ]
 
--- | The result of a @'DefineIndexField' @ request. Contains the status of the newly-configured index field.
+-- | The result of a @DefineIndexField@ request. Contains the status of the
+-- newly-configured index field.
 --
---
---
--- /See:/ 'defineIndexFieldResponse' smart constructor.
+-- /See:/ 'newDefineIndexFieldResponse' smart constructor.
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-  { _defrsResponseStatus :: !Int
-  , _defrsIndexField     :: !IndexFieldStatus
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    indexField :: IndexFieldStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DefineIndexFieldResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DefineIndexFieldResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'defrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'defrsIndexField' - Undocumented member.
-defineIndexFieldResponse
-    :: Int -- ^ 'defrsResponseStatus'
-    -> IndexFieldStatus -- ^ 'defrsIndexField'
-    -> DefineIndexFieldResponse
-defineIndexFieldResponse pResponseStatus_ pIndexField_ =
+-- 'httpStatus', 'defineIndexFieldResponse_httpStatus' - The response's http status code.
+--
+-- 'indexField', 'defineIndexFieldResponse_indexField' - Undocumented member.
+newDefineIndexFieldResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'indexField'
+  IndexFieldStatus ->
+  DefineIndexFieldResponse
+newDefineIndexFieldResponse pHttpStatus_ pIndexField_ =
   DefineIndexFieldResponse'
-  {_defrsResponseStatus = pResponseStatus_, _defrsIndexField = pIndexField_}
+    { httpStatus =
+        pHttpStatus_,
+      indexField = pIndexField_
+    }
 
-
--- | -- | The response status code.
-defrsResponseStatus :: Lens' DefineIndexFieldResponse Int
-defrsResponseStatus = lens _defrsResponseStatus (\ s a -> s{_defrsResponseStatus = a});
+-- | The response's http status code.
+defineIndexFieldResponse_httpStatus :: Lens.Lens' DefineIndexFieldResponse Prelude.Int
+defineIndexFieldResponse_httpStatus = Lens.lens (\DefineIndexFieldResponse' {httpStatus} -> httpStatus) (\s@DefineIndexFieldResponse' {} a -> s {httpStatus = a} :: DefineIndexFieldResponse)
 
 -- | Undocumented member.
-defrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-defrsIndexField = lens _defrsIndexField (\ s a -> s{_defrsIndexField = a});
+defineIndexFieldResponse_indexField :: Lens.Lens' DefineIndexFieldResponse IndexFieldStatus
+defineIndexFieldResponse_indexField = Lens.lens (\DefineIndexFieldResponse' {indexField} -> indexField) (\s@DefineIndexFieldResponse' {} a -> s {indexField = a} :: DefineIndexFieldResponse)
 
-instance NFData DefineIndexFieldResponse where
+instance Prelude.NFData DefineIndexFieldResponse

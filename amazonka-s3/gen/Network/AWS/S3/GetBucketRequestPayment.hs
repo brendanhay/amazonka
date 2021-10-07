@@ -1,121 +1,178 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the request payment configuration of a bucket.
+-- Returns the request payment configuration of a bucket. To use this
+-- version of the operation, you must be the bucket owner. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets>.
+--
+-- The following operations are related to @GetBucketRequestPayment@:
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html ListObjects>
 module Network.AWS.S3.GetBucketRequestPayment
-    (
-    -- * Creating a Request
-      getBucketRequestPayment
-    , GetBucketRequestPayment
+  ( -- * Creating a Request
+    GetBucketRequestPayment (..),
+    newGetBucketRequestPayment,
+
     -- * Request Lenses
-    , gbrpBucket
+    getBucketRequestPayment_expectedBucketOwner,
+    getBucketRequestPayment_bucket,
 
     -- * Destructuring the Response
-    , getBucketRequestPaymentResponse
-    , GetBucketRequestPaymentResponse
+    GetBucketRequestPaymentResponse (..),
+    newGetBucketRequestPaymentResponse,
+
     -- * Response Lenses
-    , gbrprsPayer
-    , gbrprsResponseStatus
-    ) where
+    getBucketRequestPaymentResponse_payer,
+    getBucketRequestPaymentResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'getBucketRequestPayment' smart constructor.
-newtype GetBucketRequestPayment = GetBucketRequestPayment'
-  { _gbrpBucket :: BucketName
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetBucketRequestPayment' smart constructor.
+data GetBucketRequestPayment = GetBucketRequestPayment'
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bucket for which to get the payment request
+    -- configuration
+    bucket :: BucketName
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetBucketRequestPayment' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBucketRequestPayment' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gbrpBucket' - Undocumented member.
-getBucketRequestPayment
-    :: BucketName -- ^ 'gbrpBucket'
-    -> GetBucketRequestPayment
-getBucketRequestPayment pBucket_ =
-  GetBucketRequestPayment' {_gbrpBucket = pBucket_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'expectedBucketOwner', 'getBucketRequestPayment_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+--
+-- 'bucket', 'getBucketRequestPayment_bucket' - The name of the bucket for which to get the payment request
+-- configuration
+newGetBucketRequestPayment ::
+  -- | 'bucket'
+  BucketName ->
+  GetBucketRequestPayment
+newGetBucketRequestPayment pBucket_ =
+  GetBucketRequestPayment'
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      bucket = pBucket_
+    }
 
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+getBucketRequestPayment_expectedBucketOwner :: Lens.Lens' GetBucketRequestPayment (Prelude.Maybe Prelude.Text)
+getBucketRequestPayment_expectedBucketOwner = Lens.lens (\GetBucketRequestPayment' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketRequestPayment' {} a -> s {expectedBucketOwner = a} :: GetBucketRequestPayment)
 
--- | Undocumented member.
-gbrpBucket :: Lens' GetBucketRequestPayment BucketName
-gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a});
+-- | The name of the bucket for which to get the payment request
+-- configuration
+getBucketRequestPayment_bucket :: Lens.Lens' GetBucketRequestPayment BucketName
+getBucketRequestPayment_bucket = Lens.lens (\GetBucketRequestPayment' {bucket} -> bucket) (\s@GetBucketRequestPayment' {} a -> s {bucket = a} :: GetBucketRequestPayment)
 
-instance AWSRequest GetBucketRequestPayment where
-        type Rs GetBucketRequestPayment =
-             GetBucketRequestPaymentResponse
-        request = get s3
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetBucketRequestPaymentResponse' <$>
-                   (x .@? "Payer") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetBucketRequestPayment where
+  type
+    AWSResponse GetBucketRequestPayment =
+      GetBucketRequestPaymentResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetBucketRequestPaymentResponse'
+            Prelude.<$> (x Core..@? "Payer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetBucketRequestPayment where
+instance Prelude.Hashable GetBucketRequestPayment
 
-instance NFData GetBucketRequestPayment where
+instance Prelude.NFData GetBucketRequestPayment
 
-instance ToHeaders GetBucketRequestPayment where
-        toHeaders = const mempty
+instance Core.ToHeaders GetBucketRequestPayment where
+  toHeaders GetBucketRequestPayment' {..} =
+    Prelude.mconcat
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
+      ]
 
-instance ToPath GetBucketRequestPayment where
-        toPath GetBucketRequestPayment'{..}
-          = mconcat ["/", toBS _gbrpBucket]
+instance Core.ToPath GetBucketRequestPayment where
+  toPath GetBucketRequestPayment' {..} =
+    Prelude.mconcat ["/", Core.toBS bucket]
 
-instance ToQuery GetBucketRequestPayment where
-        toQuery = const (mconcat ["requestPayment"])
+instance Core.ToQuery GetBucketRequestPayment where
+  toQuery =
+    Prelude.const (Prelude.mconcat ["requestPayment"])
 
--- | /See:/ 'getBucketRequestPaymentResponse' smart constructor.
+-- | /See:/ 'newGetBucketRequestPaymentResponse' smart constructor.
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
-  { _gbrprsPayer          :: !(Maybe Payer)
-  , _gbrprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies who pays for the download and request fees.
+    payer :: Prelude.Maybe Payer,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetBucketRequestPaymentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBucketRequestPaymentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gbrprsPayer' - Specifies who pays for the download and request fees.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gbrprsResponseStatus' - -- | The response status code.
-getBucketRequestPaymentResponse
-    :: Int -- ^ 'gbrprsResponseStatus'
-    -> GetBucketRequestPaymentResponse
-getBucketRequestPaymentResponse pResponseStatus_ =
+-- 'payer', 'getBucketRequestPaymentResponse_payer' - Specifies who pays for the download and request fees.
+--
+-- 'httpStatus', 'getBucketRequestPaymentResponse_httpStatus' - The response's http status code.
+newGetBucketRequestPaymentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetBucketRequestPaymentResponse
+newGetBucketRequestPaymentResponse pHttpStatus_ =
   GetBucketRequestPaymentResponse'
-  {_gbrprsPayer = Nothing, _gbrprsResponseStatus = pResponseStatus_}
-
+    { payer =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Specifies who pays for the download and request fees.
-gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
+getBucketRequestPaymentResponse_payer :: Lens.Lens' GetBucketRequestPaymentResponse (Prelude.Maybe Payer)
+getBucketRequestPaymentResponse_payer = Lens.lens (\GetBucketRequestPaymentResponse' {payer} -> payer) (\s@GetBucketRequestPaymentResponse' {} a -> s {payer = a} :: GetBucketRequestPaymentResponse)
 
--- | -- | The response status code.
-gbrprsResponseStatus :: Lens' GetBucketRequestPaymentResponse Int
-gbrprsResponseStatus = lens _gbrprsResponseStatus (\ s a -> s{_gbrprsResponseStatus = a});
+-- | The response's http status code.
+getBucketRequestPaymentResponse_httpStatus :: Lens.Lens' GetBucketRequestPaymentResponse Prelude.Int
+getBucketRequestPaymentResponse_httpStatus = Lens.lens (\GetBucketRequestPaymentResponse' {httpStatus} -> httpStatus) (\s@GetBucketRequestPaymentResponse' {} a -> s {httpStatus = a} :: GetBucketRequestPaymentResponse)
 
-instance NFData GetBucketRequestPaymentResponse where
+instance
+  Prelude.NFData
+    GetBucketRequestPaymentResponse

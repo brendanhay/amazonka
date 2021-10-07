@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.KMS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.KMS where
 
 import Data.Proxy
@@ -28,642 +27,972 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestEncrypt $
---             encrypt
---
---         , requestListGrants $
---             listGrants
+--         [ requestVerify $
+--             newVerify
 --
 --         , requestDisableKeyRotation $
---             disableKeyRotation
+--             newDisableKeyRotation
 --
---         , requestGenerateDataKeyWithoutPlaintext $
---             generateDataKeyWithoutPlaintext
---
---         , requestGetParametersForImport $
---             getParametersForImport
---
---         , requestEnableKeyRotation $
---             enableKeyRotation
---
---         , requestCreateAlias $
---             createAlias
---
---         , requestCreateGrant $
---             createGrant
---
---         , requestListAliases $
---             listAliases
---
---         , requestListRetirableGrants $
---             listRetirableGrants
---
---         , requestGenerateRandom $
---             generateRandom
---
---         , requestCreateKey $
---             createKey
---
---         , requestDisableKey $
---             disableKey
---
---         , requestRetireGrant $
---             retireGrant
---
---         , requestListKeys $
---             listKeys
---
---         , requestListResourceTags $
---             listResourceTags
---
---         , requestGetKeyRotationStatus $
---             getKeyRotationStatus
---
---         , requestGenerateDataKey $
---             generateDataKey
+--         , requestListGrants $
+--             newListGrants
 --
 --         , requestDeleteAlias $
---             deleteAlias
+--             newDeleteAlias
+--
+--         , requestCreateCustomKeyStore $
+--             newCreateCustomKeyStore
 --
 --         , requestUpdateAlias $
---             updateAlias
+--             newUpdateAlias
 --
---         , requestDescribeKey $
---             describeKey
---
---         , requestCancelKeyDeletion $
---             cancelKeyDeletion
---
---         , requestDecrypt $
---             decrypt
---
---         , requestUpdateKeyDescription $
---             updateKeyDescription
---
---         , requestReEncrypt $
---             reEncrypt
---
---         , requestTagResource $
---             tagResource
---
---         , requestListKeyPolicies $
---             listKeyPolicies
---
---         , requestUntagResource $
---             untagResource
---
---         , requestScheduleKeyDeletion $
---             scheduleKeyDeletion
---
---         , requestPutKeyPolicy $
---             putKeyPolicy
---
---         , requestEnableKey $
---             enableKey
---
---         , requestRevokeGrant $
---             revokeGrant
---
---         , requestGetKeyPolicy $
---             getKeyPolicy
---
---         , requestImportKeyMaterial $
---             importKeyMaterial
+--         , requestGenerateDataKey $
+--             newGenerateDataKey
 --
 --         , requestDeleteImportedKeyMaterial $
---             deleteImportedKeyMaterial
+--             newDeleteImportedKeyMaterial
+--
+--         , requestImportKeyMaterial $
+--             newImportKeyMaterial
+--
+--         , requestGetKeyRotationStatus $
+--             newGetKeyRotationStatus
+--
+--         , requestListResourceTags $
+--             newListResourceTags
+--
+--         , requestReplicateKey $
+--             newReplicateKey
+--
+--         , requestPutKeyPolicy $
+--             newPutKeyPolicy
+--
+--         , requestDisableKey $
+--             newDisableKey
+--
+--         , requestListKeyPolicies $
+--             newListKeyPolicies
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestDisconnectCustomKeyStore $
+--             newDisconnectCustomKeyStore
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestGetPublicKey $
+--             newGetPublicKey
+--
+--         , requestGenerateRandom $
+--             newGenerateRandom
+--
+--         , requestReEncrypt $
+--             newReEncrypt
+--
+--         , requestListRetirableGrants $
+--             newListRetirableGrants
+--
+--         , requestConnectCustomKeyStore $
+--             newConnectCustomKeyStore
+--
+--         , requestUpdatePrimaryRegion $
+--             newUpdatePrimaryRegion
+--
+--         , requestDescribeKey $
+--             newDescribeKey
+--
+--         , requestGetParametersForImport $
+--             newGetParametersForImport
+--
+--         , requestUpdateCustomKeyStore $
+--             newUpdateCustomKeyStore
+--
+--         , requestDeleteCustomKeyStore $
+--             newDeleteCustomKeyStore
+--
+--         , requestEncrypt $
+--             newEncrypt
+--
+--         , requestGenerateDataKeyWithoutPlaintext $
+--             newGenerateDataKeyWithoutPlaintext
+--
+--         , requestGetKeyPolicy $
+--             newGetKeyPolicy
+--
+--         , requestEnableKey $
+--             newEnableKey
+--
+--         , requestGenerateDataKeyPair $
+--             newGenerateDataKeyPair
+--
+--         , requestListKeys $
+--             newListKeys
+--
+--         , requestRevokeGrant $
+--             newRevokeGrant
+--
+--         , requestScheduleKeyDeletion $
+--             newScheduleKeyDeletion
+--
+--         , requestRetireGrant $
+--             newRetireGrant
+--
+--         , requestCreateKey $
+--             newCreateKey
+--
+--         , requestSign $
+--             newSign
+--
+--         , requestUpdateKeyDescription $
+--             newUpdateKeyDescription
+--
+--         , requestGenerateDataKeyPairWithoutPlaintext $
+--             newGenerateDataKeyPairWithoutPlaintext
+--
+--         , requestCancelKeyDeletion $
+--             newCancelKeyDeletion
+--
+--         , requestDecrypt $
+--             newDecrypt
+--
+--         , requestDescribeCustomKeyStores $
+--             newDescribeCustomKeyStores
+--
+--         , requestCreateGrant $
+--             newCreateGrant
+--
+--         , requestEnableKeyRotation $
+--             newEnableKeyRotation
+--
+--         , requestListAliases $
+--             newListAliases
+--
+--         , requestCreateAlias $
+--             newCreateAlias
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseEncrypt $
---             encryptResponse
---
---         , responseListGrants $
---             listGrantsResponse
+--         [ responseVerify $
+--             newVerifyResponse
 --
 --         , responseDisableKeyRotation $
---             disableKeyRotationResponse
+--             newDisableKeyRotationResponse
 --
---         , responseGenerateDataKeyWithoutPlaintext $
---             generateDataKeyWithoutPlaintextResponse
---
---         , responseGetParametersForImport $
---             getParametersForImportResponse
---
---         , responseEnableKeyRotation $
---             enableKeyRotationResponse
---
---         , responseCreateAlias $
---             createAliasResponse
---
---         , responseCreateGrant $
---             createGrantResponse
---
---         , responseListAliases $
---             listAliasesResponse
---
---         , responseListRetirableGrants $
---             listGrantsResponse
---
---         , responseGenerateRandom $
---             generateRandomResponse
---
---         , responseCreateKey $
---             createKeyResponse
---
---         , responseDisableKey $
---             disableKeyResponse
---
---         , responseRetireGrant $
---             retireGrantResponse
---
---         , responseListKeys $
---             listKeysResponse
---
---         , responseListResourceTags $
---             listResourceTagsResponse
---
---         , responseGetKeyRotationStatus $
---             getKeyRotationStatusResponse
---
---         , responseGenerateDataKey $
---             generateDataKeyResponse
+--         , responseListGrants $
+--             newListGrantsResponse
 --
 --         , responseDeleteAlias $
---             deleteAliasResponse
+--             newDeleteAliasResponse
+--
+--         , responseCreateCustomKeyStore $
+--             newCreateCustomKeyStoreResponse
 --
 --         , responseUpdateAlias $
---             updateAliasResponse
+--             newUpdateAliasResponse
 --
---         , responseDescribeKey $
---             describeKeyResponse
---
---         , responseCancelKeyDeletion $
---             cancelKeyDeletionResponse
---
---         , responseDecrypt $
---             decryptResponse
---
---         , responseUpdateKeyDescription $
---             updateKeyDescriptionResponse
---
---         , responseReEncrypt $
---             reEncryptResponse
---
---         , responseTagResource $
---             tagResourceResponse
---
---         , responseListKeyPolicies $
---             listKeyPoliciesResponse
---
---         , responseUntagResource $
---             untagResourceResponse
---
---         , responseScheduleKeyDeletion $
---             scheduleKeyDeletionResponse
---
---         , responsePutKeyPolicy $
---             putKeyPolicyResponse
---
---         , responseEnableKey $
---             enableKeyResponse
---
---         , responseRevokeGrant $
---             revokeGrantResponse
---
---         , responseGetKeyPolicy $
---             getKeyPolicyResponse
---
---         , responseImportKeyMaterial $
---             importKeyMaterialResponse
+--         , responseGenerateDataKey $
+--             newGenerateDataKeyResponse
 --
 --         , responseDeleteImportedKeyMaterial $
---             deleteImportedKeyMaterialResponse
+--             newDeleteImportedKeyMaterialResponse
+--
+--         , responseImportKeyMaterial $
+--             newImportKeyMaterialResponse
+--
+--         , responseGetKeyRotationStatus $
+--             newGetKeyRotationStatusResponse
+--
+--         , responseListResourceTags $
+--             newListResourceTagsResponse
+--
+--         , responseReplicateKey $
+--             newReplicateKeyResponse
+--
+--         , responsePutKeyPolicy $
+--             newPutKeyPolicyResponse
+--
+--         , responseDisableKey $
+--             newDisableKeyResponse
+--
+--         , responseListKeyPolicies $
+--             newListKeyPoliciesResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseDisconnectCustomKeyStore $
+--             newDisconnectCustomKeyStoreResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseGetPublicKey $
+--             newGetPublicKeyResponse
+--
+--         , responseGenerateRandom $
+--             newGenerateRandomResponse
+--
+--         , responseReEncrypt $
+--             newReEncryptResponse
+--
+--         , responseListRetirableGrants $
+--             newListGrantsResponse
+--
+--         , responseConnectCustomKeyStore $
+--             newConnectCustomKeyStoreResponse
+--
+--         , responseUpdatePrimaryRegion $
+--             newUpdatePrimaryRegionResponse
+--
+--         , responseDescribeKey $
+--             newDescribeKeyResponse
+--
+--         , responseGetParametersForImport $
+--             newGetParametersForImportResponse
+--
+--         , responseUpdateCustomKeyStore $
+--             newUpdateCustomKeyStoreResponse
+--
+--         , responseDeleteCustomKeyStore $
+--             newDeleteCustomKeyStoreResponse
+--
+--         , responseEncrypt $
+--             newEncryptResponse
+--
+--         , responseGenerateDataKeyWithoutPlaintext $
+--             newGenerateDataKeyWithoutPlaintextResponse
+--
+--         , responseGetKeyPolicy $
+--             newGetKeyPolicyResponse
+--
+--         , responseEnableKey $
+--             newEnableKeyResponse
+--
+--         , responseGenerateDataKeyPair $
+--             newGenerateDataKeyPairResponse
+--
+--         , responseListKeys $
+--             newListKeysResponse
+--
+--         , responseRevokeGrant $
+--             newRevokeGrantResponse
+--
+--         , responseScheduleKeyDeletion $
+--             newScheduleKeyDeletionResponse
+--
+--         , responseRetireGrant $
+--             newRetireGrantResponse
+--
+--         , responseCreateKey $
+--             newCreateKeyResponse
+--
+--         , responseSign $
+--             newSignResponse
+--
+--         , responseUpdateKeyDescription $
+--             newUpdateKeyDescriptionResponse
+--
+--         , responseGenerateDataKeyPairWithoutPlaintext $
+--             newGenerateDataKeyPairWithoutPlaintextResponse
+--
+--         , responseCancelKeyDeletion $
+--             newCancelKeyDeletionResponse
+--
+--         , responseDecrypt $
+--             newDecryptResponse
+--
+--         , responseDescribeCustomKeyStores $
+--             newDescribeCustomKeyStoresResponse
+--
+--         , responseCreateGrant $
+--             newCreateGrantResponse
+--
+--         , responseEnableKeyRotation $
+--             newEnableKeyRotationResponse
+--
+--         , responseListAliases $
+--             newListAliasesResponse
+--
+--         , responseCreateAlias $
+--             newCreateAliasResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestEncrypt :: Encrypt -> TestTree
-requestEncrypt = req
-    "Encrypt"
-    "fixture/Encrypt.yaml"
-
-requestListGrants :: ListGrants -> TestTree
-requestListGrants = req
-    "ListGrants"
-    "fixture/ListGrants.yaml"
+requestVerify :: Verify -> TestTree
+requestVerify =
+  req
+    "Verify"
+    "fixture/Verify.yaml"
 
 requestDisableKeyRotation :: DisableKeyRotation -> TestTree
-requestDisableKeyRotation = req
+requestDisableKeyRotation =
+  req
     "DisableKeyRotation"
     "fixture/DisableKeyRotation.yaml"
 
-requestGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintext -> TestTree
-requestGenerateDataKeyWithoutPlaintext = req
-    "GenerateDataKeyWithoutPlaintext"
-    "fixture/GenerateDataKeyWithoutPlaintext.yaml"
-
-requestGetParametersForImport :: GetParametersForImport -> TestTree
-requestGetParametersForImport = req
-    "GetParametersForImport"
-    "fixture/GetParametersForImport.yaml"
-
-requestEnableKeyRotation :: EnableKeyRotation -> TestTree
-requestEnableKeyRotation = req
-    "EnableKeyRotation"
-    "fixture/EnableKeyRotation.yaml"
-
-requestCreateAlias :: CreateAlias -> TestTree
-requestCreateAlias = req
-    "CreateAlias"
-    "fixture/CreateAlias.yaml"
-
-requestCreateGrant :: CreateGrant -> TestTree
-requestCreateGrant = req
-    "CreateGrant"
-    "fixture/CreateGrant.yaml"
-
-requestListAliases :: ListAliases -> TestTree
-requestListAliases = req
-    "ListAliases"
-    "fixture/ListAliases.yaml"
-
-requestListRetirableGrants :: ListRetirableGrants -> TestTree
-requestListRetirableGrants = req
-    "ListRetirableGrants"
-    "fixture/ListRetirableGrants.yaml"
-
-requestGenerateRandom :: GenerateRandom -> TestTree
-requestGenerateRandom = req
-    "GenerateRandom"
-    "fixture/GenerateRandom.yaml"
-
-requestCreateKey :: CreateKey -> TestTree
-requestCreateKey = req
-    "CreateKey"
-    "fixture/CreateKey.yaml"
-
-requestDisableKey :: DisableKey -> TestTree
-requestDisableKey = req
-    "DisableKey"
-    "fixture/DisableKey.yaml"
-
-requestRetireGrant :: RetireGrant -> TestTree
-requestRetireGrant = req
-    "RetireGrant"
-    "fixture/RetireGrant.yaml"
-
-requestListKeys :: ListKeys -> TestTree
-requestListKeys = req
-    "ListKeys"
-    "fixture/ListKeys.yaml"
-
-requestListResourceTags :: ListResourceTags -> TestTree
-requestListResourceTags = req
-    "ListResourceTags"
-    "fixture/ListResourceTags.yaml"
-
-requestGetKeyRotationStatus :: GetKeyRotationStatus -> TestTree
-requestGetKeyRotationStatus = req
-    "GetKeyRotationStatus"
-    "fixture/GetKeyRotationStatus.yaml"
-
-requestGenerateDataKey :: GenerateDataKey -> TestTree
-requestGenerateDataKey = req
-    "GenerateDataKey"
-    "fixture/GenerateDataKey.yaml"
+requestListGrants :: ListGrants -> TestTree
+requestListGrants =
+  req
+    "ListGrants"
+    "fixture/ListGrants.yaml"
 
 requestDeleteAlias :: DeleteAlias -> TestTree
-requestDeleteAlias = req
+requestDeleteAlias =
+  req
     "DeleteAlias"
     "fixture/DeleteAlias.yaml"
 
+requestCreateCustomKeyStore :: CreateCustomKeyStore -> TestTree
+requestCreateCustomKeyStore =
+  req
+    "CreateCustomKeyStore"
+    "fixture/CreateCustomKeyStore.yaml"
+
 requestUpdateAlias :: UpdateAlias -> TestTree
-requestUpdateAlias = req
+requestUpdateAlias =
+  req
     "UpdateAlias"
     "fixture/UpdateAlias.yaml"
 
-requestDescribeKey :: DescribeKey -> TestTree
-requestDescribeKey = req
-    "DescribeKey"
-    "fixture/DescribeKey.yaml"
+requestGenerateDataKey :: GenerateDataKey -> TestTree
+requestGenerateDataKey =
+  req
+    "GenerateDataKey"
+    "fixture/GenerateDataKey.yaml"
 
-requestCancelKeyDeletion :: CancelKeyDeletion -> TestTree
-requestCancelKeyDeletion = req
-    "CancelKeyDeletion"
-    "fixture/CancelKeyDeletion.yaml"
+requestDeleteImportedKeyMaterial :: DeleteImportedKeyMaterial -> TestTree
+requestDeleteImportedKeyMaterial =
+  req
+    "DeleteImportedKeyMaterial"
+    "fixture/DeleteImportedKeyMaterial.yaml"
 
-requestDecrypt :: Decrypt -> TestTree
-requestDecrypt = req
-    "Decrypt"
-    "fixture/Decrypt.yaml"
+requestImportKeyMaterial :: ImportKeyMaterial -> TestTree
+requestImportKeyMaterial =
+  req
+    "ImportKeyMaterial"
+    "fixture/ImportKeyMaterial.yaml"
 
-requestUpdateKeyDescription :: UpdateKeyDescription -> TestTree
-requestUpdateKeyDescription = req
-    "UpdateKeyDescription"
-    "fixture/UpdateKeyDescription.yaml"
+requestGetKeyRotationStatus :: GetKeyRotationStatus -> TestTree
+requestGetKeyRotationStatus =
+  req
+    "GetKeyRotationStatus"
+    "fixture/GetKeyRotationStatus.yaml"
 
-requestReEncrypt :: ReEncrypt -> TestTree
-requestReEncrypt = req
-    "ReEncrypt"
-    "fixture/ReEncrypt.yaml"
+requestListResourceTags :: ListResourceTags -> TestTree
+requestListResourceTags =
+  req
+    "ListResourceTags"
+    "fixture/ListResourceTags.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource = req
-    "TagResource"
-    "fixture/TagResource.yaml"
+requestReplicateKey :: ReplicateKey -> TestTree
+requestReplicateKey =
+  req
+    "ReplicateKey"
+    "fixture/ReplicateKey.yaml"
+
+requestPutKeyPolicy :: PutKeyPolicy -> TestTree
+requestPutKeyPolicy =
+  req
+    "PutKeyPolicy"
+    "fixture/PutKeyPolicy.yaml"
+
+requestDisableKey :: DisableKey -> TestTree
+requestDisableKey =
+  req
+    "DisableKey"
+    "fixture/DisableKey.yaml"
 
 requestListKeyPolicies :: ListKeyPolicies -> TestTree
-requestListKeyPolicies = req
+requestListKeyPolicies =
+  req
     "ListKeyPolicies"
     "fixture/ListKeyPolicies.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource = req
+requestUntagResource =
+  req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestScheduleKeyDeletion :: ScheduleKeyDeletion -> TestTree
-requestScheduleKeyDeletion = req
-    "ScheduleKeyDeletion"
-    "fixture/ScheduleKeyDeletion.yaml"
+requestDisconnectCustomKeyStore :: DisconnectCustomKeyStore -> TestTree
+requestDisconnectCustomKeyStore =
+  req
+    "DisconnectCustomKeyStore"
+    "fixture/DisconnectCustomKeyStore.yaml"
 
-requestPutKeyPolicy :: PutKeyPolicy -> TestTree
-requestPutKeyPolicy = req
-    "PutKeyPolicy"
-    "fixture/PutKeyPolicy.yaml"
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
-requestEnableKey :: EnableKey -> TestTree
-requestEnableKey = req
-    "EnableKey"
-    "fixture/EnableKey.yaml"
+requestGetPublicKey :: GetPublicKey -> TestTree
+requestGetPublicKey =
+  req
+    "GetPublicKey"
+    "fixture/GetPublicKey.yaml"
 
-requestRevokeGrant :: RevokeGrant -> TestTree
-requestRevokeGrant = req
-    "RevokeGrant"
-    "fixture/RevokeGrant.yaml"
+requestGenerateRandom :: GenerateRandom -> TestTree
+requestGenerateRandom =
+  req
+    "GenerateRandom"
+    "fixture/GenerateRandom.yaml"
+
+requestReEncrypt :: ReEncrypt -> TestTree
+requestReEncrypt =
+  req
+    "ReEncrypt"
+    "fixture/ReEncrypt.yaml"
+
+requestListRetirableGrants :: ListRetirableGrants -> TestTree
+requestListRetirableGrants =
+  req
+    "ListRetirableGrants"
+    "fixture/ListRetirableGrants.yaml"
+
+requestConnectCustomKeyStore :: ConnectCustomKeyStore -> TestTree
+requestConnectCustomKeyStore =
+  req
+    "ConnectCustomKeyStore"
+    "fixture/ConnectCustomKeyStore.yaml"
+
+requestUpdatePrimaryRegion :: UpdatePrimaryRegion -> TestTree
+requestUpdatePrimaryRegion =
+  req
+    "UpdatePrimaryRegion"
+    "fixture/UpdatePrimaryRegion.yaml"
+
+requestDescribeKey :: DescribeKey -> TestTree
+requestDescribeKey =
+  req
+    "DescribeKey"
+    "fixture/DescribeKey.yaml"
+
+requestGetParametersForImport :: GetParametersForImport -> TestTree
+requestGetParametersForImport =
+  req
+    "GetParametersForImport"
+    "fixture/GetParametersForImport.yaml"
+
+requestUpdateCustomKeyStore :: UpdateCustomKeyStore -> TestTree
+requestUpdateCustomKeyStore =
+  req
+    "UpdateCustomKeyStore"
+    "fixture/UpdateCustomKeyStore.yaml"
+
+requestDeleteCustomKeyStore :: DeleteCustomKeyStore -> TestTree
+requestDeleteCustomKeyStore =
+  req
+    "DeleteCustomKeyStore"
+    "fixture/DeleteCustomKeyStore.yaml"
+
+requestEncrypt :: Encrypt -> TestTree
+requestEncrypt =
+  req
+    "Encrypt"
+    "fixture/Encrypt.yaml"
+
+requestGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintext -> TestTree
+requestGenerateDataKeyWithoutPlaintext =
+  req
+    "GenerateDataKeyWithoutPlaintext"
+    "fixture/GenerateDataKeyWithoutPlaintext.yaml"
 
 requestGetKeyPolicy :: GetKeyPolicy -> TestTree
-requestGetKeyPolicy = req
+requestGetKeyPolicy =
+  req
     "GetKeyPolicy"
     "fixture/GetKeyPolicy.yaml"
 
-requestImportKeyMaterial :: ImportKeyMaterial -> TestTree
-requestImportKeyMaterial = req
-    "ImportKeyMaterial"
-    "fixture/ImportKeyMaterial.yaml"
+requestEnableKey :: EnableKey -> TestTree
+requestEnableKey =
+  req
+    "EnableKey"
+    "fixture/EnableKey.yaml"
 
-requestDeleteImportedKeyMaterial :: DeleteImportedKeyMaterial -> TestTree
-requestDeleteImportedKeyMaterial = req
-    "DeleteImportedKeyMaterial"
-    "fixture/DeleteImportedKeyMaterial.yaml"
+requestGenerateDataKeyPair :: GenerateDataKeyPair -> TestTree
+requestGenerateDataKeyPair =
+  req
+    "GenerateDataKeyPair"
+    "fixture/GenerateDataKeyPair.yaml"
+
+requestListKeys :: ListKeys -> TestTree
+requestListKeys =
+  req
+    "ListKeys"
+    "fixture/ListKeys.yaml"
+
+requestRevokeGrant :: RevokeGrant -> TestTree
+requestRevokeGrant =
+  req
+    "RevokeGrant"
+    "fixture/RevokeGrant.yaml"
+
+requestScheduleKeyDeletion :: ScheduleKeyDeletion -> TestTree
+requestScheduleKeyDeletion =
+  req
+    "ScheduleKeyDeletion"
+    "fixture/ScheduleKeyDeletion.yaml"
+
+requestRetireGrant :: RetireGrant -> TestTree
+requestRetireGrant =
+  req
+    "RetireGrant"
+    "fixture/RetireGrant.yaml"
+
+requestCreateKey :: CreateKey -> TestTree
+requestCreateKey =
+  req
+    "CreateKey"
+    "fixture/CreateKey.yaml"
+
+requestSign :: Sign -> TestTree
+requestSign =
+  req
+    "Sign"
+    "fixture/Sign.yaml"
+
+requestUpdateKeyDescription :: UpdateKeyDescription -> TestTree
+requestUpdateKeyDescription =
+  req
+    "UpdateKeyDescription"
+    "fixture/UpdateKeyDescription.yaml"
+
+requestGenerateDataKeyPairWithoutPlaintext :: GenerateDataKeyPairWithoutPlaintext -> TestTree
+requestGenerateDataKeyPairWithoutPlaintext =
+  req
+    "GenerateDataKeyPairWithoutPlaintext"
+    "fixture/GenerateDataKeyPairWithoutPlaintext.yaml"
+
+requestCancelKeyDeletion :: CancelKeyDeletion -> TestTree
+requestCancelKeyDeletion =
+  req
+    "CancelKeyDeletion"
+    "fixture/CancelKeyDeletion.yaml"
+
+requestDecrypt :: Decrypt -> TestTree
+requestDecrypt =
+  req
+    "Decrypt"
+    "fixture/Decrypt.yaml"
+
+requestDescribeCustomKeyStores :: DescribeCustomKeyStores -> TestTree
+requestDescribeCustomKeyStores =
+  req
+    "DescribeCustomKeyStores"
+    "fixture/DescribeCustomKeyStores.yaml"
+
+requestCreateGrant :: CreateGrant -> TestTree
+requestCreateGrant =
+  req
+    "CreateGrant"
+    "fixture/CreateGrant.yaml"
+
+requestEnableKeyRotation :: EnableKeyRotation -> TestTree
+requestEnableKeyRotation =
+  req
+    "EnableKeyRotation"
+    "fixture/EnableKeyRotation.yaml"
+
+requestListAliases :: ListAliases -> TestTree
+requestListAliases =
+  req
+    "ListAliases"
+    "fixture/ListAliases.yaml"
+
+requestCreateAlias :: CreateAlias -> TestTree
+requestCreateAlias =
+  req
+    "CreateAlias"
+    "fixture/CreateAlias.yaml"
 
 -- Responses
 
-responseEncrypt :: EncryptResponse -> TestTree
-responseEncrypt = res
-    "EncryptResponse"
-    "fixture/EncryptResponse.proto"
-    kms
-    (Proxy :: Proxy Encrypt)
-
-responseListGrants :: ListGrantsResponse -> TestTree
-responseListGrants = res
-    "ListGrantsResponse"
-    "fixture/ListGrantsResponse.proto"
-    kms
-    (Proxy :: Proxy ListGrants)
+responseVerify :: VerifyResponse -> TestTree
+responseVerify =
+  res
+    "VerifyResponse"
+    "fixture/VerifyResponse.proto"
+    defaultService
+    (Proxy :: Proxy Verify)
 
 responseDisableKeyRotation :: DisableKeyRotationResponse -> TestTree
-responseDisableKeyRotation = res
+responseDisableKeyRotation =
+  res
     "DisableKeyRotationResponse"
     "fixture/DisableKeyRotationResponse.proto"
-    kms
+    defaultService
     (Proxy :: Proxy DisableKeyRotation)
 
-responseGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
-responseGenerateDataKeyWithoutPlaintext = res
-    "GenerateDataKeyWithoutPlaintextResponse"
-    "fixture/GenerateDataKeyWithoutPlaintextResponse.proto"
-    kms
-    (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
-
-responseGetParametersForImport :: GetParametersForImportResponse -> TestTree
-responseGetParametersForImport = res
-    "GetParametersForImportResponse"
-    "fixture/GetParametersForImportResponse.proto"
-    kms
-    (Proxy :: Proxy GetParametersForImport)
-
-responseEnableKeyRotation :: EnableKeyRotationResponse -> TestTree
-responseEnableKeyRotation = res
-    "EnableKeyRotationResponse"
-    "fixture/EnableKeyRotationResponse.proto"
-    kms
-    (Proxy :: Proxy EnableKeyRotation)
-
-responseCreateAlias :: CreateAliasResponse -> TestTree
-responseCreateAlias = res
-    "CreateAliasResponse"
-    "fixture/CreateAliasResponse.proto"
-    kms
-    (Proxy :: Proxy CreateAlias)
-
-responseCreateGrant :: CreateGrantResponse -> TestTree
-responseCreateGrant = res
-    "CreateGrantResponse"
-    "fixture/CreateGrantResponse.proto"
-    kms
-    (Proxy :: Proxy CreateGrant)
-
-responseListAliases :: ListAliasesResponse -> TestTree
-responseListAliases = res
-    "ListAliasesResponse"
-    "fixture/ListAliasesResponse.proto"
-    kms
-    (Proxy :: Proxy ListAliases)
-
-responseListRetirableGrants :: ListGrantsResponse -> TestTree
-responseListRetirableGrants = res
-    "ListRetirableGrantsResponse"
-    "fixture/ListRetirableGrantsResponse.proto"
-    kms
-    (Proxy :: Proxy ListRetirableGrants)
-
-responseGenerateRandom :: GenerateRandomResponse -> TestTree
-responseGenerateRandom = res
-    "GenerateRandomResponse"
-    "fixture/GenerateRandomResponse.proto"
-    kms
-    (Proxy :: Proxy GenerateRandom)
-
-responseCreateKey :: CreateKeyResponse -> TestTree
-responseCreateKey = res
-    "CreateKeyResponse"
-    "fixture/CreateKeyResponse.proto"
-    kms
-    (Proxy :: Proxy CreateKey)
-
-responseDisableKey :: DisableKeyResponse -> TestTree
-responseDisableKey = res
-    "DisableKeyResponse"
-    "fixture/DisableKeyResponse.proto"
-    kms
-    (Proxy :: Proxy DisableKey)
-
-responseRetireGrant :: RetireGrantResponse -> TestTree
-responseRetireGrant = res
-    "RetireGrantResponse"
-    "fixture/RetireGrantResponse.proto"
-    kms
-    (Proxy :: Proxy RetireGrant)
-
-responseListKeys :: ListKeysResponse -> TestTree
-responseListKeys = res
-    "ListKeysResponse"
-    "fixture/ListKeysResponse.proto"
-    kms
-    (Proxy :: Proxy ListKeys)
-
-responseListResourceTags :: ListResourceTagsResponse -> TestTree
-responseListResourceTags = res
-    "ListResourceTagsResponse"
-    "fixture/ListResourceTagsResponse.proto"
-    kms
-    (Proxy :: Proxy ListResourceTags)
-
-responseGetKeyRotationStatus :: GetKeyRotationStatusResponse -> TestTree
-responseGetKeyRotationStatus = res
-    "GetKeyRotationStatusResponse"
-    "fixture/GetKeyRotationStatusResponse.proto"
-    kms
-    (Proxy :: Proxy GetKeyRotationStatus)
-
-responseGenerateDataKey :: GenerateDataKeyResponse -> TestTree
-responseGenerateDataKey = res
-    "GenerateDataKeyResponse"
-    "fixture/GenerateDataKeyResponse.proto"
-    kms
-    (Proxy :: Proxy GenerateDataKey)
+responseListGrants :: ListGrantsResponse -> TestTree
+responseListGrants =
+  res
+    "ListGrantsResponse"
+    "fixture/ListGrantsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListGrants)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
-responseDeleteAlias = res
+responseDeleteAlias =
+  res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
-    kms
+    defaultService
     (Proxy :: Proxy DeleteAlias)
 
+responseCreateCustomKeyStore :: CreateCustomKeyStoreResponse -> TestTree
+responseCreateCustomKeyStore =
+  res
+    "CreateCustomKeyStoreResponse"
+    "fixture/CreateCustomKeyStoreResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCustomKeyStore)
+
 responseUpdateAlias :: UpdateAliasResponse -> TestTree
-responseUpdateAlias = res
+responseUpdateAlias =
+  res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
-    kms
+    defaultService
     (Proxy :: Proxy UpdateAlias)
 
-responseDescribeKey :: DescribeKeyResponse -> TestTree
-responseDescribeKey = res
-    "DescribeKeyResponse"
-    "fixture/DescribeKeyResponse.proto"
-    kms
-    (Proxy :: Proxy DescribeKey)
+responseGenerateDataKey :: GenerateDataKeyResponse -> TestTree
+responseGenerateDataKey =
+  res
+    "GenerateDataKeyResponse"
+    "fixture/GenerateDataKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GenerateDataKey)
 
-responseCancelKeyDeletion :: CancelKeyDeletionResponse -> TestTree
-responseCancelKeyDeletion = res
-    "CancelKeyDeletionResponse"
-    "fixture/CancelKeyDeletionResponse.proto"
-    kms
-    (Proxy :: Proxy CancelKeyDeletion)
+responseDeleteImportedKeyMaterial :: DeleteImportedKeyMaterialResponse -> TestTree
+responseDeleteImportedKeyMaterial =
+  res
+    "DeleteImportedKeyMaterialResponse"
+    "fixture/DeleteImportedKeyMaterialResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteImportedKeyMaterial)
 
-responseDecrypt :: DecryptResponse -> TestTree
-responseDecrypt = res
-    "DecryptResponse"
-    "fixture/DecryptResponse.proto"
-    kms
-    (Proxy :: Proxy Decrypt)
+responseImportKeyMaterial :: ImportKeyMaterialResponse -> TestTree
+responseImportKeyMaterial =
+  res
+    "ImportKeyMaterialResponse"
+    "fixture/ImportKeyMaterialResponse.proto"
+    defaultService
+    (Proxy :: Proxy ImportKeyMaterial)
 
-responseUpdateKeyDescription :: UpdateKeyDescriptionResponse -> TestTree
-responseUpdateKeyDescription = res
-    "UpdateKeyDescriptionResponse"
-    "fixture/UpdateKeyDescriptionResponse.proto"
-    kms
-    (Proxy :: Proxy UpdateKeyDescription)
+responseGetKeyRotationStatus :: GetKeyRotationStatusResponse -> TestTree
+responseGetKeyRotationStatus =
+  res
+    "GetKeyRotationStatusResponse"
+    "fixture/GetKeyRotationStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetKeyRotationStatus)
 
-responseReEncrypt :: ReEncryptResponse -> TestTree
-responseReEncrypt = res
-    "ReEncryptResponse"
-    "fixture/ReEncryptResponse.proto"
-    kms
-    (Proxy :: Proxy ReEncrypt)
+responseListResourceTags :: ListResourceTagsResponse -> TestTree
+responseListResourceTags =
+  res
+    "ListResourceTagsResponse"
+    "fixture/ListResourceTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListResourceTags)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource = res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    kms
-    (Proxy :: Proxy TagResource)
+responseReplicateKey :: ReplicateKeyResponse -> TestTree
+responseReplicateKey =
+  res
+    "ReplicateKeyResponse"
+    "fixture/ReplicateKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy ReplicateKey)
+
+responsePutKeyPolicy :: PutKeyPolicyResponse -> TestTree
+responsePutKeyPolicy =
+  res
+    "PutKeyPolicyResponse"
+    "fixture/PutKeyPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutKeyPolicy)
+
+responseDisableKey :: DisableKeyResponse -> TestTree
+responseDisableKey =
+  res
+    "DisableKeyResponse"
+    "fixture/DisableKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableKey)
 
 responseListKeyPolicies :: ListKeyPoliciesResponse -> TestTree
-responseListKeyPolicies = res
+responseListKeyPolicies =
+  res
     "ListKeyPoliciesResponse"
     "fixture/ListKeyPoliciesResponse.proto"
-    kms
+    defaultService
     (Proxy :: Proxy ListKeyPolicies)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource = res
+responseUntagResource =
+  res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    kms
+    defaultService
     (Proxy :: Proxy UntagResource)
 
-responseScheduleKeyDeletion :: ScheduleKeyDeletionResponse -> TestTree
-responseScheduleKeyDeletion = res
-    "ScheduleKeyDeletionResponse"
-    "fixture/ScheduleKeyDeletionResponse.proto"
-    kms
-    (Proxy :: Proxy ScheduleKeyDeletion)
+responseDisconnectCustomKeyStore :: DisconnectCustomKeyStoreResponse -> TestTree
+responseDisconnectCustomKeyStore =
+  res
+    "DisconnectCustomKeyStoreResponse"
+    "fixture/DisconnectCustomKeyStoreResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisconnectCustomKeyStore)
 
-responsePutKeyPolicy :: PutKeyPolicyResponse -> TestTree
-responsePutKeyPolicy = res
-    "PutKeyPolicyResponse"
-    "fixture/PutKeyPolicyResponse.proto"
-    kms
-    (Proxy :: Proxy PutKeyPolicy)
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
 
-responseEnableKey :: EnableKeyResponse -> TestTree
-responseEnableKey = res
-    "EnableKeyResponse"
-    "fixture/EnableKeyResponse.proto"
-    kms
-    (Proxy :: Proxy EnableKey)
+responseGetPublicKey :: GetPublicKeyResponse -> TestTree
+responseGetPublicKey =
+  res
+    "GetPublicKeyResponse"
+    "fixture/GetPublicKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPublicKey)
 
-responseRevokeGrant :: RevokeGrantResponse -> TestTree
-responseRevokeGrant = res
-    "RevokeGrantResponse"
-    "fixture/RevokeGrantResponse.proto"
-    kms
-    (Proxy :: Proxy RevokeGrant)
+responseGenerateRandom :: GenerateRandomResponse -> TestTree
+responseGenerateRandom =
+  res
+    "GenerateRandomResponse"
+    "fixture/GenerateRandomResponse.proto"
+    defaultService
+    (Proxy :: Proxy GenerateRandom)
+
+responseReEncrypt :: ReEncryptResponse -> TestTree
+responseReEncrypt =
+  res
+    "ReEncryptResponse"
+    "fixture/ReEncryptResponse.proto"
+    defaultService
+    (Proxy :: Proxy ReEncrypt)
+
+responseListRetirableGrants :: ListGrantsResponse -> TestTree
+responseListRetirableGrants =
+  res
+    "ListRetirableGrantsResponse"
+    "fixture/ListRetirableGrantsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRetirableGrants)
+
+responseConnectCustomKeyStore :: ConnectCustomKeyStoreResponse -> TestTree
+responseConnectCustomKeyStore =
+  res
+    "ConnectCustomKeyStoreResponse"
+    "fixture/ConnectCustomKeyStoreResponse.proto"
+    defaultService
+    (Proxy :: Proxy ConnectCustomKeyStore)
+
+responseUpdatePrimaryRegion :: UpdatePrimaryRegionResponse -> TestTree
+responseUpdatePrimaryRegion =
+  res
+    "UpdatePrimaryRegionResponse"
+    "fixture/UpdatePrimaryRegionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePrimaryRegion)
+
+responseDescribeKey :: DescribeKeyResponse -> TestTree
+responseDescribeKey =
+  res
+    "DescribeKeyResponse"
+    "fixture/DescribeKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeKey)
+
+responseGetParametersForImport :: GetParametersForImportResponse -> TestTree
+responseGetParametersForImport =
+  res
+    "GetParametersForImportResponse"
+    "fixture/GetParametersForImportResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetParametersForImport)
+
+responseUpdateCustomKeyStore :: UpdateCustomKeyStoreResponse -> TestTree
+responseUpdateCustomKeyStore =
+  res
+    "UpdateCustomKeyStoreResponse"
+    "fixture/UpdateCustomKeyStoreResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCustomKeyStore)
+
+responseDeleteCustomKeyStore :: DeleteCustomKeyStoreResponse -> TestTree
+responseDeleteCustomKeyStore =
+  res
+    "DeleteCustomKeyStoreResponse"
+    "fixture/DeleteCustomKeyStoreResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCustomKeyStore)
+
+responseEncrypt :: EncryptResponse -> TestTree
+responseEncrypt =
+  res
+    "EncryptResponse"
+    "fixture/EncryptResponse.proto"
+    defaultService
+    (Proxy :: Proxy Encrypt)
+
+responseGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
+responseGenerateDataKeyWithoutPlaintext =
+  res
+    "GenerateDataKeyWithoutPlaintextResponse"
+    "fixture/GenerateDataKeyWithoutPlaintextResponse.proto"
+    defaultService
+    (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
 responseGetKeyPolicy :: GetKeyPolicyResponse -> TestTree
-responseGetKeyPolicy = res
+responseGetKeyPolicy =
+  res
     "GetKeyPolicyResponse"
     "fixture/GetKeyPolicyResponse.proto"
-    kms
+    defaultService
     (Proxy :: Proxy GetKeyPolicy)
 
-responseImportKeyMaterial :: ImportKeyMaterialResponse -> TestTree
-responseImportKeyMaterial = res
-    "ImportKeyMaterialResponse"
-    "fixture/ImportKeyMaterialResponse.proto"
-    kms
-    (Proxy :: Proxy ImportKeyMaterial)
+responseEnableKey :: EnableKeyResponse -> TestTree
+responseEnableKey =
+  res
+    "EnableKeyResponse"
+    "fixture/EnableKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableKey)
 
-responseDeleteImportedKeyMaterial :: DeleteImportedKeyMaterialResponse -> TestTree
-responseDeleteImportedKeyMaterial = res
-    "DeleteImportedKeyMaterialResponse"
-    "fixture/DeleteImportedKeyMaterialResponse.proto"
-    kms
-    (Proxy :: Proxy DeleteImportedKeyMaterial)
+responseGenerateDataKeyPair :: GenerateDataKeyPairResponse -> TestTree
+responseGenerateDataKeyPair =
+  res
+    "GenerateDataKeyPairResponse"
+    "fixture/GenerateDataKeyPairResponse.proto"
+    defaultService
+    (Proxy :: Proxy GenerateDataKeyPair)
+
+responseListKeys :: ListKeysResponse -> TestTree
+responseListKeys =
+  res
+    "ListKeysResponse"
+    "fixture/ListKeysResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListKeys)
+
+responseRevokeGrant :: RevokeGrantResponse -> TestTree
+responseRevokeGrant =
+  res
+    "RevokeGrantResponse"
+    "fixture/RevokeGrantResponse.proto"
+    defaultService
+    (Proxy :: Proxy RevokeGrant)
+
+responseScheduleKeyDeletion :: ScheduleKeyDeletionResponse -> TestTree
+responseScheduleKeyDeletion =
+  res
+    "ScheduleKeyDeletionResponse"
+    "fixture/ScheduleKeyDeletionResponse.proto"
+    defaultService
+    (Proxy :: Proxy ScheduleKeyDeletion)
+
+responseRetireGrant :: RetireGrantResponse -> TestTree
+responseRetireGrant =
+  res
+    "RetireGrantResponse"
+    "fixture/RetireGrantResponse.proto"
+    defaultService
+    (Proxy :: Proxy RetireGrant)
+
+responseCreateKey :: CreateKeyResponse -> TestTree
+responseCreateKey =
+  res
+    "CreateKeyResponse"
+    "fixture/CreateKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateKey)
+
+responseSign :: SignResponse -> TestTree
+responseSign =
+  res
+    "SignResponse"
+    "fixture/SignResponse.proto"
+    defaultService
+    (Proxy :: Proxy Sign)
+
+responseUpdateKeyDescription :: UpdateKeyDescriptionResponse -> TestTree
+responseUpdateKeyDescription =
+  res
+    "UpdateKeyDescriptionResponse"
+    "fixture/UpdateKeyDescriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateKeyDescription)
+
+responseGenerateDataKeyPairWithoutPlaintext :: GenerateDataKeyPairWithoutPlaintextResponse -> TestTree
+responseGenerateDataKeyPairWithoutPlaintext =
+  res
+    "GenerateDataKeyPairWithoutPlaintextResponse"
+    "fixture/GenerateDataKeyPairWithoutPlaintextResponse.proto"
+    defaultService
+    (Proxy :: Proxy GenerateDataKeyPairWithoutPlaintext)
+
+responseCancelKeyDeletion :: CancelKeyDeletionResponse -> TestTree
+responseCancelKeyDeletion =
+  res
+    "CancelKeyDeletionResponse"
+    "fixture/CancelKeyDeletionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelKeyDeletion)
+
+responseDecrypt :: DecryptResponse -> TestTree
+responseDecrypt =
+  res
+    "DecryptResponse"
+    "fixture/DecryptResponse.proto"
+    defaultService
+    (Proxy :: Proxy Decrypt)
+
+responseDescribeCustomKeyStores :: DescribeCustomKeyStoresResponse -> TestTree
+responseDescribeCustomKeyStores =
+  res
+    "DescribeCustomKeyStoresResponse"
+    "fixture/DescribeCustomKeyStoresResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeCustomKeyStores)
+
+responseCreateGrant :: CreateGrantResponse -> TestTree
+responseCreateGrant =
+  res
+    "CreateGrantResponse"
+    "fixture/CreateGrantResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateGrant)
+
+responseEnableKeyRotation :: EnableKeyRotationResponse -> TestTree
+responseEnableKeyRotation =
+  res
+    "EnableKeyRotationResponse"
+    "fixture/EnableKeyRotationResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableKeyRotation)
+
+responseListAliases :: ListAliasesResponse -> TestTree
+responseListAliases =
+  res
+    "ListAliasesResponse"
+    "fixture/ListAliasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAliases)
+
+responseCreateAlias :: CreateAliasResponse -> TestTree
+responseCreateAlias =
+  res
+    "CreateAliasResponse"
+    "fixture/CreateAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAlias)

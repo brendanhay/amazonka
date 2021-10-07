@@ -1,153 +1,191 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RemoveTagsFromResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified resource. This operation is only supported in the cached volume, stored volume and tape gateway architectures.
---
---
+-- Removes one or more tags from the specified resource. This operation is
+-- supported in storage gateways of all types.
 module Network.AWS.StorageGateway.RemoveTagsFromResource
-    (
-    -- * Creating a Request
-      removeTagsFromResource
-    , RemoveTagsFromResource
+  ( -- * Creating a Request
+    RemoveTagsFromResource (..),
+    newRemoveTagsFromResource,
+
     -- * Request Lenses
-    , rtfrResourceARN
-    , rtfrTagKeys
+    removeTagsFromResource_resourceARN,
+    removeTagsFromResource_tagKeys,
 
     -- * Destructuring the Response
-    , removeTagsFromResourceResponse
-    , RemoveTagsFromResourceResponse
-    -- * Response Lenses
-    , rtfrrsResourceARN
-    , rtfrrsResponseStatus
-    ) where
+    RemoveTagsFromResourceResponse (..),
+    newRemoveTagsFromResourceResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    removeTagsFromResourceResponse_resourceARN,
+    removeTagsFromResourceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | RemoveTagsFromResourceInput
 --
---
---
--- /See:/ 'removeTagsFromResource' smart constructor.
+-- /See:/ 'newRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceARN :: !Text
-  , _rtfrTagKeys     :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the resource you want to remove the
+    -- tags from.
+    resourceARN :: Prelude.Text,
+    -- | The keys of the tags you want to remove from the specified resource. A
+    -- tag is composed of a key-value pair.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTagsFromResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtfrResourceARN' - The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtfrTagKeys' - The keys of the tags you want to remove from the specified resource. A tag is composed of a key/value pair.
-removeTagsFromResource
-    :: Text -- ^ 'rtfrResourceARN'
-    -> RemoveTagsFromResource
-removeTagsFromResource pResourceARN_ =
+-- 'resourceARN', 'removeTagsFromResource_resourceARN' - The Amazon Resource Name (ARN) of the resource you want to remove the
+-- tags from.
+--
+-- 'tagKeys', 'removeTagsFromResource_tagKeys' - The keys of the tags you want to remove from the specified resource. A
+-- tag is composed of a key-value pair.
+newRemoveTagsFromResource ::
+  -- | 'resourceARN'
+  Prelude.Text ->
+  RemoveTagsFromResource
+newRemoveTagsFromResource pResourceARN_ =
   RemoveTagsFromResource'
-  {_rtfrResourceARN = pResourceARN_, _rtfrTagKeys = mempty}
+    { resourceARN =
+        pResourceARN_,
+      tagKeys = Prelude.mempty
+    }
 
+-- | The Amazon Resource Name (ARN) of the resource you want to remove the
+-- tags from.
+removeTagsFromResource_resourceARN :: Lens.Lens' RemoveTagsFromResource Prelude.Text
+removeTagsFromResource_resourceARN = Lens.lens (\RemoveTagsFromResource' {resourceARN} -> resourceARN) (\s@RemoveTagsFromResource' {} a -> s {resourceARN = a} :: RemoveTagsFromResource)
 
--- | The Amazon Resource Name (ARN) of the resource you want to remove the tags from.
-rtfrResourceARN :: Lens' RemoveTagsFromResource Text
-rtfrResourceARN = lens _rtfrResourceARN (\ s a -> s{_rtfrResourceARN = a});
+-- | The keys of the tags you want to remove from the specified resource. A
+-- tag is composed of a key-value pair.
+removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
+removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Lens._Coerce
 
--- | The keys of the tags you want to remove from the specified resource. A tag is composed of a key/value pair.
-rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
+instance Core.AWSRequest RemoveTagsFromResource where
+  type
+    AWSResponse RemoveTagsFromResource =
+      RemoveTagsFromResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RemoveTagsFromResourceResponse'
+            Prelude.<$> (x Core..?> "ResourceARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest RemoveTagsFromResource where
-        type Rs RemoveTagsFromResource =
-             RemoveTagsFromResourceResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RemoveTagsFromResourceResponse' <$>
-                   (x .?> "ResourceARN") <*> (pure (fromEnum s)))
+instance Prelude.Hashable RemoveTagsFromResource
 
-instance Hashable RemoveTagsFromResource where
+instance Prelude.NFData RemoveTagsFromResource
 
-instance NFData RemoveTagsFromResource where
+instance Core.ToHeaders RemoveTagsFromResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.RemoveTagsFromResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders RemoveTagsFromResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.RemoveTagsFromResource" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON RemoveTagsFromResource where
+  toJSON RemoveTagsFromResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceARN" Core..= resourceARN),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance ToJSON RemoveTagsFromResource where
-        toJSON RemoveTagsFromResource'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceARN" .= _rtfrResourceARN),
-                  Just ("TagKeys" .= _rtfrTagKeys)])
+instance Core.ToPath RemoveTagsFromResource where
+  toPath = Prelude.const "/"
 
-instance ToPath RemoveTagsFromResource where
-        toPath = const "/"
-
-instance ToQuery RemoveTagsFromResource where
-        toQuery = const mempty
+instance Core.ToQuery RemoveTagsFromResource where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | RemoveTagsFromResourceOutput
 --
---
---
--- /See:/ 'removeTagsFromResourceResponse' smart constructor.
+-- /See:/ 'newRemoveTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { _rtfrrsResourceARN    :: !(Maybe Text)
-  , _rtfrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the resource that the tags were
+    -- removed from.
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTagsFromResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtfrrsResourceARN' - The Amazon Resource Name (ARN) of the resource that the tags were removed from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtfrrsResponseStatus' - -- | The response status code.
-removeTagsFromResourceResponse
-    :: Int -- ^ 'rtfrrsResponseStatus'
-    -> RemoveTagsFromResourceResponse
-removeTagsFromResourceResponse pResponseStatus_ =
+-- 'resourceARN', 'removeTagsFromResourceResponse_resourceARN' - The Amazon Resource Name (ARN) of the resource that the tags were
+-- removed from.
+--
+-- 'httpStatus', 'removeTagsFromResourceResponse_httpStatus' - The response's http status code.
+newRemoveTagsFromResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RemoveTagsFromResourceResponse
+newRemoveTagsFromResourceResponse pHttpStatus_ =
   RemoveTagsFromResourceResponse'
-  {_rtfrrsResourceARN = Nothing, _rtfrrsResponseStatus = pResponseStatus_}
+    { resourceARN =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The Amazon Resource Name (ARN) of the resource that the tags were
+-- removed from.
+removeTagsFromResourceResponse_resourceARN :: Lens.Lens' RemoveTagsFromResourceResponse (Prelude.Maybe Prelude.Text)
+removeTagsFromResourceResponse_resourceARN = Lens.lens (\RemoveTagsFromResourceResponse' {resourceARN} -> resourceARN) (\s@RemoveTagsFromResourceResponse' {} a -> s {resourceARN = a} :: RemoveTagsFromResourceResponse)
 
--- | The Amazon Resource Name (ARN) of the resource that the tags were removed from.
-rtfrrsResourceARN :: Lens' RemoveTagsFromResourceResponse (Maybe Text)
-rtfrrsResourceARN = lens _rtfrrsResourceARN (\ s a -> s{_rtfrrsResourceARN = a});
+-- | The response's http status code.
+removeTagsFromResourceResponse_httpStatus :: Lens.Lens' RemoveTagsFromResourceResponse Prelude.Int
+removeTagsFromResourceResponse_httpStatus = Lens.lens (\RemoveTagsFromResourceResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsFromResourceResponse' {} a -> s {httpStatus = a} :: RemoveTagsFromResourceResponse)
 
--- | -- | The response status code.
-rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a});
-
-instance NFData RemoveTagsFromResourceResponse where
+instance
+  Prelude.NFData
+    RemoveTagsFromResourceResponse

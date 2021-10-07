@@ -1,134 +1,167 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a distribution.
---
---
 module Network.AWS.CloudFront.DeleteDistribution
-    (
-    -- * Creating a Request
-      deleteDistribution
-    , DeleteDistribution
+  ( -- * Creating a Request
+    DeleteDistribution (..),
+    newDeleteDistribution,
+
     -- * Request Lenses
-    , ddIfMatch
-    , ddId
+    deleteDistribution_ifMatch,
+    deleteDistribution_id,
 
     -- * Destructuring the Response
-    , deleteDistributionResponse
-    , DeleteDistributionResponse
-    ) where
+    DeleteDistributionResponse (..),
+    newDeleteDistributionResponse,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.
---
+-- | This action deletes a web distribution. To delete a web distribution
+-- using the CloudFront API, perform the following steps.
 --
 -- __To delete a web distribution using the CloudFront API:__
 --
---     * Disable the web distribution
+-- 1.  Disable the web distribution
 --
---     * Submit a @GET Distribution Config@ request to get the current configuration and the @Etag@ header for the distribution.
+-- 2.  Submit a @GET Distribution Config@ request to get the current
+--     configuration and the @Etag@ header for the distribution.
 --
---     * Update the XML document that was returned in the response to your @GET Distribution Config@ request to change the value of @Enabled@ to @false@ .
+-- 3.  Update the XML document that was returned in the response to your
+--     @GET Distribution Config@ request to change the value of @Enabled@
+--     to @false@.
 --
---     * Submit a @PUT Distribution Config@ request to update the configuration for your distribution. In the request body, include the XML document that you updated in Step 3. Set the value of the HTTP @If-Match@ header to the value of the @ETag@ header that CloudFront returned when you submitted the @GET Distribution Config@ request in Step 2.
+-- 4.  Submit a @PUT Distribution Config@ request to update the
+--     configuration for your distribution. In the request body, include
+--     the XML document that you updated in Step 3. Set the value of the
+--     HTTP @If-Match@ header to the value of the @ETag@ header that
+--     CloudFront returned when you submitted the @GET Distribution Config@
+--     request in Step 2.
 --
---     * Review the response to the @PUT Distribution Config@ request to confirm that the distribution was successfully disabled.
+-- 5.  Review the response to the @PUT Distribution Config@ request to
+--     confirm that the distribution was successfully disabled.
 --
---     * Submit a @GET Distribution@ request to confirm that your changes have propagated. When propagation is complete, the value of @Status@ is @Deployed@ .
+-- 6.  Submit a @GET Distribution@ request to confirm that your changes
+--     have propagated. When propagation is complete, the value of @Status@
+--     is @Deployed@.
 --
---     * Submit a @DELETE Distribution@ request. Set the value of the HTTP @If-Match@ header to the value of the @ETag@ header that CloudFront returned when you submitted the @GET Distribution Config@ request in Step 6.
+-- 7.  Submit a @DELETE Distribution@ request. Set the value of the HTTP
+--     @If-Match@ header to the value of the @ETag@ header that CloudFront
+--     returned when you submitted the @GET Distribution Config@ request in
+--     Step 6.
 --
---     * Review the response to your @DELETE Distribution@ request to confirm that the distribution was successfully deleted.
+-- 8.  Review the response to your @DELETE Distribution@ request to confirm
+--     that the distribution was successfully deleted.
 --
+-- For information about deleting a distribution using the CloudFront
+-- console, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html Deleting a Distribution>
+-- in the /Amazon CloudFront Developer Guide/.
 --
---
--- For information about deleting a distribution using the CloudFront console, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html Deleting a Distribution> in the /Amazon CloudFront Developer Guide/ .
---
---
--- /See:/ 'deleteDistribution' smart constructor.
+-- /See:/ 'newDeleteDistribution' smart constructor.
 data DeleteDistribution = DeleteDistribution'
-  { _ddIfMatch :: !(Maybe Text)
-  , _ddId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The value of the @ETag@ header that you received when you disabled the
+    -- distribution. For example: @E2QWRUHAPOMQZL@.
+    ifMatch :: Prelude.Maybe Prelude.Text,
+    -- | The distribution ID.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDistribution' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDistribution' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddIfMatch' - The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddId' - The distribution ID.
-deleteDistribution
-    :: Text -- ^ 'ddId'
-    -> DeleteDistribution
-deleteDistribution pId_ =
-  DeleteDistribution' {_ddIfMatch = Nothing, _ddId = pId_}
+-- 'ifMatch', 'deleteDistribution_ifMatch' - The value of the @ETag@ header that you received when you disabled the
+-- distribution. For example: @E2QWRUHAPOMQZL@.
+--
+-- 'id', 'deleteDistribution_id' - The distribution ID.
+newDeleteDistribution ::
+  -- | 'id'
+  Prelude.Text ->
+  DeleteDistribution
+newDeleteDistribution pId_ =
+  DeleteDistribution'
+    { ifMatch = Prelude.Nothing,
+      id = pId_
+    }
 
-
--- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
-ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
-ddIfMatch = lens _ddIfMatch (\ s a -> s{_ddIfMatch = a});
+-- | The value of the @ETag@ header that you received when you disabled the
+-- distribution. For example: @E2QWRUHAPOMQZL@.
+deleteDistribution_ifMatch :: Lens.Lens' DeleteDistribution (Prelude.Maybe Prelude.Text)
+deleteDistribution_ifMatch = Lens.lens (\DeleteDistribution' {ifMatch} -> ifMatch) (\s@DeleteDistribution' {} a -> s {ifMatch = a} :: DeleteDistribution)
 
 -- | The distribution ID.
-ddId :: Lens' DeleteDistribution Text
-ddId = lens _ddId (\ s a -> s{_ddId = a});
+deleteDistribution_id :: Lens.Lens' DeleteDistribution Prelude.Text
+deleteDistribution_id = Lens.lens (\DeleteDistribution' {id} -> id) (\s@DeleteDistribution' {} a -> s {id = a} :: DeleteDistribution)
 
-instance AWSRequest DeleteDistribution where
-        type Rs DeleteDistribution =
-             DeleteDistributionResponse
-        request = delete cloudFront
-        response = receiveNull DeleteDistributionResponse'
+instance Core.AWSRequest DeleteDistribution where
+  type
+    AWSResponse DeleteDistribution =
+      DeleteDistributionResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteDistributionResponse'
 
-instance Hashable DeleteDistribution where
+instance Prelude.Hashable DeleteDistribution
 
-instance NFData DeleteDistribution where
+instance Prelude.NFData DeleteDistribution
 
-instance ToHeaders DeleteDistribution where
-        toHeaders DeleteDistribution'{..}
-          = mconcat ["If-Match" =# _ddIfMatch]
+instance Core.ToHeaders DeleteDistribution where
+  toHeaders DeleteDistribution' {..} =
+    Prelude.mconcat ["If-Match" Core.=# ifMatch]
 
-instance ToPath DeleteDistribution where
-        toPath DeleteDistribution'{..}
-          = mconcat ["/2017-03-25/distribution/", toBS _ddId]
+instance Core.ToPath DeleteDistribution where
+  toPath DeleteDistribution' {..} =
+    Prelude.mconcat
+      ["/2020-05-31/distribution/", Core.toBS id]
 
-instance ToQuery DeleteDistribution where
-        toQuery = const mempty
+instance Core.ToQuery DeleteDistribution where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteDistributionResponse' smart constructor.
-data DeleteDistributionResponse =
-  DeleteDistributionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDistributionResponse' smart constructor.
+data DeleteDistributionResponse = DeleteDistributionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDistributionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDistributionResponse' with all optional fields omitted.
 --
-deleteDistributionResponse
-    :: DeleteDistributionResponse
-deleteDistributionResponse = DeleteDistributionResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteDistributionResponse ::
+  DeleteDistributionResponse
+newDeleteDistributionResponse =
+  DeleteDistributionResponse'
 
-
-instance NFData DeleteDistributionResponse where
+instance Prelude.NFData DeleteDistributionResponse

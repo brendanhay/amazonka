@@ -1,141 +1,170 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyTargetGroupAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified attributes of the specified target group.
---
---
 module Network.AWS.ELBv2.ModifyTargetGroupAttributes
-    (
-    -- * Creating a Request
-      modifyTargetGroupAttributes
-    , ModifyTargetGroupAttributes
+  ( -- * Creating a Request
+    ModifyTargetGroupAttributes (..),
+    newModifyTargetGroupAttributes,
+
     -- * Request Lenses
-    , mtgaTargetGroupARN
-    , mtgaAttributes
+    modifyTargetGroupAttributes_targetGroupArn,
+    modifyTargetGroupAttributes_attributes,
 
     -- * Destructuring the Response
-    , modifyTargetGroupAttributesResponse
-    , ModifyTargetGroupAttributesResponse
+    ModifyTargetGroupAttributesResponse (..),
+    newModifyTargetGroupAttributesResponse,
+
     -- * Response Lenses
-    , mtgarsAttributes
-    , mtgarsResponseStatus
-    ) where
+    modifyTargetGroupAttributesResponse_attributes,
+    modifyTargetGroupAttributesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'modifyTargetGroupAttributes' smart constructor.
+-- | /See:/ 'newModifyTargetGroupAttributes' smart constructor.
 data ModifyTargetGroupAttributes = ModifyTargetGroupAttributes'
-  { _mtgaTargetGroupARN :: !Text
-  , _mtgaAttributes     :: ![TargetGroupAttribute]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Text,
+    -- | The attributes.
+    attributes :: [TargetGroupAttribute]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyTargetGroupAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyTargetGroupAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mtgaTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mtgaAttributes' - The attributes.
-modifyTargetGroupAttributes
-    :: Text -- ^ 'mtgaTargetGroupARN'
-    -> ModifyTargetGroupAttributes
-modifyTargetGroupAttributes pTargetGroupARN_ =
+-- 'targetGroupArn', 'modifyTargetGroupAttributes_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
+--
+-- 'attributes', 'modifyTargetGroupAttributes_attributes' - The attributes.
+newModifyTargetGroupAttributes ::
+  -- | 'targetGroupArn'
+  Prelude.Text ->
+  ModifyTargetGroupAttributes
+newModifyTargetGroupAttributes pTargetGroupArn_ =
   ModifyTargetGroupAttributes'
-  {_mtgaTargetGroupARN = pTargetGroupARN_, _mtgaAttributes = mempty}
-
+    { targetGroupArn =
+        pTargetGroupArn_,
+      attributes = Prelude.mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-mtgaTargetGroupARN :: Lens' ModifyTargetGroupAttributes Text
-mtgaTargetGroupARN = lens _mtgaTargetGroupARN (\ s a -> s{_mtgaTargetGroupARN = a});
+modifyTargetGroupAttributes_targetGroupArn :: Lens.Lens' ModifyTargetGroupAttributes Prelude.Text
+modifyTargetGroupAttributes_targetGroupArn = Lens.lens (\ModifyTargetGroupAttributes' {targetGroupArn} -> targetGroupArn) (\s@ModifyTargetGroupAttributes' {} a -> s {targetGroupArn = a} :: ModifyTargetGroupAttributes)
 
 -- | The attributes.
-mtgaAttributes :: Lens' ModifyTargetGroupAttributes [TargetGroupAttribute]
-mtgaAttributes = lens _mtgaAttributes (\ s a -> s{_mtgaAttributes = a}) . _Coerce;
+modifyTargetGroupAttributes_attributes :: Lens.Lens' ModifyTargetGroupAttributes [TargetGroupAttribute]
+modifyTargetGroupAttributes_attributes = Lens.lens (\ModifyTargetGroupAttributes' {attributes} -> attributes) (\s@ModifyTargetGroupAttributes' {} a -> s {attributes = a} :: ModifyTargetGroupAttributes) Prelude.. Lens._Coerce
 
-instance AWSRequest ModifyTargetGroupAttributes where
-        type Rs ModifyTargetGroupAttributes =
-             ModifyTargetGroupAttributesResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper
-              "ModifyTargetGroupAttributesResult"
-              (\ s h x ->
-                 ModifyTargetGroupAttributesResponse' <$>
-                   (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ModifyTargetGroupAttributes where
+  type
+    AWSResponse ModifyTargetGroupAttributes =
+      ModifyTargetGroupAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyTargetGroupAttributesResult"
+      ( \s h x ->
+          ModifyTargetGroupAttributesResponse'
+            Prelude.<$> ( x Core..@? "Attributes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyTargetGroupAttributes where
+instance Prelude.Hashable ModifyTargetGroupAttributes
 
-instance NFData ModifyTargetGroupAttributes where
+instance Prelude.NFData ModifyTargetGroupAttributes
 
-instance ToHeaders ModifyTargetGroupAttributes where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifyTargetGroupAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyTargetGroupAttributes where
-        toPath = const "/"
+instance Core.ToPath ModifyTargetGroupAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyTargetGroupAttributes where
-        toQuery ModifyTargetGroupAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("ModifyTargetGroupAttributes" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "TargetGroupArn" =: _mtgaTargetGroupARN,
-               "Attributes" =: toQueryList "member" _mtgaAttributes]
+instance Core.ToQuery ModifyTargetGroupAttributes where
+  toQuery ModifyTargetGroupAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "ModifyTargetGroupAttributes" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Core.=: targetGroupArn,
+        "Attributes"
+          Core.=: Core.toQueryList "member" attributes
+      ]
 
--- | /See:/ 'modifyTargetGroupAttributesResponse' smart constructor.
+-- | /See:/ 'newModifyTargetGroupAttributesResponse' smart constructor.
 data ModifyTargetGroupAttributesResponse = ModifyTargetGroupAttributesResponse'
-  { _mtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
-  , _mtgarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the attributes.
+    attributes :: Prelude.Maybe [TargetGroupAttribute],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyTargetGroupAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyTargetGroupAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mtgarsAttributes' - Information about the attributes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mtgarsResponseStatus' - -- | The response status code.
-modifyTargetGroupAttributesResponse
-    :: Int -- ^ 'mtgarsResponseStatus'
-    -> ModifyTargetGroupAttributesResponse
-modifyTargetGroupAttributesResponse pResponseStatus_ =
+-- 'attributes', 'modifyTargetGroupAttributesResponse_attributes' - Information about the attributes.
+--
+-- 'httpStatus', 'modifyTargetGroupAttributesResponse_httpStatus' - The response's http status code.
+newModifyTargetGroupAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyTargetGroupAttributesResponse
+newModifyTargetGroupAttributesResponse pHttpStatus_ =
   ModifyTargetGroupAttributesResponse'
-  {_mtgarsAttributes = Nothing, _mtgarsResponseStatus = pResponseStatus_}
-
+    { attributes =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the attributes.
-mtgarsAttributes :: Lens' ModifyTargetGroupAttributesResponse [TargetGroupAttribute]
-mtgarsAttributes = lens _mtgarsAttributes (\ s a -> s{_mtgarsAttributes = a}) . _Default . _Coerce;
+modifyTargetGroupAttributesResponse_attributes :: Lens.Lens' ModifyTargetGroupAttributesResponse (Prelude.Maybe [TargetGroupAttribute])
+modifyTargetGroupAttributesResponse_attributes = Lens.lens (\ModifyTargetGroupAttributesResponse' {attributes} -> attributes) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {attributes = a} :: ModifyTargetGroupAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-mtgarsResponseStatus :: Lens' ModifyTargetGroupAttributesResponse Int
-mtgarsResponseStatus = lens _mtgarsResponseStatus (\ s a -> s{_mtgarsResponseStatus = a});
+-- | The response's http status code.
+modifyTargetGroupAttributesResponse_httpStatus :: Lens.Lens' ModifyTargetGroupAttributesResponse Prelude.Int
+modifyTargetGroupAttributesResponse_httpStatus = Lens.lens (\ModifyTargetGroupAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {httpStatus = a} :: ModifyTargetGroupAttributesResponse)
 
-instance NFData ModifyTargetGroupAttributesResponse
-         where
+instance
+  Prelude.NFData
+    ModifyTargetGroupAttributesResponse

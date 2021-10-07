@@ -1,129 +1,179 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.StartImageBuilder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- Starts the specified image builder.
 module Network.AWS.AppStream.StartImageBuilder
-    (
-    -- * Creating a Request
-      startImageBuilder
-    , StartImageBuilder
+  ( -- * Creating a Request
+    StartImageBuilder (..),
+    newStartImageBuilder,
+
     -- * Request Lenses
-    , sibName
+    startImageBuilder_appstreamAgentVersion,
+    startImageBuilder_name,
 
     -- * Destructuring the Response
-    , startImageBuilderResponse
-    , StartImageBuilderResponse
+    StartImageBuilderResponse (..),
+    newStartImageBuilderResponse,
+
     -- * Response Lenses
-    , srsImageBuilder
-    , srsResponseStatus
-    ) where
+    startImageBuilderResponse_imageBuilder,
+    startImageBuilderResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startImageBuilder' smart constructor.
-newtype StartImageBuilder = StartImageBuilder'
-  { _sibName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStartImageBuilder' smart constructor.
+data StartImageBuilder = StartImageBuilder'
+  { -- | The version of the AppStream 2.0 agent to use for this image builder. To
+    -- use the latest version of the AppStream 2.0 agent, specify [LATEST].
+    appstreamAgentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the image builder.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartImageBuilder' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartImageBuilder' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sibName' - Undocumented member.
-startImageBuilder
-    :: Text -- ^ 'sibName'
-    -> StartImageBuilder
-startImageBuilder pName_ = StartImageBuilder' {_sibName = pName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'appstreamAgentVersion', 'startImageBuilder_appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To
+-- use the latest version of the AppStream 2.0 agent, specify [LATEST].
+--
+-- 'name', 'startImageBuilder_name' - The name of the image builder.
+newStartImageBuilder ::
+  -- | 'name'
+  Prelude.Text ->
+  StartImageBuilder
+newStartImageBuilder pName_ =
+  StartImageBuilder'
+    { appstreamAgentVersion =
+        Prelude.Nothing,
+      name = pName_
+    }
 
+-- | The version of the AppStream 2.0 agent to use for this image builder. To
+-- use the latest version of the AppStream 2.0 agent, specify [LATEST].
+startImageBuilder_appstreamAgentVersion :: Lens.Lens' StartImageBuilder (Prelude.Maybe Prelude.Text)
+startImageBuilder_appstreamAgentVersion = Lens.lens (\StartImageBuilder' {appstreamAgentVersion} -> appstreamAgentVersion) (\s@StartImageBuilder' {} a -> s {appstreamAgentVersion = a} :: StartImageBuilder)
 
--- | Undocumented member.
-sibName :: Lens' StartImageBuilder Text
-sibName = lens _sibName (\ s a -> s{_sibName = a});
+-- | The name of the image builder.
+startImageBuilder_name :: Lens.Lens' StartImageBuilder Prelude.Text
+startImageBuilder_name = Lens.lens (\StartImageBuilder' {name} -> name) (\s@StartImageBuilder' {} a -> s {name = a} :: StartImageBuilder)
 
-instance AWSRequest StartImageBuilder where
-        type Rs StartImageBuilder = StartImageBuilderResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartImageBuilderResponse' <$>
-                   (x .?> "ImageBuilder") <*> (pure (fromEnum s)))
+instance Core.AWSRequest StartImageBuilder where
+  type
+    AWSResponse StartImageBuilder =
+      StartImageBuilderResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartImageBuilderResponse'
+            Prelude.<$> (x Core..?> "ImageBuilder")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartImageBuilder where
+instance Prelude.Hashable StartImageBuilder
 
-instance NFData StartImageBuilder where
+instance Prelude.NFData StartImageBuilder
 
-instance ToHeaders StartImageBuilder where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.StartImageBuilder" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders StartImageBuilder where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "PhotonAdminProxyService.StartImageBuilder" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON StartImageBuilder where
-        toJSON StartImageBuilder'{..}
-          = object (catMaybes [Just ("Name" .= _sibName)])
+instance Core.ToJSON StartImageBuilder where
+  toJSON StartImageBuilder' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AppstreamAgentVersion" Core..=)
+              Prelude.<$> appstreamAgentVersion,
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
 
-instance ToPath StartImageBuilder where
-        toPath = const "/"
+instance Core.ToPath StartImageBuilder where
+  toPath = Prelude.const "/"
 
-instance ToQuery StartImageBuilder where
-        toQuery = const mempty
+instance Core.ToQuery StartImageBuilder where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'startImageBuilderResponse' smart constructor.
+-- | /See:/ 'newStartImageBuilderResponse' smart constructor.
 data StartImageBuilderResponse = StartImageBuilderResponse'
-  { _srsImageBuilder   :: !(Maybe ImageBuilder)
-  , _srsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the image builder.
+    imageBuilder :: Prelude.Maybe ImageBuilder,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartImageBuilderResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartImageBuilderResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srsImageBuilder' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srsResponseStatus' - -- | The response status code.
-startImageBuilderResponse
-    :: Int -- ^ 'srsResponseStatus'
-    -> StartImageBuilderResponse
-startImageBuilderResponse pResponseStatus_ =
+-- 'imageBuilder', 'startImageBuilderResponse_imageBuilder' - Information about the image builder.
+--
+-- 'httpStatus', 'startImageBuilderResponse_httpStatus' - The response's http status code.
+newStartImageBuilderResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartImageBuilderResponse
+newStartImageBuilderResponse pHttpStatus_ =
   StartImageBuilderResponse'
-  {_srsImageBuilder = Nothing, _srsResponseStatus = pResponseStatus_}
+    { imageBuilder =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the image builder.
+startImageBuilderResponse_imageBuilder :: Lens.Lens' StartImageBuilderResponse (Prelude.Maybe ImageBuilder)
+startImageBuilderResponse_imageBuilder = Lens.lens (\StartImageBuilderResponse' {imageBuilder} -> imageBuilder) (\s@StartImageBuilderResponse' {} a -> s {imageBuilder = a} :: StartImageBuilderResponse)
 
--- | Undocumented member.
-srsImageBuilder :: Lens' StartImageBuilderResponse (Maybe ImageBuilder)
-srsImageBuilder = lens _srsImageBuilder (\ s a -> s{_srsImageBuilder = a});
+-- | The response's http status code.
+startImageBuilderResponse_httpStatus :: Lens.Lens' StartImageBuilderResponse Prelude.Int
+startImageBuilderResponse_httpStatus = Lens.lens (\StartImageBuilderResponse' {httpStatus} -> httpStatus) (\s@StartImageBuilderResponse' {} a -> s {httpStatus = a} :: StartImageBuilderResponse)
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartImageBuilderResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
-
-instance NFData StartImageBuilderResponse where
+instance Prelude.NFData StartImageBuilderResponse

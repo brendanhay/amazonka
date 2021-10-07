@@ -1,112 +1,136 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeregisterInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deregister a registered Amazon EC2 or on-premises instance. This action removes the instance from the stack and returns it to your control. This action can not be used with instances that were created with AWS OpsWorks Stacks.
+-- Deregister a registered Amazon EC2 or on-premises instance. This action
+-- removes the instance from the stack and returns it to your control. This
+-- action cannot be used with instances that were created with AWS OpsWorks
+-- Stacks.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DeregisterInstance
-    (
-    -- * Creating a Request
-      deregisterInstance
-    , DeregisterInstance
+  ( -- * Creating a Request
+    DeregisterInstance (..),
+    newDeregisterInstance,
+
     -- * Request Lenses
-    , dInstanceId
+    deregisterInstance_instanceId,
 
     -- * Destructuring the Response
-    , deregisterInstanceResponse
-    , DeregisterInstanceResponse
-    ) where
+    DeregisterInstanceResponse (..),
+    newDeregisterInstanceResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deregisterInstance' smart constructor.
-newtype DeregisterInstance = DeregisterInstance'
-  { _dInstanceId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeregisterInstance' smart constructor.
+data DeregisterInstance = DeregisterInstance'
+  { -- | The instance ID.
+    instanceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeregisterInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dInstanceId' - The instance ID.
-deregisterInstance
-    :: Text -- ^ 'dInstanceId'
-    -> DeregisterInstance
-deregisterInstance pInstanceId_ =
-  DeregisterInstance' {_dInstanceId = pInstanceId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceId', 'deregisterInstance_instanceId' - The instance ID.
+newDeregisterInstance ::
+  -- | 'instanceId'
+  Prelude.Text ->
+  DeregisterInstance
+newDeregisterInstance pInstanceId_ =
+  DeregisterInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-dInstanceId :: Lens' DeregisterInstance Text
-dInstanceId = lens _dInstanceId (\ s a -> s{_dInstanceId = a});
+deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Prelude.Text
+deregisterInstance_instanceId = Lens.lens (\DeregisterInstance' {instanceId} -> instanceId) (\s@DeregisterInstance' {} a -> s {instanceId = a} :: DeregisterInstance)
 
-instance AWSRequest DeregisterInstance where
-        type Rs DeregisterInstance =
-             DeregisterInstanceResponse
-        request = postJSON opsWorks
-        response = receiveNull DeregisterInstanceResponse'
+instance Core.AWSRequest DeregisterInstance where
+  type
+    AWSResponse DeregisterInstance =
+      DeregisterInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeregisterInstanceResponse'
 
-instance Hashable DeregisterInstance where
+instance Prelude.Hashable DeregisterInstance
 
-instance NFData DeregisterInstance where
+instance Prelude.NFData DeregisterInstance
 
-instance ToHeaders DeregisterInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DeregisterInstance" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeregisterInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DeregisterInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeregisterInstance where
-        toJSON DeregisterInstance'{..}
-          = object
-              (catMaybes [Just ("InstanceId" .= _dInstanceId)])
+instance Core.ToJSON DeregisterInstance where
+  toJSON DeregisterInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("InstanceId" Core..= instanceId)]
+      )
 
-instance ToPath DeregisterInstance where
-        toPath = const "/"
+instance Core.ToPath DeregisterInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeregisterInstance where
-        toQuery = const mempty
+instance Core.ToQuery DeregisterInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deregisterInstanceResponse' smart constructor.
-data DeregisterInstanceResponse =
-  DeregisterInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeregisterInstanceResponse' smart constructor.
+data DeregisterInstanceResponse = DeregisterInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeregisterInstanceResponse' with all optional fields omitted.
 --
-deregisterInstanceResponse
-    :: DeregisterInstanceResponse
-deregisterInstanceResponse = DeregisterInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeregisterInstanceResponse ::
+  DeregisterInstanceResponse
+newDeregisterInstanceResponse =
+  DeregisterInstanceResponse'
 
-
-instance NFData DeregisterInstanceResponse where
+instance Prelude.NFData DeregisterInstanceResponse

@@ -1,152 +1,189 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterEcsCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a specified Amazon ECS cluster with a stack. You can register only one cluster with a stack. A cluster can be registered with only one stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html Resource Management> .
+-- Registers a specified Amazon ECS cluster with a stack. You can register
+-- only one cluster with a stack. A cluster can be registered with only one
+-- stack. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html Resource Management>.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.RegisterEcsCluster
-    (
-    -- * Creating a Request
-      registerEcsCluster
-    , RegisterEcsCluster
+  ( -- * Creating a Request
+    RegisterEcsCluster (..),
+    newRegisterEcsCluster,
+
     -- * Request Lenses
-    , recEcsClusterARN
-    , recStackId
+    registerEcsCluster_ecsClusterArn,
+    registerEcsCluster_stackId,
 
     -- * Destructuring the Response
-    , registerEcsClusterResponse
-    , RegisterEcsClusterResponse
+    RegisterEcsClusterResponse (..),
+    newRegisterEcsClusterResponse,
+
     -- * Response Lenses
-    , recrsEcsClusterARN
-    , recrsResponseStatus
-    ) where
+    registerEcsClusterResponse_ecsClusterArn,
+    registerEcsClusterResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'registerEcsCluster' smart constructor.
+-- | /See:/ 'newRegisterEcsCluster' smart constructor.
 data RegisterEcsCluster = RegisterEcsCluster'
-  { _recEcsClusterARN :: !Text
-  , _recStackId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The cluster\'s ARN.
+    ecsClusterArn :: Prelude.Text,
+    -- | The stack ID.
+    stackId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterEcsCluster' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterEcsCluster' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'recEcsClusterARN' - The cluster's ARN.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'recStackId' - The stack ID.
-registerEcsCluster
-    :: Text -- ^ 'recEcsClusterARN'
-    -> Text -- ^ 'recStackId'
-    -> RegisterEcsCluster
-registerEcsCluster pEcsClusterARN_ pStackId_ =
+-- 'ecsClusterArn', 'registerEcsCluster_ecsClusterArn' - The cluster\'s ARN.
+--
+-- 'stackId', 'registerEcsCluster_stackId' - The stack ID.
+newRegisterEcsCluster ::
+  -- | 'ecsClusterArn'
+  Prelude.Text ->
+  -- | 'stackId'
+  Prelude.Text ->
+  RegisterEcsCluster
+newRegisterEcsCluster pEcsClusterArn_ pStackId_ =
   RegisterEcsCluster'
-  {_recEcsClusterARN = pEcsClusterARN_, _recStackId = pStackId_}
+    { ecsClusterArn =
+        pEcsClusterArn_,
+      stackId = pStackId_
+    }
 
-
--- | The cluster's ARN.
-recEcsClusterARN :: Lens' RegisterEcsCluster Text
-recEcsClusterARN = lens _recEcsClusterARN (\ s a -> s{_recEcsClusterARN = a});
+-- | The cluster\'s ARN.
+registerEcsCluster_ecsClusterArn :: Lens.Lens' RegisterEcsCluster Prelude.Text
+registerEcsCluster_ecsClusterArn = Lens.lens (\RegisterEcsCluster' {ecsClusterArn} -> ecsClusterArn) (\s@RegisterEcsCluster' {} a -> s {ecsClusterArn = a} :: RegisterEcsCluster)
 
 -- | The stack ID.
-recStackId :: Lens' RegisterEcsCluster Text
-recStackId = lens _recStackId (\ s a -> s{_recStackId = a});
+registerEcsCluster_stackId :: Lens.Lens' RegisterEcsCluster Prelude.Text
+registerEcsCluster_stackId = Lens.lens (\RegisterEcsCluster' {stackId} -> stackId) (\s@RegisterEcsCluster' {} a -> s {stackId = a} :: RegisterEcsCluster)
 
-instance AWSRequest RegisterEcsCluster where
-        type Rs RegisterEcsCluster =
-             RegisterEcsClusterResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterEcsClusterResponse' <$>
-                   (x .?> "EcsClusterArn") <*> (pure (fromEnum s)))
+instance Core.AWSRequest RegisterEcsCluster where
+  type
+    AWSResponse RegisterEcsCluster =
+      RegisterEcsClusterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterEcsClusterResponse'
+            Prelude.<$> (x Core..?> "EcsClusterArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RegisterEcsCluster where
+instance Prelude.Hashable RegisterEcsCluster
 
-instance NFData RegisterEcsCluster where
+instance Prelude.NFData RegisterEcsCluster
 
-instance ToHeaders RegisterEcsCluster where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.RegisterEcsCluster" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders RegisterEcsCluster where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.RegisterEcsCluster" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RegisterEcsCluster where
-        toJSON RegisterEcsCluster'{..}
-          = object
-              (catMaybes
-                 [Just ("EcsClusterArn" .= _recEcsClusterARN),
-                  Just ("StackId" .= _recStackId)])
+instance Core.ToJSON RegisterEcsCluster where
+  toJSON RegisterEcsCluster' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EcsClusterArn" Core..= ecsClusterArn),
+            Prelude.Just ("StackId" Core..= stackId)
+          ]
+      )
 
-instance ToPath RegisterEcsCluster where
-        toPath = const "/"
+instance Core.ToPath RegisterEcsCluster where
+  toPath = Prelude.const "/"
 
-instance ToQuery RegisterEcsCluster where
-        toQuery = const mempty
+instance Core.ToQuery RegisterEcsCluster where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @RegisterEcsCluster@ request.
 --
---
---
--- /See:/ 'registerEcsClusterResponse' smart constructor.
+-- /See:/ 'newRegisterEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
-  { _recrsEcsClusterARN  :: !(Maybe Text)
-  , _recrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The cluster\'s ARN.
+    ecsClusterArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterEcsClusterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterEcsClusterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'recrsEcsClusterARN' - The cluster's ARN.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'recrsResponseStatus' - -- | The response status code.
-registerEcsClusterResponse
-    :: Int -- ^ 'recrsResponseStatus'
-    -> RegisterEcsClusterResponse
-registerEcsClusterResponse pResponseStatus_ =
+-- 'ecsClusterArn', 'registerEcsClusterResponse_ecsClusterArn' - The cluster\'s ARN.
+--
+-- 'httpStatus', 'registerEcsClusterResponse_httpStatus' - The response's http status code.
+newRegisterEcsClusterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterEcsClusterResponse
+newRegisterEcsClusterResponse pHttpStatus_ =
   RegisterEcsClusterResponse'
-  {_recrsEcsClusterARN = Nothing, _recrsResponseStatus = pResponseStatus_}
+    { ecsClusterArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The cluster\'s ARN.
+registerEcsClusterResponse_ecsClusterArn :: Lens.Lens' RegisterEcsClusterResponse (Prelude.Maybe Prelude.Text)
+registerEcsClusterResponse_ecsClusterArn = Lens.lens (\RegisterEcsClusterResponse' {ecsClusterArn} -> ecsClusterArn) (\s@RegisterEcsClusterResponse' {} a -> s {ecsClusterArn = a} :: RegisterEcsClusterResponse)
 
--- | The cluster's ARN.
-recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
-recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a});
+-- | The response's http status code.
+registerEcsClusterResponse_httpStatus :: Lens.Lens' RegisterEcsClusterResponse Prelude.Int
+registerEcsClusterResponse_httpStatus = Lens.lens (\RegisterEcsClusterResponse' {httpStatus} -> httpStatus) (\s@RegisterEcsClusterResponse' {} a -> s {httpStatus = a} :: RegisterEcsClusterResponse)
 
--- | -- | The response status code.
-recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
-recrsResponseStatus = lens _recrsResponseStatus (\ s a -> s{_recrsResponseStatus = a});
-
-instance NFData RegisterEcsClusterResponse where
+instance Prelude.NFData RegisterEcsClusterResponse

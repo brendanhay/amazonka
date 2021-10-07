@@ -1,141 +1,186 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of severity levels that you can assign to an AWS Support case. The severity level for a case is also a field in the 'CaseDetails' data type included in any 'CreateCase' request.
+-- Returns the list of severity levels that you can assign to a support
+-- case. The severity level for a case is also a field in the CaseDetails
+-- data type that you include for a CreateCase request.
 --
+-- -   You must have a Business or Enterprise Support plan to use the AWS
+--     Support API.
 --
+-- -   If you call the AWS Support API from an account that does not have a
+--     Business or Enterprise Support plan, the
+--     @SubscriptionRequiredException@ error message appears. For
+--     information about changing your support plan, see
+--     <http://aws.amazon.com/premiumsupport/ AWS Support>.
 module Network.AWS.Support.DescribeSeverityLevels
-    (
-    -- * Creating a Request
-      describeSeverityLevels
-    , DescribeSeverityLevels
+  ( -- * Creating a Request
+    DescribeSeverityLevels (..),
+    newDescribeSeverityLevels,
+
     -- * Request Lenses
-    , dslLanguage
+    describeSeverityLevels_language,
 
     -- * Destructuring the Response
-    , describeSeverityLevelsResponse
-    , DescribeSeverityLevelsResponse
-    -- * Response Lenses
-    , dslrsSeverityLevels
-    , dslrsResponseStatus
-    ) where
+    DescribeSeverityLevelsResponse (..),
+    newDescribeSeverityLevelsResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    describeSeverityLevelsResponse_severityLevels,
+    describeSeverityLevelsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
-import Network.AWS.Support.Types.Product
+
+-- | /See:/ 'newDescribeSeverityLevels' smart constructor.
+data DescribeSeverityLevels = DescribeSeverityLevels'
+  { -- | The ISO 639-1 code for the language in which AWS provides support. AWS
+    -- Support currently supports English (\"en\") and Japanese (\"ja\").
+    -- Language parameters must be passed explicitly for operations that take
+    -- them.
+    language :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'DescribeSeverityLevels' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'describeSeverityLevels' smart constructor.
-newtype DescribeSeverityLevels = DescribeSeverityLevels'
-  { _dslLanguage :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- 'language', 'describeSeverityLevels_language' - The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English (\"en\") and Japanese (\"ja\").
+-- Language parameters must be passed explicitly for operations that take
+-- them.
+newDescribeSeverityLevels ::
+  DescribeSeverityLevels
+newDescribeSeverityLevels =
+  DescribeSeverityLevels' {language = Prelude.Nothing}
 
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English (\"en\") and Japanese (\"ja\").
+-- Language parameters must be passed explicitly for operations that take
+-- them.
+describeSeverityLevels_language :: Lens.Lens' DescribeSeverityLevels (Prelude.Maybe Prelude.Text)
+describeSeverityLevels_language = Lens.lens (\DescribeSeverityLevels' {language} -> language) (\s@DescribeSeverityLevels' {} a -> s {language = a} :: DescribeSeverityLevels)
 
--- | Creates a value of 'DescribeSeverityLevels' with the minimum fields required to make a request.
+instance Core.AWSRequest DescribeSeverityLevels where
+  type
+    AWSResponse DescribeSeverityLevels =
+      DescribeSeverityLevelsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeSeverityLevelsResponse'
+            Prelude.<$> (x Core..?> "severityLevels" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeSeverityLevels
+
+instance Prelude.NFData DescribeSeverityLevels
+
+instance Core.ToHeaders DescribeSeverityLevels where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSSupport_20130415.DescribeSeverityLevels" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeSeverityLevels where
+  toJSON DescribeSeverityLevels' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("language" Core..=) Prelude.<$> language]
+      )
+
+instance Core.ToPath DescribeSeverityLevels where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeSeverityLevels where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | The list of severity levels returned by the DescribeSeverityLevels
+-- operation.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dslLanguage' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-describeSeverityLevels
-    :: DescribeSeverityLevels
-describeSeverityLevels = DescribeSeverityLevels' {_dslLanguage = Nothing}
-
-
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
-dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a});
-
-instance AWSRequest DescribeSeverityLevels where
-        type Rs DescribeSeverityLevels =
-             DescribeSeverityLevelsResponse
-        request = postJSON support
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeSeverityLevelsResponse' <$>
-                   (x .?> "severityLevels" .!@ mempty) <*>
-                     (pure (fromEnum s)))
-
-instance Hashable DescribeSeverityLevels where
-
-instance NFData DescribeSeverityLevels where
-
-instance ToHeaders DescribeSeverityLevels where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSSupport_20130415.DescribeSeverityLevels" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeSeverityLevels where
-        toJSON DescribeSeverityLevels'{..}
-          = object
-              (catMaybes [("language" .=) <$> _dslLanguage])
-
-instance ToPath DescribeSeverityLevels where
-        toPath = const "/"
-
-instance ToQuery DescribeSeverityLevels where
-        toQuery = const mempty
-
--- | The list of severity levels returned by the 'DescribeSeverityLevels' operation.
---
---
---
--- /See:/ 'describeSeverityLevelsResponse' smart constructor.
+-- /See:/ 'newDescribeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
-  { _dslrsSeverityLevels :: !(Maybe [SeverityLevel])
-  , _dslrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The available severity levels for the support case. Available severity
+    -- levels are defined by your service level agreement with AWS.
+    severityLevels :: Prelude.Maybe [SeverityLevel],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSeverityLevelsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSeverityLevelsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dslrsSeverityLevels' - The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dslrsResponseStatus' - -- | The response status code.
-describeSeverityLevelsResponse
-    :: Int -- ^ 'dslrsResponseStatus'
-    -> DescribeSeverityLevelsResponse
-describeSeverityLevelsResponse pResponseStatus_ =
+-- 'severityLevels', 'describeSeverityLevelsResponse_severityLevels' - The available severity levels for the support case. Available severity
+-- levels are defined by your service level agreement with AWS.
+--
+-- 'httpStatus', 'describeSeverityLevelsResponse_httpStatus' - The response's http status code.
+newDescribeSeverityLevelsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSeverityLevelsResponse
+newDescribeSeverityLevelsResponse pHttpStatus_ =
   DescribeSeverityLevelsResponse'
-  {_dslrsSeverityLevels = Nothing, _dslrsResponseStatus = pResponseStatus_}
+    { severityLevels =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The available severity levels for the support case. Available severity
+-- levels are defined by your service level agreement with AWS.
+describeSeverityLevelsResponse_severityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Prelude.Maybe [SeverityLevel])
+describeSeverityLevelsResponse_severityLevels = Lens.lens (\DescribeSeverityLevelsResponse' {severityLevels} -> severityLevels) (\s@DescribeSeverityLevelsResponse' {} a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
-dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
-dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
+-- | The response's http status code.
+describeSeverityLevelsResponse_httpStatus :: Lens.Lens' DescribeSeverityLevelsResponse Prelude.Int
+describeSeverityLevelsResponse_httpStatus = Lens.lens (\DescribeSeverityLevelsResponse' {httpStatus} -> httpStatus) (\s@DescribeSeverityLevelsResponse' {} a -> s {httpStatus = a} :: DescribeSeverityLevelsResponse)
 
--- | -- | The response status code.
-dslrsResponseStatus :: Lens' DescribeSeverityLevelsResponse Int
-dslrsResponseStatus = lens _dslrsResponseStatus (\ s a -> s{_dslrsResponseStatus = a});
-
-instance NFData DescribeSeverityLevelsResponse where
+instance
+  Prelude.NFData
+    DescribeSeverityLevelsResponse

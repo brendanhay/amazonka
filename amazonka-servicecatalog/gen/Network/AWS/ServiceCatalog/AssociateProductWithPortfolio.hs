@@ -1,162 +1,219 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a product with a portfolio.
+-- Associates the specified product with the specified portfolio.
 --
---
+-- A delegated admin is authorized to invoke this command.
 module Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
-    (
-    -- * Creating a Request
-      associateProductWithPortfolio
-    , AssociateProductWithPortfolio
+  ( -- * Creating a Request
+    AssociateProductWithPortfolio (..),
+    newAssociateProductWithPortfolio,
+
     -- * Request Lenses
-    , apwpSourcePortfolioId
-    , apwpAcceptLanguage
-    , apwpProductId
-    , apwpPortfolioId
+    associateProductWithPortfolio_acceptLanguage,
+    associateProductWithPortfolio_sourcePortfolioId,
+    associateProductWithPortfolio_productId,
+    associateProductWithPortfolio_portfolioId,
 
     -- * Destructuring the Response
-    , associateProductWithPortfolioResponse
-    , AssociateProductWithPortfolioResponse
+    AssociateProductWithPortfolioResponse (..),
+    newAssociateProductWithPortfolioResponse,
+
     -- * Response Lenses
-    , arsResponseStatus
-    ) where
+    associateProductWithPortfolioResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'associateProductWithPortfolio' smart constructor.
+-- | /See:/ 'newAssociateProductWithPortfolio' smart constructor.
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
-  { _apwpSourcePortfolioId :: !(Maybe Text)
-  , _apwpAcceptLanguage    :: !(Maybe Text)
-  , _apwpProductId         :: !Text
-  , _apwpPortfolioId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AssociateProductWithPortfolio' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apwpSourcePortfolioId' - The identifier of the source portfolio to use with this association.
---
--- * 'apwpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
---
--- * 'apwpProductId' - The product identifier.
---
--- * 'apwpPortfolioId' - The portfolio identifier.
-associateProductWithPortfolio
-    :: Text -- ^ 'apwpProductId'
-    -> Text -- ^ 'apwpPortfolioId'
-    -> AssociateProductWithPortfolio
-associateProductWithPortfolio pProductId_ pPortfolioId_ =
-  AssociateProductWithPortfolio'
-  { _apwpSourcePortfolioId = Nothing
-  , _apwpAcceptLanguage = Nothing
-  , _apwpProductId = pProductId_
-  , _apwpPortfolioId = pPortfolioId_
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the source portfolio.
+    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    productId :: Prelude.Text,
+    -- | The portfolio identifier.
+    portfolioId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AssociateProductWithPortfolio' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'acceptLanguage', 'associateProductWithPortfolio_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'sourcePortfolioId', 'associateProductWithPortfolio_sourcePortfolioId' - The identifier of the source portfolio.
+--
+-- 'productId', 'associateProductWithPortfolio_productId' - The product identifier.
+--
+-- 'portfolioId', 'associateProductWithPortfolio_portfolioId' - The portfolio identifier.
+newAssociateProductWithPortfolio ::
+  -- | 'productId'
+  Prelude.Text ->
+  -- | 'portfolioId'
+  Prelude.Text ->
+  AssociateProductWithPortfolio
+newAssociateProductWithPortfolio
+  pProductId_
+  pPortfolioId_ =
+    AssociateProductWithPortfolio'
+      { acceptLanguage =
+          Prelude.Nothing,
+        sourcePortfolioId = Prelude.Nothing,
+        productId = pProductId_,
+        portfolioId = pPortfolioId_
+      }
 
--- | The identifier of the source portfolio to use with this association.
-apwpSourcePortfolioId :: Lens' AssociateProductWithPortfolio (Maybe Text)
-apwpSourcePortfolioId = lens _apwpSourcePortfolioId (\ s a -> s{_apwpSourcePortfolioId = a});
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+associateProductWithPortfolio_acceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
+associateProductWithPortfolio_acceptLanguage = Lens.lens (\AssociateProductWithPortfolio' {acceptLanguage} -> acceptLanguage) (\s@AssociateProductWithPortfolio' {} a -> s {acceptLanguage = a} :: AssociateProductWithPortfolio)
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-apwpAcceptLanguage :: Lens' AssociateProductWithPortfolio (Maybe Text)
-apwpAcceptLanguage = lens _apwpAcceptLanguage (\ s a -> s{_apwpAcceptLanguage = a});
+-- | The identifier of the source portfolio.
+associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
+associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWithPortfolio' {sourcePortfolioId} -> sourcePortfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
 
 -- | The product identifier.
-apwpProductId :: Lens' AssociateProductWithPortfolio Text
-apwpProductId = lens _apwpProductId (\ s a -> s{_apwpProductId = a});
+associateProductWithPortfolio_productId :: Lens.Lens' AssociateProductWithPortfolio Prelude.Text
+associateProductWithPortfolio_productId = Lens.lens (\AssociateProductWithPortfolio' {productId} -> productId) (\s@AssociateProductWithPortfolio' {} a -> s {productId = a} :: AssociateProductWithPortfolio)
 
 -- | The portfolio identifier.
-apwpPortfolioId :: Lens' AssociateProductWithPortfolio Text
-apwpPortfolioId = lens _apwpPortfolioId (\ s a -> s{_apwpPortfolioId = a});
+associateProductWithPortfolio_portfolioId :: Lens.Lens' AssociateProductWithPortfolio Prelude.Text
+associateProductWithPortfolio_portfolioId = Lens.lens (\AssociateProductWithPortfolio' {portfolioId} -> portfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {portfolioId = a} :: AssociateProductWithPortfolio)
 
-instance AWSRequest AssociateProductWithPortfolio
-         where
-        type Rs AssociateProductWithPortfolio =
-             AssociateProductWithPortfolioResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AssociateProductWithPortfolioResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    AssociateProductWithPortfolio
+  where
+  type
+    AWSResponse AssociateProductWithPortfolio =
+      AssociateProductWithPortfolioResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AssociateProductWithPortfolioResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AssociateProductWithPortfolio where
+instance
+  Prelude.Hashable
+    AssociateProductWithPortfolio
 
-instance NFData AssociateProductWithPortfolio where
+instance Prelude.NFData AssociateProductWithPortfolio
 
-instance ToHeaders AssociateProductWithPortfolio
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.AssociateProductWithPortfolio"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AssociateProductWithPortfolio where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.AssociateProductWithPortfolio" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AssociateProductWithPortfolio where
-        toJSON AssociateProductWithPortfolio'{..}
-          = object
-              (catMaybes
-                 [("SourcePortfolioId" .=) <$> _apwpSourcePortfolioId,
-                  ("AcceptLanguage" .=) <$> _apwpAcceptLanguage,
-                  Just ("ProductId" .= _apwpProductId),
-                  Just ("PortfolioId" .= _apwpPortfolioId)])
+instance Core.ToJSON AssociateProductWithPortfolio where
+  toJSON AssociateProductWithPortfolio' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            ("SourcePortfolioId" Core..=)
+              Prelude.<$> sourcePortfolioId,
+            Prelude.Just ("ProductId" Core..= productId),
+            Prelude.Just ("PortfolioId" Core..= portfolioId)
+          ]
+      )
 
-instance ToPath AssociateProductWithPortfolio where
-        toPath = const "/"
+instance Core.ToPath AssociateProductWithPortfolio where
+  toPath = Prelude.const "/"
 
-instance ToQuery AssociateProductWithPortfolio where
-        toQuery = const mempty
+instance Core.ToQuery AssociateProductWithPortfolio where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'associateProductWithPortfolioResponse' smart constructor.
-newtype AssociateProductWithPortfolioResponse = AssociateProductWithPortfolioResponse'
-  { _arsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAssociateProductWithPortfolioResponse' smart constructor.
+data AssociateProductWithPortfolioResponse = AssociateProductWithPortfolioResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateProductWithPortfolioResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateProductWithPortfolioResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'arsResponseStatus' - -- | The response status code.
-associateProductWithPortfolioResponse
-    :: Int -- ^ 'arsResponseStatus'
-    -> AssociateProductWithPortfolioResponse
-associateProductWithPortfolioResponse pResponseStatus_ =
-  AssociateProductWithPortfolioResponse' {_arsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'associateProductWithPortfolioResponse_httpStatus' - The response's http status code.
+newAssociateProductWithPortfolioResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AssociateProductWithPortfolioResponse
+newAssociateProductWithPortfolioResponse pHttpStatus_ =
+  AssociateProductWithPortfolioResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+associateProductWithPortfolioResponse_httpStatus :: Lens.Lens' AssociateProductWithPortfolioResponse Prelude.Int
+associateProductWithPortfolioResponse_httpStatus = Lens.lens (\AssociateProductWithPortfolioResponse' {httpStatus} -> httpStatus) (\s@AssociateProductWithPortfolioResponse' {} a -> s {httpStatus = a} :: AssociateProductWithPortfolioResponse)
 
--- | -- | The response status code.
-arsResponseStatus :: Lens' AssociateProductWithPortfolioResponse Int
-arsResponseStatus = lens _arsResponseStatus (\ s a -> s{_arsResponseStatus = a});
-
-instance NFData AssociateProductWithPortfolioResponse
-         where
+instance
+  Prelude.NFData
+    AssociateProductWithPortfolioResponse

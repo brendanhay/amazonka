@@ -1,129 +1,152 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.ListReceiptFilters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the IP address filters associated with your AWS account.
+-- Lists the IP address filters associated with your AWS account in the
+-- current AWS Region.
 --
---
--- For information about managing IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide> .
+-- For information about managing IP address filters, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.ListReceiptFilters
-    (
-    -- * Creating a Request
-      listReceiptFilters
-    , ListReceiptFilters
+  ( -- * Creating a Request
+    ListReceiptFilters (..),
+    newListReceiptFilters,
 
     -- * Destructuring the Response
-    , listReceiptFiltersResponse
-    , ListReceiptFiltersResponse
+    ListReceiptFiltersResponse (..),
+    newListReceiptFiltersResponse,
+
     -- * Response Lenses
-    , lrfrsFilters
-    , lrfrsResponseStatus
-    ) where
+    listReceiptFiltersResponse_filters,
+    listReceiptFiltersResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+-- | Represents a request to list the IP address filters that exist under
+-- your AWS account. You use IP address filters when you receive email with
+-- Amazon SES. For more information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
 --
+-- /See:/ 'newListReceiptFilters' smart constructor.
+data ListReceiptFilters = ListReceiptFilters'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListReceiptFilters' with all optional fields omitted.
 --
---
--- /See:/ 'listReceiptFilters' smart constructor.
-data ListReceiptFilters =
-  ListReceiptFilters'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newListReceiptFilters ::
+  ListReceiptFilters
+newListReceiptFilters = ListReceiptFilters'
 
+instance Core.AWSRequest ListReceiptFilters where
+  type
+    AWSResponse ListReceiptFilters =
+      ListReceiptFiltersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListReceiptFiltersResult"
+      ( \s h x ->
+          ListReceiptFiltersResponse'
+            Prelude.<$> ( x Core..@? "Filters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Creates a value of 'ListReceiptFilters' with the minimum fields required to make a request.
---
-listReceiptFilters
-    :: ListReceiptFilters
-listReceiptFilters = ListReceiptFilters'
+instance Prelude.Hashable ListReceiptFilters
 
+instance Prelude.NFData ListReceiptFilters
 
-instance AWSRequest ListReceiptFilters where
-        type Rs ListReceiptFilters =
-             ListReceiptFiltersResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "ListReceiptFiltersResult"
-              (\ s h x ->
-                 ListReceiptFiltersResponse' <$>
-                   (x .@? "Filters" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.ToHeaders ListReceiptFilters where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance Hashable ListReceiptFilters where
+instance Core.ToPath ListReceiptFilters where
+  toPath = Prelude.const "/"
 
-instance NFData ListReceiptFilters where
-
-instance ToHeaders ListReceiptFilters where
-        toHeaders = const mempty
-
-instance ToPath ListReceiptFilters where
-        toPath = const "/"
-
-instance ToQuery ListReceiptFilters where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =: ("ListReceiptFilters" :: ByteString),
-                  "Version" =: ("2010-12-01" :: ByteString)])
+instance Core.ToQuery ListReceiptFilters where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Core.=: ("ListReceiptFilters" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2010-12-01" :: Prelude.ByteString)
+          ]
+      )
 
 -- | A list of IP address filters that exist under your AWS account.
 --
---
---
--- /See:/ 'listReceiptFiltersResponse' smart constructor.
+-- /See:/ 'newListReceiptFiltersResponse' smart constructor.
 data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
-  { _lrfrsFilters        :: !(Maybe [ReceiptFilter])
-  , _lrfrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of IP address filter data structures, which each consist of a
+    -- name, an IP address range, and whether to allow or block mail from it.
+    filters :: Prelude.Maybe [ReceiptFilter],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListReceiptFiltersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListReceiptFiltersResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrfrsFilters' - A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrfrsResponseStatus' - -- | The response status code.
-listReceiptFiltersResponse
-    :: Int -- ^ 'lrfrsResponseStatus'
-    -> ListReceiptFiltersResponse
-listReceiptFiltersResponse pResponseStatus_ =
+-- 'filters', 'listReceiptFiltersResponse_filters' - A list of IP address filter data structures, which each consist of a
+-- name, an IP address range, and whether to allow or block mail from it.
+--
+-- 'httpStatus', 'listReceiptFiltersResponse_httpStatus' - The response's http status code.
+newListReceiptFiltersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListReceiptFiltersResponse
+newListReceiptFiltersResponse pHttpStatus_ =
   ListReceiptFiltersResponse'
-  {_lrfrsFilters = Nothing, _lrfrsResponseStatus = pResponseStatus_}
+    { filters =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A list of IP address filter data structures, which each consist of a
+-- name, an IP address range, and whether to allow or block mail from it.
+listReceiptFiltersResponse_filters :: Lens.Lens' ListReceiptFiltersResponse (Prelude.Maybe [ReceiptFilter])
+listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.
-lrfrsFilters :: Lens' ListReceiptFiltersResponse [ReceiptFilter]
-lrfrsFilters = lens _lrfrsFilters (\ s a -> s{_lrfrsFilters = a}) . _Default . _Coerce;
+-- | The response's http status code.
+listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Prelude.Int
+listReceiptFiltersResponse_httpStatus = Lens.lens (\ListReceiptFiltersResponse' {httpStatus} -> httpStatus) (\s@ListReceiptFiltersResponse' {} a -> s {httpStatus = a} :: ListReceiptFiltersResponse)
 
--- | -- | The response status code.
-lrfrsResponseStatus :: Lens' ListReceiptFiltersResponse Int
-lrfrsResponseStatus = lens _lrfrsResponseStatus (\ s a -> s{_lrfrsResponseStatus = a});
-
-instance NFData ListReceiptFiltersResponse where
+instance Prelude.NFData ListReceiptFiltersResponse

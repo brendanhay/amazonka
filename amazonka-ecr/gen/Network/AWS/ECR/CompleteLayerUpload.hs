@@ -1,201 +1,256 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECR.CompleteLayerUpload
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Informs Amazon ECR that the image layer upload has completed for a specified registry, repository name, and upload ID. You can optionally provide a @sha256@ digest of the image layer for data validation purposes.
+-- Informs Amazon ECR that the image layer upload has completed for a
+-- specified registry, repository name, and upload ID. You can optionally
+-- provide a @sha256@ digest of the image layer for data validation
+-- purposes.
 --
+-- When an image is pushed, the CompleteLayerUpload API is called once per
+-- each new image layer to verify that the upload has completed.
 --
+-- This operation is used by the Amazon ECR proxy and is not generally used
+-- by customers for pulling and pushing images. In most cases, you should
+-- use the @docker@ CLI to pull, tag, and push images.
 module Network.AWS.ECR.CompleteLayerUpload
-    (
-    -- * Creating a Request
-      completeLayerUpload
-    , CompleteLayerUpload
+  ( -- * Creating a Request
+    CompleteLayerUpload (..),
+    newCompleteLayerUpload,
+
     -- * Request Lenses
-    , cluRegistryId
-    , cluRepositoryName
-    , cluUploadId
-    , cluLayerDigests
+    completeLayerUpload_registryId,
+    completeLayerUpload_repositoryName,
+    completeLayerUpload_uploadId,
+    completeLayerUpload_layerDigests,
 
     -- * Destructuring the Response
-    , completeLayerUploadResponse
-    , CompleteLayerUploadResponse
+    CompleteLayerUploadResponse (..),
+    newCompleteLayerUploadResponse,
+
     -- * Response Lenses
-    , clursRegistryId
-    , clursLayerDigest
-    , clursRepositoryName
-    , clursUploadId
-    , clursResponseStatus
-    ) where
+    completeLayerUploadResponse_uploadId,
+    completeLayerUploadResponse_registryId,
+    completeLayerUploadResponse_repositoryName,
+    completeLayerUploadResponse_layerDigest,
+    completeLayerUploadResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
-import Network.AWS.ECR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'completeLayerUpload' smart constructor.
+-- | /See:/ 'newCompleteLayerUpload' smart constructor.
 data CompleteLayerUpload = CompleteLayerUpload'
-  { _cluRegistryId     :: !(Maybe Text)
-  , _cluRepositoryName :: !Text
-  , _cluUploadId       :: !Text
-  , _cluLayerDigests   :: !(List1 Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CompleteLayerUpload' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cluRegistryId' - The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
---
--- * 'cluRepositoryName' - The name of the repository to associate with the image layer.
---
--- * 'cluUploadId' - The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
---
--- * 'cluLayerDigests' - The @sha256@ digest of the image layer.
-completeLayerUpload
-    :: Text -- ^ 'cluRepositoryName'
-    -> Text -- ^ 'cluUploadId'
-    -> NonEmpty Text -- ^ 'cluLayerDigests'
-    -> CompleteLayerUpload
-completeLayerUpload pRepositoryName_ pUploadId_ pLayerDigests_ =
-  CompleteLayerUpload'
-  { _cluRegistryId = Nothing
-  , _cluRepositoryName = pRepositoryName_
-  , _cluUploadId = pUploadId_
-  , _cluLayerDigests = _List1 # pLayerDigests_
+  { -- | The Amazon Web Services account ID associated with the registry to which
+    -- to upload layers. If you do not specify a registry, the default registry
+    -- is assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository to associate with the image layer.
+    repositoryName :: Prelude.Text,
+    -- | The upload ID from a previous InitiateLayerUpload operation to associate
+    -- with the image layer.
+    uploadId :: Prelude.Text,
+    -- | The @sha256@ digest of the image layer.
+    layerDigests :: Prelude.NonEmpty Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CompleteLayerUpload' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'registryId', 'completeLayerUpload_registryId' - The Amazon Web Services account ID associated with the registry to which
+-- to upload layers. If you do not specify a registry, the default registry
+-- is assumed.
+--
+-- 'repositoryName', 'completeLayerUpload_repositoryName' - The name of the repository to associate with the image layer.
+--
+-- 'uploadId', 'completeLayerUpload_uploadId' - The upload ID from a previous InitiateLayerUpload operation to associate
+-- with the image layer.
+--
+-- 'layerDigests', 'completeLayerUpload_layerDigests' - The @sha256@ digest of the image layer.
+newCompleteLayerUpload ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  -- | 'uploadId'
+  Prelude.Text ->
+  -- | 'layerDigests'
+  Prelude.NonEmpty Prelude.Text ->
+  CompleteLayerUpload
+newCompleteLayerUpload
+  pRepositoryName_
+  pUploadId_
+  pLayerDigests_ =
+    CompleteLayerUpload'
+      { registryId = Prelude.Nothing,
+        repositoryName = pRepositoryName_,
+        uploadId = pUploadId_,
+        layerDigests = Lens._Coerce Lens.# pLayerDigests_
+      }
 
--- | The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
-cluRegistryId :: Lens' CompleteLayerUpload (Maybe Text)
-cluRegistryId = lens _cluRegistryId (\ s a -> s{_cluRegistryId = a});
+-- | The Amazon Web Services account ID associated with the registry to which
+-- to upload layers. If you do not specify a registry, the default registry
+-- is assumed.
+completeLayerUpload_registryId :: Lens.Lens' CompleteLayerUpload (Prelude.Maybe Prelude.Text)
+completeLayerUpload_registryId = Lens.lens (\CompleteLayerUpload' {registryId} -> registryId) (\s@CompleteLayerUpload' {} a -> s {registryId = a} :: CompleteLayerUpload)
 
 -- | The name of the repository to associate with the image layer.
-cluRepositoryName :: Lens' CompleteLayerUpload Text
-cluRepositoryName = lens _cluRepositoryName (\ s a -> s{_cluRepositoryName = a});
+completeLayerUpload_repositoryName :: Lens.Lens' CompleteLayerUpload Prelude.Text
+completeLayerUpload_repositoryName = Lens.lens (\CompleteLayerUpload' {repositoryName} -> repositoryName) (\s@CompleteLayerUpload' {} a -> s {repositoryName = a} :: CompleteLayerUpload)
 
--- | The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
-cluUploadId :: Lens' CompleteLayerUpload Text
-cluUploadId = lens _cluUploadId (\ s a -> s{_cluUploadId = a});
+-- | The upload ID from a previous InitiateLayerUpload operation to associate
+-- with the image layer.
+completeLayerUpload_uploadId :: Lens.Lens' CompleteLayerUpload Prelude.Text
+completeLayerUpload_uploadId = Lens.lens (\CompleteLayerUpload' {uploadId} -> uploadId) (\s@CompleteLayerUpload' {} a -> s {uploadId = a} :: CompleteLayerUpload)
 
 -- | The @sha256@ digest of the image layer.
-cluLayerDigests :: Lens' CompleteLayerUpload (NonEmpty Text)
-cluLayerDigests = lens _cluLayerDigests (\ s a -> s{_cluLayerDigests = a}) . _List1;
+completeLayerUpload_layerDigests :: Lens.Lens' CompleteLayerUpload (Prelude.NonEmpty Prelude.Text)
+completeLayerUpload_layerDigests = Lens.lens (\CompleteLayerUpload' {layerDigests} -> layerDigests) (\s@CompleteLayerUpload' {} a -> s {layerDigests = a} :: CompleteLayerUpload) Prelude.. Lens._Coerce
 
-instance AWSRequest CompleteLayerUpload where
-        type Rs CompleteLayerUpload =
-             CompleteLayerUploadResponse
-        request = postJSON ecr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CompleteLayerUploadResponse' <$>
-                   (x .?> "registryId") <*> (x .?> "layerDigest") <*>
-                     (x .?> "repositoryName")
-                     <*> (x .?> "uploadId")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CompleteLayerUpload where
+  type
+    AWSResponse CompleteLayerUpload =
+      CompleteLayerUploadResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CompleteLayerUploadResponse'
+            Prelude.<$> (x Core..?> "uploadId")
+            Prelude.<*> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "layerDigest")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CompleteLayerUpload where
+instance Prelude.Hashable CompleteLayerUpload
 
-instance NFData CompleteLayerUpload where
+instance Prelude.NFData CompleteLayerUpload
 
-instance ToHeaders CompleteLayerUpload where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CompleteLayerUpload where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CompleteLayerUpload where
-        toJSON CompleteLayerUpload'{..}
-          = object
-              (catMaybes
-                 [("registryId" .=) <$> _cluRegistryId,
-                  Just ("repositoryName" .= _cluRepositoryName),
-                  Just ("uploadId" .= _cluUploadId),
-                  Just ("layerDigests" .= _cluLayerDigests)])
+instance Core.ToJSON CompleteLayerUpload where
+  toJSON CompleteLayerUpload' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just ("uploadId" Core..= uploadId),
+            Prelude.Just ("layerDigests" Core..= layerDigests)
+          ]
+      )
 
-instance ToPath CompleteLayerUpload where
-        toPath = const "/"
+instance Core.ToPath CompleteLayerUpload where
+  toPath = Prelude.const "/"
 
-instance ToQuery CompleteLayerUpload where
-        toQuery = const mempty
+instance Core.ToQuery CompleteLayerUpload where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'completeLayerUploadResponse' smart constructor.
+-- | /See:/ 'newCompleteLayerUploadResponse' smart constructor.
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
-  { _clursRegistryId     :: !(Maybe Text)
-  , _clursLayerDigest    :: !(Maybe Text)
-  , _clursRepositoryName :: !(Maybe Text)
-  , _clursUploadId       :: !(Maybe Text)
-  , _clursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CompleteLayerUploadResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clursRegistryId' - The registry ID associated with the request.
---
--- * 'clursLayerDigest' - The @sha256@ digest of the image layer.
---
--- * 'clursRepositoryName' - The repository name associated with the request.
---
--- * 'clursUploadId' - The upload ID associated with the layer.
---
--- * 'clursResponseStatus' - -- | The response status code.
-completeLayerUploadResponse
-    :: Int -- ^ 'clursResponseStatus'
-    -> CompleteLayerUploadResponse
-completeLayerUploadResponse pResponseStatus_ =
-  CompleteLayerUploadResponse'
-  { _clursRegistryId = Nothing
-  , _clursLayerDigest = Nothing
-  , _clursRepositoryName = Nothing
-  , _clursUploadId = Nothing
-  , _clursResponseStatus = pResponseStatus_
+  { -- | The upload ID associated with the layer.
+    uploadId :: Prelude.Maybe Prelude.Text,
+    -- | The registry ID associated with the request.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The @sha256@ digest of the image layer.
+    layerDigest :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The registry ID associated with the request.
-clursRegistryId :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursRegistryId = lens _clursRegistryId (\ s a -> s{_clursRegistryId = a});
-
--- | The @sha256@ digest of the image layer.
-clursLayerDigest :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursLayerDigest = lens _clursLayerDigest (\ s a -> s{_clursLayerDigest = a});
-
--- | The repository name associated with the request.
-clursRepositoryName :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursRepositoryName = lens _clursRepositoryName (\ s a -> s{_clursRepositoryName = a});
+-- |
+-- Create a value of 'CompleteLayerUploadResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID associated with the layer.
+--
+-- 'registryId', 'completeLayerUploadResponse_registryId' - The registry ID associated with the request.
+--
+-- 'repositoryName', 'completeLayerUploadResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'layerDigest', 'completeLayerUploadResponse_layerDigest' - The @sha256@ digest of the image layer.
+--
+-- 'httpStatus', 'completeLayerUploadResponse_httpStatus' - The response's http status code.
+newCompleteLayerUploadResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CompleteLayerUploadResponse
+newCompleteLayerUploadResponse pHttpStatus_ =
+  CompleteLayerUploadResponse'
+    { uploadId =
+        Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      layerDigest = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The upload ID associated with the layer.
-clursUploadId :: Lens' CompleteLayerUploadResponse (Maybe Text)
-clursUploadId = lens _clursUploadId (\ s a -> s{_clursUploadId = a});
+completeLayerUploadResponse_uploadId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' {uploadId} -> uploadId) (\s@CompleteLayerUploadResponse' {} a -> s {uploadId = a} :: CompleteLayerUploadResponse)
 
--- | -- | The response status code.
-clursResponseStatus :: Lens' CompleteLayerUploadResponse Int
-clursResponseStatus = lens _clursResponseStatus (\ s a -> s{_clursResponseStatus = a});
+-- | The registry ID associated with the request.
+completeLayerUploadResponse_registryId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_registryId = Lens.lens (\CompleteLayerUploadResponse' {registryId} -> registryId) (\s@CompleteLayerUploadResponse' {} a -> s {registryId = a} :: CompleteLayerUploadResponse)
 
-instance NFData CompleteLayerUploadResponse where
+-- | The repository name associated with the request.
+completeLayerUploadResponse_repositoryName :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_repositoryName = Lens.lens (\CompleteLayerUploadResponse' {repositoryName} -> repositoryName) (\s@CompleteLayerUploadResponse' {} a -> s {repositoryName = a} :: CompleteLayerUploadResponse)
+
+-- | The @sha256@ digest of the image layer.
+completeLayerUploadResponse_layerDigest :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_layerDigest = Lens.lens (\CompleteLayerUploadResponse' {layerDigest} -> layerDigest) (\s@CompleteLayerUploadResponse' {} a -> s {layerDigest = a} :: CompleteLayerUploadResponse)
+
+-- | The response's http status code.
+completeLayerUploadResponse_httpStatus :: Lens.Lens' CompleteLayerUploadResponse Prelude.Int
+completeLayerUploadResponse_httpStatus = Lens.lens (\CompleteLayerUploadResponse' {httpStatus} -> httpStatus) (\s@CompleteLayerUploadResponse' {} a -> s {httpStatus = a} :: CompleteLayerUploadResponse)
+
+instance Prelude.NFData CompleteLayerUploadResponse

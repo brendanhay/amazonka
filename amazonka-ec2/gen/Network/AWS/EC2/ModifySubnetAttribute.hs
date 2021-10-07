@@ -1,129 +1,217 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ModifySubnetAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies a subnet attribute. You can only modify one attribute at a time.
---
---
+-- Modifies a subnet attribute. You can only modify one attribute at a
+-- time.
 module Network.AWS.EC2.ModifySubnetAttribute
-    (
-    -- * Creating a Request
-      modifySubnetAttribute
-    , ModifySubnetAttribute
+  ( -- * Creating a Request
+    ModifySubnetAttribute (..),
+    newModifySubnetAttribute,
+
     -- * Request Lenses
-    , msaAssignIPv6AddressOnCreation
-    , msaMapPublicIPOnLaunch
-    , msaSubnetId
+    modifySubnetAttribute_customerOwnedIpv4Pool,
+    modifySubnetAttribute_assignIpv6AddressOnCreation,
+    modifySubnetAttribute_mapPublicIpOnLaunch,
+    modifySubnetAttribute_mapCustomerOwnedIpOnLaunch,
+    modifySubnetAttribute_subnetId,
 
     -- * Destructuring the Response
-    , modifySubnetAttributeResponse
-    , ModifySubnetAttributeResponse
-    ) where
+    ModifySubnetAttributeResponse (..),
+    newModifySubnetAttributeResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for ModifySubnetAttribute.
---
---
---
--- /See:/ 'modifySubnetAttribute' smart constructor.
+-- | /See:/ 'newModifySubnetAttribute' smart constructor.
 data ModifySubnetAttribute = ModifySubnetAttribute'
-  { _msaAssignIPv6AddressOnCreation :: !(Maybe AttributeBooleanValue)
-  , _msaMapPublicIPOnLaunch         :: !(Maybe AttributeBooleanValue)
-  , _msaSubnetId                    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ModifySubnetAttribute' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msaAssignIPv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).  If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version @2016-11-15@ or later of the Amazon EC2 API.
---
--- * 'msaMapPublicIPOnLaunch' - Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned a public IPv4 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives a public IPv4 address).
---
--- * 'msaSubnetId' - The ID of the subnet.
-modifySubnetAttribute
-    :: Text -- ^ 'msaSubnetId'
-    -> ModifySubnetAttribute
-modifySubnetAttribute pSubnetId_ =
-  ModifySubnetAttribute'
-  { _msaAssignIPv6AddressOnCreation = Nothing
-  , _msaMapPublicIPOnLaunch = Nothing
-  , _msaSubnetId = pSubnetId_
+  { -- | The customer-owned IPv4 address pool associated with the subnet.
+    --
+    -- You must set this value when you specify @true@ for
+    -- @MapCustomerOwnedIpOnLaunch@.
+    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
+    -- | Specify @true@ to indicate that network interfaces created in the
+    -- specified subnet should be assigned an IPv6 address. This includes a
+    -- network interface that\'s created when launching an instance into the
+    -- subnet (the instance therefore receives an IPv6 address).
+    --
+    -- If you enable the IPv6 addressing feature for your subnet, your network
+    -- interface or instance only receives an IPv6 address if it\'s created
+    -- using version @2016-11-15@ or later of the Amazon EC2 API.
+    assignIpv6AddressOnCreation :: Prelude.Maybe AttributeBooleanValue,
+    -- | Specify @true@ to indicate that network interfaces attached to instances
+    -- created in the specified subnet should be assigned a public IPv4
+    -- address.
+    mapPublicIpOnLaunch :: Prelude.Maybe AttributeBooleanValue,
+    -- | Specify @true@ to indicate that network interfaces attached to instances
+    -- created in the specified subnet should be assigned a customer-owned IPv4
+    -- address.
+    --
+    -- When this value is @true@, you must specify the customer-owned IP pool
+    -- using @CustomerOwnedIpv4Pool@.
+    mapCustomerOwnedIpOnLaunch :: Prelude.Maybe AttributeBooleanValue,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ModifySubnetAttribute' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'customerOwnedIpv4Pool', 'modifySubnetAttribute_customerOwnedIpv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
+--
+-- You must set this value when you specify @true@ for
+-- @MapCustomerOwnedIpOnLaunch@.
+--
+-- 'assignIpv6AddressOnCreation', 'modifySubnetAttribute_assignIpv6AddressOnCreation' - Specify @true@ to indicate that network interfaces created in the
+-- specified subnet should be assigned an IPv6 address. This includes a
+-- network interface that\'s created when launching an instance into the
+-- subnet (the instance therefore receives an IPv6 address).
+--
+-- If you enable the IPv6 addressing feature for your subnet, your network
+-- interface or instance only receives an IPv6 address if it\'s created
+-- using version @2016-11-15@ or later of the Amazon EC2 API.
+--
+-- 'mapPublicIpOnLaunch', 'modifySubnetAttribute_mapPublicIpOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances
+-- created in the specified subnet should be assigned a public IPv4
+-- address.
+--
+-- 'mapCustomerOwnedIpOnLaunch', 'modifySubnetAttribute_mapCustomerOwnedIpOnLaunch' - Specify @true@ to indicate that network interfaces attached to instances
+-- created in the specified subnet should be assigned a customer-owned IPv4
+-- address.
+--
+-- When this value is @true@, you must specify the customer-owned IP pool
+-- using @CustomerOwnedIpv4Pool@.
+--
+-- 'subnetId', 'modifySubnetAttribute_subnetId' - The ID of the subnet.
+newModifySubnetAttribute ::
+  -- | 'subnetId'
+  Prelude.Text ->
+  ModifySubnetAttribute
+newModifySubnetAttribute pSubnetId_ =
+  ModifySubnetAttribute'
+    { customerOwnedIpv4Pool =
+        Prelude.Nothing,
+      assignIpv6AddressOnCreation = Prelude.Nothing,
+      mapPublicIpOnLaunch = Prelude.Nothing,
+      mapCustomerOwnedIpOnLaunch = Prelude.Nothing,
+      subnetId = pSubnetId_
+    }
 
--- | Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned an IPv6 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives an IPv6 address).  If you enable the IPv6 addressing feature for your subnet, your network interface or instance only receives an IPv6 address if it's created using version @2016-11-15@ or later of the Amazon EC2 API.
-msaAssignIPv6AddressOnCreation :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msaAssignIPv6AddressOnCreation = lens _msaAssignIPv6AddressOnCreation (\ s a -> s{_msaAssignIPv6AddressOnCreation = a});
+-- | The customer-owned IPv4 address pool associated with the subnet.
+--
+-- You must set this value when you specify @true@ for
+-- @MapCustomerOwnedIpOnLaunch@.
+modifySubnetAttribute_customerOwnedIpv4Pool :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe Prelude.Text)
+modifySubnetAttribute_customerOwnedIpv4Pool = Lens.lens (\ModifySubnetAttribute' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@ModifySubnetAttribute' {} a -> s {customerOwnedIpv4Pool = a} :: ModifySubnetAttribute)
 
--- | Specify @true@ to indicate that network interfaces created in the specified subnet should be assigned a public IPv4 address. This includes a network interface that's created when launching an instance into the subnet (the instance therefore receives a public IPv4 address).
-msaMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\ s a -> s{_msaMapPublicIPOnLaunch = a});
+-- | Specify @true@ to indicate that network interfaces created in the
+-- specified subnet should be assigned an IPv6 address. This includes a
+-- network interface that\'s created when launching an instance into the
+-- subnet (the instance therefore receives an IPv6 address).
+--
+-- If you enable the IPv6 addressing feature for your subnet, your network
+-- interface or instance only receives an IPv6 address if it\'s created
+-- using version @2016-11-15@ or later of the Amazon EC2 API.
+modifySubnetAttribute_assignIpv6AddressOnCreation :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
+modifySubnetAttribute_assignIpv6AddressOnCreation = Lens.lens (\ModifySubnetAttribute' {assignIpv6AddressOnCreation} -> assignIpv6AddressOnCreation) (\s@ModifySubnetAttribute' {} a -> s {assignIpv6AddressOnCreation = a} :: ModifySubnetAttribute)
+
+-- | Specify @true@ to indicate that network interfaces attached to instances
+-- created in the specified subnet should be assigned a public IPv4
+-- address.
+modifySubnetAttribute_mapPublicIpOnLaunch :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
+modifySubnetAttribute_mapPublicIpOnLaunch = Lens.lens (\ModifySubnetAttribute' {mapPublicIpOnLaunch} -> mapPublicIpOnLaunch) (\s@ModifySubnetAttribute' {} a -> s {mapPublicIpOnLaunch = a} :: ModifySubnetAttribute)
+
+-- | Specify @true@ to indicate that network interfaces attached to instances
+-- created in the specified subnet should be assigned a customer-owned IPv4
+-- address.
+--
+-- When this value is @true@, you must specify the customer-owned IP pool
+-- using @CustomerOwnedIpv4Pool@.
+modifySubnetAttribute_mapCustomerOwnedIpOnLaunch :: Lens.Lens' ModifySubnetAttribute (Prelude.Maybe AttributeBooleanValue)
+modifySubnetAttribute_mapCustomerOwnedIpOnLaunch = Lens.lens (\ModifySubnetAttribute' {mapCustomerOwnedIpOnLaunch} -> mapCustomerOwnedIpOnLaunch) (\s@ModifySubnetAttribute' {} a -> s {mapCustomerOwnedIpOnLaunch = a} :: ModifySubnetAttribute)
 
 -- | The ID of the subnet.
-msaSubnetId :: Lens' ModifySubnetAttribute Text
-msaSubnetId = lens _msaSubnetId (\ s a -> s{_msaSubnetId = a});
+modifySubnetAttribute_subnetId :: Lens.Lens' ModifySubnetAttribute Prelude.Text
+modifySubnetAttribute_subnetId = Lens.lens (\ModifySubnetAttribute' {subnetId} -> subnetId) (\s@ModifySubnetAttribute' {} a -> s {subnetId = a} :: ModifySubnetAttribute)
 
-instance AWSRequest ModifySubnetAttribute where
-        type Rs ModifySubnetAttribute =
-             ModifySubnetAttributeResponse
-        request = postQuery ec2
-        response = receiveNull ModifySubnetAttributeResponse'
+instance Core.AWSRequest ModifySubnetAttribute where
+  type
+    AWSResponse ModifySubnetAttribute =
+      ModifySubnetAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull ModifySubnetAttributeResponse'
 
-instance Hashable ModifySubnetAttribute where
+instance Prelude.Hashable ModifySubnetAttribute
 
-instance NFData ModifySubnetAttribute where
+instance Prelude.NFData ModifySubnetAttribute
 
-instance ToHeaders ModifySubnetAttribute where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifySubnetAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifySubnetAttribute where
-        toPath = const "/"
+instance Core.ToPath ModifySubnetAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifySubnetAttribute where
-        toQuery ModifySubnetAttribute'{..}
-          = mconcat
-              ["Action" =: ("ModifySubnetAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "AssignIpv6AddressOnCreation" =:
-                 _msaAssignIPv6AddressOnCreation,
-               "MapPublicIpOnLaunch" =: _msaMapPublicIPOnLaunch,
-               "SubnetId" =: _msaSubnetId]
+instance Core.ToQuery ModifySubnetAttribute where
+  toQuery ModifySubnetAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifySubnetAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "CustomerOwnedIpv4Pool"
+          Core.=: customerOwnedIpv4Pool,
+        "AssignIpv6AddressOnCreation"
+          Core.=: assignIpv6AddressOnCreation,
+        "MapPublicIpOnLaunch" Core.=: mapPublicIpOnLaunch,
+        "MapCustomerOwnedIpOnLaunch"
+          Core.=: mapCustomerOwnedIpOnLaunch,
+        "SubnetId" Core.=: subnetId
+      ]
 
--- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
-data ModifySubnetAttributeResponse =
-  ModifySubnetAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newModifySubnetAttributeResponse' smart constructor.
+data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifySubnetAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifySubnetAttributeResponse' with all optional fields omitted.
 --
-modifySubnetAttributeResponse
-    :: ModifySubnetAttributeResponse
-modifySubnetAttributeResponse = ModifySubnetAttributeResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newModifySubnetAttributeResponse ::
+  ModifySubnetAttributeResponse
+newModifySubnetAttributeResponse =
+  ModifySubnetAttributeResponse'
 
-
-instance NFData ModifySubnetAttributeResponse where
+instance Prelude.NFData ModifySubnetAttributeResponse

@@ -1,161 +1,205 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DAX.IncreaseReplicationFactor
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more nodes to a DAX cluster.
---
---
 module Network.AWS.DAX.IncreaseReplicationFactor
-    (
-    -- * Creating a Request
-      increaseReplicationFactor
-    , IncreaseReplicationFactor
+  ( -- * Creating a Request
+    IncreaseReplicationFactor (..),
+    newIncreaseReplicationFactor,
+
     -- * Request Lenses
-    , irfAvailabilityZones
-    , irfClusterName
-    , irfNewReplicationFactor
+    increaseReplicationFactor_availabilityZones,
+    increaseReplicationFactor_clusterName,
+    increaseReplicationFactor_newReplicationFactor,
 
     -- * Destructuring the Response
-    , increaseReplicationFactorResponse
-    , IncreaseReplicationFactorResponse
+    IncreaseReplicationFactorResponse (..),
+    newIncreaseReplicationFactorResponse,
+
     -- * Response Lenses
-    , irfrsCluster
-    , irfrsResponseStatus
-    ) where
+    increaseReplicationFactorResponse_cluster,
+    increaseReplicationFactorResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
-import Network.AWS.DAX.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'increaseReplicationFactor' smart constructor.
+-- | /See:/ 'newIncreaseReplicationFactor' smart constructor.
 data IncreaseReplicationFactor = IncreaseReplicationFactor'
-  { _irfAvailabilityZones    :: !(Maybe [Text])
-  , _irfClusterName          :: !Text
-  , _irfNewReplicationFactor :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'IncreaseReplicationFactor' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irfAvailabilityZones' - The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
---
--- * 'irfClusterName' - The name of the DAX cluster that will receive additional nodes.
---
--- * 'irfNewReplicationFactor' - The new number of nodes for the DAX cluster.
-increaseReplicationFactor
-    :: Text -- ^ 'irfClusterName'
-    -> Int -- ^ 'irfNewReplicationFactor'
-    -> IncreaseReplicationFactor
-increaseReplicationFactor pClusterName_ pNewReplicationFactor_ =
-  IncreaseReplicationFactor'
-  { _irfAvailabilityZones = Nothing
-  , _irfClusterName = pClusterName_
-  , _irfNewReplicationFactor = pNewReplicationFactor_
+  { -- | The Availability Zones (AZs) in which the cluster nodes will be created.
+    -- All nodes belonging to the cluster are placed in these Availability
+    -- Zones. Use this parameter if you want to distribute the nodes across
+    -- multiple AZs.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the DAX cluster that will receive additional nodes.
+    clusterName :: Prelude.Text,
+    -- | The new number of nodes for the DAX cluster.
+    newReplicationFactor' :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'IncreaseReplicationFactor' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'availabilityZones', 'increaseReplicationFactor_availabilityZones' - The Availability Zones (AZs) in which the cluster nodes will be created.
+-- All nodes belonging to the cluster are placed in these Availability
+-- Zones. Use this parameter if you want to distribute the nodes across
+-- multiple AZs.
+--
+-- 'clusterName', 'increaseReplicationFactor_clusterName' - The name of the DAX cluster that will receive additional nodes.
+--
+-- 'newReplicationFactor'', 'increaseReplicationFactor_newReplicationFactor' - The new number of nodes for the DAX cluster.
+newIncreaseReplicationFactor ::
+  -- | 'clusterName'
+  Prelude.Text ->
+  -- | 'newReplicationFactor''
+  Prelude.Int ->
+  IncreaseReplicationFactor
+newIncreaseReplicationFactor
+  pClusterName_
+  pNewReplicationFactor_ =
+    IncreaseReplicationFactor'
+      { availabilityZones =
+          Prelude.Nothing,
+        clusterName = pClusterName_,
+        newReplicationFactor' = pNewReplicationFactor_
+      }
 
--- | The Availability Zones (AZs) in which the cluster nodes will be created. All nodes belonging to the cluster are placed in these Availability Zones. Use this parameter if you want to distribute the nodes across multiple AZs.
-irfAvailabilityZones :: Lens' IncreaseReplicationFactor [Text]
-irfAvailabilityZones = lens _irfAvailabilityZones (\ s a -> s{_irfAvailabilityZones = a}) . _Default . _Coerce;
+-- | The Availability Zones (AZs) in which the cluster nodes will be created.
+-- All nodes belonging to the cluster are placed in these Availability
+-- Zones. Use this parameter if you want to distribute the nodes across
+-- multiple AZs.
+increaseReplicationFactor_availabilityZones :: Lens.Lens' IncreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
+increaseReplicationFactor_availabilityZones = Lens.lens (\IncreaseReplicationFactor' {availabilityZones} -> availabilityZones) (\s@IncreaseReplicationFactor' {} a -> s {availabilityZones = a} :: IncreaseReplicationFactor) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the DAX cluster that will receive additional nodes.
-irfClusterName :: Lens' IncreaseReplicationFactor Text
-irfClusterName = lens _irfClusterName (\ s a -> s{_irfClusterName = a});
+increaseReplicationFactor_clusterName :: Lens.Lens' IncreaseReplicationFactor Prelude.Text
+increaseReplicationFactor_clusterName = Lens.lens (\IncreaseReplicationFactor' {clusterName} -> clusterName) (\s@IncreaseReplicationFactor' {} a -> s {clusterName = a} :: IncreaseReplicationFactor)
 
 -- | The new number of nodes for the DAX cluster.
-irfNewReplicationFactor :: Lens' IncreaseReplicationFactor Int
-irfNewReplicationFactor = lens _irfNewReplicationFactor (\ s a -> s{_irfNewReplicationFactor = a});
+increaseReplicationFactor_newReplicationFactor :: Lens.Lens' IncreaseReplicationFactor Prelude.Int
+increaseReplicationFactor_newReplicationFactor = Lens.lens (\IncreaseReplicationFactor' {newReplicationFactor'} -> newReplicationFactor') (\s@IncreaseReplicationFactor' {} a -> s {newReplicationFactor' = a} :: IncreaseReplicationFactor)
 
-instance AWSRequest IncreaseReplicationFactor where
-        type Rs IncreaseReplicationFactor =
-             IncreaseReplicationFactorResponse
-        request = postJSON dax
-        response
-          = receiveJSON
-              (\ s h x ->
-                 IncreaseReplicationFactorResponse' <$>
-                   (x .?> "Cluster") <*> (pure (fromEnum s)))
+instance Core.AWSRequest IncreaseReplicationFactor where
+  type
+    AWSResponse IncreaseReplicationFactor =
+      IncreaseReplicationFactorResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          IncreaseReplicationFactorResponse'
+            Prelude.<$> (x Core..?> "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable IncreaseReplicationFactor where
+instance Prelude.Hashable IncreaseReplicationFactor
 
-instance NFData IncreaseReplicationFactor where
+instance Prelude.NFData IncreaseReplicationFactor
 
-instance ToHeaders IncreaseReplicationFactor where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDAXV3.IncreaseReplicationFactor" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders IncreaseReplicationFactor where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDAXV3.IncreaseReplicationFactor" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON IncreaseReplicationFactor where
-        toJSON IncreaseReplicationFactor'{..}
-          = object
-              (catMaybes
-                 [("AvailabilityZones" .=) <$> _irfAvailabilityZones,
-                  Just ("ClusterName" .= _irfClusterName),
-                  Just
-                    ("NewReplicationFactor" .=
-                       _irfNewReplicationFactor)])
+instance Core.ToJSON IncreaseReplicationFactor where
+  toJSON IncreaseReplicationFactor' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AvailabilityZones" Core..=)
+              Prelude.<$> availabilityZones,
+            Prelude.Just ("ClusterName" Core..= clusterName),
+            Prelude.Just
+              ( "NewReplicationFactor"
+                  Core..= newReplicationFactor'
+              )
+          ]
+      )
 
-instance ToPath IncreaseReplicationFactor where
-        toPath = const "/"
+instance Core.ToPath IncreaseReplicationFactor where
+  toPath = Prelude.const "/"
 
-instance ToQuery IncreaseReplicationFactor where
-        toQuery = const mempty
+instance Core.ToQuery IncreaseReplicationFactor where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'increaseReplicationFactorResponse' smart constructor.
+-- | /See:/ 'newIncreaseReplicationFactorResponse' smart constructor.
 data IncreaseReplicationFactorResponse = IncreaseReplicationFactorResponse'
-  { _irfrsCluster        :: !(Maybe Cluster)
-  , _irfrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A description of the DAX cluster. with its new replication factor.
+    cluster :: Prelude.Maybe Cluster,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'IncreaseReplicationFactorResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'IncreaseReplicationFactorResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'irfrsCluster' - A description of the DAX cluster. with its new replication factor.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'irfrsResponseStatus' - -- | The response status code.
-increaseReplicationFactorResponse
-    :: Int -- ^ 'irfrsResponseStatus'
-    -> IncreaseReplicationFactorResponse
-increaseReplicationFactorResponse pResponseStatus_ =
+-- 'cluster', 'increaseReplicationFactorResponse_cluster' - A description of the DAX cluster. with its new replication factor.
+--
+-- 'httpStatus', 'increaseReplicationFactorResponse_httpStatus' - The response's http status code.
+newIncreaseReplicationFactorResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  IncreaseReplicationFactorResponse
+newIncreaseReplicationFactorResponse pHttpStatus_ =
   IncreaseReplicationFactorResponse'
-  {_irfrsCluster = Nothing, _irfrsResponseStatus = pResponseStatus_}
-
+    { cluster =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A description of the DAX cluster. with its new replication factor.
-irfrsCluster :: Lens' IncreaseReplicationFactorResponse (Maybe Cluster)
-irfrsCluster = lens _irfrsCluster (\ s a -> s{_irfrsCluster = a});
+increaseReplicationFactorResponse_cluster :: Lens.Lens' IncreaseReplicationFactorResponse (Prelude.Maybe Cluster)
+increaseReplicationFactorResponse_cluster = Lens.lens (\IncreaseReplicationFactorResponse' {cluster} -> cluster) (\s@IncreaseReplicationFactorResponse' {} a -> s {cluster = a} :: IncreaseReplicationFactorResponse)
 
--- | -- | The response status code.
-irfrsResponseStatus :: Lens' IncreaseReplicationFactorResponse Int
-irfrsResponseStatus = lens _irfrsResponseStatus (\ s a -> s{_irfrsResponseStatus = a});
+-- | The response's http status code.
+increaseReplicationFactorResponse_httpStatus :: Lens.Lens' IncreaseReplicationFactorResponse Prelude.Int
+increaseReplicationFactorResponse_httpStatus = Lens.lens (\IncreaseReplicationFactorResponse' {httpStatus} -> httpStatus) (\s@IncreaseReplicationFactorResponse' {} a -> s {httpStatus = a} :: IncreaseReplicationFactorResponse)
 
-instance NFData IncreaseReplicationFactorResponse
-         where
+instance
+  Prelude.NFData
+    IncreaseReplicationFactorResponse

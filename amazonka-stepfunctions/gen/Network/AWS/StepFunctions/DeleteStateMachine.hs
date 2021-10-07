@@ -1,125 +1,159 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StepFunctions.DeleteStateMachine
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a state machine. This is an asynchronous operation-- it sets the state machine's status to "DELETING" and begins the delete process. Each state machine execution will be deleted the next time it makes a state transition. After all executions have completed or been deleted, the state machine itself will be deleted.
+-- Deletes a state machine. This is an asynchronous operation: It sets the
+-- state machine\'s status to @DELETING@ and begins the deletion process.
 --
---
+-- For @EXPRESS@state machines, the deletion will happen eventually
+-- (usually less than a minute). Running executions may emit logs after
+-- @DeleteStateMachine@ API is called.
 module Network.AWS.StepFunctions.DeleteStateMachine
-    (
-    -- * Creating a Request
-      deleteStateMachine
-    , DeleteStateMachine
+  ( -- * Creating a Request
+    DeleteStateMachine (..),
+    newDeleteStateMachine,
+
     -- * Request Lenses
-    , dStateMachineARN
+    deleteStateMachine_stateMachineArn,
 
     -- * Destructuring the Response
-    , deleteStateMachineResponse
-    , DeleteStateMachineResponse
+    DeleteStateMachineResponse (..),
+    newDeleteStateMachineResponse,
+
     -- * Response Lenses
-    , drsResponseStatus
-    ) where
+    deleteStateMachineResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
-import Network.AWS.StepFunctions.Types.Product
 
--- | /See:/ 'deleteStateMachine' smart constructor.
-newtype DeleteStateMachine = DeleteStateMachine'
-  { _dStateMachineARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteStateMachine' smart constructor.
+data DeleteStateMachine = DeleteStateMachine'
+  { -- | The Amazon Resource Name (ARN) of the state machine to delete.
+    stateMachineArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStateMachine' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStateMachine' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dStateMachineARN' - The Amazon Resource Name (ARN) of the state machine to delete.
-deleteStateMachine
-    :: Text -- ^ 'dStateMachineARN'
-    -> DeleteStateMachine
-deleteStateMachine pStateMachineARN_ =
-  DeleteStateMachine' {_dStateMachineARN = pStateMachineARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'stateMachineArn', 'deleteStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to delete.
+newDeleteStateMachine ::
+  -- | 'stateMachineArn'
+  Prelude.Text ->
+  DeleteStateMachine
+newDeleteStateMachine pStateMachineArn_ =
+  DeleteStateMachine'
+    { stateMachineArn =
+        pStateMachineArn_
+    }
 
 -- | The Amazon Resource Name (ARN) of the state machine to delete.
-dStateMachineARN :: Lens' DeleteStateMachine Text
-dStateMachineARN = lens _dStateMachineARN (\ s a -> s{_dStateMachineARN = a});
+deleteStateMachine_stateMachineArn :: Lens.Lens' DeleteStateMachine Prelude.Text
+deleteStateMachine_stateMachineArn = Lens.lens (\DeleteStateMachine' {stateMachineArn} -> stateMachineArn) (\s@DeleteStateMachine' {} a -> s {stateMachineArn = a} :: DeleteStateMachine)
 
-instance AWSRequest DeleteStateMachine where
-        type Rs DeleteStateMachine =
-             DeleteStateMachineResponse
-        request = postJSON stepFunctions
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteStateMachineResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteStateMachine where
+  type
+    AWSResponse DeleteStateMachine =
+      DeleteStateMachineResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteStateMachineResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteStateMachine where
+instance Prelude.Hashable DeleteStateMachine
 
-instance NFData DeleteStateMachine where
+instance Prelude.NFData DeleteStateMachine
 
-instance ToHeaders DeleteStateMachine where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSStepFunctions.DeleteStateMachine" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Core.ToHeaders DeleteStateMachine where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSStepFunctions.DeleteStateMachine" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.0" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteStateMachine where
-        toJSON DeleteStateMachine'{..}
-          = object
-              (catMaybes
-                 [Just ("stateMachineArn" .= _dStateMachineARN)])
+instance Core.ToJSON DeleteStateMachine where
+  toJSON DeleteStateMachine' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("stateMachineArn" Core..= stateMachineArn)
+          ]
+      )
 
-instance ToPath DeleteStateMachine where
-        toPath = const "/"
+instance Core.ToPath DeleteStateMachine where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteStateMachine where
-        toQuery = const mempty
+instance Core.ToQuery DeleteStateMachine where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteStateMachineResponse' smart constructor.
-newtype DeleteStateMachineResponse = DeleteStateMachineResponse'
-  { _drsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteStateMachineResponse' smart constructor.
+data DeleteStateMachineResponse = DeleteStateMachineResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStateMachineResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStateMachineResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteStateMachineResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DeleteStateMachineResponse
-deleteStateMachineResponse pResponseStatus_ =
-  DeleteStateMachineResponse' {_drsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteStateMachineResponse_httpStatus' - The response's http status code.
+newDeleteStateMachineResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteStateMachineResponse
+newDeleteStateMachineResponse pHttpStatus_ =
+  DeleteStateMachineResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteStateMachineResponse_httpStatus :: Lens.Lens' DeleteStateMachineResponse Prelude.Int
+deleteStateMachineResponse_httpStatus = Lens.lens (\DeleteStateMachineResponse' {httpStatus} -> httpStatus) (\s@DeleteStateMachineResponse' {} a -> s {httpStatus = a} :: DeleteStateMachineResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteStateMachineResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
-
-instance NFData DeleteStateMachineResponse where
+instance Prelude.NFData DeleteStateMachineResponse

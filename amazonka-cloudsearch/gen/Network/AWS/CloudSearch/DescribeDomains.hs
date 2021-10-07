@@ -1,134 +1,165 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the search domains owned by this account. Can be limited to specific domains. Shows all domains by default. To get the number of searchable documents in a domain, use the console or submit a @matchall@ request to your domain's search endpoint: @q=matchall&amp;q.parser=structured&amp;size=0@ . For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain> in the /Amazon CloudSearch Developer Guide/ .
---
---
+-- Gets information about the search domains owned by this account. Can be
+-- limited to specific domains. Shows all domains by default. To get the
+-- number of searchable documents in a domain, use the console or submit a
+-- @matchall@ request to your domain\'s search endpoint:
+-- @q=matchall&amp;q.parser=structured&amp;size=0@. For more information,
+-- see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain>
+-- in the /Amazon CloudSearch Developer Guide/.
 module Network.AWS.CloudSearch.DescribeDomains
-    (
-    -- * Creating a Request
-      describeDomains
-    , DescribeDomains
+  ( -- * Creating a Request
+    DescribeDomains (..),
+    newDescribeDomains,
+
     -- * Request Lenses
-    , ddDomainNames
+    describeDomains_domainNames,
 
     -- * Destructuring the Response
-    , describeDomainsResponse
-    , DescribeDomainsResponse
+    DescribeDomainsResponse (..),
+    newDescribeDomainsResponse,
+
     -- * Response Lenses
-    , ddsrsResponseStatus
-    , ddsrsDomainStatusList
-    ) where
+    describeDomainsResponse_httpStatus,
+    describeDomainsResponse_domainStatusList,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'DescribeDomains' @ operation. By default shows the status of all domains. To restrict the response to particular domains, specify the names of the domains you want to describe.
+-- | Container for the parameters to the @DescribeDomains@ operation. By
+-- default shows the status of all domains. To restrict the response to
+-- particular domains, specify the names of the domains you want to
+-- describe.
 --
---
---
--- /See:/ 'describeDomains' smart constructor.
-newtype DescribeDomains = DescribeDomains'
-  { _ddDomainNames :: Maybe [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeDomains' smart constructor.
+data DescribeDomains = DescribeDomains'
+  { -- | The names of the domains you want to include in the response.
+    domainNames :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDomains' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDomains' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDomainNames' - The names of the domains you want to include in the response.
-describeDomains
-    :: DescribeDomains
-describeDomains = DescribeDomains' {_ddDomainNames = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainNames', 'describeDomains_domainNames' - The names of the domains you want to include in the response.
+newDescribeDomains ::
+  DescribeDomains
+newDescribeDomains =
+  DescribeDomains' {domainNames = Prelude.Nothing}
 
 -- | The names of the domains you want to include in the response.
-ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default . _Coerce;
+describeDomains_domainNames :: Lens.Lens' DescribeDomains (Prelude.Maybe [Prelude.Text])
+describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest DescribeDomains where
-        type Rs DescribeDomains = DescribeDomainsResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "DescribeDomainsResult"
-              (\ s h x ->
-                 DescribeDomainsResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@? "DomainStatusList" .!@ mempty >>=
-                        parseXMLList "member"))
+instance Core.AWSRequest DescribeDomains where
+  type
+    AWSResponse DescribeDomains =
+      DescribeDomainsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeDomainsResult"
+      ( \s h x ->
+          DescribeDomainsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "DomainStatusList"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
+      )
 
-instance Hashable DescribeDomains where
+instance Prelude.Hashable DescribeDomains
 
-instance NFData DescribeDomains where
+instance Prelude.NFData DescribeDomains
 
-instance ToHeaders DescribeDomains where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeDomains where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeDomains where
-        toPath = const "/"
+instance Core.ToPath DescribeDomains where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeDomains where
-        toQuery DescribeDomains'{..}
-          = mconcat
-              ["Action" =: ("DescribeDomains" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "DomainNames" =:
-                 toQuery (toQueryList "member" <$> _ddDomainNames)]
+instance Core.ToQuery DescribeDomains where
+  toQuery DescribeDomains' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeDomains" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainNames"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> domainNames)
+      ]
 
--- | The result of a @DescribeDomains@ request. Contains the status of the domains specified in the request or all domains owned by the account.
+-- | The result of a @DescribeDomains@ request. Contains the status of the
+-- domains specified in the request or all domains owned by the account.
 --
---
---
--- /See:/ 'describeDomainsResponse' smart constructor.
+-- /See:/ 'newDescribeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
-  { _ddsrsResponseStatus   :: !Int
-  , _ddsrsDomainStatusList :: ![DomainStatus]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    domainStatusList :: [DomainStatus]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDomainsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDomainsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddsrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddsrsDomainStatusList' - Undocumented member.
-describeDomainsResponse
-    :: Int -- ^ 'ddsrsResponseStatus'
-    -> DescribeDomainsResponse
-describeDomainsResponse pResponseStatus_ =
+-- 'httpStatus', 'describeDomainsResponse_httpStatus' - The response's http status code.
+--
+-- 'domainStatusList', 'describeDomainsResponse_domainStatusList' - Undocumented member.
+newDescribeDomainsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDomainsResponse
+newDescribeDomainsResponse pHttpStatus_ =
   DescribeDomainsResponse'
-  {_ddsrsResponseStatus = pResponseStatus_, _ddsrsDomainStatusList = mempty}
+    { httpStatus = pHttpStatus_,
+      domainStatusList = Prelude.mempty
+    }
 
-
--- | -- | The response status code.
-ddsrsResponseStatus :: Lens' DescribeDomainsResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\ s a -> s{_ddsrsResponseStatus = a});
+-- | The response's http status code.
+describeDomainsResponse_httpStatus :: Lens.Lens' DescribeDomainsResponse Prelude.Int
+describeDomainsResponse_httpStatus = Lens.lens (\DescribeDomainsResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainsResponse' {} a -> s {httpStatus = a} :: DescribeDomainsResponse)
 
 -- | Undocumented member.
-ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a}) . _Coerce;
+describeDomainsResponse_domainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
+describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Prelude.. Lens._Coerce
 
-instance NFData DescribeDomainsResponse where
+instance Prelude.NFData DescribeDomainsResponse

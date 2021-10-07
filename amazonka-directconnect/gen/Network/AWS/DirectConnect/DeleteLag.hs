@@ -1,108 +1,130 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteLag
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.
---
---
+-- Deletes the specified link aggregation group (LAG). You cannot delete a
+-- LAG if it has active virtual interfaces or hosted connections.
 module Network.AWS.DirectConnect.DeleteLag
-    (
-    -- * Creating a Request
-      deleteLag
-    , DeleteLag
+  ( -- * Creating a Request
+    DeleteLag (..),
+    newDeleteLag,
+
     -- * Request Lenses
-    , dLagId
+    deleteLag_lagId,
 
     -- * Destructuring the Response
-    , lag
-    , Lag
+    Lag (..),
+    newLag,
+
     -- * Response Lenses
-    , lagLagId
-    , lagConnectionsBandwidth
-    , lagMinimumLinks
-    , lagLagName
-    , lagLocation
-    , lagConnections
-    , lagAwsDevice
-    , lagAllowsHostedConnections
-    , lagNumberOfConnections
-    , lagLagState
-    , lagOwnerAccount
-    , lagRegion
-    ) where
+    lag_numberOfConnections,
+    lag_awsDeviceV2,
+    lag_allowsHostedConnections,
+    lag_macSecKeys,
+    lag_providerName,
+    lag_awsLogicalDeviceId,
+    lag_hasLogicalRedundancy,
+    lag_lagName,
+    lag_connections,
+    lag_awsDevice,
+    lag_lagState,
+    lag_jumboFrameCapable,
+    lag_connectionsBandwidth,
+    lag_lagId,
+    lag_encryptionMode,
+    lag_tags,
+    lag_ownerAccount,
+    lag_region,
+    lag_location,
+    lag_minimumLinks,
+    lag_macSecCapable,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the DeleteLag operation.
+-- | /See:/ 'newDeleteLag' smart constructor.
+data DeleteLag = DeleteLag'
+  { -- | The ID of the LAG.
+    lagId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteLag' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'deleteLag' smart constructor.
-newtype DeleteLag = DeleteLag'
-  { _dLagId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- 'lagId', 'deleteLag_lagId' - The ID of the LAG.
+newDeleteLag ::
+  -- | 'lagId'
+  Prelude.Text ->
+  DeleteLag
+newDeleteLag pLagId_ = DeleteLag' {lagId = pLagId_}
 
+-- | The ID of the LAG.
+deleteLag_lagId :: Lens.Lens' DeleteLag Prelude.Text
+deleteLag_lagId = Lens.lens (\DeleteLag' {lagId} -> lagId) (\s@DeleteLag' {} a -> s {lagId = a} :: DeleteLag)
 
--- | Creates a value of 'DeleteLag' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dLagId' - The ID of the LAG to delete. Example: dxlag-abc123 Default: None
-deleteLag
-    :: Text -- ^ 'dLagId'
-    -> DeleteLag
-deleteLag pLagId_ = DeleteLag' {_dLagId = pLagId_}
+instance Core.AWSRequest DeleteLag where
+  type AWSResponse DeleteLag = Lag
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
+instance Prelude.Hashable DeleteLag
 
--- | The ID of the LAG to delete. Example: dxlag-abc123 Default: None
-dLagId :: Lens' DeleteLag Text
-dLagId = lens _dLagId (\ s a -> s{_dLagId = a});
+instance Prelude.NFData DeleteLag
 
-instance AWSRequest DeleteLag where
-        type Rs DeleteLag = Lag
-        request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.ToHeaders DeleteLag where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("OvertureService.DeleteLag" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance Hashable DeleteLag where
+instance Core.ToJSON DeleteLag where
+  toJSON DeleteLag' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("lagId" Core..= lagId)]
+      )
 
-instance NFData DeleteLag where
+instance Core.ToPath DeleteLag where
+  toPath = Prelude.const "/"
 
-instance ToHeaders DeleteLag where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.DeleteLag" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteLag where
-        toJSON DeleteLag'{..}
-          = object (catMaybes [Just ("lagId" .= _dLagId)])
-
-instance ToPath DeleteLag where
-        toPath = const "/"
-
-instance ToQuery DeleteLag where
-        toQuery = const mempty
+instance Core.ToQuery DeleteLag where
+  toQuery = Prelude.const Prelude.mempty

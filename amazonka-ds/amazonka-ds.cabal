@@ -1,125 +1,205 @@
-name:                  amazonka-ds
-version:               1.5.0
-synopsis:              Amazon Directory Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-ds
+version:            1.6.1
+synopsis:           Amazon Directory Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.DirectoryService" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2015-04-16@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.DirectoryService.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.DirectoryService" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-ds
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-ds
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.DirectoryService
+    Network.AWS.DirectoryService.AcceptSharedDirectory
+    Network.AWS.DirectoryService.AddIpRoutes
+    Network.AWS.DirectoryService.AddRegion
+    Network.AWS.DirectoryService.AddTagsToResource
+    Network.AWS.DirectoryService.CancelSchemaExtension
+    Network.AWS.DirectoryService.ConnectDirectory
+    Network.AWS.DirectoryService.CreateAlias
+    Network.AWS.DirectoryService.CreateComputer
+    Network.AWS.DirectoryService.CreateConditionalForwarder
+    Network.AWS.DirectoryService.CreateDirectory
+    Network.AWS.DirectoryService.CreateLogSubscription
+    Network.AWS.DirectoryService.CreateMicrosoftAD
+    Network.AWS.DirectoryService.CreateSnapshot
+    Network.AWS.DirectoryService.CreateTrust
+    Network.AWS.DirectoryService.DeleteConditionalForwarder
+    Network.AWS.DirectoryService.DeleteDirectory
+    Network.AWS.DirectoryService.DeleteLogSubscription
+    Network.AWS.DirectoryService.DeleteSnapshot
+    Network.AWS.DirectoryService.DeleteTrust
+    Network.AWS.DirectoryService.DeregisterCertificate
+    Network.AWS.DirectoryService.DeregisterEventTopic
+    Network.AWS.DirectoryService.DescribeCertificate
+    Network.AWS.DirectoryService.DescribeClientAuthenticationSettings
+    Network.AWS.DirectoryService.DescribeConditionalForwarders
+    Network.AWS.DirectoryService.DescribeDirectories
+    Network.AWS.DirectoryService.DescribeDomainControllers
+    Network.AWS.DirectoryService.DescribeEventTopics
+    Network.AWS.DirectoryService.DescribeLDAPSSettings
+    Network.AWS.DirectoryService.DescribeRegions
+    Network.AWS.DirectoryService.DescribeSharedDirectories
+    Network.AWS.DirectoryService.DescribeSnapshots
+    Network.AWS.DirectoryService.DescribeTrusts
+    Network.AWS.DirectoryService.DisableClientAuthentication
+    Network.AWS.DirectoryService.DisableLDAPS
+    Network.AWS.DirectoryService.DisableRadius
+    Network.AWS.DirectoryService.DisableSso
+    Network.AWS.DirectoryService.EnableClientAuthentication
+    Network.AWS.DirectoryService.EnableLDAPS
+    Network.AWS.DirectoryService.EnableRadius
+    Network.AWS.DirectoryService.EnableSso
+    Network.AWS.DirectoryService.GetDirectoryLimits
+    Network.AWS.DirectoryService.GetSnapshotLimits
+    Network.AWS.DirectoryService.Lens
+    Network.AWS.DirectoryService.ListCertificates
+    Network.AWS.DirectoryService.ListIpRoutes
+    Network.AWS.DirectoryService.ListLogSubscriptions
+    Network.AWS.DirectoryService.ListSchemaExtensions
+    Network.AWS.DirectoryService.ListTagsForResource
+    Network.AWS.DirectoryService.RegisterCertificate
+    Network.AWS.DirectoryService.RegisterEventTopic
+    Network.AWS.DirectoryService.RejectSharedDirectory
+    Network.AWS.DirectoryService.RemoveIpRoutes
+    Network.AWS.DirectoryService.RemoveRegion
+    Network.AWS.DirectoryService.RemoveTagsFromResource
+    Network.AWS.DirectoryService.ResetUserPassword
+    Network.AWS.DirectoryService.RestoreFromSnapshot
+    Network.AWS.DirectoryService.ShareDirectory
+    Network.AWS.DirectoryService.StartSchemaExtension
+    Network.AWS.DirectoryService.Types
+    Network.AWS.DirectoryService.Types.Attribute
+    Network.AWS.DirectoryService.Types.Certificate
+    Network.AWS.DirectoryService.Types.CertificateInfo
+    Network.AWS.DirectoryService.Types.CertificateState
+    Network.AWS.DirectoryService.Types.CertificateType
+    Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo
+    Network.AWS.DirectoryService.Types.ClientAuthenticationStatus
+    Network.AWS.DirectoryService.Types.ClientAuthenticationType
+    Network.AWS.DirectoryService.Types.ClientCertAuthSettings
+    Network.AWS.DirectoryService.Types.Computer
+    Network.AWS.DirectoryService.Types.ConditionalForwarder
+    Network.AWS.DirectoryService.Types.DirectoryConnectSettings
+    Network.AWS.DirectoryService.Types.DirectoryConnectSettingsDescription
+    Network.AWS.DirectoryService.Types.DirectoryDescription
+    Network.AWS.DirectoryService.Types.DirectoryEdition
+    Network.AWS.DirectoryService.Types.DirectoryLimits
+    Network.AWS.DirectoryService.Types.DirectorySize
+    Network.AWS.DirectoryService.Types.DirectoryStage
+    Network.AWS.DirectoryService.Types.DirectoryType
+    Network.AWS.DirectoryService.Types.DirectoryVpcSettings
+    Network.AWS.DirectoryService.Types.DirectoryVpcSettingsDescription
+    Network.AWS.DirectoryService.Types.DomainController
+    Network.AWS.DirectoryService.Types.DomainControllerStatus
+    Network.AWS.DirectoryService.Types.EventTopic
+    Network.AWS.DirectoryService.Types.IpRoute
+    Network.AWS.DirectoryService.Types.IpRouteInfo
+    Network.AWS.DirectoryService.Types.IpRouteStatusMsg
+    Network.AWS.DirectoryService.Types.LDAPSSettingInfo
+    Network.AWS.DirectoryService.Types.LDAPSStatus
+    Network.AWS.DirectoryService.Types.LDAPSType
+    Network.AWS.DirectoryService.Types.LogSubscription
+    Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
+    Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
+    Network.AWS.DirectoryService.Types.RadiusSettings
+    Network.AWS.DirectoryService.Types.RadiusStatus
+    Network.AWS.DirectoryService.Types.RegionDescription
+    Network.AWS.DirectoryService.Types.RegionsInfo
+    Network.AWS.DirectoryService.Types.RegionType
+    Network.AWS.DirectoryService.Types.ReplicationScope
+    Network.AWS.DirectoryService.Types.SchemaExtensionInfo
+    Network.AWS.DirectoryService.Types.SchemaExtensionStatus
+    Network.AWS.DirectoryService.Types.SelectiveAuth
+    Network.AWS.DirectoryService.Types.SharedDirectory
+    Network.AWS.DirectoryService.Types.ShareMethod
+    Network.AWS.DirectoryService.Types.ShareStatus
+    Network.AWS.DirectoryService.Types.ShareTarget
+    Network.AWS.DirectoryService.Types.Snapshot
+    Network.AWS.DirectoryService.Types.SnapshotLimits
+    Network.AWS.DirectoryService.Types.SnapshotStatus
+    Network.AWS.DirectoryService.Types.SnapshotType
+    Network.AWS.DirectoryService.Types.Tag
+    Network.AWS.DirectoryService.Types.TargetType
+    Network.AWS.DirectoryService.Types.TopicStatus
+    Network.AWS.DirectoryService.Types.Trust
+    Network.AWS.DirectoryService.Types.TrustDirection
+    Network.AWS.DirectoryService.Types.TrustState
+    Network.AWS.DirectoryService.Types.TrustType
+    Network.AWS.DirectoryService.Types.UnshareTarget
+    Network.AWS.DirectoryService.UnshareDirectory
+    Network.AWS.DirectoryService.UpdateConditionalForwarder
+    Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
+    Network.AWS.DirectoryService.UpdateRadius
+    Network.AWS.DirectoryService.UpdateTrust
+    Network.AWS.DirectoryService.VerifyTrust
+    Network.AWS.DirectoryService.Waiters
 
-    exposed-modules:
-          Network.AWS.DirectoryService
-        , Network.AWS.DirectoryService.AddIPRoutes
-        , Network.AWS.DirectoryService.AddTagsToResource
-        , Network.AWS.DirectoryService.CancelSchemaExtension
-        , Network.AWS.DirectoryService.ConnectDirectory
-        , Network.AWS.DirectoryService.CreateAlias
-        , Network.AWS.DirectoryService.CreateComputer
-        , Network.AWS.DirectoryService.CreateConditionalForwarder
-        , Network.AWS.DirectoryService.CreateDirectory
-        , Network.AWS.DirectoryService.CreateMicrosoftAD
-        , Network.AWS.DirectoryService.CreateSnapshot
-        , Network.AWS.DirectoryService.CreateTrust
-        , Network.AWS.DirectoryService.DeleteConditionalForwarder
-        , Network.AWS.DirectoryService.DeleteDirectory
-        , Network.AWS.DirectoryService.DeleteSnapshot
-        , Network.AWS.DirectoryService.DeleteTrust
-        , Network.AWS.DirectoryService.DeregisterEventTopic
-        , Network.AWS.DirectoryService.DescribeConditionalForwarders
-        , Network.AWS.DirectoryService.DescribeDirectories
-        , Network.AWS.DirectoryService.DescribeDomainControllers
-        , Network.AWS.DirectoryService.DescribeEventTopics
-        , Network.AWS.DirectoryService.DescribeSnapshots
-        , Network.AWS.DirectoryService.DescribeTrusts
-        , Network.AWS.DirectoryService.DisableRadius
-        , Network.AWS.DirectoryService.DisableSSO
-        , Network.AWS.DirectoryService.EnableRadius
-        , Network.AWS.DirectoryService.EnableSSO
-        , Network.AWS.DirectoryService.GetDirectoryLimits
-        , Network.AWS.DirectoryService.GetSnapshotLimits
-        , Network.AWS.DirectoryService.ListIPRoutes
-        , Network.AWS.DirectoryService.ListSchemaExtensions
-        , Network.AWS.DirectoryService.ListTagsForResource
-        , Network.AWS.DirectoryService.RegisterEventTopic
-        , Network.AWS.DirectoryService.RemoveIPRoutes
-        , Network.AWS.DirectoryService.RemoveTagsFromResource
-        , Network.AWS.DirectoryService.RestoreFromSnapshot
-        , Network.AWS.DirectoryService.StartSchemaExtension
-        , Network.AWS.DirectoryService.Types
-        , Network.AWS.DirectoryService.UpdateConditionalForwarder
-        , Network.AWS.DirectoryService.UpdateNumberOfDomainControllers
-        , Network.AWS.DirectoryService.UpdateRadius
-        , Network.AWS.DirectoryService.VerifyTrust
-        , Network.AWS.DirectoryService.Waiters
-
-    other-modules:
-          Network.AWS.DirectoryService.Types.Product
-        , Network.AWS.DirectoryService.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-ds-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.DirectoryService
+    Test.AWS.DirectoryService.Internal
+    Test.AWS.Gen.DirectoryService
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.DirectoryService
-        , Test.AWS.Gen.DirectoryService
-        , Test.AWS.DirectoryService.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-ds
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-ds
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

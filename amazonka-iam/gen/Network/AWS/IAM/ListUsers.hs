@@ -1,181 +1,316 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.ListUsers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the IAM users that have the specified path prefix. If no path prefix is specified, the action returns all users in the AWS account. If there are none, the action returns an empty list.
+-- Lists the IAM users that have the specified path prefix. If no path
+-- prefix is specified, the operation returns all users in the Amazon Web
+-- Services account. If there are none, the operation returns an empty
+-- list.
 --
+-- IAM resource-listing operations return a subset of the available
+-- attributes for the resource. For example, this operation does not return
+-- tags, even though they are an attribute of the returned object. To view
+-- all of the information for a user, see GetUser.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
---
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListUsers
-    (
-    -- * Creating a Request
-      listUsers
-    , ListUsers
+  ( -- * Creating a Request
+    ListUsers (..),
+    newListUsers,
+
     -- * Request Lenses
-    , luPathPrefix
-    , luMarker
-    , luMaxItems
+    listUsers_pathPrefix,
+    listUsers_maxItems,
+    listUsers_marker,
 
     -- * Destructuring the Response
-    , listUsersResponse
-    , ListUsersResponse
+    ListUsersResponse (..),
+    newListUsersResponse,
+
     -- * Response Lenses
-    , lursMarker
-    , lursIsTruncated
-    , lursResponseStatus
-    , lursUsers
-    ) where
+    listUsersResponse_isTruncated,
+    listUsersResponse_marker,
+    listUsersResponse_httpStatus,
+    listUsersResponse_users,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listUsers' smart constructor.
+-- | /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { _luPathPrefix :: !(Maybe Text)
-  , _luMarker     :: !(Maybe Text)
-  , _luMaxItems   :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luPathPrefix' - The path prefix for filtering the results. For example: @/division_abc/subdivision_xyz/@ , which would get all user names whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
---
--- * 'luMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
---
--- * 'luMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-listUsers
-    :: ListUsers
-listUsers =
-  ListUsers'
-  {_luPathPrefix = Nothing, _luMarker = Nothing, _luMaxItems = Nothing}
-
-
--- | The path prefix for filtering the results. For example: @/division_abc/subdivision_xyz/@ , which would get all user names whose path starts with @/division_abc/subdivision_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all user names. This paramater allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes, containing any ASCII character from the ! (\u0021) thru the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
-luPathPrefix :: Lens' ListUsers (Maybe Text)
-luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
-
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-luMarker :: Lens' ListUsers (Maybe Text)
-luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
-
--- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-luMaxItems :: Lens' ListUsers (Maybe Natural)
-luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
-
-instance AWSPager ListUsers where
-        page rq rs
-          | stop (rs ^. lursIsTruncated) = Nothing
-          | isNothing (rs ^. lursMarker) = Nothing
-          | otherwise =
-            Just $ rq & luMarker .~ rs ^. lursMarker
-
-instance AWSRequest ListUsers where
-        type Rs ListUsers = ListUsersResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "ListUsersResult"
-              (\ s h x ->
-                 ListUsersResponse' <$>
-                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure (fromEnum s))
-                     <*>
-                     (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
-
-instance Hashable ListUsers where
-
-instance NFData ListUsers where
-
-instance ToHeaders ListUsers where
-        toHeaders = const mempty
-
-instance ToPath ListUsers where
-        toPath = const "/"
-
-instance ToQuery ListUsers where
-        toQuery ListUsers'{..}
-          = mconcat
-              ["Action" =: ("ListUsers" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _luPathPrefix, "Marker" =: _luMarker,
-               "MaxItems" =: _luMaxItems]
-
--- | Contains the response to a successful 'ListUsers' request.
---
---
---
--- /See:/ 'listUsersResponse' smart constructor.
-data ListUsersResponse = ListUsersResponse'
-  { _lursMarker         :: !(Maybe Text)
-  , _lursIsTruncated    :: !(Maybe Bool)
-  , _lursResponseStatus :: !Int
-  , _lursUsers          :: ![User]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lursMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'lursIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
---
--- * 'lursResponseStatus' - -- | The response status code.
---
--- * 'lursUsers' - A list of users.
-listUsersResponse
-    :: Int -- ^ 'lursResponseStatus'
-    -> ListUsersResponse
-listUsersResponse pResponseStatus_ =
-  ListUsersResponse'
-  { _lursMarker = Nothing
-  , _lursIsTruncated = Nothing
-  , _lursResponseStatus = pResponseStatus_
-  , _lursUsers = mempty
+  { -- | The path prefix for filtering the results. For example:
+    -- @\/division_abc\/subdivision_xyz\/@, which would get all user names
+    -- whose path starts with @\/division_abc\/subdivision_xyz\/@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all user names. This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of either a forward slash (\/) by itself or a string that
+    -- must begin and end with forward slashes. In addition, it can contain any
+    -- ASCII character from the ! (@\\u0021@) through the DEL character
+    -- (@\\u007F@), including most punctuation characters, digits, and upper
+    -- and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
+    --
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListUsers' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'pathPrefix', 'listUsers_pathPrefix' - The path prefix for filtering the results. For example:
+-- @\/division_abc\/subdivision_xyz\/@, which would get all user names
+-- whose path starts with @\/division_abc\/subdivision_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all user names. This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+--
+-- 'maxItems', 'listUsers_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+--
+-- 'marker', 'listUsers_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+newListUsers ::
+  ListUsers
+newListUsers =
+  ListUsers'
+    { pathPrefix = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lursMarker :: Lens' ListUsersResponse (Maybe Text)
-lursMarker = lens _lursMarker (\ s a -> s{_lursMarker = a});
+-- | The path prefix for filtering the results. For example:
+-- @\/division_abc\/subdivision_xyz\/@, which would get all user names
+-- whose path starts with @\/division_abc\/subdivision_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all user names. This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of either a forward slash (\/) by itself or a string that
+-- must begin and end with forward slashes. In addition, it can contain any
+-- ASCII character from the ! (@\\u0021@) through the DEL character
+-- (@\\u007F@), including most punctuation characters, digits, and upper
+-- and lowercased letters.
+listUsers_pathPrefix :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_pathPrefix = Lens.lens (\ListUsers' {pathPrefix} -> pathPrefix) (\s@ListUsers' {} a -> s {pathPrefix = a} :: ListUsers)
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
-lursIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
-lursIsTruncated = lens _lursIsTruncated (\ s a -> s{_lursIsTruncated = a});
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+listUsers_maxItems :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_maxItems = Lens.lens (\ListUsers' {maxItems} -> maxItems) (\s@ListUsers' {} a -> s {maxItems = a} :: ListUsers)
 
--- | -- | The response status code.
-lursResponseStatus :: Lens' ListUsersResponse Int
-lursResponseStatus = lens _lursResponseStatus (\ s a -> s{_lursResponseStatus = a});
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listUsers_marker :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_marker = Lens.lens (\ListUsers' {marker} -> marker) (\s@ListUsers' {} a -> s {marker = a} :: ListUsers)
+
+instance Core.AWSPager ListUsers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listUsersResponse_isTruncated Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listUsersResponse_marker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listUsers_marker
+          Lens..~ rs
+          Lens.^? listUsersResponse_marker Prelude.. Lens._Just
+
+instance Core.AWSRequest ListUsers where
+  type AWSResponse ListUsers = ListUsersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListUsersResult"
+      ( \s h x ->
+          ListUsersResponse'
+            Prelude.<$> (x Core..@? "IsTruncated")
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Users" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLList "member"
+                        )
+      )
+
+instance Prelude.Hashable ListUsers
+
+instance Prelude.NFData ListUsers
+
+instance Core.ToHeaders ListUsers where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ListUsers where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListUsers where
+  toQuery ListUsers' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ListUsers" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "PathPrefix" Core.=: pathPrefix,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
+      ]
+
+-- | Contains the response to a successful ListUsers request.
+--
+-- /See:/ 'newListUsersResponse' smart constructor.
+data ListUsersResponse = ListUsersResponse'
+  { -- | A flag that indicates whether there are more items to return. If your
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of users.
+    users :: [User]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListUsersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'isTruncated', 'listUsersResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+--
+-- 'marker', 'listUsersResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
+-- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.
+--
+-- 'users', 'listUsersResponse_users' - A list of users.
+newListUsersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListUsersResponse
+newListUsersResponse pHttpStatus_ =
+  ListUsersResponse'
+    { isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      users = Prelude.mempty
+    }
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+listUsersResponse_isTruncated :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Bool)
+listUsersResponse_isTruncated = Lens.lens (\ListUsersResponse' {isTruncated} -> isTruncated) (\s@ListUsersResponse' {} a -> s {isTruncated = a} :: ListUsersResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listUsersResponse_marker :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
+listUsersResponse_marker = Lens.lens (\ListUsersResponse' {marker} -> marker) (\s@ListUsersResponse' {} a -> s {marker = a} :: ListUsersResponse)
+
+-- | The response's http status code.
+listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int
+listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> httpStatus) (\s@ListUsersResponse' {} a -> s {httpStatus = a} :: ListUsersResponse)
 
 -- | A list of users.
-lursUsers :: Lens' ListUsersResponse [User]
-lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a}) . _Coerce;
+listUsersResponse_users :: Lens.Lens' ListUsersResponse [User]
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens._Coerce
 
-instance NFData ListUsersResponse where
+instance Prelude.NFData ListUsersResponse

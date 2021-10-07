@@ -1,144 +1,181 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.AddListenerCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the specified certificate to the specified secure listener.
+-- Adds the specified SSL server certificate to the certificate list for
+-- the specified HTTPS or TLS listener.
 --
+-- If the certificate in already in the certificate list, the call is
+-- successful but the certificate is not added again.
 --
--- If the certificate was already added, the call is successful but the certificate is not added again.
---
--- To list the certificates for your listener, use 'DescribeListenerCertificates' . To remove certificates from your listener, use 'RemoveListenerCertificates' .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html HTTPS listeners>
+-- in the /Application Load Balancers Guide/ or
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html TLS listeners>
+-- in the /Network Load Balancers Guide/.
 module Network.AWS.ELBv2.AddListenerCertificates
-    (
-    -- * Creating a Request
-      addListenerCertificates
-    , AddListenerCertificates
+  ( -- * Creating a Request
+    AddListenerCertificates (..),
+    newAddListenerCertificates,
+
     -- * Request Lenses
-    , alcListenerARN
-    , alcCertificates
+    addListenerCertificates_listenerArn,
+    addListenerCertificates_certificates,
 
     -- * Destructuring the Response
-    , addListenerCertificatesResponse
-    , AddListenerCertificatesResponse
+    AddListenerCertificatesResponse (..),
+    newAddListenerCertificatesResponse,
+
     -- * Response Lenses
-    , alcrsCertificates
-    , alcrsResponseStatus
-    ) where
+    addListenerCertificatesResponse_certificates,
+    addListenerCertificatesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'addListenerCertificates' smart constructor.
+-- | /See:/ 'newAddListenerCertificates' smart constructor.
 data AddListenerCertificates = AddListenerCertificates'
-  { _alcListenerARN  :: !Text
-  , _alcCertificates :: ![Certificate]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the listener.
+    listenerArn :: Prelude.Text,
+    -- | The certificate to add. You can specify one certificate per call. Set
+    -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
+    certificates :: [Certificate]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddListenerCertificates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddListenerCertificates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'alcListenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'alcCertificates' - The certificate to add. You can specify one certificate per call.
-addListenerCertificates
-    :: Text -- ^ 'alcListenerARN'
-    -> AddListenerCertificates
-addListenerCertificates pListenerARN_ =
+-- 'listenerArn', 'addListenerCertificates_listenerArn' - The Amazon Resource Name (ARN) of the listener.
+--
+-- 'certificates', 'addListenerCertificates_certificates' - The certificate to add. You can specify one certificate per call. Set
+-- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
+newAddListenerCertificates ::
+  -- | 'listenerArn'
+  Prelude.Text ->
+  AddListenerCertificates
+newAddListenerCertificates pListenerArn_ =
   AddListenerCertificates'
-  {_alcListenerARN = pListenerARN_, _alcCertificates = mempty}
-
+    { listenerArn =
+        pListenerArn_,
+      certificates = Prelude.mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the listener.
-alcListenerARN :: Lens' AddListenerCertificates Text
-alcListenerARN = lens _alcListenerARN (\ s a -> s{_alcListenerARN = a});
+addListenerCertificates_listenerArn :: Lens.Lens' AddListenerCertificates Prelude.Text
+addListenerCertificates_listenerArn = Lens.lens (\AddListenerCertificates' {listenerArn} -> listenerArn) (\s@AddListenerCertificates' {} a -> s {listenerArn = a} :: AddListenerCertificates)
 
--- | The certificate to add. You can specify one certificate per call.
-alcCertificates :: Lens' AddListenerCertificates [Certificate]
-alcCertificates = lens _alcCertificates (\ s a -> s{_alcCertificates = a}) . _Coerce;
+-- | The certificate to add. You can specify one certificate per call. Set
+-- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
+addListenerCertificates_certificates :: Lens.Lens' AddListenerCertificates [Certificate]
+addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Prelude.. Lens._Coerce
 
-instance AWSRequest AddListenerCertificates where
-        type Rs AddListenerCertificates =
-             AddListenerCertificatesResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "AddListenerCertificatesResult"
-              (\ s h x ->
-                 AddListenerCertificatesResponse' <$>
-                   (x .@? "Certificates" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest AddListenerCertificates where
+  type
+    AWSResponse AddListenerCertificates =
+      AddListenerCertificatesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "AddListenerCertificatesResult"
+      ( \s h x ->
+          AddListenerCertificatesResponse'
+            Prelude.<$> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AddListenerCertificates where
+instance Prelude.Hashable AddListenerCertificates
 
-instance NFData AddListenerCertificates where
+instance Prelude.NFData AddListenerCertificates
 
-instance ToHeaders AddListenerCertificates where
-        toHeaders = const mempty
+instance Core.ToHeaders AddListenerCertificates where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath AddListenerCertificates where
-        toPath = const "/"
+instance Core.ToPath AddListenerCertificates where
+  toPath = Prelude.const "/"
 
-instance ToQuery AddListenerCertificates where
-        toQuery AddListenerCertificates'{..}
-          = mconcat
-              ["Action" =:
-                 ("AddListenerCertificates" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "ListenerArn" =: _alcListenerARN,
-               "Certificates" =:
-                 toQueryList "member" _alcCertificates]
+instance Core.ToQuery AddListenerCertificates where
+  toQuery AddListenerCertificates' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AddListenerCertificates" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "ListenerArn" Core.=: listenerArn,
+        "Certificates"
+          Core.=: Core.toQueryList "member" certificates
+      ]
 
--- | /See:/ 'addListenerCertificatesResponse' smart constructor.
+-- | /See:/ 'newAddListenerCertificatesResponse' smart constructor.
 data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
-  { _alcrsCertificates   :: !(Maybe [Certificate])
-  , _alcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the certificates in the certificate list.
+    certificates :: Prelude.Maybe [Certificate],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddListenerCertificatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddListenerCertificatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'alcrsCertificates' - Information about the certificates.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'alcrsResponseStatus' - -- | The response status code.
-addListenerCertificatesResponse
-    :: Int -- ^ 'alcrsResponseStatus'
-    -> AddListenerCertificatesResponse
-addListenerCertificatesResponse pResponseStatus_ =
+-- 'certificates', 'addListenerCertificatesResponse_certificates' - Information about the certificates in the certificate list.
+--
+-- 'httpStatus', 'addListenerCertificatesResponse_httpStatus' - The response's http status code.
+newAddListenerCertificatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddListenerCertificatesResponse
+newAddListenerCertificatesResponse pHttpStatus_ =
   AddListenerCertificatesResponse'
-  {_alcrsCertificates = Nothing, _alcrsResponseStatus = pResponseStatus_}
+    { certificates =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the certificates in the certificate list.
+addListenerCertificatesResponse_certificates :: Lens.Lens' AddListenerCertificatesResponse (Prelude.Maybe [Certificate])
+addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about the certificates.
-alcrsCertificates :: Lens' AddListenerCertificatesResponse [Certificate]
-alcrsCertificates = lens _alcrsCertificates (\ s a -> s{_alcrsCertificates = a}) . _Default . _Coerce;
+-- | The response's http status code.
+addListenerCertificatesResponse_httpStatus :: Lens.Lens' AddListenerCertificatesResponse Prelude.Int
+addListenerCertificatesResponse_httpStatus = Lens.lens (\AddListenerCertificatesResponse' {httpStatus} -> httpStatus) (\s@AddListenerCertificatesResponse' {} a -> s {httpStatus = a} :: AddListenerCertificatesResponse)
 
--- | -- | The response status code.
-alcrsResponseStatus :: Lens' AddListenerCertificatesResponse Int
-alcrsResponseStatus = lens _alcrsResponseStatus (\ s a -> s{_alcrsResponseStatus = a});
-
-instance NFData AddListenerCertificatesResponse where
+instance
+  Prelude.NFData
+    AddListenerCertificatesResponse

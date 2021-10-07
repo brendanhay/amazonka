@@ -1,169 +1,222 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DescribeCopyProductStatus
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the status of the specified copy product operation.
---
---
+-- Gets the status of the specified copy product operation.
 module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
-    (
-    -- * Creating a Request
-      describeCopyProductStatus
-    , DescribeCopyProductStatus
+  ( -- * Creating a Request
+    DescribeCopyProductStatus (..),
+    newDescribeCopyProductStatus,
+
     -- * Request Lenses
-    , dcpsAcceptLanguage
-    , dcpsCopyProductToken
+    describeCopyProductStatus_acceptLanguage,
+    describeCopyProductStatus_copyProductToken,
 
     -- * Destructuring the Response
-    , describeCopyProductStatusResponse
-    , DescribeCopyProductStatusResponse
+    DescribeCopyProductStatusResponse (..),
+    newDescribeCopyProductStatusResponse,
+
     -- * Response Lenses
-    , dcpsrsTargetProductId
-    , dcpsrsCopyProductStatus
-    , dcpsrsStatusDetail
-    , dcpsrsResponseStatus
-    ) where
+    describeCopyProductStatusResponse_statusDetail,
+    describeCopyProductStatusResponse_targetProductId,
+    describeCopyProductStatusResponse_copyProductStatus,
+    describeCopyProductStatusResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'describeCopyProductStatus' smart constructor.
+-- | /See:/ 'newDescribeCopyProductStatus' smart constructor.
 data DescribeCopyProductStatus = DescribeCopyProductStatus'
-  { _dcpsAcceptLanguage   :: !(Maybe Text)
-  , _dcpsCopyProductToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCopyProductStatus' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpsAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
---
--- * 'dcpsCopyProductToken' - The token returned from the call to @CopyProduct@ that initiated the operation.
-describeCopyProductStatus
-    :: Text -- ^ 'dcpsCopyProductToken'
-    -> DescribeCopyProductStatus
-describeCopyProductStatus pCopyProductToken_ =
-  DescribeCopyProductStatus'
-  {_dcpsAcceptLanguage = Nothing, _dcpsCopyProductToken = pCopyProductToken_}
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dcpsAcceptLanguage :: Lens' DescribeCopyProductStatus (Maybe Text)
-dcpsAcceptLanguage = lens _dcpsAcceptLanguage (\ s a -> s{_dcpsAcceptLanguage = a});
-
--- | The token returned from the call to @CopyProduct@ that initiated the operation.
-dcpsCopyProductToken :: Lens' DescribeCopyProductStatus Text
-dcpsCopyProductToken = lens _dcpsCopyProductToken (\ s a -> s{_dcpsCopyProductToken = a});
-
-instance AWSRequest DescribeCopyProductStatus where
-        type Rs DescribeCopyProductStatus =
-             DescribeCopyProductStatusResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeCopyProductStatusResponse' <$>
-                   (x .?> "TargetProductId") <*>
-                     (x .?> "CopyProductStatus")
-                     <*> (x .?> "StatusDetail")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeCopyProductStatus where
-
-instance NFData DescribeCopyProductStatus where
-
-instance ToHeaders DescribeCopyProductStatus where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.DescribeCopyProductStatus"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeCopyProductStatus where
-        toJSON DescribeCopyProductStatus'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _dcpsAcceptLanguage,
-                  Just ("CopyProductToken" .= _dcpsCopyProductToken)])
-
-instance ToPath DescribeCopyProductStatus where
-        toPath = const "/"
-
-instance ToQuery DescribeCopyProductStatus where
-        toQuery = const mempty
-
--- | /See:/ 'describeCopyProductStatusResponse' smart constructor.
-data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
-  { _dcpsrsTargetProductId   :: !(Maybe Text)
-  , _dcpsrsCopyProductStatus :: !(Maybe CopyProductStatus)
-  , _dcpsrsStatusDetail      :: !(Maybe Text)
-  , _dcpsrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCopyProductStatusResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpsrsTargetProductId' - The ID of the copied product.
---
--- * 'dcpsrsCopyProductStatus' - The status of the copy product operation.
---
--- * 'dcpsrsStatusDetail' - The status message.
---
--- * 'dcpsrsResponseStatus' - -- | The response status code.
-describeCopyProductStatusResponse
-    :: Int -- ^ 'dcpsrsResponseStatus'
-    -> DescribeCopyProductStatusResponse
-describeCopyProductStatusResponse pResponseStatus_ =
-  DescribeCopyProductStatusResponse'
-  { _dcpsrsTargetProductId = Nothing
-  , _dcpsrsCopyProductStatus = Nothing
-  , _dcpsrsStatusDetail = Nothing
-  , _dcpsrsResponseStatus = pResponseStatus_
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The token for the copy product operation. This token is returned by
+    -- CopyProduct.
+    copyProductToken :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeCopyProductStatus' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'acceptLanguage', 'describeCopyProductStatus_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'copyProductToken', 'describeCopyProductStatus_copyProductToken' - The token for the copy product operation. This token is returned by
+-- CopyProduct.
+newDescribeCopyProductStatus ::
+  -- | 'copyProductToken'
+  Prelude.Text ->
+  DescribeCopyProductStatus
+newDescribeCopyProductStatus pCopyProductToken_ =
+  DescribeCopyProductStatus'
+    { acceptLanguage =
+        Prelude.Nothing,
+      copyProductToken = pCopyProductToken_
+    }
 
--- | The ID of the copied product.
-dcpsrsTargetProductId :: Lens' DescribeCopyProductStatusResponse (Maybe Text)
-dcpsrsTargetProductId = lens _dcpsrsTargetProductId (\ s a -> s{_dcpsrsTargetProductId = a});
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+describeCopyProductStatus_acceptLanguage :: Lens.Lens' DescribeCopyProductStatus (Prelude.Maybe Prelude.Text)
+describeCopyProductStatus_acceptLanguage = Lens.lens (\DescribeCopyProductStatus' {acceptLanguage} -> acceptLanguage) (\s@DescribeCopyProductStatus' {} a -> s {acceptLanguage = a} :: DescribeCopyProductStatus)
 
--- | The status of the copy product operation.
-dcpsrsCopyProductStatus :: Lens' DescribeCopyProductStatusResponse (Maybe CopyProductStatus)
-dcpsrsCopyProductStatus = lens _dcpsrsCopyProductStatus (\ s a -> s{_dcpsrsCopyProductStatus = a});
+-- | The token for the copy product operation. This token is returned by
+-- CopyProduct.
+describeCopyProductStatus_copyProductToken :: Lens.Lens' DescribeCopyProductStatus Prelude.Text
+describeCopyProductStatus_copyProductToken = Lens.lens (\DescribeCopyProductStatus' {copyProductToken} -> copyProductToken) (\s@DescribeCopyProductStatus' {} a -> s {copyProductToken = a} :: DescribeCopyProductStatus)
+
+instance Core.AWSRequest DescribeCopyProductStatus where
+  type
+    AWSResponse DescribeCopyProductStatus =
+      DescribeCopyProductStatusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeCopyProductStatusResponse'
+            Prelude.<$> (x Core..?> "StatusDetail")
+            Prelude.<*> (x Core..?> "TargetProductId")
+            Prelude.<*> (x Core..?> "CopyProductStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeCopyProductStatus
+
+instance Prelude.NFData DescribeCopyProductStatus
+
+instance Core.ToHeaders DescribeCopyProductStatus where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.DescribeCopyProductStatus" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeCopyProductStatus where
+  toJSON DescribeCopyProductStatus' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just
+              ("CopyProductToken" Core..= copyProductToken)
+          ]
+      )
+
+instance Core.ToPath DescribeCopyProductStatus where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeCopyProductStatus where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeCopyProductStatusResponse' smart constructor.
+data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
+  { -- | The status message.
+    statusDetail :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the copied product.
+    targetProductId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the copy product operation.
+    copyProductStatus :: Prelude.Maybe CopyProductStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeCopyProductStatusResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'statusDetail', 'describeCopyProductStatusResponse_statusDetail' - The status message.
+--
+-- 'targetProductId', 'describeCopyProductStatusResponse_targetProductId' - The identifier of the copied product.
+--
+-- 'copyProductStatus', 'describeCopyProductStatusResponse_copyProductStatus' - The status of the copy product operation.
+--
+-- 'httpStatus', 'describeCopyProductStatusResponse_httpStatus' - The response's http status code.
+newDescribeCopyProductStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeCopyProductStatusResponse
+newDescribeCopyProductStatusResponse pHttpStatus_ =
+  DescribeCopyProductStatusResponse'
+    { statusDetail =
+        Prelude.Nothing,
+      targetProductId = Prelude.Nothing,
+      copyProductStatus = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The status message.
-dcpsrsStatusDetail :: Lens' DescribeCopyProductStatusResponse (Maybe Text)
-dcpsrsStatusDetail = lens _dcpsrsStatusDetail (\ s a -> s{_dcpsrsStatusDetail = a});
+describeCopyProductStatusResponse_statusDetail :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
+describeCopyProductStatusResponse_statusDetail = Lens.lens (\DescribeCopyProductStatusResponse' {statusDetail} -> statusDetail) (\s@DescribeCopyProductStatusResponse' {} a -> s {statusDetail = a} :: DescribeCopyProductStatusResponse)
 
--- | -- | The response status code.
-dcpsrsResponseStatus :: Lens' DescribeCopyProductStatusResponse Int
-dcpsrsResponseStatus = lens _dcpsrsResponseStatus (\ s a -> s{_dcpsrsResponseStatus = a});
+-- | The identifier of the copied product.
+describeCopyProductStatusResponse_targetProductId :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
+describeCopyProductStatusResponse_targetProductId = Lens.lens (\DescribeCopyProductStatusResponse' {targetProductId} -> targetProductId) (\s@DescribeCopyProductStatusResponse' {} a -> s {targetProductId = a} :: DescribeCopyProductStatusResponse)
 
-instance NFData DescribeCopyProductStatusResponse
-         where
+-- | The status of the copy product operation.
+describeCopyProductStatusResponse_copyProductStatus :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe CopyProductStatus)
+describeCopyProductStatusResponse_copyProductStatus = Lens.lens (\DescribeCopyProductStatusResponse' {copyProductStatus} -> copyProductStatus) (\s@DescribeCopyProductStatusResponse' {} a -> s {copyProductStatus = a} :: DescribeCopyProductStatusResponse)
+
+-- | The response's http status code.
+describeCopyProductStatusResponse_httpStatus :: Lens.Lens' DescribeCopyProductStatusResponse Prelude.Int
+describeCopyProductStatusResponse_httpStatus = Lens.lens (\DescribeCopyProductStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeCopyProductStatusResponse' {} a -> s {httpStatus = a} :: DescribeCopyProductStatusResponse)
+
+instance
+  Prelude.NFData
+    DescribeCopyProductStatusResponse

@@ -1,127 +1,158 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.EnableDomainAutoRenew
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires. The cost of renewing your domain registration is billed to your AWS account.
+-- This operation configures Amazon Route 53 to automatically renew the
+-- specified domain before the domain registration expires. The cost of
+-- renewing your domain registration is billed to your AWS account.
 --
---
--- The period during which you can renew a domain name varies by TLD. For a list of TLDs and their renewal policies, see <http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times "Renewal, restoration, and deletion times"> on the website for our registrar partner, Gandi. Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.
---
+-- The period during which you can renew a domain name varies by TLD. For a
+-- list of TLDs and their renewal policies, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains That You Can Register with Amazon Route 53>
+-- in the /Amazon Route 53 Developer Guide/. Route 53 requires that you
+-- renew before the end of the renewal period so we can complete processing
+-- before the deadline.
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
-    (
-    -- * Creating a Request
-      enableDomainAutoRenew
-    , EnableDomainAutoRenew
+  ( -- * Creating a Request
+    EnableDomainAutoRenew (..),
+    newEnableDomainAutoRenew,
+
     -- * Request Lenses
-    , edarDomainName
+    enableDomainAutoRenew_domainName,
 
     -- * Destructuring the Response
-    , enableDomainAutoRenewResponse
-    , EnableDomainAutoRenewResponse
+    EnableDomainAutoRenewResponse (..),
+    newEnableDomainAutoRenewResponse,
+
     -- * Response Lenses
-    , edarrsResponseStatus
-    ) where
+    enableDomainAutoRenewResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
--- | /See:/ 'enableDomainAutoRenew' smart constructor.
-newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
-  { _edarDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newEnableDomainAutoRenew' smart constructor.
+data EnableDomainAutoRenew = EnableDomainAutoRenew'
+  { -- | The name of the domain that you want to enable automatic renewal for.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EnableDomainAutoRenew' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnableDomainAutoRenew' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'edarDomainName' - The name of the domain that you want to enable automatic renewal for.
-enableDomainAutoRenew
-    :: Text -- ^ 'edarDomainName'
-    -> EnableDomainAutoRenew
-enableDomainAutoRenew pDomainName_ =
-  EnableDomainAutoRenew' {_edarDomainName = pDomainName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'enableDomainAutoRenew_domainName' - The name of the domain that you want to enable automatic renewal for.
+newEnableDomainAutoRenew ::
+  -- | 'domainName'
+  Prelude.Text ->
+  EnableDomainAutoRenew
+newEnableDomainAutoRenew pDomainName_ =
+  EnableDomainAutoRenew' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to enable automatic renewal for.
-edarDomainName :: Lens' EnableDomainAutoRenew Text
-edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
+enableDomainAutoRenew_domainName :: Lens.Lens' EnableDomainAutoRenew Prelude.Text
+enableDomainAutoRenew_domainName = Lens.lens (\EnableDomainAutoRenew' {domainName} -> domainName) (\s@EnableDomainAutoRenew' {} a -> s {domainName = a} :: EnableDomainAutoRenew)
 
-instance AWSRequest EnableDomainAutoRenew where
-        type Rs EnableDomainAutoRenew =
-             EnableDomainAutoRenewResponse
-        request = postJSON route53Domains
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 EnableDomainAutoRenewResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest EnableDomainAutoRenew where
+  type
+    AWSResponse EnableDomainAutoRenew =
+      EnableDomainAutoRenewResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          EnableDomainAutoRenewResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable EnableDomainAutoRenew where
+instance Prelude.Hashable EnableDomainAutoRenew
 
-instance NFData EnableDomainAutoRenew where
+instance Prelude.NFData EnableDomainAutoRenew
 
-instance ToHeaders EnableDomainAutoRenew where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.EnableDomainAutoRenew" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders EnableDomainAutoRenew where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53Domains_v20140515.EnableDomainAutoRenew" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON EnableDomainAutoRenew where
-        toJSON EnableDomainAutoRenew'{..}
-          = object
-              (catMaybes [Just ("DomainName" .= _edarDomainName)])
+instance Core.ToJSON EnableDomainAutoRenew where
+  toJSON EnableDomainAutoRenew' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("DomainName" Core..= domainName)]
+      )
 
-instance ToPath EnableDomainAutoRenew where
-        toPath = const "/"
+instance Core.ToPath EnableDomainAutoRenew where
+  toPath = Prelude.const "/"
 
-instance ToQuery EnableDomainAutoRenew where
-        toQuery = const mempty
+instance Core.ToQuery EnableDomainAutoRenew where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'enableDomainAutoRenewResponse' smart constructor.
-newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
-  { _edarrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newEnableDomainAutoRenewResponse' smart constructor.
+data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EnableDomainAutoRenewResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnableDomainAutoRenewResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'edarrsResponseStatus' - -- | The response status code.
-enableDomainAutoRenewResponse
-    :: Int -- ^ 'edarrsResponseStatus'
-    -> EnableDomainAutoRenewResponse
-enableDomainAutoRenewResponse pResponseStatus_ =
-  EnableDomainAutoRenewResponse' {_edarrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'enableDomainAutoRenewResponse_httpStatus' - The response's http status code.
+newEnableDomainAutoRenewResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  EnableDomainAutoRenewResponse
+newEnableDomainAutoRenewResponse pHttpStatus_ =
+  EnableDomainAutoRenewResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+enableDomainAutoRenewResponse_httpStatus :: Lens.Lens' EnableDomainAutoRenewResponse Prelude.Int
+enableDomainAutoRenewResponse_httpStatus = Lens.lens (\EnableDomainAutoRenewResponse' {httpStatus} -> httpStatus) (\s@EnableDomainAutoRenewResponse' {} a -> s {httpStatus = a} :: EnableDomainAutoRenewResponse)
 
--- | -- | The response status code.
-edarrsResponseStatus :: Lens' EnableDomainAutoRenewResponse Int
-edarrsResponseStatus = lens _edarrsResponseStatus (\ s a -> s{_edarrsResponseStatus = a});
-
-instance NFData EnableDomainAutoRenewResponse where
+instance Prelude.NFData EnableDomainAutoRenewResponse

@@ -1,83 +1,89 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the current 'Account' resource.
---
---
+-- Gets information about the current Account resource.
 module Network.AWS.APIGateway.GetAccount
-    (
-    -- * Creating a Request
-      getAccount
-    , GetAccount
+  ( -- * Creating a Request
+    GetAccount (..),
+    newGetAccount,
 
     -- * Destructuring the Response
-    , account
-    , Account
+    Account (..),
+    newAccount,
+
     -- * Response Lenses
-    , aApiKeyVersion
-    , aCloudwatchRoleARN
-    , aFeatures
-    , aThrottleSettings
-    ) where
+    account_throttleSettings,
+    account_apiKeyVersion,
+    account_features,
+    account_cloudwatchRoleArn,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Requests Amazon API Gateway to get information about the current 'Account' resource.
+-- | Requests API Gateway to get information about the current Account
+-- resource.
 --
+-- /See:/ 'newGetAccount' smart constructor.
+data GetAccount = GetAccount'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetAccount' with all optional fields omitted.
 --
---
--- /See:/ 'getAccount' smart constructor.
-data GetAccount =
-  GetAccount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newGetAccount ::
+  GetAccount
+newGetAccount = GetAccount'
 
+instance Core.AWSRequest GetAccount where
+  type AWSResponse GetAccount = Account
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
--- | Creates a value of 'GetAccount' with the minimum fields required to make a request.
---
-getAccount
-    :: GetAccount
-getAccount = GetAccount'
+instance Prelude.Hashable GetAccount
 
+instance Prelude.NFData GetAccount
 
-instance AWSRequest GetAccount where
-        type Rs GetAccount = Account
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.ToHeaders GetAccount where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance Hashable GetAccount where
+instance Core.ToPath GetAccount where
+  toPath = Prelude.const "/account"
 
-instance NFData GetAccount where
-
-instance ToHeaders GetAccount where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
-
-instance ToPath GetAccount where
-        toPath = const "/account"
-
-instance ToQuery GetAccount where
-        toQuery = const mempty
+instance Core.ToQuery GetAccount where
+  toQuery = Prelude.const Prelude.mempty

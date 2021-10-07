@@ -1,129 +1,161 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteSmsChannel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an SMS channel
+-- Disables the SMS channel for an application and deletes any existing
+-- settings for the channel.
 module Network.AWS.Pinpoint.DeleteSmsChannel
-    (
-    -- * Creating a Request
-      deleteSmsChannel
-    , DeleteSmsChannel
+  ( -- * Creating a Request
+    DeleteSmsChannel (..),
+    newDeleteSmsChannel,
+
     -- * Request Lenses
-    , dscApplicationId
+    deleteSmsChannel_applicationId,
 
     -- * Destructuring the Response
-    , deleteSmsChannelResponse
-    , DeleteSmsChannelResponse
+    DeleteSmsChannelResponse (..),
+    newDeleteSmsChannelResponse,
+
     -- * Response Lenses
-    , dscrsResponseStatus
-    , dscrsSMSChannelResponse
-    ) where
+    deleteSmsChannelResponse_httpStatus,
+    deleteSmsChannelResponse_sMSChannelResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteSmsChannel' smart constructor.
-newtype DeleteSmsChannel = DeleteSmsChannel'
-  { _dscApplicationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteSmsChannel' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscApplicationId' - Undocumented member.
-deleteSmsChannel
-    :: Text -- ^ 'dscApplicationId'
-    -> DeleteSmsChannel
-deleteSmsChannel pApplicationId_ =
-  DeleteSmsChannel' {_dscApplicationId = pApplicationId_}
-
-
--- | Undocumented member.
-dscApplicationId :: Lens' DeleteSmsChannel Text
-dscApplicationId = lens _dscApplicationId (\ s a -> s{_dscApplicationId = a});
-
-instance AWSRequest DeleteSmsChannel where
-        type Rs DeleteSmsChannel = DeleteSmsChannelResponse
-        request = delete pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteSmsChannelResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable DeleteSmsChannel where
-
-instance NFData DeleteSmsChannel where
-
-instance ToHeaders DeleteSmsChannel where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath DeleteSmsChannel where
-        toPath DeleteSmsChannel'{..}
-          = mconcat
-              ["/v1/apps/", toBS _dscApplicationId,
-               "/channels/sms"]
-
-instance ToQuery DeleteSmsChannel where
-        toQuery = const mempty
-
--- | /See:/ 'deleteSmsChannelResponse' smart constructor.
-data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
-  { _dscrsResponseStatus     :: !Int
-  , _dscrsSMSChannelResponse :: !SMSChannelResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteSmsChannelResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscrsResponseStatus' - -- | The response status code.
---
--- * 'dscrsSMSChannelResponse' - Undocumented member.
-deleteSmsChannelResponse
-    :: Int -- ^ 'dscrsResponseStatus'
-    -> SMSChannelResponse -- ^ 'dscrsSMSChannelResponse'
-    -> DeleteSmsChannelResponse
-deleteSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
-  DeleteSmsChannelResponse'
-  { _dscrsResponseStatus = pResponseStatus_
-  , _dscrsSMSChannelResponse = pSMSChannelResponse_
+-- | /See:/ 'newDeleteSmsChannel' smart constructor.
+data DeleteSmsChannel = DeleteSmsChannel'
+  { -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DeleteSmsChannel' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationId', 'deleteSmsChannel_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newDeleteSmsChannel ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  DeleteSmsChannel
+newDeleteSmsChannel pApplicationId_ =
+  DeleteSmsChannel' {applicationId = pApplicationId_}
 
--- | -- | The response status code.
-dscrsResponseStatus :: Lens' DeleteSmsChannelResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\ s a -> s{_dscrsResponseStatus = a});
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+deleteSmsChannel_applicationId :: Lens.Lens' DeleteSmsChannel Prelude.Text
+deleteSmsChannel_applicationId = Lens.lens (\DeleteSmsChannel' {applicationId} -> applicationId) (\s@DeleteSmsChannel' {} a -> s {applicationId = a} :: DeleteSmsChannel)
+
+instance Core.AWSRequest DeleteSmsChannel where
+  type
+    AWSResponse DeleteSmsChannel =
+      DeleteSmsChannelResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteSmsChannelResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable DeleteSmsChannel
+
+instance Prelude.NFData DeleteSmsChannel
+
+instance Core.ToHeaders DeleteSmsChannel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DeleteSmsChannel where
+  toPath DeleteSmsChannel' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Core.toBS applicationId,
+        "/channels/sms"
+      ]
+
+instance Core.ToQuery DeleteSmsChannel where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteSmsChannelResponse' smart constructor.
+data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    sMSChannelResponse :: SMSChannelResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteSmsChannelResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteSmsChannelResponse_httpStatus' - The response's http status code.
+--
+-- 'sMSChannelResponse', 'deleteSmsChannelResponse_sMSChannelResponse' - Undocumented member.
+newDeleteSmsChannelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'sMSChannelResponse'
+  SMSChannelResponse ->
+  DeleteSmsChannelResponse
+newDeleteSmsChannelResponse
+  pHttpStatus_
+  pSMSChannelResponse_ =
+    DeleteSmsChannelResponse'
+      { httpStatus =
+          pHttpStatus_,
+        sMSChannelResponse = pSMSChannelResponse_
+      }
+
+-- | The response's http status code.
+deleteSmsChannelResponse_httpStatus :: Lens.Lens' DeleteSmsChannelResponse Prelude.Int
+deleteSmsChannelResponse_httpStatus = Lens.lens (\DeleteSmsChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteSmsChannelResponse' {} a -> s {httpStatus = a} :: DeleteSmsChannelResponse)
 
 -- | Undocumented member.
-dscrsSMSChannelResponse :: Lens' DeleteSmsChannelResponse SMSChannelResponse
-dscrsSMSChannelResponse = lens _dscrsSMSChannelResponse (\ s a -> s{_dscrsSMSChannelResponse = a});
+deleteSmsChannelResponse_sMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse SMSChannelResponse
+deleteSmsChannelResponse_sMSChannelResponse = Lens.lens (\DeleteSmsChannelResponse' {sMSChannelResponse} -> sMSChannelResponse) (\s@DeleteSmsChannelResponse' {} a -> s {sMSChannelResponse = a} :: DeleteSmsChannelResponse)
 
-instance NFData DeleteSmsChannelResponse where
+instance Prelude.NFData DeleteSmsChannelResponse

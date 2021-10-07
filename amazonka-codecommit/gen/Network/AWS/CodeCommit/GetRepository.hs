@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.GetRepository
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,122 +22,152 @@
 --
 -- Returns information about a repository.
 --
---
+-- The description field for a repository accepts all HTML characters and
+-- all valid Unicode characters. Applications that do not HTML-encode the
+-- description and display it in a webpage can expose users to potentially
+-- malicious code. Make sure that you HTML-encode the description field in
+-- any application that uses this API to display the repository description
+-- on a webpage.
 module Network.AWS.CodeCommit.GetRepository
-    (
-    -- * Creating a Request
-      getRepository
-    , GetRepository
+  ( -- * Creating a Request
+    GetRepository (..),
+    newGetRepository,
+
     -- * Request Lenses
-    , grRepositoryName
+    getRepository_repositoryName,
 
     -- * Destructuring the Response
-    , getRepositoryResponse
-    , GetRepositoryResponse
+    GetRepositoryResponse (..),
+    newGetRepositoryResponse,
+
     -- * Response Lenses
-    , grrsRepositoryMetadata
-    , grrsResponseStatus
-    ) where
+    getRepositoryResponse_repositoryMetadata,
+    getRepositoryResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a get repository operation.
 --
---
---
--- /See:/ 'getRepository' smart constructor.
-newtype GetRepository = GetRepository'
-  { _grRepositoryName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetRepository' smart constructor.
+data GetRepository = GetRepository'
+  { -- | The name of the repository to get information about.
+    repositoryName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetRepository' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRepository' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grRepositoryName' - The name of the repository to get information about.
-getRepository
-    :: Text -- ^ 'grRepositoryName'
-    -> GetRepository
-getRepository pRepositoryName_ =
-  GetRepository' {_grRepositoryName = pRepositoryName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'repositoryName', 'getRepository_repositoryName' - The name of the repository to get information about.
+newGetRepository ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  GetRepository
+newGetRepository pRepositoryName_ =
+  GetRepository' {repositoryName = pRepositoryName_}
 
 -- | The name of the repository to get information about.
-grRepositoryName :: Lens' GetRepository Text
-grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a});
+getRepository_repositoryName :: Lens.Lens' GetRepository Prelude.Text
+getRepository_repositoryName = Lens.lens (\GetRepository' {repositoryName} -> repositoryName) (\s@GetRepository' {} a -> s {repositoryName = a} :: GetRepository)
 
-instance AWSRequest GetRepository where
-        type Rs GetRepository = GetRepositoryResponse
-        request = postJSON codeCommit
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRepositoryResponse' <$>
-                   (x .?> "repositoryMetadata") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetRepository where
+  type
+    AWSResponse GetRepository =
+      GetRepositoryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRepositoryResponse'
+            Prelude.<$> (x Core..?> "repositoryMetadata")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetRepository where
+instance Prelude.Hashable GetRepository
 
-instance NFData GetRepository where
+instance Prelude.NFData GetRepository
 
-instance ToHeaders GetRepository where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.GetRepository" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetRepository where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeCommit_20150413.GetRepository" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetRepository where
-        toJSON GetRepository'{..}
-          = object
-              (catMaybes
-                 [Just ("repositoryName" .= _grRepositoryName)])
+instance Core.ToJSON GetRepository where
+  toJSON GetRepository' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryName" Core..= repositoryName)
+          ]
+      )
 
-instance ToPath GetRepository where
-        toPath = const "/"
+instance Core.ToPath GetRepository where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetRepository where
-        toQuery = const mempty
+instance Core.ToQuery GetRepository where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a get repository operation.
 --
---
---
--- /See:/ 'getRepositoryResponse' smart constructor.
+-- /See:/ 'newGetRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
-  { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
-  , _grrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the repository.
+    repositoryMetadata :: Prelude.Maybe RepositoryMetadata,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetRepositoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRepositoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grrsRepositoryMetadata' - Information about the repository.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grrsResponseStatus' - -- | The response status code.
-getRepositoryResponse
-    :: Int -- ^ 'grrsResponseStatus'
-    -> GetRepositoryResponse
-getRepositoryResponse pResponseStatus_ =
+-- 'repositoryMetadata', 'getRepositoryResponse_repositoryMetadata' - Information about the repository.
+--
+-- 'httpStatus', 'getRepositoryResponse_httpStatus' - The response's http status code.
+newGetRepositoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRepositoryResponse
+newGetRepositoryResponse pHttpStatus_ =
   GetRepositoryResponse'
-  {_grrsRepositoryMetadata = Nothing, _grrsResponseStatus = pResponseStatus_}
-
+    { repositoryMetadata =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the repository.
-grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
-grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
+getRepositoryResponse_repositoryMetadata :: Lens.Lens' GetRepositoryResponse (Prelude.Maybe RepositoryMetadata)
+getRepositoryResponse_repositoryMetadata = Lens.lens (\GetRepositoryResponse' {repositoryMetadata} -> repositoryMetadata) (\s@GetRepositoryResponse' {} a -> s {repositoryMetadata = a} :: GetRepositoryResponse)
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRepositoryResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a});
+-- | The response's http status code.
+getRepositoryResponse_httpStatus :: Lens.Lens' GetRepositoryResponse Prelude.Int
+getRepositoryResponse_httpStatus = Lens.lens (\GetRepositoryResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryResponse' {} a -> s {httpStatus = a} :: GetRepositoryResponse)
 
-instance NFData GetRepositoryResponse where
+instance Prelude.NFData GetRepositoryResponse

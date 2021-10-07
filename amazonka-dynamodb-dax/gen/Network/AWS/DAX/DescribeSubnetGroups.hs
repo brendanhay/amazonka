@@ -1,168 +1,244 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DAX.DescribeSubnetGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.
+-- Returns a list of subnet group descriptions. If a subnet group name is
+-- specified, the list will contain only the description of that group.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.DAX.DescribeSubnetGroups
-    (
-    -- * Creating a Request
-      describeSubnetGroups
-    , DescribeSubnetGroups
+  ( -- * Creating a Request
+    DescribeSubnetGroups (..),
+    newDescribeSubnetGroups,
+
     -- * Request Lenses
-    , dsgSubnetGroupNames
-    , dsgNextToken
-    , dsgMaxResults
+    describeSubnetGroups_nextToken,
+    describeSubnetGroups_maxResults,
+    describeSubnetGroups_subnetGroupNames,
 
     -- * Destructuring the Response
-    , describeSubnetGroupsResponse
-    , DescribeSubnetGroupsResponse
+    DescribeSubnetGroupsResponse (..),
+    newDescribeSubnetGroupsResponse,
+
     -- * Response Lenses
-    , dsgsrsSubnetGroups
-    , dsgsrsNextToken
-    , dsgsrsResponseStatus
-    ) where
+    describeSubnetGroupsResponse_subnetGroups,
+    describeSubnetGroupsResponse_nextToken,
+    describeSubnetGroupsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
-import Network.AWS.DAX.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeSubnetGroups' smart constructor.
+-- | /See:/ 'newDescribeSubnetGroups' smart constructor.
 data DescribeSubnetGroups = DescribeSubnetGroups'
-  { _dsgSubnetGroupNames :: !(Maybe [Text])
-  , _dsgNextToken        :: !(Maybe Text)
-  , _dsgMaxResults       :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeSubnetGroups' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgSubnetGroupNames' - The name of the subnet group.
---
--- * 'dsgNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'dsgMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-describeSubnetGroups
-    :: DescribeSubnetGroups
-describeSubnetGroups =
-  DescribeSubnetGroups'
-  { _dsgSubnetGroupNames = Nothing
-  , _dsgNextToken = Nothing
-  , _dsgMaxResults = Nothing
+  { -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to include in the response. If more
+    -- results exist than the specified @MaxResults@ value, a token is included
+    -- in the response so that the remaining results can be retrieved.
+    --
+    -- The value for @MaxResults@ must be between 20 and 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The name of the subnet group.
+    subnetGroupNames :: Prelude.Maybe [Prelude.Text]
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeSubnetGroups' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeSubnetGroups_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+--
+-- 'maxResults', 'describeSubnetGroups_maxResults' - The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+--
+-- 'subnetGroupNames', 'describeSubnetGroups_subnetGroupNames' - The name of the subnet group.
+newDescribeSubnetGroups ::
+  DescribeSubnetGroups
+newDescribeSubnetGroups =
+  DescribeSubnetGroups'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      subnetGroupNames = Prelude.Nothing
+    }
+
+-- | An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+describeSubnetGroups_nextToken :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Text)
+describeSubnetGroups_nextToken = Lens.lens (\DescribeSubnetGroups' {nextToken} -> nextToken) (\s@DescribeSubnetGroups' {} a -> s {nextToken = a} :: DescribeSubnetGroups)
+
+-- | The maximum number of results to include in the response. If more
+-- results exist than the specified @MaxResults@ value, a token is included
+-- in the response so that the remaining results can be retrieved.
+--
+-- The value for @MaxResults@ must be between 20 and 100.
+describeSubnetGroups_maxResults :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe Prelude.Int)
+describeSubnetGroups_maxResults = Lens.lens (\DescribeSubnetGroups' {maxResults} -> maxResults) (\s@DescribeSubnetGroups' {} a -> s {maxResults = a} :: DescribeSubnetGroups)
 
 -- | The name of the subnet group.
-dsgSubnetGroupNames :: Lens' DescribeSubnetGroups [Text]
-dsgSubnetGroupNames = lens _dsgSubnetGroupNames (\ s a -> s{_dsgSubnetGroupNames = a}) . _Default . _Coerce;
+describeSubnetGroups_subnetGroupNames :: Lens.Lens' DescribeSubnetGroups (Prelude.Maybe [Prelude.Text])
+describeSubnetGroups_subnetGroupNames = Lens.lens (\DescribeSubnetGroups' {subnetGroupNames} -> subnetGroupNames) (\s@DescribeSubnetGroups' {} a -> s {subnetGroupNames = a} :: DescribeSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-dsgNextToken :: Lens' DescribeSubnetGroups (Maybe Text)
-dsgNextToken = lens _dsgNextToken (\ s a -> s{_dsgNextToken = a});
+instance Core.AWSPager DescribeSubnetGroups where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeSubnetGroupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeSubnetGroupsResponse_subnetGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeSubnetGroups_nextToken
+          Lens..~ rs
+          Lens.^? describeSubnetGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
--- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved. The value for @MaxResults@ must be between 20 and 100.
-dsgMaxResults :: Lens' DescribeSubnetGroups (Maybe Int)
-dsgMaxResults = lens _dsgMaxResults (\ s a -> s{_dsgMaxResults = a});
+instance Core.AWSRequest DescribeSubnetGroups where
+  type
+    AWSResponse DescribeSubnetGroups =
+      DescribeSubnetGroupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeSubnetGroupsResponse'
+            Prelude.<$> (x Core..?> "SubnetGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeSubnetGroups where
-        type Rs DescribeSubnetGroups =
-             DescribeSubnetGroupsResponse
-        request = postJSON dax
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeSubnetGroupsResponse' <$>
-                   (x .?> "SubnetGroups" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeSubnetGroups
 
-instance Hashable DescribeSubnetGroups where
+instance Prelude.NFData DescribeSubnetGroups
 
-instance NFData DescribeSubnetGroups where
+instance Core.ToHeaders DescribeSubnetGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDAXV3.DescribeSubnetGroups" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeSubnetGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDAXV3.DescribeSubnetGroups" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeSubnetGroups where
+  toJSON DescribeSubnetGroups' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SubnetGroupNames" Core..=)
+              Prelude.<$> subnetGroupNames
+          ]
+      )
 
-instance ToJSON DescribeSubnetGroups where
-        toJSON DescribeSubnetGroups'{..}
-          = object
-              (catMaybes
-                 [("SubnetGroupNames" .=) <$> _dsgSubnetGroupNames,
-                  ("NextToken" .=) <$> _dsgNextToken,
-                  ("MaxResults" .=) <$> _dsgMaxResults])
+instance Core.ToPath DescribeSubnetGroups where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeSubnetGroups where
-        toPath = const "/"
+instance Core.ToQuery DescribeSubnetGroups where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeSubnetGroups where
-        toQuery = const mempty
-
--- | /See:/ 'describeSubnetGroupsResponse' smart constructor.
+-- | /See:/ 'newDescribeSubnetGroupsResponse' smart constructor.
 data DescribeSubnetGroupsResponse = DescribeSubnetGroupsResponse'
-  { _dsgsrsSubnetGroups   :: !(Maybe [SubnetGroup])
-  , _dsgsrsNextToken      :: !(Maybe Text)
-  , _dsgsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeSubnetGroupsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgsrsSubnetGroups' - An array of subnet groups. Each element in the array represents a single subnet group.
---
--- * 'dsgsrsNextToken' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'dsgsrsResponseStatus' - -- | The response status code.
-describeSubnetGroupsResponse
-    :: Int -- ^ 'dsgsrsResponseStatus'
-    -> DescribeSubnetGroupsResponse
-describeSubnetGroupsResponse pResponseStatus_ =
-  DescribeSubnetGroupsResponse'
-  { _dsgsrsSubnetGroups = Nothing
-  , _dsgsrsNextToken = Nothing
-  , _dsgsrsResponseStatus = pResponseStatus_
+  { -- | An array of subnet groups. Each element in the array represents a single
+    -- subnet group.
+    subnetGroups :: Prelude.Maybe [SubnetGroup],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeSubnetGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'subnetGroups', 'describeSubnetGroupsResponse_subnetGroups' - An array of subnet groups. Each element in the array represents a single
+-- subnet group.
+--
+-- 'nextToken', 'describeSubnetGroupsResponse_nextToken' - Provides an identifier to allow retrieval of paginated results.
+--
+-- 'httpStatus', 'describeSubnetGroupsResponse_httpStatus' - The response's http status code.
+newDescribeSubnetGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSubnetGroupsResponse
+newDescribeSubnetGroupsResponse pHttpStatus_ =
+  DescribeSubnetGroupsResponse'
+    { subnetGroups =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | An array of subnet groups. Each element in the array represents a single subnet group.
-dsgsrsSubnetGroups :: Lens' DescribeSubnetGroupsResponse [SubnetGroup]
-dsgsrsSubnetGroups = lens _dsgsrsSubnetGroups (\ s a -> s{_dsgsrsSubnetGroups = a}) . _Default . _Coerce;
+-- | An array of subnet groups. Each element in the array represents a single
+-- subnet group.
+describeSubnetGroupsResponse_subnetGroups :: Lens.Lens' DescribeSubnetGroupsResponse (Prelude.Maybe [SubnetGroup])
+describeSubnetGroupsResponse_subnetGroups = Lens.lens (\DescribeSubnetGroupsResponse' {subnetGroups} -> subnetGroups) (\s@DescribeSubnetGroupsResponse' {} a -> s {subnetGroups = a} :: DescribeSubnetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dsgsrsNextToken :: Lens' DescribeSubnetGroupsResponse (Maybe Text)
-dsgsrsNextToken = lens _dsgsrsNextToken (\ s a -> s{_dsgsrsNextToken = a});
+describeSubnetGroupsResponse_nextToken :: Lens.Lens' DescribeSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
+describeSubnetGroupsResponse_nextToken = Lens.lens (\DescribeSubnetGroupsResponse' {nextToken} -> nextToken) (\s@DescribeSubnetGroupsResponse' {} a -> s {nextToken = a} :: DescribeSubnetGroupsResponse)
 
--- | -- | The response status code.
-dsgsrsResponseStatus :: Lens' DescribeSubnetGroupsResponse Int
-dsgsrsResponseStatus = lens _dsgsrsResponseStatus (\ s a -> s{_dsgsrsResponseStatus = a});
+-- | The response's http status code.
+describeSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeSubnetGroupsResponse Prelude.Int
+describeSubnetGroupsResponse_httpStatus = Lens.lens (\DescribeSubnetGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeSubnetGroupsResponse' {} a -> s {httpStatus = a} :: DescribeSubnetGroupsResponse)
 
-instance NFData DescribeSubnetGroupsResponse where
+instance Prelude.NFData DescribeSubnetGroupsResponse

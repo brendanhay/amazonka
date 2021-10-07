@@ -1,116 +1,132 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteModel
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a model.
---
---
 module Network.AWS.APIGateway.DeleteModel
-    (
-    -- * Creating a Request
-      deleteModel
-    , DeleteModel
+  ( -- * Creating a Request
+    DeleteModel (..),
+    newDeleteModel,
+
     -- * Request Lenses
-    , dRestAPIId
-    , dModelName
+    deleteModel_restApiId,
+    deleteModel_modelName,
 
     -- * Destructuring the Response
-    , deleteModelResponse
-    , DeleteModelResponse
-    ) where
+    DeleteModelResponse (..),
+    newDeleteModelResponse,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to delete an existing model in an existing 'RestApi' resource.
+-- | Request to delete an existing model in an existing RestApi resource.
 --
---
---
--- /See:/ 'deleteModel' smart constructor.
+-- /See:/ 'newDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
-  { _dRestAPIId :: !Text
-  , _dModelName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The name of the model to delete.
+    modelName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteModel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteModel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dRestAPIId' - The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dModelName' - The name of the model to delete.
-deleteModel
-    :: Text -- ^ 'dRestAPIId'
-    -> Text -- ^ 'dModelName'
-    -> DeleteModel
-deleteModel pRestAPIId_ pModelName_ =
-  DeleteModel' {_dRestAPIId = pRestAPIId_, _dModelName = pModelName_}
-
-
--- | The string identifier of the associated 'RestApi' .
-dRestAPIId :: Lens' DeleteModel Text
-dRestAPIId = lens _dRestAPIId (\ s a -> s{_dRestAPIId = a});
-
--- | The name of the model to delete.
-dModelName :: Lens' DeleteModel Text
-dModelName = lens _dModelName (\ s a -> s{_dModelName = a});
-
-instance AWSRequest DeleteModel where
-        type Rs DeleteModel = DeleteModelResponse
-        request = delete apiGateway
-        response = receiveNull DeleteModelResponse'
-
-instance Hashable DeleteModel where
-
-instance NFData DeleteModel where
-
-instance ToHeaders DeleteModel where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
-
-instance ToPath DeleteModel where
-        toPath DeleteModel'{..}
-          = mconcat
-              ["/restapis/", toBS _dRestAPIId, "/models/",
-               toBS _dModelName]
-
-instance ToQuery DeleteModel where
-        toQuery = const mempty
-
--- | /See:/ 'deleteModelResponse' smart constructor.
-data DeleteModelResponse =
-  DeleteModelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.
+-- 'restApiId', 'deleteModel_restApiId' - [Required] The string identifier of the associated RestApi.
 --
-deleteModelResponse
-    :: DeleteModelResponse
-deleteModelResponse = DeleteModelResponse'
+-- 'modelName', 'deleteModel_modelName' - [Required] The name of the model to delete.
+newDeleteModel ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'modelName'
+  Prelude.Text ->
+  DeleteModel
+newDeleteModel pRestApiId_ pModelName_ =
+  DeleteModel'
+    { restApiId = pRestApiId_,
+      modelName = pModelName_
+    }
 
+-- | [Required] The string identifier of the associated RestApi.
+deleteModel_restApiId :: Lens.Lens' DeleteModel Prelude.Text
+deleteModel_restApiId = Lens.lens (\DeleteModel' {restApiId} -> restApiId) (\s@DeleteModel' {} a -> s {restApiId = a} :: DeleteModel)
 
-instance NFData DeleteModelResponse where
+-- | [Required] The name of the model to delete.
+deleteModel_modelName :: Lens.Lens' DeleteModel Prelude.Text
+deleteModel_modelName = Lens.lens (\DeleteModel' {modelName} -> modelName) (\s@DeleteModel' {} a -> s {modelName = a} :: DeleteModel)
+
+instance Core.AWSRequest DeleteModel where
+  type AWSResponse DeleteModel = DeleteModelResponse
+  request = Request.delete defaultService
+  response = Response.receiveNull DeleteModelResponse'
+
+instance Prelude.Hashable DeleteModel
+
+instance Prelude.NFData DeleteModel
+
+instance Core.ToHeaders DeleteModel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
+
+instance Core.ToPath DeleteModel where
+  toPath DeleteModel' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/models/",
+        Core.toBS modelName
+      ]
+
+instance Core.ToQuery DeleteModel where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteModelResponse' smart constructor.
+data DeleteModelResponse = DeleteModelResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteModelResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteModelResponse ::
+  DeleteModelResponse
+newDeleteModelResponse = DeleteModelResponse'
+
+instance Prelude.NFData DeleteModelResponse

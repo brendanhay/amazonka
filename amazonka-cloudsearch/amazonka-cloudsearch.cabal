@@ -1,109 +1,148 @@
-name:                  amazonka-cloudsearch
-version:               1.5.0
-synopsis:              Amazon CloudSearch SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-cloudsearch
+version:            1.6.1
+synopsis:           Amazon CloudSearch SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CloudSearch" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2013-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudSearch.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CloudSearch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-cloudsearch
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cloudsearch
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CloudSearch
+    Network.AWS.CloudSearch.BuildSuggesters
+    Network.AWS.CloudSearch.CreateDomain
+    Network.AWS.CloudSearch.DefineAnalysisScheme
+    Network.AWS.CloudSearch.DefineExpression
+    Network.AWS.CloudSearch.DefineIndexField
+    Network.AWS.CloudSearch.DefineSuggester
+    Network.AWS.CloudSearch.DeleteAnalysisScheme
+    Network.AWS.CloudSearch.DeleteDomain
+    Network.AWS.CloudSearch.DeleteExpression
+    Network.AWS.CloudSearch.DeleteIndexField
+    Network.AWS.CloudSearch.DeleteSuggester
+    Network.AWS.CloudSearch.DescribeAnalysisSchemes
+    Network.AWS.CloudSearch.DescribeAvailabilityOptions
+    Network.AWS.CloudSearch.DescribeDomainEndpointOptions
+    Network.AWS.CloudSearch.DescribeDomains
+    Network.AWS.CloudSearch.DescribeExpressions
+    Network.AWS.CloudSearch.DescribeIndexFields
+    Network.AWS.CloudSearch.DescribeScalingParameters
+    Network.AWS.CloudSearch.DescribeServiceAccessPolicies
+    Network.AWS.CloudSearch.DescribeSuggesters
+    Network.AWS.CloudSearch.IndexDocuments
+    Network.AWS.CloudSearch.Lens
+    Network.AWS.CloudSearch.ListDomainNames
+    Network.AWS.CloudSearch.Types
+    Network.AWS.CloudSearch.Types.AccessPoliciesStatus
+    Network.AWS.CloudSearch.Types.AlgorithmicStemming
+    Network.AWS.CloudSearch.Types.AnalysisOptions
+    Network.AWS.CloudSearch.Types.AnalysisScheme
+    Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
+    Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
+    Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
+    Network.AWS.CloudSearch.Types.DateArrayOptions
+    Network.AWS.CloudSearch.Types.DateOptions
+    Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
+    Network.AWS.CloudSearch.Types.DomainEndpointOptions
+    Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
+    Network.AWS.CloudSearch.Types.DomainStatus
+    Network.AWS.CloudSearch.Types.DoubleArrayOptions
+    Network.AWS.CloudSearch.Types.DoubleOptions
+    Network.AWS.CloudSearch.Types.Expression
+    Network.AWS.CloudSearch.Types.ExpressionStatus
+    Network.AWS.CloudSearch.Types.IndexField
+    Network.AWS.CloudSearch.Types.IndexFieldStatus
+    Network.AWS.CloudSearch.Types.IndexFieldType
+    Network.AWS.CloudSearch.Types.IntArrayOptions
+    Network.AWS.CloudSearch.Types.IntOptions
+    Network.AWS.CloudSearch.Types.LatLonOptions
+    Network.AWS.CloudSearch.Types.Limits
+    Network.AWS.CloudSearch.Types.LiteralArrayOptions
+    Network.AWS.CloudSearch.Types.LiteralOptions
+    Network.AWS.CloudSearch.Types.OptionState
+    Network.AWS.CloudSearch.Types.OptionStatus
+    Network.AWS.CloudSearch.Types.PartitionInstanceType
+    Network.AWS.CloudSearch.Types.ScalingParameters
+    Network.AWS.CloudSearch.Types.ScalingParametersStatus
+    Network.AWS.CloudSearch.Types.ServiceEndpoint
+    Network.AWS.CloudSearch.Types.Suggester
+    Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
+    Network.AWS.CloudSearch.Types.SuggesterStatus
+    Network.AWS.CloudSearch.Types.TextArrayOptions
+    Network.AWS.CloudSearch.Types.TextOptions
+    Network.AWS.CloudSearch.Types.TLSSecurityPolicy
+    Network.AWS.CloudSearch.UpdateAvailabilityOptions
+    Network.AWS.CloudSearch.UpdateDomainEndpointOptions
+    Network.AWS.CloudSearch.UpdateScalingParameters
+    Network.AWS.CloudSearch.UpdateServiceAccessPolicies
+    Network.AWS.CloudSearch.Waiters
 
-    exposed-modules:
-          Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch.BuildSuggesters
-        , Network.AWS.CloudSearch.CreateDomain
-        , Network.AWS.CloudSearch.DefineAnalysisScheme
-        , Network.AWS.CloudSearch.DefineExpression
-        , Network.AWS.CloudSearch.DefineIndexField
-        , Network.AWS.CloudSearch.DefineSuggester
-        , Network.AWS.CloudSearch.DeleteAnalysisScheme
-        , Network.AWS.CloudSearch.DeleteDomain
-        , Network.AWS.CloudSearch.DeleteExpression
-        , Network.AWS.CloudSearch.DeleteIndexField
-        , Network.AWS.CloudSearch.DeleteSuggester
-        , Network.AWS.CloudSearch.DescribeAnalysisSchemes
-        , Network.AWS.CloudSearch.DescribeAvailabilityOptions
-        , Network.AWS.CloudSearch.DescribeDomains
-        , Network.AWS.CloudSearch.DescribeExpressions
-        , Network.AWS.CloudSearch.DescribeIndexFields
-        , Network.AWS.CloudSearch.DescribeScalingParameters
-        , Network.AWS.CloudSearch.DescribeServiceAccessPolicies
-        , Network.AWS.CloudSearch.DescribeSuggesters
-        , Network.AWS.CloudSearch.IndexDocuments
-        , Network.AWS.CloudSearch.ListDomainNames
-        , Network.AWS.CloudSearch.Types
-        , Network.AWS.CloudSearch.UpdateAvailabilityOptions
-        , Network.AWS.CloudSearch.UpdateScalingParameters
-        , Network.AWS.CloudSearch.UpdateServiceAccessPolicies
-        , Network.AWS.CloudSearch.Waiters
-
-    other-modules:
-          Network.AWS.CloudSearch.Types.Product
-        , Network.AWS.CloudSearch.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-cloudsearch-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CloudSearch
+    Test.AWS.CloudSearch.Internal
+    Test.AWS.Gen.CloudSearch
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CloudSearch
-        , Test.AWS.Gen.CloudSearch
-        , Test.AWS.CloudSearch.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-cloudsearch
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-cloudsearch
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

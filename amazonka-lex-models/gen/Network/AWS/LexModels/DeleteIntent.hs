@@ -1,105 +1,127 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteIntent
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes all versions of the intent, including the @> LATEST@ version. To delete a specific version of the intent, use the 'DeleteIntentVersion' operation.
+-- Deletes all versions of the intent, including the @$LATEST@ version. To
+-- delete a specific version of the intent, use the DeleteIntentVersion
+-- operation.
 --
+-- You can delete a version of an intent only if it is not referenced. To
+-- delete an intent that is referred to in one or more bots (see
+-- how-it-works), you must remove those references first.
 --
--- You can delete a version of an intent only if it is not referenced. To delete an intent that is referred to in one or more bots (see 'how-it-works' ), you must remove those references first.
+-- If you get the @ResourceInUseException@ exception, it provides an
+-- example reference that shows where the intent is referenced. To remove
+-- the reference to the intent, either update the bot or delete it. If you
+-- get the same exception when you attempt to delete the intent again,
+-- repeat until the intent has no references and the call to @DeleteIntent@
+-- is successful.
 --
 -- This operation requires permission for the @lex:DeleteIntent@ action.
---
 module Network.AWS.LexModels.DeleteIntent
-    (
-    -- * Creating a Request
-      deleteIntent
-    , DeleteIntent
+  ( -- * Creating a Request
+    DeleteIntent (..),
+    newDeleteIntent,
+
     -- * Request Lenses
-    , diName
+    deleteIntent_name,
 
     -- * Destructuring the Response
-    , deleteIntentResponse
-    , DeleteIntentResponse
-    ) where
+    DeleteIntentResponse (..),
+    newDeleteIntentResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.LexModels.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteIntent' smart constructor.
-newtype DeleteIntent = DeleteIntent'
-  { _diName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteIntent' smart constructor.
+data DeleteIntent = DeleteIntent'
+  { -- | The name of the intent. The name is case sensitive.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteIntent' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteIntent' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diName' - The name of the intent. The name is case sensitive.
-deleteIntent
-    :: Text -- ^ 'diName'
-    -> DeleteIntent
-deleteIntent pName_ = DeleteIntent' {_diName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'deleteIntent_name' - The name of the intent. The name is case sensitive.
+newDeleteIntent ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteIntent
+newDeleteIntent pName_ = DeleteIntent' {name = pName_}
 
 -- | The name of the intent. The name is case sensitive.
-diName :: Lens' DeleteIntent Text
-diName = lens _diName (\ s a -> s{_diName = a});
+deleteIntent_name :: Lens.Lens' DeleteIntent Prelude.Text
+deleteIntent_name = Lens.lens (\DeleteIntent' {name} -> name) (\s@DeleteIntent' {} a -> s {name = a} :: DeleteIntent)
 
-instance AWSRequest DeleteIntent where
-        type Rs DeleteIntent = DeleteIntentResponse
-        request = delete lexModels
-        response = receiveNull DeleteIntentResponse'
+instance Core.AWSRequest DeleteIntent where
+  type AWSResponse DeleteIntent = DeleteIntentResponse
+  request = Request.delete defaultService
+  response = Response.receiveNull DeleteIntentResponse'
 
-instance Hashable DeleteIntent where
+instance Prelude.Hashable DeleteIntent
 
-instance NFData DeleteIntent where
+instance Prelude.NFData DeleteIntent
 
-instance ToHeaders DeleteIntent where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteIntent where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DeleteIntent where
-        toPath DeleteIntent'{..}
-          = mconcat ["/intents/", toBS _diName]
+instance Core.ToPath DeleteIntent where
+  toPath DeleteIntent' {..} =
+    Prelude.mconcat ["/intents/", Core.toBS name]
 
-instance ToQuery DeleteIntent where
-        toQuery = const mempty
+instance Core.ToQuery DeleteIntent where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteIntentResponse' smart constructor.
-data DeleteIntentResponse =
-  DeleteIntentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteIntentResponse' smart constructor.
+data DeleteIntentResponse = DeleteIntentResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteIntentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteIntentResponse' with all optional fields omitted.
 --
-deleteIntentResponse
-    :: DeleteIntentResponse
-deleteIntentResponse = DeleteIntentResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteIntentResponse ::
+  DeleteIntentResponse
+newDeleteIntentResponse = DeleteIntentResponse'
 
-
-instance NFData DeleteIntentResponse where
+instance Prelude.NFData DeleteIntentResponse

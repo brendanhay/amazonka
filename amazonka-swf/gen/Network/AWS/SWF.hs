@@ -1,58 +1,70 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.SWF
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon Simple Workflow Service__
+-- Derived from API version @2012-01-25@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that use Amazon's cloud to coordinate work across distributed components. In Amazon SWF, a /task/ represents a logical unit of work that is performed by a component of your workflow. Coordinating tasks in a workflow involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application.
+-- Amazon Simple Workflow Service
 --
--- Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
+-- The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
+-- applications that use Amazon\'s cloud to coordinate work across
+-- distributed components. In Amazon SWF, a /task/ represents a logical
+-- unit of work that is performed by a component of your workflow.
+-- Coordinating tasks in a workflow involves managing intertask
+-- dependencies, scheduling, and concurrency in accordance with the logical
+-- flow of the application.
 --
--- This documentation serves as reference only. For a broader overview of the Amazon SWF programming model, see the /<http:\/\/docs.aws.amazon.com\/amazonswf\/latest\/developerguide\/ Amazon SWF Developer Guide> / .
+-- Amazon SWF gives you full control over implementing tasks and
+-- coordinating them without worrying about underlying complexities such as
+-- tracking their progress and maintaining their state.
 --
+-- This documentation serves as reference only. For a broader overview of
+-- the Amazon SWF programming model, see the
+-- /<https://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>/
+-- .
 module Network.AWS.SWF
-    (
-    -- * Service Configuration
-      swf
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
     -- ** DomainAlreadyExistsFault
-    , _DomainAlreadyExistsFault
-
-    -- ** LimitExceededFault
-    , _LimitExceededFault
+    _DomainAlreadyExistsFault,
 
     -- ** WorkflowExecutionAlreadyStartedFault
-    , _WorkflowExecutionAlreadyStartedFault
+    _WorkflowExecutionAlreadyStartedFault,
 
-    -- ** OperationNotPermittedFault
-    , _OperationNotPermittedFault
-
-    -- ** UnknownResourceFault
-    , _UnknownResourceFault
-
-    -- ** DefaultUndefinedFault
-    , _DefaultUndefinedFault
-
-    -- ** TypeDeprecatedFault
-    , _TypeDeprecatedFault
-
-    -- ** TypeAlreadyExistsFault
-    , _TypeAlreadyExistsFault
+    -- ** LimitExceededFault
+    _LimitExceededFault,
 
     -- ** DomainDeprecatedFault
-    , _DomainDeprecatedFault
+    _DomainDeprecatedFault,
+
+    -- ** UnknownResourceFault
+    _UnknownResourceFault,
+
+    -- ** OperationNotPermittedFault
+    _OperationNotPermittedFault,
+
+    -- ** TypeAlreadyExistsFault
+    _TypeAlreadyExistsFault,
+
+    -- ** TooManyTagsFault
+    _TooManyTagsFault,
+
+    -- ** TypeDeprecatedFault
+    _TypeDeprecatedFault,
+
+    -- ** DefaultUndefinedFault
+    _DefaultUndefinedFault,
 
     -- * Waiters
     -- $waiters
@@ -60,946 +72,673 @@ module Network.AWS.SWF
     -- * Operations
     -- $operations
 
-    -- ** ListOpenWorkflowExecutions (Paginated)
-    , module Network.AWS.SWF.ListOpenWorkflowExecutions
-
-    -- ** RegisterActivityType
-    , module Network.AWS.SWF.RegisterActivityType
-
-    -- ** ListActivityTypes (Paginated)
-    , module Network.AWS.SWF.ListActivityTypes
-
-    -- ** CountPendingActivityTasks
-    , module Network.AWS.SWF.CountPendingActivityTasks
-
-    -- ** RegisterWorkflowType
-    , module Network.AWS.SWF.RegisterWorkflowType
-
-    -- ** ListWorkflowTypes (Paginated)
-    , module Network.AWS.SWF.ListWorkflowTypes
-
-    -- ** RespondActivityTaskFailed
-    , module Network.AWS.SWF.RespondActivityTaskFailed
-
-    -- ** CountOpenWorkflowExecutions
-    , module Network.AWS.SWF.CountOpenWorkflowExecutions
-
-    -- ** DescribeWorkflowType
-    , module Network.AWS.SWF.DescribeWorkflowType
-
-    -- ** DeprecateWorkflowType
-    , module Network.AWS.SWF.DeprecateWorkflowType
-
-    -- ** RequestCancelWorkflowExecution
-    , module Network.AWS.SWF.RequestCancelWorkflowExecution
-
-    -- ** RegisterDomain
-    , module Network.AWS.SWF.RegisterDomain
-
-    -- ** RespondDecisionTaskCompleted
-    , module Network.AWS.SWF.RespondDecisionTaskCompleted
-
-    -- ** PollForActivityTask
-    , module Network.AWS.SWF.PollForActivityTask
-
-    -- ** RespondActivityTaskCompleted
-    , module Network.AWS.SWF.RespondActivityTaskCompleted
+    -- ** SignalWorkflowExecution
+    SignalWorkflowExecution (SignalWorkflowExecution'),
+    newSignalWorkflowExecution,
+    SignalWorkflowExecutionResponse (SignalWorkflowExecutionResponse'),
+    newSignalWorkflowExecutionResponse,
 
     -- ** DescribeWorkflowExecution
-    , module Network.AWS.SWF.DescribeWorkflowExecution
+    DescribeWorkflowExecution (DescribeWorkflowExecution'),
+    newDescribeWorkflowExecution,
+    DescribeWorkflowExecutionResponse (DescribeWorkflowExecutionResponse'),
+    newDescribeWorkflowExecutionResponse,
 
-    -- ** SignalWorkflowExecution
-    , module Network.AWS.SWF.SignalWorkflowExecution
+    -- ** RegisterActivityType
+    RegisterActivityType (RegisterActivityType'),
+    newRegisterActivityType,
+    RegisterActivityTypeResponse (RegisterActivityTypeResponse'),
+    newRegisterActivityTypeResponse,
 
-    -- ** CountPendingDecisionTasks
-    , module Network.AWS.SWF.CountPendingDecisionTasks
+    -- ** PollForActivityTask
+    PollForActivityTask (PollForActivityTask'),
+    newPollForActivityTask,
+    PollForActivityTaskResponse (PollForActivityTaskResponse'),
+    newPollForActivityTaskResponse,
 
-    -- ** ListClosedWorkflowExecutions (Paginated)
-    , module Network.AWS.SWF.ListClosedWorkflowExecutions
+    -- ** ListOpenWorkflowExecutions (Paginated)
+    ListOpenWorkflowExecutions (ListOpenWorkflowExecutions'),
+    newListOpenWorkflowExecutions,
+    WorkflowExecutionInfos (WorkflowExecutionInfos'),
+    newWorkflowExecutionInfos,
 
-    -- ** RecordActivityTaskHeartbeat
-    , module Network.AWS.SWF.RecordActivityTaskHeartbeat
+    -- ** RegisterDomain
+    RegisterDomain (RegisterDomain'),
+    newRegisterDomain,
+    RegisterDomainResponse (RegisterDomainResponse'),
+    newRegisterDomainResponse,
 
-    -- ** DescribeDomain
-    , module Network.AWS.SWF.DescribeDomain
-
-    -- ** GetWorkflowExecutionHistory (Paginated)
-    , module Network.AWS.SWF.GetWorkflowExecutionHistory
-
-    -- ** DeprecateDomain
-    , module Network.AWS.SWF.DeprecateDomain
-
-    -- ** TerminateWorkflowExecution
-    , module Network.AWS.SWF.TerminateWorkflowExecution
-
-    -- ** DescribeActivityType
-    , module Network.AWS.SWF.DescribeActivityType
-
-    -- ** DeprecateActivityType
-    , module Network.AWS.SWF.DeprecateActivityType
-
-    -- ** CountClosedWorkflowExecutions
-    , module Network.AWS.SWF.CountClosedWorkflowExecutions
-
-    -- ** RespondActivityTaskCanceled
-    , module Network.AWS.SWF.RespondActivityTaskCanceled
-
-    -- ** StartWorkflowExecution
-    , module Network.AWS.SWF.StartWorkflowExecution
+    -- ** RespondDecisionTaskCompleted
+    RespondDecisionTaskCompleted (RespondDecisionTaskCompleted'),
+    newRespondDecisionTaskCompleted,
+    RespondDecisionTaskCompletedResponse (RespondDecisionTaskCompletedResponse'),
+    newRespondDecisionTaskCompletedResponse,
 
     -- ** PollForDecisionTask (Paginated)
-    , module Network.AWS.SWF.PollForDecisionTask
+    PollForDecisionTask (PollForDecisionTask'),
+    newPollForDecisionTask,
+    PollForDecisionTaskResponse (PollForDecisionTaskResponse'),
+    newPollForDecisionTaskResponse,
 
     -- ** ListDomains (Paginated)
-    , module Network.AWS.SWF.ListDomains
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
+
+    -- ** UndeprecateDomain
+    UndeprecateDomain (UndeprecateDomain'),
+    newUndeprecateDomain,
+    UndeprecateDomainResponse (UndeprecateDomainResponse'),
+    newUndeprecateDomainResponse,
+
+    -- ** DeprecateWorkflowType
+    DeprecateWorkflowType (DeprecateWorkflowType'),
+    newDeprecateWorkflowType,
+    DeprecateWorkflowTypeResponse (DeprecateWorkflowTypeResponse'),
+    newDeprecateWorkflowTypeResponse,
+
+    -- ** CountClosedWorkflowExecutions
+    CountClosedWorkflowExecutions (CountClosedWorkflowExecutions'),
+    newCountClosedWorkflowExecutions,
+    WorkflowExecutionCount (WorkflowExecutionCount'),
+    newWorkflowExecutionCount,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UndeprecateActivityType
+    UndeprecateActivityType (UndeprecateActivityType'),
+    newUndeprecateActivityType,
+    UndeprecateActivityTypeResponse (UndeprecateActivityTypeResponse'),
+    newUndeprecateActivityTypeResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DeprecateActivityType
+    DeprecateActivityType (DeprecateActivityType'),
+    newDeprecateActivityType,
+    DeprecateActivityTypeResponse (DeprecateActivityTypeResponse'),
+    newDeprecateActivityTypeResponse,
+
+    -- ** DescribeDomain
+    DescribeDomain (DescribeDomain'),
+    newDescribeDomain,
+    DescribeDomainResponse (DescribeDomainResponse'),
+    newDescribeDomainResponse,
+
+    -- ** CountOpenWorkflowExecutions
+    CountOpenWorkflowExecutions (CountOpenWorkflowExecutions'),
+    newCountOpenWorkflowExecutions,
+    WorkflowExecutionCount (WorkflowExecutionCount'),
+    newWorkflowExecutionCount,
+
+    -- ** CountPendingDecisionTasks
+    CountPendingDecisionTasks (CountPendingDecisionTasks'),
+    newCountPendingDecisionTasks,
+    PendingTaskCount (PendingTaskCount'),
+    newPendingTaskCount,
+
+    -- ** RegisterWorkflowType
+    RegisterWorkflowType (RegisterWorkflowType'),
+    newRegisterWorkflowType,
+    RegisterWorkflowTypeResponse (RegisterWorkflowTypeResponse'),
+    newRegisterWorkflowTypeResponse,
+
+    -- ** CountPendingActivityTasks
+    CountPendingActivityTasks (CountPendingActivityTasks'),
+    newCountPendingActivityTasks,
+    PendingTaskCount (PendingTaskCount'),
+    newPendingTaskCount,
+
+    -- ** ListActivityTypes (Paginated)
+    ListActivityTypes (ListActivityTypes'),
+    newListActivityTypes,
+    ListActivityTypesResponse (ListActivityTypesResponse'),
+    newListActivityTypesResponse,
+
+    -- ** RespondActivityTaskCompleted
+    RespondActivityTaskCompleted (RespondActivityTaskCompleted'),
+    newRespondActivityTaskCompleted,
+    RespondActivityTaskCompletedResponse (RespondActivityTaskCompletedResponse'),
+    newRespondActivityTaskCompletedResponse,
+
+    -- ** StartWorkflowExecution
+    StartWorkflowExecution (StartWorkflowExecution'),
+    newStartWorkflowExecution,
+    StartWorkflowExecutionResponse (StartWorkflowExecutionResponse'),
+    newStartWorkflowExecutionResponse,
+
+    -- ** RespondActivityTaskCanceled
+    RespondActivityTaskCanceled (RespondActivityTaskCanceled'),
+    newRespondActivityTaskCanceled,
+    RespondActivityTaskCanceledResponse (RespondActivityTaskCanceledResponse'),
+    newRespondActivityTaskCanceledResponse,
+
+    -- ** RequestCancelWorkflowExecution
+    RequestCancelWorkflowExecution (RequestCancelWorkflowExecution'),
+    newRequestCancelWorkflowExecution,
+    RequestCancelWorkflowExecutionResponse (RequestCancelWorkflowExecutionResponse'),
+    newRequestCancelWorkflowExecutionResponse,
+
+    -- ** DescribeWorkflowType
+    DescribeWorkflowType (DescribeWorkflowType'),
+    newDescribeWorkflowType,
+    DescribeWorkflowTypeResponse (DescribeWorkflowTypeResponse'),
+    newDescribeWorkflowTypeResponse,
+
+    -- ** TerminateWorkflowExecution
+    TerminateWorkflowExecution (TerminateWorkflowExecution'),
+    newTerminateWorkflowExecution,
+    TerminateWorkflowExecutionResponse (TerminateWorkflowExecutionResponse'),
+    newTerminateWorkflowExecutionResponse,
+
+    -- ** DescribeActivityType
+    DescribeActivityType (DescribeActivityType'),
+    newDescribeActivityType,
+    DescribeActivityTypeResponse (DescribeActivityTypeResponse'),
+    newDescribeActivityTypeResponse,
+
+    -- ** UndeprecateWorkflowType
+    UndeprecateWorkflowType (UndeprecateWorkflowType'),
+    newUndeprecateWorkflowType,
+    UndeprecateWorkflowTypeResponse (UndeprecateWorkflowTypeResponse'),
+    newUndeprecateWorkflowTypeResponse,
+
+    -- ** DeprecateDomain
+    DeprecateDomain (DeprecateDomain'),
+    newDeprecateDomain,
+    DeprecateDomainResponse (DeprecateDomainResponse'),
+    newDeprecateDomainResponse,
+
+    -- ** GetWorkflowExecutionHistory (Paginated)
+    GetWorkflowExecutionHistory (GetWorkflowExecutionHistory'),
+    newGetWorkflowExecutionHistory,
+    GetWorkflowExecutionHistoryResponse (GetWorkflowExecutionHistoryResponse'),
+    newGetWorkflowExecutionHistoryResponse,
+
+    -- ** RecordActivityTaskHeartbeat
+    RecordActivityTaskHeartbeat (RecordActivityTaskHeartbeat'),
+    newRecordActivityTaskHeartbeat,
+    RecordActivityTaskHeartbeatResponse (RecordActivityTaskHeartbeatResponse'),
+    newRecordActivityTaskHeartbeatResponse,
+
+    -- ** RespondActivityTaskFailed
+    RespondActivityTaskFailed (RespondActivityTaskFailed'),
+    newRespondActivityTaskFailed,
+    RespondActivityTaskFailedResponse (RespondActivityTaskFailedResponse'),
+    newRespondActivityTaskFailedResponse,
+
+    -- ** ListClosedWorkflowExecutions (Paginated)
+    ListClosedWorkflowExecutions (ListClosedWorkflowExecutions'),
+    newListClosedWorkflowExecutions,
+    WorkflowExecutionInfos (WorkflowExecutionInfos'),
+    newWorkflowExecutionInfos,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** ListWorkflowTypes (Paginated)
+    ListWorkflowTypes (ListWorkflowTypes'),
+    newListWorkflowTypes,
+    ListWorkflowTypesResponse (ListWorkflowTypesResponse'),
+    newListWorkflowTypesResponse,
 
     -- * Types
 
     -- ** ActivityTaskTimeoutType
-    , ActivityTaskTimeoutType (..)
+    ActivityTaskTimeoutType (..),
 
     -- ** CancelTimerFailedCause
-    , CancelTimerFailedCause (..)
+    CancelTimerFailedCause (..),
 
     -- ** CancelWorkflowExecutionFailedCause
-    , CancelWorkflowExecutionFailedCause (..)
+    CancelWorkflowExecutionFailedCause (..),
 
     -- ** ChildPolicy
-    , ChildPolicy (..)
+    ChildPolicy (..),
 
     -- ** CloseStatus
-    , CloseStatus (..)
+    CloseStatus (..),
 
     -- ** CompleteWorkflowExecutionFailedCause
-    , CompleteWorkflowExecutionFailedCause (..)
+    CompleteWorkflowExecutionFailedCause (..),
 
     -- ** ContinueAsNewWorkflowExecutionFailedCause
-    , ContinueAsNewWorkflowExecutionFailedCause (..)
+    ContinueAsNewWorkflowExecutionFailedCause (..),
 
     -- ** DecisionTaskTimeoutType
-    , DecisionTaskTimeoutType (..)
+    DecisionTaskTimeoutType (..),
 
     -- ** DecisionType
-    , DecisionType (..)
+    DecisionType (..),
 
     -- ** EventType
-    , EventType (..)
+    EventType (..),
 
     -- ** ExecutionStatus
-    , ExecutionStatus (..)
+    ExecutionStatus (..),
 
     -- ** FailWorkflowExecutionFailedCause
-    , FailWorkflowExecutionFailedCause (..)
+    FailWorkflowExecutionFailedCause (..),
 
     -- ** LambdaFunctionTimeoutType
-    , LambdaFunctionTimeoutType (..)
+    LambdaFunctionTimeoutType (..),
 
     -- ** RecordMarkerFailedCause
-    , RecordMarkerFailedCause (..)
+    RecordMarkerFailedCause (..),
 
     -- ** RegistrationStatus
-    , RegistrationStatus (..)
+    RegistrationStatus (..),
 
     -- ** RequestCancelActivityTaskFailedCause
-    , RequestCancelActivityTaskFailedCause (..)
+    RequestCancelActivityTaskFailedCause (..),
 
     -- ** RequestCancelExternalWorkflowExecutionFailedCause
-    , RequestCancelExternalWorkflowExecutionFailedCause (..)
+    RequestCancelExternalWorkflowExecutionFailedCause (..),
 
     -- ** ScheduleActivityTaskFailedCause
-    , ScheduleActivityTaskFailedCause (..)
+    ScheduleActivityTaskFailedCause (..),
 
     -- ** ScheduleLambdaFunctionFailedCause
-    , ScheduleLambdaFunctionFailedCause (..)
+    ScheduleLambdaFunctionFailedCause (..),
 
     -- ** SignalExternalWorkflowExecutionFailedCause
-    , SignalExternalWorkflowExecutionFailedCause (..)
+    SignalExternalWorkflowExecutionFailedCause (..),
 
     -- ** StartChildWorkflowExecutionFailedCause
-    , StartChildWorkflowExecutionFailedCause (..)
+    StartChildWorkflowExecutionFailedCause (..),
 
     -- ** StartLambdaFunctionFailedCause
-    , StartLambdaFunctionFailedCause (..)
+    StartLambdaFunctionFailedCause (..),
 
     -- ** StartTimerFailedCause
-    , StartTimerFailedCause (..)
+    StartTimerFailedCause (..),
 
     -- ** WorkflowExecutionCancelRequestedCause
-    , WorkflowExecutionCancelRequestedCause (..)
+    WorkflowExecutionCancelRequestedCause (..),
 
     -- ** WorkflowExecutionTerminatedCause
-    , WorkflowExecutionTerminatedCause (..)
+    WorkflowExecutionTerminatedCause (..),
 
     -- ** WorkflowExecutionTimeoutType
-    , WorkflowExecutionTimeoutType (..)
+    WorkflowExecutionTimeoutType (..),
 
     -- ** ActivityTaskCancelRequestedEventAttributes
-    , ActivityTaskCancelRequestedEventAttributes
-    , activityTaskCancelRequestedEventAttributes
-    , atcreaDecisionTaskCompletedEventId
-    , atcreaActivityId
+    ActivityTaskCancelRequestedEventAttributes (ActivityTaskCancelRequestedEventAttributes'),
+    newActivityTaskCancelRequestedEventAttributes,
 
     -- ** ActivityTaskCanceledEventAttributes
-    , ActivityTaskCanceledEventAttributes
-    , activityTaskCanceledEventAttributes
-    , aLatestCancelRequestedEventId
-    , aDetails
-    , aScheduledEventId
-    , aStartedEventId
+    ActivityTaskCanceledEventAttributes (ActivityTaskCanceledEventAttributes'),
+    newActivityTaskCanceledEventAttributes,
 
     -- ** ActivityTaskCompletedEventAttributes
-    , ActivityTaskCompletedEventAttributes
-    , activityTaskCompletedEventAttributes
-    , atceaResult
-    , atceaScheduledEventId
-    , atceaStartedEventId
+    ActivityTaskCompletedEventAttributes (ActivityTaskCompletedEventAttributes'),
+    newActivityTaskCompletedEventAttributes,
 
     -- ** ActivityTaskFailedEventAttributes
-    , ActivityTaskFailedEventAttributes
-    , activityTaskFailedEventAttributes
-    , atfeaReason
-    , atfeaDetails
-    , atfeaScheduledEventId
-    , atfeaStartedEventId
+    ActivityTaskFailedEventAttributes (ActivityTaskFailedEventAttributes'),
+    newActivityTaskFailedEventAttributes,
 
     -- ** ActivityTaskScheduledEventAttributes
-    , ActivityTaskScheduledEventAttributes
-    , activityTaskScheduledEventAttributes
-    , atseaControl
-    , atseaHeartbeatTimeout
-    , atseaScheduleToCloseTimeout
-    , atseaInput
-    , atseaTaskPriority
-    , atseaScheduleToStartTimeout
-    , atseaStartToCloseTimeout
-    , atseaActivityType
-    , atseaActivityId
-    , atseaTaskList
-    , atseaDecisionTaskCompletedEventId
+    ActivityTaskScheduledEventAttributes (ActivityTaskScheduledEventAttributes'),
+    newActivityTaskScheduledEventAttributes,
 
     -- ** ActivityTaskStartedEventAttributes
-    , ActivityTaskStartedEventAttributes
-    , activityTaskStartedEventAttributes
-    , atseaIdentity
-    , atseaScheduledEventId
+    ActivityTaskStartedEventAttributes (ActivityTaskStartedEventAttributes'),
+    newActivityTaskStartedEventAttributes,
 
     -- ** ActivityTaskTimedOutEventAttributes
-    , ActivityTaskTimedOutEventAttributes
-    , activityTaskTimedOutEventAttributes
-    , attoeaDetails
-    , attoeaTimeoutType
-    , attoeaScheduledEventId
-    , attoeaStartedEventId
+    ActivityTaskTimedOutEventAttributes (ActivityTaskTimedOutEventAttributes'),
+    newActivityTaskTimedOutEventAttributes,
 
     -- ** ActivityType
-    , ActivityType
-    , activityType
-    , atName
-    , atVersion
+    ActivityType (ActivityType'),
+    newActivityType,
 
     -- ** ActivityTypeConfiguration
-    , ActivityTypeConfiguration
-    , activityTypeConfiguration
-    , atcDefaultTaskScheduleToStartTimeout
-    , atcDefaultTaskList
-    , atcDefaultTaskPriority
-    , atcDefaultTaskHeartbeatTimeout
-    , atcDefaultTaskScheduleToCloseTimeout
-    , atcDefaultTaskStartToCloseTimeout
+    ActivityTypeConfiguration (ActivityTypeConfiguration'),
+    newActivityTypeConfiguration,
 
     -- ** ActivityTypeInfo
-    , ActivityTypeInfo
-    , activityTypeInfo
-    , atiDeprecationDate
-    , atiDescription
-    , atiActivityType
-    , atiStatus
-    , atiCreationDate
+    ActivityTypeInfo (ActivityTypeInfo'),
+    newActivityTypeInfo,
 
     -- ** CancelTimerDecisionAttributes
-    , CancelTimerDecisionAttributes
-    , cancelTimerDecisionAttributes
-    , ctdaTimerId
+    CancelTimerDecisionAttributes (CancelTimerDecisionAttributes'),
+    newCancelTimerDecisionAttributes,
 
     -- ** CancelTimerFailedEventAttributes
-    , CancelTimerFailedEventAttributes
-    , cancelTimerFailedEventAttributes
-    , ctfeaTimerId
-    , ctfeaCause
-    , ctfeaDecisionTaskCompletedEventId
+    CancelTimerFailedEventAttributes (CancelTimerFailedEventAttributes'),
+    newCancelTimerFailedEventAttributes,
 
     -- ** CancelWorkflowExecutionDecisionAttributes
-    , CancelWorkflowExecutionDecisionAttributes
-    , cancelWorkflowExecutionDecisionAttributes
-    , cwedaDetails
+    CancelWorkflowExecutionDecisionAttributes (CancelWorkflowExecutionDecisionAttributes'),
+    newCancelWorkflowExecutionDecisionAttributes,
 
     -- ** CancelWorkflowExecutionFailedEventAttributes
-    , CancelWorkflowExecutionFailedEventAttributes
-    , cancelWorkflowExecutionFailedEventAttributes
-    , cCause
-    , cDecisionTaskCompletedEventId
+    CancelWorkflowExecutionFailedEventAttributes (CancelWorkflowExecutionFailedEventAttributes'),
+    newCancelWorkflowExecutionFailedEventAttributes,
 
     -- ** ChildWorkflowExecutionCanceledEventAttributes
-    , ChildWorkflowExecutionCanceledEventAttributes
-    , childWorkflowExecutionCanceledEventAttributes
-    , cDetails
-    , cWorkflowExecution
-    , cWorkflowType
-    , cInitiatedEventId
-    , cStartedEventId
+    ChildWorkflowExecutionCanceledEventAttributes (ChildWorkflowExecutionCanceledEventAttributes'),
+    newChildWorkflowExecutionCanceledEventAttributes,
 
     -- ** ChildWorkflowExecutionCompletedEventAttributes
-    , ChildWorkflowExecutionCompletedEventAttributes
-    , childWorkflowExecutionCompletedEventAttributes
-    , cweceaResult
-    , cweceaWorkflowExecution
-    , cweceaWorkflowType
-    , cweceaInitiatedEventId
-    , cweceaStartedEventId
+    ChildWorkflowExecutionCompletedEventAttributes (ChildWorkflowExecutionCompletedEventAttributes'),
+    newChildWorkflowExecutionCompletedEventAttributes,
 
     -- ** ChildWorkflowExecutionFailedEventAttributes
-    , ChildWorkflowExecutionFailedEventAttributes
-    , childWorkflowExecutionFailedEventAttributes
-    , cwefeaReason
-    , cwefeaDetails
-    , cwefeaWorkflowExecution
-    , cwefeaWorkflowType
-    , cwefeaInitiatedEventId
-    , cwefeaStartedEventId
+    ChildWorkflowExecutionFailedEventAttributes (ChildWorkflowExecutionFailedEventAttributes'),
+    newChildWorkflowExecutionFailedEventAttributes,
 
     -- ** ChildWorkflowExecutionStartedEventAttributes
-    , ChildWorkflowExecutionStartedEventAttributes
-    , childWorkflowExecutionStartedEventAttributes
-    , cweseaWorkflowExecution
-    , cweseaWorkflowType
-    , cweseaInitiatedEventId
+    ChildWorkflowExecutionStartedEventAttributes (ChildWorkflowExecutionStartedEventAttributes'),
+    newChildWorkflowExecutionStartedEventAttributes,
 
     -- ** ChildWorkflowExecutionTerminatedEventAttributes
-    , ChildWorkflowExecutionTerminatedEventAttributes
-    , childWorkflowExecutionTerminatedEventAttributes
-    , cweteaWorkflowExecution
-    , cweteaWorkflowType
-    , cweteaInitiatedEventId
-    , cweteaStartedEventId
+    ChildWorkflowExecutionTerminatedEventAttributes (ChildWorkflowExecutionTerminatedEventAttributes'),
+    newChildWorkflowExecutionTerminatedEventAttributes,
 
     -- ** ChildWorkflowExecutionTimedOutEventAttributes
-    , ChildWorkflowExecutionTimedOutEventAttributes
-    , childWorkflowExecutionTimedOutEventAttributes
-    , cwetoeaWorkflowExecution
-    , cwetoeaWorkflowType
-    , cwetoeaTimeoutType
-    , cwetoeaInitiatedEventId
-    , cwetoeaStartedEventId
+    ChildWorkflowExecutionTimedOutEventAttributes (ChildWorkflowExecutionTimedOutEventAttributes'),
+    newChildWorkflowExecutionTimedOutEventAttributes,
 
     -- ** CloseStatusFilter
-    , CloseStatusFilter
-    , closeStatusFilter
-    , csfStatus
+    CloseStatusFilter (CloseStatusFilter'),
+    newCloseStatusFilter,
 
     -- ** CompleteWorkflowExecutionDecisionAttributes
-    , CompleteWorkflowExecutionDecisionAttributes
-    , completeWorkflowExecutionDecisionAttributes
-    , cwedaResult
+    CompleteWorkflowExecutionDecisionAttributes (CompleteWorkflowExecutionDecisionAttributes'),
+    newCompleteWorkflowExecutionDecisionAttributes,
 
     -- ** CompleteWorkflowExecutionFailedEventAttributes
-    , CompleteWorkflowExecutionFailedEventAttributes
-    , completeWorkflowExecutionFailedEventAttributes
-    , cwefeaCause
-    , cwefeaDecisionTaskCompletedEventId
+    CompleteWorkflowExecutionFailedEventAttributes (CompleteWorkflowExecutionFailedEventAttributes'),
+    newCompleteWorkflowExecutionFailedEventAttributes,
 
     -- ** ContinueAsNewWorkflowExecutionDecisionAttributes
-    , ContinueAsNewWorkflowExecutionDecisionAttributes
-    , continueAsNewWorkflowExecutionDecisionAttributes
-    , canwedaTagList
-    , canwedaTaskStartToCloseTimeout
-    , canwedaLambdaRole
-    , canwedaInput
-    , canwedaWorkflowTypeVersion
-    , canwedaExecutionStartToCloseTimeout
-    , canwedaTaskList
-    , canwedaTaskPriority
-    , canwedaChildPolicy
+    ContinueAsNewWorkflowExecutionDecisionAttributes (ContinueAsNewWorkflowExecutionDecisionAttributes'),
+    newContinueAsNewWorkflowExecutionDecisionAttributes,
 
     -- ** ContinueAsNewWorkflowExecutionFailedEventAttributes
-    , ContinueAsNewWorkflowExecutionFailedEventAttributes
-    , continueAsNewWorkflowExecutionFailedEventAttributes
-    , canwefeaCause
-    , canwefeaDecisionTaskCompletedEventId
+    ContinueAsNewWorkflowExecutionFailedEventAttributes (ContinueAsNewWorkflowExecutionFailedEventAttributes'),
+    newContinueAsNewWorkflowExecutionFailedEventAttributes,
 
     -- ** Decision
-    , Decision
-    , decision
-    , dRequestCancelExternalWorkflowExecutionDecisionAttributes
-    , dScheduleActivityTaskDecisionAttributes
-    , dSignalExternalWorkflowExecutionDecisionAttributes
-    , dStartTimerDecisionAttributes
-    , dRecordMarkerDecisionAttributes
-    , dFailWorkflowExecutionDecisionAttributes
-    , dStartChildWorkflowExecutionDecisionAttributes
-    , dCompleteWorkflowExecutionDecisionAttributes
-    , dScheduleLambdaFunctionDecisionAttributes
-    , dRequestCancelActivityTaskDecisionAttributes
-    , dCancelWorkflowExecutionDecisionAttributes
-    , dCancelTimerDecisionAttributes
-    , dContinueAsNewWorkflowExecutionDecisionAttributes
-    , dDecisionType
+    Decision (Decision'),
+    newDecision,
 
     -- ** DecisionTaskCompletedEventAttributes
-    , DecisionTaskCompletedEventAttributes
-    , decisionTaskCompletedEventAttributes
-    , dtceaExecutionContext
-    , dtceaScheduledEventId
-    , dtceaStartedEventId
+    DecisionTaskCompletedEventAttributes (DecisionTaskCompletedEventAttributes'),
+    newDecisionTaskCompletedEventAttributes,
 
     -- ** DecisionTaskScheduledEventAttributes
-    , DecisionTaskScheduledEventAttributes
-    , decisionTaskScheduledEventAttributes
-    , dtseaTaskPriority
-    , dtseaStartToCloseTimeout
-    , dtseaTaskList
+    DecisionTaskScheduledEventAttributes (DecisionTaskScheduledEventAttributes'),
+    newDecisionTaskScheduledEventAttributes,
 
     -- ** DecisionTaskStartedEventAttributes
-    , DecisionTaskStartedEventAttributes
-    , decisionTaskStartedEventAttributes
-    , dtseaIdentity
-    , dtseaScheduledEventId
+    DecisionTaskStartedEventAttributes (DecisionTaskStartedEventAttributes'),
+    newDecisionTaskStartedEventAttributes,
 
     -- ** DecisionTaskTimedOutEventAttributes
-    , DecisionTaskTimedOutEventAttributes
-    , decisionTaskTimedOutEventAttributes
-    , dttoeaTimeoutType
-    , dttoeaScheduledEventId
-    , dttoeaStartedEventId
+    DecisionTaskTimedOutEventAttributes (DecisionTaskTimedOutEventAttributes'),
+    newDecisionTaskTimedOutEventAttributes,
 
     -- ** DomainConfiguration
-    , DomainConfiguration
-    , domainConfiguration
-    , dcWorkflowExecutionRetentionPeriodInDays
+    DomainConfiguration (DomainConfiguration'),
+    newDomainConfiguration,
 
     -- ** DomainInfo
-    , DomainInfo
-    , domainInfo
-    , diDescription
-    , diName
-    , diStatus
+    DomainInfo (DomainInfo'),
+    newDomainInfo,
 
     -- ** ExecutionTimeFilter
-    , ExecutionTimeFilter
-    , executionTimeFilter
-    , etfLatestDate
-    , etfOldestDate
+    ExecutionTimeFilter (ExecutionTimeFilter'),
+    newExecutionTimeFilter,
 
     -- ** ExternalWorkflowExecutionCancelRequestedEventAttributes
-    , ExternalWorkflowExecutionCancelRequestedEventAttributes
-    , externalWorkflowExecutionCancelRequestedEventAttributes
-    , ewecreaWorkflowExecution
-    , ewecreaInitiatedEventId
+    ExternalWorkflowExecutionCancelRequestedEventAttributes (ExternalWorkflowExecutionCancelRequestedEventAttributes'),
+    newExternalWorkflowExecutionCancelRequestedEventAttributes,
 
     -- ** ExternalWorkflowExecutionSignaledEventAttributes
-    , ExternalWorkflowExecutionSignaledEventAttributes
-    , externalWorkflowExecutionSignaledEventAttributes
-    , eweseaWorkflowExecution
-    , eweseaInitiatedEventId
+    ExternalWorkflowExecutionSignaledEventAttributes (ExternalWorkflowExecutionSignaledEventAttributes'),
+    newExternalWorkflowExecutionSignaledEventAttributes,
 
     -- ** FailWorkflowExecutionDecisionAttributes
-    , FailWorkflowExecutionDecisionAttributes
-    , failWorkflowExecutionDecisionAttributes
-    , fwedaReason
-    , fwedaDetails
+    FailWorkflowExecutionDecisionAttributes (FailWorkflowExecutionDecisionAttributes'),
+    newFailWorkflowExecutionDecisionAttributes,
 
     -- ** FailWorkflowExecutionFailedEventAttributes
-    , FailWorkflowExecutionFailedEventAttributes
-    , failWorkflowExecutionFailedEventAttributes
-    , fwefeaCause
-    , fwefeaDecisionTaskCompletedEventId
+    FailWorkflowExecutionFailedEventAttributes (FailWorkflowExecutionFailedEventAttributes'),
+    newFailWorkflowExecutionFailedEventAttributes,
 
     -- ** HistoryEvent
-    , HistoryEvent
-    , historyEvent
-    , heWorkflowExecutionCancelRequestedEventAttributes
-    , heRecordMarkerFailedEventAttributes
-    , heRequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    , heLambdaFunctionStartedEventAttributes
-    , heDecisionTaskScheduledEventAttributes
-    , heWorkflowExecutionCompletedEventAttributes
-    , heStartTimerFailedEventAttributes
-    , heActivityTaskScheduledEventAttributes
-    , heScheduleActivityTaskFailedEventAttributes
-    , heChildWorkflowExecutionCompletedEventAttributes
-    , heMarkerRecordedEventAttributes
-    , heScheduleLambdaFunctionFailedEventAttributes
-    , heCompleteWorkflowExecutionFailedEventAttributes
-    , heLambdaFunctionCompletedEventAttributes
-    , heRequestCancelExternalWorkflowExecutionFailedEventAttributes
-    , heTimerCanceledEventAttributes
-    , heWorkflowExecutionStartedEventAttributes
-    , heActivityTaskCompletedEventAttributes
-    , heDecisionTaskTimedOutEventAttributes
-    , heCancelTimerFailedEventAttributes
-    , heChildWorkflowExecutionStartedEventAttributes
-    , heActivityTaskCanceledEventAttributes
-    , heActivityTaskTimedOutEventAttributes
-    , heDecisionTaskStartedEventAttributes
-    , heWorkflowExecutionTerminatedEventAttributes
-    , heChildWorkflowExecutionCanceledEventAttributes
-    , heRequestCancelActivityTaskFailedEventAttributes
-    , heLambdaFunctionScheduledEventAttributes
-    , heChildWorkflowExecutionTimedOutEventAttributes
-    , heCancelWorkflowExecutionFailedEventAttributes
-    , heStartChildWorkflowExecutionInitiatedEventAttributes
-    , heSignalExternalWorkflowExecutionFailedEventAttributes
-    , heActivityTaskStartedEventAttributes
-    , heStartLambdaFunctionFailedEventAttributes
-    , heChildWorkflowExecutionTerminatedEventAttributes
-    , heLambdaFunctionFailedEventAttributes
-    , heWorkflowExecutionCanceledEventAttributes
-    , heTimerStartedEventAttributes
-    , heActivityTaskCancelRequestedEventAttributes
-    , heWorkflowExecutionTimedOutEventAttributes
-    , heWorkflowExecutionSignaledEventAttributes
-    , heTimerFiredEventAttributes
-    , heActivityTaskFailedEventAttributes
-    , heExternalWorkflowExecutionSignaledEventAttributes
-    , heDecisionTaskCompletedEventAttributes
-    , heStartChildWorkflowExecutionFailedEventAttributes
-    , heChildWorkflowExecutionFailedEventAttributes
-    , heFailWorkflowExecutionFailedEventAttributes
-    , heContinueAsNewWorkflowExecutionFailedEventAttributes
-    , heSignalExternalWorkflowExecutionInitiatedEventAttributes
-    , heLambdaFunctionTimedOutEventAttributes
-    , heWorkflowExecutionFailedEventAttributes
-    , heWorkflowExecutionContinuedAsNewEventAttributes
-    , heExternalWorkflowExecutionCancelRequestedEventAttributes
-    , heEventTimestamp
-    , heEventType
-    , heEventId
+    HistoryEvent (HistoryEvent'),
+    newHistoryEvent,
 
     -- ** LambdaFunctionCompletedEventAttributes
-    , LambdaFunctionCompletedEventAttributes
-    , lambdaFunctionCompletedEventAttributes
-    , lfceaResult
-    , lfceaScheduledEventId
-    , lfceaStartedEventId
+    LambdaFunctionCompletedEventAttributes (LambdaFunctionCompletedEventAttributes'),
+    newLambdaFunctionCompletedEventAttributes,
 
     -- ** LambdaFunctionFailedEventAttributes
-    , LambdaFunctionFailedEventAttributes
-    , lambdaFunctionFailedEventAttributes
-    , lffeaReason
-    , lffeaDetails
-    , lffeaScheduledEventId
-    , lffeaStartedEventId
+    LambdaFunctionFailedEventAttributes (LambdaFunctionFailedEventAttributes'),
+    newLambdaFunctionFailedEventAttributes,
 
     -- ** LambdaFunctionScheduledEventAttributes
-    , LambdaFunctionScheduledEventAttributes
-    , lambdaFunctionScheduledEventAttributes
-    , lfseaControl
-    , lfseaInput
-    , lfseaStartToCloseTimeout
-    , lfseaId
-    , lfseaName
-    , lfseaDecisionTaskCompletedEventId
+    LambdaFunctionScheduledEventAttributes (LambdaFunctionScheduledEventAttributes'),
+    newLambdaFunctionScheduledEventAttributes,
 
     -- ** LambdaFunctionStartedEventAttributes
-    , LambdaFunctionStartedEventAttributes
-    , lambdaFunctionStartedEventAttributes
-    , lfseaScheduledEventId
+    LambdaFunctionStartedEventAttributes (LambdaFunctionStartedEventAttributes'),
+    newLambdaFunctionStartedEventAttributes,
 
     -- ** LambdaFunctionTimedOutEventAttributes
-    , LambdaFunctionTimedOutEventAttributes
-    , lambdaFunctionTimedOutEventAttributes
-    , lftoeaTimeoutType
-    , lftoeaScheduledEventId
-    , lftoeaStartedEventId
+    LambdaFunctionTimedOutEventAttributes (LambdaFunctionTimedOutEventAttributes'),
+    newLambdaFunctionTimedOutEventAttributes,
 
     -- ** MarkerRecordedEventAttributes
-    , MarkerRecordedEventAttributes
-    , markerRecordedEventAttributes
-    , mreaDetails
-    , mreaMarkerName
-    , mreaDecisionTaskCompletedEventId
+    MarkerRecordedEventAttributes (MarkerRecordedEventAttributes'),
+    newMarkerRecordedEventAttributes,
 
     -- ** PendingTaskCount
-    , PendingTaskCount
-    , pendingTaskCount
-    , ptcTruncated
-    , ptcCount
+    PendingTaskCount (PendingTaskCount'),
+    newPendingTaskCount,
 
     -- ** RecordMarkerDecisionAttributes
-    , RecordMarkerDecisionAttributes
-    , recordMarkerDecisionAttributes
-    , rmdaDetails
-    , rmdaMarkerName
+    RecordMarkerDecisionAttributes (RecordMarkerDecisionAttributes'),
+    newRecordMarkerDecisionAttributes,
 
     -- ** RecordMarkerFailedEventAttributes
-    , RecordMarkerFailedEventAttributes
-    , recordMarkerFailedEventAttributes
-    , rmfeaMarkerName
-    , rmfeaCause
-    , rmfeaDecisionTaskCompletedEventId
+    RecordMarkerFailedEventAttributes (RecordMarkerFailedEventAttributes'),
+    newRecordMarkerFailedEventAttributes,
 
     -- ** RequestCancelActivityTaskDecisionAttributes
-    , RequestCancelActivityTaskDecisionAttributes
-    , requestCancelActivityTaskDecisionAttributes
-    , rcatdaActivityId
+    RequestCancelActivityTaskDecisionAttributes (RequestCancelActivityTaskDecisionAttributes'),
+    newRequestCancelActivityTaskDecisionAttributes,
 
     -- ** RequestCancelActivityTaskFailedEventAttributes
-    , RequestCancelActivityTaskFailedEventAttributes
-    , requestCancelActivityTaskFailedEventAttributes
-    , rcatfeaActivityId
-    , rcatfeaCause
-    , rcatfeaDecisionTaskCompletedEventId
+    RequestCancelActivityTaskFailedEventAttributes (RequestCancelActivityTaskFailedEventAttributes'),
+    newRequestCancelActivityTaskFailedEventAttributes,
 
     -- ** RequestCancelExternalWorkflowExecutionDecisionAttributes
-    , RequestCancelExternalWorkflowExecutionDecisionAttributes
-    , requestCancelExternalWorkflowExecutionDecisionAttributes
-    , rcewedaControl
-    , rcewedaRunId
-    , rcewedaWorkflowId
+    RequestCancelExternalWorkflowExecutionDecisionAttributes (RequestCancelExternalWorkflowExecutionDecisionAttributes'),
+    newRequestCancelExternalWorkflowExecutionDecisionAttributes,
 
     -- ** RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    , RequestCancelExternalWorkflowExecutionFailedEventAttributes
-    , requestCancelExternalWorkflowExecutionFailedEventAttributes
-    , rcewefeaControl
-    , rcewefeaRunId
-    , rcewefeaWorkflowId
-    , rcewefeaCause
-    , rcewefeaInitiatedEventId
-    , rcewefeaDecisionTaskCompletedEventId
+    RequestCancelExternalWorkflowExecutionFailedEventAttributes (RequestCancelExternalWorkflowExecutionFailedEventAttributes'),
+    newRequestCancelExternalWorkflowExecutionFailedEventAttributes,
 
     -- ** RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    , RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    , requestCancelExternalWorkflowExecutionInitiatedEventAttributes
-    , rceweieaControl
-    , rceweieaRunId
-    , rceweieaWorkflowId
-    , rceweieaDecisionTaskCompletedEventId
+    RequestCancelExternalWorkflowExecutionInitiatedEventAttributes (RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'),
+    newRequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
+
+    -- ** ResourceTag
+    ResourceTag (ResourceTag'),
+    newResourceTag,
 
     -- ** ScheduleActivityTaskDecisionAttributes
-    , ScheduleActivityTaskDecisionAttributes
-    , scheduleActivityTaskDecisionAttributes
-    , satdaControl
-    , satdaHeartbeatTimeout
-    , satdaScheduleToCloseTimeout
-    , satdaInput
-    , satdaTaskList
-    , satdaTaskPriority
-    , satdaScheduleToStartTimeout
-    , satdaStartToCloseTimeout
-    , satdaActivityType
-    , satdaActivityId
+    ScheduleActivityTaskDecisionAttributes (ScheduleActivityTaskDecisionAttributes'),
+    newScheduleActivityTaskDecisionAttributes,
 
     -- ** ScheduleActivityTaskFailedEventAttributes
-    , ScheduleActivityTaskFailedEventAttributes
-    , scheduleActivityTaskFailedEventAttributes
-    , satfeaActivityType
-    , satfeaActivityId
-    , satfeaCause
-    , satfeaDecisionTaskCompletedEventId
+    ScheduleActivityTaskFailedEventAttributes (ScheduleActivityTaskFailedEventAttributes'),
+    newScheduleActivityTaskFailedEventAttributes,
 
     -- ** ScheduleLambdaFunctionDecisionAttributes
-    , ScheduleLambdaFunctionDecisionAttributes
-    , scheduleLambdaFunctionDecisionAttributes
-    , slfdaControl
-    , slfdaInput
-    , slfdaStartToCloseTimeout
-    , slfdaId
-    , slfdaName
+    ScheduleLambdaFunctionDecisionAttributes (ScheduleLambdaFunctionDecisionAttributes'),
+    newScheduleLambdaFunctionDecisionAttributes,
 
     -- ** ScheduleLambdaFunctionFailedEventAttributes
-    , ScheduleLambdaFunctionFailedEventAttributes
-    , scheduleLambdaFunctionFailedEventAttributes
-    , slffeaId
-    , slffeaName
-    , slffeaCause
-    , slffeaDecisionTaskCompletedEventId
+    ScheduleLambdaFunctionFailedEventAttributes (ScheduleLambdaFunctionFailedEventAttributes'),
+    newScheduleLambdaFunctionFailedEventAttributes,
 
     -- ** SignalExternalWorkflowExecutionDecisionAttributes
-    , SignalExternalWorkflowExecutionDecisionAttributes
-    , signalExternalWorkflowExecutionDecisionAttributes
-    , sewedaControl
-    , sewedaInput
-    , sewedaRunId
-    , sewedaWorkflowId
-    , sewedaSignalName
+    SignalExternalWorkflowExecutionDecisionAttributes (SignalExternalWorkflowExecutionDecisionAttributes'),
+    newSignalExternalWorkflowExecutionDecisionAttributes,
 
     -- ** SignalExternalWorkflowExecutionFailedEventAttributes
-    , SignalExternalWorkflowExecutionFailedEventAttributes
-    , signalExternalWorkflowExecutionFailedEventAttributes
-    , sewefeaControl
-    , sewefeaRunId
-    , sewefeaWorkflowId
-    , sewefeaCause
-    , sewefeaInitiatedEventId
-    , sewefeaDecisionTaskCompletedEventId
+    SignalExternalWorkflowExecutionFailedEventAttributes (SignalExternalWorkflowExecutionFailedEventAttributes'),
+    newSignalExternalWorkflowExecutionFailedEventAttributes,
 
     -- ** SignalExternalWorkflowExecutionInitiatedEventAttributes
-    , SignalExternalWorkflowExecutionInitiatedEventAttributes
-    , signalExternalWorkflowExecutionInitiatedEventAttributes
-    , seweieaControl
-    , seweieaInput
-    , seweieaRunId
-    , seweieaWorkflowId
-    , seweieaSignalName
-    , seweieaDecisionTaskCompletedEventId
+    SignalExternalWorkflowExecutionInitiatedEventAttributes (SignalExternalWorkflowExecutionInitiatedEventAttributes'),
+    newSignalExternalWorkflowExecutionInitiatedEventAttributes,
 
     -- ** StartChildWorkflowExecutionDecisionAttributes
-    , StartChildWorkflowExecutionDecisionAttributes
-    , startChildWorkflowExecutionDecisionAttributes
-    , scwedaControl
-    , scwedaTagList
-    , scwedaTaskStartToCloseTimeout
-    , scwedaLambdaRole
-    , scwedaInput
-    , scwedaExecutionStartToCloseTimeout
-    , scwedaTaskList
-    , scwedaTaskPriority
-    , scwedaChildPolicy
-    , scwedaWorkflowType
-    , scwedaWorkflowId
+    StartChildWorkflowExecutionDecisionAttributes (StartChildWorkflowExecutionDecisionAttributes'),
+    newStartChildWorkflowExecutionDecisionAttributes,
 
     -- ** StartChildWorkflowExecutionFailedEventAttributes
-    , StartChildWorkflowExecutionFailedEventAttributes
-    , startChildWorkflowExecutionFailedEventAttributes
-    , scwefeaControl
-    , scwefeaWorkflowType
-    , scwefeaCause
-    , scwefeaWorkflowId
-    , scwefeaInitiatedEventId
-    , scwefeaDecisionTaskCompletedEventId
+    StartChildWorkflowExecutionFailedEventAttributes (StartChildWorkflowExecutionFailedEventAttributes'),
+    newStartChildWorkflowExecutionFailedEventAttributes,
 
     -- ** StartChildWorkflowExecutionInitiatedEventAttributes
-    , StartChildWorkflowExecutionInitiatedEventAttributes
-    , startChildWorkflowExecutionInitiatedEventAttributes
-    , scweieaControl
-    , scweieaTagList
-    , scweieaTaskStartToCloseTimeout
-    , scweieaLambdaRole
-    , scweieaInput
-    , scweieaExecutionStartToCloseTimeout
-    , scweieaTaskPriority
-    , scweieaWorkflowId
-    , scweieaWorkflowType
-    , scweieaTaskList
-    , scweieaDecisionTaskCompletedEventId
-    , scweieaChildPolicy
+    StartChildWorkflowExecutionInitiatedEventAttributes (StartChildWorkflowExecutionInitiatedEventAttributes'),
+    newStartChildWorkflowExecutionInitiatedEventAttributes,
 
     -- ** StartLambdaFunctionFailedEventAttributes
-    , StartLambdaFunctionFailedEventAttributes
-    , startLambdaFunctionFailedEventAttributes
-    , sScheduledEventId
-    , sCause
-    , sMessage
+    StartLambdaFunctionFailedEventAttributes (StartLambdaFunctionFailedEventAttributes'),
+    newStartLambdaFunctionFailedEventAttributes,
 
     -- ** StartTimerDecisionAttributes
-    , StartTimerDecisionAttributes
-    , startTimerDecisionAttributes
-    , stdaControl
-    , stdaTimerId
-    , stdaStartToFireTimeout
+    StartTimerDecisionAttributes (StartTimerDecisionAttributes'),
+    newStartTimerDecisionAttributes,
 
     -- ** StartTimerFailedEventAttributes
-    , StartTimerFailedEventAttributes
-    , startTimerFailedEventAttributes
-    , stfeaTimerId
-    , stfeaCause
-    , stfeaDecisionTaskCompletedEventId
+    StartTimerFailedEventAttributes (StartTimerFailedEventAttributes'),
+    newStartTimerFailedEventAttributes,
 
     -- ** TagFilter
-    , TagFilter
-    , tagFilter
-    , tfTag
+    TagFilter (TagFilter'),
+    newTagFilter,
 
     -- ** TaskList
-    , TaskList
-    , taskList
-    , tlName
+    TaskList (TaskList'),
+    newTaskList,
 
     -- ** TimerCanceledEventAttributes
-    , TimerCanceledEventAttributes
-    , timerCanceledEventAttributes
-    , tceaTimerId
-    , tceaStartedEventId
-    , tceaDecisionTaskCompletedEventId
+    TimerCanceledEventAttributes (TimerCanceledEventAttributes'),
+    newTimerCanceledEventAttributes,
 
     -- ** TimerFiredEventAttributes
-    , TimerFiredEventAttributes
-    , timerFiredEventAttributes
-    , tfeaTimerId
-    , tfeaStartedEventId
+    TimerFiredEventAttributes (TimerFiredEventAttributes'),
+    newTimerFiredEventAttributes,
 
     -- ** TimerStartedEventAttributes
-    , TimerStartedEventAttributes
-    , timerStartedEventAttributes
-    , tseaControl
-    , tseaTimerId
-    , tseaStartToFireTimeout
-    , tseaDecisionTaskCompletedEventId
+    TimerStartedEventAttributes (TimerStartedEventAttributes'),
+    newTimerStartedEventAttributes,
 
     -- ** WorkflowExecution
-    , WorkflowExecution
-    , workflowExecution
-    , weWorkflowId
-    , weRunId
+    WorkflowExecution (WorkflowExecution'),
+    newWorkflowExecution,
 
     -- ** WorkflowExecutionCancelRequestedEventAttributes
-    , WorkflowExecutionCancelRequestedEventAttributes
-    , workflowExecutionCancelRequestedEventAttributes
-    , wecreaExternalWorkflowExecution
-    , wecreaExternalInitiatedEventId
-    , wecreaCause
+    WorkflowExecutionCancelRequestedEventAttributes (WorkflowExecutionCancelRequestedEventAttributes'),
+    newWorkflowExecutionCancelRequestedEventAttributes,
 
     -- ** WorkflowExecutionCanceledEventAttributes
-    , WorkflowExecutionCanceledEventAttributes
-    , workflowExecutionCanceledEventAttributes
-    , wDetails
-    , wDecisionTaskCompletedEventId
+    WorkflowExecutionCanceledEventAttributes (WorkflowExecutionCanceledEventAttributes'),
+    newWorkflowExecutionCanceledEventAttributes,
 
     -- ** WorkflowExecutionCompletedEventAttributes
-    , WorkflowExecutionCompletedEventAttributes
-    , workflowExecutionCompletedEventAttributes
-    , weceaResult
-    , weceaDecisionTaskCompletedEventId
+    WorkflowExecutionCompletedEventAttributes (WorkflowExecutionCompletedEventAttributes'),
+    newWorkflowExecutionCompletedEventAttributes,
 
     -- ** WorkflowExecutionConfiguration
-    , WorkflowExecutionConfiguration
-    , workflowExecutionConfiguration
-    , wecLambdaRole
-    , wecTaskPriority
-    , wecTaskStartToCloseTimeout
-    , wecExecutionStartToCloseTimeout
-    , wecTaskList
-    , wecChildPolicy
+    WorkflowExecutionConfiguration (WorkflowExecutionConfiguration'),
+    newWorkflowExecutionConfiguration,
 
     -- ** WorkflowExecutionContinuedAsNewEventAttributes
-    , WorkflowExecutionContinuedAsNewEventAttributes
-    , workflowExecutionContinuedAsNewEventAttributes
-    , wecaneaTagList
-    , wecaneaTaskStartToCloseTimeout
-    , wecaneaLambdaRole
-    , wecaneaInput
-    , wecaneaExecutionStartToCloseTimeout
-    , wecaneaTaskPriority
-    , wecaneaDecisionTaskCompletedEventId
-    , wecaneaNewExecutionRunId
-    , wecaneaTaskList
-    , wecaneaChildPolicy
-    , wecaneaWorkflowType
+    WorkflowExecutionContinuedAsNewEventAttributes (WorkflowExecutionContinuedAsNewEventAttributes'),
+    newWorkflowExecutionContinuedAsNewEventAttributes,
 
     -- ** WorkflowExecutionCount
-    , WorkflowExecutionCount
-    , workflowExecutionCount
-    , wecTruncated
-    , wecCount
+    WorkflowExecutionCount (WorkflowExecutionCount'),
+    newWorkflowExecutionCount,
 
     -- ** WorkflowExecutionFailedEventAttributes
-    , WorkflowExecutionFailedEventAttributes
-    , workflowExecutionFailedEventAttributes
-    , wefeaReason
-    , wefeaDetails
-    , wefeaDecisionTaskCompletedEventId
+    WorkflowExecutionFailedEventAttributes (WorkflowExecutionFailedEventAttributes'),
+    newWorkflowExecutionFailedEventAttributes,
 
     -- ** WorkflowExecutionFilter
-    , WorkflowExecutionFilter
-    , workflowExecutionFilter
-    , wefWorkflowId
+    WorkflowExecutionFilter (WorkflowExecutionFilter'),
+    newWorkflowExecutionFilter,
 
     -- ** WorkflowExecutionInfo
-    , WorkflowExecutionInfo
-    , workflowExecutionInfo
-    , weiParent
-    , weiTagList
-    , weiCloseStatus
-    , weiCloseTimestamp
-    , weiCancelRequested
-    , weiExecution
-    , weiWorkflowType
-    , weiStartTimestamp
-    , weiExecutionStatus
+    WorkflowExecutionInfo (WorkflowExecutionInfo'),
+    newWorkflowExecutionInfo,
 
     -- ** WorkflowExecutionInfos
-    , WorkflowExecutionInfos
-    , workflowExecutionInfos
-    , weiNextPageToken
-    , weiExecutionInfos
+    WorkflowExecutionInfos (WorkflowExecutionInfos'),
+    newWorkflowExecutionInfos,
 
     -- ** WorkflowExecutionOpenCounts
-    , WorkflowExecutionOpenCounts
-    , workflowExecutionOpenCounts
-    , weocOpenLambdaFunctions
-    , weocOpenActivityTasks
-    , weocOpenDecisionTasks
-    , weocOpenTimers
-    , weocOpenChildWorkflowExecutions
+    WorkflowExecutionOpenCounts (WorkflowExecutionOpenCounts'),
+    newWorkflowExecutionOpenCounts,
 
     -- ** WorkflowExecutionSignaledEventAttributes
-    , WorkflowExecutionSignaledEventAttributes
-    , workflowExecutionSignaledEventAttributes
-    , wExternalWorkflowExecution
-    , wExternalInitiatedEventId
-    , wInput
-    , wSignalName
+    WorkflowExecutionSignaledEventAttributes (WorkflowExecutionSignaledEventAttributes'),
+    newWorkflowExecutionSignaledEventAttributes,
 
     -- ** WorkflowExecutionStartedEventAttributes
-    , WorkflowExecutionStartedEventAttributes
-    , workflowExecutionStartedEventAttributes
-    , weseaParentInitiatedEventId
-    , weseaTagList
-    , weseaTaskStartToCloseTimeout
-    , weseaLambdaRole
-    , weseaInput
-    , weseaExecutionStartToCloseTimeout
-    , weseaTaskPriority
-    , weseaParentWorkflowExecution
-    , weseaContinuedExecutionRunId
-    , weseaChildPolicy
-    , weseaTaskList
-    , weseaWorkflowType
+    WorkflowExecutionStartedEventAttributes (WorkflowExecutionStartedEventAttributes'),
+    newWorkflowExecutionStartedEventAttributes,
 
     -- ** WorkflowExecutionTerminatedEventAttributes
-    , WorkflowExecutionTerminatedEventAttributes
-    , workflowExecutionTerminatedEventAttributes
-    , weteaCause
-    , weteaReason
-    , weteaDetails
-    , weteaChildPolicy
+    WorkflowExecutionTerminatedEventAttributes (WorkflowExecutionTerminatedEventAttributes'),
+    newWorkflowExecutionTerminatedEventAttributes,
 
     -- ** WorkflowExecutionTimedOutEventAttributes
-    , WorkflowExecutionTimedOutEventAttributes
-    , workflowExecutionTimedOutEventAttributes
-    , wetoeaTimeoutType
-    , wetoeaChildPolicy
+    WorkflowExecutionTimedOutEventAttributes (WorkflowExecutionTimedOutEventAttributes'),
+    newWorkflowExecutionTimedOutEventAttributes,
 
     -- ** WorkflowType
-    , WorkflowType
-    , workflowType
-    , wtName
-    , wtVersion
+    WorkflowType (WorkflowType'),
+    newWorkflowType,
 
     -- ** WorkflowTypeConfiguration
-    , WorkflowTypeConfiguration
-    , workflowTypeConfiguration
-    , wtcDefaultLambdaRole
-    , wtcDefaultChildPolicy
-    , wtcDefaultTaskList
-    , wtcDefaultTaskPriority
-    , wtcDefaultExecutionStartToCloseTimeout
-    , wtcDefaultTaskStartToCloseTimeout
+    WorkflowTypeConfiguration (WorkflowTypeConfiguration'),
+    newWorkflowTypeConfiguration,
 
     -- ** WorkflowTypeFilter
-    , WorkflowTypeFilter
-    , workflowTypeFilter
-    , wtfVersion
-    , wtfName
+    WorkflowTypeFilter (WorkflowTypeFilter'),
+    newWorkflowTypeFilter,
 
     -- ** WorkflowTypeInfo
-    , WorkflowTypeInfo
-    , workflowTypeInfo
-    , wtiDeprecationDate
-    , wtiDescription
-    , wtiWorkflowType
-    , wtiStatus
-    , wtiCreationDate
-    ) where
+    WorkflowTypeInfo (WorkflowTypeInfo'),
+    newWorkflowTypeInfo,
+  )
+where
 
 import Network.AWS.SWF.CountClosedWorkflowExecutions
 import Network.AWS.SWF.CountOpenWorkflowExecutions
@@ -1013,10 +752,12 @@ import Network.AWS.SWF.DescribeDomain
 import Network.AWS.SWF.DescribeWorkflowExecution
 import Network.AWS.SWF.DescribeWorkflowType
 import Network.AWS.SWF.GetWorkflowExecutionHistory
+import Network.AWS.SWF.Lens
 import Network.AWS.SWF.ListActivityTypes
 import Network.AWS.SWF.ListClosedWorkflowExecutions
 import Network.AWS.SWF.ListDomains
 import Network.AWS.SWF.ListOpenWorkflowExecutions
+import Network.AWS.SWF.ListTagsForResource
 import Network.AWS.SWF.ListWorkflowTypes
 import Network.AWS.SWF.PollForActivityTask
 import Network.AWS.SWF.PollForDecisionTask
@@ -1031,36 +772,38 @@ import Network.AWS.SWF.RespondActivityTaskFailed
 import Network.AWS.SWF.RespondDecisionTaskCompleted
 import Network.AWS.SWF.SignalWorkflowExecution
 import Network.AWS.SWF.StartWorkflowExecution
+import Network.AWS.SWF.TagResource
 import Network.AWS.SWF.TerminateWorkflowExecution
 import Network.AWS.SWF.Types
+import Network.AWS.SWF.UndeprecateActivityType
+import Network.AWS.SWF.UndeprecateDomain
+import Network.AWS.SWF.UndeprecateWorkflowType
+import Network.AWS.SWF.UntagResource
 import Network.AWS.SWF.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'SWF'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'SWF'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

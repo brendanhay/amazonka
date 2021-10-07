@@ -1,178 +1,268 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This documentation is for version 1 of the Amazon Kinesis Data Analytics
+-- API, which only supports SQL applications. Version 2 of the API supports
+-- SQL and Java applications. For more information about version 2, see
+-- </kinesisanalytics/latest/apiv2/Welcome.html Amazon Kinesis Data Analytics API V2 Documentation>.
+--
 -- Adds a reference data source to an existing application.
 --
+-- Amazon Kinesis Analytics reads reference data (that is, an Amazon S3
+-- object) and creates an in-application table within your application. In
+-- the request, you provide the source (S3 bucket name and object key
+-- name), name of the in-application table to create, and the necessary
+-- mapping information that describes how data in Amazon S3 object maps to
+-- columns in the resulting in-application table.
 --
--- Amazon Kinesis Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in Amazon S3 object maps to columns in the resulting in-application table.
+-- For conceptual information, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input>.
+-- For the limits on data sources you can add to your application, see
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits>.
 --
--- For conceptual information, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> . For the limits on data sources you can add to your application, see <http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits> .
---
--- This operation requires permissions to perform the @kinesisanalytics:AddApplicationOutput@ action.
---
+-- This operation requires permissions to perform the
+-- @kinesisanalytics:AddApplicationOutput@ action.
 module Network.AWS.KinesisAnalytics.AddApplicationReferenceDataSource
-    (
-    -- * Creating a Request
-      addApplicationReferenceDataSource
-    , AddApplicationReferenceDataSource
+  ( -- * Creating a Request
+    AddApplicationReferenceDataSource (..),
+    newAddApplicationReferenceDataSource,
+
     -- * Request Lenses
-    , aardsApplicationName
-    , aardsCurrentApplicationVersionId
-    , aardsReferenceDataSource
+    addApplicationReferenceDataSource_applicationName,
+    addApplicationReferenceDataSource_currentApplicationVersionId,
+    addApplicationReferenceDataSource_referenceDataSource,
 
     -- * Destructuring the Response
-    , addApplicationReferenceDataSourceResponse
-    , AddApplicationReferenceDataSourceResponse
-    -- * Response Lenses
-    , aardsrsResponseStatus
-    ) where
+    AddApplicationReferenceDataSourceResponse (..),
+    newAddApplicationReferenceDataSourceResponse,
 
+    -- * Response Lenses
+    addApplicationReferenceDataSourceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
-import Network.AWS.KinesisAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'addApplicationReferenceDataSource' smart constructor.
+-- /See:/ 'newAddApplicationReferenceDataSource' smart constructor.
 data AddApplicationReferenceDataSource = AddApplicationReferenceDataSource'
-  { _aardsApplicationName             :: !Text
-  , _aardsCurrentApplicationVersionId :: !Nat
-  , _aardsReferenceDataSource         :: !ReferenceDataSource
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddApplicationReferenceDataSource' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aardsApplicationName' - Name of an existing application.
---
--- * 'aardsCurrentApplicationVersionId' - Version of the application for which you are adding the reference data source. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
---
--- * 'aardsReferenceDataSource' - The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.
-addApplicationReferenceDataSource
-    :: Text -- ^ 'aardsApplicationName'
-    -> Natural -- ^ 'aardsCurrentApplicationVersionId'
-    -> ReferenceDataSource -- ^ 'aardsReferenceDataSource'
-    -> AddApplicationReferenceDataSource
-addApplicationReferenceDataSource pApplicationName_ pCurrentApplicationVersionId_ pReferenceDataSource_ =
-  AddApplicationReferenceDataSource'
-  { _aardsApplicationName = pApplicationName_
-  , _aardsCurrentApplicationVersionId = _Nat # pCurrentApplicationVersionId_
-  , _aardsReferenceDataSource = pReferenceDataSource_
+  { -- | Name of an existing application.
+    applicationName :: Prelude.Text,
+    -- | Version of the application for which you are adding the reference data
+    -- source. You can use the
+    -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+    -- operation to get the current application version. If the version
+    -- specified is not the current version, the
+    -- @ConcurrentModificationException@ is returned.
+    currentApplicationVersionId :: Prelude.Natural,
+    -- | The reference data source can be an object in your Amazon S3 bucket.
+    -- Amazon Kinesis Analytics reads the object and copies the data into the
+    -- in-application table that is created. You provide an S3 bucket, object
+    -- key name, and the resulting in-application table that is created. You
+    -- must also provide an IAM role with the necessary permissions that Amazon
+    -- Kinesis Analytics can assume to read the object from your S3 bucket on
+    -- your behalf.
+    referenceDataSource :: ReferenceDataSource
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AddApplicationReferenceDataSource' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationName', 'addApplicationReferenceDataSource_applicationName' - Name of an existing application.
+--
+-- 'currentApplicationVersionId', 'addApplicationReferenceDataSource_currentApplicationVersionId' - Version of the application for which you are adding the reference data
+-- source. You can use the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+-- operation to get the current application version. If the version
+-- specified is not the current version, the
+-- @ConcurrentModificationException@ is returned.
+--
+-- 'referenceDataSource', 'addApplicationReferenceDataSource_referenceDataSource' - The reference data source can be an object in your Amazon S3 bucket.
+-- Amazon Kinesis Analytics reads the object and copies the data into the
+-- in-application table that is created. You provide an S3 bucket, object
+-- key name, and the resulting in-application table that is created. You
+-- must also provide an IAM role with the necessary permissions that Amazon
+-- Kinesis Analytics can assume to read the object from your S3 bucket on
+-- your behalf.
+newAddApplicationReferenceDataSource ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  -- | 'currentApplicationVersionId'
+  Prelude.Natural ->
+  -- | 'referenceDataSource'
+  ReferenceDataSource ->
+  AddApplicationReferenceDataSource
+newAddApplicationReferenceDataSource
+  pApplicationName_
+  pCurrentApplicationVersionId_
+  pReferenceDataSource_ =
+    AddApplicationReferenceDataSource'
+      { applicationName =
+          pApplicationName_,
+        currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        referenceDataSource =
+          pReferenceDataSource_
+      }
 
 -- | Name of an existing application.
-aardsApplicationName :: Lens' AddApplicationReferenceDataSource Text
-aardsApplicationName = lens _aardsApplicationName (\ s a -> s{_aardsApplicationName = a});
+addApplicationReferenceDataSource_applicationName :: Lens.Lens' AddApplicationReferenceDataSource Prelude.Text
+addApplicationReferenceDataSource_applicationName = Lens.lens (\AddApplicationReferenceDataSource' {applicationName} -> applicationName) (\s@AddApplicationReferenceDataSource' {} a -> s {applicationName = a} :: AddApplicationReferenceDataSource)
 
--- | Version of the application for which you are adding the reference data source. You can use the 'DescribeApplication' operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
-aardsCurrentApplicationVersionId :: Lens' AddApplicationReferenceDataSource Natural
-aardsCurrentApplicationVersionId = lens _aardsCurrentApplicationVersionId (\ s a -> s{_aardsCurrentApplicationVersionId = a}) . _Nat;
+-- | Version of the application for which you are adding the reference data
+-- source. You can use the
+-- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
+-- operation to get the current application version. If the version
+-- specified is not the current version, the
+-- @ConcurrentModificationException@ is returned.
+addApplicationReferenceDataSource_currentApplicationVersionId :: Lens.Lens' AddApplicationReferenceDataSource Prelude.Natural
+addApplicationReferenceDataSource_currentApplicationVersionId = Lens.lens (\AddApplicationReferenceDataSource' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationReferenceDataSource' {} a -> s {currentApplicationVersionId = a} :: AddApplicationReferenceDataSource)
 
--- | The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. You must also provide an IAM role with the necessary permissions that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on your behalf.
-aardsReferenceDataSource :: Lens' AddApplicationReferenceDataSource ReferenceDataSource
-aardsReferenceDataSource = lens _aardsReferenceDataSource (\ s a -> s{_aardsReferenceDataSource = a});
+-- | The reference data source can be an object in your Amazon S3 bucket.
+-- Amazon Kinesis Analytics reads the object and copies the data into the
+-- in-application table that is created. You provide an S3 bucket, object
+-- key name, and the resulting in-application table that is created. You
+-- must also provide an IAM role with the necessary permissions that Amazon
+-- Kinesis Analytics can assume to read the object from your S3 bucket on
+-- your behalf.
+addApplicationReferenceDataSource_referenceDataSource :: Lens.Lens' AddApplicationReferenceDataSource ReferenceDataSource
+addApplicationReferenceDataSource_referenceDataSource = Lens.lens (\AddApplicationReferenceDataSource' {referenceDataSource} -> referenceDataSource) (\s@AddApplicationReferenceDataSource' {} a -> s {referenceDataSource = a} :: AddApplicationReferenceDataSource)
 
-instance AWSRequest AddApplicationReferenceDataSource
-         where
-        type Rs AddApplicationReferenceDataSource =
-             AddApplicationReferenceDataSourceResponse
-        request = postJSON kinesisAnalytics
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AddApplicationReferenceDataSourceResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    AddApplicationReferenceDataSource
+  where
+  type
+    AWSResponse AddApplicationReferenceDataSource =
+      AddApplicationReferenceDataSourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AddApplicationReferenceDataSourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AddApplicationReferenceDataSource
-         where
+instance
+  Prelude.Hashable
+    AddApplicationReferenceDataSource
 
-instance NFData AddApplicationReferenceDataSource
-         where
+instance
+  Prelude.NFData
+    AddApplicationReferenceDataSource
 
-instance ToHeaders AddApplicationReferenceDataSource
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("KinesisAnalytics_20150814.AddApplicationReferenceDataSource"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    AddApplicationReferenceDataSource
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "KinesisAnalytics_20150814.AddApplicationReferenceDataSource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AddApplicationReferenceDataSource
-         where
-        toJSON AddApplicationReferenceDataSource'{..}
-          = object
-              (catMaybes
-                 [Just ("ApplicationName" .= _aardsApplicationName),
-                  Just
-                    ("CurrentApplicationVersionId" .=
-                       _aardsCurrentApplicationVersionId),
-                  Just
-                    ("ReferenceDataSource" .=
-                       _aardsReferenceDataSource)])
+instance
+  Core.ToJSON
+    AddApplicationReferenceDataSource
+  where
+  toJSON AddApplicationReferenceDataSource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ApplicationName" Core..= applicationName),
+            Prelude.Just
+              ( "CurrentApplicationVersionId"
+                  Core..= currentApplicationVersionId
+              ),
+            Prelude.Just
+              ("ReferenceDataSource" Core..= referenceDataSource)
+          ]
+      )
 
-instance ToPath AddApplicationReferenceDataSource
-         where
-        toPath = const "/"
+instance
+  Core.ToPath
+    AddApplicationReferenceDataSource
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery AddApplicationReferenceDataSource
-         where
-        toQuery = const mempty
+instance
+  Core.ToQuery
+    AddApplicationReferenceDataSource
+  where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
+-- /See:/ 'newAddApplicationReferenceDataSourceResponse' smart constructor.
+data AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AddApplicationReferenceDataSourceResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'addApplicationReferenceDataSourceResponse' smart constructor.
-newtype AddApplicationReferenceDataSourceResponse = AddApplicationReferenceDataSourceResponse'
-  { _aardsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddApplicationReferenceDataSourceResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aardsrsResponseStatus' - -- | The response status code.
-addApplicationReferenceDataSourceResponse
-    :: Int -- ^ 'aardsrsResponseStatus'
-    -> AddApplicationReferenceDataSourceResponse
-addApplicationReferenceDataSourceResponse pResponseStatus_ =
-  AddApplicationReferenceDataSourceResponse'
-  {_aardsrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'addApplicationReferenceDataSourceResponse_httpStatus' - The response's http status code.
+newAddApplicationReferenceDataSourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddApplicationReferenceDataSourceResponse
+newAddApplicationReferenceDataSourceResponse
+  pHttpStatus_ =
+    AddApplicationReferenceDataSourceResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+addApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' AddApplicationReferenceDataSourceResponse Prelude.Int
+addApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\AddApplicationReferenceDataSourceResponse' {httpStatus} -> httpStatus) (\s@AddApplicationReferenceDataSourceResponse' {} a -> s {httpStatus = a} :: AddApplicationReferenceDataSourceResponse)
 
--- | -- | The response status code.
-aardsrsResponseStatus :: Lens' AddApplicationReferenceDataSourceResponse Int
-aardsrsResponseStatus = lens _aardsrsResponseStatus (\ s a -> s{_aardsrsResponseStatus = a});
-
-instance NFData
-           AddApplicationReferenceDataSourceResponse
-         where
+instance
+  Prelude.NFData
+    AddApplicationReferenceDataSourceResponse

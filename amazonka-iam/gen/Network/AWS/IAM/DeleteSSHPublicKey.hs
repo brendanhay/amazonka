@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSSHPublicKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,96 +22,143 @@
 --
 -- Deletes the specified SSH public key.
 --
---
--- The SSH public key deleted by this action is used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
---
+-- The SSH public key deleted by this operation is used only for
+-- authenticating the associated IAM user to an CodeCommit repository. For
+-- more information about using SSH keys to authenticate to an CodeCommit
+-- repository, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up CodeCommit for SSH connections>
+-- in the /CodeCommit User Guide/.
 module Network.AWS.IAM.DeleteSSHPublicKey
-    (
-    -- * Creating a Request
-      deleteSSHPublicKey
-    , DeleteSSHPublicKey
+  ( -- * Creating a Request
+    DeleteSSHPublicKey (..),
+    newDeleteSSHPublicKey,
+
     -- * Request Lenses
-    , dspkUserName
-    , dspkSSHPublicKeyId
+    deleteSSHPublicKey_userName,
+    deleteSSHPublicKey_sSHPublicKeyId,
 
     -- * Destructuring the Response
-    , deleteSSHPublicKeyResponse
-    , DeleteSSHPublicKeyResponse
-    ) where
+    DeleteSSHPublicKeyResponse (..),
+    newDeleteSSHPublicKeyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteSSHPublicKey' smart constructor.
+-- | /See:/ 'newDeleteSSHPublicKey' smart constructor.
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-  { _dspkUserName       :: !Text
-  , _dspkSSHPublicKeyId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the IAM user associated with the SSH public key.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    userName :: Prelude.Text,
+    -- | The unique identifier for the SSH public key.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- that can consist of any upper or lowercased letter or digit.
+    sSHPublicKeyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSSHPublicKey' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSSHPublicKey' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dspkUserName' - The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dspkSSHPublicKeyId' - The unique identifier for the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-deleteSSHPublicKey
-    :: Text -- ^ 'dspkUserName'
-    -> Text -- ^ 'dspkSSHPublicKeyId'
-    -> DeleteSSHPublicKey
-deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
+-- 'userName', 'deleteSSHPublicKey_userName' - The name of the IAM user associated with the SSH public key.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'sSHPublicKeyId', 'deleteSSHPublicKey_sSHPublicKeyId' - The unique identifier for the SSH public key.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- that can consist of any upper or lowercased letter or digit.
+newDeleteSSHPublicKey ::
+  -- | 'userName'
+  Prelude.Text ->
+  -- | 'sSHPublicKeyId'
+  Prelude.Text ->
+  DeleteSSHPublicKey
+newDeleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
   DeleteSSHPublicKey'
-  {_dspkUserName = pUserName_, _dspkSSHPublicKeyId = pSSHPublicKeyId_}
+    { userName = pUserName_,
+      sSHPublicKeyId = pSSHPublicKeyId_
+    }
 
-
--- | The name of the IAM user associated with the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
-dspkUserName :: Lens' DeleteSSHPublicKey Text
-dspkUserName = lens _dspkUserName (\ s a -> s{_dspkUserName = a});
-
--- | The unique identifier for the SSH public key. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-dspkSSHPublicKeyId :: Lens' DeleteSSHPublicKey Text
-dspkSSHPublicKeyId = lens _dspkSSHPublicKeyId (\ s a -> s{_dspkSSHPublicKeyId = a});
-
-instance AWSRequest DeleteSSHPublicKey where
-        type Rs DeleteSSHPublicKey =
-             DeleteSSHPublicKeyResponse
-        request = postQuery iam
-        response = receiveNull DeleteSSHPublicKeyResponse'
-
-instance Hashable DeleteSSHPublicKey where
-
-instance NFData DeleteSSHPublicKey where
-
-instance ToHeaders DeleteSSHPublicKey where
-        toHeaders = const mempty
-
-instance ToPath DeleteSSHPublicKey where
-        toPath = const "/"
-
-instance ToQuery DeleteSSHPublicKey where
-        toQuery DeleteSSHPublicKey'{..}
-          = mconcat
-              ["Action" =: ("DeleteSSHPublicKey" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dspkUserName,
-               "SSHPublicKeyId" =: _dspkSSHPublicKeyId]
-
--- | /See:/ 'deleteSSHPublicKeyResponse' smart constructor.
-data DeleteSSHPublicKeyResponse =
-  DeleteSSHPublicKeyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteSSHPublicKeyResponse' with the minimum fields required to make a request.
+-- | The name of the IAM user associated with the SSH public key.
 --
-deleteSSHPublicKeyResponse
-    :: DeleteSSHPublicKeyResponse
-deleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deleteSSHPublicKey_userName :: Lens.Lens' DeleteSSHPublicKey Prelude.Text
+deleteSSHPublicKey_userName = Lens.lens (\DeleteSSHPublicKey' {userName} -> userName) (\s@DeleteSSHPublicKey' {} a -> s {userName = a} :: DeleteSSHPublicKey)
 
+-- | The unique identifier for the SSH public key.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- that can consist of any upper or lowercased letter or digit.
+deleteSSHPublicKey_sSHPublicKeyId :: Lens.Lens' DeleteSSHPublicKey Prelude.Text
+deleteSSHPublicKey_sSHPublicKeyId = Lens.lens (\DeleteSSHPublicKey' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@DeleteSSHPublicKey' {} a -> s {sSHPublicKeyId = a} :: DeleteSSHPublicKey)
 
-instance NFData DeleteSSHPublicKeyResponse where
+instance Core.AWSRequest DeleteSSHPublicKey where
+  type
+    AWSResponse DeleteSSHPublicKey =
+      DeleteSSHPublicKeyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeleteSSHPublicKeyResponse'
+
+instance Prelude.Hashable DeleteSSHPublicKey
+
+instance Prelude.NFData DeleteSSHPublicKey
+
+instance Core.ToHeaders DeleteSSHPublicKey where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteSSHPublicKey where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteSSHPublicKey where
+  toQuery DeleteSSHPublicKey' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteSSHPublicKey" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Core.=: userName,
+        "SSHPublicKeyId" Core.=: sSHPublicKeyId
+      ]
+
+-- | /See:/ 'newDeleteSSHPublicKeyResponse' smart constructor.
+data DeleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteSSHPublicKeyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteSSHPublicKeyResponse ::
+  DeleteSSHPublicKeyResponse
+newDeleteSSHPublicKeyResponse =
+  DeleteSSHPublicKeyResponse'
+
+instance Prelude.NFData DeleteSSHPublicKeyResponse

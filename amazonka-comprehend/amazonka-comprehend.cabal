@@ -1,0 +1,228 @@
+cabal-version:      2.2
+name:               amazonka-comprehend
+version:            1.6.1
+synopsis:           Amazon Comprehend SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2017-11-27@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Comprehend.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Comprehend" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-comprehend
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Comprehend
+    Network.AWS.Comprehend.BatchDetectDominantLanguage
+    Network.AWS.Comprehend.BatchDetectEntities
+    Network.AWS.Comprehend.BatchDetectKeyPhrases
+    Network.AWS.Comprehend.BatchDetectSentiment
+    Network.AWS.Comprehend.BatchDetectSyntax
+    Network.AWS.Comprehend.ClassifyDocument
+    Network.AWS.Comprehend.ContainsPiiEntities
+    Network.AWS.Comprehend.CreateDocumentClassifier
+    Network.AWS.Comprehend.CreateEndpoint
+    Network.AWS.Comprehend.CreateEntityRecognizer
+    Network.AWS.Comprehend.DeleteDocumentClassifier
+    Network.AWS.Comprehend.DeleteEndpoint
+    Network.AWS.Comprehend.DeleteEntityRecognizer
+    Network.AWS.Comprehend.DescribeDocumentClassificationJob
+    Network.AWS.Comprehend.DescribeDocumentClassifier
+    Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
+    Network.AWS.Comprehend.DescribeEndpoint
+    Network.AWS.Comprehend.DescribeEntitiesDetectionJob
+    Network.AWS.Comprehend.DescribeEntityRecognizer
+    Network.AWS.Comprehend.DescribeEventsDetectionJob
+    Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
+    Network.AWS.Comprehend.DescribePiiEntitiesDetectionJob
+    Network.AWS.Comprehend.DescribeSentimentDetectionJob
+    Network.AWS.Comprehend.DescribeTopicsDetectionJob
+    Network.AWS.Comprehend.DetectDominantLanguage
+    Network.AWS.Comprehend.DetectEntities
+    Network.AWS.Comprehend.DetectKeyPhrases
+    Network.AWS.Comprehend.DetectPiiEntities
+    Network.AWS.Comprehend.DetectSentiment
+    Network.AWS.Comprehend.DetectSyntax
+    Network.AWS.Comprehend.Lens
+    Network.AWS.Comprehend.ListDocumentClassificationJobs
+    Network.AWS.Comprehend.ListDocumentClassifiers
+    Network.AWS.Comprehend.ListDocumentClassifierSummaries
+    Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
+    Network.AWS.Comprehend.ListEndpoints
+    Network.AWS.Comprehend.ListEntitiesDetectionJobs
+    Network.AWS.Comprehend.ListEntityRecognizers
+    Network.AWS.Comprehend.ListEntityRecognizerSummaries
+    Network.AWS.Comprehend.ListEventsDetectionJobs
+    Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs
+    Network.AWS.Comprehend.ListPiiEntitiesDetectionJobs
+    Network.AWS.Comprehend.ListSentimentDetectionJobs
+    Network.AWS.Comprehend.ListTagsForResource
+    Network.AWS.Comprehend.ListTopicsDetectionJobs
+    Network.AWS.Comprehend.StartDocumentClassificationJob
+    Network.AWS.Comprehend.StartDominantLanguageDetectionJob
+    Network.AWS.Comprehend.StartEntitiesDetectionJob
+    Network.AWS.Comprehend.StartEventsDetectionJob
+    Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
+    Network.AWS.Comprehend.StartPiiEntitiesDetectionJob
+    Network.AWS.Comprehend.StartSentimentDetectionJob
+    Network.AWS.Comprehend.StartTopicsDetectionJob
+    Network.AWS.Comprehend.StopDominantLanguageDetectionJob
+    Network.AWS.Comprehend.StopEntitiesDetectionJob
+    Network.AWS.Comprehend.StopEventsDetectionJob
+    Network.AWS.Comprehend.StopKeyPhrasesDetectionJob
+    Network.AWS.Comprehend.StopPiiEntitiesDetectionJob
+    Network.AWS.Comprehend.StopSentimentDetectionJob
+    Network.AWS.Comprehend.StopTrainingDocumentClassifier
+    Network.AWS.Comprehend.StopTrainingEntityRecognizer
+    Network.AWS.Comprehend.TagResource
+    Network.AWS.Comprehend.Types
+    Network.AWS.Comprehend.Types.AugmentedManifestsDocumentTypeFormat
+    Network.AWS.Comprehend.Types.AugmentedManifestsListItem
+    Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult
+    Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
+    Network.AWS.Comprehend.Types.BatchDetectKeyPhrasesItemResult
+    Network.AWS.Comprehend.Types.BatchDetectSentimentItemResult
+    Network.AWS.Comprehend.Types.BatchDetectSyntaxItemResult
+    Network.AWS.Comprehend.Types.BatchItemError
+    Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics
+    Network.AWS.Comprehend.Types.ClassifierMetadata
+    Network.AWS.Comprehend.Types.DocumentClass
+    Network.AWS.Comprehend.Types.DocumentClassificationJobFilter
+    Network.AWS.Comprehend.Types.DocumentClassificationJobProperties
+    Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
+    Network.AWS.Comprehend.Types.DocumentClassifierFilter
+    Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
+    Network.AWS.Comprehend.Types.DocumentClassifierMode
+    Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
+    Network.AWS.Comprehend.Types.DocumentClassifierProperties
+    Network.AWS.Comprehend.Types.DocumentClassifierSummary
+    Network.AWS.Comprehend.Types.DocumentLabel
+    Network.AWS.Comprehend.Types.DocumentReadAction
+    Network.AWS.Comprehend.Types.DocumentReaderConfig
+    Network.AWS.Comprehend.Types.DocumentReadFeatureTypes
+    Network.AWS.Comprehend.Types.DocumentReadMode
+    Network.AWS.Comprehend.Types.DominantLanguage
+    Network.AWS.Comprehend.Types.DominantLanguageDetectionJobFilter
+    Network.AWS.Comprehend.Types.DominantLanguageDetectionJobProperties
+    Network.AWS.Comprehend.Types.EndpointFilter
+    Network.AWS.Comprehend.Types.EndpointProperties
+    Network.AWS.Comprehend.Types.EndpointStatus
+    Network.AWS.Comprehend.Types.EntitiesDetectionJobFilter
+    Network.AWS.Comprehend.Types.EntitiesDetectionJobProperties
+    Network.AWS.Comprehend.Types.Entity
+    Network.AWS.Comprehend.Types.EntityLabel
+    Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
+    Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
+    Network.AWS.Comprehend.Types.EntityRecognizerDocuments
+    Network.AWS.Comprehend.Types.EntityRecognizerEntityList
+    Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics
+    Network.AWS.Comprehend.Types.EntityRecognizerFilter
+    Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig
+    Network.AWS.Comprehend.Types.EntityRecognizerMetadata
+    Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
+    Network.AWS.Comprehend.Types.EntityRecognizerProperties
+    Network.AWS.Comprehend.Types.EntityRecognizerSummary
+    Network.AWS.Comprehend.Types.EntityType
+    Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
+    Network.AWS.Comprehend.Types.EntityTypesListItem
+    Network.AWS.Comprehend.Types.EventsDetectionJobFilter
+    Network.AWS.Comprehend.Types.EventsDetectionJobProperties
+    Network.AWS.Comprehend.Types.InputDataConfig
+    Network.AWS.Comprehend.Types.InputFormat
+    Network.AWS.Comprehend.Types.JobStatus
+    Network.AWS.Comprehend.Types.KeyPhrase
+    Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter
+    Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobProperties
+    Network.AWS.Comprehend.Types.LanguageCode
+    Network.AWS.Comprehend.Types.ModelStatus
+    Network.AWS.Comprehend.Types.OutputDataConfig
+    Network.AWS.Comprehend.Types.PartOfSpeechTag
+    Network.AWS.Comprehend.Types.PartOfSpeechTagType
+    Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobFilter
+    Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobProperties
+    Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode
+    Network.AWS.Comprehend.Types.PiiEntitiesDetectionMode
+    Network.AWS.Comprehend.Types.PiiEntity
+    Network.AWS.Comprehend.Types.PiiEntityType
+    Network.AWS.Comprehend.Types.PiiOutputDataConfig
+    Network.AWS.Comprehend.Types.RedactionConfig
+    Network.AWS.Comprehend.Types.SentimentDetectionJobFilter
+    Network.AWS.Comprehend.Types.SentimentDetectionJobProperties
+    Network.AWS.Comprehend.Types.SentimentScore
+    Network.AWS.Comprehend.Types.SentimentType
+    Network.AWS.Comprehend.Types.Split
+    Network.AWS.Comprehend.Types.SyntaxLanguageCode
+    Network.AWS.Comprehend.Types.SyntaxToken
+    Network.AWS.Comprehend.Types.Tag
+    Network.AWS.Comprehend.Types.TopicsDetectionJobFilter
+    Network.AWS.Comprehend.Types.TopicsDetectionJobProperties
+    Network.AWS.Comprehend.Types.VpcConfig
+    Network.AWS.Comprehend.UntagResource
+    Network.AWS.Comprehend.UpdateEndpoint
+    Network.AWS.Comprehend.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
+
+test-suite amazonka-comprehend-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Comprehend
+    Test.AWS.Comprehend.Internal
+    Test.AWS.Gen.Comprehend
+
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-comprehend
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

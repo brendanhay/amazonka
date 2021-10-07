@@ -1,119 +1,158 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists information about a resource.
---
---
 module Network.AWS.APIGateway.GetResource
-    (
-    -- * Creating a Request
-      getResource
-    , GetResource
+  ( -- * Creating a Request
+    GetResource (..),
+    newGetResource,
+
     -- * Request Lenses
-    , grEmbed
-    , grRestAPIId
-    , grResourceId
+    getResource_embed,
+    getResource_restApiId,
+    getResource_resourceId,
 
     -- * Destructuring the Response
-    , resource
-    , Resource
+    Resource (..),
+    newResource,
+
     -- * Response Lenses
-    , rPathPart
-    , rPath
-    , rId
-    , rResourceMethods
-    , rParentId
-    ) where
+    resource_id,
+    resource_pathPart,
+    resource_parentId,
+    resource_resourceMethods,
+    resource_path,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to list information about a resource.
 --
---
---
--- /See:/ 'getResource' smart constructor.
+-- /See:/ 'newGetResource' smart constructor.
 data GetResource = GetResource'
-  { _grEmbed      :: !(Maybe [Text])
-  , _grRestAPIId  :: !Text
-  , _grResourceId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A query parameter to retrieve the specified resources embedded in the
+    -- returned Resource representation in the response. This @embed@ parameter
+    -- value is a list of comma-separated strings. Currently, the request
+    -- supports only retrieval of the embedded Method resources this way. The
+    -- query parameter value must be a single-valued list and contain the
+    -- @\"methods\"@ string. For example,
+    -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
+    embed :: Prelude.Maybe [Prelude.Text],
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The identifier for the Resource resource.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grEmbed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grRestAPIId' - The string identifier of the associated 'RestApi' .
+-- 'embed', 'getResource_embed' - A query parameter to retrieve the specified resources embedded in the
+-- returned Resource representation in the response. This @embed@ parameter
+-- value is a list of comma-separated strings. Currently, the request
+-- supports only retrieval of the embedded Method resources this way. The
+-- query parameter value must be a single-valued list and contain the
+-- @\"methods\"@ string. For example,
+-- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
 --
--- * 'grResourceId' - The identifier for the 'Resource' resource.
-getResource
-    :: Text -- ^ 'grRestAPIId'
-    -> Text -- ^ 'grResourceId'
-    -> GetResource
-getResource pRestAPIId_ pResourceId_ =
+-- 'restApiId', 'getResource_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'resourceId', 'getResource_resourceId' - [Required] The identifier for the Resource resource.
+newGetResource ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  GetResource
+newGetResource pRestApiId_ pResourceId_ =
   GetResource'
-  {_grEmbed = Nothing, _grRestAPIId = pRestAPIId_, _grResourceId = pResourceId_}
+    { embed = Prelude.Nothing,
+      restApiId = pRestApiId_,
+      resourceId = pResourceId_
+    }
 
+-- | A query parameter to retrieve the specified resources embedded in the
+-- returned Resource representation in the response. This @embed@ parameter
+-- value is a list of comma-separated strings. Currently, the request
+-- supports only retrieval of the embedded Method resources this way. The
+-- query parameter value must be a single-valued list and contain the
+-- @\"methods\"@ string. For example,
+-- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
+getResource_embed :: Lens.Lens' GetResource (Prelude.Maybe [Prelude.Text])
+getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Prelude.. Lens.mapping Lens._Coerce
 
--- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
-grEmbed :: Lens' GetResource [Text]
-grEmbed = lens _grEmbed (\ s a -> s{_grEmbed = a}) . _Default . _Coerce;
+-- | [Required] The string identifier of the associated RestApi.
+getResource_restApiId :: Lens.Lens' GetResource Prelude.Text
+getResource_restApiId = Lens.lens (\GetResource' {restApiId} -> restApiId) (\s@GetResource' {} a -> s {restApiId = a} :: GetResource)
 
--- | The string identifier of the associated 'RestApi' .
-grRestAPIId :: Lens' GetResource Text
-grRestAPIId = lens _grRestAPIId (\ s a -> s{_grRestAPIId = a});
+-- | [Required] The identifier for the Resource resource.
+getResource_resourceId :: Lens.Lens' GetResource Prelude.Text
+getResource_resourceId = Lens.lens (\GetResource' {resourceId} -> resourceId) (\s@GetResource' {} a -> s {resourceId = a} :: GetResource)
 
--- | The identifier for the 'Resource' resource.
-grResourceId :: Lens' GetResource Text
-grResourceId = lens _grResourceId (\ s a -> s{_grResourceId = a});
+instance Core.AWSRequest GetResource where
+  type AWSResponse GetResource = Resource
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetResource where
-        type Rs GetResource = Resource
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetResource
 
-instance Hashable GetResource where
+instance Prelude.NFData GetResource
 
-instance NFData GetResource where
+instance Core.ToHeaders GetResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToPath GetResource where
+  toPath GetResource' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/resources/",
+        Core.toBS resourceId
+      ]
 
-instance ToPath GetResource where
-        toPath GetResource'{..}
-          = mconcat
-              ["/restapis/", toBS _grRestAPIId, "/resources/",
-               toBS _grResourceId]
-
-instance ToQuery GetResource where
-        toQuery GetResource'{..}
-          = mconcat
-              ["embed" =:
-                 toQuery (toQueryList "member" <$> _grEmbed)]
+instance Core.ToQuery GetResource where
+  toQuery GetResource' {..} =
+    Prelude.mconcat
+      [ "embed"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> embed)
+      ]

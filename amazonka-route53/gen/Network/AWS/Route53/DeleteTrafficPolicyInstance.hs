@@ -1,124 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteTrafficPolicyInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.
+-- Deletes a traffic policy instance and all of the resource record sets
+-- that Amazon Route 53 created when you created the instance.
 --
---
+-- In the Route 53 console, traffic policy instances are known as policy
+-- records.
 module Network.AWS.Route53.DeleteTrafficPolicyInstance
-    (
-    -- * Creating a Request
-      deleteTrafficPolicyInstance
-    , DeleteTrafficPolicyInstance
+  ( -- * Creating a Request
+    DeleteTrafficPolicyInstance (..),
+    newDeleteTrafficPolicyInstance,
+
     -- * Request Lenses
-    , dtpiId
+    deleteTrafficPolicyInstance_id,
 
     -- * Destructuring the Response
-    , deleteTrafficPolicyInstanceResponse
-    , DeleteTrafficPolicyInstanceResponse
-    -- * Response Lenses
-    , dtpirsResponseStatus
-    ) where
+    DeleteTrafficPolicyInstanceResponse (..),
+    newDeleteTrafficPolicyInstanceResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    deleteTrafficPolicyInstanceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
 -- | A request to delete a specified traffic policy instance.
 --
+-- /See:/ 'newDeleteTrafficPolicyInstance' smart constructor.
+data DeleteTrafficPolicyInstance = DeleteTrafficPolicyInstance'
+  { -- | The ID of the traffic policy instance that you want to delete.
+    --
+    -- When you delete a traffic policy instance, Amazon Route 53 also deletes
+    -- all of the resource record sets that were created when you created the
+    -- traffic policy instance.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteTrafficPolicyInstance' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteTrafficPolicyInstance' smart constructor.
-newtype DeleteTrafficPolicyInstance = DeleteTrafficPolicyInstance'
-  { _dtpiId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteTrafficPolicyInstance' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'id', 'deleteTrafficPolicyInstance_id' - The ID of the traffic policy instance that you want to delete.
 --
--- * 'dtpiId' - The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
-deleteTrafficPolicyInstance
-    :: Text -- ^ 'dtpiId'
-    -> DeleteTrafficPolicyInstance
-deleteTrafficPolicyInstance pId_ = DeleteTrafficPolicyInstance' {_dtpiId = pId_}
+-- When you delete a traffic policy instance, Amazon Route 53 also deletes
+-- all of the resource record sets that were created when you created the
+-- traffic policy instance.
+newDeleteTrafficPolicyInstance ::
+  -- | 'id'
+  Prelude.Text ->
+  DeleteTrafficPolicyInstance
+newDeleteTrafficPolicyInstance pId_ =
+  DeleteTrafficPolicyInstance' {id = pId_}
 
+-- | The ID of the traffic policy instance that you want to delete.
+--
+-- When you delete a traffic policy instance, Amazon Route 53 also deletes
+-- all of the resource record sets that were created when you created the
+-- traffic policy instance.
+deleteTrafficPolicyInstance_id :: Lens.Lens' DeleteTrafficPolicyInstance Prelude.Text
+deleteTrafficPolicyInstance_id = Lens.lens (\DeleteTrafficPolicyInstance' {id} -> id) (\s@DeleteTrafficPolicyInstance' {} a -> s {id = a} :: DeleteTrafficPolicyInstance)
 
--- | The ID of the traffic policy instance that you want to delete.  /Important:/ When you delete a traffic policy instance, Amazon Route 53 also deletes all of the resource record sets that were created when you created the traffic policy instance.
-dtpiId :: Lens' DeleteTrafficPolicyInstance Text
-dtpiId = lens _dtpiId (\ s a -> s{_dtpiId = a});
+instance Core.AWSRequest DeleteTrafficPolicyInstance where
+  type
+    AWSResponse DeleteTrafficPolicyInstance =
+      DeleteTrafficPolicyInstanceResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteTrafficPolicyInstanceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteTrafficPolicyInstance where
-        type Rs DeleteTrafficPolicyInstance =
-             DeleteTrafficPolicyInstanceResponse
-        request = delete route53
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteTrafficPolicyInstanceResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.Hashable DeleteTrafficPolicyInstance
 
-instance Hashable DeleteTrafficPolicyInstance where
+instance Prelude.NFData DeleteTrafficPolicyInstance
 
-instance NFData DeleteTrafficPolicyInstance where
+instance Core.ToHeaders DeleteTrafficPolicyInstance where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DeleteTrafficPolicyInstance where
-        toHeaders = const mempty
+instance Core.ToPath DeleteTrafficPolicyInstance where
+  toPath DeleteTrafficPolicyInstance' {..} =
+    Prelude.mconcat
+      ["/2013-04-01/trafficpolicyinstance/", Core.toBS id]
 
-instance ToPath DeleteTrafficPolicyInstance where
-        toPath DeleteTrafficPolicyInstance'{..}
-          = mconcat
-              ["/2013-04-01/trafficpolicyinstance/", toBS _dtpiId]
-
-instance ToQuery DeleteTrafficPolicyInstance where
-        toQuery = const mempty
+instance Core.ToQuery DeleteTrafficPolicyInstance where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | An empty element.
 --
---
---
--- /See:/ 'deleteTrafficPolicyInstanceResponse' smart constructor.
-newtype DeleteTrafficPolicyInstanceResponse = DeleteTrafficPolicyInstanceResponse'
-  { _dtpirsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteTrafficPolicyInstanceResponse' smart constructor.
+data DeleteTrafficPolicyInstanceResponse = DeleteTrafficPolicyInstanceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTrafficPolicyInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTrafficPolicyInstanceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtpirsResponseStatus' - -- | The response status code.
-deleteTrafficPolicyInstanceResponse
-    :: Int -- ^ 'dtpirsResponseStatus'
-    -> DeleteTrafficPolicyInstanceResponse
-deleteTrafficPolicyInstanceResponse pResponseStatus_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteTrafficPolicyInstanceResponse_httpStatus' - The response's http status code.
+newDeleteTrafficPolicyInstanceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTrafficPolicyInstanceResponse
+newDeleteTrafficPolicyInstanceResponse pHttpStatus_ =
   DeleteTrafficPolicyInstanceResponse'
-  {_dtpirsResponseStatus = pResponseStatus_}
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' DeleteTrafficPolicyInstanceResponse Prelude.Int
+deleteTrafficPolicyInstanceResponse_httpStatus = Lens.lens (\DeleteTrafficPolicyInstanceResponse' {httpStatus} -> httpStatus) (\s@DeleteTrafficPolicyInstanceResponse' {} a -> s {httpStatus = a} :: DeleteTrafficPolicyInstanceResponse)
 
--- | -- | The response status code.
-dtpirsResponseStatus :: Lens' DeleteTrafficPolicyInstanceResponse Int
-dtpirsResponseStatus = lens _dtpirsResponseStatus (\ s a -> s{_dtpirsResponseStatus = a});
-
-instance NFData DeleteTrafficPolicyInstanceResponse
-         where
+instance
+  Prelude.NFData
+    DeleteTrafficPolicyInstanceResponse

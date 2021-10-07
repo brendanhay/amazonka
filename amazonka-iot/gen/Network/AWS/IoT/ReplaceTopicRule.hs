@@ -1,118 +1,141 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.ReplaceTopicRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+-- Replaces the rule. You must specify all parameters for the new rule.
+-- Creating rules is an administrator-level action. Any user who has
+-- permission to create rules will be able to access data processed by the
+-- rule.
 --
---
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ReplaceTopicRule>
+-- action.
 module Network.AWS.IoT.ReplaceTopicRule
-    (
-    -- * Creating a Request
-      replaceTopicRule
-    , ReplaceTopicRule
+  ( -- * Creating a Request
+    ReplaceTopicRule (..),
+    newReplaceTopicRule,
+
     -- * Request Lenses
-    , rtrRuleName
-    , rtrTopicRulePayload
+    replaceTopicRule_ruleName,
+    replaceTopicRule_topicRulePayload,
 
     -- * Destructuring the Response
-    , replaceTopicRuleResponse
-    , ReplaceTopicRuleResponse
-    ) where
+    ReplaceTopicRuleResponse (..),
+    newReplaceTopicRuleResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the ReplaceTopicRule operation.
 --
---
---
--- /See:/ 'replaceTopicRule' smart constructor.
+-- /See:/ 'newReplaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
-  { _rtrRuleName         :: !Text
-  , _rtrTopicRulePayload :: !TopicRulePayload
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the rule.
+    ruleName :: Prelude.Text,
+    -- | The rule payload.
+    topicRulePayload :: TopicRulePayload
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ReplaceTopicRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ReplaceTopicRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtrRuleName' - The name of the rule.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtrTopicRulePayload' - The rule payload.
-replaceTopicRule
-    :: Text -- ^ 'rtrRuleName'
-    -> TopicRulePayload -- ^ 'rtrTopicRulePayload'
-    -> ReplaceTopicRule
-replaceTopicRule pRuleName_ pTopicRulePayload_ =
+-- 'ruleName', 'replaceTopicRule_ruleName' - The name of the rule.
+--
+-- 'topicRulePayload', 'replaceTopicRule_topicRulePayload' - The rule payload.
+newReplaceTopicRule ::
+  -- | 'ruleName'
+  Prelude.Text ->
+  -- | 'topicRulePayload'
+  TopicRulePayload ->
+  ReplaceTopicRule
+newReplaceTopicRule pRuleName_ pTopicRulePayload_ =
   ReplaceTopicRule'
-  {_rtrRuleName = pRuleName_, _rtrTopicRulePayload = pTopicRulePayload_}
-
+    { ruleName = pRuleName_,
+      topicRulePayload = pTopicRulePayload_
+    }
 
 -- | The name of the rule.
-rtrRuleName :: Lens' ReplaceTopicRule Text
-rtrRuleName = lens _rtrRuleName (\ s a -> s{_rtrRuleName = a});
+replaceTopicRule_ruleName :: Lens.Lens' ReplaceTopicRule Prelude.Text
+replaceTopicRule_ruleName = Lens.lens (\ReplaceTopicRule' {ruleName} -> ruleName) (\s@ReplaceTopicRule' {} a -> s {ruleName = a} :: ReplaceTopicRule)
 
 -- | The rule payload.
-rtrTopicRulePayload :: Lens' ReplaceTopicRule TopicRulePayload
-rtrTopicRulePayload = lens _rtrTopicRulePayload (\ s a -> s{_rtrTopicRulePayload = a});
+replaceTopicRule_topicRulePayload :: Lens.Lens' ReplaceTopicRule TopicRulePayload
+replaceTopicRule_topicRulePayload = Lens.lens (\ReplaceTopicRule' {topicRulePayload} -> topicRulePayload) (\s@ReplaceTopicRule' {} a -> s {topicRulePayload = a} :: ReplaceTopicRule)
 
-instance AWSRequest ReplaceTopicRule where
-        type Rs ReplaceTopicRule = ReplaceTopicRuleResponse
-        request = patchJSON ioT
-        response = receiveNull ReplaceTopicRuleResponse'
+instance Core.AWSRequest ReplaceTopicRule where
+  type
+    AWSResponse ReplaceTopicRule =
+      ReplaceTopicRuleResponse
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveNull ReplaceTopicRuleResponse'
 
-instance Hashable ReplaceTopicRule where
+instance Prelude.Hashable ReplaceTopicRule
 
-instance NFData ReplaceTopicRule where
+instance Prelude.NFData ReplaceTopicRule
 
-instance ToHeaders ReplaceTopicRule where
-        toHeaders = const mempty
+instance Core.ToHeaders ReplaceTopicRule where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON ReplaceTopicRule where
-        toJSON ReplaceTopicRule'{..}
-          = object
-              (catMaybes
-                 [Just ("topicRulePayload" .= _rtrTopicRulePayload)])
+instance Core.ToJSON ReplaceTopicRule where
+  toJSON ReplaceTopicRule' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("topicRulePayload" Core..= topicRulePayload)
+          ]
+      )
 
-instance ToPath ReplaceTopicRule where
-        toPath ReplaceTopicRule'{..}
-          = mconcat ["/rules/", toBS _rtrRuleName]
+instance Core.ToPath ReplaceTopicRule where
+  toPath ReplaceTopicRule' {..} =
+    Prelude.mconcat ["/rules/", Core.toBS ruleName]
 
-instance ToQuery ReplaceTopicRule where
-        toQuery = const mempty
+instance Core.ToQuery ReplaceTopicRule where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'replaceTopicRuleResponse' smart constructor.
-data ReplaceTopicRuleResponse =
-  ReplaceTopicRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newReplaceTopicRuleResponse' smart constructor.
+data ReplaceTopicRuleResponse = ReplaceTopicRuleResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ReplaceTopicRuleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ReplaceTopicRuleResponse' with all optional fields omitted.
 --
-replaceTopicRuleResponse
-    :: ReplaceTopicRuleResponse
-replaceTopicRuleResponse = ReplaceTopicRuleResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newReplaceTopicRuleResponse ::
+  ReplaceTopicRuleResponse
+newReplaceTopicRuleResponse =
+  ReplaceTopicRuleResponse'
 
-
-instance NFData ReplaceTopicRuleResponse where
+instance Prelude.NFData ReplaceTopicRuleResponse

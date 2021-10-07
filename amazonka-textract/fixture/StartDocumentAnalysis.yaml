@@ -1,0 +1,10 @@
+---
+method: POST
+headers:
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/textract/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
+  Host:                  textract.us-east-1.amazonaws.com
+  Content-Type:          application/x-www-form-urlencoded; charset=utf-8
+  X-Amz-Content-SHA256:  abcdef
+  X-Amz-Date:            20091028T223200Z
+body:
+  ''

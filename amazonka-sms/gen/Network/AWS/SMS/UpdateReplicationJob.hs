@@ -1,177 +1,289 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SMS.UpdateReplicationJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The UpdateReplicationJob API is used to change the settings of your existing ReplicationJob created using CreateReplicationJob. Calling this API will affect the next scheduled ReplicationRun.
+-- Updates the specified settings for the specified replication job.
 module Network.AWS.SMS.UpdateReplicationJob
-    (
-    -- * Creating a Request
-      updateReplicationJob
-    , UpdateReplicationJob
+  ( -- * Creating a Request
+    UpdateReplicationJob (..),
+    newUpdateReplicationJob,
+
     -- * Request Lenses
-    , urjFrequency
-    , urjLicenseType
-    , urjRoleName
-    , urjNextReplicationRunStartTime
-    , urjDescription
-    , urjReplicationJobId
+    updateReplicationJob_nextReplicationRunStartTime,
+    updateReplicationJob_numberOfRecentAmisToKeep,
+    updateReplicationJob_encrypted,
+    updateReplicationJob_roleName,
+    updateReplicationJob_kmsKeyId,
+    updateReplicationJob_frequency,
+    updateReplicationJob_description,
+    updateReplicationJob_licenseType,
+    updateReplicationJob_replicationJobId,
 
     -- * Destructuring the Response
-    , updateReplicationJobResponse
-    , UpdateReplicationJobResponse
+    UpdateReplicationJobResponse (..),
+    newUpdateReplicationJobResponse,
+
     -- * Response Lenses
-    , urjrsResponseStatus
-    ) where
+    updateReplicationJobResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
-import Network.AWS.SMS.Types.Product
 
--- | /See:/ 'updateReplicationJob' smart constructor.
+-- | /See:/ 'newUpdateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
-  { _urjFrequency                   :: !(Maybe Int)
-  , _urjLicenseType                 :: !(Maybe LicenseType)
-  , _urjRoleName                    :: !(Maybe Text)
-  , _urjNextReplicationRunStartTime :: !(Maybe POSIX)
-  , _urjDescription                 :: !(Maybe Text)
-  , _urjReplicationJobId            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateReplicationJob' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urjFrequency' - Undocumented member.
---
--- * 'urjLicenseType' - Undocumented member.
---
--- * 'urjRoleName' - Undocumented member.
---
--- * 'urjNextReplicationRunStartTime' - Undocumented member.
---
--- * 'urjDescription' - Undocumented member.
---
--- * 'urjReplicationJobId' - Undocumented member.
-updateReplicationJob
-    :: Text -- ^ 'urjReplicationJobId'
-    -> UpdateReplicationJob
-updateReplicationJob pReplicationJobId_ =
-  UpdateReplicationJob'
-  { _urjFrequency = Nothing
-  , _urjLicenseType = Nothing
-  , _urjRoleName = Nothing
-  , _urjNextReplicationRunStartTime = Nothing
-  , _urjDescription = Nothing
-  , _urjReplicationJobId = pReplicationJobId_
+  { -- | The start time of the next replication run.
+    nextReplicationRunStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
+    -- after the maximum number is reached and a new AMI is created.
+    numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
+    -- | When true, the replication job produces encrypted AMIs. For more
+    -- information, @KmsKeyId@.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the IAM role to be used by AWS SMS.
+    roleName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
+    -- This value can be any of the following:
+    --
+    -- -   KMS key ID
+    --
+    -- -   KMS key alias
+    --
+    -- -   ARN referring to the KMS key ID
+    --
+    -- -   ARN referring to the KMS key alias
+    --
+    -- If encrypted is enabled but a KMS key ID is not specified, the
+    -- customer\'s default KMS key for Amazon EBS is used.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The time between consecutive replication runs, in hours.
+    frequency :: Prelude.Maybe Prelude.Int,
+    -- | The description of the replication job.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The license type to be used for the AMI created by a successful
+    -- replication run.
+    licenseType :: Prelude.Maybe LicenseType,
+    -- | The ID of the replication job.
+    replicationJobId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Undocumented member.
-urjFrequency :: Lens' UpdateReplicationJob (Maybe Int)
-urjFrequency = lens _urjFrequency (\ s a -> s{_urjFrequency = a});
-
--- | Undocumented member.
-urjLicenseType :: Lens' UpdateReplicationJob (Maybe LicenseType)
-urjLicenseType = lens _urjLicenseType (\ s a -> s{_urjLicenseType = a});
-
--- | Undocumented member.
-urjRoleName :: Lens' UpdateReplicationJob (Maybe Text)
-urjRoleName = lens _urjRoleName (\ s a -> s{_urjRoleName = a});
-
--- | Undocumented member.
-urjNextReplicationRunStartTime :: Lens' UpdateReplicationJob (Maybe UTCTime)
-urjNextReplicationRunStartTime = lens _urjNextReplicationRunStartTime (\ s a -> s{_urjNextReplicationRunStartTime = a}) . mapping _Time;
-
--- | Undocumented member.
-urjDescription :: Lens' UpdateReplicationJob (Maybe Text)
-urjDescription = lens _urjDescription (\ s a -> s{_urjDescription = a});
-
--- | Undocumented member.
-urjReplicationJobId :: Lens' UpdateReplicationJob Text
-urjReplicationJobId = lens _urjReplicationJobId (\ s a -> s{_urjReplicationJobId = a});
-
-instance AWSRequest UpdateReplicationJob where
-        type Rs UpdateReplicationJob =
-             UpdateReplicationJobResponse
-        request = postJSON sms
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateReplicationJobResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable UpdateReplicationJob where
-
-instance NFData UpdateReplicationJob where
-
-instance ToHeaders UpdateReplicationJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSServerMigrationService_V2016_10_24.UpdateReplicationJob"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdateReplicationJob where
-        toJSON UpdateReplicationJob'{..}
-          = object
-              (catMaybes
-                 [("frequency" .=) <$> _urjFrequency,
-                  ("licenseType" .=) <$> _urjLicenseType,
-                  ("roleName" .=) <$> _urjRoleName,
-                  ("nextReplicationRunStartTime" .=) <$>
-                    _urjNextReplicationRunStartTime,
-                  ("description" .=) <$> _urjDescription,
-                  Just ("replicationJobId" .= _urjReplicationJobId)])
-
-instance ToPath UpdateReplicationJob where
-        toPath = const "/"
-
-instance ToQuery UpdateReplicationJob where
-        toQuery = const mempty
-
--- | /See:/ 'updateReplicationJobResponse' smart constructor.
-newtype UpdateReplicationJobResponse = UpdateReplicationJobResponse'
-  { _urjrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateReplicationJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateReplicationJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urjrsResponseStatus' - -- | The response status code.
-updateReplicationJobResponse
-    :: Int -- ^ 'urjrsResponseStatus'
-    -> UpdateReplicationJobResponse
-updateReplicationJobResponse pResponseStatus_ =
-  UpdateReplicationJobResponse' {_urjrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextReplicationRunStartTime', 'updateReplicationJob_nextReplicationRunStartTime' - The start time of the next replication run.
+--
+-- 'numberOfRecentAmisToKeep', 'updateReplicationJob_numberOfRecentAmisToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted
+-- after the maximum number is reached and a new AMI is created.
+--
+-- 'encrypted', 'updateReplicationJob_encrypted' - When true, the replication job produces encrypted AMIs. For more
+-- information, @KmsKeyId@.
+--
+-- 'roleName', 'updateReplicationJob_roleName' - The name of the IAM role to be used by AWS SMS.
+--
+-- 'kmsKeyId', 'updateReplicationJob_kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs.
+-- This value can be any of the following:
+--
+-- -   KMS key ID
+--
+-- -   KMS key alias
+--
+-- -   ARN referring to the KMS key ID
+--
+-- -   ARN referring to the KMS key alias
+--
+-- If encrypted is enabled but a KMS key ID is not specified, the
+-- customer\'s default KMS key for Amazon EBS is used.
+--
+-- 'frequency', 'updateReplicationJob_frequency' - The time between consecutive replication runs, in hours.
+--
+-- 'description', 'updateReplicationJob_description' - The description of the replication job.
+--
+-- 'licenseType', 'updateReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
+-- replication run.
+--
+-- 'replicationJobId', 'updateReplicationJob_replicationJobId' - The ID of the replication job.
+newUpdateReplicationJob ::
+  -- | 'replicationJobId'
+  Prelude.Text ->
+  UpdateReplicationJob
+newUpdateReplicationJob pReplicationJobId_ =
+  UpdateReplicationJob'
+    { nextReplicationRunStartTime =
+        Prelude.Nothing,
+      numberOfRecentAmisToKeep = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      roleName = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      frequency = Prelude.Nothing,
+      description = Prelude.Nothing,
+      licenseType = Prelude.Nothing,
+      replicationJobId = pReplicationJobId_
+    }
 
+-- | The start time of the next replication run.
+updateReplicationJob_nextReplicationRunStartTime :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.UTCTime)
+updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@UpdateReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: UpdateReplicationJob) Prelude.. Lens.mapping Core._Time
 
--- | -- | The response status code.
-urjrsResponseStatus :: Lens' UpdateReplicationJobResponse Int
-urjrsResponseStatus = lens _urjrsResponseStatus (\ s a -> s{_urjrsResponseStatus = a});
+-- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
+-- after the maximum number is reached and a new AMI is created.
+updateReplicationJob_numberOfRecentAmisToKeep :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
+updateReplicationJob_numberOfRecentAmisToKeep = Lens.lens (\UpdateReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@UpdateReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: UpdateReplicationJob)
 
-instance NFData UpdateReplicationJobResponse where
+-- | When true, the replication job produces encrypted AMIs. For more
+-- information, @KmsKeyId@.
+updateReplicationJob_encrypted :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Bool)
+updateReplicationJob_encrypted = Lens.lens (\UpdateReplicationJob' {encrypted} -> encrypted) (\s@UpdateReplicationJob' {} a -> s {encrypted = a} :: UpdateReplicationJob)
+
+-- | The name of the IAM role to be used by AWS SMS.
+updateReplicationJob_roleName :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
+updateReplicationJob_roleName = Lens.lens (\UpdateReplicationJob' {roleName} -> roleName) (\s@UpdateReplicationJob' {} a -> s {roleName = a} :: UpdateReplicationJob)
+
+-- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
+-- This value can be any of the following:
+--
+-- -   KMS key ID
+--
+-- -   KMS key alias
+--
+-- -   ARN referring to the KMS key ID
+--
+-- -   ARN referring to the KMS key alias
+--
+-- If encrypted is enabled but a KMS key ID is not specified, the
+-- customer\'s default KMS key for Amazon EBS is used.
+updateReplicationJob_kmsKeyId :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
+updateReplicationJob_kmsKeyId = Lens.lens (\UpdateReplicationJob' {kmsKeyId} -> kmsKeyId) (\s@UpdateReplicationJob' {} a -> s {kmsKeyId = a} :: UpdateReplicationJob)
+
+-- | The time between consecutive replication runs, in hours.
+updateReplicationJob_frequency :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
+updateReplicationJob_frequency = Lens.lens (\UpdateReplicationJob' {frequency} -> frequency) (\s@UpdateReplicationJob' {} a -> s {frequency = a} :: UpdateReplicationJob)
+
+-- | The description of the replication job.
+updateReplicationJob_description :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
+updateReplicationJob_description = Lens.lens (\UpdateReplicationJob' {description} -> description) (\s@UpdateReplicationJob' {} a -> s {description = a} :: UpdateReplicationJob)
+
+-- | The license type to be used for the AMI created by a successful
+-- replication run.
+updateReplicationJob_licenseType :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe LicenseType)
+updateReplicationJob_licenseType = Lens.lens (\UpdateReplicationJob' {licenseType} -> licenseType) (\s@UpdateReplicationJob' {} a -> s {licenseType = a} :: UpdateReplicationJob)
+
+-- | The ID of the replication job.
+updateReplicationJob_replicationJobId :: Lens.Lens' UpdateReplicationJob Prelude.Text
+updateReplicationJob_replicationJobId = Lens.lens (\UpdateReplicationJob' {replicationJobId} -> replicationJobId) (\s@UpdateReplicationJob' {} a -> s {replicationJobId = a} :: UpdateReplicationJob)
+
+instance Core.AWSRequest UpdateReplicationJob where
+  type
+    AWSResponse UpdateReplicationJob =
+      UpdateReplicationJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateReplicationJobResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateReplicationJob
+
+instance Prelude.NFData UpdateReplicationJob
+
+instance Core.ToHeaders UpdateReplicationJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdateReplicationJob where
+  toJSON UpdateReplicationJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextReplicationRunStartTime" Core..=)
+              Prelude.<$> nextReplicationRunStartTime,
+            ("numberOfRecentAmisToKeep" Core..=)
+              Prelude.<$> numberOfRecentAmisToKeep,
+            ("encrypted" Core..=) Prelude.<$> encrypted,
+            ("roleName" Core..=) Prelude.<$> roleName,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("frequency" Core..=) Prelude.<$> frequency,
+            ("description" Core..=) Prelude.<$> description,
+            ("licenseType" Core..=) Prelude.<$> licenseType,
+            Prelude.Just
+              ("replicationJobId" Core..= replicationJobId)
+          ]
+      )
+
+instance Core.ToPath UpdateReplicationJob where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateReplicationJob where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateReplicationJobResponse' smart constructor.
+data UpdateReplicationJobResponse = UpdateReplicationJobResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateReplicationJobResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateReplicationJobResponse_httpStatus' - The response's http status code.
+newUpdateReplicationJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateReplicationJobResponse
+newUpdateReplicationJobResponse pHttpStatus_ =
+  UpdateReplicationJobResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+updateReplicationJobResponse_httpStatus :: Lens.Lens' UpdateReplicationJobResponse Prelude.Int
+updateReplicationJobResponse_httpStatus = Lens.lens (\UpdateReplicationJobResponse' {httpStatus} -> httpStatus) (\s@UpdateReplicationJobResponse' {} a -> s {httpStatus = a} :: UpdateReplicationJobResponse)
+
+instance Prelude.NFData UpdateReplicationJobResponse

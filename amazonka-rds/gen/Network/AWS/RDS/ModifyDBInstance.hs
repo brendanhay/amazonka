@@ -1,485 +1,2143 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyDBInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies settings for a DB instance. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. To learn what modifications you can make to your DB instance, call 'DescribeValidDBInstanceModifications' before you call 'ModifyDBInstance' .
---
---
+-- Modifies settings for a DB instance. You can change one or more database
+-- configuration parameters by specifying these parameters and the new
+-- values in the request. To learn what modifications you can make to your
+-- DB instance, call @DescribeValidDBInstanceModifications@ before you call
+-- @ModifyDBInstance@.
 module Network.AWS.RDS.ModifyDBInstance
-    (
-    -- * Creating a Request
-      modifyDBInstance
-    , ModifyDBInstance
+  ( -- * Creating a Request
+    ModifyDBInstance (..),
+    newModifyDBInstance,
+
     -- * Request Lenses
-    , mdiEngineVersion
-    , mdiDBSecurityGroups
-    , mdiDBPortNumber
-    , mdiMasterUserPassword
-    , mdiPubliclyAccessible
-    , mdiAutoMinorVersionUpgrade
-    , mdiDBSubnetGroupName
-    , mdiMonitoringRoleARN
-    , mdiIOPS
-    , mdiAllowMajorVersionUpgrade
-    , mdiNewDBInstanceIdentifier
-    , mdiDomain
-    , mdiMonitoringInterval
-    , mdiTDECredentialPassword
-    , mdiDBInstanceClass
-    , mdiPromotionTier
-    , mdiLicenseModel
-    , mdiPreferredMaintenanceWindow
-    , mdiCACertificateIdentifier
-    , mdiEnablePerformanceInsights
-    , mdiDBParameterGroupName
-    , mdiPreferredBackupWindow
-    , mdiBackupRetentionPeriod
-    , mdiPerformanceInsightsKMSKeyId
-    , mdiVPCSecurityGroupIds
-    , mdiMultiAZ
-    , mdiAllocatedStorage
-    , mdiApplyImmediately
-    , mdiOptionGroupName
-    , mdiCopyTagsToSnapshot
-    , mdiTDECredentialARN
-    , mdiDomainIAMRoleName
-    , mdiEnableIAMDatabaseAuthentication
-    , mdiStorageType
-    , mdiDBInstanceIdentifier
+    modifyDBInstance_deletionProtection,
+    modifyDBInstance_preferredBackupWindow,
+    modifyDBInstance_backupRetentionPeriod,
+    modifyDBInstance_enablePerformanceInsights,
+    modifyDBInstance_dbPortNumber,
+    modifyDBInstance_maxAllocatedStorage,
+    modifyDBInstance_cACertificateIdentifier,
+    modifyDBInstance_dbSecurityGroups,
+    modifyDBInstance_enableIAMDatabaseAuthentication,
+    modifyDBInstance_useDefaultProcessorFeatures,
+    modifyDBInstance_storageType,
+    modifyDBInstance_optionGroupName,
+    modifyDBInstance_monitoringInterval,
+    modifyDBInstance_domain,
+    modifyDBInstance_allowMajorVersionUpgrade,
+    modifyDBInstance_monitoringRoleArn,
+    modifyDBInstance_dbSubnetGroupName,
+    modifyDBInstance_masterUserPassword,
+    modifyDBInstance_publiclyAccessible,
+    modifyDBInstance_multiAZ,
+    modifyDBInstance_performanceInsightsKMSKeyId,
+    modifyDBInstance_vpcSecurityGroupIds,
+    modifyDBInstance_dbParameterGroupName,
+    modifyDBInstance_engineVersion,
+    modifyDBInstance_performanceInsightsRetentionPeriod,
+    modifyDBInstance_licenseModel,
+    modifyDBInstance_preferredMaintenanceWindow,
+    modifyDBInstance_processorFeatures,
+    modifyDBInstance_promotionTier,
+    modifyDBInstance_dbInstanceClass,
+    modifyDBInstance_awsBackupRecoveryPointArn,
+    modifyDBInstance_tdeCredentialPassword,
+    modifyDBInstance_domainIAMRoleName,
+    modifyDBInstance_certificateRotationRestart,
+    modifyDBInstance_tdeCredentialArn,
+    modifyDBInstance_replicaMode,
+    modifyDBInstance_copyTagsToSnapshot,
+    modifyDBInstance_enableCustomerOwnedIp,
+    modifyDBInstance_cloudwatchLogsExportConfiguration,
+    modifyDBInstance_allocatedStorage,
+    modifyDBInstance_applyImmediately,
+    modifyDBInstance_newDBInstanceIdentifier,
+    modifyDBInstance_iops,
+    modifyDBInstance_autoMinorVersionUpgrade,
+    modifyDBInstance_dbInstanceIdentifier,
 
     -- * Destructuring the Response
-    , modifyDBInstanceResponse
-    , ModifyDBInstanceResponse
-    -- * Response Lenses
-    , mdirsDBInstance
-    , mdirsResponseStatus
-    ) where
+    ModifyDBInstanceResponse (..),
+    newModifyDBInstanceResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    modifyDBInstanceResponse_dbInstance,
+    modifyDBInstanceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'modifyDBInstance' smart constructor.
+-- /See:/ 'newModifyDBInstance' smart constructor.
 data ModifyDBInstance = ModifyDBInstance'
-  { _mdiEngineVersion                   :: !(Maybe Text)
-  , _mdiDBSecurityGroups                :: !(Maybe [Text])
-  , _mdiDBPortNumber                    :: !(Maybe Int)
-  , _mdiMasterUserPassword              :: !(Maybe Text)
-  , _mdiPubliclyAccessible              :: !(Maybe Bool)
-  , _mdiAutoMinorVersionUpgrade         :: !(Maybe Bool)
-  , _mdiDBSubnetGroupName               :: !(Maybe Text)
-  , _mdiMonitoringRoleARN               :: !(Maybe Text)
-  , _mdiIOPS                            :: !(Maybe Int)
-  , _mdiAllowMajorVersionUpgrade        :: !(Maybe Bool)
-  , _mdiNewDBInstanceIdentifier         :: !(Maybe Text)
-  , _mdiDomain                          :: !(Maybe Text)
-  , _mdiMonitoringInterval              :: !(Maybe Int)
-  , _mdiTDECredentialPassword           :: !(Maybe Text)
-  , _mdiDBInstanceClass                 :: !(Maybe Text)
-  , _mdiPromotionTier                   :: !(Maybe Int)
-  , _mdiLicenseModel                    :: !(Maybe Text)
-  , _mdiPreferredMaintenanceWindow      :: !(Maybe Text)
-  , _mdiCACertificateIdentifier         :: !(Maybe Text)
-  , _mdiEnablePerformanceInsights       :: !(Maybe Bool)
-  , _mdiDBParameterGroupName            :: !(Maybe Text)
-  , _mdiPreferredBackupWindow           :: !(Maybe Text)
-  , _mdiBackupRetentionPeriod           :: !(Maybe Int)
-  , _mdiPerformanceInsightsKMSKeyId     :: !(Maybe Text)
-  , _mdiVPCSecurityGroupIds             :: !(Maybe [Text])
-  , _mdiMultiAZ                         :: !(Maybe Bool)
-  , _mdiAllocatedStorage                :: !(Maybe Int)
-  , _mdiApplyImmediately                :: !(Maybe Bool)
-  , _mdiOptionGroupName                 :: !(Maybe Text)
-  , _mdiCopyTagsToSnapshot              :: !(Maybe Bool)
-  , _mdiTDECredentialARN                :: !(Maybe Text)
-  , _mdiDomainIAMRoleName               :: !(Maybe Text)
-  , _mdiEnableIAMDatabaseAuthentication :: !(Maybe Bool)
-  , _mdiStorageType                     :: !(Maybe Text)
-  , _mdiDBInstanceIdentifier            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ModifyDBInstance' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdiEngineVersion' - The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
---
--- * 'mdiDBSecurityGroups' - A list of DB security groups to authorize on this DB instance. Changing this setting does not result in an outage and the change is asynchronously applied as soon as possible. Constraints:     * If supplied, must match existing DBSecurityGroups.
---
--- * 'mdiDBPortNumber' - The port number on which the database accepts connections. The value of the @DBPortNumber@ parameter must not match any of the port values specified for options in the option group for the DB instance. Your database will restart when you change the @DBPortNumber@ value regardless of the value of the @ApplyImmediately@ parameter. __MySQL__  Default: @3306@  Valid Values: @1150-65535@  __MariaDB__  Default: @3306@  Valid Values: @1150-65535@  __PostgreSQL__  Default: @5432@  Valid Values: @1150-65535@  Type: Integer __Oracle__  Default: @1521@  Valid Values: @1150-65535@  __SQL Server__  Default: @1433@  Valid Values: @1150-65535@ except for @1434@ , @3389@ , @47001@ , @49152@ , and @49152@ through @49156@ .  __Amazon Aurora__  Default: @3306@  Valid Values: @1150-65535@
---
--- * 'mdiMasterUserPassword' - The new password for the master user. Can be any printable ASCII character except "/", """, or "@". Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  __Amazon Aurora__  Not applicable. The password for the master user is managed by the DB cluster. For more information, see 'ModifyDBCluster' .  Default: Uses existing setting __MariaDB__  Constraints: Must contain from 8 to 41 characters. __Microsoft SQL Server__  Constraints: Must contain from 8 to 128 characters. __MySQL__  Constraints: Must contain from 8 to 41 characters. __Oracle__  Constraints: Must contain from 8 to 30 characters. __PostgreSQL__  Constraints: Must contain from 8 to 128 characters.
---
--- * 'mdiPubliclyAccessible' - Boolean value that indicates if the DB instance has a publicly resolvable DNS name. Set to @True@ to make the DB instance Internet-facing with a publicly resolvable DNS name, which resolves to a public IP address. Set to @False@ to make the DB instance internal with a DNS name that resolves to a private IP address.  @PubliclyAccessible@ only applies to DB instances in a VPC. The DB instance must be part of a public subnet and @PubliclyAccessible@ must be true in order for it to be publicly accessible.  Changes to the @PubliclyAccessible@ parameter are applied immediately regardless of the value of the @ApplyImmediately@ parameter. Default: false
---
--- * 'mdiAutoMinorVersionUpgrade' - Indicates that minor version upgrades are applied automatically to the DB instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to @true@ during the maintenance window, and a newer minor version is available, and RDS has enabled auto patching for that engine version.
---
--- * 'mdiDBSubnetGroupName' - The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance> .  Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify @true@ for the @ApplyImmediately@ parameter.  Constraints: If supplied, must match the name of an existing DBSubnetGroup. Example: @mySubnetGroup@
---
--- * 'mdiMonitoringRoleARN' - The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, @arn:aws:iam:123456789012:role/emaccess@ . For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring> . If @MonitoringInterval@ is set to a value other than 0, then you must supply a @MonitoringRoleArn@ value.
---
--- * 'mdiIOPS' - The new Provisioned IOPS (I/O operations per second) value for the RDS instance. Changing this setting does not result in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  Default: Uses existing setting Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. If you are migrating from Provisioned IOPS to standard storage, set this value to 0. The DB instance will require a reboot for the change in storage type to take effect. __SQL Server__  Setting the IOPS value for the SQL Server database engine is not supported. Type: Integer If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
---
--- * 'mdiAllowMajorVersionUpgrade' - Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Constraints: This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
---
--- * 'mdiNewDBInstanceIdentifier' - The new DB instance identifier for the DB instance when renaming a DB instance. When you change the DB instance identifier, an instance reboot will occur immediately if you set @Apply Immediately@ to true, or will occur during the next maintenance window if @Apply Immediately@ to false. This value is stored as a lowercase string.  Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * The first character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @mydbinstance@
---
--- * 'mdiDomain' - The Active Directory Domain to move the instance to. Specify @none@ to remove the instance from its current domain. The domain must be created prior to this operation. Currently only a Microsoft SQL Server instance can be created in a Active Directory Domain.
---
--- * 'mdiMonitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If @MonitoringRoleArn@ is specified, then you must also set @MonitoringInterval@ to a value other than 0. Valid Values: @0, 1, 5, 10, 15, 30, 60@
---
--- * 'mdiTDECredentialPassword' - The password for the given ARN from the Key Store in order to access the device.
---
--- * 'mdiDBInstanceClass' - The new compute and memory capacity of the DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the Amazon RDS User Guide.  If you modify the DB instance class, an outage occurs during the change. The change is applied during the next maintenance window, unless @ApplyImmediately@ is specified as @true@ for this request.  Default: Uses existing setting
---
--- * 'mdiPromotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .  Default: 1 Valid Values: 0 - 15
---
--- * 'mdiLicenseModel' - The license model for the DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
---
--- * 'mdiPreferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied. Default: Uses existing setting Format: ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30 minutes
---
--- * 'mdiCACertificateIdentifier' - Indicates the certificate that needs to be associated with the instance.
---
--- * 'mdiEnablePerformanceInsights' - True to enable Performance Insights for the DB instance; otherwise false.
---
--- * 'mdiDBParameterGroupName' - The name of the DB parameter group to apply to the DB instance. Changing this setting does not result in an outage. The parameter group name itself is changed immediately, but the actual parameter changes are not applied until you reboot the instance without failover. The db instance will NOT be rebooted automatically and the parameter changes will NOT be applied during the next maintenance window. Default: Uses existing setting Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.
---
--- * 'mdiPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ parameter. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.  __Amazon Aurora__  Not applicable. The daily time range for creating automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * Must be in the format hh24:mi-hh24:mi     * Times should be in Universal Time Coordinated (UTC)     * Must not conflict with the preferred maintenance window     * Must be at least 30 minutes
---
--- * 'mdiBackupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The retention period for automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Default: Uses existing setting Constraints:     * Must be a value from 0 to 35     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6     * Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5     * Cannot be set to 0 if the DB instance is a source to Read Replicas
---
--- * 'mdiPerformanceInsightsKMSKeyId' - The KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
---
--- * 'mdiVPCSecurityGroupIds' - A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * If supplied, must match existing VpcSecurityGroupIds.
---
--- * 'mdiMultiAZ' - Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  Constraints: Cannot be specified if the DB instance is a Read Replica.
---
--- * 'mdiAllocatedStorage' - The new storage capacity of the RDS instance. Changing this setting does not result in an outage and the change is applied during the next maintenance window unless @ApplyImmediately@ is set to @true@ for this request.  __MySQL__  Default: Uses existing setting Valid Values: 5-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. Type: Integer __MariaDB__  Default: Uses existing setting Valid Values: 5-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. Type: Integer __PostgreSQL__  Default: Uses existing setting Valid Values: 5-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. Type: Integer __Oracle__  Default: Uses existing setting Valid Values: 10-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. __SQL Server__  Cannot be modified. If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
---
--- * 'mdiApplyImmediately' - Specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the @PreferredMaintenanceWindow@ setting for the DB instance.  If this parameter is set to @false@ , changes to the DB instance are applied during the next maintenance window. Some parameter changes can cause an outage and are applied on the next call to 'RebootDBInstance' , or the next failure reboot. Review the table of parameters in <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance and Using the Apply Immediately Parameter> to see the impact that setting @ApplyImmediately@ to @true@ or @false@ has for each modified parameter and to determine when the changes are applied.  Default: @false@
---
--- * 'mdiOptionGroupName' - Indicates that the DB instance should be associated with the specified option group. Changing this parameter does not result in an outage except in the following case and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted.  Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
---
--- * 'mdiCopyTagsToSnapshot' - True to copy all tags from the DB instance to snapshots of the DB instance; otherwise false. The default is false.
---
--- * 'mdiTDECredentialARN' - The ARN from the Key Store with which to associate the instance for TDE encryption.
---
--- * 'mdiDomainIAMRoleName' - The name of the IAM role to use when making API calls to the Directory Service.
---
--- * 'mdiEnableIAMDatabaseAuthentication' - True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines __Amazon Aurora__  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster. For more information, see 'ModifyDBCluster' . __MySQL__      * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher Default: @false@
---
--- * 'mdiStorageType' - Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
---
--- * 'mdiDBInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must match the identifier of an existing DBInstance.
-modifyDBInstance
-    :: Text -- ^ 'mdiDBInstanceIdentifier'
-    -> ModifyDBInstance
-modifyDBInstance pDBInstanceIdentifier_ =
-  ModifyDBInstance'
-  { _mdiEngineVersion = Nothing
-  , _mdiDBSecurityGroups = Nothing
-  , _mdiDBPortNumber = Nothing
-  , _mdiMasterUserPassword = Nothing
-  , _mdiPubliclyAccessible = Nothing
-  , _mdiAutoMinorVersionUpgrade = Nothing
-  , _mdiDBSubnetGroupName = Nothing
-  , _mdiMonitoringRoleARN = Nothing
-  , _mdiIOPS = Nothing
-  , _mdiAllowMajorVersionUpgrade = Nothing
-  , _mdiNewDBInstanceIdentifier = Nothing
-  , _mdiDomain = Nothing
-  , _mdiMonitoringInterval = Nothing
-  , _mdiTDECredentialPassword = Nothing
-  , _mdiDBInstanceClass = Nothing
-  , _mdiPromotionTier = Nothing
-  , _mdiLicenseModel = Nothing
-  , _mdiPreferredMaintenanceWindow = Nothing
-  , _mdiCACertificateIdentifier = Nothing
-  , _mdiEnablePerformanceInsights = Nothing
-  , _mdiDBParameterGroupName = Nothing
-  , _mdiPreferredBackupWindow = Nothing
-  , _mdiBackupRetentionPeriod = Nothing
-  , _mdiPerformanceInsightsKMSKeyId = Nothing
-  , _mdiVPCSecurityGroupIds = Nothing
-  , _mdiMultiAZ = Nothing
-  , _mdiAllocatedStorage = Nothing
-  , _mdiApplyImmediately = Nothing
-  , _mdiOptionGroupName = Nothing
-  , _mdiCopyTagsToSnapshot = Nothing
-  , _mdiTDECredentialARN = Nothing
-  , _mdiDomainIAMRoleName = Nothing
-  , _mdiEnableIAMDatabaseAuthentication = Nothing
-  , _mdiStorageType = Nothing
-  , _mdiDBInstanceIdentifier = pDBInstanceIdentifier_
+  { -- | A value that indicates whether the DB instance has deletion protection
+    -- enabled. The database can\'t be deleted when deletion protection is
+    -- enabled. By default, deletion protection is disabled. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The daily time range during which automated backups are created if
+    -- automated backups are enabled, as determined by the
+    -- @BackupRetentionPeriod@ parameter. Changing this parameter doesn\'t
+    -- result in an outage and the change is asynchronously applied as soon as
+    -- possible. The default is a 30-minute window selected at random from an
+    -- 8-hour block of time for each Amazon Web Services Region. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Backup window>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- __Amazon Aurora__
+    --
+    -- Not applicable. The daily time range for creating automated backups is
+    -- managed by the DB cluster. For more information, see @ModifyDBCluster@.
+    --
+    -- Constraints:
+    --
+    -- -   Must be in the format hh24:mi-hh24:mi
+    --
+    -- -   Must be in Universal Time Coordinated (UTC)
+    --
+    -- -   Must not conflict with the preferred maintenance window
+    --
+    -- -   Must be at least 30 minutes
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
+    -- | The number of days to retain automated backups. Setting this parameter
+    -- to a positive number enables backups. Setting this parameter to 0
+    -- disables automated backups.
+    --
+    -- Enabling and disabling backups can result in a brief I\/O suspension
+    -- that lasts from a few seconds to a few minutes, depending on the size
+    -- and class of your DB instance.
+    --
+    -- These changes are applied during the next maintenance window unless the
+    -- @ApplyImmediately@ parameter is enabled for this request. If you change
+    -- the parameter from one non-zero value to another non-zero value, the
+    -- change is asynchronously applied as soon as possible.
+    --
+    -- __Amazon Aurora__
+    --
+    -- Not applicable. The retention period for automated backups is managed by
+    -- the DB cluster. For more information, see @ModifyDBCluster@.
+    --
+    -- Default: Uses existing setting
+    --
+    -- Constraints:
+    --
+    -- -   Must be a value from 0 to 35
+    --
+    -- -   Can be specified for a MySQL read replica only if the source is
+    --     running MySQL 5.6 or later
+    --
+    -- -   Can be specified for a PostgreSQL read replica only if the source is
+    --     running PostgreSQL 9.3.5
+    --
+    -- -   Can\'t be set to 0 if the DB instance is a source to read replicas
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether to enable Performance Insights for the DB
+    -- instance.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+    -- in the /Amazon Relational Database Service User Guide/.
+    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
+    -- | The port number on which the database accepts connections.
+    --
+    -- The value of the @DBPortNumber@ parameter must not match any of the port
+    -- values specified for options in the option group for the DB instance.
+    --
+    -- Your database will restart when you change the @DBPortNumber@ value
+    -- regardless of the value of the @ApplyImmediately@ parameter.
+    --
+    -- __MySQL__
+    --
+    -- Default: @3306@
+    --
+    -- Valid values: @1150-65535@
+    --
+    -- __MariaDB__
+    --
+    -- Default: @3306@
+    --
+    -- Valid values: @1150-65535@
+    --
+    -- __PostgreSQL__
+    --
+    -- Default: @5432@
+    --
+    -- Valid values: @1150-65535@
+    --
+    -- Type: Integer
+    --
+    -- __Oracle__
+    --
+    -- Default: @1521@
+    --
+    -- Valid values: @1150-65535@
+    --
+    -- __SQL Server__
+    --
+    -- Default: @1433@
+    --
+    -- Valid values: @1150-65535@ except @1234@, @1434@, @3260@, @3343@,
+    -- @3389@, @47001@, and @49152-49156@.
+    --
+    -- __Amazon Aurora__
+    --
+    -- Default: @3306@
+    --
+    -- Valid values: @1150-65535@
+    dbPortNumber :: Prelude.Maybe Prelude.Int,
+    -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+    -- scale the storage of the DB instance.
+    --
+    -- For more information about this setting, including limitations that
+    -- apply to it, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
+    -- in the /Amazon RDS User Guide/.
+    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | Indicates the certificate that needs to be associated with the instance.
+    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A list of DB security groups to authorize on this DB instance. Changing
+    -- this setting doesn\'t result in an outage and the change is
+    -- asynchronously applied as soon as possible.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match existing DBSecurityGroups.
+    dbSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | A value that indicates whether to enable mapping of Amazon Web Services
+    -- Identity and Access Management (IAM) accounts to database accounts. By
+    -- default, mapping is disabled.
+    --
+    -- This setting doesn\'t apply to Amazon Aurora. Mapping Amazon Web
+    -- Services IAM accounts to database accounts is managed by the DB cluster.
+    --
+    -- For more information about IAM database authentication, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
+    -- in the /Amazon RDS User Guide./
+    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the DB instance class of the DB instance
+    -- uses its default processor features.
+    useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the storage type to be associated with the DB instance.
+    --
+    -- If you specify Provisioned IOPS (@io1@), you must also include a value
+    -- for the @Iops@ parameter.
+    --
+    -- If you choose to migrate your DB instance from using standard storage to
+    -- using Provisioned IOPS, or from using Provisioned IOPS to using standard
+    -- storage, the process can take time. The duration of the migration
+    -- depends on several factors such as database load, storage size, storage
+    -- type (standard or Provisioned IOPS), amount of IOPS provisioned (if
+    -- any), and the number of prior scale storage operations. Typical
+    -- migration times are under 24 hours, but the process can take up to
+    -- several days in some cases. During the migration, the DB instance is
+    -- available for use, but might experience performance degradation. While
+    -- the migration takes place, nightly backups for the instance are
+    -- suspended. No other Amazon RDS operations can take place for the
+    -- instance, including modifying the instance, rebooting the instance,
+    -- deleting the instance, creating a read replica for the instance, and
+    -- creating a DB snapshot of the instance.
+    --
+    -- Valid values: @standard | gp2 | io1@
+    --
+    -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+    storageType :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates the DB instance should be associated with the
+    -- specified option group. Changing this parameter doesn\'t result in an
+    -- outage except in the following case and the change is applied during the
+    -- next maintenance window unless the @ApplyImmediately@ parameter is
+    -- enabled for this request. If the parameter change results in an option
+    -- group that enables OEM, this change can cause a brief (sub-second)
+    -- period during which new connections are rejected but existing
+    -- connections are not interrupted.
+    --
+    -- Permanent options, such as the TDE option for Oracle Advanced Security
+    -- TDE, can\'t be removed from an option group, and that option group
+    -- can\'t be removed from a DB instance once it is associated with a DB
+    -- instance
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The interval, in seconds, between points when Enhanced Monitoring
+    -- metrics are collected for the DB instance. To disable collecting
+    -- Enhanced Monitoring metrics, specify 0. The default is 0.
+    --
+    -- If @MonitoringRoleArn@ is specified, then you must also set
+    -- @MonitoringInterval@ to a value other than 0.
+    --
+    -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+    monitoringInterval :: Prelude.Maybe Prelude.Int,
+    -- | The Active Directory directory ID to move the DB instance to. Specify
+    -- @none@ to remove the instance from its current domain. The domain must
+    -- be created prior to this operation. Currently, only MySQL, Microsoft SQL
+    -- Server, Oracle, and PostgreSQL DB instances can be created in an Active
+    -- Directory Domain.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
+    -- in the /Amazon RDS User Guide/.
+    domain :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether major version upgrades are allowed.
+    -- Changing this parameter doesn\'t result in an outage and the change is
+    -- asynchronously applied as soon as possible.
+    --
+    -- Constraints: Major version upgrades must be allowed when specifying a
+    -- value for the EngineVersion parameter that is a different major version
+    -- than the DB instance\'s current version.
+    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
+    -- metrics to Amazon CloudWatch Logs. For example,
+    -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
+    -- monitoring role, go to
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- If @MonitoringInterval@ is set to a value other than 0, then you must
+    -- supply a @MonitoringRoleArn@ value.
+    monitoringRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The new DB subnet group for the DB instance. You can use this parameter
+    -- to move your DB instance to a different VPC. If your DB instance isn\'t
+    -- in a VPC, you can also use this parameter to move your DB instance into
+    -- a VPC. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Working with a DB instance in a VPC>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Changing the subnet group causes an outage during the change. The change
+    -- is applied during the next maintenance window, unless you enable
+    -- @ApplyImmediately@.
+    --
+    -- Constraints: If supplied, must match the name of an existing
+    -- DBSubnetGroup.
+    --
+    -- Example: @mySubnetGroup@
+    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The new password for the master user. The password can include any
+    -- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+    --
+    -- Changing this parameter doesn\'t result in an outage and the change is
+    -- asynchronously applied as soon as possible. Between the time of the
+    -- request and the completion of the request, the @MasterUserPassword@
+    -- element exists in the @PendingModifiedValues@ element of the operation
+    -- response.
+    --
+    -- __Amazon Aurora__
+    --
+    -- Not applicable. The password for the master user is managed by the DB
+    -- cluster. For more information, see @ModifyDBCluster@.
+    --
+    -- Default: Uses existing setting
+    --
+    -- __MariaDB__
+    --
+    -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- __Microsoft SQL Server__
+    --
+    -- Constraints: Must contain from 8 to 128 characters.
+    --
+    -- __MySQL__
+    --
+    -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- __Oracle__
+    --
+    -- Constraints: Must contain from 8 to 30 characters.
+    --
+    -- __PostgreSQL__
+    --
+    -- Constraints: Must contain from 8 to 128 characters.
+    --
+    -- Amazon RDS API actions never return the password, so this action
+    -- provides a way to regain access to a primary instance user if the
+    -- password is lost. This includes restoring privileges that might have
+    -- been accidentally revoked.
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB instance is publicly accessible.
+    --
+    -- When the DB instance is publicly accessible, its DNS endpoint resolves
+    -- to the private IP address from within the DB instance\'s VPC, and to the
+    -- public IP address from outside of the DB instance\'s VPC. Access to the
+    -- DB instance is ultimately controlled by the security group it uses, and
+    -- that public access is not permitted if the security group assigned to
+    -- the DB instance doesn\'t permit it.
+    --
+    -- When the DB instance isn\'t publicly accessible, it is an internal DB
+    -- instance with a DNS name that resolves to a private IP address.
+    --
+    -- @PubliclyAccessible@ only applies to DB instances in a VPC. The DB
+    -- instance must be part of a public subnet and @PubliclyAccessible@ must
+    -- be enabled for it to be publicly accessible.
+    --
+    -- Changes to the @PubliclyAccessible@ parameter are applied immediately
+    -- regardless of the value of the @ApplyImmediately@ parameter.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+    -- Changing this parameter doesn\'t result in an outage and the change is
+    -- applied during the next maintenance window unless the @ApplyImmediately@
+    -- parameter is enabled for this request.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Web Services KMS key identifier for encryption of Performance
+    -- Insights data.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK).
+    --
+    -- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
+    -- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
+    -- Web Services account. Your Amazon Web Services account has a different
+    -- default CMK for each Amazon Web Services Region.
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of EC2 VPC security groups to authorize on this DB instance. This
+    -- change is asynchronously applied as soon as possible.
+    --
+    -- __Amazon Aurora__
+    --
+    -- Not applicable. The associated list of EC2 VPC security groups is
+    -- managed by the DB cluster. For more information, see @ModifyDBCluster@.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match existing VpcSecurityGroupIds.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the DB parameter group to apply to the DB instance. Changing
+    -- this setting doesn\'t result in an outage. The parameter group name
+    -- itself is changed immediately, but the actual parameter changes are not
+    -- applied until you reboot the instance without failover. In this case,
+    -- the DB instance isn\'t rebooted automatically and the parameter changes
+    -- isn\'t applied during the next maintenance window.
+    --
+    -- Default: Uses existing setting
+    --
+    -- Constraints: The DB parameter group must be in the same DB parameter
+    -- group family as this DB instance.
+    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the database engine to upgrade to. Changing this
+    -- parameter results in an outage and the change is applied during the next
+    -- maintenance window unless the @ApplyImmediately@ parameter is enabled
+    -- for this request.
+    --
+    -- For major version upgrades, if a nondefault DB parameter group is
+    -- currently in use, a new DB parameter group in the DB parameter group
+    -- family for the new engine version must be specified. The new DB
+    -- parameter group can be the default for that DB parameter group family.
+    --
+    -- If you specify only a major version, Amazon RDS will update the DB
+    -- instance to the default minor version if the current minor version is
+    -- lower. For information about valid engine versions, see
+    -- @CreateDBInstance@, or call @DescribeDBEngineVersions@.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time, in days, to retain Performance Insights data. Valid
+    -- values are 7 or 731 (2 years).
+    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The license model for the DB instance.
+    --
+    -- Valid values: @license-included@ | @bring-your-own-license@ |
+    -- @general-public-license@
+    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | The weekly time range (in UTC) during which system maintenance can
+    -- occur, which might result in an outage. Changing this parameter doesn\'t
+    -- result in an outage, except in the following situation, and the change
+    -- is asynchronously applied as soon as possible. If there are pending
+    -- actions that cause a reboot, and the maintenance window is changed to
+    -- include the current time, then changing this parameter will cause a
+    -- reboot of the DB instance. If moving this window to the current time,
+    -- there must be at least 30 minutes between the current time and end of
+    -- the window to ensure pending changes are applied.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance Amazon RDS Maintenance Window>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- Default: Uses existing setting
+    --
+    -- Format: ddd:hh24:mi-ddd:hh24:mi
+    --
+    -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+    --
+    -- Constraints: Must be at least 30 minutes
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | The number of CPU cores and the number of threads per core for the DB
+    -- instance class of the DB instance.
+    processorFeatures :: Prelude.Maybe [ProcessorFeature],
+    -- | A value that specifies the order in which an Aurora Replica is promoted
+    -- to the primary instance after a failure of the existing primary
+    -- instance. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
+    -- in the /Amazon Aurora User Guide/.
+    --
+    -- Default: 1
+    --
+    -- Valid Values: 0 - 15
+    promotionTier :: Prelude.Maybe Prelude.Int,
+    -- | The new compute and memory capacity of the DB instance, for example,
+    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
+    -- Web Services Regions, or for all database engines. For the full list of
+    -- DB instance classes, and availability for your engine, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+    -- in the /Amazon RDS User Guide./
+    --
+    -- If you modify the DB instance class, an outage occurs during the change.
+    -- The change is applied during the next maintenance window, unless
+    -- @ApplyImmediately@ is enabled for this request.
+    --
+    -- Default: Uses existing setting
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the recovery point in Amazon Web
+    -- Services Backup.
+    awsBackupRecoveryPointArn :: Prelude.Maybe Prelude.Text,
+    -- | The password for the given ARN from the key store in order to access the
+    -- device.
+    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
+    -- | The name of the IAM role to use when making API calls to the Directory
+    -- Service.
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB instance is restarted when you
+    -- rotate your SSL\/TLS certificate.
+    --
+    -- By default, the DB instance is restarted when you rotate your SSL\/TLS
+    -- certificate. The certificate is not updated until the DB instance is
+    -- restarted.
+    --
+    -- Set this parameter only if you are /not/ using SSL\/TLS to connect to
+    -- the DB instance.
+    --
+    -- If you are using SSL\/TLS to connect to the DB instance, follow the
+    -- appropriate instructions for your DB engine to rotate your SSL\/TLS
+    -- certificate:
+    --
+    -- -   For more information about rotating your SSL\/TLS certificate for
+    --     RDS DB engines, see
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate.>
+    --     in the /Amazon RDS User Guide./
+    --
+    -- -   For more information about rotating your SSL\/TLS certificate for
+    --     Aurora DB engines, see
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate>
+    --     in the /Amazon Aurora User Guide./
+    certificateRotationRestart :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN from the key store with which to associate the instance for TDE
+    -- encryption.
+    tdeCredentialArn :: Prelude.Maybe Prelude.Text,
+    -- | A value that sets the open mode of a replica database to either mounted
+    -- or read-only.
+    --
+    -- Currently, this parameter is only supported for Oracle DB instances.
+    --
+    -- Mounted DB replicas are included in Oracle Enterprise Edition. The main
+    -- use case for mounted replicas is cross-Region disaster recovery. The
+    -- primary database doesn\'t use Active Data Guard to transmit information
+    -- to the mounted replica. Because it doesn\'t accept user connections, a
+    -- mounted replica can\'t serve a read-only workload. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
+    -- in the /Amazon RDS User Guide/.
+    replicaMode :: Prelude.Maybe ReplicaMode,
+    -- | A value that indicates whether to copy all tags from the DB instance to
+    -- snapshots of the DB instance. By default, tags are not copied.
+    --
+    -- __Amazon Aurora__
+    --
+    -- Not applicable. Copying tags to snapshots is managed by the DB cluster.
+    -- Setting this value for an Aurora DB instance has no effect on the DB
+    -- cluster setting. For more information, see @ModifyDBCluster@.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether to enable a customer-owned IP address
+    -- (CoIP) for an RDS on Outposts DB instance.
+    --
+    -- A /CoIP/ provides local or external connectivity to resources in your
+    -- Outpost subnets through your on-premises network. For some use cases, a
+    -- CoIP can provide lower latency for connections to the DB instance from
+    -- outside of its virtual private cloud (VPC) on your local network.
+    --
+    -- For more information about RDS on Outposts, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- For more information about CoIPs, see
+    -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+    -- in the /Amazon Web Services Outposts User Guide/.
+    enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
+    -- | The configuration setting for the log types to be enabled for export to
+    -- CloudWatch Logs for a specific DB instance.
+    --
+    -- A change to the @CloudwatchLogsExportConfiguration@ parameter is always
+    -- applied to the DB instance immediately. Therefore, the
+    -- @ApplyImmediately@ parameter has no effect.
+    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
+    -- | The new amount of storage in gibibytes (GiB) to allocate for the DB
+    -- instance.
+    --
+    -- For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
+    -- at least 10% greater than the current value. Values that are not at
+    -- least 10% greater than the existing value are rounded up so that they
+    -- are 10% greater than the current value.
+    --
+    -- For the valid values for allocated storage for each engine, see
+    -- @CreateDBInstance@.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether the modifications in this request and any
+    -- pending modifications are asynchronously applied as soon as possible,
+    -- regardless of the @PreferredMaintenanceWindow@ setting for the DB
+    -- instance. By default, this parameter is disabled.
+    --
+    -- If this parameter is disabled, changes to the DB instance are applied
+    -- during the next maintenance window. Some parameter changes can cause an
+    -- outage and are applied on the next call to RebootDBInstance, or the next
+    -- failure reboot. Review the table of parameters in
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance>
+    -- in the /Amazon RDS User Guide./ to see the impact of enabling or
+    -- disabling @ApplyImmediately@ for each modified parameter and to
+    -- determine when the changes are applied.
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | The new DB instance identifier for the DB instance when renaming a DB
+    -- instance. When you change the DB instance identifier, an instance reboot
+    -- occurs immediately if you enable @ApplyImmediately@, or will occur
+    -- during the next maintenance window if you disable Apply Immediately.
+    -- This value is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain from 1 to 63 letters, numbers, or hyphens.
+    --
+    -- -   The first character must be a letter.
+    --
+    -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
+    --
+    -- Example: @mydbinstance@
+    newDBInstanceIdentifier' :: Prelude.Maybe Prelude.Text,
+    -- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
+    -- instance.
+    --
+    -- Changing this setting doesn\'t result in an outage and the change is
+    -- applied during the next maintenance window unless the @ApplyImmediately@
+    -- parameter is enabled for this request. If you are migrating from
+    -- Provisioned IOPS to standard storage, set this value to 0. The DB
+    -- instance will require a reboot for the change in storage type to take
+    -- effect.
+    --
+    -- If you choose to migrate your DB instance from using standard storage to
+    -- using Provisioned IOPS, or from using Provisioned IOPS to using standard
+    -- storage, the process can take time. The duration of the migration
+    -- depends on several factors such as database load, storage size, storage
+    -- type (standard or Provisioned IOPS), amount of IOPS provisioned (if
+    -- any), and the number of prior scale storage operations. Typical
+    -- migration times are under 24 hours, but the process can take up to
+    -- several days in some cases. During the migration, the DB instance is
+    -- available for use, but might experience performance degradation. While
+    -- the migration takes place, nightly backups for the instance are
+    -- suspended. No other Amazon RDS operations can take place for the
+    -- instance, including modifying the instance, rebooting the instance,
+    -- deleting the instance, creating a read replica for the instance, and
+    -- creating a DB snapshot of the instance.
+    --
+    -- Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value
+    -- supplied must be at least 10% greater than the current value. Values
+    -- that are not at least 10% greater than the existing value are rounded up
+    -- so that they are 10% greater than the current value.
+    --
+    -- Default: Uses existing setting
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether minor version upgrades are applied
+    -- automatically to the DB instance during the maintenance window. Changing
+    -- this parameter doesn\'t result in an outage except in the following case
+    -- and the change is asynchronously applied as soon as possible. An outage
+    -- results if this parameter is enabled during the maintenance window, and
+    -- a newer minor version is available, and RDS has enabled auto patching
+    -- for that engine version.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The DB instance identifier. This value is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing DBInstance.
+    dbInstanceIdentifier :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ModifyDBInstance' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'deletionProtection', 'modifyDBInstance_deletionProtection' - A value that indicates whether the DB instance has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+--
+-- 'preferredBackupWindow', 'modifyDBInstance_preferredBackupWindow' - The daily time range during which automated backups are created if
+-- automated backups are enabled, as determined by the
+-- @BackupRetentionPeriod@ parameter. Changing this parameter doesn\'t
+-- result in an outage and the change is asynchronously applied as soon as
+-- possible. The default is a 30-minute window selected at random from an
+-- 8-hour block of time for each Amazon Web Services Region. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Backup window>
+-- in the /Amazon RDS User Guide./
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The daily time range for creating automated backups is
+-- managed by the DB cluster. For more information, see @ModifyDBCluster@.
+--
+-- Constraints:
+--
+-- -   Must be in the format hh24:mi-hh24:mi
+--
+-- -   Must be in Universal Time Coordinated (UTC)
+--
+-- -   Must not conflict with the preferred maintenance window
+--
+-- -   Must be at least 30 minutes
+--
+-- 'backupRetentionPeriod', 'modifyDBInstance_backupRetentionPeriod' - The number of days to retain automated backups. Setting this parameter
+-- to a positive number enables backups. Setting this parameter to 0
+-- disables automated backups.
+--
+-- Enabling and disabling backups can result in a brief I\/O suspension
+-- that lasts from a few seconds to a few minutes, depending on the size
+-- and class of your DB instance.
+--
+-- These changes are applied during the next maintenance window unless the
+-- @ApplyImmediately@ parameter is enabled for this request. If you change
+-- the parameter from one non-zero value to another non-zero value, the
+-- change is asynchronously applied as soon as possible.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The retention period for automated backups is managed by
+-- the DB cluster. For more information, see @ModifyDBCluster@.
+--
+-- Default: Uses existing setting
+--
+-- Constraints:
+--
+-- -   Must be a value from 0 to 35
+--
+-- -   Can be specified for a MySQL read replica only if the source is
+--     running MySQL 5.6 or later
+--
+-- -   Can be specified for a PostgreSQL read replica only if the source is
+--     running PostgreSQL 9.3.5
+--
+-- -   Can\'t be set to 0 if the DB instance is a source to read replicas
+--
+-- 'enablePerformanceInsights', 'modifyDBInstance_enablePerformanceInsights' - A value that indicates whether to enable Performance Insights for the DB
+-- instance.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+-- in the /Amazon Relational Database Service User Guide/.
+--
+-- 'dbPortNumber', 'modifyDBInstance_dbPortNumber' - The port number on which the database accepts connections.
+--
+-- The value of the @DBPortNumber@ parameter must not match any of the port
+-- values specified for options in the option group for the DB instance.
+--
+-- Your database will restart when you change the @DBPortNumber@ value
+-- regardless of the value of the @ApplyImmediately@ parameter.
+--
+-- __MySQL__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- __MariaDB__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- __PostgreSQL__
+--
+-- Default: @5432@
+--
+-- Valid values: @1150-65535@
+--
+-- Type: Integer
+--
+-- __Oracle__
+--
+-- Default: @1521@
+--
+-- Valid values: @1150-65535@
+--
+-- __SQL Server__
+--
+-- Default: @1433@
+--
+-- Valid values: @1150-65535@ except @1234@, @1434@, @3260@, @3343@,
+-- @3389@, @47001@, and @49152-49156@.
+--
+-- __Amazon Aurora__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- 'maxAllocatedStorage', 'modifyDBInstance_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+-- scale the storage of the DB instance.
+--
+-- For more information about this setting, including limitations that
+-- apply to it, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
+-- in the /Amazon RDS User Guide/.
+--
+-- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Indicates the certificate that needs to be associated with the instance.
+--
+-- 'dbSecurityGroups', 'modifyDBInstance_dbSecurityGroups' - A list of DB security groups to authorize on this DB instance. Changing
+-- this setting doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible.
+--
+-- Constraints:
+--
+-- -   If supplied, must match existing DBSecurityGroups.
+--
+-- 'enableIAMDatabaseAuthentication', 'modifyDBInstance_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
+--
+-- This setting doesn\'t apply to Amazon Aurora. Mapping Amazon Web
+-- Services IAM accounts to database accounts is managed by the DB cluster.
+--
+-- For more information about IAM database authentication, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
+-- in the /Amazon RDS User Guide./
+--
+-- 'useDefaultProcessorFeatures', 'modifyDBInstance_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
+-- uses its default processor features.
+--
+-- 'storageType', 'modifyDBInstance_storageType' - Specifies the storage type to be associated with the DB instance.
+--
+-- If you specify Provisioned IOPS (@io1@), you must also include a value
+-- for the @Iops@ parameter.
+--
+-- If you choose to migrate your DB instance from using standard storage to
+-- using Provisioned IOPS, or from using Provisioned IOPS to using standard
+-- storage, the process can take time. The duration of the migration
+-- depends on several factors such as database load, storage size, storage
+-- type (standard or Provisioned IOPS), amount of IOPS provisioned (if
+-- any), and the number of prior scale storage operations. Typical
+-- migration times are under 24 hours, but the process can take up to
+-- several days in some cases. During the migration, the DB instance is
+-- available for use, but might experience performance degradation. While
+-- the migration takes place, nightly backups for the instance are
+-- suspended. No other Amazon RDS operations can take place for the
+-- instance, including modifying the instance, rebooting the instance,
+-- deleting the instance, creating a read replica for the instance, and
+-- creating a DB snapshot of the instance.
+--
+-- Valid values: @standard | gp2 | io1@
+--
+-- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+--
+-- 'optionGroupName', 'modifyDBInstance_optionGroupName' - A value that indicates the DB instance should be associated with the
+-- specified option group. Changing this parameter doesn\'t result in an
+-- outage except in the following case and the change is applied during the
+-- next maintenance window unless the @ApplyImmediately@ parameter is
+-- enabled for this request. If the parameter change results in an option
+-- group that enables OEM, this change can cause a brief (sub-second)
+-- period during which new connections are rejected but existing
+-- connections are not interrupted.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security
+-- TDE, can\'t be removed from an option group, and that option group
+-- can\'t be removed from a DB instance once it is associated with a DB
+-- instance
+--
+-- 'monitoringInterval', 'modifyDBInstance_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB instance. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 0.
+--
+-- If @MonitoringRoleArn@ is specified, then you must also set
+-- @MonitoringInterval@ to a value other than 0.
+--
+-- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+--
+-- 'domain', 'modifyDBInstance_domain' - The Active Directory directory ID to move the DB instance to. Specify
+-- @none@ to remove the instance from its current domain. The domain must
+-- be created prior to this operation. Currently, only MySQL, Microsoft SQL
+-- Server, Oracle, and PostgreSQL DB instances can be created in an Active
+-- Directory Domain.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon RDS User Guide/.
+--
+-- 'allowMajorVersionUpgrade', 'modifyDBInstance_allowMajorVersionUpgrade' - A value that indicates whether major version upgrades are allowed.
+-- Changing this parameter doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible.
+--
+-- Constraints: Major version upgrades must be allowed when specifying a
+-- value for the EngineVersion parameter that is a different major version
+-- than the DB instance\'s current version.
+--
+-- 'monitoringRoleArn', 'modifyDBInstance_monitoringRoleArn' - The ARN for the IAM role that permits RDS to send enhanced monitoring
+-- metrics to Amazon CloudWatch Logs. For example,
+-- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
+-- monitoring role, go to
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>
+-- in the /Amazon RDS User Guide./
+--
+-- If @MonitoringInterval@ is set to a value other than 0, then you must
+-- supply a @MonitoringRoleArn@ value.
+--
+-- 'dbSubnetGroupName', 'modifyDBInstance_dbSubnetGroupName' - The new DB subnet group for the DB instance. You can use this parameter
+-- to move your DB instance to a different VPC. If your DB instance isn\'t
+-- in a VPC, you can also use this parameter to move your DB instance into
+-- a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
+--
+-- Changing the subnet group causes an outage during the change. The change
+-- is applied during the next maintenance window, unless you enable
+-- @ApplyImmediately@.
+--
+-- Constraints: If supplied, must match the name of an existing
+-- DBSubnetGroup.
+--
+-- Example: @mySubnetGroup@
+--
+-- 'masterUserPassword', 'modifyDBInstance_masterUserPassword' - The new password for the master user. The password can include any
+-- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+--
+-- Changing this parameter doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible. Between the time of the
+-- request and the completion of the request, the @MasterUserPassword@
+-- element exists in the @PendingModifiedValues@ element of the operation
+-- response.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The password for the master user is managed by the DB
+-- cluster. For more information, see @ModifyDBCluster@.
+--
+-- Default: Uses existing setting
+--
+-- __MariaDB__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Microsoft SQL Server__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Oracle__
+--
+-- Constraints: Must contain from 8 to 30 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- Amazon RDS API actions never return the password, so this action
+-- provides a way to regain access to a primary instance user if the
+-- password is lost. This includes restoring privileges that might have
+-- been accidentally revoked.
+--
+-- 'publiclyAccessible', 'modifyDBInstance_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves
+-- to the private IP address from within the DB instance\'s VPC, and to the
+-- public IP address from outside of the DB instance\'s VPC. Access to the
+-- DB instance is ultimately controlled by the security group it uses, and
+-- that public access is not permitted if the security group assigned to
+-- the DB instance doesn\'t permit it.
+--
+-- When the DB instance isn\'t publicly accessible, it is an internal DB
+-- instance with a DNS name that resolves to a private IP address.
+--
+-- @PubliclyAccessible@ only applies to DB instances in a VPC. The DB
+-- instance must be part of a public subnet and @PubliclyAccessible@ must
+-- be enabled for it to be publicly accessible.
+--
+-- Changes to the @PubliclyAccessible@ parameter are applied immediately
+-- regardless of the value of the @ApplyImmediately@ parameter.
+--
+-- 'multiAZ', 'modifyDBInstance_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
+-- Changing this parameter doesn\'t result in an outage and the change is
+-- applied during the next maintenance window unless the @ApplyImmediately@
+-- parameter is enabled for this request.
+--
+-- 'performanceInsightsKMSKeyId', 'modifyDBInstance_performanceInsightsKMSKeyId' - The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
+--
+-- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
+-- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
+-- Web Services account. Your Amazon Web Services account has a different
+-- default CMK for each Amazon Web Services Region.
+--
+-- 'vpcSecurityGroupIds', 'modifyDBInstance_vpcSecurityGroupIds' - A list of EC2 VPC security groups to authorize on this DB instance. This
+-- change is asynchronously applied as soon as possible.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The associated list of EC2 VPC security groups is
+-- managed by the DB cluster. For more information, see @ModifyDBCluster@.
+--
+-- Constraints:
+--
+-- -   If supplied, must match existing VpcSecurityGroupIds.
+--
+-- 'dbParameterGroupName', 'modifyDBInstance_dbParameterGroupName' - The name of the DB parameter group to apply to the DB instance. Changing
+-- this setting doesn\'t result in an outage. The parameter group name
+-- itself is changed immediately, but the actual parameter changes are not
+-- applied until you reboot the instance without failover. In this case,
+-- the DB instance isn\'t rebooted automatically and the parameter changes
+-- isn\'t applied during the next maintenance window.
+--
+-- Default: Uses existing setting
+--
+-- Constraints: The DB parameter group must be in the same DB parameter
+-- group family as this DB instance.
+--
+-- 'engineVersion', 'modifyDBInstance_engineVersion' - The version number of the database engine to upgrade to. Changing this
+-- parameter results in an outage and the change is applied during the next
+-- maintenance window unless the @ApplyImmediately@ parameter is enabled
+-- for this request.
+--
+-- For major version upgrades, if a nondefault DB parameter group is
+-- currently in use, a new DB parameter group in the DB parameter group
+-- family for the new engine version must be specified. The new DB
+-- parameter group can be the default for that DB parameter group family.
+--
+-- If you specify only a major version, Amazon RDS will update the DB
+-- instance to the default minor version if the current minor version is
+-- lower. For information about valid engine versions, see
+-- @CreateDBInstance@, or call @DescribeDBEngineVersions@.
+--
+-- 'performanceInsightsRetentionPeriod', 'modifyDBInstance_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
+-- values are 7 or 731 (2 years).
+--
+-- 'licenseModel', 'modifyDBInstance_licenseModel' - The license model for the DB instance.
+--
+-- Valid values: @license-included@ | @bring-your-own-license@ |
+-- @general-public-license@
+--
+-- 'preferredMaintenanceWindow', 'modifyDBInstance_preferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can
+-- occur, which might result in an outage. Changing this parameter doesn\'t
+-- result in an outage, except in the following situation, and the change
+-- is asynchronously applied as soon as possible. If there are pending
+-- actions that cause a reboot, and the maintenance window is changed to
+-- include the current time, then changing this parameter will cause a
+-- reboot of the DB instance. If moving this window to the current time,
+-- there must be at least 30 minutes between the current time and end of
+-- the window to ensure pending changes are applied.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance Amazon RDS Maintenance Window>
+-- in the /Amazon RDS User Guide./
+--
+-- Default: Uses existing setting
+--
+-- Format: ddd:hh24:mi-ddd:hh24:mi
+--
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+--
+-- Constraints: Must be at least 30 minutes
+--
+-- 'processorFeatures', 'modifyDBInstance_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
+-- instance class of the DB instance.
+--
+-- 'promotionTier', 'modifyDBInstance_promotionTier' - A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
+-- in the /Amazon Aurora User Guide/.
+--
+-- Default: 1
+--
+-- Valid Values: 0 - 15
+--
+-- 'dbInstanceClass', 'modifyDBInstance_dbInstanceClass' - The new compute and memory capacity of the DB instance, for example,
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
+-- Web Services Regions, or for all database engines. For the full list of
+-- DB instance classes, and availability for your engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+-- in the /Amazon RDS User Guide./
+--
+-- If you modify the DB instance class, an outage occurs during the change.
+-- The change is applied during the next maintenance window, unless
+-- @ApplyImmediately@ is enabled for this request.
+--
+-- Default: Uses existing setting
+--
+-- 'awsBackupRecoveryPointArn', 'modifyDBInstance_awsBackupRecoveryPointArn' - The Amazon Resource Name (ARN) of the recovery point in Amazon Web
+-- Services Backup.
+--
+-- 'tdeCredentialPassword', 'modifyDBInstance_tdeCredentialPassword' - The password for the given ARN from the key store in order to access the
+-- device.
+--
+-- 'domainIAMRoleName', 'modifyDBInstance_domainIAMRoleName' - The name of the IAM role to use when making API calls to the Directory
+-- Service.
+--
+-- 'certificateRotationRestart', 'modifyDBInstance_certificateRotationRestart' - A value that indicates whether the DB instance is restarted when you
+-- rotate your SSL\/TLS certificate.
+--
+-- By default, the DB instance is restarted when you rotate your SSL\/TLS
+-- certificate. The certificate is not updated until the DB instance is
+-- restarted.
+--
+-- Set this parameter only if you are /not/ using SSL\/TLS to connect to
+-- the DB instance.
+--
+-- If you are using SSL\/TLS to connect to the DB instance, follow the
+-- appropriate instructions for your DB engine to rotate your SSL\/TLS
+-- certificate:
+--
+-- -   For more information about rotating your SSL\/TLS certificate for
+--     RDS DB engines, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate.>
+--     in the /Amazon RDS User Guide./
+--
+-- -   For more information about rotating your SSL\/TLS certificate for
+--     Aurora DB engines, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate>
+--     in the /Amazon Aurora User Guide./
+--
+-- 'tdeCredentialArn', 'modifyDBInstance_tdeCredentialArn' - The ARN from the key store with which to associate the instance for TDE
+-- encryption.
+--
+-- 'replicaMode', 'modifyDBInstance_replicaMode' - A value that sets the open mode of a replica database to either mounted
+-- or read-only.
+--
+-- Currently, this parameter is only supported for Oracle DB instances.
+--
+-- Mounted DB replicas are included in Oracle Enterprise Edition. The main
+-- use case for mounted replicas is cross-Region disaster recovery. The
+-- primary database doesn\'t use Active Data Guard to transmit information
+-- to the mounted replica. Because it doesn\'t accept user connections, a
+-- mounted replica can\'t serve a read-only workload. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
+-- in the /Amazon RDS User Guide/.
+--
+-- 'copyTagsToSnapshot', 'modifyDBInstance_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the DB instance to
+-- snapshots of the DB instance. By default, tags are not copied.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. Copying tags to snapshots is managed by the DB cluster.
+-- Setting this value for an Aurora DB instance has no effect on the DB
+-- cluster setting. For more information, see @ModifyDBCluster@.
+--
+-- 'enableCustomerOwnedIp', 'modifyDBInstance_enableCustomerOwnedIp' - A value that indicates whether to enable a customer-owned IP address
+-- (CoIP) for an RDS on Outposts DB instance.
+--
+-- A /CoIP/ provides local or external connectivity to resources in your
+-- Outpost subnets through your on-premises network. For some use cases, a
+-- CoIP can provide lower latency for connections to the DB instance from
+-- outside of its virtual private cloud (VPC) on your local network.
+--
+-- For more information about RDS on Outposts, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide/.
+--
+-- For more information about CoIPs, see
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- in the /Amazon Web Services Outposts User Guide/.
+--
+-- 'cloudwatchLogsExportConfiguration', 'modifyDBInstance_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to
+-- CloudWatch Logs for a specific DB instance.
+--
+-- A change to the @CloudwatchLogsExportConfiguration@ parameter is always
+-- applied to the DB instance immediately. Therefore, the
+-- @ApplyImmediately@ parameter has no effect.
+--
+-- 'allocatedStorage', 'modifyDBInstance_allocatedStorage' - The new amount of storage in gibibytes (GiB) to allocate for the DB
+-- instance.
+--
+-- For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
+-- at least 10% greater than the current value. Values that are not at
+-- least 10% greater than the existing value are rounded up so that they
+-- are 10% greater than the current value.
+--
+-- For the valid values for allocated storage for each engine, see
+-- @CreateDBInstance@.
+--
+-- 'applyImmediately', 'modifyDBInstance_applyImmediately' - A value that indicates whether the modifications in this request and any
+-- pending modifications are asynchronously applied as soon as possible,
+-- regardless of the @PreferredMaintenanceWindow@ setting for the DB
+-- instance. By default, this parameter is disabled.
+--
+-- If this parameter is disabled, changes to the DB instance are applied
+-- during the next maintenance window. Some parameter changes can cause an
+-- outage and are applied on the next call to RebootDBInstance, or the next
+-- failure reboot. Review the table of parameters in
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance>
+-- in the /Amazon RDS User Guide./ to see the impact of enabling or
+-- disabling @ApplyImmediately@ for each modified parameter and to
+-- determine when the changes are applied.
+--
+-- 'newDBInstanceIdentifier'', 'modifyDBInstance_newDBInstanceIdentifier' - The new DB instance identifier for the DB instance when renaming a DB
+-- instance. When you change the DB instance identifier, an instance reboot
+-- occurs immediately if you enable @ApplyImmediately@, or will occur
+-- during the next maintenance window if you disable Apply Immediately.
+-- This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens.
+--
+-- -   The first character must be a letter.
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens.
+--
+-- Example: @mydbinstance@
+--
+-- 'iops', 'modifyDBInstance_iops' - The new Provisioned IOPS (I\/O operations per second) value for the RDS
+-- instance.
+--
+-- Changing this setting doesn\'t result in an outage and the change is
+-- applied during the next maintenance window unless the @ApplyImmediately@
+-- parameter is enabled for this request. If you are migrating from
+-- Provisioned IOPS to standard storage, set this value to 0. The DB
+-- instance will require a reboot for the change in storage type to take
+-- effect.
+--
+-- If you choose to migrate your DB instance from using standard storage to
+-- using Provisioned IOPS, or from using Provisioned IOPS to using standard
+-- storage, the process can take time. The duration of the migration
+-- depends on several factors such as database load, storage size, storage
+-- type (standard or Provisioned IOPS), amount of IOPS provisioned (if
+-- any), and the number of prior scale storage operations. Typical
+-- migration times are under 24 hours, but the process can take up to
+-- several days in some cases. During the migration, the DB instance is
+-- available for use, but might experience performance degradation. While
+-- the migration takes place, nightly backups for the instance are
+-- suspended. No other Amazon RDS operations can take place for the
+-- instance, including modifying the instance, rebooting the instance,
+-- deleting the instance, creating a read replica for the instance, and
+-- creating a DB snapshot of the instance.
+--
+-- Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value
+-- supplied must be at least 10% greater than the current value. Values
+-- that are not at least 10% greater than the existing value are rounded up
+-- so that they are 10% greater than the current value.
+--
+-- Default: Uses existing setting
+--
+-- 'autoMinorVersionUpgrade', 'modifyDBInstance_autoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied
+-- automatically to the DB instance during the maintenance window. Changing
+-- this parameter doesn\'t result in an outage except in the following case
+-- and the change is asynchronously applied as soon as possible. An outage
+-- results if this parameter is enabled during the maintenance window, and
+-- a newer minor version is available, and RDS has enabled auto patching
+-- for that engine version.
+--
+-- 'dbInstanceIdentifier', 'modifyDBInstance_dbInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBInstance.
+newModifyDBInstance ::
+  -- | 'dbInstanceIdentifier'
+  Prelude.Text ->
+  ModifyDBInstance
+newModifyDBInstance pDBInstanceIdentifier_ =
+  ModifyDBInstance'
+    { deletionProtection =
+        Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      backupRetentionPeriod = Prelude.Nothing,
+      enablePerformanceInsights = Prelude.Nothing,
+      dbPortNumber = Prelude.Nothing,
+      maxAllocatedStorage = Prelude.Nothing,
+      cACertificateIdentifier = Prelude.Nothing,
+      dbSecurityGroups = Prelude.Nothing,
+      enableIAMDatabaseAuthentication = Prelude.Nothing,
+      useDefaultProcessorFeatures = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      optionGroupName = Prelude.Nothing,
+      monitoringInterval = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      allowMajorVersionUpgrade = Prelude.Nothing,
+      monitoringRoleArn = Prelude.Nothing,
+      dbSubnetGroupName = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      multiAZ = Prelude.Nothing,
+      performanceInsightsKMSKeyId = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
+      dbParameterGroupName = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      performanceInsightsRetentionPeriod = Prelude.Nothing,
+      licenseModel = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      processorFeatures = Prelude.Nothing,
+      promotionTier = Prelude.Nothing,
+      dbInstanceClass = Prelude.Nothing,
+      awsBackupRecoveryPointArn = Prelude.Nothing,
+      tdeCredentialPassword = Prelude.Nothing,
+      domainIAMRoleName = Prelude.Nothing,
+      certificateRotationRestart = Prelude.Nothing,
+      tdeCredentialArn = Prelude.Nothing,
+      replicaMode = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
+      enableCustomerOwnedIp = Prelude.Nothing,
+      cloudwatchLogsExportConfiguration = Prelude.Nothing,
+      allocatedStorage = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      newDBInstanceIdentifier' = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_
+    }
 
--- | The version number of the database engine to upgrade to. Changing this parameter results in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  For major version upgrades, if a nondefault DB parameter group is currently in use, a new DB parameter group in the DB parameter group family for the new engine version must be specified. The new DB parameter group can be the default for that DB parameter group family. For a list of valid engine versions, see 'CreateDBInstance' .
-mdiEngineVersion :: Lens' ModifyDBInstance (Maybe Text)
-mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
+-- | A value that indicates whether the DB instance has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+modifyDBInstance_deletionProtection :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_deletionProtection = Lens.lens (\ModifyDBInstance' {deletionProtection} -> deletionProtection) (\s@ModifyDBInstance' {} a -> s {deletionProtection = a} :: ModifyDBInstance)
 
--- | A list of DB security groups to authorize on this DB instance. Changing this setting does not result in an outage and the change is asynchronously applied as soon as possible. Constraints:     * If supplied, must match existing DBSecurityGroups.
-mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
-mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default . _Coerce;
+-- | The daily time range during which automated backups are created if
+-- automated backups are enabled, as determined by the
+-- @BackupRetentionPeriod@ parameter. Changing this parameter doesn\'t
+-- result in an outage and the change is asynchronously applied as soon as
+-- possible. The default is a 30-minute window selected at random from an
+-- 8-hour block of time for each Amazon Web Services Region. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow Backup window>
+-- in the /Amazon RDS User Guide./
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The daily time range for creating automated backups is
+-- managed by the DB cluster. For more information, see @ModifyDBCluster@.
+--
+-- Constraints:
+--
+-- -   Must be in the format hh24:mi-hh24:mi
+--
+-- -   Must be in Universal Time Coordinated (UTC)
+--
+-- -   Must not conflict with the preferred maintenance window
+--
+-- -   Must be at least 30 minutes
+modifyDBInstance_preferredBackupWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_preferredBackupWindow = Lens.lens (\ModifyDBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBInstance' {} a -> s {preferredBackupWindow = a} :: ModifyDBInstance)
 
--- | The port number on which the database accepts connections. The value of the @DBPortNumber@ parameter must not match any of the port values specified for options in the option group for the DB instance. Your database will restart when you change the @DBPortNumber@ value regardless of the value of the @ApplyImmediately@ parameter. __MySQL__  Default: @3306@  Valid Values: @1150-65535@  __MariaDB__  Default: @3306@  Valid Values: @1150-65535@  __PostgreSQL__  Default: @5432@  Valid Values: @1150-65535@  Type: Integer __Oracle__  Default: @1521@  Valid Values: @1150-65535@  __SQL Server__  Default: @1433@  Valid Values: @1150-65535@ except for @1434@ , @3389@ , @47001@ , @49152@ , and @49152@ through @49156@ .  __Amazon Aurora__  Default: @3306@  Valid Values: @1150-65535@
-mdiDBPortNumber :: Lens' ModifyDBInstance (Maybe Int)
-mdiDBPortNumber = lens _mdiDBPortNumber (\ s a -> s{_mdiDBPortNumber = a});
+-- | The number of days to retain automated backups. Setting this parameter
+-- to a positive number enables backups. Setting this parameter to 0
+-- disables automated backups.
+--
+-- Enabling and disabling backups can result in a brief I\/O suspension
+-- that lasts from a few seconds to a few minutes, depending on the size
+-- and class of your DB instance.
+--
+-- These changes are applied during the next maintenance window unless the
+-- @ApplyImmediately@ parameter is enabled for this request. If you change
+-- the parameter from one non-zero value to another non-zero value, the
+-- change is asynchronously applied as soon as possible.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The retention period for automated backups is managed by
+-- the DB cluster. For more information, see @ModifyDBCluster@.
+--
+-- Default: Uses existing setting
+--
+-- Constraints:
+--
+-- -   Must be a value from 0 to 35
+--
+-- -   Can be specified for a MySQL read replica only if the source is
+--     running MySQL 5.6 or later
+--
+-- -   Can be specified for a PostgreSQL read replica only if the source is
+--     running PostgreSQL 9.3.5
+--
+-- -   Can\'t be set to 0 if the DB instance is a source to read replicas
+modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {backupRetentionPeriod = a} :: ModifyDBInstance)
 
--- | The new password for the master user. Can be any printable ASCII character except "/", """, or "@". Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Between the time of the request and the completion of the request, the @MasterUserPassword@ element exists in the @PendingModifiedValues@ element of the operation response.  __Amazon Aurora__  Not applicable. The password for the master user is managed by the DB cluster. For more information, see 'ModifyDBCluster' .  Default: Uses existing setting __MariaDB__  Constraints: Must contain from 8 to 41 characters. __Microsoft SQL Server__  Constraints: Must contain from 8 to 128 characters. __MySQL__  Constraints: Must contain from 8 to 41 characters. __Oracle__  Constraints: Must contain from 8 to 30 characters. __PostgreSQL__  Constraints: Must contain from 8 to 128 characters.
-mdiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
-mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPassword = a});
+-- | A value that indicates whether to enable Performance Insights for the DB
+-- instance.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
+-- in the /Amazon Relational Database Service User Guide/.
+modifyDBInstance_enablePerformanceInsights :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_enablePerformanceInsights = Lens.lens (\ModifyDBInstance' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@ModifyDBInstance' {} a -> s {enablePerformanceInsights = a} :: ModifyDBInstance)
 
--- | Boolean value that indicates if the DB instance has a publicly resolvable DNS name. Set to @True@ to make the DB instance Internet-facing with a publicly resolvable DNS name, which resolves to a public IP address. Set to @False@ to make the DB instance internal with a DNS name that resolves to a private IP address.  @PubliclyAccessible@ only applies to DB instances in a VPC. The DB instance must be part of a public subnet and @PubliclyAccessible@ must be true in order for it to be publicly accessible.  Changes to the @PubliclyAccessible@ parameter are applied immediately regardless of the value of the @ApplyImmediately@ parameter. Default: false
-mdiPubliclyAccessible :: Lens' ModifyDBInstance (Maybe Bool)
-mdiPubliclyAccessible = lens _mdiPubliclyAccessible (\ s a -> s{_mdiPubliclyAccessible = a});
+-- | The port number on which the database accepts connections.
+--
+-- The value of the @DBPortNumber@ parameter must not match any of the port
+-- values specified for options in the option group for the DB instance.
+--
+-- Your database will restart when you change the @DBPortNumber@ value
+-- regardless of the value of the @ApplyImmediately@ parameter.
+--
+-- __MySQL__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- __MariaDB__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+--
+-- __PostgreSQL__
+--
+-- Default: @5432@
+--
+-- Valid values: @1150-65535@
+--
+-- Type: Integer
+--
+-- __Oracle__
+--
+-- Default: @1521@
+--
+-- Valid values: @1150-65535@
+--
+-- __SQL Server__
+--
+-- Default: @1433@
+--
+-- Valid values: @1150-65535@ except @1234@, @1434@, @3260@, @3343@,
+-- @3389@, @47001@, and @49152-49156@.
+--
+-- __Amazon Aurora__
+--
+-- Default: @3306@
+--
+-- Valid values: @1150-65535@
+modifyDBInstance_dbPortNumber :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_dbPortNumber = Lens.lens (\ModifyDBInstance' {dbPortNumber} -> dbPortNumber) (\s@ModifyDBInstance' {} a -> s {dbPortNumber = a} :: ModifyDBInstance)
 
--- | Indicates that minor version upgrades are applied automatically to the DB instance during the maintenance window. Changing this parameter does not result in an outage except in the following case and the change is asynchronously applied as soon as possible. An outage will result if this parameter is set to @true@ during the maintenance window, and a newer minor version is available, and RDS has enabled auto patching for that engine version.
-mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
-mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
-
--- | The new DB subnet group for the DB instance. You can use this parameter to move your DB instance to a different VPC. If your DB instance is not in a VPC, you can also use this parameter to move your DB instance into a VPC. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Updating the VPC for a DB Instance> .  Changing the subnet group causes an outage during the change. The change is applied during the next maintenance window, unless you specify @true@ for the @ApplyImmediately@ parameter.  Constraints: If supplied, must match the name of an existing DBSubnetGroup. Example: @mySubnetGroup@
-mdiDBSubnetGroupName :: Lens' ModifyDBInstance (Maybe Text)
-mdiDBSubnetGroupName = lens _mdiDBSubnetGroupName (\ s a -> s{_mdiDBSubnetGroupName = a});
-
--- | The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. For example, @arn:aws:iam:123456789012:role/emaccess@ . For information on creating a monitoring role, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring> . If @MonitoringInterval@ is set to a value other than 0, then you must supply a @MonitoringRoleArn@ value.
-mdiMonitoringRoleARN :: Lens' ModifyDBInstance (Maybe Text)
-mdiMonitoringRoleARN = lens _mdiMonitoringRoleARN (\ s a -> s{_mdiMonitoringRoleARN = a});
-
--- | The new Provisioned IOPS (I/O operations per second) value for the RDS instance. Changing this setting does not result in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  Default: Uses existing setting Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. If you are migrating from Provisioned IOPS to standard storage, set this value to 0. The DB instance will require a reboot for the change in storage type to take effect. __SQL Server__  Setting the IOPS value for the SQL Server database engine is not supported. Type: Integer If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
-mdiIOPS :: Lens' ModifyDBInstance (Maybe Int)
-mdiIOPS = lens _mdiIOPS (\ s a -> s{_mdiIOPS = a});
-
--- | Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible. Constraints: This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.
-mdiAllowMajorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
-mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdiAllowMajorVersionUpgrade = a});
-
--- | The new DB instance identifier for the DB instance when renaming a DB instance. When you change the DB instance identifier, an instance reboot will occur immediately if you set @Apply Immediately@ to true, or will occur during the next maintenance window if @Apply Immediately@ to false. This value is stored as a lowercase string.  Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens.     * The first character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens. Example: @mydbinstance@
-mdiNewDBInstanceIdentifier :: Lens' ModifyDBInstance (Maybe Text)
-mdiNewDBInstanceIdentifier = lens _mdiNewDBInstanceIdentifier (\ s a -> s{_mdiNewDBInstanceIdentifier = a});
-
--- | The Active Directory Domain to move the instance to. Specify @none@ to remove the instance from its current domain. The domain must be created prior to this operation. Currently only a Microsoft SQL Server instance can be created in a Active Directory Domain.
-mdiDomain :: Lens' ModifyDBInstance (Maybe Text)
-mdiDomain = lens _mdiDomain (\ s a -> s{_mdiDomain = a});
-
--- | The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. If @MonitoringRoleArn@ is specified, then you must also set @MonitoringInterval@ to a value other than 0. Valid Values: @0, 1, 5, 10, 15, 30, 60@
-mdiMonitoringInterval :: Lens' ModifyDBInstance (Maybe Int)
-mdiMonitoringInterval = lens _mdiMonitoringInterval (\ s a -> s{_mdiMonitoringInterval = a});
-
--- | The password for the given ARN from the Key Store in order to access the device.
-mdiTDECredentialPassword :: Lens' ModifyDBInstance (Maybe Text)
-mdiTDECredentialPassword = lens _mdiTDECredentialPassword (\ s a -> s{_mdiTDECredentialPassword = a});
-
--- | The new compute and memory capacity of the DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the Amazon RDS User Guide.  If you modify the DB instance class, an outage occurs during the change. The change is applied during the next maintenance window, unless @ApplyImmediately@ is specified as @true@ for this request.  Default: Uses existing setting
-mdiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
-mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = a});
-
--- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> .  Default: 1 Valid Values: 0 - 15
-mdiPromotionTier :: Lens' ModifyDBInstance (Maybe Int)
-mdiPromotionTier = lens _mdiPromotionTier (\ s a -> s{_mdiPromotionTier = a});
-
--- | The license model for the DB instance. Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
-mdiLicenseModel :: Lens' ModifyDBInstance (Maybe Text)
-mdiLicenseModel = lens _mdiLicenseModel (\ s a -> s{_mdiLicenseModel = a});
-
--- | The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If there are pending actions that cause a reboot, and the maintenance window is changed to include the current time, then changing this parameter will cause a reboot of the DB instance. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied. Default: Uses existing setting Format: ddd:hh24:mi-ddd:hh24:mi Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Must be at least 30 minutes
-mdiPreferredMaintenanceWindow :: Lens' ModifyDBInstance (Maybe Text)
-mdiPreferredMaintenanceWindow = lens _mdiPreferredMaintenanceWindow (\ s a -> s{_mdiPreferredMaintenanceWindow = a});
+-- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
+-- scale the storage of the DB instance.
+--
+-- For more information about this setting, including limitations that
+-- apply to it, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
+-- in the /Amazon RDS User Guide/.
+modifyDBInstance_maxAllocatedStorage :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_maxAllocatedStorage = Lens.lens (\ModifyDBInstance' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@ModifyDBInstance' {} a -> s {maxAllocatedStorage = a} :: ModifyDBInstance)
 
 -- | Indicates the certificate that needs to be associated with the instance.
-mdiCACertificateIdentifier :: Lens' ModifyDBInstance (Maybe Text)
-mdiCACertificateIdentifier = lens _mdiCACertificateIdentifier (\ s a -> s{_mdiCACertificateIdentifier = a});
+modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
 
--- | True to enable Performance Insights for the DB instance; otherwise false.
-mdiEnablePerformanceInsights :: Lens' ModifyDBInstance (Maybe Bool)
-mdiEnablePerformanceInsights = lens _mdiEnablePerformanceInsights (\ s a -> s{_mdiEnablePerformanceInsights = a});
+-- | A list of DB security groups to authorize on this DB instance. Changing
+-- this setting doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible.
+--
+-- Constraints:
+--
+-- -   If supplied, must match existing DBSecurityGroups.
+modifyDBInstance_dbSecurityGroups :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
+modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGroups} -> dbSecurityGroups) (\s@ModifyDBInstance' {} a -> s {dbSecurityGroups = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the DB parameter group to apply to the DB instance. Changing this setting does not result in an outage. The parameter group name itself is changed immediately, but the actual parameter changes are not applied until you reboot the instance without failover. The db instance will NOT be rebooted automatically and the parameter changes will NOT be applied during the next maintenance window. Default: Uses existing setting Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.
-mdiDBParameterGroupName :: Lens' ModifyDBInstance (Maybe Text)
-mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParameterGroupName = a});
+-- | A value that indicates whether to enable mapping of Amazon Web Services
+-- Identity and Access Management (IAM) accounts to database accounts. By
+-- default, mapping is disabled.
+--
+-- This setting doesn\'t apply to Amazon Aurora. Mapping Amazon Web
+-- Services IAM accounts to database accounts is managed by the DB cluster.
+--
+-- For more information about IAM database authentication, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
+-- in the /Amazon RDS User Guide./
+modifyDBInstance_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBInstance' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@ModifyDBInstance' {} a -> s {enableIAMDatabaseAuthentication = a} :: ModifyDBInstance)
 
--- | The daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ parameter. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible.  __Amazon Aurora__  Not applicable. The daily time range for creating automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * Must be in the format hh24:mi-hh24:mi     * Times should be in Universal Time Coordinated (UTC)     * Must not conflict with the preferred maintenance window     * Must be at least 30 minutes
-mdiPreferredBackupWindow :: Lens' ModifyDBInstance (Maybe Text)
-mdiPreferredBackupWindow = lens _mdiPreferredBackupWindow (\ s a -> s{_mdiPreferredBackupWindow = a});
+-- | A value that indicates whether the DB instance class of the DB instance
+-- uses its default processor features.
+modifyDBInstance_useDefaultProcessorFeatures :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_useDefaultProcessorFeatures = Lens.lens (\ModifyDBInstance' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@ModifyDBInstance' {} a -> s {useDefaultProcessorFeatures = a} :: ModifyDBInstance)
 
--- | The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0. These changes are applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The retention period for automated backups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Default: Uses existing setting Constraints:     * Must be a value from 0 to 35     * Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6     * Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL 9.3.5     * Cannot be set to 0 if the DB instance is a source to Read Replicas
-mdiBackupRetentionPeriod :: Lens' ModifyDBInstance (Maybe Int)
-mdiBackupRetentionPeriod = lens _mdiBackupRetentionPeriod (\ s a -> s{_mdiBackupRetentionPeriod = a});
+-- | Specifies the storage type to be associated with the DB instance.
+--
+-- If you specify Provisioned IOPS (@io1@), you must also include a value
+-- for the @Iops@ parameter.
+--
+-- If you choose to migrate your DB instance from using standard storage to
+-- using Provisioned IOPS, or from using Provisioned IOPS to using standard
+-- storage, the process can take time. The duration of the migration
+-- depends on several factors such as database load, storage size, storage
+-- type (standard or Provisioned IOPS), amount of IOPS provisioned (if
+-- any), and the number of prior scale storage operations. Typical
+-- migration times are under 24 hours, but the process can take up to
+-- several days in some cases. During the migration, the DB instance is
+-- available for use, but might experience performance degradation. While
+-- the migration takes place, nightly backups for the instance are
+-- suspended. No other Amazon RDS operations can take place for the
+-- instance, including modifying the instance, rebooting the instance,
+-- deleting the instance, creating a read replica for the instance, and
+-- creating a DB snapshot of the instance.
+--
+-- Valid values: @standard | gp2 | io1@
+--
+-- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+modifyDBInstance_storageType :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_storageType = Lens.lens (\ModifyDBInstance' {storageType} -> storageType) (\s@ModifyDBInstance' {} a -> s {storageType = a} :: ModifyDBInstance)
 
--- | The KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-mdiPerformanceInsightsKMSKeyId :: Lens' ModifyDBInstance (Maybe Text)
-mdiPerformanceInsightsKMSKeyId = lens _mdiPerformanceInsightsKMSKeyId (\ s a -> s{_mdiPerformanceInsightsKMSKeyId = a});
+-- | A value that indicates the DB instance should be associated with the
+-- specified option group. Changing this parameter doesn\'t result in an
+-- outage except in the following case and the change is applied during the
+-- next maintenance window unless the @ApplyImmediately@ parameter is
+-- enabled for this request. If the parameter change results in an option
+-- group that enables OEM, this change can cause a brief (sub-second)
+-- period during which new connections are rejected but existing
+-- connections are not interrupted.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security
+-- TDE, can\'t be removed from an option group, and that option group
+-- can\'t be removed from a DB instance once it is associated with a DB
+-- instance
+modifyDBInstance_optionGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_optionGroupName = Lens.lens (\ModifyDBInstance' {optionGroupName} -> optionGroupName) (\s@ModifyDBInstance' {} a -> s {optionGroupName = a} :: ModifyDBInstance)
 
--- | A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible. __Amazon Aurora__  Not applicable. The associated list of EC2 VPC security groups is managed by the DB cluster. For more information, see 'ModifyDBCluster' . Constraints:     * If supplied, must match existing VpcSecurityGroupIds.
-mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance [Text]
-mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a}) . _Default . _Coerce;
+-- | The interval, in seconds, between points when Enhanced Monitoring
+-- metrics are collected for the DB instance. To disable collecting
+-- Enhanced Monitoring metrics, specify 0. The default is 0.
+--
+-- If @MonitoringRoleArn@ is specified, then you must also set
+-- @MonitoringInterval@ to a value other than 0.
+--
+-- Valid Values: @0, 1, 5, 10, 15, 30, 60@
+modifyDBInstance_monitoringInterval :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_monitoringInterval = Lens.lens (\ModifyDBInstance' {monitoringInterval} -> monitoringInterval) (\s@ModifyDBInstance' {} a -> s {monitoringInterval = a} :: ModifyDBInstance)
 
--- | Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does not result in an outage and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request.  Constraints: Cannot be specified if the DB instance is a Read Replica.
-mdiMultiAZ :: Lens' ModifyDBInstance (Maybe Bool)
-mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
+-- | The Active Directory directory ID to move the DB instance to. Specify
+-- @none@ to remove the instance from its current domain. The domain must
+-- be created prior to this operation. Currently, only MySQL, Microsoft SQL
+-- Server, Oracle, and PostgreSQL DB instances can be created in an Active
+-- Directory Domain.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon RDS User Guide/.
+modifyDBInstance_domain :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_domain = Lens.lens (\ModifyDBInstance' {domain} -> domain) (\s@ModifyDBInstance' {} a -> s {domain = a} :: ModifyDBInstance)
 
--- | The new storage capacity of the RDS instance. Changing this setting does not result in an outage and the change is applied during the next maintenance window unless @ApplyImmediately@ is set to @true@ for this request.  __MySQL__  Default: Uses existing setting Valid Values: 5-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. Type: Integer __MariaDB__  Default: Uses existing setting Valid Values: 5-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. Type: Integer __PostgreSQL__  Default: Uses existing setting Valid Values: 5-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. Type: Integer __Oracle__  Default: Uses existing setting Valid Values: 10-6144 Constraints: Value supplied must be at least 10% greater than the current value. Values that are not at least 10% greater than the existing value are rounded up so that they are 10% greater than the current value. __SQL Server__  Cannot be modified. If you choose to migrate your DB instance from using standard storage to using Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process can take time. The duration of the migration depends on several factors such as database load, storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned (if any), and the number of prior scale storage operations. Typical migration times are under 24 hours, but the process can take up to several days in some cases. During the migration, the DB instance is available for use, but might experience performance degradation. While the migration takes place, nightly backups for the instance are suspended. No other Amazon RDS operations can take place for the instance, including modifying the instance, rebooting the instance, deleting the instance, creating a Read Replica for the instance, and creating a DB snapshot of the instance.
-mdiAllocatedStorage :: Lens' ModifyDBInstance (Maybe Int)
-mdiAllocatedStorage = lens _mdiAllocatedStorage (\ s a -> s{_mdiAllocatedStorage = a});
+-- | A value that indicates whether major version upgrades are allowed.
+-- Changing this parameter doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible.
+--
+-- Constraints: Major version upgrades must be allowed when specifying a
+-- value for the EngineVersion parameter that is a different major version
+-- than the DB instance\'s current version.
+modifyDBInstance_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyDBInstance' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBInstance)
 
--- | Specifies whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the @PreferredMaintenanceWindow@ setting for the DB instance.  If this parameter is set to @false@ , changes to the DB instance are applied during the next maintenance window. Some parameter changes can cause an outage and are applied on the next call to 'RebootDBInstance' , or the next failure reboot. Review the table of parameters in <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance and Using the Apply Immediately Parameter> to see the impact that setting @ApplyImmediately@ to @true@ or @false@ has for each modified parameter and to determine when the changes are applied.  Default: @false@
-mdiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
-mdiApplyImmediately = lens _mdiApplyImmediately (\ s a -> s{_mdiApplyImmediately = a});
+-- | The ARN for the IAM role that permits RDS to send enhanced monitoring
+-- metrics to Amazon CloudWatch Logs. For example,
+-- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
+-- monitoring role, go to
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole To create an IAM role for Amazon RDS Enhanced Monitoring>
+-- in the /Amazon RDS User Guide./
+--
+-- If @MonitoringInterval@ is set to a value other than 0, then you must
+-- supply a @MonitoringRoleArn@ value.
+modifyDBInstance_monitoringRoleArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_monitoringRoleArn = Lens.lens (\ModifyDBInstance' {monitoringRoleArn} -> monitoringRoleArn) (\s@ModifyDBInstance' {} a -> s {monitoringRoleArn = a} :: ModifyDBInstance)
 
--- | Indicates that the DB instance should be associated with the specified option group. Changing this parameter does not result in an outage except in the following case and the change is applied during the next maintenance window unless the @ApplyImmediately@ parameter is set to @true@ for this request. If the parameter change results in an option group that enables OEM, this change can cause a brief (sub-second) period during which new connections are rejected but existing connections are not interrupted.  Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot be removed from an option group, and that option group cannot be removed from a DB instance once it is associated with a DB instance
-mdiOptionGroupName :: Lens' ModifyDBInstance (Maybe Text)
-mdiOptionGroupName = lens _mdiOptionGroupName (\ s a -> s{_mdiOptionGroupName = a});
+-- | The new DB subnet group for the DB instance. You can use this parameter
+-- to move your DB instance to a different VPC. If your DB instance isn\'t
+-- in a VPC, you can also use this parameter to move your DB instance into
+-- a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
+--
+-- Changing the subnet group causes an outage during the change. The change
+-- is applied during the next maintenance window, unless you enable
+-- @ApplyImmediately@.
+--
+-- Constraints: If supplied, must match the name of an existing
+-- DBSubnetGroup.
+--
+-- Example: @mySubnetGroup@
+modifyDBInstance_dbSubnetGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_dbSubnetGroupName = Lens.lens (\ModifyDBInstance' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@ModifyDBInstance' {} a -> s {dbSubnetGroupName = a} :: ModifyDBInstance)
 
--- | True to copy all tags from the DB instance to snapshots of the DB instance; otherwise false. The default is false.
-mdiCopyTagsToSnapshot :: Lens' ModifyDBInstance (Maybe Bool)
-mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSnapshot = a});
+-- | The new password for the master user. The password can include any
+-- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+--
+-- Changing this parameter doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible. Between the time of the
+-- request and the completion of the request, the @MasterUserPassword@
+-- element exists in the @PendingModifiedValues@ element of the operation
+-- response.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The password for the master user is managed by the DB
+-- cluster. For more information, see @ModifyDBCluster@.
+--
+-- Default: Uses existing setting
+--
+-- __MariaDB__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Microsoft SQL Server__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __Oracle__
+--
+-- Constraints: Must contain from 8 to 30 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- Amazon RDS API actions never return the password, so this action
+-- provides a way to regain access to a primary instance user if the
+-- password is lost. This includes restoring privileges that might have
+-- been accidentally revoked.
+modifyDBInstance_masterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_masterUserPassword = Lens.lens (\ModifyDBInstance' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBInstance' {} a -> s {masterUserPassword = a} :: ModifyDBInstance)
 
--- | The ARN from the Key Store with which to associate the instance for TDE encryption.
-mdiTDECredentialARN :: Lens' ModifyDBInstance (Maybe Text)
-mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN = a});
+-- | A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves
+-- to the private IP address from within the DB instance\'s VPC, and to the
+-- public IP address from outside of the DB instance\'s VPC. Access to the
+-- DB instance is ultimately controlled by the security group it uses, and
+-- that public access is not permitted if the security group assigned to
+-- the DB instance doesn\'t permit it.
+--
+-- When the DB instance isn\'t publicly accessible, it is an internal DB
+-- instance with a DNS name that resolves to a private IP address.
+--
+-- @PubliclyAccessible@ only applies to DB instances in a VPC. The DB
+-- instance must be part of a public subnet and @PubliclyAccessible@ must
+-- be enabled for it to be publicly accessible.
+--
+-- Changes to the @PubliclyAccessible@ parameter are applied immediately
+-- regardless of the value of the @ApplyImmediately@ parameter.
+modifyDBInstance_publiclyAccessible :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_publiclyAccessible = Lens.lens (\ModifyDBInstance' {publiclyAccessible} -> publiclyAccessible) (\s@ModifyDBInstance' {} a -> s {publiclyAccessible = a} :: ModifyDBInstance)
 
--- | The name of the IAM role to use when making API calls to the Directory Service.
-mdiDomainIAMRoleName :: Lens' ModifyDBInstance (Maybe Text)
-mdiDomainIAMRoleName = lens _mdiDomainIAMRoleName (\ s a -> s{_mdiDomainIAMRoleName = a});
+-- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+-- Changing this parameter doesn\'t result in an outage and the change is
+-- applied during the next maintenance window unless the @ApplyImmediately@
+-- parameter is enabled for this request.
+modifyDBInstance_multiAZ :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_multiAZ = Lens.lens (\ModifyDBInstance' {multiAZ} -> multiAZ) (\s@ModifyDBInstance' {} a -> s {multiAZ = a} :: ModifyDBInstance)
 
--- | True to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts; otherwise false. You can enable IAM database authentication for the following database engines __Amazon Aurora__  Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB cluster. For more information, see 'ModifyDBCluster' . __MySQL__      * For MySQL 5.6, minor version 5.6.34 or higher     * For MySQL 5.7, minor version 5.7.16 or higher Default: @false@
-mdiEnableIAMDatabaseAuthentication :: Lens' ModifyDBInstance (Maybe Bool)
-mdiEnableIAMDatabaseAuthentication = lens _mdiEnableIAMDatabaseAuthentication (\ s a -> s{_mdiEnableIAMDatabaseAuthentication = a});
+-- | The Amazon Web Services KMS key identifier for encryption of Performance
+-- Insights data.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK).
+--
+-- If you do not specify a value for @PerformanceInsightsKMSKeyId@, then
+-- Amazon RDS uses your default CMK. There is a default CMK for your Amazon
+-- Web Services account. Your Amazon Web Services account has a different
+-- default CMK for each Amazon Web Services Region.
+modifyDBInstance_performanceInsightsKMSKeyId :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_performanceInsightsKMSKeyId = Lens.lens (\ModifyDBInstance' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@ModifyDBInstance' {} a -> s {performanceInsightsKMSKeyId = a} :: ModifyDBInstance)
 
--- | Specifies the storage type to be associated with the DB instance. Valid values: @standard | gp2 | io1@  If you specify @io1@ , you must also include a value for the @Iops@ parameter.  Default: @io1@ if the @Iops@ parameter is specified; otherwise @standard@
-mdiStorageType :: Lens' ModifyDBInstance (Maybe Text)
-mdiStorageType = lens _mdiStorageType (\ s a -> s{_mdiStorageType = a});
+-- | A list of EC2 VPC security groups to authorize on this DB instance. This
+-- change is asynchronously applied as soon as possible.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. The associated list of EC2 VPC security groups is
+-- managed by the DB cluster. For more information, see @ModifyDBCluster@.
+--
+-- Constraints:
+--
+-- -   If supplied, must match existing VpcSecurityGroupIds.
+modifyDBInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
+modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens._Coerce
 
--- | The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must match the identifier of an existing DBInstance.
-mdiDBInstanceIdentifier :: Lens' ModifyDBInstance Text
-mdiDBInstanceIdentifier = lens _mdiDBInstanceIdentifier (\ s a -> s{_mdiDBInstanceIdentifier = a});
+-- | The name of the DB parameter group to apply to the DB instance. Changing
+-- this setting doesn\'t result in an outage. The parameter group name
+-- itself is changed immediately, but the actual parameter changes are not
+-- applied until you reboot the instance without failover. In this case,
+-- the DB instance isn\'t rebooted automatically and the parameter changes
+-- isn\'t applied during the next maintenance window.
+--
+-- Default: Uses existing setting
+--
+-- Constraints: The DB parameter group must be in the same DB parameter
+-- group family as this DB instance.
+modifyDBInstance_dbParameterGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_dbParameterGroupName = Lens.lens (\ModifyDBInstance' {dbParameterGroupName} -> dbParameterGroupName) (\s@ModifyDBInstance' {} a -> s {dbParameterGroupName = a} :: ModifyDBInstance)
 
-instance AWSRequest ModifyDBInstance where
-        type Rs ModifyDBInstance = ModifyDBInstanceResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "ModifyDBInstanceResult"
-              (\ s h x ->
-                 ModifyDBInstanceResponse' <$>
-                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
+-- | The version number of the database engine to upgrade to. Changing this
+-- parameter results in an outage and the change is applied during the next
+-- maintenance window unless the @ApplyImmediately@ parameter is enabled
+-- for this request.
+--
+-- For major version upgrades, if a nondefault DB parameter group is
+-- currently in use, a new DB parameter group in the DB parameter group
+-- family for the new engine version must be specified. The new DB
+-- parameter group can be the default for that DB parameter group family.
+--
+-- If you specify only a major version, Amazon RDS will update the DB
+-- instance to the default minor version if the current minor version is
+-- lower. For information about valid engine versions, see
+-- @CreateDBInstance@, or call @DescribeDBEngineVersions@.
+modifyDBInstance_engineVersion :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_engineVersion = Lens.lens (\ModifyDBInstance' {engineVersion} -> engineVersion) (\s@ModifyDBInstance' {} a -> s {engineVersion = a} :: ModifyDBInstance)
 
-instance Hashable ModifyDBInstance where
+-- | The amount of time, in days, to retain Performance Insights data. Valid
+-- values are 7 or 731 (2 years).
+modifyDBInstance_performanceInsightsRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_performanceInsightsRetentionPeriod = Lens.lens (\ModifyDBInstance' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {performanceInsightsRetentionPeriod = a} :: ModifyDBInstance)
 
-instance NFData ModifyDBInstance where
+-- | The license model for the DB instance.
+--
+-- Valid values: @license-included@ | @bring-your-own-license@ |
+-- @general-public-license@
+modifyDBInstance_licenseModel :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> licenseModel) (\s@ModifyDBInstance' {} a -> s {licenseModel = a} :: ModifyDBInstance)
 
-instance ToHeaders ModifyDBInstance where
-        toHeaders = const mempty
+-- | The weekly time range (in UTC) during which system maintenance can
+-- occur, which might result in an outage. Changing this parameter doesn\'t
+-- result in an outage, except in the following situation, and the change
+-- is asynchronously applied as soon as possible. If there are pending
+-- actions that cause a reboot, and the maintenance window is changed to
+-- include the current time, then changing this parameter will cause a
+-- reboot of the DB instance. If moving this window to the current time,
+-- there must be at least 30 minutes between the current time and end of
+-- the window to ensure pending changes are applied.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance Amazon RDS Maintenance Window>
+-- in the /Amazon RDS User Guide./
+--
+-- Default: Uses existing setting
+--
+-- Format: ddd:hh24:mi-ddd:hh24:mi
+--
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+--
+-- Constraints: Must be at least 30 minutes
+modifyDBInstance_preferredMaintenanceWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_preferredMaintenanceWindow = Lens.lens (\ModifyDBInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBInstance' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBInstance)
 
-instance ToPath ModifyDBInstance where
-        toPath = const "/"
+-- | The number of CPU cores and the number of threads per core for the DB
+-- instance class of the DB instance.
+modifyDBInstance_processorFeatures :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [ProcessorFeature])
+modifyDBInstance_processorFeatures = Lens.lens (\ModifyDBInstance' {processorFeatures} -> processorFeatures) (\s@ModifyDBInstance' {} a -> s {processorFeatures = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens._Coerce
 
-instance ToQuery ModifyDBInstance where
-        toQuery ModifyDBInstance'{..}
-          = mconcat
-              ["Action" =: ("ModifyDBInstance" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "EngineVersion" =: _mdiEngineVersion,
-               "DBSecurityGroups" =:
-                 toQuery
-                   (toQueryList "DBSecurityGroupName" <$>
-                      _mdiDBSecurityGroups),
-               "DBPortNumber" =: _mdiDBPortNumber,
-               "MasterUserPassword" =: _mdiMasterUserPassword,
-               "PubliclyAccessible" =: _mdiPubliclyAccessible,
-               "AutoMinorVersionUpgrade" =:
-                 _mdiAutoMinorVersionUpgrade,
-               "DBSubnetGroupName" =: _mdiDBSubnetGroupName,
-               "MonitoringRoleArn" =: _mdiMonitoringRoleARN,
-               "Iops" =: _mdiIOPS,
-               "AllowMajorVersionUpgrade" =:
-                 _mdiAllowMajorVersionUpgrade,
-               "NewDBInstanceIdentifier" =:
-                 _mdiNewDBInstanceIdentifier,
-               "Domain" =: _mdiDomain,
-               "MonitoringInterval" =: _mdiMonitoringInterval,
-               "TdeCredentialPassword" =: _mdiTDECredentialPassword,
-               "DBInstanceClass" =: _mdiDBInstanceClass,
-               "PromotionTier" =: _mdiPromotionTier,
-               "LicenseModel" =: _mdiLicenseModel,
-               "PreferredMaintenanceWindow" =:
-                 _mdiPreferredMaintenanceWindow,
-               "CACertificateIdentifier" =:
-                 _mdiCACertificateIdentifier,
-               "EnablePerformanceInsights" =:
-                 _mdiEnablePerformanceInsights,
-               "DBParameterGroupName" =: _mdiDBParameterGroupName,
-               "PreferredBackupWindow" =: _mdiPreferredBackupWindow,
-               "BackupRetentionPeriod" =: _mdiBackupRetentionPeriod,
-               "PerformanceInsightsKMSKeyId" =:
-                 _mdiPerformanceInsightsKMSKeyId,
-               "VpcSecurityGroupIds" =:
-                 toQuery
-                   (toQueryList "VpcSecurityGroupId" <$>
-                      _mdiVPCSecurityGroupIds),
-               "MultiAZ" =: _mdiMultiAZ,
-               "AllocatedStorage" =: _mdiAllocatedStorage,
-               "ApplyImmediately" =: _mdiApplyImmediately,
-               "OptionGroupName" =: _mdiOptionGroupName,
-               "CopyTagsToSnapshot" =: _mdiCopyTagsToSnapshot,
-               "TdeCredentialArn" =: _mdiTDECredentialARN,
-               "DomainIAMRoleName" =: _mdiDomainIAMRoleName,
-               "EnableIAMDatabaseAuthentication" =:
-                 _mdiEnableIAMDatabaseAuthentication,
-               "StorageType" =: _mdiStorageType,
-               "DBInstanceIdentifier" =: _mdiDBInstanceIdentifier]
+-- | A value that specifies the order in which an Aurora Replica is promoted
+-- to the primary instance after a failure of the existing primary
+-- instance. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
+-- in the /Amazon Aurora User Guide/.
+--
+-- Default: 1
+--
+-- Valid Values: 0 - 15
+modifyDBInstance_promotionTier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -> promotionTier) (\s@ModifyDBInstance' {} a -> s {promotionTier = a} :: ModifyDBInstance)
 
--- | /See:/ 'modifyDBInstanceResponse' smart constructor.
+-- | The new compute and memory capacity of the DB instance, for example,
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
+-- Web Services Regions, or for all database engines. For the full list of
+-- DB instance classes, and availability for your engine, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
+-- in the /Amazon RDS User Guide./
+--
+-- If you modify the DB instance class, an outage occurs during the change.
+-- The change is applied during the next maintenance window, unless
+-- @ApplyImmediately@ is enabled for this request.
+--
+-- Default: Uses existing setting
+modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_dbInstanceClass = Lens.lens (\ModifyDBInstance' {dbInstanceClass} -> dbInstanceClass) (\s@ModifyDBInstance' {} a -> s {dbInstanceClass = a} :: ModifyDBInstance)
+
+-- | The Amazon Resource Name (ARN) of the recovery point in Amazon Web
+-- Services Backup.
+modifyDBInstance_awsBackupRecoveryPointArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_awsBackupRecoveryPointArn = Lens.lens (\ModifyDBInstance' {awsBackupRecoveryPointArn} -> awsBackupRecoveryPointArn) (\s@ModifyDBInstance' {} a -> s {awsBackupRecoveryPointArn = a} :: ModifyDBInstance)
+
+-- | The password for the given ARN from the key store in order to access the
+-- device.
+modifyDBInstance_tdeCredentialPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_tdeCredentialPassword = Lens.lens (\ModifyDBInstance' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@ModifyDBInstance' {} a -> s {tdeCredentialPassword = a} :: ModifyDBInstance)
+
+-- | The name of the IAM role to use when making API calls to the Directory
+-- Service.
+modifyDBInstance_domainIAMRoleName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_domainIAMRoleName = Lens.lens (\ModifyDBInstance' {domainIAMRoleName} -> domainIAMRoleName) (\s@ModifyDBInstance' {} a -> s {domainIAMRoleName = a} :: ModifyDBInstance)
+
+-- | A value that indicates whether the DB instance is restarted when you
+-- rotate your SSL\/TLS certificate.
+--
+-- By default, the DB instance is restarted when you rotate your SSL\/TLS
+-- certificate. The certificate is not updated until the DB instance is
+-- restarted.
+--
+-- Set this parameter only if you are /not/ using SSL\/TLS to connect to
+-- the DB instance.
+--
+-- If you are using SSL\/TLS to connect to the DB instance, follow the
+-- appropriate instructions for your DB engine to rotate your SSL\/TLS
+-- certificate:
+--
+-- -   For more information about rotating your SSL\/TLS certificate for
+--     RDS DB engines, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate.>
+--     in the /Amazon RDS User Guide./
+--
+-- -   For more information about rotating your SSL\/TLS certificate for
+--     Aurora DB engines, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL\/TLS Certificate>
+--     in the /Amazon Aurora User Guide./
+modifyDBInstance_certificateRotationRestart :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_certificateRotationRestart = Lens.lens (\ModifyDBInstance' {certificateRotationRestart} -> certificateRotationRestart) (\s@ModifyDBInstance' {} a -> s {certificateRotationRestart = a} :: ModifyDBInstance)
+
+-- | The ARN from the key store with which to associate the instance for TDE
+-- encryption.
+modifyDBInstance_tdeCredentialArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_tdeCredentialArn = Lens.lens (\ModifyDBInstance' {tdeCredentialArn} -> tdeCredentialArn) (\s@ModifyDBInstance' {} a -> s {tdeCredentialArn = a} :: ModifyDBInstance)
+
+-- | A value that sets the open mode of a replica database to either mounted
+-- or read-only.
+--
+-- Currently, this parameter is only supported for Oracle DB instances.
+--
+-- Mounted DB replicas are included in Oracle Enterprise Edition. The main
+-- use case for mounted replicas is cross-Region disaster recovery. The
+-- primary database doesn\'t use Active Data Guard to transmit information
+-- to the mounted replica. Because it doesn\'t accept user connections, a
+-- mounted replica can\'t serve a read-only workload. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
+-- in the /Amazon RDS User Guide/.
+modifyDBInstance_replicaMode :: Lens.Lens' ModifyDBInstance (Prelude.Maybe ReplicaMode)
+modifyDBInstance_replicaMode = Lens.lens (\ModifyDBInstance' {replicaMode} -> replicaMode) (\s@ModifyDBInstance' {} a -> s {replicaMode = a} :: ModifyDBInstance)
+
+-- | A value that indicates whether to copy all tags from the DB instance to
+-- snapshots of the DB instance. By default, tags are not copied.
+--
+-- __Amazon Aurora__
+--
+-- Not applicable. Copying tags to snapshots is managed by the DB cluster.
+-- Setting this value for an Aurora DB instance has no effect on the DB
+-- cluster setting. For more information, see @ModifyDBCluster@.
+modifyDBInstance_copyTagsToSnapshot :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_copyTagsToSnapshot = Lens.lens (\ModifyDBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBInstance' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBInstance)
+
+-- | A value that indicates whether to enable a customer-owned IP address
+-- (CoIP) for an RDS on Outposts DB instance.
+--
+-- A /CoIP/ provides local or external connectivity to resources in your
+-- Outpost subnets through your on-premises network. For some use cases, a
+-- CoIP can provide lower latency for connections to the DB instance from
+-- outside of its virtual private cloud (VPC) on your local network.
+--
+-- For more information about RDS on Outposts, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide/.
+--
+-- For more information about CoIPs, see
+-- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
+-- in the /Amazon Web Services Outposts User Guide/.
+modifyDBInstance_enableCustomerOwnedIp :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_enableCustomerOwnedIp = Lens.lens (\ModifyDBInstance' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@ModifyDBInstance' {} a -> s {enableCustomerOwnedIp = a} :: ModifyDBInstance)
+
+-- | The configuration setting for the log types to be enabled for export to
+-- CloudWatch Logs for a specific DB instance.
+--
+-- A change to the @CloudwatchLogsExportConfiguration@ parameter is always
+-- applied to the DB instance immediately. Therefore, the
+-- @ApplyImmediately@ parameter has no effect.
+modifyDBInstance_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBInstance (Prelude.Maybe CloudwatchLogsExportConfiguration)
+modifyDBInstance_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBInstance' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBInstance' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBInstance)
+
+-- | The new amount of storage in gibibytes (GiB) to allocate for the DB
+-- instance.
+--
+-- For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
+-- at least 10% greater than the current value. Values that are not at
+-- least 10% greater than the existing value are rounded up so that they
+-- are 10% greater than the current value.
+--
+-- For the valid values for allocated storage for each engine, see
+-- @CreateDBInstance@.
+modifyDBInstance_allocatedStorage :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_allocatedStorage = Lens.lens (\ModifyDBInstance' {allocatedStorage} -> allocatedStorage) (\s@ModifyDBInstance' {} a -> s {allocatedStorage = a} :: ModifyDBInstance)
+
+-- | A value that indicates whether the modifications in this request and any
+-- pending modifications are asynchronously applied as soon as possible,
+-- regardless of the @PreferredMaintenanceWindow@ setting for the DB
+-- instance. By default, this parameter is disabled.
+--
+-- If this parameter is disabled, changes to the DB instance are applied
+-- during the next maintenance window. Some parameter changes can cause an
+-- outage and are applied on the next call to RebootDBInstance, or the next
+-- failure reboot. Review the table of parameters in
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html Modifying a DB Instance>
+-- in the /Amazon RDS User Guide./ to see the impact of enabling or
+-- disabling @ApplyImmediately@ for each modified parameter and to
+-- determine when the changes are applied.
+modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediately} -> applyImmediately) (\s@ModifyDBInstance' {} a -> s {applyImmediately = a} :: ModifyDBInstance)
+
+-- | The new DB instance identifier for the DB instance when renaming a DB
+-- instance. When you change the DB instance identifier, an instance reboot
+-- occurs immediately if you enable @ApplyImmediately@, or will occur
+-- during the next maintenance window if you disable Apply Immediately.
+-- This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 letters, numbers, or hyphens.
+--
+-- -   The first character must be a letter.
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens.
+--
+-- Example: @mydbinstance@
+modifyDBInstance_newDBInstanceIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBInstanceIdentifier'} -> newDBInstanceIdentifier') (\s@ModifyDBInstance' {} a -> s {newDBInstanceIdentifier' = a} :: ModifyDBInstance)
+
+-- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
+-- instance.
+--
+-- Changing this setting doesn\'t result in an outage and the change is
+-- applied during the next maintenance window unless the @ApplyImmediately@
+-- parameter is enabled for this request. If you are migrating from
+-- Provisioned IOPS to standard storage, set this value to 0. The DB
+-- instance will require a reboot for the change in storage type to take
+-- effect.
+--
+-- If you choose to migrate your DB instance from using standard storage to
+-- using Provisioned IOPS, or from using Provisioned IOPS to using standard
+-- storage, the process can take time. The duration of the migration
+-- depends on several factors such as database load, storage size, storage
+-- type (standard or Provisioned IOPS), amount of IOPS provisioned (if
+-- any), and the number of prior scale storage operations. Typical
+-- migration times are under 24 hours, but the process can take up to
+-- several days in some cases. During the migration, the DB instance is
+-- available for use, but might experience performance degradation. While
+-- the migration takes place, nightly backups for the instance are
+-- suspended. No other Amazon RDS operations can take place for the
+-- instance, including modifying the instance, rebooting the instance,
+-- deleting the instance, creating a read replica for the instance, and
+-- creating a DB snapshot of the instance.
+--
+-- Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value
+-- supplied must be at least 10% greater than the current value. Values
+-- that are not at least 10% greater than the existing value are rounded up
+-- so that they are 10% greater than the current value.
+--
+-- Default: Uses existing setting
+modifyDBInstance_iops :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_iops = Lens.lens (\ModifyDBInstance' {iops} -> iops) (\s@ModifyDBInstance' {} a -> s {iops = a} :: ModifyDBInstance)
+
+-- | A value that indicates whether minor version upgrades are applied
+-- automatically to the DB instance during the maintenance window. Changing
+-- this parameter doesn\'t result in an outage except in the following case
+-- and the change is asynchronously applied as soon as possible. An outage
+-- results if this parameter is enabled during the maintenance window, and
+-- a newer minor version is available, and RDS has enabled auto patching
+-- for that engine version.
+modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyDBInstance)
+
+-- | The DB instance identifier. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBInstance.
+modifyDBInstance_dbInstanceIdentifier :: Lens.Lens' ModifyDBInstance Prelude.Text
+modifyDBInstance_dbInstanceIdentifier = Lens.lens (\ModifyDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@ModifyDBInstance' {} a -> s {dbInstanceIdentifier = a} :: ModifyDBInstance)
+
+instance Core.AWSRequest ModifyDBInstance where
+  type
+    AWSResponse ModifyDBInstance =
+      ModifyDBInstanceResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyDBInstanceResult"
+      ( \s h x ->
+          ModifyDBInstanceResponse'
+            Prelude.<$> (x Core..@? "DBInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ModifyDBInstance
+
+instance Prelude.NFData ModifyDBInstance
+
+instance Core.ToHeaders ModifyDBInstance where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ModifyDBInstance where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ModifyDBInstance where
+  toQuery ModifyDBInstance' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifyDBInstance" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DeletionProtection" Core.=: deletionProtection,
+        "PreferredBackupWindow"
+          Core.=: preferredBackupWindow,
+        "BackupRetentionPeriod"
+          Core.=: backupRetentionPeriod,
+        "EnablePerformanceInsights"
+          Core.=: enablePerformanceInsights,
+        "DBPortNumber" Core.=: dbPortNumber,
+        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
+        "CACertificateIdentifier"
+          Core.=: cACertificateIdentifier,
+        "DBSecurityGroups"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "DBSecurityGroupName"
+                Prelude.<$> dbSecurityGroups
+            ),
+        "EnableIAMDatabaseAuthentication"
+          Core.=: enableIAMDatabaseAuthentication,
+        "UseDefaultProcessorFeatures"
+          Core.=: useDefaultProcessorFeatures,
+        "StorageType" Core.=: storageType,
+        "OptionGroupName" Core.=: optionGroupName,
+        "MonitoringInterval" Core.=: monitoringInterval,
+        "Domain" Core.=: domain,
+        "AllowMajorVersionUpgrade"
+          Core.=: allowMajorVersionUpgrade,
+        "MonitoringRoleArn" Core.=: monitoringRoleArn,
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "MasterUserPassword" Core.=: masterUserPassword,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
+        "MultiAZ" Core.=: multiAZ,
+        "PerformanceInsightsKMSKeyId"
+          Core.=: performanceInsightsKMSKeyId,
+        "VpcSecurityGroupIds"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "EngineVersion" Core.=: engineVersion,
+        "PerformanceInsightsRetentionPeriod"
+          Core.=: performanceInsightsRetentionPeriod,
+        "LicenseModel" Core.=: licenseModel,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
+        "ProcessorFeatures"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ProcessorFeature"
+                Prelude.<$> processorFeatures
+            ),
+        "PromotionTier" Core.=: promotionTier,
+        "DBInstanceClass" Core.=: dbInstanceClass,
+        "AwsBackupRecoveryPointArn"
+          Core.=: awsBackupRecoveryPointArn,
+        "TdeCredentialPassword"
+          Core.=: tdeCredentialPassword,
+        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "CertificateRotationRestart"
+          Core.=: certificateRotationRestart,
+        "TdeCredentialArn" Core.=: tdeCredentialArn,
+        "ReplicaMode" Core.=: replicaMode,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
+        "EnableCustomerOwnedIp"
+          Core.=: enableCustomerOwnedIp,
+        "CloudwatchLogsExportConfiguration"
+          Core.=: cloudwatchLogsExportConfiguration,
+        "AllocatedStorage" Core.=: allocatedStorage,
+        "ApplyImmediately" Core.=: applyImmediately,
+        "NewDBInstanceIdentifier"
+          Core.=: newDBInstanceIdentifier',
+        "Iops" Core.=: iops,
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+      ]
+
+-- | /See:/ 'newModifyDBInstanceResponse' smart constructor.
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
-  { _mdirsDBInstance     :: !(Maybe DBInstance)
-  , _mdirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { dbInstance :: Prelude.Maybe DBInstance,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyDBInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyDBInstanceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mdirsDBInstance' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mdirsResponseStatus' - -- | The response status code.
-modifyDBInstanceResponse
-    :: Int -- ^ 'mdirsResponseStatus'
-    -> ModifyDBInstanceResponse
-modifyDBInstanceResponse pResponseStatus_ =
+-- 'dbInstance', 'modifyDBInstanceResponse_dbInstance' - Undocumented member.
+--
+-- 'httpStatus', 'modifyDBInstanceResponse_httpStatus' - The response's http status code.
+newModifyDBInstanceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyDBInstanceResponse
+newModifyDBInstanceResponse pHttpStatus_ =
   ModifyDBInstanceResponse'
-  {_mdirsDBInstance = Nothing, _mdirsResponseStatus = pResponseStatus_}
-
+    { dbInstance =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-mdirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
-mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
+modifyDBInstanceResponse_dbInstance :: Lens.Lens' ModifyDBInstanceResponse (Prelude.Maybe DBInstance)
+modifyDBInstanceResponse_dbInstance = Lens.lens (\ModifyDBInstanceResponse' {dbInstance} -> dbInstance) (\s@ModifyDBInstanceResponse' {} a -> s {dbInstance = a} :: ModifyDBInstanceResponse)
 
--- | -- | The response status code.
-mdirsResponseStatus :: Lens' ModifyDBInstanceResponse Int
-mdirsResponseStatus = lens _mdirsResponseStatus (\ s a -> s{_mdirsResponseStatus = a});
+-- | The response's http status code.
+modifyDBInstanceResponse_httpStatus :: Lens.Lens' ModifyDBInstanceResponse Prelude.Int
+modifyDBInstanceResponse_httpStatus = Lens.lens (\ModifyDBInstanceResponse' {httpStatus} -> httpStatus) (\s@ModifyDBInstanceResponse' {} a -> s {httpStatus = a} :: ModifyDBInstanceResponse)
 
-instance NFData ModifyDBInstanceResponse where
+instance Prelude.NFData ModifyDBInstanceResponse

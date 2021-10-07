@@ -1,164 +1,210 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @DisassociateQualificationFromWorker@ revokes a previously granted Qualification from a user.
+-- The @DisassociateQualificationFromWorker@ revokes a previously granted
+-- Qualification from a user.
 --
---
--- You can provide a text message explaining why the Qualification was revoked. The user who had the Qualification can see this message.
---
+-- You can provide a text message explaining why the Qualification was
+-- revoked. The user who had the Qualification can see this message.
 module Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
-    (
-    -- * Creating a Request
-      disassociateQualificationFromWorker
-    , DisassociateQualificationFromWorker
+  ( -- * Creating a Request
+    DisassociateQualificationFromWorker (..),
+    newDisassociateQualificationFromWorker,
+
     -- * Request Lenses
-    , dqfwReason
-    , dqfwWorkerId
-    , dqfwQualificationTypeId
+    disassociateQualificationFromWorker_reason,
+    disassociateQualificationFromWorker_workerId,
+    disassociateQualificationFromWorker_qualificationTypeId,
 
     -- * Destructuring the Response
-    , disassociateQualificationFromWorkerResponse
-    , DisassociateQualificationFromWorkerResponse
+    DisassociateQualificationFromWorkerResponse (..),
+    newDisassociateQualificationFromWorkerResponse,
+
     -- * Response Lenses
-    , dqfwrsResponseStatus
-    ) where
+    disassociateQualificationFromWorkerResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'disassociateQualificationFromWorker' smart constructor.
+-- | /See:/ 'newDisassociateQualificationFromWorker' smart constructor.
 data DisassociateQualificationFromWorker = DisassociateQualificationFromWorker'
-  { _dqfwReason              :: !(Maybe Text)
-  , _dqfwWorkerId            :: !Text
-  , _dqfwQualificationTypeId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DisassociateQualificationFromWorker' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqfwReason' - A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
---
--- * 'dqfwWorkerId' - The ID of the Worker who possesses the Qualification to be revoked.
---
--- * 'dqfwQualificationTypeId' - The ID of the Qualification type of the Qualification to be revoked.
-disassociateQualificationFromWorker
-    :: Text -- ^ 'dqfwWorkerId'
-    -> Text -- ^ 'dqfwQualificationTypeId'
-    -> DisassociateQualificationFromWorker
-disassociateQualificationFromWorker pWorkerId_ pQualificationTypeId_ =
-  DisassociateQualificationFromWorker'
-  { _dqfwReason = Nothing
-  , _dqfwWorkerId = pWorkerId_
-  , _dqfwQualificationTypeId = pQualificationTypeId_
+  { -- | A text message that explains why the Qualification was revoked. The user
+    -- who had the Qualification sees this message.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Worker who possesses the Qualification to be revoked.
+    workerId :: Prelude.Text,
+    -- | The ID of the Qualification type of the Qualification to be revoked.
+    qualificationTypeId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DisassociateQualificationFromWorker' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'reason', 'disassociateQualificationFromWorker_reason' - A text message that explains why the Qualification was revoked. The user
+-- who had the Qualification sees this message.
+--
+-- 'workerId', 'disassociateQualificationFromWorker_workerId' - The ID of the Worker who possesses the Qualification to be revoked.
+--
+-- 'qualificationTypeId', 'disassociateQualificationFromWorker_qualificationTypeId' - The ID of the Qualification type of the Qualification to be revoked.
+newDisassociateQualificationFromWorker ::
+  -- | 'workerId'
+  Prelude.Text ->
+  -- | 'qualificationTypeId'
+  Prelude.Text ->
+  DisassociateQualificationFromWorker
+newDisassociateQualificationFromWorker
+  pWorkerId_
+  pQualificationTypeId_ =
+    DisassociateQualificationFromWorker'
+      { reason =
+          Prelude.Nothing,
+        workerId = pWorkerId_,
+        qualificationTypeId =
+          pQualificationTypeId_
+      }
 
--- | A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
-dqfwReason :: Lens' DisassociateQualificationFromWorker (Maybe Text)
-dqfwReason = lens _dqfwReason (\ s a -> s{_dqfwReason = a});
+-- | A text message that explains why the Qualification was revoked. The user
+-- who had the Qualification sees this message.
+disassociateQualificationFromWorker_reason :: Lens.Lens' DisassociateQualificationFromWorker (Prelude.Maybe Prelude.Text)
+disassociateQualificationFromWorker_reason = Lens.lens (\DisassociateQualificationFromWorker' {reason} -> reason) (\s@DisassociateQualificationFromWorker' {} a -> s {reason = a} :: DisassociateQualificationFromWorker)
 
 -- | The ID of the Worker who possesses the Qualification to be revoked.
-dqfwWorkerId :: Lens' DisassociateQualificationFromWorker Text
-dqfwWorkerId = lens _dqfwWorkerId (\ s a -> s{_dqfwWorkerId = a});
+disassociateQualificationFromWorker_workerId :: Lens.Lens' DisassociateQualificationFromWorker Prelude.Text
+disassociateQualificationFromWorker_workerId = Lens.lens (\DisassociateQualificationFromWorker' {workerId} -> workerId) (\s@DisassociateQualificationFromWorker' {} a -> s {workerId = a} :: DisassociateQualificationFromWorker)
 
 -- | The ID of the Qualification type of the Qualification to be revoked.
-dqfwQualificationTypeId :: Lens' DisassociateQualificationFromWorker Text
-dqfwQualificationTypeId = lens _dqfwQualificationTypeId (\ s a -> s{_dqfwQualificationTypeId = a});
+disassociateQualificationFromWorker_qualificationTypeId :: Lens.Lens' DisassociateQualificationFromWorker Prelude.Text
+disassociateQualificationFromWorker_qualificationTypeId = Lens.lens (\DisassociateQualificationFromWorker' {qualificationTypeId} -> qualificationTypeId) (\s@DisassociateQualificationFromWorker' {} a -> s {qualificationTypeId = a} :: DisassociateQualificationFromWorker)
 
-instance AWSRequest
-           DisassociateQualificationFromWorker
-         where
-        type Rs DisassociateQualificationFromWorker =
-             DisassociateQualificationFromWorkerResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DisassociateQualificationFromWorkerResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    DisassociateQualificationFromWorker
+  where
+  type
+    AWSResponse DisassociateQualificationFromWorker =
+      DisassociateQualificationFromWorkerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DisassociateQualificationFromWorkerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DisassociateQualificationFromWorker
-         where
+instance
+  Prelude.Hashable
+    DisassociateQualificationFromWorker
 
-instance NFData DisassociateQualificationFromWorker
-         where
+instance
+  Prelude.NFData
+    DisassociateQualificationFromWorker
 
-instance ToHeaders
-           DisassociateQualificationFromWorker
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    DisassociateQualificationFromWorker
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DisassociateQualificationFromWorker
-         where
-        toJSON DisassociateQualificationFromWorker'{..}
-          = object
-              (catMaybes
-                 [("Reason" .=) <$> _dqfwReason,
-                  Just ("WorkerId" .= _dqfwWorkerId),
-                  Just
-                    ("QualificationTypeId" .= _dqfwQualificationTypeId)])
+instance
+  Core.ToJSON
+    DisassociateQualificationFromWorker
+  where
+  toJSON DisassociateQualificationFromWorker' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Reason" Core..=) Prelude.<$> reason,
+            Prelude.Just ("WorkerId" Core..= workerId),
+            Prelude.Just
+              ("QualificationTypeId" Core..= qualificationTypeId)
+          ]
+      )
 
-instance ToPath DisassociateQualificationFromWorker
-         where
-        toPath = const "/"
+instance
+  Core.ToPath
+    DisassociateQualificationFromWorker
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DisassociateQualificationFromWorker
-         where
-        toQuery = const mempty
+instance
+  Core.ToQuery
+    DisassociateQualificationFromWorker
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'disassociateQualificationFromWorkerResponse' smart constructor.
-newtype DisassociateQualificationFromWorkerResponse = DisassociateQualificationFromWorkerResponse'
-  { _dqfwrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDisassociateQualificationFromWorkerResponse' smart constructor.
+data DisassociateQualificationFromWorkerResponse = DisassociateQualificationFromWorkerResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateQualificationFromWorkerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateQualificationFromWorkerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dqfwrsResponseStatus' - -- | The response status code.
-disassociateQualificationFromWorkerResponse
-    :: Int -- ^ 'dqfwrsResponseStatus'
-    -> DisassociateQualificationFromWorkerResponse
-disassociateQualificationFromWorkerResponse pResponseStatus_ =
-  DisassociateQualificationFromWorkerResponse'
-  {_dqfwrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'disassociateQualificationFromWorkerResponse_httpStatus' - The response's http status code.
+newDisassociateQualificationFromWorkerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DisassociateQualificationFromWorkerResponse
+newDisassociateQualificationFromWorkerResponse
+  pHttpStatus_ =
+    DisassociateQualificationFromWorkerResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+disassociateQualificationFromWorkerResponse_httpStatus :: Lens.Lens' DisassociateQualificationFromWorkerResponse Prelude.Int
+disassociateQualificationFromWorkerResponse_httpStatus = Lens.lens (\DisassociateQualificationFromWorkerResponse' {httpStatus} -> httpStatus) (\s@DisassociateQualificationFromWorkerResponse' {} a -> s {httpStatus = a} :: DisassociateQualificationFromWorkerResponse)
 
--- | -- | The response status code.
-dqfwrsResponseStatus :: Lens' DisassociateQualificationFromWorkerResponse Int
-dqfwrsResponseStatus = lens _dqfwrsResponseStatus (\ s a -> s{_dqfwrsResponseStatus = a});
-
-instance NFData
-           DisassociateQualificationFromWorkerResponse
-         where
+instance
+  Prelude.NFData
+    DisassociateQualificationFromWorkerResponse

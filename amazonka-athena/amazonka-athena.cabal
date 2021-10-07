@@ -1,96 +1,152 @@
-name:                  amazonka-athena
-version:               1.5.0
-synopsis:              Amazon Athena SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-athena
+version:            1.6.1
+synopsis:           Amazon Athena SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Athena" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2017-05-18@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Athena.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Athena" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-athena
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-athena
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Athena
+    Network.AWS.Athena.BatchGetNamedQuery
+    Network.AWS.Athena.BatchGetQueryExecution
+    Network.AWS.Athena.CreateDataCatalog
+    Network.AWS.Athena.CreateNamedQuery
+    Network.AWS.Athena.CreatePreparedStatement
+    Network.AWS.Athena.CreateWorkGroup
+    Network.AWS.Athena.DeleteDataCatalog
+    Network.AWS.Athena.DeleteNamedQuery
+    Network.AWS.Athena.DeletePreparedStatement
+    Network.AWS.Athena.DeleteWorkGroup
+    Network.AWS.Athena.GetDatabase
+    Network.AWS.Athena.GetDataCatalog
+    Network.AWS.Athena.GetNamedQuery
+    Network.AWS.Athena.GetPreparedStatement
+    Network.AWS.Athena.GetQueryExecution
+    Network.AWS.Athena.GetQueryResults
+    Network.AWS.Athena.GetTableMetadata
+    Network.AWS.Athena.GetWorkGroup
+    Network.AWS.Athena.Lens
+    Network.AWS.Athena.ListDatabases
+    Network.AWS.Athena.ListDataCatalogs
+    Network.AWS.Athena.ListEngineVersions
+    Network.AWS.Athena.ListNamedQueries
+    Network.AWS.Athena.ListPreparedStatements
+    Network.AWS.Athena.ListQueryExecutions
+    Network.AWS.Athena.ListTableMetadata
+    Network.AWS.Athena.ListTagsForResource
+    Network.AWS.Athena.ListWorkGroups
+    Network.AWS.Athena.StartQueryExecution
+    Network.AWS.Athena.StopQueryExecution
+    Network.AWS.Athena.TagResource
+    Network.AWS.Athena.Types
+    Network.AWS.Athena.Types.Column
+    Network.AWS.Athena.Types.ColumnInfo
+    Network.AWS.Athena.Types.ColumnNullable
+    Network.AWS.Athena.Types.Database
+    Network.AWS.Athena.Types.DataCatalog
+    Network.AWS.Athena.Types.DataCatalogSummary
+    Network.AWS.Athena.Types.DataCatalogType
+    Network.AWS.Athena.Types.Datum
+    Network.AWS.Athena.Types.EncryptionConfiguration
+    Network.AWS.Athena.Types.EncryptionOption
+    Network.AWS.Athena.Types.EngineVersion
+    Network.AWS.Athena.Types.NamedQuery
+    Network.AWS.Athena.Types.PreparedStatement
+    Network.AWS.Athena.Types.PreparedStatementSummary
+    Network.AWS.Athena.Types.QueryExecution
+    Network.AWS.Athena.Types.QueryExecutionContext
+    Network.AWS.Athena.Types.QueryExecutionState
+    Network.AWS.Athena.Types.QueryExecutionStatistics
+    Network.AWS.Athena.Types.QueryExecutionStatus
+    Network.AWS.Athena.Types.ResultConfiguration
+    Network.AWS.Athena.Types.ResultConfigurationUpdates
+    Network.AWS.Athena.Types.ResultSet
+    Network.AWS.Athena.Types.ResultSetMetadata
+    Network.AWS.Athena.Types.Row
+    Network.AWS.Athena.Types.StatementType
+    Network.AWS.Athena.Types.TableMetadata
+    Network.AWS.Athena.Types.Tag
+    Network.AWS.Athena.Types.UnprocessedNamedQueryId
+    Network.AWS.Athena.Types.UnprocessedQueryExecutionId
+    Network.AWS.Athena.Types.WorkGroup
+    Network.AWS.Athena.Types.WorkGroupConfiguration
+    Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
+    Network.AWS.Athena.Types.WorkGroupState
+    Network.AWS.Athena.Types.WorkGroupSummary
+    Network.AWS.Athena.UntagResource
+    Network.AWS.Athena.UpdateDataCatalog
+    Network.AWS.Athena.UpdatePreparedStatement
+    Network.AWS.Athena.UpdateWorkGroup
+    Network.AWS.Athena.Waiters
 
-    exposed-modules:
-          Network.AWS.Athena
-        , Network.AWS.Athena.BatchGetNamedQuery
-        , Network.AWS.Athena.BatchGetQueryExecution
-        , Network.AWS.Athena.CreateNamedQuery
-        , Network.AWS.Athena.DeleteNamedQuery
-        , Network.AWS.Athena.GetNamedQuery
-        , Network.AWS.Athena.GetQueryExecution
-        , Network.AWS.Athena.GetQueryResults
-        , Network.AWS.Athena.ListNamedQueries
-        , Network.AWS.Athena.ListQueryExecutions
-        , Network.AWS.Athena.StartQueryExecution
-        , Network.AWS.Athena.StopQueryExecution
-        , Network.AWS.Athena.Types
-        , Network.AWS.Athena.Waiters
-
-    other-modules:
-          Network.AWS.Athena.Types.Product
-        , Network.AWS.Athena.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-athena-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Athena
+    Test.AWS.Athena.Internal
+    Test.AWS.Gen.Athena
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Athena
-        , Test.AWS.Gen.Athena
-        , Test.AWS.Athena.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-athena
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-athena
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeletePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,93 +22,125 @@
 --
 -- Deletes the specified managed policy.
 --
+-- Before you can delete a managed policy, you must first detach the policy
+-- from all users, groups, and roles that it is attached to. In addition,
+-- you must delete all the policy\'s versions. The following steps describe
+-- the process for deleting a managed policy:
 --
--- Before you can delete a managed policy, you must first detach the policy from all users, groups, and roles that it is attached to, and you must delete all of the policy's versions. The following steps describe the process for deleting a managed policy:
+-- -   Detach the policy from all users, groups, and roles that the policy
+--     is attached to, using DetachUserPolicy, DetachGroupPolicy, or
+--     DetachRolePolicy. To list all the users, groups, and roles that a
+--     policy is attached to, use ListEntitiesForPolicy.
 --
---     * Detach the policy from all users, groups, and roles that the policy is attached to, using the 'DetachUserPolicy' , 'DetachGroupPolicy' , or 'DetachRolePolicy' APIs. To list all the users, groups, and roles that a policy is attached to, use 'ListEntitiesForPolicy' .
+-- -   Delete all versions of the policy using DeletePolicyVersion. To list
+--     the policy\'s versions, use ListPolicyVersions. You cannot use
+--     DeletePolicyVersion to delete the version that is marked as the
+--     default version. You delete the policy\'s default version in the
+--     next step of the process.
 --
---     * Delete all versions of the policy using 'DeletePolicyVersion' . To list the policy's versions, use 'ListPolicyVersions' . You cannot use 'DeletePolicyVersion' to delete the version that is marked as the default version. You delete the policy's default version in the next step of the process.
+-- -   Delete the policy (this automatically deletes the policy\'s default
+--     version) using this operation.
 --
---     * Delete the policy (this automatically deletes the policy's default version) using this API.
---
---
---
--- For information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
+-- For information about managed policies, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.DeletePolicy
-    (
-    -- * Creating a Request
-      deletePolicy
-    , DeletePolicy
+  ( -- * Creating a Request
+    DeletePolicy (..),
+    newDeletePolicy,
+
     -- * Request Lenses
-    , dpPolicyARN
+    deletePolicy_policyArn,
 
     -- * Destructuring the Response
-    , deletePolicyResponse
-    , DeletePolicyResponse
-    ) where
+    DeletePolicyResponse (..),
+    newDeletePolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deletePolicy' smart constructor.
-newtype DeletePolicy = DeletePolicy'
-  { _dpPolicyARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePolicy' smart constructor.
+data DeletePolicy = DeletePolicy'
+  { -- | The Amazon Resource Name (ARN) of the IAM policy you want to delete.
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /Amazon Web Services General Reference/.
+    policyArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to delete. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-deletePolicy
-    :: Text -- ^ 'dpPolicyARN'
-    -> DeletePolicy
-deletePolicy pPolicyARN_ = DeletePolicy' {_dpPolicyARN = pPolicyARN_}
-
-
--- | The Amazon Resource Name (ARN) of the IAM policy you want to delete. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-dpPolicyARN :: Lens' DeletePolicy Text
-dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
-
-instance AWSRequest DeletePolicy where
-        type Rs DeletePolicy = DeletePolicyResponse
-        request = postQuery iam
-        response = receiveNull DeletePolicyResponse'
-
-instance Hashable DeletePolicy where
-
-instance NFData DeletePolicy where
-
-instance ToHeaders DeletePolicy where
-        toHeaders = const mempty
-
-instance ToPath DeletePolicy where
-        toPath = const "/"
-
-instance ToQuery DeletePolicy where
-        toQuery DeletePolicy'{..}
-          = mconcat
-              ["Action" =: ("DeletePolicy" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _dpPolicyARN]
-
--- | /See:/ 'deletePolicyResponse' smart constructor.
-data DeletePolicyResponse =
-  DeletePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
-deletePolicyResponse
-    :: DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse'
+-- 'policyArn', 'deletePolicy_policyArn' - The Amazon Resource Name (ARN) of the IAM policy you want to delete.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+newDeletePolicy ::
+  -- | 'policyArn'
+  Prelude.Text ->
+  DeletePolicy
+newDeletePolicy pPolicyArn_ =
+  DeletePolicy' {policyArn = pPolicyArn_}
 
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to delete.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+deletePolicy_policyArn :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyArn = Lens.lens (\DeletePolicy' {policyArn} -> policyArn) (\s@DeletePolicy' {} a -> s {policyArn = a} :: DeletePolicy)
 
-instance NFData DeletePolicyResponse where
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull DeletePolicyResponse'
+
+instance Prelude.Hashable DeletePolicy
+
+instance Prelude.NFData DeletePolicy
+
+instance Core.ToHeaders DeletePolicy where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeletePolicy where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeletePolicy where
+  toQuery DeletePolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeletePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Core.=: policyArn
+      ]
+
+-- | /See:/ 'newDeletePolicyResponse' smart constructor.
+data DeletePolicyResponse = DeletePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePolicyResponse ::
+  DeletePolicyResponse
+newDeletePolicyResponse = DeletePolicyResponse'
+
+instance Prelude.NFData DeletePolicyResponse

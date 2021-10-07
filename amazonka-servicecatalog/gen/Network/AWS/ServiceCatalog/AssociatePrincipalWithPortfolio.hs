@@ -1,167 +1,226 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates the specified principal ARN with the specified portfolio.
---
---
 module Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
-    (
-    -- * Creating a Request
-      associatePrincipalWithPortfolio
-    , AssociatePrincipalWithPortfolio
+  ( -- * Creating a Request
+    AssociatePrincipalWithPortfolio (..),
+    newAssociatePrincipalWithPortfolio,
+
     -- * Request Lenses
-    , aAcceptLanguage
-    , aPortfolioId
-    , aPrincipalARN
-    , aPrincipalType
+    associatePrincipalWithPortfolio_acceptLanguage,
+    associatePrincipalWithPortfolio_portfolioId,
+    associatePrincipalWithPortfolio_principalARN,
+    associatePrincipalWithPortfolio_principalType,
 
     -- * Destructuring the Response
-    , associatePrincipalWithPortfolioResponse
-    , AssociatePrincipalWithPortfolioResponse
+    AssociatePrincipalWithPortfolioResponse (..),
+    newAssociatePrincipalWithPortfolioResponse,
+
     -- * Response Lenses
-    , apwprsResponseStatus
-    ) where
+    associatePrincipalWithPortfolioResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'associatePrincipalWithPortfolio' smart constructor.
+-- | /See:/ 'newAssociatePrincipalWithPortfolio' smart constructor.
 data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
-  { _aAcceptLanguage :: !(Maybe Text)
-  , _aPortfolioId    :: !Text
-  , _aPrincipalARN   :: !Text
-  , _aPrincipalType  :: !PrincipalType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AssociatePrincipalWithPortfolio' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
---
--- * 'aPortfolioId' - The portfolio identifier.
---
--- * 'aPrincipalARN' - The ARN representing the principal (IAM user, role, or group).
---
--- * 'aPrincipalType' - The principal type. Must be @IAM@
-associatePrincipalWithPortfolio
-    :: Text -- ^ 'aPortfolioId'
-    -> Text -- ^ 'aPrincipalARN'
-    -> PrincipalType -- ^ 'aPrincipalType'
-    -> AssociatePrincipalWithPortfolio
-associatePrincipalWithPortfolio pPortfolioId_ pPrincipalARN_ pPrincipalType_ =
-  AssociatePrincipalWithPortfolio'
-  { _aAcceptLanguage = Nothing
-  , _aPortfolioId = pPortfolioId_
-  , _aPrincipalARN = pPrincipalARN_
-  , _aPrincipalType = pPrincipalType_
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
+    portfolioId :: Prelude.Text,
+    -- | The ARN of the principal (IAM user, role, or group).
+    principalARN :: Prelude.Text,
+    -- | The principal type. The supported value is @IAM@.
+    principalType :: PrincipalType
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AssociatePrincipalWithPortfolio' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'acceptLanguage', 'associatePrincipalWithPortfolio_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'portfolioId', 'associatePrincipalWithPortfolio_portfolioId' - The portfolio identifier.
+--
+-- 'principalARN', 'associatePrincipalWithPortfolio_principalARN' - The ARN of the principal (IAM user, role, or group).
+--
+-- 'principalType', 'associatePrincipalWithPortfolio_principalType' - The principal type. The supported value is @IAM@.
+newAssociatePrincipalWithPortfolio ::
+  -- | 'portfolioId'
+  Prelude.Text ->
+  -- | 'principalARN'
+  Prelude.Text ->
+  -- | 'principalType'
+  PrincipalType ->
+  AssociatePrincipalWithPortfolio
+newAssociatePrincipalWithPortfolio
+  pPortfolioId_
+  pPrincipalARN_
+  pPrincipalType_ =
+    AssociatePrincipalWithPortfolio'
+      { acceptLanguage =
+          Prelude.Nothing,
+        portfolioId = pPortfolioId_,
+        principalARN = pPrincipalARN_,
+        principalType = pPrincipalType_
+      }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-aAcceptLanguage :: Lens' AssociatePrincipalWithPortfolio (Maybe Text)
-aAcceptLanguage = lens _aAcceptLanguage (\ s a -> s{_aAcceptLanguage = a});
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+associatePrincipalWithPortfolio_acceptLanguage :: Lens.Lens' AssociatePrincipalWithPortfolio (Prelude.Maybe Prelude.Text)
+associatePrincipalWithPortfolio_acceptLanguage = Lens.lens (\AssociatePrincipalWithPortfolio' {acceptLanguage} -> acceptLanguage) (\s@AssociatePrincipalWithPortfolio' {} a -> s {acceptLanguage = a} :: AssociatePrincipalWithPortfolio)
 
 -- | The portfolio identifier.
-aPortfolioId :: Lens' AssociatePrincipalWithPortfolio Text
-aPortfolioId = lens _aPortfolioId (\ s a -> s{_aPortfolioId = a});
+associatePrincipalWithPortfolio_portfolioId :: Lens.Lens' AssociatePrincipalWithPortfolio Prelude.Text
+associatePrincipalWithPortfolio_portfolioId = Lens.lens (\AssociatePrincipalWithPortfolio' {portfolioId} -> portfolioId) (\s@AssociatePrincipalWithPortfolio' {} a -> s {portfolioId = a} :: AssociatePrincipalWithPortfolio)
 
--- | The ARN representing the principal (IAM user, role, or group).
-aPrincipalARN :: Lens' AssociatePrincipalWithPortfolio Text
-aPrincipalARN = lens _aPrincipalARN (\ s a -> s{_aPrincipalARN = a});
+-- | The ARN of the principal (IAM user, role, or group).
+associatePrincipalWithPortfolio_principalARN :: Lens.Lens' AssociatePrincipalWithPortfolio Prelude.Text
+associatePrincipalWithPortfolio_principalARN = Lens.lens (\AssociatePrincipalWithPortfolio' {principalARN} -> principalARN) (\s@AssociatePrincipalWithPortfolio' {} a -> s {principalARN = a} :: AssociatePrincipalWithPortfolio)
 
--- | The principal type. Must be @IAM@
-aPrincipalType :: Lens' AssociatePrincipalWithPortfolio PrincipalType
-aPrincipalType = lens _aPrincipalType (\ s a -> s{_aPrincipalType = a});
+-- | The principal type. The supported value is @IAM@.
+associatePrincipalWithPortfolio_principalType :: Lens.Lens' AssociatePrincipalWithPortfolio PrincipalType
+associatePrincipalWithPortfolio_principalType = Lens.lens (\AssociatePrincipalWithPortfolio' {principalType} -> principalType) (\s@AssociatePrincipalWithPortfolio' {} a -> s {principalType = a} :: AssociatePrincipalWithPortfolio)
 
-instance AWSRequest AssociatePrincipalWithPortfolio
-         where
-        type Rs AssociatePrincipalWithPortfolio =
-             AssociatePrincipalWithPortfolioResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AssociatePrincipalWithPortfolioResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    AssociatePrincipalWithPortfolio
+  where
+  type
+    AWSResponse AssociatePrincipalWithPortfolio =
+      AssociatePrincipalWithPortfolioResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AssociatePrincipalWithPortfolioResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AssociatePrincipalWithPortfolio
-         where
+instance
+  Prelude.Hashable
+    AssociatePrincipalWithPortfolio
 
-instance NFData AssociatePrincipalWithPortfolio where
+instance
+  Prelude.NFData
+    AssociatePrincipalWithPortfolio
 
-instance ToHeaders AssociatePrincipalWithPortfolio
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    AssociatePrincipalWithPortfolio
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AssociatePrincipalWithPortfolio where
-        toJSON AssociatePrincipalWithPortfolio'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _aAcceptLanguage,
-                  Just ("PortfolioId" .= _aPortfolioId),
-                  Just ("PrincipalARN" .= _aPrincipalARN),
-                  Just ("PrincipalType" .= _aPrincipalType)])
+instance Core.ToJSON AssociatePrincipalWithPortfolio where
+  toJSON AssociatePrincipalWithPortfolio' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PortfolioId" Core..= portfolioId),
+            Prelude.Just ("PrincipalARN" Core..= principalARN),
+            Prelude.Just
+              ("PrincipalType" Core..= principalType)
+          ]
+      )
 
-instance ToPath AssociatePrincipalWithPortfolio where
-        toPath = const "/"
+instance Core.ToPath AssociatePrincipalWithPortfolio where
+  toPath = Prelude.const "/"
 
-instance ToQuery AssociatePrincipalWithPortfolio
-         where
-        toQuery = const mempty
+instance Core.ToQuery AssociatePrincipalWithPortfolio where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'associatePrincipalWithPortfolioResponse' smart constructor.
-newtype AssociatePrincipalWithPortfolioResponse = AssociatePrincipalWithPortfolioResponse'
-  { _apwprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAssociatePrincipalWithPortfolioResponse' smart constructor.
+data AssociatePrincipalWithPortfolioResponse = AssociatePrincipalWithPortfolioResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssociatePrincipalWithPortfolioResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociatePrincipalWithPortfolioResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'apwprsResponseStatus' - -- | The response status code.
-associatePrincipalWithPortfolioResponse
-    :: Int -- ^ 'apwprsResponseStatus'
-    -> AssociatePrincipalWithPortfolioResponse
-associatePrincipalWithPortfolioResponse pResponseStatus_ =
-  AssociatePrincipalWithPortfolioResponse'
-  {_apwprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'associatePrincipalWithPortfolioResponse_httpStatus' - The response's http status code.
+newAssociatePrincipalWithPortfolioResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AssociatePrincipalWithPortfolioResponse
+newAssociatePrincipalWithPortfolioResponse
+  pHttpStatus_ =
+    AssociatePrincipalWithPortfolioResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+associatePrincipalWithPortfolioResponse_httpStatus :: Lens.Lens' AssociatePrincipalWithPortfolioResponse Prelude.Int
+associatePrincipalWithPortfolioResponse_httpStatus = Lens.lens (\AssociatePrincipalWithPortfolioResponse' {httpStatus} -> httpStatus) (\s@AssociatePrincipalWithPortfolioResponse' {} a -> s {httpStatus = a} :: AssociatePrincipalWithPortfolioResponse)
 
--- | -- | The response status code.
-apwprsResponseStatus :: Lens' AssociatePrincipalWithPortfolioResponse Int
-apwprsResponseStatus = lens _apwprsResponseStatus (\ s a -> s{_apwprsResponseStatus = a});
-
-instance NFData
-           AssociatePrincipalWithPortfolioResponse
-         where
+instance
+  Prelude.NFData
+    AssociatePrincipalWithPortfolioResponse

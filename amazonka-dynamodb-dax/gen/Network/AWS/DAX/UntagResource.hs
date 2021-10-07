@@ -1,142 +1,175 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DAX.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the association of tags from a DAX resource. You can call @UntagResource@ up to 5 times per second, per account.
---
---
+-- Removes the association of tags from a DAX resource. You can call
+-- @UntagResource@ up to 5 times per second, per account.
 module Network.AWS.DAX.UntagResource
-    (
-    -- * Creating a Request
-      untagResource
-    , UntagResource
+  ( -- * Creating a Request
+    UntagResource (..),
+    newUntagResource,
+
     -- * Request Lenses
-    , urResourceName
-    , urTagKeys
+    untagResource_resourceName,
+    untagResource_tagKeys,
 
     -- * Destructuring the Response
-    , untagResourceResponse
-    , UntagResourceResponse
+    UntagResourceResponse (..),
+    newUntagResourceResponse,
+
     -- * Response Lenses
-    , urrsTags
-    , urrsResponseStatus
-    ) where
+    untagResourceResponse_tags,
+    untagResourceResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
-import Network.AWS.DAX.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'untagResource' smart constructor.
+-- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResourceName :: !Text
-  , _urTagKeys      :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the DAX resource from which the tags should be removed.
+    resourceName :: Prelude.Text,
+    -- | A list of tag keys. If the DAX cluster has any tags with these keys,
+    -- then the tags are removed from the cluster.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urResourceName' - The name of the DAX resource from which the tags should be removed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urTagKeys' - A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.
-untagResource
-    :: Text -- ^ 'urResourceName'
-    -> UntagResource
-untagResource pResourceName_ =
-  UntagResource' {_urResourceName = pResourceName_, _urTagKeys = mempty}
-
+-- 'resourceName', 'untagResource_resourceName' - The name of the DAX resource from which the tags should be removed.
+--
+-- 'tagKeys', 'untagResource_tagKeys' - A list of tag keys. If the DAX cluster has any tags with these keys,
+-- then the tags are removed from the cluster.
+newUntagResource ::
+  -- | 'resourceName'
+  Prelude.Text ->
+  UntagResource
+newUntagResource pResourceName_ =
+  UntagResource'
+    { resourceName = pResourceName_,
+      tagKeys = Prelude.mempty
+    }
 
 -- | The name of the DAX resource from which the tags should be removed.
-urResourceName :: Lens' UntagResource Text
-urResourceName = lens _urResourceName (\ s a -> s{_urResourceName = a});
+untagResource_resourceName :: Lens.Lens' UntagResource Prelude.Text
+untagResource_resourceName = Lens.lens (\UntagResource' {resourceName} -> resourceName) (\s@UntagResource' {} a -> s {resourceName = a} :: UntagResource)
 
--- | A list of tag keys. If the DAX cluster has any tags with these keys, then the tags are removed from the cluster.
-urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+-- | A list of tag keys. If the DAX cluster has any tags with these keys,
+-- then the tags are removed from the cluster.
+untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 
-instance AWSRequest UntagResource where
-        type Rs UntagResource = UntagResourceResponse
-        request = postJSON dax
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UntagResourceResponse' <$>
-                   (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UntagResourceResponse'
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UntagResource where
+instance Prelude.Hashable UntagResource
 
-instance NFData UntagResource where
+instance Prelude.NFData UntagResource
 
-instance ToHeaders UntagResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDAXV3.UntagResource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UntagResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AmazonDAXV3.UntagResource" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UntagResource where
-        toJSON UntagResource'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceName" .= _urResourceName),
-                  Just ("TagKeys" .= _urTagKeys)])
+instance Core.ToJSON UntagResource where
+  toJSON UntagResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceName" Core..= resourceName),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance ToPath UntagResource where
-        toPath = const "/"
+instance Core.ToPath UntagResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery UntagResource where
-        toQuery = const mempty
+instance Core.ToQuery UntagResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'untagResourceResponse' smart constructor.
+-- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  { _urrsTags           :: !(Maybe [Tag])
-  , _urrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tag keys that have been removed from the cluster.
+    tags :: Prelude.Maybe [Tag],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urrsTags' - The tag keys that have been removed from the cluster.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urrsResponseStatus' - -- | The response status code.
-untagResourceResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UntagResourceResponse
-untagResourceResponse pResponseStatus_ =
+-- 'tags', 'untagResourceResponse_tags' - The tag keys that have been removed from the cluster.
+--
+-- 'httpStatus', 'untagResourceResponse_httpStatus' - The response's http status code.
+newUntagResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UntagResourceResponse
+newUntagResourceResponse pHttpStatus_ =
   UntagResourceResponse'
-  {_urrsTags = Nothing, _urrsResponseStatus = pResponseStatus_}
-
+    { tags = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The tag keys that have been removed from the cluster.
-urrsTags :: Lens' UntagResourceResponse [Tag]
-urrsTags = lens _urrsTags (\ s a -> s{_urrsTags = a}) . _Default . _Coerce;
+untagResourceResponse_tags :: Lens.Lens' UntagResourceResponse (Prelude.Maybe [Tag])
+untagResourceResponse_tags = Lens.lens (\UntagResourceResponse' {tags} -> tags) (\s@UntagResourceResponse' {} a -> s {tags = a} :: UntagResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UntagResourceResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a});
+-- | The response's http status code.
+untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int
+untagResourceResponse_httpStatus = Lens.lens (\UntagResourceResponse' {httpStatus} -> httpStatus) (\s@UntagResourceResponse' {} a -> s {httpStatus = a} :: UntagResourceResponse)
 
-instance NFData UntagResourceResponse where
+instance Prelude.NFData UntagResourceResponse

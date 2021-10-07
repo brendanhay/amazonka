@@ -1,193 +1,314 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBClusterParameterGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of @DBClusterParameterGroup@ descriptions. If a @DBClusterParameterGroupName@ parameter is specified, the list will contain only the description of the specified DB cluster parameter group.
+-- Returns a list of @DBClusterParameterGroup@ descriptions. If a
+-- @DBClusterParameterGroupName@ parameter is specified, the list will
+-- contain only the description of the specified DB cluster parameter
+-- group.
 --
+-- For more information on Amazon Aurora, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide./
 --
--- For more information on Amazon Aurora, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS> in the /Amazon RDS User Guide./
+-- This action only applies to Aurora DB clusters.
 --
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusterParameterGroups
-    (
-    -- * Creating a Request
-      describeDBClusterParameterGroups
-    , DescribeDBClusterParameterGroups
+  ( -- * Creating a Request
+    DescribeDBClusterParameterGroups (..),
+    newDescribeDBClusterParameterGroups,
+
     -- * Request Lenses
-    , ddcpgFilters
-    , ddcpgMarker
-    , ddcpgMaxRecords
-    , ddcpgDBClusterParameterGroupName
+    describeDBClusterParameterGroups_filters,
+    describeDBClusterParameterGroups_dbClusterParameterGroupName,
+    describeDBClusterParameterGroups_maxRecords,
+    describeDBClusterParameterGroups_marker,
 
     -- * Destructuring the Response
-    , describeDBClusterParameterGroupsResponse
-    , DescribeDBClusterParameterGroupsResponse
+    DescribeDBClusterParameterGroupsResponse (..),
+    newDescribeDBClusterParameterGroupsResponse,
+
     -- * Response Lenses
-    , ddcpgrsMarker
-    , ddcpgrsDBClusterParameterGroups
-    , ddcpgrsResponseStatus
-    ) where
+    describeDBClusterParameterGroupsResponse_dbClusterParameterGroups,
+    describeDBClusterParameterGroupsResponse_marker,
+    describeDBClusterParameterGroupsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeDBClusterParameterGroups' smart constructor.
+-- /See:/ 'newDescribeDBClusterParameterGroups' smart constructor.
 data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
-  { _ddcpgFilters                     :: !(Maybe [Filter])
-  , _ddcpgMarker                      :: !(Maybe Text)
-  , _ddcpgMaxRecords                  :: !(Maybe Int)
-  , _ddcpgDBClusterParameterGroupName :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeDBClusterParameterGroups' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcpgFilters' - This parameter is not currently supported.
---
--- * 'ddcpgMarker' - An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddcpgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
---
--- * 'ddcpgDBClusterParameterGroupName' - The name of a specific DB cluster parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
-describeDBClusterParameterGroups
-    :: DescribeDBClusterParameterGroups
-describeDBClusterParameterGroups =
-  DescribeDBClusterParameterGroups'
-  { _ddcpgFilters = Nothing
-  , _ddcpgMarker = Nothing
-  , _ddcpgMaxRecords = Nothing
-  , _ddcpgDBClusterParameterGroupName = Nothing
+  { -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The name of a specific DB cluster parameter group to return details for.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match the name of an existing
+    --     DBClusterParameterGroup.
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so you can retrieve the
+    -- remaining results.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterParameterGroups@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeDBClusterParameterGroups' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'filters', 'describeDBClusterParameterGroups_filters' - This parameter isn\'t currently supported.
+--
+-- 'dbClusterParameterGroupName', 'describeDBClusterParameterGroups_dbClusterParameterGroupName' - The name of a specific DB cluster parameter group to return details for.
+--
+-- Constraints:
+--
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+--
+-- 'maxRecords', 'describeDBClusterParameterGroups_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeDBClusterParameterGroups_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+newDescribeDBClusterParameterGroups ::
+  DescribeDBClusterParameterGroups
+newDescribeDBClusterParameterGroups =
+  DescribeDBClusterParameterGroups'
+    { filters =
+        Prelude.Nothing,
+      dbClusterParameterGroupName =
+        Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
--- | This parameter is not currently supported.
-ddcpgFilters :: Lens' DescribeDBClusterParameterGroups [Filter]
-ddcpgFilters = lens _ddcpgFilters (\ s a -> s{_ddcpgFilters = a}) . _Default . _Coerce;
+-- | This parameter isn\'t currently supported.
+describeDBClusterParameterGroups_filters :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe [Filter])
+describeDBClusterParameterGroups_filters = Lens.lens (\DescribeDBClusterParameterGroups' {filters} -> filters) (\s@DescribeDBClusterParameterGroups' {} a -> s {filters = a} :: DescribeDBClusterParameterGroups) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddcpgMarker :: Lens' DescribeDBClusterParameterGroups (Maybe Text)
-ddcpgMarker = lens _ddcpgMarker (\ s a -> s{_ddcpgMarker = a});
+-- | The name of a specific DB cluster parameter group to return details for.
+--
+-- Constraints:
+--
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+describeDBClusterParameterGroups_dbClusterParameterGroupName :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Text)
+describeDBClusterParameterGroups_dbClusterParameterGroupName = Lens.lens (\DescribeDBClusterParameterGroups' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DescribeDBClusterParameterGroups' {} a -> s {dbClusterParameterGroupName = a} :: DescribeDBClusterParameterGroups)
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-ddcpgMaxRecords :: Lens' DescribeDBClusterParameterGroups (Maybe Int)
-ddcpgMaxRecords = lens _ddcpgMaxRecords (\ s a -> s{_ddcpgMaxRecords = a});
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so you can retrieve the
+-- remaining results.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeDBClusterParameterGroups_maxRecords :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Int)
+describeDBClusterParameterGroups_maxRecords = Lens.lens (\DescribeDBClusterParameterGroups' {maxRecords} -> maxRecords) (\s@DescribeDBClusterParameterGroups' {} a -> s {maxRecords = a} :: DescribeDBClusterParameterGroups)
 
--- | The name of a specific DB cluster parameter group to return details for. Constraints:     * If supplied, must match the name of an existing DBClusterParameterGroup.
-ddcpgDBClusterParameterGroupName :: Lens' DescribeDBClusterParameterGroups (Maybe Text)
-ddcpgDBClusterParameterGroupName = lens _ddcpgDBClusterParameterGroupName (\ s a -> s{_ddcpgDBClusterParameterGroupName = a});
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeDBClusterParameterGroups_marker :: Lens.Lens' DescribeDBClusterParameterGroups (Prelude.Maybe Prelude.Text)
+describeDBClusterParameterGroups_marker = Lens.lens (\DescribeDBClusterParameterGroups' {marker} -> marker) (\s@DescribeDBClusterParameterGroups' {} a -> s {marker = a} :: DescribeDBClusterParameterGroups)
 
-instance AWSRequest DescribeDBClusterParameterGroups
-         where
-        type Rs DescribeDBClusterParameterGroups =
-             DescribeDBClusterParameterGroupsResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper
-              "DescribeDBClusterParameterGroupsResult"
-              (\ s h x ->
-                 DescribeDBClusterParameterGroupsResponse' <$>
-                   (x .@? "Marker") <*>
-                     (x .@? "DBClusterParameterGroups" .!@ mempty >>=
-                        may (parseXMLList "DBClusterParameterGroup"))
-                     <*> (pure (fromEnum s)))
+instance
+  Core.AWSPager
+    DescribeDBClusterParameterGroups
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeDBClusterParameterGroupsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeDBClusterParameterGroupsResponse_dbClusterParameterGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeDBClusterParameterGroups_marker
+          Lens..~ rs
+          Lens.^? describeDBClusterParameterGroupsResponse_marker
+            Prelude.. Lens._Just
 
-instance Hashable DescribeDBClusterParameterGroups
-         where
+instance
+  Core.AWSRequest
+    DescribeDBClusterParameterGroups
+  where
+  type
+    AWSResponse DescribeDBClusterParameterGroups =
+      DescribeDBClusterParameterGroupsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeDBClusterParameterGroupsResult"
+      ( \s h x ->
+          DescribeDBClusterParameterGroupsResponse'
+            Prelude.<$> ( x Core..@? "DBClusterParameterGroups"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Core.parseXMLList "DBClusterParameterGroup")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeDBClusterParameterGroups
-         where
+instance
+  Prelude.Hashable
+    DescribeDBClusterParameterGroups
 
-instance ToHeaders DescribeDBClusterParameterGroups
-         where
-        toHeaders = const mempty
+instance
+  Prelude.NFData
+    DescribeDBClusterParameterGroups
 
-instance ToPath DescribeDBClusterParameterGroups
-         where
-        toPath = const "/"
+instance
+  Core.ToHeaders
+    DescribeDBClusterParameterGroups
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeDBClusterParameterGroups
-         where
-        toQuery DescribeDBClusterParameterGroups'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeDBClusterParameterGroups" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddcpgFilters),
-               "Marker" =: _ddcpgMarker,
-               "MaxRecords" =: _ddcpgMaxRecords,
-               "DBClusterParameterGroupName" =:
-                 _ddcpgDBClusterParameterGroupName]
+instance Core.ToPath DescribeDBClusterParameterGroups where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    DescribeDBClusterParameterGroups
+  where
+  toQuery DescribeDBClusterParameterGroups' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeDBClusterParameterGroups" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "Filters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Prelude.<$> filters),
+        "DBClusterParameterGroupName"
+          Core.=: dbClusterParameterGroupName,
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
+      ]
 
 -- |
 --
---
---
--- /See:/ 'describeDBClusterParameterGroupsResponse' smart constructor.
+-- /See:/ 'newDescribeDBClusterParameterGroupsResponse' smart constructor.
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
-  { _ddcpgrsMarker                   :: !(Maybe Text)
-  , _ddcpgrsDBClusterParameterGroups :: !(Maybe [DBClusterParameterGroup])
-  , _ddcpgrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeDBClusterParameterGroupsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcpgrsMarker' - An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'ddcpgrsDBClusterParameterGroups' - A list of DB cluster parameter groups.
---
--- * 'ddcpgrsResponseStatus' - -- | The response status code.
-describeDBClusterParameterGroupsResponse
-    :: Int -- ^ 'ddcpgrsResponseStatus'
-    -> DescribeDBClusterParameterGroupsResponse
-describeDBClusterParameterGroupsResponse pResponseStatus_ =
-  DescribeDBClusterParameterGroupsResponse'
-  { _ddcpgrsMarker = Nothing
-  , _ddcpgrsDBClusterParameterGroups = Nothing
-  , _ddcpgrsResponseStatus = pResponseStatus_
+  { -- | A list of DB cluster parameter groups.
+    dbClusterParameterGroups :: Prelude.Maybe [DBClusterParameterGroup],
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterParameterGroups@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | An optional pagination token provided by a previous @DescribeDBClusterParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddcpgrsMarker :: Lens' DescribeDBClusterParameterGroupsResponse (Maybe Text)
-ddcpgrsMarker = lens _ddcpgrsMarker (\ s a -> s{_ddcpgrsMarker = a});
+-- |
+-- Create a value of 'DescribeDBClusterParameterGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dbClusterParameterGroups', 'describeDBClusterParameterGroupsResponse_dbClusterParameterGroups' - A list of DB cluster parameter groups.
+--
+-- 'marker', 'describeDBClusterParameterGroupsResponse_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+--
+-- 'httpStatus', 'describeDBClusterParameterGroupsResponse_httpStatus' - The response's http status code.
+newDescribeDBClusterParameterGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDBClusterParameterGroupsResponse
+newDescribeDBClusterParameterGroupsResponse
+  pHttpStatus_ =
+    DescribeDBClusterParameterGroupsResponse'
+      { dbClusterParameterGroups =
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | A list of DB cluster parameter groups.
-ddcpgrsDBClusterParameterGroups :: Lens' DescribeDBClusterParameterGroupsResponse [DBClusterParameterGroup]
-ddcpgrsDBClusterParameterGroups = lens _ddcpgrsDBClusterParameterGroups (\ s a -> s{_ddcpgrsDBClusterParameterGroups = a}) . _Default . _Coerce;
+describeDBClusterParameterGroupsResponse_dbClusterParameterGroups :: Lens.Lens' DescribeDBClusterParameterGroupsResponse (Prelude.Maybe [DBClusterParameterGroup])
+describeDBClusterParameterGroupsResponse_dbClusterParameterGroups = Lens.lens (\DescribeDBClusterParameterGroupsResponse' {dbClusterParameterGroups} -> dbClusterParameterGroups) (\s@DescribeDBClusterParameterGroupsResponse' {} a -> s {dbClusterParameterGroups = a} :: DescribeDBClusterParameterGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ddcpgrsResponseStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
-ddcpgrsResponseStatus = lens _ddcpgrsResponseStatus (\ s a -> s{_ddcpgrsResponseStatus = a});
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeDBClusterParameterGroupsResponse_marker :: Lens.Lens' DescribeDBClusterParameterGroupsResponse (Prelude.Maybe Prelude.Text)
+describeDBClusterParameterGroupsResponse_marker = Lens.lens (\DescribeDBClusterParameterGroupsResponse' {marker} -> marker) (\s@DescribeDBClusterParameterGroupsResponse' {} a -> s {marker = a} :: DescribeDBClusterParameterGroupsResponse)
 
-instance NFData
-           DescribeDBClusterParameterGroupsResponse
-         where
+-- | The response's http status code.
+describeDBClusterParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeDBClusterParameterGroupsResponse Prelude.Int
+describeDBClusterParameterGroupsResponse_httpStatus = Lens.lens (\DescribeDBClusterParameterGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBClusterParameterGroupsResponse' {} a -> s {httpStatus = a} :: DescribeDBClusterParameterGroupsResponse)
+
+instance
+  Prelude.NFData
+    DescribeDBClusterParameterGroupsResponse

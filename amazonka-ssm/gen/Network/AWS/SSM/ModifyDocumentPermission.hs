@@ -1,159 +1,230 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.ModifyDocumentPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Shares a Systems Manager document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify /All/ as the account ID.
---
---
+-- Shares a Amazon Web Services Systems Manager document (SSM
+-- document)publicly or privately. If you share a document privately, you
+-- must specify the Amazon Web Services user account IDs for those people
+-- who can use the document. If you share a document publicly, you must
+-- specify /All/ as the account ID.
 module Network.AWS.SSM.ModifyDocumentPermission
-    (
-    -- * Creating a Request
-      modifyDocumentPermission
-    , ModifyDocumentPermission
+  ( -- * Creating a Request
+    ModifyDocumentPermission (..),
+    newModifyDocumentPermission,
+
     -- * Request Lenses
-    , mdpAccountIdsToAdd
-    , mdpAccountIdsToRemove
-    , mdpName
-    , mdpPermissionType
+    modifyDocumentPermission_accountIdsToAdd,
+    modifyDocumentPermission_sharedDocumentVersion,
+    modifyDocumentPermission_accountIdsToRemove,
+    modifyDocumentPermission_name,
+    modifyDocumentPermission_permissionType,
 
     -- * Destructuring the Response
-    , modifyDocumentPermissionResponse
-    , ModifyDocumentPermissionResponse
+    ModifyDocumentPermissionResponse (..),
+    newModifyDocumentPermissionResponse,
+
     -- * Response Lenses
-    , mdprsResponseStatus
-    ) where
+    modifyDocumentPermissionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'modifyDocumentPermission' smart constructor.
+-- | /See:/ 'newModifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-  { _mdpAccountIdsToAdd    :: !(Maybe [Text])
-  , _mdpAccountIdsToRemove :: !(Maybe [Text])
-  , _mdpName               :: !Text
-  , _mdpPermissionType     :: !DocumentPermissionType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ModifyDocumentPermission' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdpAccountIdsToAdd' - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
---
--- * 'mdpAccountIdsToRemove' - The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
---
--- * 'mdpName' - The name of the document that you want to share.
---
--- * 'mdpPermissionType' - The permission type for the document. The permission type can be /Share/ .
-modifyDocumentPermission
-    :: Text -- ^ 'mdpName'
-    -> DocumentPermissionType -- ^ 'mdpPermissionType'
-    -> ModifyDocumentPermission
-modifyDocumentPermission pName_ pPermissionType_ =
-  ModifyDocumentPermission'
-  { _mdpAccountIdsToAdd = Nothing
-  , _mdpAccountIdsToRemove = Nothing
-  , _mdpName = pName_
-  , _mdpPermissionType = pPermissionType_
+  { -- | The Amazon Web Services user accounts that should have access to the
+    -- document. The account IDs can either be a group of account IDs or /All/.
+    accountIdsToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | (Optional) The version of the document to share. If it isn\'t specified,
+    -- the system choose the @Default@ version to share.
+    sharedDocumentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services user accounts that should no longer have access
+    -- to the document. The Amazon Web Services user account can either be a
+    -- group of account IDs or /All/. This action has a higher priority than
+    -- /AccountIdsToAdd/. If you specify an account ID to add and the same ID
+    -- to remove, the system removes access to the document.
+    accountIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the document that you want to share.
+    name :: Prelude.Text,
+    -- | The permission type for the document. The permission type can be
+    -- /Share/.
+    permissionType :: DocumentPermissionType
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ModifyDocumentPermission' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'accountIdsToAdd', 'modifyDocumentPermission_accountIdsToAdd' - The Amazon Web Services user accounts that should have access to the
+-- document. The account IDs can either be a group of account IDs or /All/.
+--
+-- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it isn\'t specified,
+-- the system choose the @Default@ version to share.
+--
+-- 'accountIdsToRemove', 'modifyDocumentPermission_accountIdsToRemove' - The Amazon Web Services user accounts that should no longer have access
+-- to the document. The Amazon Web Services user account can either be a
+-- group of account IDs or /All/. This action has a higher priority than
+-- /AccountIdsToAdd/. If you specify an account ID to add and the same ID
+-- to remove, the system removes access to the document.
+--
+-- 'name', 'modifyDocumentPermission_name' - The name of the document that you want to share.
+--
+-- 'permissionType', 'modifyDocumentPermission_permissionType' - The permission type for the document. The permission type can be
+-- /Share/.
+newModifyDocumentPermission ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'permissionType'
+  DocumentPermissionType ->
+  ModifyDocumentPermission
+newModifyDocumentPermission pName_ pPermissionType_ =
+  ModifyDocumentPermission'
+    { accountIdsToAdd =
+        Prelude.Nothing,
+      sharedDocumentVersion = Prelude.Nothing,
+      accountIdsToRemove = Prelude.Nothing,
+      name = pName_,
+      permissionType = pPermissionType_
+    }
 
--- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
-mdpAccountIdsToAdd :: Lens' ModifyDocumentPermission [Text]
-mdpAccountIdsToAdd = lens _mdpAccountIdsToAdd (\ s a -> s{_mdpAccountIdsToAdd = a}) . _Default . _Coerce;
+-- | The Amazon Web Services user accounts that should have access to the
+-- document. The account IDs can either be a group of account IDs or /All/.
+modifyDocumentPermission_accountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
+modifyDocumentPermission_accountIdsToAdd = Lens.lens (\ModifyDocumentPermission' {accountIdsToAdd} -> accountIdsToAdd) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
-mdpAccountIdsToRemove :: Lens' ModifyDocumentPermission [Text]
-mdpAccountIdsToRemove = lens _mdpAccountIdsToRemove (\ s a -> s{_mdpAccountIdsToRemove = a}) . _Default . _Coerce;
+-- | (Optional) The version of the document to share. If it isn\'t specified,
+-- the system choose the @Default@ version to share.
+modifyDocumentPermission_sharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe Prelude.Text)
+modifyDocumentPermission_sharedDocumentVersion = Lens.lens (\ModifyDocumentPermission' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@ModifyDocumentPermission' {} a -> s {sharedDocumentVersion = a} :: ModifyDocumentPermission)
+
+-- | The Amazon Web Services user accounts that should no longer have access
+-- to the document. The Amazon Web Services user account can either be a
+-- group of account IDs or /All/. This action has a higher priority than
+-- /AccountIdsToAdd/. If you specify an account ID to add and the same ID
+-- to remove, the system removes access to the document.
+modifyDocumentPermission_accountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
+modifyDocumentPermission_accountIdsToRemove = Lens.lens (\ModifyDocumentPermission' {accountIdsToRemove} -> accountIdsToRemove) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the document that you want to share.
-mdpName :: Lens' ModifyDocumentPermission Text
-mdpName = lens _mdpName (\ s a -> s{_mdpName = a});
+modifyDocumentPermission_name :: Lens.Lens' ModifyDocumentPermission Prelude.Text
+modifyDocumentPermission_name = Lens.lens (\ModifyDocumentPermission' {name} -> name) (\s@ModifyDocumentPermission' {} a -> s {name = a} :: ModifyDocumentPermission)
 
--- | The permission type for the document. The permission type can be /Share/ .
-mdpPermissionType :: Lens' ModifyDocumentPermission DocumentPermissionType
-mdpPermissionType = lens _mdpPermissionType (\ s a -> s{_mdpPermissionType = a});
+-- | The permission type for the document. The permission type can be
+-- /Share/.
+modifyDocumentPermission_permissionType :: Lens.Lens' ModifyDocumentPermission DocumentPermissionType
+modifyDocumentPermission_permissionType = Lens.lens (\ModifyDocumentPermission' {permissionType} -> permissionType) (\s@ModifyDocumentPermission' {} a -> s {permissionType = a} :: ModifyDocumentPermission)
 
-instance AWSRequest ModifyDocumentPermission where
-        type Rs ModifyDocumentPermission =
-             ModifyDocumentPermissionResponse
-        request = postJSON ssm
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 ModifyDocumentPermissionResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest ModifyDocumentPermission where
+  type
+    AWSResponse ModifyDocumentPermission =
+      ModifyDocumentPermissionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          ModifyDocumentPermissionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyDocumentPermission where
+instance Prelude.Hashable ModifyDocumentPermission
 
-instance NFData ModifyDocumentPermission where
+instance Prelude.NFData ModifyDocumentPermission
 
-instance ToHeaders ModifyDocumentPermission where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.ModifyDocumentPermission" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ModifyDocumentPermission where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.ModifyDocumentPermission" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ModifyDocumentPermission where
-        toJSON ModifyDocumentPermission'{..}
-          = object
-              (catMaybes
-                 [("AccountIdsToAdd" .=) <$> _mdpAccountIdsToAdd,
-                  ("AccountIdsToRemove" .=) <$> _mdpAccountIdsToRemove,
-                  Just ("Name" .= _mdpName),
-                  Just ("PermissionType" .= _mdpPermissionType)])
+instance Core.ToJSON ModifyDocumentPermission where
+  toJSON ModifyDocumentPermission' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AccountIdsToAdd" Core..=)
+              Prelude.<$> accountIdsToAdd,
+            ("SharedDocumentVersion" Core..=)
+              Prelude.<$> sharedDocumentVersion,
+            ("AccountIdsToRemove" Core..=)
+              Prelude.<$> accountIdsToRemove,
+            Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("PermissionType" Core..= permissionType)
+          ]
+      )
 
-instance ToPath ModifyDocumentPermission where
-        toPath = const "/"
+instance Core.ToPath ModifyDocumentPermission where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyDocumentPermission where
-        toQuery = const mempty
+instance Core.ToQuery ModifyDocumentPermission where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'modifyDocumentPermissionResponse' smart constructor.
-newtype ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
-  { _mdprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newModifyDocumentPermissionResponse' smart constructor.
+data ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyDocumentPermissionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyDocumentPermissionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mdprsResponseStatus' - -- | The response status code.
-modifyDocumentPermissionResponse
-    :: Int -- ^ 'mdprsResponseStatus'
-    -> ModifyDocumentPermissionResponse
-modifyDocumentPermissionResponse pResponseStatus_ =
-  ModifyDocumentPermissionResponse' {_mdprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'modifyDocumentPermissionResponse_httpStatus' - The response's http status code.
+newModifyDocumentPermissionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyDocumentPermissionResponse
+newModifyDocumentPermissionResponse pHttpStatus_ =
+  ModifyDocumentPermissionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+modifyDocumentPermissionResponse_httpStatus :: Lens.Lens' ModifyDocumentPermissionResponse Prelude.Int
+modifyDocumentPermissionResponse_httpStatus = Lens.lens (\ModifyDocumentPermissionResponse' {httpStatus} -> httpStatus) (\s@ModifyDocumentPermissionResponse' {} a -> s {httpStatus = a} :: ModifyDocumentPermissionResponse)
 
--- | -- | The response status code.
-mdprsResponseStatus :: Lens' ModifyDocumentPermissionResponse Int
-mdprsResponseStatus = lens _mdprsResponseStatus (\ s a -> s{_mdprsResponseStatus = a});
-
-instance NFData ModifyDocumentPermissionResponse
-         where
+instance
+  Prelude.NFData
+    ModifyDocumentPermissionResponse

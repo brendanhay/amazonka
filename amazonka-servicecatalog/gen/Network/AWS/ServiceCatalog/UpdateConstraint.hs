@@ -1,175 +1,411 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.UpdateConstraint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing constraint.
---
---
+-- Updates the specified constraint.
 module Network.AWS.ServiceCatalog.UpdateConstraint
-    (
-    -- * Creating a Request
-      updateConstraint
-    , UpdateConstraint
+  ( -- * Creating a Request
+    UpdateConstraint (..),
+    newUpdateConstraint,
+
     -- * Request Lenses
-    , ucAcceptLanguage
-    , ucDescription
-    , ucId
+    updateConstraint_description,
+    updateConstraint_acceptLanguage,
+    updateConstraint_parameters,
+    updateConstraint_id,
 
     -- * Destructuring the Response
-    , updateConstraintResponse
-    , UpdateConstraintResponse
+    UpdateConstraintResponse (..),
+    newUpdateConstraintResponse,
+
     -- * Response Lenses
-    , ucrsStatus
-    , ucrsConstraintDetail
-    , ucrsConstraintParameters
-    , ucrsResponseStatus
-    ) where
+    updateConstraintResponse_constraintParameters,
+    updateConstraintResponse_constraintDetail,
+    updateConstraintResponse_status,
+    updateConstraintResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'updateConstraint' smart constructor.
+-- | /See:/ 'newUpdateConstraint' smart constructor.
 data UpdateConstraint = UpdateConstraint'
-  { _ucAcceptLanguage :: !(Maybe Text)
-  , _ucDescription    :: !(Maybe Text)
-  , _ucId             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateConstraint' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
---
--- * 'ucDescription' - The updated text description of the constraint.
---
--- * 'ucId' - The identifier of the constraint to update.
-updateConstraint
-    :: Text -- ^ 'ucId'
-    -> UpdateConstraint
-updateConstraint pId_ =
-  UpdateConstraint'
-  {_ucAcceptLanguage = Nothing, _ucDescription = Nothing, _ucId = pId_}
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-ucAcceptLanguage :: Lens' UpdateConstraint (Maybe Text)
-ucAcceptLanguage = lens _ucAcceptLanguage (\ s a -> s{_ucAcceptLanguage = a});
-
--- | The updated text description of the constraint.
-ucDescription :: Lens' UpdateConstraint (Maybe Text)
-ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a});
-
--- | The identifier of the constraint to update.
-ucId :: Lens' UpdateConstraint Text
-ucId = lens _ucId (\ s a -> s{_ucId = a});
-
-instance AWSRequest UpdateConstraint where
-        type Rs UpdateConstraint = UpdateConstraintResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateConstraintResponse' <$>
-                   (x .?> "Status") <*> (x .?> "ConstraintDetail") <*>
-                     (x .?> "ConstraintParameters")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable UpdateConstraint where
-
-instance NFData UpdateConstraint where
-
-instance ToHeaders UpdateConstraint where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.UpdateConstraint" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdateConstraint where
-        toJSON UpdateConstraint'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _ucAcceptLanguage,
-                  ("Description" .=) <$> _ucDescription,
-                  Just ("Id" .= _ucId)])
-
-instance ToPath UpdateConstraint where
-        toPath = const "/"
-
-instance ToQuery UpdateConstraint where
-        toQuery = const mempty
-
--- | /See:/ 'updateConstraintResponse' smart constructor.
-data UpdateConstraintResponse = UpdateConstraintResponse'
-  { _ucrsStatus               :: !(Maybe RequestStatus)
-  , _ucrsConstraintDetail     :: !(Maybe ConstraintDetail)
-  , _ucrsConstraintParameters :: !(Maybe Text)
-  , _ucrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateConstraintResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucrsStatus' - The status of the current request.
---
--- * 'ucrsConstraintDetail' - The resulting detailed constraint information.
---
--- * 'ucrsConstraintParameters' - The resulting updated constraint parameters.
---
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateConstraintResponse
-    :: Int -- ^ 'ucrsResponseStatus'
-    -> UpdateConstraintResponse
-updateConstraintResponse pResponseStatus_ =
-  UpdateConstraintResponse'
-  { _ucrsStatus = Nothing
-  , _ucrsConstraintDetail = Nothing
-  , _ucrsConstraintParameters = Nothing
-  , _ucrsResponseStatus = pResponseStatus_
+  { -- | The updated description of the constraint.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The constraint parameters, in JSON format. The syntax depends on the
+    -- constraint type as follows:
+    --
+    -- [LAUNCH]
+    --     You are required to specify either the @RoleArn@ or the
+    --     @LocalRoleName@ but can\'t use both.
+    --
+    --     Specify the @RoleArn@ property as follows:
+    --
+    --     @{\"RoleArn\" : \"arn:aws:iam::123456789012:role\/LaunchRole\"}@
+    --
+    --     Specify the @LocalRoleName@ property as follows:
+    --
+    --     @{\"LocalRoleName\": \"SCBasicLaunchRole\"}@
+    --
+    --     If you specify the @LocalRoleName@ property, when an account uses
+    --     the launch constraint, the IAM role with that name in the account
+    --     will be used. This allows launch-role constraints to be
+    --     account-agnostic so the administrator can create fewer resources per
+    --     shared account.
+    --
+    --     The given role name must exist in the account used to create the
+    --     launch constraint and the account of the user who launches a product
+    --     with this launch constraint.
+    --
+    --     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    --
+    --     You also cannot have more than one @LAUNCH@ constraint on a product
+    --     and portfolio.
+    --
+    -- [NOTIFICATION]
+    --     Specify the @NotificationArns@ property as follows:
+    --
+    --     @{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}@
+    --
+    -- [RESOURCE_UPDATE]
+    --     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+    --
+    --     @{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}@
+    --
+    --     The @TagUpdatesOnProvisionedProduct@ property accepts a string value
+    --     of @ALLOWED@ or @NOT_ALLOWED@.
+    --
+    -- [STACKSET]
+    --     Specify the @Parameters@ property as follows:
+    --
+    --     @{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}@
+    --
+    --     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    --
+    --     You also cannot have more than one @STACKSET@ constraint on a
+    --     product and portfolio.
+    --
+    --     Products with a @STACKSET@ constraint will launch an AWS
+    --     CloudFormation stack set.
+    --
+    -- [TEMPLATE]
+    --     Specify the @Rules@ property. For more information, see
+    --     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
+    parameters :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the constraint.
+    id :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateConstraint' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'description', 'updateConstraint_description' - The updated description of the constraint.
+--
+-- 'acceptLanguage', 'updateConstraint_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'parameters', 'updateConstraint_parameters' - The constraint parameters, in JSON format. The syntax depends on the
+-- constraint type as follows:
+--
+-- [LAUNCH]
+--     You are required to specify either the @RoleArn@ or the
+--     @LocalRoleName@ but can\'t use both.
+--
+--     Specify the @RoleArn@ property as follows:
+--
+--     @{\"RoleArn\" : \"arn:aws:iam::123456789012:role\/LaunchRole\"}@
+--
+--     Specify the @LocalRoleName@ property as follows:
+--
+--     @{\"LocalRoleName\": \"SCBasicLaunchRole\"}@
+--
+--     If you specify the @LocalRoleName@ property, when an account uses
+--     the launch constraint, the IAM role with that name in the account
+--     will be used. This allows launch-role constraints to be
+--     account-agnostic so the administrator can create fewer resources per
+--     shared account.
+--
+--     The given role name must exist in the account used to create the
+--     launch constraint and the account of the user who launches a product
+--     with this launch constraint.
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @LAUNCH@ constraint on a product
+--     and portfolio.
+--
+-- [NOTIFICATION]
+--     Specify the @NotificationArns@ property as follows:
+--
+--     @{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}@
+--
+-- [RESOURCE_UPDATE]
+--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+--
+--     @{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}@
+--
+--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value
+--     of @ALLOWED@ or @NOT_ALLOWED@.
+--
+-- [STACKSET]
+--     Specify the @Parameters@ property as follows:
+--
+--     @{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}@
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @STACKSET@ constraint on a
+--     product and portfolio.
+--
+--     Products with a @STACKSET@ constraint will launch an AWS
+--     CloudFormation stack set.
+--
+-- [TEMPLATE]
+--     Specify the @Rules@ property. For more information, see
+--     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
+--
+-- 'id', 'updateConstraint_id' - The identifier of the constraint.
+newUpdateConstraint ::
+  -- | 'id'
+  Prelude.Text ->
+  UpdateConstraint
+newUpdateConstraint pId_ =
+  UpdateConstraint'
+    { description = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      id = pId_
+    }
+
+-- | The updated description of the constraint.
+updateConstraint_description :: Lens.Lens' UpdateConstraint (Prelude.Maybe Prelude.Text)
+updateConstraint_description = Lens.lens (\UpdateConstraint' {description} -> description) (\s@UpdateConstraint' {} a -> s {description = a} :: UpdateConstraint)
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+updateConstraint_acceptLanguage :: Lens.Lens' UpdateConstraint (Prelude.Maybe Prelude.Text)
+updateConstraint_acceptLanguage = Lens.lens (\UpdateConstraint' {acceptLanguage} -> acceptLanguage) (\s@UpdateConstraint' {} a -> s {acceptLanguage = a} :: UpdateConstraint)
+
+-- | The constraint parameters, in JSON format. The syntax depends on the
+-- constraint type as follows:
+--
+-- [LAUNCH]
+--     You are required to specify either the @RoleArn@ or the
+--     @LocalRoleName@ but can\'t use both.
+--
+--     Specify the @RoleArn@ property as follows:
+--
+--     @{\"RoleArn\" : \"arn:aws:iam::123456789012:role\/LaunchRole\"}@
+--
+--     Specify the @LocalRoleName@ property as follows:
+--
+--     @{\"LocalRoleName\": \"SCBasicLaunchRole\"}@
+--
+--     If you specify the @LocalRoleName@ property, when an account uses
+--     the launch constraint, the IAM role with that name in the account
+--     will be used. This allows launch-role constraints to be
+--     account-agnostic so the administrator can create fewer resources per
+--     shared account.
+--
+--     The given role name must exist in the account used to create the
+--     launch constraint and the account of the user who launches a product
+--     with this launch constraint.
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @LAUNCH@ constraint on a product
+--     and portfolio.
+--
+-- [NOTIFICATION]
+--     Specify the @NotificationArns@ property as follows:
+--
+--     @{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}@
+--
+-- [RESOURCE_UPDATE]
+--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+--
+--     @{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}@
+--
+--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value
+--     of @ALLOWED@ or @NOT_ALLOWED@.
+--
+-- [STACKSET]
+--     Specify the @Parameters@ property as follows:
+--
+--     @{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}@
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @STACKSET@ constraint on a
+--     product and portfolio.
+--
+--     Products with a @STACKSET@ constraint will launch an AWS
+--     CloudFormation stack set.
+--
+-- [TEMPLATE]
+--     Specify the @Rules@ property. For more information, see
+--     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
+updateConstraint_parameters :: Lens.Lens' UpdateConstraint (Prelude.Maybe Prelude.Text)
+updateConstraint_parameters = Lens.lens (\UpdateConstraint' {parameters} -> parameters) (\s@UpdateConstraint' {} a -> s {parameters = a} :: UpdateConstraint)
+
+-- | The identifier of the constraint.
+updateConstraint_id :: Lens.Lens' UpdateConstraint Prelude.Text
+updateConstraint_id = Lens.lens (\UpdateConstraint' {id} -> id) (\s@UpdateConstraint' {} a -> s {id = a} :: UpdateConstraint)
+
+instance Core.AWSRequest UpdateConstraint where
+  type
+    AWSResponse UpdateConstraint =
+      UpdateConstraintResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateConstraintResponse'
+            Prelude.<$> (x Core..?> "ConstraintParameters")
+            Prelude.<*> (x Core..?> "ConstraintDetail")
+            Prelude.<*> (x Core..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateConstraint
+
+instance Prelude.NFData UpdateConstraint
+
+instance Core.ToHeaders UpdateConstraint where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.UpdateConstraint" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdateConstraint where
+  toJSON UpdateConstraint' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            ("Parameters" Core..=) Prelude.<$> parameters,
+            Prelude.Just ("Id" Core..= id)
+          ]
+      )
+
+instance Core.ToPath UpdateConstraint where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateConstraint where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateConstraintResponse' smart constructor.
+data UpdateConstraintResponse = UpdateConstraintResponse'
+  { -- | The constraint parameters.
+    constraintParameters :: Prelude.Maybe Prelude.Text,
+    -- | Information about the constraint.
+    constraintDetail :: Prelude.Maybe ConstraintDetail,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateConstraintResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'constraintParameters', 'updateConstraintResponse_constraintParameters' - The constraint parameters.
+--
+-- 'constraintDetail', 'updateConstraintResponse_constraintDetail' - Information about the constraint.
+--
+-- 'status', 'updateConstraintResponse_status' - The status of the current request.
+--
+-- 'httpStatus', 'updateConstraintResponse_httpStatus' - The response's http status code.
+newUpdateConstraintResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateConstraintResponse
+newUpdateConstraintResponse pHttpStatus_ =
+  UpdateConstraintResponse'
+    { constraintParameters =
+        Prelude.Nothing,
+      constraintDetail = Prelude.Nothing,
+      status = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The constraint parameters.
+updateConstraintResponse_constraintParameters :: Lens.Lens' UpdateConstraintResponse (Prelude.Maybe Prelude.Text)
+updateConstraintResponse_constraintParameters = Lens.lens (\UpdateConstraintResponse' {constraintParameters} -> constraintParameters) (\s@UpdateConstraintResponse' {} a -> s {constraintParameters = a} :: UpdateConstraintResponse)
+
+-- | Information about the constraint.
+updateConstraintResponse_constraintDetail :: Lens.Lens' UpdateConstraintResponse (Prelude.Maybe ConstraintDetail)
+updateConstraintResponse_constraintDetail = Lens.lens (\UpdateConstraintResponse' {constraintDetail} -> constraintDetail) (\s@UpdateConstraintResponse' {} a -> s {constraintDetail = a} :: UpdateConstraintResponse)
 
 -- | The status of the current request.
-ucrsStatus :: Lens' UpdateConstraintResponse (Maybe RequestStatus)
-ucrsStatus = lens _ucrsStatus (\ s a -> s{_ucrsStatus = a});
+updateConstraintResponse_status :: Lens.Lens' UpdateConstraintResponse (Prelude.Maybe RequestStatus)
+updateConstraintResponse_status = Lens.lens (\UpdateConstraintResponse' {status} -> status) (\s@UpdateConstraintResponse' {} a -> s {status = a} :: UpdateConstraintResponse)
 
--- | The resulting detailed constraint information.
-ucrsConstraintDetail :: Lens' UpdateConstraintResponse (Maybe ConstraintDetail)
-ucrsConstraintDetail = lens _ucrsConstraintDetail (\ s a -> s{_ucrsConstraintDetail = a});
+-- | The response's http status code.
+updateConstraintResponse_httpStatus :: Lens.Lens' UpdateConstraintResponse Prelude.Int
+updateConstraintResponse_httpStatus = Lens.lens (\UpdateConstraintResponse' {httpStatus} -> httpStatus) (\s@UpdateConstraintResponse' {} a -> s {httpStatus = a} :: UpdateConstraintResponse)
 
--- | The resulting updated constraint parameters.
-ucrsConstraintParameters :: Lens' UpdateConstraintResponse (Maybe Text)
-ucrsConstraintParameters = lens _ucrsConstraintParameters (\ s a -> s{_ucrsConstraintParameters = a});
-
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateConstraintResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a});
-
-instance NFData UpdateConstraintResponse where
+instance Prelude.NFData UpdateConstraintResponse

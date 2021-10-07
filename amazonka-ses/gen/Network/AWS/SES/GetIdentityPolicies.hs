@@ -1,150 +1,210 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.
+-- Returns the requested sending authorization policies for the given
+-- identity (an email address or a domain). The policies are returned as a
+-- map of policy names to policy contents. You can retrieve a maximum of 20
+-- policies at a time.
 --
+-- This API is for the identity owner only. If you have not verified the
+-- identity, this API will return an error.
 --
--- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- Sending authorization is a feature that enables an identity owner to
+-- authorize other senders to use its identities. For information about
+-- using sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.GetIdentityPolicies
-    (
-    -- * Creating a Request
-      getIdentityPolicies
-    , GetIdentityPolicies
+  ( -- * Creating a Request
+    GetIdentityPolicies (..),
+    newGetIdentityPolicies,
+
     -- * Request Lenses
-    , gipIdentity
-    , gipPolicyNames
+    getIdentityPolicies_identity,
+    getIdentityPolicies_policyNames,
 
     -- * Destructuring the Response
-    , getIdentityPoliciesResponse
-    , GetIdentityPoliciesResponse
+    GetIdentityPoliciesResponse (..),
+    newGetIdentityPoliciesResponse,
+
     -- * Response Lenses
-    , giprsResponseStatus
-    , giprsPolicies
-    ) where
+    getIdentityPoliciesResponse_httpStatus,
+    getIdentityPoliciesResponse_policies,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to return the requested sending authorization policies for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- | Represents a request to return the requested sending authorization
+-- policies for an identity. Sending authorization is an Amazon SES feature
+-- that enables you to authorize other senders to use your identities. For
+-- information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'getIdentityPolicies' smart constructor.
+-- /See:/ 'newGetIdentityPolicies' smart constructor.
 data GetIdentityPolicies = GetIdentityPolicies'
-  { _gipIdentity    :: !Text
-  , _gipPolicyNames :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identity for which the policies will be retrieved. You can specify
+    -- an identity by using its name or by using its Amazon Resource Name
+    -- (ARN). Examples: @user\@example.com@, @example.com@,
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+    --
+    -- To successfully call this API, you must own the identity.
+    identity :: Prelude.Text,
+    -- | A list of the names of policies to be retrieved. You can retrieve a
+    -- maximum of 20 policies at a time. If you do not know the names of the
+    -- policies that are attached to the identity, you can use
+    -- @ListIdentityPolicies@.
+    policyNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIdentityPolicies' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIdentityPolicies' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gipIdentity' - The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gipPolicyNames' - A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
-getIdentityPolicies
-    :: Text -- ^ 'gipIdentity'
-    -> GetIdentityPolicies
-getIdentityPolicies pIdentity_ =
-  GetIdentityPolicies' {_gipIdentity = pIdentity_, _gipPolicyNames = mempty}
+-- 'identity', 'getIdentityPolicies_identity' - The identity for which the policies will be retrieved. You can specify
+-- an identity by using its name or by using its Amazon Resource Name
+-- (ARN). Examples: @user\@example.com@, @example.com@,
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+--
+-- To successfully call this API, you must own the identity.
+--
+-- 'policyNames', 'getIdentityPolicies_policyNames' - A list of the names of policies to be retrieved. You can retrieve a
+-- maximum of 20 policies at a time. If you do not know the names of the
+-- policies that are attached to the identity, you can use
+-- @ListIdentityPolicies@.
+newGetIdentityPolicies ::
+  -- | 'identity'
+  Prelude.Text ->
+  GetIdentityPolicies
+newGetIdentityPolicies pIdentity_ =
+  GetIdentityPolicies'
+    { identity = pIdentity_,
+      policyNames = Prelude.mempty
+    }
 
+-- | The identity for which the policies will be retrieved. You can specify
+-- an identity by using its name or by using its Amazon Resource Name
+-- (ARN). Examples: @user\@example.com@, @example.com@,
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+--
+-- To successfully call this API, you must own the identity.
+getIdentityPolicies_identity :: Lens.Lens' GetIdentityPolicies Prelude.Text
+getIdentityPolicies_identity = Lens.lens (\GetIdentityPolicies' {identity} -> identity) (\s@GetIdentityPolicies' {} a -> s {identity = a} :: GetIdentityPolicies)
 
--- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ . To successfully call this API, you must own the identity.
-gipIdentity :: Lens' GetIdentityPolicies Text
-gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
+-- | A list of the names of policies to be retrieved. You can retrieve a
+-- maximum of 20 policies at a time. If you do not know the names of the
+-- policies that are attached to the identity, you can use
+-- @ListIdentityPolicies@.
+getIdentityPolicies_policyNames :: Lens.Lens' GetIdentityPolicies [Prelude.Text]
+getIdentityPolicies_policyNames = Lens.lens (\GetIdentityPolicies' {policyNames} -> policyNames) (\s@GetIdentityPolicies' {} a -> s {policyNames = a} :: GetIdentityPolicies) Prelude.. Lens._Coerce
 
--- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
-gipPolicyNames :: Lens' GetIdentityPolicies [Text]
-gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce;
+instance Core.AWSRequest GetIdentityPolicies where
+  type
+    AWSResponse GetIdentityPolicies =
+      GetIdentityPoliciesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetIdentityPoliciesResult"
+      ( \s h x ->
+          GetIdentityPoliciesResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Core..@? "Policies" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.parseXMLMap "entry" "key" "value"
+                        )
+      )
 
-instance AWSRequest GetIdentityPolicies where
-        type Rs GetIdentityPolicies =
-             GetIdentityPoliciesResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "GetIdentityPoliciesResult"
-              (\ s h x ->
-                 GetIdentityPoliciesResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@? "Policies" .!@ mempty >>=
-                        parseXMLMap "entry" "key" "value"))
+instance Prelude.Hashable GetIdentityPolicies
 
-instance Hashable GetIdentityPolicies where
+instance Prelude.NFData GetIdentityPolicies
 
-instance NFData GetIdentityPolicies where
+instance Core.ToHeaders GetIdentityPolicies where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders GetIdentityPolicies where
-        toHeaders = const mempty
+instance Core.ToPath GetIdentityPolicies where
+  toPath = Prelude.const "/"
 
-instance ToPath GetIdentityPolicies where
-        toPath = const "/"
-
-instance ToQuery GetIdentityPolicies where
-        toQuery GetIdentityPolicies'{..}
-          = mconcat
-              ["Action" =: ("GetIdentityPolicies" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _gipIdentity,
-               "PolicyNames" =:
-                 toQueryList "member" _gipPolicyNames]
+instance Core.ToQuery GetIdentityPolicies where
+  toQuery GetIdentityPolicies' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetIdentityPolicies" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "Identity" Core.=: identity,
+        "PolicyNames"
+          Core.=: Core.toQueryList "member" policyNames
+      ]
 
 -- | Represents the requested sending authorization policies.
 --
---
---
--- /See:/ 'getIdentityPoliciesResponse' smart constructor.
+-- /See:/ 'newGetIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
-  { _giprsResponseStatus :: !Int
-  , _giprsPolicies       :: !(Map Text Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A map of policy names to policies.
+    policies :: Prelude.HashMap Prelude.Text Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetIdentityPoliciesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIdentityPoliciesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giprsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'giprsPolicies' - A map of policy names to policies.
-getIdentityPoliciesResponse
-    :: Int -- ^ 'giprsResponseStatus'
-    -> GetIdentityPoliciesResponse
-getIdentityPoliciesResponse pResponseStatus_ =
+-- 'httpStatus', 'getIdentityPoliciesResponse_httpStatus' - The response's http status code.
+--
+-- 'policies', 'getIdentityPoliciesResponse_policies' - A map of policy names to policies.
+newGetIdentityPoliciesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetIdentityPoliciesResponse
+newGetIdentityPoliciesResponse pHttpStatus_ =
   GetIdentityPoliciesResponse'
-  {_giprsResponseStatus = pResponseStatus_, _giprsPolicies = mempty}
+    { httpStatus =
+        pHttpStatus_,
+      policies = Prelude.mempty
+    }
 
-
--- | -- | The response status code.
-giprsResponseStatus :: Lens' GetIdentityPoliciesResponse Int
-giprsResponseStatus = lens _giprsResponseStatus (\ s a -> s{_giprsResponseStatus = a});
+-- | The response's http status code.
+getIdentityPoliciesResponse_httpStatus :: Lens.Lens' GetIdentityPoliciesResponse Prelude.Int
+getIdentityPoliciesResponse_httpStatus = Lens.lens (\GetIdentityPoliciesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityPoliciesResponse' {} a -> s {httpStatus = a} :: GetIdentityPoliciesResponse)
 
 -- | A map of policy names to policies.
-giprsPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text Text)
-giprsPolicies = lens _giprsPolicies (\ s a -> s{_giprsPolicies = a}) . _Map;
+getIdentityPoliciesResponse_policies :: Lens.Lens' GetIdentityPoliciesResponse (Prelude.HashMap Prelude.Text Prelude.Text)
+getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' {policies} -> policies) (\s@GetIdentityPoliciesResponse' {} a -> s {policies = a} :: GetIdentityPoliciesResponse) Prelude.. Lens._Coerce
 
-instance NFData GetIdentityPoliciesResponse where
+instance Prelude.NFData GetIdentityPoliciesResponse

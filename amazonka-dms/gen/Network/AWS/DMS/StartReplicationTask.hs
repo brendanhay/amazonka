@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.StartReplicationTask
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +22,293 @@
 --
 -- Starts the replication task.
 --
---
--- For more information about AWS DMS tasks, see the AWS DMS user guide at <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks >
---
+-- For more information about DMS tasks, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks>
+-- in the /Database Migration Service User Guide./
 module Network.AWS.DMS.StartReplicationTask
-    (
-    -- * Creating a Request
-      startReplicationTask
-    , StartReplicationTask
+  ( -- * Creating a Request
+    StartReplicationTask (..),
+    newStartReplicationTask,
+
     -- * Request Lenses
-    , srtCdcStartTime
-    , srtReplicationTaskARN
-    , srtStartReplicationTaskType
+    startReplicationTask_cdcStartTime,
+    startReplicationTask_cdcStopPosition,
+    startReplicationTask_cdcStartPosition,
+    startReplicationTask_replicationTaskArn,
+    startReplicationTask_startReplicationTaskType,
 
     -- * Destructuring the Response
-    , startReplicationTaskResponse
-    , StartReplicationTaskResponse
+    StartReplicationTaskResponse (..),
+    newStartReplicationTaskResponse,
+
     -- * Response Lenses
-    , srtrsReplicationTask
-    , srtrsResponseStatus
-    ) where
+    startReplicationTaskResponse_replicationTask,
+    startReplicationTaskResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'startReplicationTask' smart constructor.
+-- /See:/ 'newStartReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
-  { _srtCdcStartTime             :: !(Maybe POSIX)
-  , _srtReplicationTaskARN       :: !Text
-  , _srtStartReplicationTaskType :: !StartReplicationTaskTypeValue
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'StartReplicationTask' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srtCdcStartTime' - The start time for the Change Data Capture (CDC) operation.
---
--- * 'srtReplicationTaskARN' - The Amazon Resource Number (ARN) of the replication task to be started.
---
--- * 'srtStartReplicationTaskType' - The type of replication task.
-startReplicationTask
-    :: Text -- ^ 'srtReplicationTaskARN'
-    -> StartReplicationTaskTypeValue -- ^ 'srtStartReplicationTaskType'
-    -> StartReplicationTask
-startReplicationTask pReplicationTaskARN_ pStartReplicationTaskType_ =
-  StartReplicationTask'
-  { _srtCdcStartTime = Nothing
-  , _srtReplicationTaskARN = pReplicationTaskARN_
-  , _srtStartReplicationTaskType = pStartReplicationTaskType_
+  { -- | Indicates the start time for a change data capture (CDC) operation. Use
+    -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+    -- operation to start. Specifying both values results in an error.
+    --
+    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+    cdcStartTime :: Prelude.Maybe Core.POSIX,
+    -- | Indicates when you want a change data capture (CDC) operation to stop.
+    -- The value can be either server time or commit time.
+    --
+    -- Server time example: --cdc-stop-position
+    -- “server_time:2018-02-09T12:12:12”
+    --
+    -- Commit time example: --cdc-stop-position “commit_time:
+    -- 2018-02-09T12:12:12 “
+    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    -- | Indicates when you want a change data capture (CDC) operation to start.
+    -- Use either CdcStartPosition or CdcStartTime to specify when you want a
+    -- CDC operation to start. Specifying both values results in an error.
+    --
+    -- The value can be in date, checkpoint, or LSN\/SCN format.
+    --
+    -- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+    --
+    -- Checkpoint Example: --cdc-start-position
+    -- \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
+    --
+    -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+    --
+    -- When you use this task setting with a source PostgreSQL database, a
+    -- logical replication slot should already be created and associated with
+    -- the source endpoint. You can verify this by setting the @slotName@ extra
+    -- connection attribute to the name of this logical replication slot. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
+    cdcStartPosition :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the replication task to be started.
+    replicationTaskArn :: Prelude.Text,
+    -- | A type of replication task.
+    startReplicationTaskType :: StartReplicationTaskTypeValue
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'StartReplicationTask' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'cdcStartTime', 'startReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use
+-- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+-- operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+--
+-- 'cdcStopPosition', 'startReplicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
+--
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+--
+-- 'cdcStartPosition', 'startReplicationTask_cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start.
+-- Use either CdcStartPosition or CdcStartTime to specify when you want a
+-- CDC operation to start. Specifying both values results in an error.
+--
+-- The value can be in date, checkpoint, or LSN\/SCN format.
+--
+-- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+--
+-- Checkpoint Example: --cdc-start-position
+-- \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
+--
+-- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+--
+-- When you use this task setting with a source PostgreSQL database, a
+-- logical replication slot should already be created and associated with
+-- the source endpoint. You can verify this by setting the @slotName@ extra
+-- connection attribute to the name of this logical replication slot. For
+-- more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
+--
+-- 'replicationTaskArn', 'startReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be started.
+--
+-- 'startReplicationTaskType', 'startReplicationTask_startReplicationTaskType' - A type of replication task.
+newStartReplicationTask ::
+  -- | 'replicationTaskArn'
+  Prelude.Text ->
+  -- | 'startReplicationTaskType'
+  StartReplicationTaskTypeValue ->
+  StartReplicationTask
+newStartReplicationTask
+  pReplicationTaskArn_
+  pStartReplicationTaskType_ =
+    StartReplicationTask'
+      { cdcStartTime =
+          Prelude.Nothing,
+        cdcStopPosition = Prelude.Nothing,
+        cdcStartPosition = Prelude.Nothing,
+        replicationTaskArn = pReplicationTaskArn_,
+        startReplicationTaskType =
+          pStartReplicationTaskType_
+      }
 
--- | The start time for the Change Data Capture (CDC) operation.
-srtCdcStartTime :: Lens' StartReplicationTask (Maybe UTCTime)
-srtCdcStartTime = lens _srtCdcStartTime (\ s a -> s{_srtCdcStartTime = a}) . mapping _Time;
+-- | Indicates the start time for a change data capture (CDC) operation. Use
+-- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+-- operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+startReplicationTask_cdcStartTime :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.UTCTime)
+startReplicationTask_cdcStartTime = Lens.lens (\StartReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@StartReplicationTask' {} a -> s {cdcStartTime = a} :: StartReplicationTask) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Number (ARN) of the replication task to be started.
-srtReplicationTaskARN :: Lens' StartReplicationTask Text
-srtReplicationTaskARN = lens _srtReplicationTaskARN (\ s a -> s{_srtReplicationTaskARN = a});
+-- | Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
+--
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+startReplicationTask_cdcStopPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
+startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@StartReplicationTask' {} a -> s {cdcStopPosition = a} :: StartReplicationTask)
 
--- | The type of replication task.
-srtStartReplicationTaskType :: Lens' StartReplicationTask StartReplicationTaskTypeValue
-srtStartReplicationTaskType = lens _srtStartReplicationTaskType (\ s a -> s{_srtStartReplicationTaskType = a});
+-- | Indicates when you want a change data capture (CDC) operation to start.
+-- Use either CdcStartPosition or CdcStartTime to specify when you want a
+-- CDC operation to start. Specifying both values results in an error.
+--
+-- The value can be in date, checkpoint, or LSN\/SCN format.
+--
+-- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+--
+-- Checkpoint Example: --cdc-start-position
+-- \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"
+--
+-- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
+--
+-- When you use this task setting with a source PostgreSQL database, a
+-- logical replication slot should already be created and associated with
+-- the source endpoint. You can verify this by setting the @slotName@ extra
+-- connection attribute to the name of this logical replication slot. For
+-- more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
+startReplicationTask_cdcStartPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
+startReplicationTask_cdcStartPosition = Lens.lens (\StartReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@StartReplicationTask' {} a -> s {cdcStartPosition = a} :: StartReplicationTask)
 
-instance AWSRequest StartReplicationTask where
-        type Rs StartReplicationTask =
-             StartReplicationTaskResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartReplicationTaskResponse' <$>
-                   (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
+-- | The Amazon Resource Name (ARN) of the replication task to be started.
+startReplicationTask_replicationTaskArn :: Lens.Lens' StartReplicationTask Prelude.Text
+startReplicationTask_replicationTaskArn = Lens.lens (\StartReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@StartReplicationTask' {} a -> s {replicationTaskArn = a} :: StartReplicationTask)
 
-instance Hashable StartReplicationTask where
+-- | A type of replication task.
+startReplicationTask_startReplicationTaskType :: Lens.Lens' StartReplicationTask StartReplicationTaskTypeValue
+startReplicationTask_startReplicationTaskType = Lens.lens (\StartReplicationTask' {startReplicationTaskType} -> startReplicationTaskType) (\s@StartReplicationTask' {} a -> s {startReplicationTaskType = a} :: StartReplicationTask)
 
-instance NFData StartReplicationTask where
+instance Core.AWSRequest StartReplicationTask where
+  type
+    AWSResponse StartReplicationTask =
+      StartReplicationTaskResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartReplicationTaskResponse'
+            Prelude.<$> (x Core..?> "ReplicationTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders StartReplicationTask where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.StartReplicationTask" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.Hashable StartReplicationTask
 
-instance ToJSON StartReplicationTask where
-        toJSON StartReplicationTask'{..}
-          = object
-              (catMaybes
-                 [("CdcStartTime" .=) <$> _srtCdcStartTime,
-                  Just
-                    ("ReplicationTaskArn" .= _srtReplicationTaskARN),
-                  Just
-                    ("StartReplicationTaskType" .=
-                       _srtStartReplicationTaskType)])
+instance Prelude.NFData StartReplicationTask
 
-instance ToPath StartReplicationTask where
-        toPath = const "/"
+instance Core.ToHeaders StartReplicationTask where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDMSv20160101.StartReplicationTask" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToQuery StartReplicationTask where
-        toQuery = const mempty
+instance Core.ToJSON StartReplicationTask where
+  toJSON StartReplicationTask' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
+            ("CdcStopPosition" Core..=)
+              Prelude.<$> cdcStopPosition,
+            ("CdcStartPosition" Core..=)
+              Prelude.<$> cdcStartPosition,
+            Prelude.Just
+              ("ReplicationTaskArn" Core..= replicationTaskArn),
+            Prelude.Just
+              ( "StartReplicationTaskType"
+                  Core..= startReplicationTaskType
+              )
+          ]
+      )
+
+instance Core.ToPath StartReplicationTask where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery StartReplicationTask where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'startReplicationTaskResponse' smart constructor.
+-- /See:/ 'newStartReplicationTaskResponse' smart constructor.
 data StartReplicationTaskResponse = StartReplicationTaskResponse'
-  { _srtrsReplicationTask :: !(Maybe ReplicationTask)
-  , _srtrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The replication task started.
+    replicationTask :: Prelude.Maybe ReplicationTask,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartReplicationTaskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartReplicationTaskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srtrsReplicationTask' - The replication task started.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srtrsResponseStatus' - -- | The response status code.
-startReplicationTaskResponse
-    :: Int -- ^ 'srtrsResponseStatus'
-    -> StartReplicationTaskResponse
-startReplicationTaskResponse pResponseStatus_ =
+-- 'replicationTask', 'startReplicationTaskResponse_replicationTask' - The replication task started.
+--
+-- 'httpStatus', 'startReplicationTaskResponse_httpStatus' - The response's http status code.
+newStartReplicationTaskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartReplicationTaskResponse
+newStartReplicationTaskResponse pHttpStatus_ =
   StartReplicationTaskResponse'
-  {_srtrsReplicationTask = Nothing, _srtrsResponseStatus = pResponseStatus_}
-
+    { replicationTask =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The replication task started.
-srtrsReplicationTask :: Lens' StartReplicationTaskResponse (Maybe ReplicationTask)
-srtrsReplicationTask = lens _srtrsReplicationTask (\ s a -> s{_srtrsReplicationTask = a});
+startReplicationTaskResponse_replicationTask :: Lens.Lens' StartReplicationTaskResponse (Prelude.Maybe ReplicationTask)
+startReplicationTaskResponse_replicationTask = Lens.lens (\StartReplicationTaskResponse' {replicationTask} -> replicationTask) (\s@StartReplicationTaskResponse' {} a -> s {replicationTask = a} :: StartReplicationTaskResponse)
 
--- | -- | The response status code.
-srtrsResponseStatus :: Lens' StartReplicationTaskResponse Int
-srtrsResponseStatus = lens _srtrsResponseStatus (\ s a -> s{_srtrsResponseStatus = a});
+-- | The response's http status code.
+startReplicationTaskResponse_httpStatus :: Lens.Lens' StartReplicationTaskResponse Prelude.Int
+startReplicationTaskResponse_httpStatus = Lens.lens (\StartReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@StartReplicationTaskResponse' {} a -> s {httpStatus = a} :: StartReplicationTaskResponse)
 
-instance NFData StartReplicationTaskResponse where
+instance Prelude.NFData StartReplicationTaskResponse

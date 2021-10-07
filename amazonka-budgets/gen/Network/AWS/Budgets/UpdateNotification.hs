@@ -1,162 +1,204 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Budgets.UpdateNotification
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the information about a notification already created
+-- Updates a notification.
 module Network.AWS.Budgets.UpdateNotification
-    (
-    -- * Creating a Request
-      updateNotification
-    , UpdateNotification
+  ( -- * Creating a Request
+    UpdateNotification (..),
+    newUpdateNotification,
+
     -- * Request Lenses
-    , unAccountId
-    , unBudgetName
-    , unOldNotification
-    , unNewNotification
+    updateNotification_accountId,
+    updateNotification_budgetName,
+    updateNotification_oldNotification,
+    updateNotification_newNotification,
 
     -- * Destructuring the Response
-    , updateNotificationResponse
-    , UpdateNotificationResponse
+    UpdateNotificationResponse (..),
+    newUpdateNotificationResponse,
+
     -- * Response Lenses
-    , unrsResponseStatus
-    ) where
+    updateNotificationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Budgets.Types
-import Network.AWS.Budgets.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request of UpdateNotification
 --
--- /See:/ 'updateNotification' smart constructor.
+-- /See:/ 'newUpdateNotification' smart constructor.
 data UpdateNotification = UpdateNotification'
-  { _unAccountId       :: !Text
-  , _unBudgetName      :: !Text
-  , _unOldNotification :: !Notification
-  , _unNewNotification :: !Notification
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateNotification' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'unAccountId' - Undocumented member.
---
--- * 'unBudgetName' - Undocumented member.
---
--- * 'unOldNotification' - Undocumented member.
---
--- * 'unNewNotification' - Undocumented member.
-updateNotification
-    :: Text -- ^ 'unAccountId'
-    -> Text -- ^ 'unBudgetName'
-    -> Notification -- ^ 'unOldNotification'
-    -> Notification -- ^ 'unNewNotification'
-    -> UpdateNotification
-updateNotification pAccountId_ pBudgetName_ pOldNotification_ pNewNotification_ =
-  UpdateNotification'
-  { _unAccountId = pAccountId_
-  , _unBudgetName = pBudgetName_
-  , _unOldNotification = pOldNotification_
-  , _unNewNotification = pNewNotification_
+  { -- | The @accountId@ that is associated with the budget whose notification
+    -- you want to update.
+    accountId :: Prelude.Text,
+    -- | The name of the budget whose notification you want to update.
+    budgetName :: Prelude.Text,
+    -- | The previous notification that is associated with a budget.
+    oldNotification :: Notification,
+    -- | The updated notification to be associated with a budget.
+    newNotification' :: Notification
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateNotification' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'accountId', 'updateNotification_accountId' - The @accountId@ that is associated with the budget whose notification
+-- you want to update.
+--
+-- 'budgetName', 'updateNotification_budgetName' - The name of the budget whose notification you want to update.
+--
+-- 'oldNotification', 'updateNotification_oldNotification' - The previous notification that is associated with a budget.
+--
+-- 'newNotification'', 'updateNotification_newNotification' - The updated notification to be associated with a budget.
+newUpdateNotification ::
+  -- | 'accountId'
+  Prelude.Text ->
+  -- | 'budgetName'
+  Prelude.Text ->
+  -- | 'oldNotification'
+  Notification ->
+  -- | 'newNotification''
+  Notification ->
+  UpdateNotification
+newUpdateNotification
+  pAccountId_
+  pBudgetName_
+  pOldNotification_
+  pNewNotification_ =
+    UpdateNotification'
+      { accountId = pAccountId_,
+        budgetName = pBudgetName_,
+        oldNotification = pOldNotification_,
+        newNotification' = pNewNotification_
+      }
 
--- | Undocumented member.
-unAccountId :: Lens' UpdateNotification Text
-unAccountId = lens _unAccountId (\ s a -> s{_unAccountId = a});
+-- | The @accountId@ that is associated with the budget whose notification
+-- you want to update.
+updateNotification_accountId :: Lens.Lens' UpdateNotification Prelude.Text
+updateNotification_accountId = Lens.lens (\UpdateNotification' {accountId} -> accountId) (\s@UpdateNotification' {} a -> s {accountId = a} :: UpdateNotification)
 
--- | Undocumented member.
-unBudgetName :: Lens' UpdateNotification Text
-unBudgetName = lens _unBudgetName (\ s a -> s{_unBudgetName = a});
+-- | The name of the budget whose notification you want to update.
+updateNotification_budgetName :: Lens.Lens' UpdateNotification Prelude.Text
+updateNotification_budgetName = Lens.lens (\UpdateNotification' {budgetName} -> budgetName) (\s@UpdateNotification' {} a -> s {budgetName = a} :: UpdateNotification)
 
--- | Undocumented member.
-unOldNotification :: Lens' UpdateNotification Notification
-unOldNotification = lens _unOldNotification (\ s a -> s{_unOldNotification = a});
+-- | The previous notification that is associated with a budget.
+updateNotification_oldNotification :: Lens.Lens' UpdateNotification Notification
+updateNotification_oldNotification = Lens.lens (\UpdateNotification' {oldNotification} -> oldNotification) (\s@UpdateNotification' {} a -> s {oldNotification = a} :: UpdateNotification)
 
--- | Undocumented member.
-unNewNotification :: Lens' UpdateNotification Notification
-unNewNotification = lens _unNewNotification (\ s a -> s{_unNewNotification = a});
+-- | The updated notification to be associated with a budget.
+updateNotification_newNotification :: Lens.Lens' UpdateNotification Notification
+updateNotification_newNotification = Lens.lens (\UpdateNotification' {newNotification'} -> newNotification') (\s@UpdateNotification' {} a -> s {newNotification' = a} :: UpdateNotification)
 
-instance AWSRequest UpdateNotification where
-        type Rs UpdateNotification =
-             UpdateNotificationResponse
-        request = postJSON budgets
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateNotificationResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateNotification where
+  type
+    AWSResponse UpdateNotification =
+      UpdateNotificationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateNotificationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateNotification where
+instance Prelude.Hashable UpdateNotification
 
-instance NFData UpdateNotification where
+instance Prelude.NFData UpdateNotification
 
-instance ToHeaders UpdateNotification where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSBudgetServiceGateway.UpdateNotification" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateNotification where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSBudgetServiceGateway.UpdateNotification" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateNotification where
-        toJSON UpdateNotification'{..}
-          = object
-              (catMaybes
-                 [Just ("AccountId" .= _unAccountId),
-                  Just ("BudgetName" .= _unBudgetName),
-                  Just ("OldNotification" .= _unOldNotification),
-                  Just ("NewNotification" .= _unNewNotification)])
+instance Core.ToJSON UpdateNotification where
+  toJSON UpdateNotification' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("AccountId" Core..= accountId),
+            Prelude.Just ("BudgetName" Core..= budgetName),
+            Prelude.Just
+              ("OldNotification" Core..= oldNotification),
+            Prelude.Just
+              ("NewNotification" Core..= newNotification')
+          ]
+      )
 
-instance ToPath UpdateNotification where
-        toPath = const "/"
+instance Core.ToPath UpdateNotification where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateNotification where
-        toQuery = const mempty
+instance Core.ToQuery UpdateNotification where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response of UpdateNotification
 --
--- /See:/ 'updateNotificationResponse' smart constructor.
-newtype UpdateNotificationResponse = UpdateNotificationResponse'
-  { _unrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newUpdateNotificationResponse' smart constructor.
+data UpdateNotificationResponse = UpdateNotificationResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateNotificationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateNotificationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'unrsResponseStatus' - -- | The response status code.
-updateNotificationResponse
-    :: Int -- ^ 'unrsResponseStatus'
-    -> UpdateNotificationResponse
-updateNotificationResponse pResponseStatus_ =
-  UpdateNotificationResponse' {_unrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateNotificationResponse_httpStatus' - The response's http status code.
+newUpdateNotificationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateNotificationResponse
+newUpdateNotificationResponse pHttpStatus_ =
+  UpdateNotificationResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateNotificationResponse_httpStatus :: Lens.Lens' UpdateNotificationResponse Prelude.Int
+updateNotificationResponse_httpStatus = Lens.lens (\UpdateNotificationResponse' {httpStatus} -> httpStatus) (\s@UpdateNotificationResponse' {} a -> s {httpStatus = a} :: UpdateNotificationResponse)
 
--- | -- | The response status code.
-unrsResponseStatus :: Lens' UpdateNotificationResponse Int
-unrsResponseStatus = lens _unrsResponseStatus (\ s a -> s{_unrsResponseStatus = a});
-
-instance NFData UpdateNotificationResponse where
+instance Prelude.NFData UpdateNotificationResponse

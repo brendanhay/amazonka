@@ -1,188 +1,314 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SMS.CreateReplicationJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The CreateReplicationJob API is used to create a ReplicationJob to replicate a server on AWS. Call this API to first create a ReplicationJob, which will then schedule periodic ReplicationRuns to replicate your server to AWS. Each ReplicationRun will result in the creation of an AWS AMI.
+-- Creates a replication job. The replication job schedules periodic
+-- replication runs to replicate your server to AWS. Each replication run
+-- creates an Amazon Machine Image (AMI).
 module Network.AWS.SMS.CreateReplicationJob
-    (
-    -- * Creating a Request
-      createReplicationJob
-    , CreateReplicationJob
+  ( -- * Creating a Request
+    CreateReplicationJob (..),
+    newCreateReplicationJob,
+
     -- * Request Lenses
-    , crjLicenseType
-    , crjRoleName
-    , crjDescription
-    , crjServerId
-    , crjSeedReplicationTime
-    , crjFrequency
+    createReplicationJob_numberOfRecentAmisToKeep,
+    createReplicationJob_encrypted,
+    createReplicationJob_roleName,
+    createReplicationJob_kmsKeyId,
+    createReplicationJob_frequency,
+    createReplicationJob_runOnce,
+    createReplicationJob_description,
+    createReplicationJob_licenseType,
+    createReplicationJob_serverId,
+    createReplicationJob_seedReplicationTime,
 
     -- * Destructuring the Response
-    , createReplicationJobResponse
-    , CreateReplicationJobResponse
+    CreateReplicationJobResponse (..),
+    newCreateReplicationJobResponse,
+
     -- * Response Lenses
-    , crjrsReplicationJobId
-    , crjrsResponseStatus
-    ) where
+    createReplicationJobResponse_replicationJobId,
+    createReplicationJobResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
-import Network.AWS.SMS.Types.Product
 
--- | /See:/ 'createReplicationJob' smart constructor.
+-- | /See:/ 'newCreateReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-  { _crjLicenseType         :: !(Maybe LicenseType)
-  , _crjRoleName            :: !(Maybe Text)
-  , _crjDescription         :: !(Maybe Text)
-  , _crjServerId            :: !Text
-  , _crjSeedReplicationTime :: !POSIX
-  , _crjFrequency           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateReplicationJob' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crjLicenseType' - Undocumented member.
---
--- * 'crjRoleName' - Undocumented member.
---
--- * 'crjDescription' - Undocumented member.
---
--- * 'crjServerId' - Undocumented member.
---
--- * 'crjSeedReplicationTime' - Undocumented member.
---
--- * 'crjFrequency' - Undocumented member.
-createReplicationJob
-    :: Text -- ^ 'crjServerId'
-    -> UTCTime -- ^ 'crjSeedReplicationTime'
-    -> Int -- ^ 'crjFrequency'
-    -> CreateReplicationJob
-createReplicationJob pServerId_ pSeedReplicationTime_ pFrequency_ =
-  CreateReplicationJob'
-  { _crjLicenseType = Nothing
-  , _crjRoleName = Nothing
-  , _crjDescription = Nothing
-  , _crjServerId = pServerId_
-  , _crjSeedReplicationTime = _Time # pSeedReplicationTime_
-  , _crjFrequency = pFrequency_
+  { -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
+    -- after the maximum number is reached and a new AMI is created.
+    numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the replication job produces encrypted AMIs.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the IAM role to be used by the AWS SMS.
+    roleName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
+    -- This value can be any of the following:
+    --
+    -- -   KMS key ID
+    --
+    -- -   KMS key alias
+    --
+    -- -   ARN referring to the KMS key ID
+    --
+    -- -   ARN referring to the KMS key alias
+    --
+    -- If encrypted is /true/ but a KMS key ID is not specified, the
+    -- customer\'s default KMS key for Amazon EBS is used.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The time between consecutive replication runs, in hours.
+    frequency :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether to run the replication job one time.
+    runOnce :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the replication job.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The license type to be used for the AMI created by a successful
+    -- replication run.
+    licenseType :: Prelude.Maybe LicenseType,
+    -- | The ID of the server.
+    serverId :: Prelude.Text,
+    -- | The seed replication time.
+    seedReplicationTime :: Core.POSIX
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateReplicationJob' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'numberOfRecentAmisToKeep', 'createReplicationJob_numberOfRecentAmisToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted
+-- after the maximum number is reached and a new AMI is created.
+--
+-- 'encrypted', 'createReplicationJob_encrypted' - Indicates whether the replication job produces encrypted AMIs.
+--
+-- 'roleName', 'createReplicationJob_roleName' - The name of the IAM role to be used by the AWS SMS.
+--
+-- 'kmsKeyId', 'createReplicationJob_kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs.
+-- This value can be any of the following:
+--
+-- -   KMS key ID
+--
+-- -   KMS key alias
+--
+-- -   ARN referring to the KMS key ID
+--
+-- -   ARN referring to the KMS key alias
+--
+-- If encrypted is /true/ but a KMS key ID is not specified, the
+-- customer\'s default KMS key for Amazon EBS is used.
+--
+-- 'frequency', 'createReplicationJob_frequency' - The time between consecutive replication runs, in hours.
+--
+-- 'runOnce', 'createReplicationJob_runOnce' - Indicates whether to run the replication job one time.
+--
+-- 'description', 'createReplicationJob_description' - The description of the replication job.
+--
+-- 'licenseType', 'createReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
+-- replication run.
+--
+-- 'serverId', 'createReplicationJob_serverId' - The ID of the server.
+--
+-- 'seedReplicationTime', 'createReplicationJob_seedReplicationTime' - The seed replication time.
+newCreateReplicationJob ::
+  -- | 'serverId'
+  Prelude.Text ->
+  -- | 'seedReplicationTime'
+  Prelude.UTCTime ->
+  CreateReplicationJob
+newCreateReplicationJob
+  pServerId_
+  pSeedReplicationTime_ =
+    CreateReplicationJob'
+      { numberOfRecentAmisToKeep =
+          Prelude.Nothing,
+        encrypted = Prelude.Nothing,
+        roleName = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        frequency = Prelude.Nothing,
+        runOnce = Prelude.Nothing,
+        description = Prelude.Nothing,
+        licenseType = Prelude.Nothing,
+        serverId = pServerId_,
+        seedReplicationTime =
+          Core._Time Lens.# pSeedReplicationTime_
+      }
 
--- | Undocumented member.
-crjLicenseType :: Lens' CreateReplicationJob (Maybe LicenseType)
-crjLicenseType = lens _crjLicenseType (\ s a -> s{_crjLicenseType = a});
+-- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
+-- after the maximum number is reached and a new AMI is created.
+createReplicationJob_numberOfRecentAmisToKeep :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Int)
+createReplicationJob_numberOfRecentAmisToKeep = Lens.lens (\CreateReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@CreateReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: CreateReplicationJob)
 
--- | Undocumented member.
-crjRoleName :: Lens' CreateReplicationJob (Maybe Text)
-crjRoleName = lens _crjRoleName (\ s a -> s{_crjRoleName = a});
+-- | Indicates whether the replication job produces encrypted AMIs.
+createReplicationJob_encrypted :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Bool)
+createReplicationJob_encrypted = Lens.lens (\CreateReplicationJob' {encrypted} -> encrypted) (\s@CreateReplicationJob' {} a -> s {encrypted = a} :: CreateReplicationJob)
 
--- | Undocumented member.
-crjDescription :: Lens' CreateReplicationJob (Maybe Text)
-crjDescription = lens _crjDescription (\ s a -> s{_crjDescription = a});
+-- | The name of the IAM role to be used by the AWS SMS.
+createReplicationJob_roleName :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
+createReplicationJob_roleName = Lens.lens (\CreateReplicationJob' {roleName} -> roleName) (\s@CreateReplicationJob' {} a -> s {roleName = a} :: CreateReplicationJob)
 
--- | Undocumented member.
-crjServerId :: Lens' CreateReplicationJob Text
-crjServerId = lens _crjServerId (\ s a -> s{_crjServerId = a});
+-- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
+-- This value can be any of the following:
+--
+-- -   KMS key ID
+--
+-- -   KMS key alias
+--
+-- -   ARN referring to the KMS key ID
+--
+-- -   ARN referring to the KMS key alias
+--
+-- If encrypted is /true/ but a KMS key ID is not specified, the
+-- customer\'s default KMS key for Amazon EBS is used.
+createReplicationJob_kmsKeyId :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
+createReplicationJob_kmsKeyId = Lens.lens (\CreateReplicationJob' {kmsKeyId} -> kmsKeyId) (\s@CreateReplicationJob' {} a -> s {kmsKeyId = a} :: CreateReplicationJob)
 
--- | Undocumented member.
-crjSeedReplicationTime :: Lens' CreateReplicationJob UTCTime
-crjSeedReplicationTime = lens _crjSeedReplicationTime (\ s a -> s{_crjSeedReplicationTime = a}) . _Time;
+-- | The time between consecutive replication runs, in hours.
+createReplicationJob_frequency :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Int)
+createReplicationJob_frequency = Lens.lens (\CreateReplicationJob' {frequency} -> frequency) (\s@CreateReplicationJob' {} a -> s {frequency = a} :: CreateReplicationJob)
 
--- | Undocumented member.
-crjFrequency :: Lens' CreateReplicationJob Int
-crjFrequency = lens _crjFrequency (\ s a -> s{_crjFrequency = a});
+-- | Indicates whether to run the replication job one time.
+createReplicationJob_runOnce :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Bool)
+createReplicationJob_runOnce = Lens.lens (\CreateReplicationJob' {runOnce} -> runOnce) (\s@CreateReplicationJob' {} a -> s {runOnce = a} :: CreateReplicationJob)
 
-instance AWSRequest CreateReplicationJob where
-        type Rs CreateReplicationJob =
-             CreateReplicationJobResponse
-        request = postJSON sms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateReplicationJobResponse' <$>
-                   (x .?> "replicationJobId") <*> (pure (fromEnum s)))
+-- | The description of the replication job.
+createReplicationJob_description :: Lens.Lens' CreateReplicationJob (Prelude.Maybe Prelude.Text)
+createReplicationJob_description = Lens.lens (\CreateReplicationJob' {description} -> description) (\s@CreateReplicationJob' {} a -> s {description = a} :: CreateReplicationJob)
 
-instance Hashable CreateReplicationJob where
+-- | The license type to be used for the AMI created by a successful
+-- replication run.
+createReplicationJob_licenseType :: Lens.Lens' CreateReplicationJob (Prelude.Maybe LicenseType)
+createReplicationJob_licenseType = Lens.lens (\CreateReplicationJob' {licenseType} -> licenseType) (\s@CreateReplicationJob' {} a -> s {licenseType = a} :: CreateReplicationJob)
 
-instance NFData CreateReplicationJob where
+-- | The ID of the server.
+createReplicationJob_serverId :: Lens.Lens' CreateReplicationJob Prelude.Text
+createReplicationJob_serverId = Lens.lens (\CreateReplicationJob' {serverId} -> serverId) (\s@CreateReplicationJob' {} a -> s {serverId = a} :: CreateReplicationJob)
 
-instance ToHeaders CreateReplicationJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSServerMigrationService_V2016_10_24.CreateReplicationJob"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | The seed replication time.
+createReplicationJob_seedReplicationTime :: Lens.Lens' CreateReplicationJob Prelude.UTCTime
+createReplicationJob_seedReplicationTime = Lens.lens (\CreateReplicationJob' {seedReplicationTime} -> seedReplicationTime) (\s@CreateReplicationJob' {} a -> s {seedReplicationTime = a} :: CreateReplicationJob) Prelude.. Core._Time
 
-instance ToJSON CreateReplicationJob where
-        toJSON CreateReplicationJob'{..}
-          = object
-              (catMaybes
-                 [("licenseType" .=) <$> _crjLicenseType,
-                  ("roleName" .=) <$> _crjRoleName,
-                  ("description" .=) <$> _crjDescription,
-                  Just ("serverId" .= _crjServerId),
-                  Just
-                    ("seedReplicationTime" .= _crjSeedReplicationTime),
-                  Just ("frequency" .= _crjFrequency)])
+instance Core.AWSRequest CreateReplicationJob where
+  type
+    AWSResponse CreateReplicationJob =
+      CreateReplicationJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateReplicationJobResponse'
+            Prelude.<$> (x Core..?> "replicationJobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToPath CreateReplicationJob where
-        toPath = const "/"
+instance Prelude.Hashable CreateReplicationJob
 
-instance ToQuery CreateReplicationJob where
-        toQuery = const mempty
+instance Prelude.NFData CreateReplicationJob
 
--- | /See:/ 'createReplicationJobResponse' smart constructor.
+instance Core.ToHeaders CreateReplicationJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.CreateReplicationJob" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateReplicationJob where
+  toJSON CreateReplicationJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("numberOfRecentAmisToKeep" Core..=)
+              Prelude.<$> numberOfRecentAmisToKeep,
+            ("encrypted" Core..=) Prelude.<$> encrypted,
+            ("roleName" Core..=) Prelude.<$> roleName,
+            ("kmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("frequency" Core..=) Prelude.<$> frequency,
+            ("runOnce" Core..=) Prelude.<$> runOnce,
+            ("description" Core..=) Prelude.<$> description,
+            ("licenseType" Core..=) Prelude.<$> licenseType,
+            Prelude.Just ("serverId" Core..= serverId),
+            Prelude.Just
+              ("seedReplicationTime" Core..= seedReplicationTime)
+          ]
+      )
+
+instance Core.ToPath CreateReplicationJob where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateReplicationJob where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateReplicationJobResponse' smart constructor.
 data CreateReplicationJobResponse = CreateReplicationJobResponse'
-  { _crjrsReplicationJobId :: !(Maybe Text)
-  , _crjrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier of the replication job.
+    replicationJobId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateReplicationJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateReplicationJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crjrsReplicationJobId' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crjrsResponseStatus' - -- | The response status code.
-createReplicationJobResponse
-    :: Int -- ^ 'crjrsResponseStatus'
-    -> CreateReplicationJobResponse
-createReplicationJobResponse pResponseStatus_ =
+-- 'replicationJobId', 'createReplicationJobResponse_replicationJobId' - The unique identifier of the replication job.
+--
+-- 'httpStatus', 'createReplicationJobResponse_httpStatus' - The response's http status code.
+newCreateReplicationJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateReplicationJobResponse
+newCreateReplicationJobResponse pHttpStatus_ =
   CreateReplicationJobResponse'
-  {_crjrsReplicationJobId = Nothing, _crjrsResponseStatus = pResponseStatus_}
+    { replicationJobId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The unique identifier of the replication job.
+createReplicationJobResponse_replicationJobId :: Lens.Lens' CreateReplicationJobResponse (Prelude.Maybe Prelude.Text)
+createReplicationJobResponse_replicationJobId = Lens.lens (\CreateReplicationJobResponse' {replicationJobId} -> replicationJobId) (\s@CreateReplicationJobResponse' {} a -> s {replicationJobId = a} :: CreateReplicationJobResponse)
 
--- | Undocumented member.
-crjrsReplicationJobId :: Lens' CreateReplicationJobResponse (Maybe Text)
-crjrsReplicationJobId = lens _crjrsReplicationJobId (\ s a -> s{_crjrsReplicationJobId = a});
+-- | The response's http status code.
+createReplicationJobResponse_httpStatus :: Lens.Lens' CreateReplicationJobResponse Prelude.Int
+createReplicationJobResponse_httpStatus = Lens.lens (\CreateReplicationJobResponse' {httpStatus} -> httpStatus) (\s@CreateReplicationJobResponse' {} a -> s {httpStatus = a} :: CreateReplicationJobResponse)
 
--- | -- | The response status code.
-crjrsResponseStatus :: Lens' CreateReplicationJobResponse Int
-crjrsResponseStatus = lens _crjrsResponseStatus (\ s a -> s{_crjrsResponseStatus = a});
-
-instance NFData CreateReplicationJobResponse where
+instance Prelude.NFData CreateReplicationJobResponse

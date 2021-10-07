@@ -1,143 +1,174 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a trigger definition.
---
---
 module Network.AWS.Glue.UpdateTrigger
-    (
-    -- * Creating a Request
-      updateTrigger
-    , UpdateTrigger
+  ( -- * Creating a Request
+    UpdateTrigger (..),
+    newUpdateTrigger,
+
     -- * Request Lenses
-    , utName
-    , utTriggerUpdate
+    updateTrigger_name,
+    updateTrigger_triggerUpdate,
 
     -- * Destructuring the Response
-    , updateTriggerResponse
-    , UpdateTriggerResponse
+    UpdateTriggerResponse (..),
+    newUpdateTriggerResponse,
+
     -- * Response Lenses
-    , updrsTrigger
-    , updrsResponseStatus
-    ) where
+    updateTriggerResponse_trigger,
+    updateTriggerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateTrigger' smart constructor.
+-- | /See:/ 'newUpdateTrigger' smart constructor.
 data UpdateTrigger = UpdateTrigger'
-  { _utName          :: !Text
-  , _utTriggerUpdate :: !TriggerUpdate
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the trigger to update.
+    name :: Prelude.Text,
+    -- | The new values with which to update the trigger.
+    triggerUpdate :: TriggerUpdate
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateTrigger' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateTrigger' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'utName' - The name of the trigger to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'utTriggerUpdate' - The new values with which to update the trigger.
-updateTrigger
-    :: Text -- ^ 'utName'
-    -> TriggerUpdate -- ^ 'utTriggerUpdate'
-    -> UpdateTrigger
-updateTrigger pName_ pTriggerUpdate_ =
-  UpdateTrigger' {_utName = pName_, _utTriggerUpdate = pTriggerUpdate_}
-
+-- 'name', 'updateTrigger_name' - The name of the trigger to update.
+--
+-- 'triggerUpdate', 'updateTrigger_triggerUpdate' - The new values with which to update the trigger.
+newUpdateTrigger ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'triggerUpdate'
+  TriggerUpdate ->
+  UpdateTrigger
+newUpdateTrigger pName_ pTriggerUpdate_ =
+  UpdateTrigger'
+    { name = pName_,
+      triggerUpdate = pTriggerUpdate_
+    }
 
 -- | The name of the trigger to update.
-utName :: Lens' UpdateTrigger Text
-utName = lens _utName (\ s a -> s{_utName = a});
+updateTrigger_name :: Lens.Lens' UpdateTrigger Prelude.Text
+updateTrigger_name = Lens.lens (\UpdateTrigger' {name} -> name) (\s@UpdateTrigger' {} a -> s {name = a} :: UpdateTrigger)
 
 -- | The new values with which to update the trigger.
-utTriggerUpdate :: Lens' UpdateTrigger TriggerUpdate
-utTriggerUpdate = lens _utTriggerUpdate (\ s a -> s{_utTriggerUpdate = a});
+updateTrigger_triggerUpdate :: Lens.Lens' UpdateTrigger TriggerUpdate
+updateTrigger_triggerUpdate = Lens.lens (\UpdateTrigger' {triggerUpdate} -> triggerUpdate) (\s@UpdateTrigger' {} a -> s {triggerUpdate = a} :: UpdateTrigger)
 
-instance AWSRequest UpdateTrigger where
-        type Rs UpdateTrigger = UpdateTriggerResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateTriggerResponse' <$>
-                   (x .?> "Trigger") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateTrigger where
+  type
+    AWSResponse UpdateTrigger =
+      UpdateTriggerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateTriggerResponse'
+            Prelude.<$> (x Core..?> "Trigger")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateTrigger where
+instance Prelude.Hashable UpdateTrigger
 
-instance NFData UpdateTrigger where
+instance Prelude.NFData UpdateTrigger
 
-instance ToHeaders UpdateTrigger where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.UpdateTrigger" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateTrigger where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.UpdateTrigger" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateTrigger where
-        toJSON UpdateTrigger'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _utName),
-                  Just ("TriggerUpdate" .= _utTriggerUpdate)])
+instance Core.ToJSON UpdateTrigger where
+  toJSON UpdateTrigger' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Core..= name),
+            Prelude.Just
+              ("TriggerUpdate" Core..= triggerUpdate)
+          ]
+      )
 
-instance ToPath UpdateTrigger where
-        toPath = const "/"
+instance Core.ToPath UpdateTrigger where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateTrigger where
-        toQuery = const mempty
+instance Core.ToQuery UpdateTrigger where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateTriggerResponse' smart constructor.
+-- | /See:/ 'newUpdateTriggerResponse' smart constructor.
 data UpdateTriggerResponse = UpdateTriggerResponse'
-  { _updrsTrigger        :: !(Maybe Trigger)
-  , _updrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The resulting trigger definition.
+    trigger :: Prelude.Maybe Trigger,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateTriggerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateTriggerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'updrsTrigger' - The resulting trigger definition.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'updrsResponseStatus' - -- | The response status code.
-updateTriggerResponse
-    :: Int -- ^ 'updrsResponseStatus'
-    -> UpdateTriggerResponse
-updateTriggerResponse pResponseStatus_ =
+-- 'trigger', 'updateTriggerResponse_trigger' - The resulting trigger definition.
+--
+-- 'httpStatus', 'updateTriggerResponse_httpStatus' - The response's http status code.
+newUpdateTriggerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateTriggerResponse
+newUpdateTriggerResponse pHttpStatus_ =
   UpdateTriggerResponse'
-  {_updrsTrigger = Nothing, _updrsResponseStatus = pResponseStatus_}
-
+    { trigger = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The resulting trigger definition.
-updrsTrigger :: Lens' UpdateTriggerResponse (Maybe Trigger)
-updrsTrigger = lens _updrsTrigger (\ s a -> s{_updrsTrigger = a});
+updateTriggerResponse_trigger :: Lens.Lens' UpdateTriggerResponse (Prelude.Maybe Trigger)
+updateTriggerResponse_trigger = Lens.lens (\UpdateTriggerResponse' {trigger} -> trigger) (\s@UpdateTriggerResponse' {} a -> s {trigger = a} :: UpdateTriggerResponse)
 
--- | -- | The response status code.
-updrsResponseStatus :: Lens' UpdateTriggerResponse Int
-updrsResponseStatus = lens _updrsResponseStatus (\ s a -> s{_updrsResponseStatus = a});
+-- | The response's http status code.
+updateTriggerResponse_httpStatus :: Lens.Lens' UpdateTriggerResponse Prelude.Int
+updateTriggerResponse_httpStatus = Lens.lens (\UpdateTriggerResponse' {httpStatus} -> httpStatus) (\s@UpdateTriggerResponse' {} a -> s {httpStatus = a} :: UpdateTriggerResponse)
 
-instance NFData UpdateTriggerResponse where
+instance Prelude.NFData UpdateTriggerResponse

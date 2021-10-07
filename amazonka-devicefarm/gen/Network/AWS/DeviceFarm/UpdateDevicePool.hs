@@ -1,174 +1,283 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateDevicePool
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the name, description, and rules in a device pool given the attributes and the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a whole (or not at all).
---
---
+-- Modifies the name, description, and rules in a device pool given the
+-- attributes and the pool ARN. Rule updates are all-or-nothing, meaning
+-- they can only be updated as a whole (or not at all).
 module Network.AWS.DeviceFarm.UpdateDevicePool
-    (
-    -- * Creating a Request
-      updateDevicePool
-    , UpdateDevicePool
+  ( -- * Creating a Request
+    UpdateDevicePool (..),
+    newUpdateDevicePool,
+
     -- * Request Lenses
-    , udpRules
-    , udpName
-    , udpDescription
-    , udpArn
+    updateDevicePool_clearMaxDevices,
+    updateDevicePool_rules,
+    updateDevicePool_maxDevices,
+    updateDevicePool_name,
+    updateDevicePool_description,
+    updateDevicePool_arn,
 
     -- * Destructuring the Response
-    , updateDevicePoolResponse
-    , UpdateDevicePoolResponse
-    -- * Response Lenses
-    , udprsDevicePool
-    , udprsResponseStatus
-    ) where
+    UpdateDevicePoolResponse (..),
+    newUpdateDevicePoolResponse,
 
+    -- * Response Lenses
+    updateDevicePoolResponse_devicePool,
+    updateDevicePoolResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the update device pool operation.
 --
---
---
--- /See:/ 'updateDevicePool' smart constructor.
+-- /See:/ 'newUpdateDevicePool' smart constructor.
 data UpdateDevicePool = UpdateDevicePool'
-  { _udpRules       :: !(Maybe [Rule])
-  , _udpName        :: !(Maybe Text)
-  , _udpDescription :: !(Maybe Text)
-  , _udpArn         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateDevicePool' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udpRules' - Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
---
--- * 'udpName' - A string representing the name of the device pool you wish to update.
---
--- * 'udpDescription' - A description of the device pool you wish to update.
---
--- * 'udpArn' - The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.
-updateDevicePool
-    :: Text -- ^ 'udpArn'
-    -> UpdateDevicePool
-updateDevicePool pArn_ =
-  UpdateDevicePool'
-  { _udpRules = Nothing
-  , _udpName = Nothing
-  , _udpDescription = Nothing
-  , _udpArn = pArn_
+  { -- | Sets whether the @maxDevices@ parameter applies to your device pool. If
+    -- you set this parameter to @true@, the @maxDevices@ parameter does not
+    -- apply, and Device Farm does not limit the number of devices that it adds
+    -- to your device pool. In this case, Device Farm adds all available
+    -- devices that meet the criteria specified in the @rules@ parameter.
+    --
+    -- If you use this parameter in your request, you cannot use the
+    -- @maxDevices@ parameter in the same request.
+    clearMaxDevices :: Prelude.Maybe Prelude.Bool,
+    -- | Represents the rules to modify for the device pool. Updating rules is
+    -- optional. If you update rules for your request, the update replaces the
+    -- existing rules.
+    rules :: Prelude.Maybe [Rule],
+    -- | The number of devices that Device Farm can add to your device pool.
+    -- Device Farm adds devices that are available and that meet the criteria
+    -- that you assign for the @rules@ parameter. Depending on how many devices
+    -- meet these constraints, your device pool might contain fewer devices
+    -- than the value for this parameter.
+    --
+    -- By specifying the maximum number of devices, you can control the costs
+    -- that you incur by running tests.
+    --
+    -- If you use this parameter in your request, you cannot use the
+    -- @clearMaxDevices@ parameter in the same request.
+    maxDevices :: Prelude.Maybe Prelude.Int,
+    -- | A string that represents the name of the device pool to update.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A description of the device pool to update.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+    arn :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateDevicePool' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'clearMaxDevices', 'updateDevicePool_clearMaxDevices' - Sets whether the @maxDevices@ parameter applies to your device pool. If
+-- you set this parameter to @true@, the @maxDevices@ parameter does not
+-- apply, and Device Farm does not limit the number of devices that it adds
+-- to your device pool. In this case, Device Farm adds all available
+-- devices that meet the criteria specified in the @rules@ parameter.
+--
+-- If you use this parameter in your request, you cannot use the
+-- @maxDevices@ parameter in the same request.
+--
+-- 'rules', 'updateDevicePool_rules' - Represents the rules to modify for the device pool. Updating rules is
+-- optional. If you update rules for your request, the update replaces the
+-- existing rules.
+--
+-- 'maxDevices', 'updateDevicePool_maxDevices' - The number of devices that Device Farm can add to your device pool.
+-- Device Farm adds devices that are available and that meet the criteria
+-- that you assign for the @rules@ parameter. Depending on how many devices
+-- meet these constraints, your device pool might contain fewer devices
+-- than the value for this parameter.
+--
+-- By specifying the maximum number of devices, you can control the costs
+-- that you incur by running tests.
+--
+-- If you use this parameter in your request, you cannot use the
+-- @clearMaxDevices@ parameter in the same request.
+--
+-- 'name', 'updateDevicePool_name' - A string that represents the name of the device pool to update.
+--
+-- 'description', 'updateDevicePool_description' - A description of the device pool to update.
+--
+-- 'arn', 'updateDevicePool_arn' - The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+newUpdateDevicePool ::
+  -- | 'arn'
+  Prelude.Text ->
+  UpdateDevicePool
+newUpdateDevicePool pArn_ =
+  UpdateDevicePool'
+    { clearMaxDevices =
+        Prelude.Nothing,
+      rules = Prelude.Nothing,
+      maxDevices = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      arn = pArn_
+    }
 
--- | Represents the rules you wish to modify for the device pool. Updating rules is optional; however, if you choose to update rules for your request, the update will replace the existing rules.
-udpRules :: Lens' UpdateDevicePool [Rule]
-udpRules = lens _udpRules (\ s a -> s{_udpRules = a}) . _Default . _Coerce;
+-- | Sets whether the @maxDevices@ parameter applies to your device pool. If
+-- you set this parameter to @true@, the @maxDevices@ parameter does not
+-- apply, and Device Farm does not limit the number of devices that it adds
+-- to your device pool. In this case, Device Farm adds all available
+-- devices that meet the criteria specified in the @rules@ parameter.
+--
+-- If you use this parameter in your request, you cannot use the
+-- @maxDevices@ parameter in the same request.
+updateDevicePool_clearMaxDevices :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Bool)
+updateDevicePool_clearMaxDevices = Lens.lens (\UpdateDevicePool' {clearMaxDevices} -> clearMaxDevices) (\s@UpdateDevicePool' {} a -> s {clearMaxDevices = a} :: UpdateDevicePool)
 
--- | A string representing the name of the device pool you wish to update.
-udpName :: Lens' UpdateDevicePool (Maybe Text)
-udpName = lens _udpName (\ s a -> s{_udpName = a});
+-- | Represents the rules to modify for the device pool. Updating rules is
+-- optional. If you update rules for your request, the update replaces the
+-- existing rules.
+updateDevicePool_rules :: Lens.Lens' UpdateDevicePool (Prelude.Maybe [Rule])
+updateDevicePool_rules = Lens.lens (\UpdateDevicePool' {rules} -> rules) (\s@UpdateDevicePool' {} a -> s {rules = a} :: UpdateDevicePool) Prelude.. Lens.mapping Lens._Coerce
 
--- | A description of the device pool you wish to update.
-udpDescription :: Lens' UpdateDevicePool (Maybe Text)
-udpDescription = lens _udpDescription (\ s a -> s{_udpDescription = a});
+-- | The number of devices that Device Farm can add to your device pool.
+-- Device Farm adds devices that are available and that meet the criteria
+-- that you assign for the @rules@ parameter. Depending on how many devices
+-- meet these constraints, your device pool might contain fewer devices
+-- than the value for this parameter.
+--
+-- By specifying the maximum number of devices, you can control the costs
+-- that you incur by running tests.
+--
+-- If you use this parameter in your request, you cannot use the
+-- @clearMaxDevices@ parameter in the same request.
+updateDevicePool_maxDevices :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Int)
+updateDevicePool_maxDevices = Lens.lens (\UpdateDevicePool' {maxDevices} -> maxDevices) (\s@UpdateDevicePool' {} a -> s {maxDevices = a} :: UpdateDevicePool)
 
--- | The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.
-udpArn :: Lens' UpdateDevicePool Text
-udpArn = lens _udpArn (\ s a -> s{_udpArn = a});
+-- | A string that represents the name of the device pool to update.
+updateDevicePool_name :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Text)
+updateDevicePool_name = Lens.lens (\UpdateDevicePool' {name} -> name) (\s@UpdateDevicePool' {} a -> s {name = a} :: UpdateDevicePool)
 
-instance AWSRequest UpdateDevicePool where
-        type Rs UpdateDevicePool = UpdateDevicePoolResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDevicePoolResponse' <$>
-                   (x .?> "devicePool") <*> (pure (fromEnum s)))
+-- | A description of the device pool to update.
+updateDevicePool_description :: Lens.Lens' UpdateDevicePool (Prelude.Maybe Prelude.Text)
+updateDevicePool_description = Lens.lens (\UpdateDevicePool' {description} -> description) (\s@UpdateDevicePool' {} a -> s {description = a} :: UpdateDevicePool)
 
-instance Hashable UpdateDevicePool where
+-- | The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+updateDevicePool_arn :: Lens.Lens' UpdateDevicePool Prelude.Text
+updateDevicePool_arn = Lens.lens (\UpdateDevicePool' {arn} -> arn) (\s@UpdateDevicePool' {} a -> s {arn = a} :: UpdateDevicePool)
 
-instance NFData UpdateDevicePool where
+instance Core.AWSRequest UpdateDevicePool where
+  type
+    AWSResponse UpdateDevicePool =
+      UpdateDevicePoolResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDevicePoolResponse'
+            Prelude.<$> (x Core..?> "devicePool")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders UpdateDevicePool where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.UpdateDevicePool" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.Hashable UpdateDevicePool
 
-instance ToJSON UpdateDevicePool where
-        toJSON UpdateDevicePool'{..}
-          = object
-              (catMaybes
-                 [("rules" .=) <$> _udpRules,
-                  ("name" .=) <$> _udpName,
-                  ("description" .=) <$> _udpDescription,
-                  Just ("arn" .= _udpArn)])
+instance Prelude.NFData UpdateDevicePool
 
-instance ToPath UpdateDevicePool where
-        toPath = const "/"
+instance Core.ToHeaders UpdateDevicePool where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.UpdateDevicePool" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToQuery UpdateDevicePool where
-        toQuery = const mempty
+instance Core.ToJSON UpdateDevicePool where
+  toJSON UpdateDevicePool' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("clearMaxDevices" Core..=)
+              Prelude.<$> clearMaxDevices,
+            ("rules" Core..=) Prelude.<$> rules,
+            ("maxDevices" Core..=) Prelude.<$> maxDevices,
+            ("name" Core..=) Prelude.<$> name,
+            ("description" Core..=) Prelude.<$> description,
+            Prelude.Just ("arn" Core..= arn)
+          ]
+      )
+
+instance Core.ToPath UpdateDevicePool where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateDevicePool where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of an update device pool request.
 --
---
---
--- /See:/ 'updateDevicePoolResponse' smart constructor.
+-- /See:/ 'newUpdateDevicePoolResponse' smart constructor.
 data UpdateDevicePoolResponse = UpdateDevicePoolResponse'
-  { _udprsDevicePool     :: !(Maybe DevicePool)
-  , _udprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The device pool you just updated.
+    devicePool :: Prelude.Maybe DevicePool,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDevicePoolResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDevicePoolResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udprsDevicePool' - The device pool you just updated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udprsResponseStatus' - -- | The response status code.
-updateDevicePoolResponse
-    :: Int -- ^ 'udprsResponseStatus'
-    -> UpdateDevicePoolResponse
-updateDevicePoolResponse pResponseStatus_ =
+-- 'devicePool', 'updateDevicePoolResponse_devicePool' - The device pool you just updated.
+--
+-- 'httpStatus', 'updateDevicePoolResponse_httpStatus' - The response's http status code.
+newUpdateDevicePoolResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateDevicePoolResponse
+newUpdateDevicePoolResponse pHttpStatus_ =
   UpdateDevicePoolResponse'
-  {_udprsDevicePool = Nothing, _udprsResponseStatus = pResponseStatus_}
-
+    { devicePool =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The device pool you just updated.
-udprsDevicePool :: Lens' UpdateDevicePoolResponse (Maybe DevicePool)
-udprsDevicePool = lens _udprsDevicePool (\ s a -> s{_udprsDevicePool = a});
+updateDevicePoolResponse_devicePool :: Lens.Lens' UpdateDevicePoolResponse (Prelude.Maybe DevicePool)
+updateDevicePoolResponse_devicePool = Lens.lens (\UpdateDevicePoolResponse' {devicePool} -> devicePool) (\s@UpdateDevicePoolResponse' {} a -> s {devicePool = a} :: UpdateDevicePoolResponse)
 
--- | -- | The response status code.
-udprsResponseStatus :: Lens' UpdateDevicePoolResponse Int
-udprsResponseStatus = lens _udprsResponseStatus (\ s a -> s{_udprsResponseStatus = a});
+-- | The response's http status code.
+updateDevicePoolResponse_httpStatus :: Lens.Lens' UpdateDevicePoolResponse Prelude.Int
+updateDevicePoolResponse_httpStatus = Lens.lens (\UpdateDevicePoolResponse' {httpStatus} -> httpStatus) (\s@UpdateDevicePoolResponse' {} a -> s {httpStatus = a} :: UpdateDevicePoolResponse)
 
-instance NFData UpdateDevicePoolResponse where
+instance Prelude.NFData UpdateDevicePoolResponse

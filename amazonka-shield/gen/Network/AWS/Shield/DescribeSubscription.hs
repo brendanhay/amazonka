@@ -1,121 +1,140 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Shield.DescribeSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides details about the AWS Shield Advanced subscription for an account.
---
---
+-- Provides details about the Shield Advanced subscription for an account.
 module Network.AWS.Shield.DescribeSubscription
-    (
-    -- * Creating a Request
-      describeSubscription
-    , DescribeSubscription
+  ( -- * Creating a Request
+    DescribeSubscription (..),
+    newDescribeSubscription,
 
     -- * Destructuring the Response
-    , describeSubscriptionResponse
-    , DescribeSubscriptionResponse
+    DescribeSubscriptionResponse (..),
+    newDescribeSubscriptionResponse,
+
     -- * Response Lenses
-    , dsrsSubscription
-    , dsrsResponseStatus
-    ) where
+    describeSubscriptionResponse_subscription,
+    describeSubscriptionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
-import Network.AWS.Shield.Types.Product
 
--- | /See:/ 'describeSubscription' smart constructor.
-data DescribeSubscription =
-  DescribeSubscription'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeSubscription' smart constructor.
+data DescribeSubscription = DescribeSubscription'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSubscription' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSubscription' with all optional fields omitted.
 --
-describeSubscription
-    :: DescribeSubscription
-describeSubscription = DescribeSubscription'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeSubscription ::
+  DescribeSubscription
+newDescribeSubscription = DescribeSubscription'
 
+instance Core.AWSRequest DescribeSubscription where
+  type
+    AWSResponse DescribeSubscription =
+      DescribeSubscriptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeSubscriptionResponse'
+            Prelude.<$> (x Core..?> "Subscription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeSubscription where
-        type Rs DescribeSubscription =
-             DescribeSubscriptionResponse
-        request = postJSON shield
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeSubscriptionResponse' <$>
-                   (x .?> "Subscription") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeSubscription
 
-instance Hashable DescribeSubscription where
+instance Prelude.NFData DescribeSubscription
 
-instance NFData DescribeSubscription where
+instance Core.ToHeaders DescribeSubscription where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSShield_20160616.DescribeSubscription" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeSubscription where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSShield_20160616.DescribeSubscription" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeSubscription where
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
-instance ToJSON DescribeSubscription where
-        toJSON = const (Object mempty)
+instance Core.ToPath DescribeSubscription where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeSubscription where
-        toPath = const "/"
+instance Core.ToQuery DescribeSubscription where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeSubscription where
-        toQuery = const mempty
-
--- | /See:/ 'describeSubscriptionResponse' smart constructor.
+-- | /See:/ 'newDescribeSubscriptionResponse' smart constructor.
 data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
-  { _dsrsSubscription   :: !(Maybe Subscription)
-  , _dsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Shield Advanced subscription details for an account.
+    subscription :: Prelude.Maybe Subscription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSubscriptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSubscriptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrsSubscription' - The AWS Shield Advanced subscription details for an account.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeSubscriptionResponse
-    :: Int -- ^ 'dsrsResponseStatus'
-    -> DescribeSubscriptionResponse
-describeSubscriptionResponse pResponseStatus_ =
+-- 'subscription', 'describeSubscriptionResponse_subscription' - The Shield Advanced subscription details for an account.
+--
+-- 'httpStatus', 'describeSubscriptionResponse_httpStatus' - The response's http status code.
+newDescribeSubscriptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSubscriptionResponse
+newDescribeSubscriptionResponse pHttpStatus_ =
   DescribeSubscriptionResponse'
-  {_dsrsSubscription = Nothing, _dsrsResponseStatus = pResponseStatus_}
+    { subscription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The Shield Advanced subscription details for an account.
+describeSubscriptionResponse_subscription :: Lens.Lens' DescribeSubscriptionResponse (Prelude.Maybe Subscription)
+describeSubscriptionResponse_subscription = Lens.lens (\DescribeSubscriptionResponse' {subscription} -> subscription) (\s@DescribeSubscriptionResponse' {} a -> s {subscription = a} :: DescribeSubscriptionResponse)
 
--- | The AWS Shield Advanced subscription details for an account.
-dsrsSubscription :: Lens' DescribeSubscriptionResponse (Maybe Subscription)
-dsrsSubscription = lens _dsrsSubscription (\ s a -> s{_dsrsSubscription = a});
+-- | The response's http status code.
+describeSubscriptionResponse_httpStatus :: Lens.Lens' DescribeSubscriptionResponse Prelude.Int
+describeSubscriptionResponse_httpStatus = Lens.lens (\DescribeSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DescribeSubscriptionResponse' {} a -> s {httpStatus = a} :: DescribeSubscriptionResponse)
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeSubscriptionResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
-
-instance NFData DescribeSubscriptionResponse where
+instance Prelude.NFData DescribeSubscriptionResponse

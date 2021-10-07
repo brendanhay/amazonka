@@ -1,113 +1,316 @@
-name:                  amazonka-cloudfront
-version:               1.5.0
-synopsis:              Amazon CloudFront SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-cloudfront
+version:            1.6.1
+synopsis:           Amazon CloudFront SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CloudFront" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2020-05-31@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudFront.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CloudFront" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-cloudfront
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cloudfront
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CloudFront
+    Network.AWS.CloudFront.AssociateAlias
+    Network.AWS.CloudFront.CreateCachePolicy
+    Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+    Network.AWS.CloudFront.CreateDistribution
+    Network.AWS.CloudFront.CreateDistributionWithTags
+    Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
+    Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.CreateFunction
+    Network.AWS.CloudFront.CreateInvalidation
+    Network.AWS.CloudFront.CreateKeyGroup
+    Network.AWS.CloudFront.CreateMonitoringSubscription
+    Network.AWS.CloudFront.CreateOriginRequestPolicy
+    Network.AWS.CloudFront.CreatePublicKey
+    Network.AWS.CloudFront.CreateRealtimeLogConfig
+    Network.AWS.CloudFront.CreateStreamingDistribution
+    Network.AWS.CloudFront.CreateStreamingDistributionWithTags
+    Network.AWS.CloudFront.DeleteCachePolicy
+    Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+    Network.AWS.CloudFront.DeleteDistribution
+    Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
+    Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.DeleteFunction
+    Network.AWS.CloudFront.DeleteKeyGroup
+    Network.AWS.CloudFront.DeleteMonitoringSubscription
+    Network.AWS.CloudFront.DeleteOriginRequestPolicy
+    Network.AWS.CloudFront.DeletePublicKey
+    Network.AWS.CloudFront.DeleteRealtimeLogConfig
+    Network.AWS.CloudFront.DeleteStreamingDistribution
+    Network.AWS.CloudFront.DescribeFunction
+    Network.AWS.CloudFront.GetCachePolicy
+    Network.AWS.CloudFront.GetCachePolicyConfig
+    Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+    Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+    Network.AWS.CloudFront.GetDistribution
+    Network.AWS.CloudFront.GetDistributionConfig
+    Network.AWS.CloudFront.GetFieldLevelEncryption
+    Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
+    Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
+    Network.AWS.CloudFront.GetFunction
+    Network.AWS.CloudFront.GetInvalidation
+    Network.AWS.CloudFront.GetKeyGroup
+    Network.AWS.CloudFront.GetKeyGroupConfig
+    Network.AWS.CloudFront.GetMonitoringSubscription
+    Network.AWS.CloudFront.GetOriginRequestPolicy
+    Network.AWS.CloudFront.GetOriginRequestPolicyConfig
+    Network.AWS.CloudFront.GetPublicKey
+    Network.AWS.CloudFront.GetPublicKeyConfig
+    Network.AWS.CloudFront.GetRealtimeLogConfig
+    Network.AWS.CloudFront.GetStreamingDistribution
+    Network.AWS.CloudFront.GetStreamingDistributionConfig
+    Network.AWS.CloudFront.Lens
+    Network.AWS.CloudFront.ListCachePolicies
+    Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+    Network.AWS.CloudFront.ListConflictingAliases
+    Network.AWS.CloudFront.ListDistributions
+    Network.AWS.CloudFront.ListDistributionsByCachePolicyId
+    Network.AWS.CloudFront.ListDistributionsByKeyGroup
+    Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
+    Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
+    Network.AWS.CloudFront.ListDistributionsByWebACLId
+    Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
+    Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
+    Network.AWS.CloudFront.ListFunctions
+    Network.AWS.CloudFront.ListInvalidations
+    Network.AWS.CloudFront.ListKeyGroups
+    Network.AWS.CloudFront.ListOriginRequestPolicies
+    Network.AWS.CloudFront.ListPublicKeys
+    Network.AWS.CloudFront.ListRealtimeLogConfigs
+    Network.AWS.CloudFront.ListStreamingDistributions
+    Network.AWS.CloudFront.ListTagsForResource
+    Network.AWS.CloudFront.PublishFunction
+    Network.AWS.CloudFront.TagResource
+    Network.AWS.CloudFront.TestFunction
+    Network.AWS.CloudFront.Types
+    Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups
+    Network.AWS.CloudFront.Types.ActiveTrustedSigners
+    Network.AWS.CloudFront.Types.Aliases
+    Network.AWS.CloudFront.Types.AliasICPRecordal
+    Network.AWS.CloudFront.Types.AllowedMethods
+    Network.AWS.CloudFront.Types.CacheBehavior
+    Network.AWS.CloudFront.Types.CacheBehaviors
+    Network.AWS.CloudFront.Types.CachedMethods
+    Network.AWS.CloudFront.Types.CachePolicy
+    Network.AWS.CloudFront.Types.CachePolicyConfig
+    Network.AWS.CloudFront.Types.CachePolicyCookieBehavior
+    Network.AWS.CloudFront.Types.CachePolicyCookiesConfig
+    Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
+    Network.AWS.CloudFront.Types.CachePolicyHeadersConfig
+    Network.AWS.CloudFront.Types.CachePolicyList
+    Network.AWS.CloudFront.Types.CachePolicyQueryStringBehavior
+    Network.AWS.CloudFront.Types.CachePolicyQueryStringsConfig
+    Network.AWS.CloudFront.Types.CachePolicySummary
+    Network.AWS.CloudFront.Types.CachePolicyType
+    Network.AWS.CloudFront.Types.CertificateSource
+    Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentity
+    Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityConfig
+    Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList
+    Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentitySummary
+    Network.AWS.CloudFront.Types.ConflictingAlias
+    Network.AWS.CloudFront.Types.ConflictingAliasesList
+    Network.AWS.CloudFront.Types.ContentTypeProfile
+    Network.AWS.CloudFront.Types.ContentTypeProfileConfig
+    Network.AWS.CloudFront.Types.ContentTypeProfiles
+    Network.AWS.CloudFront.Types.CookieNames
+    Network.AWS.CloudFront.Types.CookiePreference
+    Network.AWS.CloudFront.Types.CustomErrorResponse
+    Network.AWS.CloudFront.Types.CustomErrorResponses
+    Network.AWS.CloudFront.Types.CustomHeaders
+    Network.AWS.CloudFront.Types.CustomOriginConfig
+    Network.AWS.CloudFront.Types.DefaultCacheBehavior
+    Network.AWS.CloudFront.Types.Distribution
+    Network.AWS.CloudFront.Types.DistributionConfig
+    Network.AWS.CloudFront.Types.DistributionConfigWithTags
+    Network.AWS.CloudFront.Types.DistributionIdList
+    Network.AWS.CloudFront.Types.DistributionList
+    Network.AWS.CloudFront.Types.DistributionSummary
+    Network.AWS.CloudFront.Types.EncryptionEntities
+    Network.AWS.CloudFront.Types.EncryptionEntity
+    Network.AWS.CloudFront.Types.EndPoint
+    Network.AWS.CloudFront.Types.EventType
+    Network.AWS.CloudFront.Types.FieldLevelEncryption
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionList
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionProfile
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileConfig
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary
+    Network.AWS.CloudFront.Types.FieldLevelEncryptionSummary
+    Network.AWS.CloudFront.Types.FieldPatterns
+    Network.AWS.CloudFront.Types.Format
+    Network.AWS.CloudFront.Types.ForwardedValues
+    Network.AWS.CloudFront.Types.FunctionAssociation
+    Network.AWS.CloudFront.Types.FunctionAssociations
+    Network.AWS.CloudFront.Types.FunctionConfig
+    Network.AWS.CloudFront.Types.FunctionList
+    Network.AWS.CloudFront.Types.FunctionMetadata
+    Network.AWS.CloudFront.Types.FunctionRuntime
+    Network.AWS.CloudFront.Types.FunctionStage
+    Network.AWS.CloudFront.Types.FunctionSummary
+    Network.AWS.CloudFront.Types.GeoRestriction
+    Network.AWS.CloudFront.Types.GeoRestrictionType
+    Network.AWS.CloudFront.Types.Headers
+    Network.AWS.CloudFront.Types.HttpVersion
+    Network.AWS.CloudFront.Types.ICPRecordalStatus
+    Network.AWS.CloudFront.Types.Invalidation
+    Network.AWS.CloudFront.Types.InvalidationBatch
+    Network.AWS.CloudFront.Types.InvalidationList
+    Network.AWS.CloudFront.Types.InvalidationSummary
+    Network.AWS.CloudFront.Types.ItemSelection
+    Network.AWS.CloudFront.Types.KeyGroup
+    Network.AWS.CloudFront.Types.KeyGroupConfig
+    Network.AWS.CloudFront.Types.KeyGroupList
+    Network.AWS.CloudFront.Types.KeyGroupSummary
+    Network.AWS.CloudFront.Types.KeyPairIds
+    Network.AWS.CloudFront.Types.KGKeyPairIds
+    Network.AWS.CloudFront.Types.KinesisStreamConfig
+    Network.AWS.CloudFront.Types.LambdaFunctionAssociation
+    Network.AWS.CloudFront.Types.LambdaFunctionAssociations
+    Network.AWS.CloudFront.Types.LoggingConfig
+    Network.AWS.CloudFront.Types.Method
+    Network.AWS.CloudFront.Types.MinimumProtocolVersion
+    Network.AWS.CloudFront.Types.MonitoringSubscription
+    Network.AWS.CloudFront.Types.Origin
+    Network.AWS.CloudFront.Types.OriginCustomHeader
+    Network.AWS.CloudFront.Types.OriginGroup
+    Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria
+    Network.AWS.CloudFront.Types.OriginGroupMember
+    Network.AWS.CloudFront.Types.OriginGroupMembers
+    Network.AWS.CloudFront.Types.OriginGroups
+    Network.AWS.CloudFront.Types.OriginProtocolPolicy
+    Network.AWS.CloudFront.Types.OriginRequestPolicy
+    Network.AWS.CloudFront.Types.OriginRequestPolicyConfig
+    Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior
+    Network.AWS.CloudFront.Types.OriginRequestPolicyCookiesConfig
+    Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior
+    Network.AWS.CloudFront.Types.OriginRequestPolicyHeadersConfig
+    Network.AWS.CloudFront.Types.OriginRequestPolicyList
+    Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
+    Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
+    Network.AWS.CloudFront.Types.OriginRequestPolicySummary
+    Network.AWS.CloudFront.Types.OriginRequestPolicyType
+    Network.AWS.CloudFront.Types.Origins
+    Network.AWS.CloudFront.Types.OriginShield
+    Network.AWS.CloudFront.Types.OriginSslProtocols
+    Network.AWS.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin
+    Network.AWS.CloudFront.Types.Paths
+    Network.AWS.CloudFront.Types.PriceClass
+    Network.AWS.CloudFront.Types.PublicKey
+    Network.AWS.CloudFront.Types.PublicKeyConfig
+    Network.AWS.CloudFront.Types.PublicKeyList
+    Network.AWS.CloudFront.Types.PublicKeySummary
+    Network.AWS.CloudFront.Types.QueryArgProfile
+    Network.AWS.CloudFront.Types.QueryArgProfileConfig
+    Network.AWS.CloudFront.Types.QueryArgProfiles
+    Network.AWS.CloudFront.Types.QueryStringCacheKeys
+    Network.AWS.CloudFront.Types.QueryStringNames
+    Network.AWS.CloudFront.Types.RealtimeLogConfig
+    Network.AWS.CloudFront.Types.RealtimeLogConfigs
+    Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
+    Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
+    Network.AWS.CloudFront.Types.Restrictions
+    Network.AWS.CloudFront.Types.S3Origin
+    Network.AWS.CloudFront.Types.S3OriginConfig
+    Network.AWS.CloudFront.Types.Signer
+    Network.AWS.CloudFront.Types.SslProtocol
+    Network.AWS.CloudFront.Types.SSLSupportMethod
+    Network.AWS.CloudFront.Types.StatusCodes
+    Network.AWS.CloudFront.Types.StreamingDistribution
+    Network.AWS.CloudFront.Types.StreamingDistributionConfig
+    Network.AWS.CloudFront.Types.StreamingDistributionConfigWithTags
+    Network.AWS.CloudFront.Types.StreamingDistributionList
+    Network.AWS.CloudFront.Types.StreamingDistributionSummary
+    Network.AWS.CloudFront.Types.StreamingLoggingConfig
+    Network.AWS.CloudFront.Types.Tag
+    Network.AWS.CloudFront.Types.TagKeys
+    Network.AWS.CloudFront.Types.Tags
+    Network.AWS.CloudFront.Types.TestResult
+    Network.AWS.CloudFront.Types.TrustedKeyGroups
+    Network.AWS.CloudFront.Types.TrustedSigners
+    Network.AWS.CloudFront.Types.ViewerCertificate
+    Network.AWS.CloudFront.Types.ViewerProtocolPolicy
+    Network.AWS.CloudFront.UntagResource
+    Network.AWS.CloudFront.UpdateCachePolicy
+    Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+    Network.AWS.CloudFront.UpdateDistribution
+    Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
+    Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
+    Network.AWS.CloudFront.UpdateFunction
+    Network.AWS.CloudFront.UpdateKeyGroup
+    Network.AWS.CloudFront.UpdateOriginRequestPolicy
+    Network.AWS.CloudFront.UpdatePublicKey
+    Network.AWS.CloudFront.UpdateRealtimeLogConfig
+    Network.AWS.CloudFront.UpdateStreamingDistribution
+    Network.AWS.CloudFront.Waiters
 
-    exposed-modules:
-          Network.AWS.CloudFront
-        , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
-        , Network.AWS.CloudFront.CreateDistribution
-        , Network.AWS.CloudFront.CreateDistributionWithTags
-        , Network.AWS.CloudFront.CreateInvalidation
-        , Network.AWS.CloudFront.CreateStreamingDistribution
-        , Network.AWS.CloudFront.CreateStreamingDistributionWithTags
-        , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
-        , Network.AWS.CloudFront.DeleteDistribution
-        , Network.AWS.CloudFront.DeleteServiceLinkedRole
-        , Network.AWS.CloudFront.DeleteStreamingDistribution
-        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
-        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
-        , Network.AWS.CloudFront.GetDistribution
-        , Network.AWS.CloudFront.GetDistributionConfig
-        , Network.AWS.CloudFront.GetInvalidation
-        , Network.AWS.CloudFront.GetStreamingDistribution
-        , Network.AWS.CloudFront.GetStreamingDistributionConfig
-        , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
-        , Network.AWS.CloudFront.ListDistributions
-        , Network.AWS.CloudFront.ListDistributionsByWebACLId
-        , Network.AWS.CloudFront.ListInvalidations
-        , Network.AWS.CloudFront.ListStreamingDistributions
-        , Network.AWS.CloudFront.ListTagsForResource
-        , Network.AWS.CloudFront.TagResource
-        , Network.AWS.CloudFront.Types
-        , Network.AWS.CloudFront.UntagResource
-        , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
-        , Network.AWS.CloudFront.UpdateDistribution
-        , Network.AWS.CloudFront.UpdateStreamingDistribution
-        , Network.AWS.CloudFront.Waiters
-
-    other-modules:
-          Network.AWS.CloudFront.Types.Product
-        , Network.AWS.CloudFront.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-cloudfront-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CloudFront
+    Test.AWS.CloudFront.Internal
+    Test.AWS.Gen.CloudFront
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CloudFront
-        , Test.AWS.Gen.CloudFront
-        , Test.AWS.CloudFront.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-cloudfront
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-cloudfront
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

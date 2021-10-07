@@ -1,156 +1,427 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.CreateDocument
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Systems Manager document.
---
---
--- After you create a document, you can use CreateAssociation to associate it with one or more running instances.
---
+-- Creates a Amazon Web Services Systems Manager (SSM document). An SSM
+-- document defines the actions that Systems Manager performs on your
+-- managed instances. For more information about SSM documents, including
+-- information about supported schemas, features, and syntax, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html Amazon Web Services Systems Manager Documents>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 module Network.AWS.SSM.CreateDocument
-    (
-    -- * Creating a Request
-      createDocument
-    , CreateDocument
+  ( -- * Creating a Request
+    CreateDocument (..),
+    newCreateDocument,
+
     -- * Request Lenses
-    , cdDocumentType
-    , cdContent
-    , cdName
+    createDocument_documentType,
+    createDocument_targetType,
+    createDocument_requires,
+    createDocument_versionName,
+    createDocument_documentFormat,
+    createDocument_tags,
+    createDocument_displayName,
+    createDocument_attachments,
+    createDocument_content,
+    createDocument_name,
 
     -- * Destructuring the Response
-    , createDocumentResponse
-    , CreateDocumentResponse
+    CreateDocumentResponse (..),
+    newCreateDocumentResponse,
+
     -- * Response Lenses
-    , cdrsDocumentDescription
-    , cdrsResponseStatus
-    ) where
+    createDocumentResponse_documentDescription,
+    createDocumentResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'createDocument' smart constructor.
+-- | /See:/ 'newCreateDocument' smart constructor.
 data CreateDocument = CreateDocument'
-  { _cdDocumentType :: !(Maybe DocumentType)
-  , _cdContent      :: !Text
-  , _cdName         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The type of document to create.
+    documentType :: Prelude.Maybe DocumentType,
+    -- | Specify a target type to define the kinds of resources the document can
+    -- run on. For example, to run a document on EC2 instances, specify the
+    -- following value: @\/AWS::EC2::Instance@. If you specify a value of
+    -- \'\/\' the document can run on all types of resources. If you don\'t
+    -- specify a value, the document can\'t run on any resources. For a list of
+    -- valid resource types, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+    -- in the /CloudFormation User Guide/.
+    targetType :: Prelude.Maybe Prelude.Text,
+    -- | A list of SSM documents required by a document. This parameter is used
+    -- exclusively by AppConfig. When a user creates an AppConfig configuration
+    -- in an SSM document, the user must also specify a required document for
+    -- validation purposes. In this case, an @ApplicationConfiguration@
+    -- document requires an @ApplicationConfigurationSchema@ document for
+    -- validation purposes. For more information, see
+    -- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
+    -- in the /AppConfig User Guide/.
+    requires :: Prelude.Maybe (Prelude.NonEmpty DocumentRequires),
+    -- | An optional field specifying the version of the artifact you are
+    -- creating with the document. For example, \"Release 12, Update 6\". This
+    -- value is unique across all versions of a document, and can\'t be
+    -- changed.
+    versionName :: Prelude.Maybe Prelude.Text,
+    -- | Specify the document format for the request. The document format can be
+    -- JSON, YAML, or TEXT. JSON is the default format.
+    documentFormat :: Prelude.Maybe DocumentFormat,
+    -- | Optional metadata that you assign to a resource. Tags enable you to
+    -- categorize a resource in different ways, such as by purpose, owner, or
+    -- environment. For example, you might want to tag an SSM document to
+    -- identify the types of targets or the environment where it will run. In
+    -- this case, you could specify the following key-value pairs:
+    --
+    -- -   @Key=OS,Value=Windows@
+    --
+    -- -   @Key=Environment,Value=Production@
+    --
+    -- To add tags to an existing SSM document, use the AddTagsToResource
+    -- operation.
+    tags :: Prelude.Maybe [Tag],
+    -- | An optional field where you can specify a friendly name for the SSM
+    -- document. This value can differ for each version of the document. You
+    -- can update this value at a later time using the UpdateDocument
+    -- operation.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pairs that describe attachments to a version of a
+    -- document.
+    attachments :: Prelude.Maybe [AttachmentsSource],
+    -- | The content for the new SSM document in JSON or YAML format. We
+    -- recommend storing the contents for your new document in an external JSON
+    -- or YAML file and referencing the file in a command.
+    --
+    -- For examples, see the following topics in the /Amazon Web Services
+    -- Systems Manager User Guide/.
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (Amazon Web Services API)>
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (Amazon Web Services CLI)>
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
+    content :: Prelude.Text,
+    -- | A name for the SSM document.
+    --
+    -- You can\'t use the following strings as document name prefixes. These
+    -- are reserved by Amazon Web Services for use as document name prefixes:
+    --
+    -- -   @aws-@
+    --
+    -- -   @amazon@
+    --
+    -- -   @amzn@
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDocument' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdDocumentType' - The type of document to create. Valid document types include: Policy, Automation, and Command.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdContent' - A valid JSON string.
+-- 'documentType', 'createDocument_documentType' - The type of document to create.
 --
--- * 'cdName' - A name for the Systems Manager document.
-createDocument
-    :: Text -- ^ 'cdContent'
-    -> Text -- ^ 'cdName'
-    -> CreateDocument
-createDocument pContent_ pName_ =
+-- 'targetType', 'createDocument_targetType' - Specify a target type to define the kinds of resources the document can
+-- run on. For example, to run a document on EC2 instances, specify the
+-- following value: @\/AWS::EC2::Instance@. If you specify a value of
+-- \'\/\' the document can run on all types of resources. If you don\'t
+-- specify a value, the document can\'t run on any resources. For a list of
+-- valid resource types, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the /CloudFormation User Guide/.
+--
+-- 'requires', 'createDocument_requires' - A list of SSM documents required by a document. This parameter is used
+-- exclusively by AppConfig. When a user creates an AppConfig configuration
+-- in an SSM document, the user must also specify a required document for
+-- validation purposes. In this case, an @ApplicationConfiguration@
+-- document requires an @ApplicationConfigurationSchema@ document for
+-- validation purposes. For more information, see
+-- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
+-- in the /AppConfig User Guide/.
+--
+-- 'versionName', 'createDocument_versionName' - An optional field specifying the version of the artifact you are
+-- creating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and can\'t be
+-- changed.
+--
+-- 'documentFormat', 'createDocument_documentFormat' - Specify the document format for the request. The document format can be
+-- JSON, YAML, or TEXT. JSON is the default format.
+--
+-- 'tags', 'createDocument_tags' - Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag an SSM document to
+-- identify the types of targets or the environment where it will run. In
+-- this case, you could specify the following key-value pairs:
+--
+-- -   @Key=OS,Value=Windows@
+--
+-- -   @Key=Environment,Value=Production@
+--
+-- To add tags to an existing SSM document, use the AddTagsToResource
+-- operation.
+--
+-- 'displayName', 'createDocument_displayName' - An optional field where you can specify a friendly name for the SSM
+-- document. This value can differ for each version of the document. You
+-- can update this value at a later time using the UpdateDocument
+-- operation.
+--
+-- 'attachments', 'createDocument_attachments' - A list of key-value pairs that describe attachments to a version of a
+-- document.
+--
+-- 'content', 'createDocument_content' - The content for the new SSM document in JSON or YAML format. We
+-- recommend storing the contents for your new document in an external JSON
+-- or YAML file and referencing the file in a command.
+--
+-- For examples, see the following topics in the /Amazon Web Services
+-- Systems Manager User Guide/.
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (Amazon Web Services API)>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (Amazon Web Services CLI)>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
+--
+-- 'name', 'createDocument_name' - A name for the SSM document.
+--
+-- You can\'t use the following strings as document name prefixes. These
+-- are reserved by Amazon Web Services for use as document name prefixes:
+--
+-- -   @aws-@
+--
+-- -   @amazon@
+--
+-- -   @amzn@
+newCreateDocument ::
+  -- | 'content'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  CreateDocument
+newCreateDocument pContent_ pName_ =
   CreateDocument'
-  {_cdDocumentType = Nothing, _cdContent = pContent_, _cdName = pName_}
+    { documentType = Prelude.Nothing,
+      targetType = Prelude.Nothing,
+      requires = Prelude.Nothing,
+      versionName = Prelude.Nothing,
+      documentFormat = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      attachments = Prelude.Nothing,
+      content = pContent_,
+      name = pName_
+    }
 
+-- | The type of document to create.
+createDocument_documentType :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentType)
+createDocument_documentType = Lens.lens (\CreateDocument' {documentType} -> documentType) (\s@CreateDocument' {} a -> s {documentType = a} :: CreateDocument)
 
--- | The type of document to create. Valid document types include: Policy, Automation, and Command.
-cdDocumentType :: Lens' CreateDocument (Maybe DocumentType)
-cdDocumentType = lens _cdDocumentType (\ s a -> s{_cdDocumentType = a});
+-- | Specify a target type to define the kinds of resources the document can
+-- run on. For example, to run a document on EC2 instances, specify the
+-- following value: @\/AWS::EC2::Instance@. If you specify a value of
+-- \'\/\' the document can run on all types of resources. If you don\'t
+-- specify a value, the document can\'t run on any resources. For a list of
+-- valid resource types, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the /CloudFormation User Guide/.
+createDocument_targetType :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
+createDocument_targetType = Lens.lens (\CreateDocument' {targetType} -> targetType) (\s@CreateDocument' {} a -> s {targetType = a} :: CreateDocument)
 
--- | A valid JSON string.
-cdContent :: Lens' CreateDocument Text
-cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
+-- | A list of SSM documents required by a document. This parameter is used
+-- exclusively by AppConfig. When a user creates an AppConfig configuration
+-- in an SSM document, the user must also specify a required document for
+-- validation purposes. In this case, an @ApplicationConfiguration@
+-- document requires an @ApplicationConfigurationSchema@ document for
+-- validation purposes. For more information, see
+-- <https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html What is AppConfig?>
+-- in the /AppConfig User Guide/.
+createDocument_requires :: Lens.Lens' CreateDocument (Prelude.Maybe (Prelude.NonEmpty DocumentRequires))
+createDocument_requires = Lens.lens (\CreateDocument' {requires} -> requires) (\s@CreateDocument' {} a -> s {requires = a} :: CreateDocument) Prelude.. Lens.mapping Lens._Coerce
 
--- | A name for the Systems Manager document.
-cdName :: Lens' CreateDocument Text
-cdName = lens _cdName (\ s a -> s{_cdName = a});
+-- | An optional field specifying the version of the artifact you are
+-- creating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and can\'t be
+-- changed.
+createDocument_versionName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
+createDocument_versionName = Lens.lens (\CreateDocument' {versionName} -> versionName) (\s@CreateDocument' {} a -> s {versionName = a} :: CreateDocument)
 
-instance AWSRequest CreateDocument where
-        type Rs CreateDocument = CreateDocumentResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDocumentResponse' <$>
-                   (x .?> "DocumentDescription") <*>
-                     (pure (fromEnum s)))
+-- | Specify the document format for the request. The document format can be
+-- JSON, YAML, or TEXT. JSON is the default format.
+createDocument_documentFormat :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentFormat)
+createDocument_documentFormat = Lens.lens (\CreateDocument' {documentFormat} -> documentFormat) (\s@CreateDocument' {} a -> s {documentFormat = a} :: CreateDocument)
 
-instance Hashable CreateDocument where
+-- | Optional metadata that you assign to a resource. Tags enable you to
+-- categorize a resource in different ways, such as by purpose, owner, or
+-- environment. For example, you might want to tag an SSM document to
+-- identify the types of targets or the environment where it will run. In
+-- this case, you could specify the following key-value pairs:
+--
+-- -   @Key=OS,Value=Windows@
+--
+-- -   @Key=Environment,Value=Production@
+--
+-- To add tags to an existing SSM document, use the AddTagsToResource
+-- operation.
+createDocument_tags :: Lens.Lens' CreateDocument (Prelude.Maybe [Tag])
+createDocument_tags = Lens.lens (\CreateDocument' {tags} -> tags) (\s@CreateDocument' {} a -> s {tags = a} :: CreateDocument) Prelude.. Lens.mapping Lens._Coerce
 
-instance NFData CreateDocument where
+-- | An optional field where you can specify a friendly name for the SSM
+-- document. This value can differ for each version of the document. You
+-- can update this value at a later time using the UpdateDocument
+-- operation.
+createDocument_displayName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
+createDocument_displayName = Lens.lens (\CreateDocument' {displayName} -> displayName) (\s@CreateDocument' {} a -> s {displayName = a} :: CreateDocument)
 
-instance ToHeaders CreateDocument where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.CreateDocument" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | A list of key-value pairs that describe attachments to a version of a
+-- document.
+createDocument_attachments :: Lens.Lens' CreateDocument (Prelude.Maybe [AttachmentsSource])
+createDocument_attachments = Lens.lens (\CreateDocument' {attachments} -> attachments) (\s@CreateDocument' {} a -> s {attachments = a} :: CreateDocument) Prelude.. Lens.mapping Lens._Coerce
 
-instance ToJSON CreateDocument where
-        toJSON CreateDocument'{..}
-          = object
-              (catMaybes
-                 [("DocumentType" .=) <$> _cdDocumentType,
-                  Just ("Content" .= _cdContent),
-                  Just ("Name" .= _cdName)])
+-- | The content for the new SSM document in JSON or YAML format. We
+-- recommend storing the contents for your new document in an external JSON
+-- or YAML file and referencing the file in a command.
+--
+-- For examples, see the following topics in the /Amazon Web Services
+-- Systems Manager User Guide/.
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (Amazon Web Services API)>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (Amazon Web Services CLI)>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
+createDocument_content :: Lens.Lens' CreateDocument Prelude.Text
+createDocument_content = Lens.lens (\CreateDocument' {content} -> content) (\s@CreateDocument' {} a -> s {content = a} :: CreateDocument)
 
-instance ToPath CreateDocument where
-        toPath = const "/"
+-- | A name for the SSM document.
+--
+-- You can\'t use the following strings as document name prefixes. These
+-- are reserved by Amazon Web Services for use as document name prefixes:
+--
+-- -   @aws-@
+--
+-- -   @amazon@
+--
+-- -   @amzn@
+createDocument_name :: Lens.Lens' CreateDocument Prelude.Text
+createDocument_name = Lens.lens (\CreateDocument' {name} -> name) (\s@CreateDocument' {} a -> s {name = a} :: CreateDocument)
 
-instance ToQuery CreateDocument where
-        toQuery = const mempty
+instance Core.AWSRequest CreateDocument where
+  type
+    AWSResponse CreateDocument =
+      CreateDocumentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDocumentResponse'
+            Prelude.<$> (x Core..?> "DocumentDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | /See:/ 'createDocumentResponse' smart constructor.
+instance Prelude.Hashable CreateDocument
+
+instance Prelude.NFData CreateDocument
+
+instance Core.ToHeaders CreateDocument where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AmazonSSM.CreateDocument" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateDocument where
+  toJSON CreateDocument' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("DocumentType" Core..=) Prelude.<$> documentType,
+            ("TargetType" Core..=) Prelude.<$> targetType,
+            ("Requires" Core..=) Prelude.<$> requires,
+            ("VersionName" Core..=) Prelude.<$> versionName,
+            ("DocumentFormat" Core..=)
+              Prelude.<$> documentFormat,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Attachments" Core..=) Prelude.<$> attachments,
+            Prelude.Just ("Content" Core..= content),
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
+
+instance Core.ToPath CreateDocument where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateDocument where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateDocumentResponse' smart constructor.
 data CreateDocumentResponse = CreateDocumentResponse'
-  { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
-  , _cdrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the SSM document.
+    documentDescription :: Prelude.Maybe DocumentDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDocumentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdrsDocumentDescription' - Information about the Systems Manager document.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDocumentResponse
-    :: Int -- ^ 'cdrsResponseStatus'
-    -> CreateDocumentResponse
-createDocumentResponse pResponseStatus_ =
+-- 'documentDescription', 'createDocumentResponse_documentDescription' - Information about the SSM document.
+--
+-- 'httpStatus', 'createDocumentResponse_httpStatus' - The response's http status code.
+newCreateDocumentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDocumentResponse
+newCreateDocumentResponse pHttpStatus_ =
   CreateDocumentResponse'
-  {_cdrsDocumentDescription = Nothing, _cdrsResponseStatus = pResponseStatus_}
+    { documentDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the SSM document.
+createDocumentResponse_documentDescription :: Lens.Lens' CreateDocumentResponse (Prelude.Maybe DocumentDescription)
+createDocumentResponse_documentDescription = Lens.lens (\CreateDocumentResponse' {documentDescription} -> documentDescription) (\s@CreateDocumentResponse' {} a -> s {documentDescription = a} :: CreateDocumentResponse)
 
--- | Information about the Systems Manager document.
-cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
-cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
+-- | The response's http status code.
+createDocumentResponse_httpStatus :: Lens.Lens' CreateDocumentResponse Prelude.Int
+createDocumentResponse_httpStatus = Lens.lens (\CreateDocumentResponse' {httpStatus} -> httpStatus) (\s@CreateDocumentResponse' {} a -> s {httpStatus = a} :: CreateDocumentResponse)
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDocumentResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
-
-instance NFData CreateDocumentResponse where
+instance Prelude.NFData CreateDocumentResponse

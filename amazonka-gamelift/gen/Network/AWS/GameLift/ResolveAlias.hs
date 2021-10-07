@@ -1,154 +1,185 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.ResolveAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the fleet ID that a specified alias is currently pointing to.
+-- Retrieves the fleet ID that an alias is currently pointing to.
 --
+-- __Related actions__
 --
--- Alias-related operations include:
---
---     * 'CreateAlias'
---
---     * 'ListAliases'
---
---     * 'DescribeAlias'
---
---     * 'UpdateAlias'
---
---     * 'DeleteAlias'
---
---     * 'ResolveAlias'
---
---
---
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.ResolveAlias
-    (
-    -- * Creating a Request
-      resolveAlias
-    , ResolveAlias
+  ( -- * Creating a Request
+    ResolveAlias (..),
+    newResolveAlias,
+
     -- * Request Lenses
-    , raAliasId
+    resolveAlias_aliasId,
 
     -- * Destructuring the Response
-    , resolveAliasResponse
-    , ResolveAliasResponse
+    ResolveAliasResponse (..),
+    newResolveAliasResponse,
+
     -- * Response Lenses
-    , rarsFleetId
-    , rarsResponseStatus
-    ) where
+    resolveAliasResponse_fleetId,
+    resolveAliasResponse_fleetArn,
+    resolveAliasResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
+-- /See:/ 'newResolveAlias' smart constructor.
+data ResolveAlias = ResolveAlias'
+  { -- | The unique identifier of the alias that you want to retrieve a fleet ID
+    -- for. You can use either the alias ID or ARN value.
+    aliasId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ResolveAlias' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'resolveAlias' smart constructor.
-newtype ResolveAlias = ResolveAlias'
-  { _raAliasId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResolveAlias' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'aliasId', 'resolveAlias_aliasId' - The unique identifier of the alias that you want to retrieve a fleet ID
+-- for. You can use either the alias ID or ARN value.
+newResolveAlias ::
+  -- | 'aliasId'
+  Prelude.Text ->
+  ResolveAlias
+newResolveAlias pAliasId_ =
+  ResolveAlias' {aliasId = pAliasId_}
+
+-- | The unique identifier of the alias that you want to retrieve a fleet ID
+-- for. You can use either the alias ID or ARN value.
+resolveAlias_aliasId :: Lens.Lens' ResolveAlias Prelude.Text
+resolveAlias_aliasId = Lens.lens (\ResolveAlias' {aliasId} -> aliasId) (\s@ResolveAlias' {} a -> s {aliasId = a} :: ResolveAlias)
+
+instance Core.AWSRequest ResolveAlias where
+  type AWSResponse ResolveAlias = ResolveAliasResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ResolveAliasResponse'
+            Prelude.<$> (x Core..?> "FleetId")
+            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ResolveAlias
+
+instance Prelude.NFData ResolveAlias
+
+instance Core.ToHeaders ResolveAlias where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("GameLift.ResolveAlias" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ResolveAlias where
+  toJSON ResolveAlias' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("AliasId" Core..= aliasId)]
+      )
+
+instance Core.ToPath ResolveAlias where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ResolveAlias where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the returned data in response to a request operation.
 --
--- * 'raAliasId' - Unique identifier for the alias you want to resolve.
-resolveAlias
-    :: Text -- ^ 'raAliasId'
-    -> ResolveAlias
-resolveAlias pAliasId_ = ResolveAlias' {_raAliasId = pAliasId_}
-
-
--- | Unique identifier for the alias you want to resolve.
-raAliasId :: Lens' ResolveAlias Text
-raAliasId = lens _raAliasId (\ s a -> s{_raAliasId = a});
-
-instance AWSRequest ResolveAlias where
-        type Rs ResolveAlias = ResolveAliasResponse
-        request = postJSON gameLift
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ResolveAliasResponse' <$>
-                   (x .?> "FleetId") <*> (pure (fromEnum s)))
-
-instance Hashable ResolveAlias where
-
-instance NFData ResolveAlias where
-
-instance ToHeaders ResolveAlias where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.ResolveAlias" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ResolveAlias where
-        toJSON ResolveAlias'{..}
-          = object (catMaybes [Just ("AliasId" .= _raAliasId)])
-
-instance ToPath ResolveAlias where
-        toPath = const "/"
-
-instance ToQuery ResolveAlias where
-        toQuery = const mempty
-
--- | Represents the returned data in response to a request action.
---
---
---
--- /See:/ 'resolveAliasResponse' smart constructor.
+-- /See:/ 'newResolveAliasResponse' smart constructor.
 data ResolveAliasResponse = ResolveAliasResponse'
-  { _rarsFleetId        :: !(Maybe Text)
-  , _rarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The fleet identifier that the alias is pointing to.
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- associated with the GameLift fleet resource that this alias points to.
+    fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ResolveAliasResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ResolveAliasResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rarsFleetId' - Fleet identifier that is associated with the requested alias.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rarsResponseStatus' - -- | The response status code.
-resolveAliasResponse
-    :: Int -- ^ 'rarsResponseStatus'
-    -> ResolveAliasResponse
-resolveAliasResponse pResponseStatus_ =
+-- 'fleetId', 'resolveAliasResponse_fleetId' - The fleet identifier that the alias is pointing to.
+--
+-- 'fleetArn', 'resolveAliasResponse_fleetArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- associated with the GameLift fleet resource that this alias points to.
+--
+-- 'httpStatus', 'resolveAliasResponse_httpStatus' - The response's http status code.
+newResolveAliasResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ResolveAliasResponse
+newResolveAliasResponse pHttpStatus_ =
   ResolveAliasResponse'
-  {_rarsFleetId = Nothing, _rarsResponseStatus = pResponseStatus_}
+    { fleetId = Prelude.Nothing,
+      fleetArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The fleet identifier that the alias is pointing to.
+resolveAliasResponse_fleetId :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
+resolveAliasResponse_fleetId = Lens.lens (\ResolveAliasResponse' {fleetId} -> fleetId) (\s@ResolveAliasResponse' {} a -> s {fleetId = a} :: ResolveAliasResponse)
 
--- | Fleet identifier that is associated with the requested alias.
-rarsFleetId :: Lens' ResolveAliasResponse (Maybe Text)
-rarsFleetId = lens _rarsFleetId (\ s a -> s{_rarsFleetId = a});
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- associated with the GameLift fleet resource that this alias points to.
+resolveAliasResponse_fleetArn :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
+resolveAliasResponse_fleetArn = Lens.lens (\ResolveAliasResponse' {fleetArn} -> fleetArn) (\s@ResolveAliasResponse' {} a -> s {fleetArn = a} :: ResolveAliasResponse)
 
--- | -- | The response status code.
-rarsResponseStatus :: Lens' ResolveAliasResponse Int
-rarsResponseStatus = lens _rarsResponseStatus (\ s a -> s{_rarsResponseStatus = a});
+-- | The response's http status code.
+resolveAliasResponse_httpStatus :: Lens.Lens' ResolveAliasResponse Prelude.Int
+resolveAliasResponse_httpStatus = Lens.lens (\ResolveAliasResponse' {httpStatus} -> httpStatus) (\s@ResolveAliasResponse' {} a -> s {httpStatus = a} :: ResolveAliasResponse)
 
-instance NFData ResolveAliasResponse where
+instance Prelude.NFData ResolveAliasResponse

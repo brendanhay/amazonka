@@ -1,144 +1,182 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.ImportKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Imports a public SSH key from a specific key pair.
---
---
 module Network.AWS.Lightsail.ImportKeyPair
-    (
-    -- * Creating a Request
-      importKeyPair
-    , ImportKeyPair
+  ( -- * Creating a Request
+    ImportKeyPair (..),
+    newImportKeyPair,
+
     -- * Request Lenses
-    , ikpKeyPairName
-    , ikpPublicKeyBase64
+    importKeyPair_keyPairName,
+    importKeyPair_publicKeyBase64,
 
     -- * Destructuring the Response
-    , importKeyPairResponse
-    , ImportKeyPairResponse
+    ImportKeyPairResponse (..),
+    newImportKeyPairResponse,
+
     -- * Response Lenses
-    , ikprsOperation
-    , ikprsResponseStatus
-    ) where
+    importKeyPairResponse_operation,
+    importKeyPairResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'importKeyPair' smart constructor.
+-- | /See:/ 'newImportKeyPair' smart constructor.
 data ImportKeyPair = ImportKeyPair'
-  { _ikpKeyPairName     :: !Text
-  , _ikpPublicKeyBase64 :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the key pair for which you want to import the public key.
+    keyPairName :: Prelude.Text,
+    -- | A base64-encoded public key of the @ssh-rsa@ type.
+    publicKeyBase64 :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ImportKeyPair' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportKeyPair' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ikpKeyPairName' - The name of the key pair for which you want to import the public key.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ikpPublicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
-importKeyPair
-    :: Text -- ^ 'ikpKeyPairName'
-    -> Text -- ^ 'ikpPublicKeyBase64'
-    -> ImportKeyPair
-importKeyPair pKeyPairName_ pPublicKeyBase64_ =
+-- 'keyPairName', 'importKeyPair_keyPairName' - The name of the key pair for which you want to import the public key.
+--
+-- 'publicKeyBase64', 'importKeyPair_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+newImportKeyPair ::
+  -- | 'keyPairName'
+  Prelude.Text ->
+  -- | 'publicKeyBase64'
+  Prelude.Text ->
+  ImportKeyPair
+newImportKeyPair pKeyPairName_ pPublicKeyBase64_ =
   ImportKeyPair'
-  {_ikpKeyPairName = pKeyPairName_, _ikpPublicKeyBase64 = pPublicKeyBase64_}
-
+    { keyPairName = pKeyPairName_,
+      publicKeyBase64 = pPublicKeyBase64_
+    }
 
 -- | The name of the key pair for which you want to import the public key.
-ikpKeyPairName :: Lens' ImportKeyPair Text
-ikpKeyPairName = lens _ikpKeyPairName (\ s a -> s{_ikpKeyPairName = a});
+importKeyPair_keyPairName :: Lens.Lens' ImportKeyPair Prelude.Text
+importKeyPair_keyPairName = Lens.lens (\ImportKeyPair' {keyPairName} -> keyPairName) (\s@ImportKeyPair' {} a -> s {keyPairName = a} :: ImportKeyPair)
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
-ikpPublicKeyBase64 :: Lens' ImportKeyPair Text
-ikpPublicKeyBase64 = lens _ikpPublicKeyBase64 (\ s a -> s{_ikpPublicKeyBase64 = a});
+importKeyPair_publicKeyBase64 :: Lens.Lens' ImportKeyPair Prelude.Text
+importKeyPair_publicKeyBase64 = Lens.lens (\ImportKeyPair' {publicKeyBase64} -> publicKeyBase64) (\s@ImportKeyPair' {} a -> s {publicKeyBase64 = a} :: ImportKeyPair)
 
-instance AWSRequest ImportKeyPair where
-        type Rs ImportKeyPair = ImportKeyPairResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ImportKeyPairResponse' <$>
-                   (x .?> "operation") <*> (pure (fromEnum s)))
+instance Core.AWSRequest ImportKeyPair where
+  type
+    AWSResponse ImportKeyPair =
+      ImportKeyPairResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ImportKeyPairResponse'
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ImportKeyPair where
+instance Prelude.Hashable ImportKeyPair
 
-instance NFData ImportKeyPair where
+instance Prelude.NFData ImportKeyPair
 
-instance ToHeaders ImportKeyPair where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.ImportKeyPair" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ImportKeyPair where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.ImportKeyPair" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ImportKeyPair where
-        toJSON ImportKeyPair'{..}
-          = object
-              (catMaybes
-                 [Just ("keyPairName" .= _ikpKeyPairName),
-                  Just ("publicKeyBase64" .= _ikpPublicKeyBase64)])
+instance Core.ToJSON ImportKeyPair where
+  toJSON ImportKeyPair' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("keyPairName" Core..= keyPairName),
+            Prelude.Just
+              ("publicKeyBase64" Core..= publicKeyBase64)
+          ]
+      )
 
-instance ToPath ImportKeyPair where
-        toPath = const "/"
+instance Core.ToPath ImportKeyPair where
+  toPath = Prelude.const "/"
 
-instance ToQuery ImportKeyPair where
-        toQuery = const mempty
+instance Core.ToQuery ImportKeyPair where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'importKeyPairResponse' smart constructor.
+-- | /See:/ 'newImportKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
-  { _ikprsOperation      :: !(Maybe Operation)
-  , _ikprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ImportKeyPairResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportKeyPairResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ikprsOperation' - An array of key-value pairs containing information about the request operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ikprsResponseStatus' - -- | The response status code.
-importKeyPairResponse
-    :: Int -- ^ 'ikprsResponseStatus'
-    -> ImportKeyPairResponse
-importKeyPairResponse pResponseStatus_ =
+-- 'operation', 'importKeyPairResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.
+newImportKeyPairResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ImportKeyPairResponse
+newImportKeyPairResponse pHttpStatus_ =
   ImportKeyPairResponse'
-  {_ikprsOperation = Nothing, _ikprsResponseStatus = pResponseStatus_}
+    { operation = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+importKeyPairResponse_operation :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Operation)
+importKeyPairResponse_operation = Lens.lens (\ImportKeyPairResponse' {operation} -> operation) (\s@ImportKeyPairResponse' {} a -> s {operation = a} :: ImportKeyPairResponse)
 
--- | An array of key-value pairs containing information about the request operation.
-ikprsOperation :: Lens' ImportKeyPairResponse (Maybe Operation)
-ikprsOperation = lens _ikprsOperation (\ s a -> s{_ikprsOperation = a});
+-- | The response's http status code.
+importKeyPairResponse_httpStatus :: Lens.Lens' ImportKeyPairResponse Prelude.Int
+importKeyPairResponse_httpStatus = Lens.lens (\ImportKeyPairResponse' {httpStatus} -> httpStatus) (\s@ImportKeyPairResponse' {} a -> s {httpStatus = a} :: ImportKeyPairResponse)
 
--- | -- | The response status code.
-ikprsResponseStatus :: Lens' ImportKeyPairResponse Int
-ikprsResponseStatus = lens _ikprsResponseStatus (\ s a -> s{_ikprsResponseStatus = a});
-
-instance NFData ImportKeyPairResponse where
+instance Prelude.NFData ImportKeyPairResponse

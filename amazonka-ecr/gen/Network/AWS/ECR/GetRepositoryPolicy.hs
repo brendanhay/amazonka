@@ -1,167 +1,203 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECR.GetRepositoryPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the repository policy for a specified repository.
---
---
+-- Retrieves the repository policy for the specified repository.
 module Network.AWS.ECR.GetRepositoryPolicy
-    (
-    -- * Creating a Request
-      getRepositoryPolicy
-    , GetRepositoryPolicy
+  ( -- * Creating a Request
+    GetRepositoryPolicy (..),
+    newGetRepositoryPolicy,
+
     -- * Request Lenses
-    , grpRegistryId
-    , grpRepositoryName
+    getRepositoryPolicy_registryId,
+    getRepositoryPolicy_repositoryName,
 
     -- * Destructuring the Response
-    , getRepositoryPolicyResponse
-    , GetRepositoryPolicyResponse
+    GetRepositoryPolicyResponse (..),
+    newGetRepositoryPolicyResponse,
+
     -- * Response Lenses
-    , grprsRegistryId
-    , grprsRepositoryName
-    , grprsPolicyText
-    , grprsResponseStatus
-    ) where
+    getRepositoryPolicyResponse_registryId,
+    getRepositoryPolicyResponse_repositoryName,
+    getRepositoryPolicyResponse_policyText,
+    getRepositoryPolicyResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
-import Network.AWS.ECR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getRepositoryPolicy' smart constructor.
+-- | /See:/ 'newGetRepositoryPolicy' smart constructor.
 data GetRepositoryPolicy = GetRepositoryPolicy'
-  { _grpRegistryId     :: !(Maybe Text)
-  , _grpRepositoryName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do not specify a registry, the default
+    -- registry is assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository with the policy to retrieve.
+    repositoryName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetRepositoryPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRepositoryPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grpRepositoryName' - The name of the repository with the policy to retrieve.
-getRepositoryPolicy
-    :: Text -- ^ 'grpRepositoryName'
-    -> GetRepositoryPolicy
-getRepositoryPolicy pRepositoryName_ =
+-- 'registryId', 'getRepositoryPolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
+--
+-- 'repositoryName', 'getRepositoryPolicy_repositoryName' - The name of the repository with the policy to retrieve.
+newGetRepositoryPolicy ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  GetRepositoryPolicy
+newGetRepositoryPolicy pRepositoryName_ =
   GetRepositoryPolicy'
-  {_grpRegistryId = Nothing, _grpRepositoryName = pRepositoryName_}
+    { registryId = Prelude.Nothing,
+      repositoryName = pRepositoryName_
+    }
 
-
--- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-grpRegistryId :: Lens' GetRepositoryPolicy (Maybe Text)
-grpRegistryId = lens _grpRegistryId (\ s a -> s{_grpRegistryId = a});
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do not specify a registry, the default
+-- registry is assumed.
+getRepositoryPolicy_registryId :: Lens.Lens' GetRepositoryPolicy (Prelude.Maybe Prelude.Text)
+getRepositoryPolicy_registryId = Lens.lens (\GetRepositoryPolicy' {registryId} -> registryId) (\s@GetRepositoryPolicy' {} a -> s {registryId = a} :: GetRepositoryPolicy)
 
 -- | The name of the repository with the policy to retrieve.
-grpRepositoryName :: Lens' GetRepositoryPolicy Text
-grpRepositoryName = lens _grpRepositoryName (\ s a -> s{_grpRepositoryName = a});
+getRepositoryPolicy_repositoryName :: Lens.Lens' GetRepositoryPolicy Prelude.Text
+getRepositoryPolicy_repositoryName = Lens.lens (\GetRepositoryPolicy' {repositoryName} -> repositoryName) (\s@GetRepositoryPolicy' {} a -> s {repositoryName = a} :: GetRepositoryPolicy)
 
-instance AWSRequest GetRepositoryPolicy where
-        type Rs GetRepositoryPolicy =
-             GetRepositoryPolicyResponse
-        request = postJSON ecr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRepositoryPolicyResponse' <$>
-                   (x .?> "registryId") <*> (x .?> "repositoryName") <*>
-                     (x .?> "policyText")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetRepositoryPolicy where
+  type
+    AWSResponse GetRepositoryPolicy =
+      GetRepositoryPolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRepositoryPolicyResponse'
+            Prelude.<$> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "policyText")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetRepositoryPolicy where
+instance Prelude.Hashable GetRepositoryPolicy
 
-instance NFData GetRepositoryPolicy where
+instance Prelude.NFData GetRepositoryPolicy
 
-instance ToHeaders GetRepositoryPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetRepositoryPolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetRepositoryPolicy where
-        toJSON GetRepositoryPolicy'{..}
-          = object
-              (catMaybes
-                 [("registryId" .=) <$> _grpRegistryId,
-                  Just ("repositoryName" .= _grpRepositoryName)])
+instance Core.ToJSON GetRepositoryPolicy where
+  toJSON GetRepositoryPolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
+          ]
+      )
 
-instance ToPath GetRepositoryPolicy where
-        toPath = const "/"
+instance Core.ToPath GetRepositoryPolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetRepositoryPolicy where
-        toQuery = const mempty
+instance Core.ToQuery GetRepositoryPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getRepositoryPolicyResponse' smart constructor.
+-- | /See:/ 'newGetRepositoryPolicyResponse' smart constructor.
 data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
-  { _grprsRegistryId     :: !(Maybe Text)
-  , _grprsRepositoryName :: !(Maybe Text)
-  , _grprsPolicyText     :: !(Maybe Text)
-  , _grprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetRepositoryPolicyResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grprsRegistryId' - The registry ID associated with the request.
---
--- * 'grprsRepositoryName' - The repository name associated with the request.
---
--- * 'grprsPolicyText' - The JSON repository policy text associated with the repository.
---
--- * 'grprsResponseStatus' - -- | The response status code.
-getRepositoryPolicyResponse
-    :: Int -- ^ 'grprsResponseStatus'
-    -> GetRepositoryPolicyResponse
-getRepositoryPolicyResponse pResponseStatus_ =
-  GetRepositoryPolicyResponse'
-  { _grprsRegistryId = Nothing
-  , _grprsRepositoryName = Nothing
-  , _grprsPolicyText = Nothing
-  , _grprsResponseStatus = pResponseStatus_
+  { -- | The registry ID associated with the request.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The JSON repository policy text associated with the repository.
+    policyText :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetRepositoryPolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'registryId', 'getRepositoryPolicyResponse_registryId' - The registry ID associated with the request.
+--
+-- 'repositoryName', 'getRepositoryPolicyResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'policyText', 'getRepositoryPolicyResponse_policyText' - The JSON repository policy text associated with the repository.
+--
+-- 'httpStatus', 'getRepositoryPolicyResponse_httpStatus' - The response's http status code.
+newGetRepositoryPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRepositoryPolicyResponse
+newGetRepositoryPolicyResponse pHttpStatus_ =
+  GetRepositoryPolicyResponse'
+    { registryId =
+        Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      policyText = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The registry ID associated with the request.
-grprsRegistryId :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsRegistryId = lens _grprsRegistryId (\ s a -> s{_grprsRegistryId = a});
+getRepositoryPolicyResponse_registryId :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+getRepositoryPolicyResponse_registryId = Lens.lens (\GetRepositoryPolicyResponse' {registryId} -> registryId) (\s@GetRepositoryPolicyResponse' {} a -> s {registryId = a} :: GetRepositoryPolicyResponse)
 
 -- | The repository name associated with the request.
-grprsRepositoryName :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsRepositoryName = lens _grprsRepositoryName (\ s a -> s{_grprsRepositoryName = a});
+getRepositoryPolicyResponse_repositoryName :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+getRepositoryPolicyResponse_repositoryName = Lens.lens (\GetRepositoryPolicyResponse' {repositoryName} -> repositoryName) (\s@GetRepositoryPolicyResponse' {} a -> s {repositoryName = a} :: GetRepositoryPolicyResponse)
 
 -- | The JSON repository policy text associated with the repository.
-grprsPolicyText :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsPolicyText = lens _grprsPolicyText (\ s a -> s{_grprsPolicyText = a});
+getRepositoryPolicyResponse_policyText :: Lens.Lens' GetRepositoryPolicyResponse (Prelude.Maybe Prelude.Text)
+getRepositoryPolicyResponse_policyText = Lens.lens (\GetRepositoryPolicyResponse' {policyText} -> policyText) (\s@GetRepositoryPolicyResponse' {} a -> s {policyText = a} :: GetRepositoryPolicyResponse)
 
--- | -- | The response status code.
-grprsResponseStatus :: Lens' GetRepositoryPolicyResponse Int
-grprsResponseStatus = lens _grprsResponseStatus (\ s a -> s{_grprsResponseStatus = a});
+-- | The response's http status code.
+getRepositoryPolicyResponse_httpStatus :: Lens.Lens' GetRepositoryPolicyResponse Prelude.Int
+getRepositoryPolicyResponse_httpStatus = Lens.lens (\GetRepositoryPolicyResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryPolicyResponse' {} a -> s {httpStatus = a} :: GetRepositoryPolicyResponse)
 
-instance NFData GetRepositoryPolicyResponse where
+instance Prelude.NFData GetRepositoryPolicyResponse

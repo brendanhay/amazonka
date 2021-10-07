@@ -1,233 +1,299 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the overall health of the specified environment. The __DescribeEnvironmentHealth__ operation is only available with AWS Elastic Beanstalk Enhanced Health.
---
---
+-- Returns information about the overall health of the specified
+-- environment. The __DescribeEnvironmentHealth__ operation is only
+-- available with AWS Elastic Beanstalk Enhanced Health.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
-    (
-    -- * Creating a Request
-      describeEnvironmentHealth
-    , DescribeEnvironmentHealth
+  ( -- * Creating a Request
+    DescribeEnvironmentHealth (..),
+    newDescribeEnvironmentHealth,
+
     -- * Request Lenses
-    , dehEnvironmentName
-    , dehAttributeNames
-    , dehEnvironmentId
+    describeEnvironmentHealth_environmentId,
+    describeEnvironmentHealth_environmentName,
+    describeEnvironmentHealth_attributeNames,
 
     -- * Destructuring the Response
-    , describeEnvironmentHealthResponse
-    , DescribeEnvironmentHealthResponse
-    -- * Response Lenses
-    , dehrsStatus
-    , dehrsCauses
-    , dehrsApplicationMetrics
-    , dehrsColor
-    , dehrsEnvironmentName
-    , dehrsHealthStatus
-    , dehrsInstancesHealth
-    , dehrsRefreshedAt
-    , dehrsResponseStatus
-    ) where
+    DescribeEnvironmentHealthResponse (..),
+    newDescribeEnvironmentHealthResponse,
 
+    -- * Response Lenses
+    describeEnvironmentHealthResponse_status,
+    describeEnvironmentHealthResponse_refreshedAt,
+    describeEnvironmentHealthResponse_color,
+    describeEnvironmentHealthResponse_causes,
+    describeEnvironmentHealthResponse_environmentName,
+    describeEnvironmentHealthResponse_instancesHealth,
+    describeEnvironmentHealthResponse_healthStatus,
+    describeEnvironmentHealthResponse_applicationMetrics,
+    describeEnvironmentHealthResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | See the example below to learn how to create a request body.
 --
---
---
--- /See:/ 'describeEnvironmentHealth' smart constructor.
+-- /See:/ 'newDescribeEnvironmentHealth' smart constructor.
 data DescribeEnvironmentHealth = DescribeEnvironmentHealth'
-  { _dehEnvironmentName :: !(Maybe Text)
-  , _dehAttributeNames  :: !(Maybe [EnvironmentHealthAttribute])
-  , _dehEnvironmentId   :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEnvironmentHealth' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dehEnvironmentName' - Specify the environment by name. You must specify either this or an EnvironmentName, or both.
---
--- * 'dehAttributeNames' - Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
---
--- * 'dehEnvironmentId' - Specify the environment by ID. You must specify either this or an EnvironmentName, or both.
-describeEnvironmentHealth
-    :: DescribeEnvironmentHealth
-describeEnvironmentHealth =
-  DescribeEnvironmentHealth'
-  { _dehEnvironmentName = Nothing
-  , _dehAttributeNames = Nothing
-  , _dehEnvironmentId = Nothing
+  { -- | Specify the environment by ID.
+    --
+    -- You must specify either this or an EnvironmentName, or both.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | Specify the environment by name.
+    --
+    -- You must specify either this or an EnvironmentName, or both.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | Specify the response elements to return. To retrieve all attributes, set
+    -- to @All@. If no attribute names are specified, returns the name of the
+    -- environment.
+    attributeNames :: Prelude.Maybe [EnvironmentHealthAttribute]
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeEnvironmentHealth' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'environmentId', 'describeEnvironmentHealth_environmentId' - Specify the environment by ID.
+--
+-- You must specify either this or an EnvironmentName, or both.
+--
+-- 'environmentName', 'describeEnvironmentHealth_environmentName' - Specify the environment by name.
+--
+-- You must specify either this or an EnvironmentName, or both.
+--
+-- 'attributeNames', 'describeEnvironmentHealth_attributeNames' - Specify the response elements to return. To retrieve all attributes, set
+-- to @All@. If no attribute names are specified, returns the name of the
+-- environment.
+newDescribeEnvironmentHealth ::
+  DescribeEnvironmentHealth
+newDescribeEnvironmentHealth =
+  DescribeEnvironmentHealth'
+    { environmentId =
+        Prelude.Nothing,
+      environmentName = Prelude.Nothing,
+      attributeNames = Prelude.Nothing
+    }
 
--- | Specify the environment by name. You must specify either this or an EnvironmentName, or both.
-dehEnvironmentName :: Lens' DescribeEnvironmentHealth (Maybe Text)
-dehEnvironmentName = lens _dehEnvironmentName (\ s a -> s{_dehEnvironmentName = a});
+-- | Specify the environment by ID.
+--
+-- You must specify either this or an EnvironmentName, or both.
+describeEnvironmentHealth_environmentId :: Lens.Lens' DescribeEnvironmentHealth (Prelude.Maybe Prelude.Text)
+describeEnvironmentHealth_environmentId = Lens.lens (\DescribeEnvironmentHealth' {environmentId} -> environmentId) (\s@DescribeEnvironmentHealth' {} a -> s {environmentId = a} :: DescribeEnvironmentHealth)
 
--- | Specify the response elements to return. To retrieve all attributes, set to @All@ . If no attribute names are specified, returns the name of the environment.
-dehAttributeNames :: Lens' DescribeEnvironmentHealth [EnvironmentHealthAttribute]
-dehAttributeNames = lens _dehAttributeNames (\ s a -> s{_dehAttributeNames = a}) . _Default . _Coerce;
+-- | Specify the environment by name.
+--
+-- You must specify either this or an EnvironmentName, or both.
+describeEnvironmentHealth_environmentName :: Lens.Lens' DescribeEnvironmentHealth (Prelude.Maybe Prelude.Text)
+describeEnvironmentHealth_environmentName = Lens.lens (\DescribeEnvironmentHealth' {environmentName} -> environmentName) (\s@DescribeEnvironmentHealth' {} a -> s {environmentName = a} :: DescribeEnvironmentHealth)
 
--- | Specify the environment by ID. You must specify either this or an EnvironmentName, or both.
-dehEnvironmentId :: Lens' DescribeEnvironmentHealth (Maybe Text)
-dehEnvironmentId = lens _dehEnvironmentId (\ s a -> s{_dehEnvironmentId = a});
+-- | Specify the response elements to return. To retrieve all attributes, set
+-- to @All@. If no attribute names are specified, returns the name of the
+-- environment.
+describeEnvironmentHealth_attributeNames :: Lens.Lens' DescribeEnvironmentHealth (Prelude.Maybe [EnvironmentHealthAttribute])
+describeEnvironmentHealth_attributeNames = Lens.lens (\DescribeEnvironmentHealth' {attributeNames} -> attributeNames) (\s@DescribeEnvironmentHealth' {} a -> s {attributeNames = a} :: DescribeEnvironmentHealth) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest DescribeEnvironmentHealth where
-        type Rs DescribeEnvironmentHealth =
-             DescribeEnvironmentHealthResponse
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper "DescribeEnvironmentHealthResult"
-              (\ s h x ->
-                 DescribeEnvironmentHealthResponse' <$>
-                   (x .@? "Status") <*>
-                     (x .@? "Causes" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (x .@? "ApplicationMetrics")
-                     <*> (x .@? "Color")
-                     <*> (x .@? "EnvironmentName")
-                     <*> (x .@? "HealthStatus")
-                     <*> (x .@? "InstancesHealth")
-                     <*> (x .@? "RefreshedAt")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeEnvironmentHealth where
+  type
+    AWSResponse DescribeEnvironmentHealth =
+      DescribeEnvironmentHealthResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeEnvironmentHealthResult"
+      ( \s h x ->
+          DescribeEnvironmentHealthResponse'
+            Prelude.<$> (x Core..@? "Status")
+            Prelude.<*> (x Core..@? "RefreshedAt")
+            Prelude.<*> (x Core..@? "Color")
+            Prelude.<*> ( x Core..@? "Causes" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (x Core..@? "EnvironmentName")
+            Prelude.<*> (x Core..@? "InstancesHealth")
+            Prelude.<*> (x Core..@? "HealthStatus")
+            Prelude.<*> (x Core..@? "ApplicationMetrics")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeEnvironmentHealth where
+instance Prelude.Hashable DescribeEnvironmentHealth
 
-instance NFData DescribeEnvironmentHealth where
+instance Prelude.NFData DescribeEnvironmentHealth
 
-instance ToHeaders DescribeEnvironmentHealth where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeEnvironmentHealth where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeEnvironmentHealth where
-        toPath = const "/"
+instance Core.ToPath DescribeEnvironmentHealth where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeEnvironmentHealth where
-        toQuery DescribeEnvironmentHealth'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeEnvironmentHealth" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _dehEnvironmentName,
-               "AttributeNames" =:
-                 toQuery
-                   (toQueryList "member" <$> _dehAttributeNames),
-               "EnvironmentId" =: _dehEnvironmentId]
+instance Core.ToQuery DescribeEnvironmentHealth where
+  toQuery DescribeEnvironmentHealth' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeEnvironmentHealth" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentId" Core.=: environmentId,
+        "EnvironmentName" Core.=: environmentName,
+        "AttributeNames"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> attributeNames
+            )
+      ]
 
 -- | Health details for an AWS Elastic Beanstalk environment.
 --
---
---
--- /See:/ 'describeEnvironmentHealthResponse' smart constructor.
+-- /See:/ 'newDescribeEnvironmentHealthResponse' smart constructor.
 data DescribeEnvironmentHealthResponse = DescribeEnvironmentHealthResponse'
-  { _dehrsStatus             :: !(Maybe EnvironmentHealth)
-  , _dehrsCauses             :: !(Maybe [Text])
-  , _dehrsApplicationMetrics :: !(Maybe ApplicationMetrics)
-  , _dehrsColor              :: !(Maybe Text)
-  , _dehrsEnvironmentName    :: !(Maybe Text)
-  , _dehrsHealthStatus       :: !(Maybe Text)
-  , _dehrsInstancesHealth    :: !(Maybe InstanceHealthSummary)
-  , _dehrsRefreshedAt        :: !(Maybe ISO8601)
-  , _dehrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEnvironmentHealthResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dehrsStatus' - The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
---
--- * 'dehrsCauses' - Descriptions of the data that contributed to the environment's current health status.
---
--- * 'dehrsApplicationMetrics' - Application request metrics for the environment.
---
--- * 'dehrsColor' - The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
---
--- * 'dehrsEnvironmentName' - The environment's name.
---
--- * 'dehrsHealthStatus' - The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
---
--- * 'dehrsInstancesHealth' - Summary health information for the instances in the environment.
---
--- * 'dehrsRefreshedAt' - The date and time that the health information was retrieved.
---
--- * 'dehrsResponseStatus' - -- | The response status code.
-describeEnvironmentHealthResponse
-    :: Int -- ^ 'dehrsResponseStatus'
-    -> DescribeEnvironmentHealthResponse
-describeEnvironmentHealthResponse pResponseStatus_ =
-  DescribeEnvironmentHealthResponse'
-  { _dehrsStatus = Nothing
-  , _dehrsCauses = Nothing
-  , _dehrsApplicationMetrics = Nothing
-  , _dehrsColor = Nothing
-  , _dehrsEnvironmentName = Nothing
-  , _dehrsHealthStatus = Nothing
-  , _dehrsInstancesHealth = Nothing
-  , _dehrsRefreshedAt = Nothing
-  , _dehrsResponseStatus = pResponseStatus_
+  { -- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,
+    -- @Terminating@, or @Terminated@.
+    status :: Prelude.Maybe EnvironmentHealth,
+    -- | The date and time that the health information was retrieved.
+    refreshedAt :: Prelude.Maybe Core.ISO8601,
+    -- | The
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color>
+    -- of the environment.
+    color :: Prelude.Maybe Prelude.Text,
+    -- | Descriptions of the data that contributed to the environment\'s current
+    -- health status.
+    causes :: Prelude.Maybe [Prelude.Text],
+    -- | The environment\'s name.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | Summary health information for the instances in the environment.
+    instancesHealth :: Prelude.Maybe InstanceHealthSummary,
+    -- | The
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status>
+    -- of the environment. For example, @Ok@.
+    healthStatus :: Prelude.Maybe Prelude.Text,
+    -- | Application request metrics for the environment.
+    applicationMetrics :: Prelude.Maybe ApplicationMetrics,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeEnvironmentHealthResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'status', 'describeEnvironmentHealthResponse_status' - The environment\'s operational status. @Ready@, @Launching@, @Updating@,
+-- @Terminating@, or @Terminated@.
+--
+-- 'refreshedAt', 'describeEnvironmentHealthResponse_refreshedAt' - The date and time that the health information was retrieved.
+--
+-- 'color', 'describeEnvironmentHealthResponse_color' - The
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color>
+-- of the environment.
+--
+-- 'causes', 'describeEnvironmentHealthResponse_causes' - Descriptions of the data that contributed to the environment\'s current
+-- health status.
+--
+-- 'environmentName', 'describeEnvironmentHealthResponse_environmentName' - The environment\'s name.
+--
+-- 'instancesHealth', 'describeEnvironmentHealthResponse_instancesHealth' - Summary health information for the instances in the environment.
+--
+-- 'healthStatus', 'describeEnvironmentHealthResponse_healthStatus' - The
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status>
+-- of the environment. For example, @Ok@.
+--
+-- 'applicationMetrics', 'describeEnvironmentHealthResponse_applicationMetrics' - Application request metrics for the environment.
+--
+-- 'httpStatus', 'describeEnvironmentHealthResponse_httpStatus' - The response's http status code.
+newDescribeEnvironmentHealthResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEnvironmentHealthResponse
+newDescribeEnvironmentHealthResponse pHttpStatus_ =
+  DescribeEnvironmentHealthResponse'
+    { status =
+        Prelude.Nothing,
+      refreshedAt = Prelude.Nothing,
+      color = Prelude.Nothing,
+      causes = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
+      instancesHealth = Prelude.Nothing,
+      healthStatus = Prelude.Nothing,
+      applicationMetrics = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | The environment's operational status. @Ready@ , @Launching@ , @Updating@ , @Terminating@ , or @Terminated@ .
-dehrsStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe EnvironmentHealth)
-dehrsStatus = lens _dehrsStatus (\ s a -> s{_dehrsStatus = a});
-
--- | Descriptions of the data that contributed to the environment's current health status.
-dehrsCauses :: Lens' DescribeEnvironmentHealthResponse [Text]
-dehrsCauses = lens _dehrsCauses (\ s a -> s{_dehrsCauses = a}) . _Default . _Coerce;
-
--- | Application request metrics for the environment.
-dehrsApplicationMetrics :: Lens' DescribeEnvironmentHealthResponse (Maybe ApplicationMetrics)
-dehrsApplicationMetrics = lens _dehrsApplicationMetrics (\ s a -> s{_dehrsApplicationMetrics = a});
-
--- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color> of the environment.
-dehrsColor :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
-dehrsColor = lens _dehrsColor (\ s a -> s{_dehrsColor = a});
-
--- | The environment's name.
-dehrsEnvironmentName :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
-dehrsEnvironmentName = lens _dehrsEnvironmentName (\ s a -> s{_dehrsEnvironmentName = a});
-
--- | The <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status> of the environment. For example, @Ok@ .
-dehrsHealthStatus :: Lens' DescribeEnvironmentHealthResponse (Maybe Text)
-dehrsHealthStatus = lens _dehrsHealthStatus (\ s a -> s{_dehrsHealthStatus = a});
-
--- | Summary health information for the instances in the environment.
-dehrsInstancesHealth :: Lens' DescribeEnvironmentHealthResponse (Maybe InstanceHealthSummary)
-dehrsInstancesHealth = lens _dehrsInstancesHealth (\ s a -> s{_dehrsInstancesHealth = a});
+-- | The environment\'s operational status. @Ready@, @Launching@, @Updating@,
+-- @Terminating@, or @Terminated@.
+describeEnvironmentHealthResponse_status :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe EnvironmentHealth)
+describeEnvironmentHealthResponse_status = Lens.lens (\DescribeEnvironmentHealthResponse' {status} -> status) (\s@DescribeEnvironmentHealthResponse' {} a -> s {status = a} :: DescribeEnvironmentHealthResponse)
 
 -- | The date and time that the health information was retrieved.
-dehrsRefreshedAt :: Lens' DescribeEnvironmentHealthResponse (Maybe UTCTime)
-dehrsRefreshedAt = lens _dehrsRefreshedAt (\ s a -> s{_dehrsRefreshedAt = a}) . mapping _Time;
+describeEnvironmentHealthResponse_refreshedAt :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.UTCTime)
+describeEnvironmentHealthResponse_refreshedAt = Lens.lens (\DescribeEnvironmentHealthResponse' {refreshedAt} -> refreshedAt) (\s@DescribeEnvironmentHealthResponse' {} a -> s {refreshedAt = a} :: DescribeEnvironmentHealthResponse) Prelude.. Lens.mapping Core._Time
 
--- | -- | The response status code.
-dehrsResponseStatus :: Lens' DescribeEnvironmentHealthResponse Int
-dehrsResponseStatus = lens _dehrsResponseStatus (\ s a -> s{_dehrsResponseStatus = a});
+-- | The
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health color>
+-- of the environment.
+describeEnvironmentHealthResponse_color :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentHealthResponse_color = Lens.lens (\DescribeEnvironmentHealthResponse' {color} -> color) (\s@DescribeEnvironmentHealthResponse' {} a -> s {color = a} :: DescribeEnvironmentHealthResponse)
 
-instance NFData DescribeEnvironmentHealthResponse
-         where
+-- | Descriptions of the data that contributed to the environment\'s current
+-- health status.
+describeEnvironmentHealthResponse_causes :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe [Prelude.Text])
+describeEnvironmentHealthResponse_causes = Lens.lens (\DescribeEnvironmentHealthResponse' {causes} -> causes) (\s@DescribeEnvironmentHealthResponse' {} a -> s {causes = a} :: DescribeEnvironmentHealthResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The environment\'s name.
+describeEnvironmentHealthResponse_environmentName :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentHealthResponse_environmentName = Lens.lens (\DescribeEnvironmentHealthResponse' {environmentName} -> environmentName) (\s@DescribeEnvironmentHealthResponse' {} a -> s {environmentName = a} :: DescribeEnvironmentHealthResponse)
+
+-- | Summary health information for the instances in the environment.
+describeEnvironmentHealthResponse_instancesHealth :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe InstanceHealthSummary)
+describeEnvironmentHealthResponse_instancesHealth = Lens.lens (\DescribeEnvironmentHealthResponse' {instancesHealth} -> instancesHealth) (\s@DescribeEnvironmentHealthResponse' {} a -> s {instancesHealth = a} :: DescribeEnvironmentHealthResponse)
+
+-- | The
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html health status>
+-- of the environment. For example, @Ok@.
+describeEnvironmentHealthResponse_healthStatus :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentHealthResponse_healthStatus = Lens.lens (\DescribeEnvironmentHealthResponse' {healthStatus} -> healthStatus) (\s@DescribeEnvironmentHealthResponse' {} a -> s {healthStatus = a} :: DescribeEnvironmentHealthResponse)
+
+-- | Application request metrics for the environment.
+describeEnvironmentHealthResponse_applicationMetrics :: Lens.Lens' DescribeEnvironmentHealthResponse (Prelude.Maybe ApplicationMetrics)
+describeEnvironmentHealthResponse_applicationMetrics = Lens.lens (\DescribeEnvironmentHealthResponse' {applicationMetrics} -> applicationMetrics) (\s@DescribeEnvironmentHealthResponse' {} a -> s {applicationMetrics = a} :: DescribeEnvironmentHealthResponse)
+
+-- | The response's http status code.
+describeEnvironmentHealthResponse_httpStatus :: Lens.Lens' DescribeEnvironmentHealthResponse Prelude.Int
+describeEnvironmentHealthResponse_httpStatus = Lens.lens (\DescribeEnvironmentHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentHealthResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentHealthResponse)
+
+instance
+  Prelude.NFData
+    DescribeEnvironmentHealthResponse

@@ -1,185 +1,236 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.ModifyEventSubscription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an existing AWS DMS event notification subscription.
---
---
+-- Modifies an existing DMS event notification subscription.
 module Network.AWS.DMS.ModifyEventSubscription
-    (
-    -- * Creating a Request
-      modifyEventSubscription
-    , ModifyEventSubscription
+  ( -- * Creating a Request
+    ModifyEventSubscription (..),
+    newModifyEventSubscription,
+
     -- * Request Lenses
-    , mesSNSTopicARN
-    , mesEnabled
-    , mesSourceType
-    , mesEventCategories
-    , mesSubscriptionName
+    modifyEventSubscription_enabled,
+    modifyEventSubscription_eventCategories,
+    modifyEventSubscription_sourceType,
+    modifyEventSubscription_snsTopicArn,
+    modifyEventSubscription_subscriptionName,
 
     -- * Destructuring the Response
-    , modifyEventSubscriptionResponse
-    , ModifyEventSubscriptionResponse
-    -- * Response Lenses
-    , mesrsEventSubscription
-    , mesrsResponseStatus
-    ) where
+    ModifyEventSubscriptionResponse (..),
+    newModifyEventSubscriptionResponse,
 
+    -- * Response Lenses
+    modifyEventSubscriptionResponse_eventSubscription,
+    modifyEventSubscriptionResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'modifyEventSubscription' smart constructor.
+-- /See:/ 'newModifyEventSubscription' smart constructor.
 data ModifyEventSubscription = ModifyEventSubscription'
-  { _mesSNSTopicARN      :: !(Maybe Text)
-  , _mesEnabled          :: !(Maybe Bool)
-  , _mesSourceType       :: !(Maybe Text)
-  , _mesEventCategories  :: !(Maybe [Text])
-  , _mesSubscriptionName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ModifyEventSubscription' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mesSNSTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
---
--- * 'mesEnabled' - A Boolean value; set to __true__ to activate the subscription.
---
--- * 'mesSourceType' - The type of AWS DMS resource that generates the events you want to subscribe to.  Valid values: replication-instance | migration-task
---
--- * 'mesEventCategories' - A list of event categories for a source type that you want to subscribe to. Use the @DescribeEventCategories@ action to see a list of event categories.
---
--- * 'mesSubscriptionName' - The name of the AWS DMS event notification subscription to be modified.
-modifyEventSubscription
-    :: Text -- ^ 'mesSubscriptionName'
-    -> ModifyEventSubscription
-modifyEventSubscription pSubscriptionName_ =
-  ModifyEventSubscription'
-  { _mesSNSTopicARN = Nothing
-  , _mesEnabled = Nothing
-  , _mesSourceType = Nothing
-  , _mesEventCategories = Nothing
-  , _mesSubscriptionName = pSubscriptionName_
+  { -- | A Boolean value; set to __true__ to activate the subscription.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of event categories for a source type that you want to subscribe
+    -- to. Use the @DescribeEventCategories@ action to see a list of event
+    -- categories.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | The type of DMS resource that generates the events you want to subscribe
+    -- to.
+    --
+    -- Valid values: replication-instance | replication-task
+    sourceType :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+    -- notification. The ARN is created by Amazon SNS when you create a topic
+    -- and subscribe to it.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the DMS event notification subscription to be modified.
+    subscriptionName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-mesSNSTopicARN :: Lens' ModifyEventSubscription (Maybe Text)
-mesSNSTopicARN = lens _mesSNSTopicARN (\ s a -> s{_mesSNSTopicARN = a});
+-- |
+-- Create a value of 'ModifyEventSubscription' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'enabled', 'modifyEventSubscription_enabled' - A Boolean value; set to __true__ to activate the subscription.
+--
+-- 'eventCategories', 'modifyEventSubscription_eventCategories' - A list of event categories for a source type that you want to subscribe
+-- to. Use the @DescribeEventCategories@ action to see a list of event
+-- categories.
+--
+-- 'sourceType', 'modifyEventSubscription_sourceType' - The type of DMS resource that generates the events you want to subscribe
+-- to.
+--
+-- Valid values: replication-instance | replication-task
+--
+-- 'snsTopicArn', 'modifyEventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
+--
+-- 'subscriptionName', 'modifyEventSubscription_subscriptionName' - The name of the DMS event notification subscription to be modified.
+newModifyEventSubscription ::
+  -- | 'subscriptionName'
+  Prelude.Text ->
+  ModifyEventSubscription
+newModifyEventSubscription pSubscriptionName_ =
+  ModifyEventSubscription'
+    { enabled = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
+      snsTopicArn = Prelude.Nothing,
+      subscriptionName = pSubscriptionName_
+    }
 
 -- | A Boolean value; set to __true__ to activate the subscription.
-mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
-mesEnabled = lens _mesEnabled (\ s a -> s{_mesEnabled = a});
+modifyEventSubscription_enabled :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Bool)
+modifyEventSubscription_enabled = Lens.lens (\ModifyEventSubscription' {enabled} -> enabled) (\s@ModifyEventSubscription' {} a -> s {enabled = a} :: ModifyEventSubscription)
 
--- | The type of AWS DMS resource that generates the events you want to subscribe to.  Valid values: replication-instance | migration-task
-mesSourceType :: Lens' ModifyEventSubscription (Maybe Text)
-mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a});
+-- | A list of event categories for a source type that you want to subscribe
+-- to. Use the @DescribeEventCategories@ action to see a list of event
+-- categories.
+modifyEventSubscription_eventCategories :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe [Prelude.Text])
+modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {eventCategories} -> eventCategories) (\s@ModifyEventSubscription' {} a -> s {eventCategories = a} :: ModifyEventSubscription) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of event categories for a source type that you want to subscribe to. Use the @DescribeEventCategories@ action to see a list of event categories.
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default . _Coerce;
+-- | The type of DMS resource that generates the events you want to subscribe
+-- to.
+--
+-- Valid values: replication-instance | replication-task
+modifyEventSubscription_sourceType :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
+modifyEventSubscription_sourceType = Lens.lens (\ModifyEventSubscription' {sourceType} -> sourceType) (\s@ModifyEventSubscription' {} a -> s {sourceType = a} :: ModifyEventSubscription)
 
--- | The name of the AWS DMS event notification subscription to be modified.
-mesSubscriptionName :: Lens' ModifyEventSubscription Text
-mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a});
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
+modifyEventSubscription_snsTopicArn :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
+modifyEventSubscription_snsTopicArn = Lens.lens (\ModifyEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@ModifyEventSubscription' {} a -> s {snsTopicArn = a} :: ModifyEventSubscription)
 
-instance AWSRequest ModifyEventSubscription where
-        type Rs ModifyEventSubscription =
-             ModifyEventSubscriptionResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ModifyEventSubscriptionResponse' <$>
-                   (x .?> "EventSubscription") <*> (pure (fromEnum s)))
+-- | The name of the DMS event notification subscription to be modified.
+modifyEventSubscription_subscriptionName :: Lens.Lens' ModifyEventSubscription Prelude.Text
+modifyEventSubscription_subscriptionName = Lens.lens (\ModifyEventSubscription' {subscriptionName} -> subscriptionName) (\s@ModifyEventSubscription' {} a -> s {subscriptionName = a} :: ModifyEventSubscription)
 
-instance Hashable ModifyEventSubscription where
+instance Core.AWSRequest ModifyEventSubscription where
+  type
+    AWSResponse ModifyEventSubscription =
+      ModifyEventSubscriptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ModifyEventSubscriptionResponse'
+            Prelude.<$> (x Core..?> "EventSubscription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ModifyEventSubscription where
+instance Prelude.Hashable ModifyEventSubscription
 
-instance ToHeaders ModifyEventSubscription where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.ModifyEventSubscription" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ModifyEventSubscription
 
-instance ToJSON ModifyEventSubscription where
-        toJSON ModifyEventSubscription'{..}
-          = object
-              (catMaybes
-                 [("SnsTopicArn" .=) <$> _mesSNSTopicARN,
-                  ("Enabled" .=) <$> _mesEnabled,
-                  ("SourceType" .=) <$> _mesSourceType,
-                  ("EventCategories" .=) <$> _mesEventCategories,
-                  Just ("SubscriptionName" .= _mesSubscriptionName)])
+instance Core.ToHeaders ModifyEventSubscription where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDMSv20160101.ModifyEventSubscription" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath ModifyEventSubscription where
-        toPath = const "/"
+instance Core.ToJSON ModifyEventSubscription where
+  toJSON ModifyEventSubscription' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Enabled" Core..=) Prelude.<$> enabled,
+            ("EventCategories" Core..=)
+              Prelude.<$> eventCategories,
+            ("SourceType" Core..=) Prelude.<$> sourceType,
+            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
+            Prelude.Just
+              ("SubscriptionName" Core..= subscriptionName)
+          ]
+      )
 
-instance ToQuery ModifyEventSubscription where
-        toQuery = const mempty
+instance Core.ToPath ModifyEventSubscription where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ModifyEventSubscription where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'modifyEventSubscriptionResponse' smart constructor.
+-- /See:/ 'newModifyEventSubscriptionResponse' smart constructor.
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
-  { _mesrsEventSubscription :: !(Maybe EventSubscription)
-  , _mesrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The modified event subscription.
+    eventSubscription :: Prelude.Maybe EventSubscription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyEventSubscriptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyEventSubscriptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mesrsEventSubscription' - The modified event subscription.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mesrsResponseStatus' - -- | The response status code.
-modifyEventSubscriptionResponse
-    :: Int -- ^ 'mesrsResponseStatus'
-    -> ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse pResponseStatus_ =
+-- 'eventSubscription', 'modifyEventSubscriptionResponse_eventSubscription' - The modified event subscription.
+--
+-- 'httpStatus', 'modifyEventSubscriptionResponse_httpStatus' - The response's http status code.
+newModifyEventSubscriptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyEventSubscriptionResponse
+newModifyEventSubscriptionResponse pHttpStatus_ =
   ModifyEventSubscriptionResponse'
-  {_mesrsEventSubscription = Nothing, _mesrsResponseStatus = pResponseStatus_}
-
+    { eventSubscription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The modified event subscription.
-mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
-mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a});
+modifyEventSubscriptionResponse_eventSubscription :: Lens.Lens' ModifyEventSubscriptionResponse (Prelude.Maybe EventSubscription)
+modifyEventSubscriptionResponse_eventSubscription = Lens.lens (\ModifyEventSubscriptionResponse' {eventSubscription} -> eventSubscription) (\s@ModifyEventSubscriptionResponse' {} a -> s {eventSubscription = a} :: ModifyEventSubscriptionResponse)
 
--- | -- | The response status code.
-mesrsResponseStatus :: Lens' ModifyEventSubscriptionResponse Int
-mesrsResponseStatus = lens _mesrsResponseStatus (\ s a -> s{_mesrsResponseStatus = a});
+-- | The response's http status code.
+modifyEventSubscriptionResponse_httpStatus :: Lens.Lens' ModifyEventSubscriptionResponse Prelude.Int
+modifyEventSubscriptionResponse_httpStatus = Lens.lens (\ModifyEventSubscriptionResponse' {httpStatus} -> httpStatus) (\s@ModifyEventSubscriptionResponse' {} a -> s {httpStatus = a} :: ModifyEventSubscriptionResponse)
 
-instance NFData ModifyEventSubscriptionResponse where
+instance
+  Prelude.NFData
+    ModifyEventSubscriptionResponse

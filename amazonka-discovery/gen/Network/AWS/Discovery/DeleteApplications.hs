@@ -1,123 +1,153 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.DeleteApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a list of applications and their associations with configuration items.
---
---
+-- Deletes a list of applications and their associations with configuration
+-- items.
 module Network.AWS.Discovery.DeleteApplications
-    (
-    -- * Creating a Request
-      deleteApplications
-    , DeleteApplications
+  ( -- * Creating a Request
+    DeleteApplications (..),
+    newDeleteApplications,
+
     -- * Request Lenses
-    , daConfigurationIds
+    deleteApplications_configurationIds,
 
     -- * Destructuring the Response
-    , deleteApplicationsResponse
-    , DeleteApplicationsResponse
+    DeleteApplicationsResponse (..),
+    newDeleteApplicationsResponse,
+
     -- * Response Lenses
-    , darsResponseStatus
-    ) where
+    deleteApplicationsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteApplications' smart constructor.
-newtype DeleteApplications = DeleteApplications'
-  { _daConfigurationIds :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteApplications' smart constructor.
+data DeleteApplications = DeleteApplications'
+  { -- | Configuration ID of an application to be deleted.
+    configurationIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteApplications' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteApplications' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daConfigurationIds' - Configuration ID of an application to be deleted.
-deleteApplications
-    :: DeleteApplications
-deleteApplications = DeleteApplications' {_daConfigurationIds = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'configurationIds', 'deleteApplications_configurationIds' - Configuration ID of an application to be deleted.
+newDeleteApplications ::
+  DeleteApplications
+newDeleteApplications =
+  DeleteApplications'
+    { configurationIds =
+        Prelude.mempty
+    }
 
 -- | Configuration ID of an application to be deleted.
-daConfigurationIds :: Lens' DeleteApplications [Text]
-daConfigurationIds = lens _daConfigurationIds (\ s a -> s{_daConfigurationIds = a}) . _Coerce;
+deleteApplications_configurationIds :: Lens.Lens' DeleteApplications [Prelude.Text]
+deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Prelude.. Lens._Coerce
 
-instance AWSRequest DeleteApplications where
-        type Rs DeleteApplications =
-             DeleteApplicationsResponse
-        request = postJSON discovery
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteApplicationsResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteApplications where
+  type
+    AWSResponse DeleteApplications =
+      DeleteApplicationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteApplicationsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteApplications where
+instance Prelude.Hashable DeleteApplications
 
-instance NFData DeleteApplications where
+instance Prelude.NFData DeleteApplications
 
-instance ToHeaders DeleteApplications where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.DeleteApplications"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteApplications where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSPoseidonService_V2015_11_01.DeleteApplications" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteApplications where
-        toJSON DeleteApplications'{..}
-          = object
-              (catMaybes
-                 [Just ("configurationIds" .= _daConfigurationIds)])
+instance Core.ToJSON DeleteApplications where
+  toJSON DeleteApplications' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("configurationIds" Core..= configurationIds)
+          ]
+      )
 
-instance ToPath DeleteApplications where
-        toPath = const "/"
+instance Core.ToPath DeleteApplications where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteApplications where
-        toQuery = const mempty
+instance Core.ToQuery DeleteApplications where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteApplicationsResponse' smart constructor.
-newtype DeleteApplicationsResponse = DeleteApplicationsResponse'
-  { _darsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteApplicationsResponse' smart constructor.
+data DeleteApplicationsResponse = DeleteApplicationsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteApplicationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteApplicationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'darsResponseStatus' - -- | The response status code.
-deleteApplicationsResponse
-    :: Int -- ^ 'darsResponseStatus'
-    -> DeleteApplicationsResponse
-deleteApplicationsResponse pResponseStatus_ =
-  DeleteApplicationsResponse' {_darsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteApplicationsResponse_httpStatus' - The response's http status code.
+newDeleteApplicationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteApplicationsResponse
+newDeleteApplicationsResponse pHttpStatus_ =
+  DeleteApplicationsResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteApplicationsResponse_httpStatus :: Lens.Lens' DeleteApplicationsResponse Prelude.Int
+deleteApplicationsResponse_httpStatus = Lens.lens (\DeleteApplicationsResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationsResponse' {} a -> s {httpStatus = a} :: DeleteApplicationsResponse)
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DeleteApplicationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
-
-instance NFData DeleteApplicationsResponse where
+instance Prelude.NFData DeleteApplicationsResponse

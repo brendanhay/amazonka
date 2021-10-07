@@ -1,0 +1,90 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash ../shell.nix
+
+# Usage: generate MODELS
+#
+# Runs amazonka-gen on the specified MODELS - which are directory names of the
+# services definitions in botocore/data/<MODEL>.
+#
+# Generates the output per MODEL in a temporary directory, formats .cabal and
+# .hs files, removes the related amazonka-*/gen directories, and finally
+# replaces the amazonka-*/gen contents with the updated sources.
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+# Output a message to stderr.
+say() {
+  echo >&2 "$@"
+}
+
+# Format new sources in tmp and replace the corresponding amazonka-*/gen
+# directory in the source tree if successful.
+format_and_replace() {
+  local -r dir="$1"
+
+  say "Formatting $dir"
+
+  find "$dir" -type f -name '*.cabal' -print0 |
+    xargs -0 cabal-fmt --inplace --indent=2
+
+  find "$dir" -type f -name '*.hs' -print0 |
+    xargs -0 ormolu --mode=inplace \
+      --ghc-opt='-XPatternSynonyms' \
+      --ghc-opt='-XTypeApplications'
+
+  # Delete corresponding amazonka-*/gen dirs from the source tree.
+  rm -rf "./$(basename "$dir")/gen"
+
+  # Copy formatted sources from tmp to the source tree.
+  cp -R "$dir" .
+}
+
+# Export the functions for use in GNU parallel.
+export -f say
+export -f format_and_replace
+
+botocore="${BOTOCORE_PATH?}"
+version="$(sed -n '0,/^version: */s///p' amazonka/amazonka.cabal)"
+services="config/services"
+models=()
+
+if [ $# -eq 0 ]; then
+  for model in "$services"/*.json; do
+    models+=("$(basename "$model" .json)")
+  done
+else
+  models=("$@")
+fi
+
+tmp="$(mktemp -d -p "$PWD")"
+
+trap 'rm -rf "$tmp"' EXIT
+
+say "Using botocore $botocore."
+say "Using amazonka version $version."
+say "Generating models ${models[*]}."
+say "Using temporary directory $tmp."
+
+generator=(
+  --out="$tmp"
+  --library-version="${version}"
+  --client-version="${version}"
+  --services="$services"
+  --annexes="config/annexes"
+  --templates="config/templates"
+  --assets="config/assets"
+  --retry="${botocore}/_retry.json"
+)
+
+for model in "${models[@]}"; do
+  generator+=("${botocore}/${model}")
+done
+
+# Generate new sources in tmp.
+cabal new-run amazonka-gen -- +RTS -qg0 -RTS "${generator[@]}"
+
+parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
+
+say "Done."

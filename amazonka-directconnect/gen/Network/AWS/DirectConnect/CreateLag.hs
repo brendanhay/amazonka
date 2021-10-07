@@ -1,166 +1,282 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.CreateLag
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple 1 gigabit or 10 gigabit interfaces, allowing you to treat them as a single interface.
+-- Creates a link aggregation group (LAG) with the specified number of
+-- bundled physical dedicated connections between the customer network and
+-- a specific Direct Connect location. A LAG is a logical interface that
+-- uses the Link Aggregation Control Protocol (LACP) to aggregate multiple
+-- interfaces, enabling you to treat them as a single interface.
 --
+-- All connections in a LAG must use the same bandwidth (either 1Gbps or
+-- 10Gbps) and must terminate at the same Direct Connect endpoint.
 --
--- All connections in a LAG must use the same bandwidth (for example, 10 Gbps), and must terminate at the same AWS Direct Connect endpoint.
+-- You can have up to 10 dedicated connections per LAG. Regardless of this
+-- limit, if you request more connections for the LAG than Direct Connect
+-- can allocate on a single endpoint, no LAG is created.
 --
--- You can have up to 10 connections per LAG. Regardless of this limit, if you request more connections for the LAG than AWS Direct Connect can allocate on a single endpoint, no LAG is created.
+-- You can specify an existing physical dedicated connection or
+-- interconnect to include in the LAG (which counts towards the total
+-- number of connections). Doing so interrupts the current physical
+-- dedicated connection, and re-establishes them as a member of the LAG.
+-- The LAG will be created on the same Direct Connect endpoint to which the
+-- dedicated connection terminates. Any virtual interfaces associated with
+-- the dedicated connection are automatically disassociated and
+-- re-associated with the LAG. The connection ID does not change.
 --
--- You can specify an existing physical connection or interconnect to include in the LAG (which counts towards the total number of connections). Doing so interrupts the current physical connection or hosted connections, and re-establishes them as a member of the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which the connection terminates. Any virtual interfaces associated with the connection are automatically disassociated and re-associated with the LAG. The connection ID does not change.
---
--- If the AWS account used to create a LAG is a registered AWS Direct Connect partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.
---
+-- If the account used to create a LAG is a registered Direct Connect
+-- Partner, the LAG is automatically enabled to host sub-connections. For a
+-- LAG owned by a partner, any associated virtual interfaces cannot be
+-- directly configured.
 module Network.AWS.DirectConnect.CreateLag
-    (
-    -- * Creating a Request
-      createLag
-    , CreateLag
+  ( -- * Creating a Request
+    CreateLag (..),
+    newCreateLag,
+
     -- * Request Lenses
-    , clConnectionId
-    , clNumberOfConnections
-    , clLocation
-    , clConnectionsBandwidth
-    , clLagName
+    createLag_providerName,
+    createLag_connectionId,
+    createLag_childConnectionTags,
+    createLag_tags,
+    createLag_requestMACSec,
+    createLag_numberOfConnections,
+    createLag_location,
+    createLag_connectionsBandwidth,
+    createLag_lagName,
 
     -- * Destructuring the Response
-    , lag
-    , Lag
+    Lag (..),
+    newLag,
+
     -- * Response Lenses
-    , lagLagId
-    , lagConnectionsBandwidth
-    , lagMinimumLinks
-    , lagLagName
-    , lagLocation
-    , lagConnections
-    , lagAwsDevice
-    , lagAllowsHostedConnections
-    , lagNumberOfConnections
-    , lagLagState
-    , lagOwnerAccount
-    , lagRegion
-    ) where
+    lag_numberOfConnections,
+    lag_awsDeviceV2,
+    lag_allowsHostedConnections,
+    lag_macSecKeys,
+    lag_providerName,
+    lag_awsLogicalDeviceId,
+    lag_hasLogicalRedundancy,
+    lag_lagName,
+    lag_connections,
+    lag_awsDevice,
+    lag_lagState,
+    lag_jumboFrameCapable,
+    lag_connectionsBandwidth,
+    lag_lagId,
+    lag_encryptionMode,
+    lag_tags,
+    lag_ownerAccount,
+    lag_region,
+    lag_location,
+    lag_minimumLinks,
+    lag_macSecCapable,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the CreateLag operation.
---
---
---
--- /See:/ 'createLag' smart constructor.
+-- | /See:/ 'newCreateLag' smart constructor.
 data CreateLag = CreateLag'
-  { _clConnectionId         :: !(Maybe Text)
-  , _clNumberOfConnections  :: !Int
-  , _clLocation             :: !Text
-  , _clConnectionsBandwidth :: !Text
-  , _clLagName              :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateLag' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clConnectionId' - The ID of an existing connection to migrate to the LAG. Default: None
---
--- * 'clNumberOfConnections' - The number of physical connections initially provisioned and bundled by the LAG. Default: None
---
--- * 'clLocation' - The AWS Direct Connect location in which the LAG should be allocated. Example: EqSV5 Default: None
---
--- * 'clConnectionsBandwidth' - The bandwidth of the individual physical connections bundled by the LAG. Default: None Available values: 1Gbps, 10Gbps
---
--- * 'clLagName' - The name of the LAG. Example: "@3x10G LAG to AWS@ " Default: None
-createLag
-    :: Int -- ^ 'clNumberOfConnections'
-    -> Text -- ^ 'clLocation'
-    -> Text -- ^ 'clConnectionsBandwidth'
-    -> Text -- ^ 'clLagName'
-    -> CreateLag
-createLag pNumberOfConnections_ pLocation_ pConnectionsBandwidth_ pLagName_ =
-  CreateLag'
-  { _clConnectionId = Nothing
-  , _clNumberOfConnections = pNumberOfConnections_
-  , _clLocation = pLocation_
-  , _clConnectionsBandwidth = pConnectionsBandwidth_
-  , _clLagName = pLagName_
+  { -- | The name of the service provider associated with the LAG.
+    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an existing dedicated connection to migrate to the LAG.
+    connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the automtically created LAGs.
+    childConnectionTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The tags to associate with the LAG.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | Indicates whether the connection will support MAC Security (MACsec).
+    --
+    -- All connections in the LAG must be capable of supporting MAC Security
+    -- (MACsec). For information about MAC Security (MACsec) prerequisties, see
+    -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
+    -- in the /Direct Connect User Guide/.
+    requestMACSec :: Prelude.Maybe Prelude.Bool,
+    -- | The number of physical dedicated connections initially provisioned and
+    -- bundled by the LAG.
+    numberOfConnections :: Prelude.Int,
+    -- | The location for the LAG.
+    location :: Prelude.Text,
+    -- | The bandwidth of the individual physical dedicated connections bundled
+    -- by the LAG. The possible values are 1Gbps and 10Gbps.
+    connectionsBandwidth :: Prelude.Text,
+    -- | The name of the LAG.
+    lagName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateLag' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'providerName', 'createLag_providerName' - The name of the service provider associated with the LAG.
+--
+-- 'connectionId', 'createLag_connectionId' - The ID of an existing dedicated connection to migrate to the LAG.
+--
+-- 'childConnectionTags', 'createLag_childConnectionTags' - The tags to associate with the automtically created LAGs.
+--
+-- 'tags', 'createLag_tags' - The tags to associate with the LAG.
+--
+-- 'requestMACSec', 'createLag_requestMACSec' - Indicates whether the connection will support MAC Security (MACsec).
+--
+-- All connections in the LAG must be capable of supporting MAC Security
+-- (MACsec). For information about MAC Security (MACsec) prerequisties, see
+-- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
+-- in the /Direct Connect User Guide/.
+--
+-- 'numberOfConnections', 'createLag_numberOfConnections' - The number of physical dedicated connections initially provisioned and
+-- bundled by the LAG.
+--
+-- 'location', 'createLag_location' - The location for the LAG.
+--
+-- 'connectionsBandwidth', 'createLag_connectionsBandwidth' - The bandwidth of the individual physical dedicated connections bundled
+-- by the LAG. The possible values are 1Gbps and 10Gbps.
+--
+-- 'lagName', 'createLag_lagName' - The name of the LAG.
+newCreateLag ::
+  -- | 'numberOfConnections'
+  Prelude.Int ->
+  -- | 'location'
+  Prelude.Text ->
+  -- | 'connectionsBandwidth'
+  Prelude.Text ->
+  -- | 'lagName'
+  Prelude.Text ->
+  CreateLag
+newCreateLag
+  pNumberOfConnections_
+  pLocation_
+  pConnectionsBandwidth_
+  pLagName_ =
+    CreateLag'
+      { providerName = Prelude.Nothing,
+        connectionId = Prelude.Nothing,
+        childConnectionTags = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        requestMACSec = Prelude.Nothing,
+        numberOfConnections = pNumberOfConnections_,
+        location = pLocation_,
+        connectionsBandwidth = pConnectionsBandwidth_,
+        lagName = pLagName_
+      }
 
--- | The ID of an existing connection to migrate to the LAG. Default: None
-clConnectionId :: Lens' CreateLag (Maybe Text)
-clConnectionId = lens _clConnectionId (\ s a -> s{_clConnectionId = a});
+-- | The name of the service provider associated with the LAG.
+createLag_providerName :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
+createLag_providerName = Lens.lens (\CreateLag' {providerName} -> providerName) (\s@CreateLag' {} a -> s {providerName = a} :: CreateLag)
 
--- | The number of physical connections initially provisioned and bundled by the LAG. Default: None
-clNumberOfConnections :: Lens' CreateLag Int
-clNumberOfConnections = lens _clNumberOfConnections (\ s a -> s{_clNumberOfConnections = a});
+-- | The ID of an existing dedicated connection to migrate to the LAG.
+createLag_connectionId :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
+createLag_connectionId = Lens.lens (\CreateLag' {connectionId} -> connectionId) (\s@CreateLag' {} a -> s {connectionId = a} :: CreateLag)
 
--- | The AWS Direct Connect location in which the LAG should be allocated. Example: EqSV5 Default: None
-clLocation :: Lens' CreateLag Text
-clLocation = lens _clLocation (\ s a -> s{_clLocation = a});
+-- | The tags to associate with the automtically created LAGs.
+createLag_childConnectionTags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLag_childConnectionTags = Lens.lens (\CreateLag' {childConnectionTags} -> childConnectionTags) (\s@CreateLag' {} a -> s {childConnectionTags = a} :: CreateLag) Prelude.. Lens.mapping Lens._Coerce
 
--- | The bandwidth of the individual physical connections bundled by the LAG. Default: None Available values: 1Gbps, 10Gbps
-clConnectionsBandwidth :: Lens' CreateLag Text
-clConnectionsBandwidth = lens _clConnectionsBandwidth (\ s a -> s{_clConnectionsBandwidth = a});
+-- | The tags to associate with the LAG.
+createLag_tags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s {tags = a} :: CreateLag) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the LAG. Example: "@3x10G LAG to AWS@ " Default: None
-clLagName :: Lens' CreateLag Text
-clLagName = lens _clLagName (\ s a -> s{_clLagName = a});
+-- | Indicates whether the connection will support MAC Security (MACsec).
+--
+-- All connections in the LAG must be capable of supporting MAC Security
+-- (MACsec). For information about MAC Security (MACsec) prerequisties, see
+-- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
+-- in the /Direct Connect User Guide/.
+createLag_requestMACSec :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Bool)
+createLag_requestMACSec = Lens.lens (\CreateLag' {requestMACSec} -> requestMACSec) (\s@CreateLag' {} a -> s {requestMACSec = a} :: CreateLag)
 
-instance AWSRequest CreateLag where
-        type Rs CreateLag = Lag
-        request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+-- | The number of physical dedicated connections initially provisioned and
+-- bundled by the LAG.
+createLag_numberOfConnections :: Lens.Lens' CreateLag Prelude.Int
+createLag_numberOfConnections = Lens.lens (\CreateLag' {numberOfConnections} -> numberOfConnections) (\s@CreateLag' {} a -> s {numberOfConnections = a} :: CreateLag)
 
-instance Hashable CreateLag where
+-- | The location for the LAG.
+createLag_location :: Lens.Lens' CreateLag Prelude.Text
+createLag_location = Lens.lens (\CreateLag' {location} -> location) (\s@CreateLag' {} a -> s {location = a} :: CreateLag)
 
-instance NFData CreateLag where
+-- | The bandwidth of the individual physical dedicated connections bundled
+-- by the LAG. The possible values are 1Gbps and 10Gbps.
+createLag_connectionsBandwidth :: Lens.Lens' CreateLag Prelude.Text
+createLag_connectionsBandwidth = Lens.lens (\CreateLag' {connectionsBandwidth} -> connectionsBandwidth) (\s@CreateLag' {} a -> s {connectionsBandwidth = a} :: CreateLag)
 
-instance ToHeaders CreateLag where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.CreateLag" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | The name of the LAG.
+createLag_lagName :: Lens.Lens' CreateLag Prelude.Text
+createLag_lagName = Lens.lens (\CreateLag' {lagName} -> lagName) (\s@CreateLag' {} a -> s {lagName = a} :: CreateLag)
 
-instance ToJSON CreateLag where
-        toJSON CreateLag'{..}
-          = object
-              (catMaybes
-                 [("connectionId" .=) <$> _clConnectionId,
-                  Just
-                    ("numberOfConnections" .= _clNumberOfConnections),
-                  Just ("location" .= _clLocation),
-                  Just
-                    ("connectionsBandwidth" .= _clConnectionsBandwidth),
-                  Just ("lagName" .= _clLagName)])
+instance Core.AWSRequest CreateLag where
+  type AWSResponse CreateLag = Lag
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance ToPath CreateLag where
-        toPath = const "/"
+instance Prelude.Hashable CreateLag
 
-instance ToQuery CreateLag where
-        toQuery = const mempty
+instance Prelude.NFData CreateLag
+
+instance Core.ToHeaders CreateLag where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("OvertureService.CreateLag" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON CreateLag where
+  toJSON CreateLag' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("providerName" Core..=) Prelude.<$> providerName,
+            ("connectionId" Core..=) Prelude.<$> connectionId,
+            ("childConnectionTags" Core..=)
+              Prelude.<$> childConnectionTags,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("requestMACSec" Core..=) Prelude.<$> requestMACSec,
+            Prelude.Just
+              ("numberOfConnections" Core..= numberOfConnections),
+            Prelude.Just ("location" Core..= location),
+            Prelude.Just
+              ( "connectionsBandwidth"
+                  Core..= connectionsBandwidth
+              ),
+            Prelude.Just ("lagName" Core..= lagName)
+          ]
+      )
+
+instance Core.ToPath CreateLag where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery CreateLag where
+  toQuery = Prelude.const Prelude.mempty

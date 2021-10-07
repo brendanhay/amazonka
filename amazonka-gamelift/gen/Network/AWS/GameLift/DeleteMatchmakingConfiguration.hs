@@ -1,152 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.DeleteMatchmakingConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently removes a FlexMatch matchmaking configuration. To delete, specify the configuration name. A matchmaking configuration cannot be deleted if it is being used in any active matchmaking tickets.
+-- Permanently removes a FlexMatch matchmaking configuration. To delete,
+-- specify the configuration name. A matchmaking configuration cannot be
+-- deleted if it is being used in any active matchmaking tickets.
 --
+-- __Related actions__
 --
--- Operations related to match configurations and rule sets include:
---
---     * 'CreateMatchmakingConfiguration'
---
---     * 'DescribeMatchmakingConfigurations'
---
---     * 'UpdateMatchmakingConfiguration'
---
---     * 'DeleteMatchmakingConfiguration'
---
---     * 'CreateMatchmakingRuleSet'
---
---     * 'DescribeMatchmakingRuleSets'
---
---     * 'ValidateMatchmakingRuleSet'
---
---
---
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteMatchmakingConfiguration
-    (
-    -- * Creating a Request
-      deleteMatchmakingConfiguration
-    , DeleteMatchmakingConfiguration
+  ( -- * Creating a Request
+    DeleteMatchmakingConfiguration (..),
+    newDeleteMatchmakingConfiguration,
+
     -- * Request Lenses
-    , dmcName
+    deleteMatchmakingConfiguration_name,
 
     -- * Destructuring the Response
-    , deleteMatchmakingConfigurationResponse
-    , DeleteMatchmakingConfigurationResponse
+    DeleteMatchmakingConfigurationResponse (..),
+    newDeleteMatchmakingConfigurationResponse,
+
     -- * Response Lenses
-    , dmcrsResponseStatus
-    ) where
+    deleteMatchmakingConfigurationResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
+-- /See:/ 'newDeleteMatchmakingConfiguration' smart constructor.
+data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
+  { -- | A unique identifier for the matchmaking configuration. You can use
+    -- either the configuration name or ARN value.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteMatchmakingConfiguration' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteMatchmakingConfiguration' smart constructor.
-newtype DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
-  { _dmcName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteMatchmakingConfiguration' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'name', 'deleteMatchmakingConfiguration_name' - A unique identifier for the matchmaking configuration. You can use
+-- either the configuration name or ARN value.
+newDeleteMatchmakingConfiguration ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteMatchmakingConfiguration
+newDeleteMatchmakingConfiguration pName_ =
+  DeleteMatchmakingConfiguration' {name = pName_}
+
+-- | A unique identifier for the matchmaking configuration. You can use
+-- either the configuration name or ARN value.
+deleteMatchmakingConfiguration_name :: Lens.Lens' DeleteMatchmakingConfiguration Prelude.Text
+deleteMatchmakingConfiguration_name = Lens.lens (\DeleteMatchmakingConfiguration' {name} -> name) (\s@DeleteMatchmakingConfiguration' {} a -> s {name = a} :: DeleteMatchmakingConfiguration)
+
+instance
+  Core.AWSRequest
+    DeleteMatchmakingConfiguration
+  where
+  type
+    AWSResponse DeleteMatchmakingConfiguration =
+      DeleteMatchmakingConfigurationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteMatchmakingConfigurationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DeleteMatchmakingConfiguration
+
+instance
+  Prelude.NFData
+    DeleteMatchmakingConfiguration
+
+instance
+  Core.ToHeaders
+    DeleteMatchmakingConfiguration
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "GameLift.DeleteMatchmakingConfiguration" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteMatchmakingConfiguration where
+  toJSON DeleteMatchmakingConfiguration' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
+
+instance Core.ToPath DeleteMatchmakingConfiguration where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteMatchmakingConfiguration where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteMatchmakingConfigurationResponse' smart constructor.
+data DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteMatchmakingConfigurationResponse' with all optional fields omitted.
 --
--- * 'dmcName' - Unique identifier for a matchmaking configuration
-deleteMatchmakingConfiguration
-    :: Text -- ^ 'dmcName'
-    -> DeleteMatchmakingConfiguration
-deleteMatchmakingConfiguration pName_ =
-  DeleteMatchmakingConfiguration' {_dmcName = pName_}
-
-
--- | Unique identifier for a matchmaking configuration
-dmcName :: Lens' DeleteMatchmakingConfiguration Text
-dmcName = lens _dmcName (\ s a -> s{_dmcName = a});
-
-instance AWSRequest DeleteMatchmakingConfiguration
-         where
-        type Rs DeleteMatchmakingConfiguration =
-             DeleteMatchmakingConfigurationResponse
-        request = postJSON gameLift
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteMatchmakingConfigurationResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable DeleteMatchmakingConfiguration
-         where
-
-instance NFData DeleteMatchmakingConfiguration where
-
-instance ToHeaders DeleteMatchmakingConfiguration
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.DeleteMatchmakingConfiguration" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteMatchmakingConfiguration where
-        toJSON DeleteMatchmakingConfiguration'{..}
-          = object (catMaybes [Just ("Name" .= _dmcName)])
-
-instance ToPath DeleteMatchmakingConfiguration where
-        toPath = const "/"
-
-instance ToQuery DeleteMatchmakingConfiguration where
-        toQuery = const mempty
-
--- | /See:/ 'deleteMatchmakingConfigurationResponse' smart constructor.
-newtype DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResponse'
-  { _dmcrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteMatchmakingConfigurationResponse' with the minimum fields required to make a request.
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmcrsResponseStatus' - -- | The response status code.
-deleteMatchmakingConfigurationResponse
-    :: Int -- ^ 'dmcrsResponseStatus'
-    -> DeleteMatchmakingConfigurationResponse
-deleteMatchmakingConfigurationResponse pResponseStatus_ =
-  DeleteMatchmakingConfigurationResponse'
-  {_dmcrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteMatchmakingConfigurationResponse_httpStatus' - The response's http status code.
+newDeleteMatchmakingConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteMatchmakingConfigurationResponse
+newDeleteMatchmakingConfigurationResponse
+  pHttpStatus_ =
+    DeleteMatchmakingConfigurationResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+deleteMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Prelude.Int
+deleteMatchmakingConfigurationResponse_httpStatus = Lens.lens (\DeleteMatchmakingConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteMatchmakingConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteMatchmakingConfigurationResponse)
 
--- | -- | The response status code.
-dmcrsResponseStatus :: Lens' DeleteMatchmakingConfigurationResponse Int
-dmcrsResponseStatus = lens _dmcrsResponseStatus (\ s a -> s{_dmcrsResponseStatus = a});
-
-instance NFData
-           DeleteMatchmakingConfigurationResponse
-         where
+instance
+  Prelude.NFData
+    DeleteMatchmakingConfigurationResponse

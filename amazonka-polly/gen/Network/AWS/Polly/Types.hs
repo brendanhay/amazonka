@@ -1,240 +1,399 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Polly.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Polly.Types
-    (
-    -- * Service Configuration
-      polly
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _UnsupportedPlsLanguageException
-    , _InvalidSsmlException
-    , _InvalidSampleRateException
-    , _MaxLexiconsNumberExceededException
-    , _TextLengthExceededException
-    , _MaxLexemeLengthExceededException
-    , _InvalidLexiconException
-    , _ServiceFailureException
-    , _UnsupportedPlsAlphabetException
-    , _InvalidNextTokenException
-    , _MarksNotSupportedForFormatException
-    , _SsmlMarksNotSupportedForTextTypeException
-    , _LexiconSizeExceededException
-    , _LexiconNotFoundException
+    _InvalidSsmlException,
+    _InvalidLexiconException,
+    _InvalidS3KeyException,
+    _LexiconNotFoundException,
+    _MaxLexemeLengthExceededException,
+    _TextLengthExceededException,
+    _SynthesisTaskNotFoundException,
+    _InvalidSampleRateException,
+    _ServiceFailureException,
+    _MarksNotSupportedForFormatException,
+    _MaxLexiconsNumberExceededException,
+    _UnsupportedPlsAlphabetException,
+    _InvalidNextTokenException,
+    _UnsupportedPlsLanguageException,
+    _InvalidSnsTopicArnException,
+    _InvalidTaskIdException,
+    _LanguageNotSupportedException,
+    _LexiconSizeExceededException,
+    _InvalidS3BucketException,
+    _SsmlMarksNotSupportedForTextTypeException,
+    _EngineNotSupportedException,
+
+    -- * Engine
+    Engine (..),
 
     -- * Gender
-    , Gender (..)
+    Gender (..),
 
     -- * LanguageCode
-    , LanguageCode (..)
+    LanguageCode (..),
 
     -- * OutputFormat
-    , OutputFormat (..)
+    OutputFormat (..),
 
     -- * SpeechMarkType
-    , SpeechMarkType (..)
+    SpeechMarkType (..),
+
+    -- * TaskStatus
+    TaskStatus (..),
 
     -- * TextType
-    , TextType (..)
+    TextType (..),
 
     -- * VoiceId
-    , VoiceId (..)
+    VoiceId (..),
 
     -- * Lexicon
-    , Lexicon
-    , lexicon
-    , lContent
-    , lName
+    Lexicon (..),
+    newLexicon,
+    lexicon_name,
+    lexicon_content,
 
     -- * LexiconAttributes
-    , LexiconAttributes
-    , lexiconAttributes
-    , laLanguageCode
-    , laSize
-    , laLexemesCount
-    , laLexiconARN
-    , laAlphabet
-    , laLastModified
+    LexiconAttributes (..),
+    newLexiconAttributes,
+    lexiconAttributes_languageCode,
+    lexiconAttributes_alphabet,
+    lexiconAttributes_lexiconArn,
+    lexiconAttributes_lexemesCount,
+    lexiconAttributes_lastModified,
+    lexiconAttributes_size,
 
     -- * LexiconDescription
-    , LexiconDescription
-    , lexiconDescription
-    , ldAttributes
-    , ldName
+    LexiconDescription (..),
+    newLexiconDescription,
+    lexiconDescription_name,
+    lexiconDescription_attributes,
+
+    -- * SynthesisTask
+    SynthesisTask (..),
+    newSynthesisTask,
+    synthesisTask_languageCode,
+    synthesisTask_creationTime,
+    synthesisTask_outputUri,
+    synthesisTask_lexiconNames,
+    synthesisTask_speechMarkTypes,
+    synthesisTask_voiceId,
+    synthesisTask_taskId,
+    synthesisTask_textType,
+    synthesisTask_outputFormat,
+    synthesisTask_sampleRate,
+    synthesisTask_taskStatus,
+    synthesisTask_engine,
+    synthesisTask_requestCharacters,
+    synthesisTask_taskStatusReason,
+    synthesisTask_snsTopicArn,
 
     -- * Voice
-    , Voice
-    , voice
-    , vLanguageCode
-    , vLanguageName
-    , vGender
-    , vName
-    , vId
-    ) where
+    Voice (..),
+    newVoice,
+    voice_languageCode,
+    voice_id,
+    voice_name,
+    voice_gender,
+    voice_supportedEngines,
+    voice_additionalLanguageCodes,
+    voice_languageName,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Polly.Types.Product
-import Network.AWS.Polly.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.Polly.Types.Engine
+import Network.AWS.Polly.Types.Gender
+import Network.AWS.Polly.Types.LanguageCode
+import Network.AWS.Polly.Types.Lexicon
+import Network.AWS.Polly.Types.LexiconAttributes
+import Network.AWS.Polly.Types.LexiconDescription
+import Network.AWS.Polly.Types.OutputFormat
+import Network.AWS.Polly.Types.SpeechMarkType
+import Network.AWS.Polly.Types.SynthesisTask
+import Network.AWS.Polly.Types.TaskStatus
+import Network.AWS.Polly.Types.TextType
+import Network.AWS.Polly.Types.Voice
+import Network.AWS.Polly.Types.VoiceId
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-06-10@ of the Amazon Polly SDK configuration.
-polly :: Service
-polly =
-  Service
-  { _svcAbbrev = "Polly"
-  , _svcSigner = v4
-  , _svcPrefix = "polly"
-  , _svcVersion = "2016-06-10"
-  , _svcEndpoint = defaultEndpoint polly
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Polly"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "Polly",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "polly",
+      Core._serviceSigningName = "polly",
+      Core._serviceVersion = "2016-06-10",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Polly",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | The language specified in the lexicon is unsupported. For a list of supported languages, see <http://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html Lexicon Attributes> .
---
---
-_UnsupportedPlsLanguageException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedPlsLanguageException =
-  _MatchServiceError polly "UnsupportedPlsLanguageException" . hasStatus 400
-
-
--- | The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.
---
---
-_InvalidSsmlException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The SSML you provided is invalid. Verify the SSML syntax, spelling of
+-- tags and values, and then try again.
+_InvalidSsmlException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidSsmlException =
-  _MatchServiceError polly "InvalidSsmlException" . hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "InvalidSsmlException"
+    Prelude.. Core.hasStatus 400
 
+-- | Amazon Polly can\'t find the specified lexicon. Verify that the
+-- lexicon\'s name is spelled correctly, and then try again.
+_InvalidLexiconException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLexiconException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidLexiconException"
+    Prelude.. Core.hasStatus 400
 
--- | The specified sample rate is not valid.
+-- | The provided Amazon S3 key prefix is invalid. Please provide a valid S3
+-- object key name.
+_InvalidS3KeyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3KeyException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidS3KeyException"
+    Prelude.. Core.hasStatus 400
+
+-- | Amazon Polly can\'t find the specified lexicon. This could be caused by
+-- a lexicon that is missing, its name is misspelled or specifying a
+-- lexicon that is in a different region.
 --
---
-_InvalidSampleRateException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSampleRateException =
-  _MatchServiceError polly "InvalidSampleRateException" . hasStatus 400
-
-
--- | The maximum number of lexicons would be exceeded by this operation.
---
---
-_MaxLexiconsNumberExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_MaxLexiconsNumberExceededException =
-  _MatchServiceError polly "MaxLexiconsNumberExceededException" . hasStatus 400
-
-
--- | The value of the "Text" parameter is longer than the accepted limits. The limit for input text is a maximum of 3000 characters total, of which no more than 1500 can be billed characters. SSML tags are not counted as billed characters.
---
---
-_TextLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_TextLengthExceededException =
-  _MatchServiceError polly "TextLengthExceededException" . hasStatus 400
-
+-- Verify that the lexicon exists, is in the region (see ListLexicons) and
+-- that you spelled its name is spelled correctly. Then try again.
+_LexiconNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LexiconNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "LexiconNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The maximum size of the lexeme would be exceeded by this operation.
---
---
-_MaxLexemeLengthExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_MaxLexemeLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MaxLexemeLengthExceededException =
-  _MatchServiceError polly "MaxLexemeLengthExceededException" . hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "MaxLexemeLengthExceededException"
+    Prelude.. Core.hasStatus 400
 
+-- | The value of the \"Text\" parameter is longer than the accepted limits.
+-- For the @SynthesizeSpeech@ API, the limit for input text is a maximum of
+-- 6000 characters total, of which no more than 3000 can be billed
+-- characters. For the @StartSpeechSynthesisTask@ API, the maximum is
+-- 200,000 characters, of which no more than 100,000 can be billed
+-- characters. SSML tags are not counted as billed characters.
+_TextLengthExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TextLengthExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TextLengthExceededException"
+    Prelude.. Core.hasStatus 400
 
--- | Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.
---
---
-_InvalidLexiconException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidLexiconException =
-  _MatchServiceError polly "InvalidLexiconException" . hasStatus 400
+-- | The Speech Synthesis task with requested Task ID cannot be found.
+_SynthesisTaskNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SynthesisTaskNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "SynthesisTaskNotFoundException"
+    Prelude.. Core.hasStatus 400
 
+-- | The specified sample rate is not valid.
+_InvalidSampleRateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSampleRateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSampleRateException"
+    Prelude.. Core.hasStatus 400
 
 -- | An unknown condition has caused a service failure.
---
---
-_ServiceFailureException :: AsError a => Getting (First ServiceError) a ServiceError
+_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceFailureException =
-  _MatchServiceError polly "ServiceFailureException" . hasStatus 500
+  Core._MatchServiceError
+    defaultService
+    "ServiceFailureException"
+    Prelude.. Core.hasStatus 500
 
-
--- | The alphabet specified by the lexicon is not a supported alphabet. Valid values are @x-sampa@ and @ipa@ .
---
---
-_UnsupportedPlsAlphabetException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedPlsAlphabetException =
-  _MatchServiceError polly "UnsupportedPlsAlphabetException" . hasStatus 400
-
-
--- | The NextToken is invalid. Verify that it's spelled correctly, and then try again.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextTokenException =
-  _MatchServiceError polly "InvalidNextTokenException" . hasStatus 400
-
-
--- | Speech marks are not supported for the @OutputFormat@ selected. Speech marks are only available for content in @json@ format.
---
---
-_MarksNotSupportedForFormatException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Speech marks are not supported for the @OutputFormat@ selected. Speech
+-- marks are only available for content in @json@ format.
+_MarksNotSupportedForFormatException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MarksNotSupportedForFormatException =
-  _MatchServiceError polly "MarksNotSupportedForFormatException" . hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "MarksNotSupportedForFormatException"
+    Prelude.. Core.hasStatus 400
 
+-- | The maximum number of lexicons would be exceeded by this operation.
+_MaxLexiconsNumberExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxLexiconsNumberExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxLexiconsNumberExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The alphabet specified by the lexicon is not a supported alphabet. Valid
+-- values are @x-sampa@ and @ipa@.
+_UnsupportedPlsAlphabetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedPlsAlphabetException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedPlsAlphabetException"
+    Prelude.. Core.hasStatus 400
+
+-- | The NextToken is invalid. Verify that it\'s spelled correctly, and then
+-- try again.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+    Prelude.. Core.hasStatus 400
+
+-- | The language specified in the lexicon is unsupported. For a list of
+-- supported languages, see
+-- <https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html Lexicon Attributes>.
+_UnsupportedPlsLanguageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedPlsLanguageException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedPlsLanguageException"
+    Prelude.. Core.hasStatus 400
+
+-- | The provided SNS topic ARN is invalid. Please provide a valid SNS topic
+-- ARN and try again.
+_InvalidSnsTopicArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSnsTopicArnException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSnsTopicArnException"
+    Prelude.. Core.hasStatus 400
+
+-- | The provided Task ID is not valid. Please provide a valid Task ID and
+-- try again.
+_InvalidTaskIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTaskIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTaskIdException"
+    Prelude.. Core.hasStatus 400
+
+-- | The language specified is not currently supported by Amazon Polly in
+-- this capacity.
+_LanguageNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LanguageNotSupportedException =
+  Core._MatchServiceError
+    defaultService
+    "LanguageNotSupportedException"
+    Prelude.. Core.hasStatus 400
+
+-- | The maximum size of the specified lexicon would be exceeded by this
+-- operation.
+_LexiconSizeExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LexiconSizeExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LexiconSizeExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The provided Amazon S3 bucket name is invalid. Please check your input
+-- with S3 bucket naming requirements and try again.
+_InvalidS3BucketException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3BucketException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidS3BucketException"
+    Prelude.. Core.hasStatus 400
 
 -- | SSML speech marks are not supported for plain text-type input.
---
---
-_SsmlMarksNotSupportedForTextTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+_SsmlMarksNotSupportedForTextTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SsmlMarksNotSupportedForTextTypeException =
-  _MatchServiceError polly "SsmlMarksNotSupportedForTextTypeException" .
-  hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "SsmlMarksNotSupportedForTextTypeException"
+    Prelude.. Core.hasStatus 400
 
-
--- | The maximum size of the specified lexicon would be exceeded by this operation.
---
---
-_LexiconSizeExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LexiconSizeExceededException =
-  _MatchServiceError polly "LexiconSizeExceededException" . hasStatus 400
-
-
--- | Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.
---
---
--- Verify that the lexicon exists, is in the region (see 'ListLexicons' ) and that you spelled its name is spelled correctly. Then try again.
---
-_LexiconNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_LexiconNotFoundException =
-  _MatchServiceError polly "LexiconNotFoundException" . hasStatus 404
-
+-- | This engine is not compatible with the voice that you have designated.
+-- Choose a new voice that is compatible with the engine or change the
+-- engine and restart the operation.
+_EngineNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EngineNotSupportedException =
+  Core._MatchServiceError
+    defaultService
+    "EngineNotSupportedException"
+    Prelude.. Core.hasStatus 400

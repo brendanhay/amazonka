@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.LexRuntime
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.LexRuntime where
 
 import Data.Proxy
@@ -28,36 +27,90 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestPostText $
---             postText
+--         [ requestPutSession $
+--             newPutSession
+--
+--         , requestDeleteSession $
+--             newDeleteSession
 --
 --         , requestPostContent $
---             postContent
+--             newPostContent
+--
+--         , requestGetSession $
+--             newGetSession
+--
+--         , requestPostText $
+--             newPostText
 --
 --           ]
 
 --     , testGroup "response"
---         [ responsePostText $
---             postTextResponse
+--         [ responsePutSession $
+--             newPutSessionResponse
+--
+--         , responseDeleteSession $
+--             newDeleteSessionResponse
 --
 --         , responsePostContent $
---             postContentResponse
+--             newPostContentResponse
+--
+--         , responseGetSession $
+--             newGetSessionResponse
+--
+--         , responsePostText $
+--             newPostTextResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestPutSession :: PutSession -> TestTree
+requestPutSession =
+  req
+    "PutSession"
+    "fixture/PutSession.yaml"
+
+requestDeleteSession :: DeleteSession -> TestTree
+requestDeleteSession =
+  req
+    "DeleteSession"
+    "fixture/DeleteSession.yaml"
+
+requestGetSession :: GetSession -> TestTree
+requestGetSession =
+  req
+    "GetSession"
+    "fixture/GetSession.yaml"
+
 requestPostText :: PostText -> TestTree
-requestPostText = req
+requestPostText =
+  req
     "PostText"
     "fixture/PostText.yaml"
 
 -- Responses
 
+responseDeleteSession :: DeleteSessionResponse -> TestTree
+responseDeleteSession =
+  res
+    "DeleteSessionResponse"
+    "fixture/DeleteSessionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSession)
+
+responseGetSession :: GetSessionResponse -> TestTree
+responseGetSession =
+  res
+    "GetSessionResponse"
+    "fixture/GetSessionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSession)
+
 responsePostText :: PostTextResponse -> TestTree
-responsePostText = res
+responsePostText =
+  res
     "PostTextResponse"
     "fixture/PostTextResponse.proto"
-    lexRuntime
+    defaultService
     (Proxy :: Proxy PostText)

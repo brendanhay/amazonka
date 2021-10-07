@@ -1,134 +1,180 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.PromoteReadReplicaDBCluster
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Promotes a Read Replica DB cluster to a standalone DB cluster.
+-- Promotes a read replica DB cluster to a standalone DB cluster.
 --
---
+-- This action only applies to Aurora DB clusters.
 module Network.AWS.RDS.PromoteReadReplicaDBCluster
-    (
-    -- * Creating a Request
-      promoteReadReplicaDBCluster
-    , PromoteReadReplicaDBCluster
+  ( -- * Creating a Request
+    PromoteReadReplicaDBCluster (..),
+    newPromoteReadReplicaDBCluster,
+
     -- * Request Lenses
-    , prrdcDBClusterIdentifier
+    promoteReadReplicaDBCluster_dbClusterIdentifier,
 
     -- * Destructuring the Response
-    , promoteReadReplicaDBClusterResponse
-    , PromoteReadReplicaDBClusterResponse
-    -- * Response Lenses
-    , prrdcrsDBCluster
-    , prrdcrsResponseStatus
-    ) where
+    PromoteReadReplicaDBClusterResponse (..),
+    newPromoteReadReplicaDBClusterResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    promoteReadReplicaDBClusterResponse_dbCluster,
+    promoteReadReplicaDBClusterResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'promoteReadReplicaDBCluster' smart constructor.
-newtype PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
-  { _prrdcDBClusterIdentifier :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newPromoteReadReplicaDBCluster' smart constructor.
+data PromoteReadReplicaDBCluster = PromoteReadReplicaDBCluster'
+  { -- | The identifier of the DB cluster read replica to promote. This parameter
+    -- isn\'t case-sensitive.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing DB cluster read replica.
+    --
+    -- Example: @my-cluster-replica1@
+    dbClusterIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PromoteReadReplicaDBCluster' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PromoteReadReplicaDBCluster' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'prrdcDBClusterIdentifier' - The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must match the identifier of an existing DBCluster Read Replica. Example: @my-cluster-replica1@
-promoteReadReplicaDBCluster
-    :: Text -- ^ 'prrdcDBClusterIdentifier'
-    -> PromoteReadReplicaDBCluster
-promoteReadReplicaDBCluster pDBClusterIdentifier_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dbClusterIdentifier', 'promoteReadReplicaDBCluster_dbClusterIdentifier' - The identifier of the DB cluster read replica to promote. This parameter
+-- isn\'t case-sensitive.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DB cluster read replica.
+--
+-- Example: @my-cluster-replica1@
+newPromoteReadReplicaDBCluster ::
+  -- | 'dbClusterIdentifier'
+  Prelude.Text ->
+  PromoteReadReplicaDBCluster
+newPromoteReadReplicaDBCluster pDBClusterIdentifier_ =
   PromoteReadReplicaDBCluster'
-  {_prrdcDBClusterIdentifier = pDBClusterIdentifier_}
+    { dbClusterIdentifier =
+        pDBClusterIdentifier_
+    }
 
+-- | The identifier of the DB cluster read replica to promote. This parameter
+-- isn\'t case-sensitive.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DB cluster read replica.
+--
+-- Example: @my-cluster-replica1@
+promoteReadReplicaDBCluster_dbClusterIdentifier :: Lens.Lens' PromoteReadReplicaDBCluster Prelude.Text
+promoteReadReplicaDBCluster_dbClusterIdentifier = Lens.lens (\PromoteReadReplicaDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@PromoteReadReplicaDBCluster' {} a -> s {dbClusterIdentifier = a} :: PromoteReadReplicaDBCluster)
 
--- | The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.  Constraints:     * Must match the identifier of an existing DBCluster Read Replica. Example: @my-cluster-replica1@
-prrdcDBClusterIdentifier :: Lens' PromoteReadReplicaDBCluster Text
-prrdcDBClusterIdentifier = lens _prrdcDBClusterIdentifier (\ s a -> s{_prrdcDBClusterIdentifier = a});
+instance Core.AWSRequest PromoteReadReplicaDBCluster where
+  type
+    AWSResponse PromoteReadReplicaDBCluster =
+      PromoteReadReplicaDBClusterResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "PromoteReadReplicaDBClusterResult"
+      ( \s h x ->
+          PromoteReadReplicaDBClusterResponse'
+            Prelude.<$> (x Core..@? "DBCluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest PromoteReadReplicaDBCluster where
-        type Rs PromoteReadReplicaDBCluster =
-             PromoteReadReplicaDBClusterResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper
-              "PromoteReadReplicaDBClusterResult"
-              (\ s h x ->
-                 PromoteReadReplicaDBClusterResponse' <$>
-                   (x .@? "DBCluster") <*> (pure (fromEnum s)))
+instance Prelude.Hashable PromoteReadReplicaDBCluster
 
-instance Hashable PromoteReadReplicaDBCluster where
+instance Prelude.NFData PromoteReadReplicaDBCluster
 
-instance NFData PromoteReadReplicaDBCluster where
+instance Core.ToHeaders PromoteReadReplicaDBCluster where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders PromoteReadReplicaDBCluster where
-        toHeaders = const mempty
+instance Core.ToPath PromoteReadReplicaDBCluster where
+  toPath = Prelude.const "/"
 
-instance ToPath PromoteReadReplicaDBCluster where
-        toPath = const "/"
+instance Core.ToQuery PromoteReadReplicaDBCluster where
+  toQuery PromoteReadReplicaDBCluster' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "PromoteReadReplicaDBCluster" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBClusterIdentifier" Core.=: dbClusterIdentifier
+      ]
 
-instance ToQuery PromoteReadReplicaDBCluster where
-        toQuery PromoteReadReplicaDBCluster'{..}
-          = mconcat
-              ["Action" =:
-                 ("PromoteReadReplicaDBCluster" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "DBClusterIdentifier" =: _prrdcDBClusterIdentifier]
-
--- | /See:/ 'promoteReadReplicaDBClusterResponse' smart constructor.
+-- | /See:/ 'newPromoteReadReplicaDBClusterResponse' smart constructor.
 data PromoteReadReplicaDBClusterResponse = PromoteReadReplicaDBClusterResponse'
-  { _prrdcrsDBCluster      :: !(Maybe DBCluster)
-  , _prrdcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { dbCluster :: Prelude.Maybe DBCluster,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'PromoteReadReplicaDBClusterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PromoteReadReplicaDBClusterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'prrdcrsDBCluster' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'prrdcrsResponseStatus' - -- | The response status code.
-promoteReadReplicaDBClusterResponse
-    :: Int -- ^ 'prrdcrsResponseStatus'
-    -> PromoteReadReplicaDBClusterResponse
-promoteReadReplicaDBClusterResponse pResponseStatus_ =
+-- 'dbCluster', 'promoteReadReplicaDBClusterResponse_dbCluster' - Undocumented member.
+--
+-- 'httpStatus', 'promoteReadReplicaDBClusterResponse_httpStatus' - The response's http status code.
+newPromoteReadReplicaDBClusterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PromoteReadReplicaDBClusterResponse
+newPromoteReadReplicaDBClusterResponse pHttpStatus_ =
   PromoteReadReplicaDBClusterResponse'
-  {_prrdcrsDBCluster = Nothing, _prrdcrsResponseStatus = pResponseStatus_}
-
+    { dbCluster =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-prrdcrsDBCluster :: Lens' PromoteReadReplicaDBClusterResponse (Maybe DBCluster)
-prrdcrsDBCluster = lens _prrdcrsDBCluster (\ s a -> s{_prrdcrsDBCluster = a});
+promoteReadReplicaDBClusterResponse_dbCluster :: Lens.Lens' PromoteReadReplicaDBClusterResponse (Prelude.Maybe DBCluster)
+promoteReadReplicaDBClusterResponse_dbCluster = Lens.lens (\PromoteReadReplicaDBClusterResponse' {dbCluster} -> dbCluster) (\s@PromoteReadReplicaDBClusterResponse' {} a -> s {dbCluster = a} :: PromoteReadReplicaDBClusterResponse)
 
--- | -- | The response status code.
-prrdcrsResponseStatus :: Lens' PromoteReadReplicaDBClusterResponse Int
-prrdcrsResponseStatus = lens _prrdcrsResponseStatus (\ s a -> s{_prrdcrsResponseStatus = a});
+-- | The response's http status code.
+promoteReadReplicaDBClusterResponse_httpStatus :: Lens.Lens' PromoteReadReplicaDBClusterResponse Prelude.Int
+promoteReadReplicaDBClusterResponse_httpStatus = Lens.lens (\PromoteReadReplicaDBClusterResponse' {httpStatus} -> httpStatus) (\s@PromoteReadReplicaDBClusterResponse' {} a -> s {httpStatus = a} :: PromoteReadReplicaDBClusterResponse)
 
-instance NFData PromoteReadReplicaDBClusterResponse
-         where
+instance
+  Prelude.NFData
+    PromoteReadReplicaDBClusterResponse

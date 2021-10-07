@@ -1,131 +1,167 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.AssociateServiceRoleToAccount
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a role which is used by AWS Greengrass. AWS Greengrass uses the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. It needs to have minimum permissions in policy ``AWSGreengrassResourceAccessRolePolicy``
+-- Associates a role with your account. AWS IoT Greengrass will use the
+-- role to access your Lambda functions and AWS IoT resources. This is
+-- necessary for deployments to succeed. The role must have at least
+-- minimum permissions in the policy
+-- \'\'AWSGreengrassResourceAccessRolePolicy\'\'.
 module Network.AWS.Greengrass.AssociateServiceRoleToAccount
-    (
-    -- * Creating a Request
-      associateServiceRoleToAccount
-    , AssociateServiceRoleToAccount
+  ( -- * Creating a Request
+    AssociateServiceRoleToAccount (..),
+    newAssociateServiceRoleToAccount,
+
     -- * Request Lenses
-    , asrtaRoleARN
+    associateServiceRoleToAccount_roleArn,
 
     -- * Destructuring the Response
-    , associateServiceRoleToAccountResponse
-    , AssociateServiceRoleToAccountResponse
+    AssociateServiceRoleToAccountResponse (..),
+    newAssociateServiceRoleToAccountResponse,
+
     -- * Response Lenses
-    , asrtarsAssociatedAt
-    , asrtarsResponseStatus
-    ) where
+    associateServiceRoleToAccountResponse_associatedAt,
+    associateServiceRoleToAccountResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'associateServiceRoleToAccount' smart constructor.
-newtype AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
-  { _asrtaRoleARN :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAssociateServiceRoleToAccount' smart constructor.
+data AssociateServiceRoleToAccount = AssociateServiceRoleToAccount'
+  { -- | The ARN of the service role you wish to associate with your account.
+    roleArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateServiceRoleToAccount' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateServiceRoleToAccount' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'asrtaRoleARN' - Role arn you wish to associate with this account.
-associateServiceRoleToAccount
-    :: AssociateServiceRoleToAccount
-associateServiceRoleToAccount =
-  AssociateServiceRoleToAccount' {_asrtaRoleARN = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'roleArn', 'associateServiceRoleToAccount_roleArn' - The ARN of the service role you wish to associate with your account.
+newAssociateServiceRoleToAccount ::
+  -- | 'roleArn'
+  Prelude.Text ->
+  AssociateServiceRoleToAccount
+newAssociateServiceRoleToAccount pRoleArn_ =
+  AssociateServiceRoleToAccount' {roleArn = pRoleArn_}
 
+-- | The ARN of the service role you wish to associate with your account.
+associateServiceRoleToAccount_roleArn :: Lens.Lens' AssociateServiceRoleToAccount Prelude.Text
+associateServiceRoleToAccount_roleArn = Lens.lens (\AssociateServiceRoleToAccount' {roleArn} -> roleArn) (\s@AssociateServiceRoleToAccount' {} a -> s {roleArn = a} :: AssociateServiceRoleToAccount)
 
--- | Role arn you wish to associate with this account.
-asrtaRoleARN :: Lens' AssociateServiceRoleToAccount (Maybe Text)
-asrtaRoleARN = lens _asrtaRoleARN (\ s a -> s{_asrtaRoleARN = a});
+instance
+  Core.AWSRequest
+    AssociateServiceRoleToAccount
+  where
+  type
+    AWSResponse AssociateServiceRoleToAccount =
+      AssociateServiceRoleToAccountResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AssociateServiceRoleToAccountResponse'
+            Prelude.<$> (x Core..?> "AssociatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest AssociateServiceRoleToAccount
-         where
-        type Rs AssociateServiceRoleToAccount =
-             AssociateServiceRoleToAccountResponse
-        request = putJSON greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AssociateServiceRoleToAccountResponse' <$>
-                   (x .?> "AssociatedAt") <*> (pure (fromEnum s)))
+instance
+  Prelude.Hashable
+    AssociateServiceRoleToAccount
 
-instance Hashable AssociateServiceRoleToAccount where
+instance Prelude.NFData AssociateServiceRoleToAccount
 
-instance NFData AssociateServiceRoleToAccount where
+instance Core.ToHeaders AssociateServiceRoleToAccount where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders AssociateServiceRoleToAccount
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON AssociateServiceRoleToAccount where
+  toJSON AssociateServiceRoleToAccount' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("RoleArn" Core..= roleArn)]
+      )
 
-instance ToJSON AssociateServiceRoleToAccount where
-        toJSON AssociateServiceRoleToAccount'{..}
-          = object
-              (catMaybes [("RoleArn" .=) <$> _asrtaRoleARN])
+instance Core.ToPath AssociateServiceRoleToAccount where
+  toPath = Prelude.const "/greengrass/servicerole"
 
-instance ToPath AssociateServiceRoleToAccount where
-        toPath = const "/greengrass/servicerole"
+instance Core.ToQuery AssociateServiceRoleToAccount where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery AssociateServiceRoleToAccount where
-        toQuery = const mempty
-
--- | /See:/ 'associateServiceRoleToAccountResponse' smart constructor.
+-- | /See:/ 'newAssociateServiceRoleToAccountResponse' smart constructor.
 data AssociateServiceRoleToAccountResponse = AssociateServiceRoleToAccountResponse'
-  { _asrtarsAssociatedAt   :: !(Maybe Text)
-  , _asrtarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The time when the service role was associated with the account.
+    associatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateServiceRoleToAccountResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateServiceRoleToAccountResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'asrtarsAssociatedAt' - Time when the service role was associated to the account.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'asrtarsResponseStatus' - -- | The response status code.
-associateServiceRoleToAccountResponse
-    :: Int -- ^ 'asrtarsResponseStatus'
-    -> AssociateServiceRoleToAccountResponse
-associateServiceRoleToAccountResponse pResponseStatus_ =
+-- 'associatedAt', 'associateServiceRoleToAccountResponse_associatedAt' - The time when the service role was associated with the account.
+--
+-- 'httpStatus', 'associateServiceRoleToAccountResponse_httpStatus' - The response's http status code.
+newAssociateServiceRoleToAccountResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AssociateServiceRoleToAccountResponse
+newAssociateServiceRoleToAccountResponse pHttpStatus_ =
   AssociateServiceRoleToAccountResponse'
-  {_asrtarsAssociatedAt = Nothing, _asrtarsResponseStatus = pResponseStatus_}
+    { associatedAt =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The time when the service role was associated with the account.
+associateServiceRoleToAccountResponse_associatedAt :: Lens.Lens' AssociateServiceRoleToAccountResponse (Prelude.Maybe Prelude.Text)
+associateServiceRoleToAccountResponse_associatedAt = Lens.lens (\AssociateServiceRoleToAccountResponse' {associatedAt} -> associatedAt) (\s@AssociateServiceRoleToAccountResponse' {} a -> s {associatedAt = a} :: AssociateServiceRoleToAccountResponse)
 
--- | Time when the service role was associated to the account.
-asrtarsAssociatedAt :: Lens' AssociateServiceRoleToAccountResponse (Maybe Text)
-asrtarsAssociatedAt = lens _asrtarsAssociatedAt (\ s a -> s{_asrtarsAssociatedAt = a});
+-- | The response's http status code.
+associateServiceRoleToAccountResponse_httpStatus :: Lens.Lens' AssociateServiceRoleToAccountResponse Prelude.Int
+associateServiceRoleToAccountResponse_httpStatus = Lens.lens (\AssociateServiceRoleToAccountResponse' {httpStatus} -> httpStatus) (\s@AssociateServiceRoleToAccountResponse' {} a -> s {httpStatus = a} :: AssociateServiceRoleToAccountResponse)
 
--- | -- | The response status code.
-asrtarsResponseStatus :: Lens' AssociateServiceRoleToAccountResponse Int
-asrtarsResponseStatus = lens _asrtarsResponseStatus (\ s a -> s{_asrtarsResponseStatus = a});
-
-instance NFData AssociateServiceRoleToAccountResponse
-         where
+instance
+  Prelude.NFData
+    AssociateServiceRoleToAccountResponse

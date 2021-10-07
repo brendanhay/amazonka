@@ -1,123 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateBasePathMapping
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about the 'BasePathMapping' resource.
---
---
+-- Changes information about the BasePathMapping resource.
 module Network.AWS.APIGateway.UpdateBasePathMapping
-    (
-    -- * Creating a Request
-      updateBasePathMapping
-    , UpdateBasePathMapping
+  ( -- * Creating a Request
+    UpdateBasePathMapping (..),
+    newUpdateBasePathMapping,
+
     -- * Request Lenses
-    , ubpmPatchOperations
-    , ubpmDomainName
-    , ubpmBasePath
+    updateBasePathMapping_patchOperations,
+    updateBasePathMapping_domainName,
+    updateBasePathMapping_basePath,
 
     -- * Destructuring the Response
-    , basePathMapping
-    , BasePathMapping
+    BasePathMapping (..),
+    newBasePathMapping,
+
     -- * Response Lenses
-    , bpmStage
-    , bpmBasePath
-    , bpmRestAPIId
-    ) where
+    basePathMapping_basePath,
+    basePathMapping_stage,
+    basePathMapping_restApiId,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | A request to change information about the 'BasePathMapping' resource.
+-- | A request to change information about the BasePathMapping resource.
 --
---
---
--- /See:/ 'updateBasePathMapping' smart constructor.
+-- /See:/ 'newUpdateBasePathMapping' smart constructor.
 data UpdateBasePathMapping = UpdateBasePathMapping'
-  { _ubpmPatchOperations :: !(Maybe [PatchOperation])
-  , _ubpmDomainName      :: !Text
-  , _ubpmBasePath        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateBasePathMapping' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubpmPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'ubpmDomainName' - The domain name of the 'BasePathMapping' resource to change.
---
--- * 'ubpmBasePath' - The base path of the 'BasePathMapping' resource to change.
-updateBasePathMapping
-    :: Text -- ^ 'ubpmDomainName'
-    -> Text -- ^ 'ubpmBasePath'
-    -> UpdateBasePathMapping
-updateBasePathMapping pDomainName_ pBasePath_ =
-  UpdateBasePathMapping'
-  { _ubpmPatchOperations = Nothing
-  , _ubpmDomainName = pDomainName_
-  , _ubpmBasePath = pBasePath_
+  { -- | A list of update operations to be applied to the specified resource and
+    -- in the order specified in this list.
+    patchOperations :: Prelude.Maybe [PatchOperation],
+    -- | [Required] The domain name of the BasePathMapping resource to change.
+    domainName :: Prelude.Text,
+    -- | [Required] The base path of the BasePathMapping resource to change.
+    --
+    -- To specify an empty base path, set this parameter to @\'(none)\'@.
+    basePath :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateBasePathMapping' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'patchOperations', 'updateBasePathMapping_patchOperations' - A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+--
+-- 'domainName', 'updateBasePathMapping_domainName' - [Required] The domain name of the BasePathMapping resource to change.
+--
+-- 'basePath', 'updateBasePathMapping_basePath' - [Required] The base path of the BasePathMapping resource to change.
+--
+-- To specify an empty base path, set this parameter to @\'(none)\'@.
+newUpdateBasePathMapping ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'basePath'
+  Prelude.Text ->
+  UpdateBasePathMapping
+newUpdateBasePathMapping pDomainName_ pBasePath_ =
+  UpdateBasePathMapping'
+    { patchOperations =
+        Prelude.Nothing,
+      domainName = pDomainName_,
+      basePath = pBasePath_
+    }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-ubpmPatchOperations :: Lens' UpdateBasePathMapping [PatchOperation]
-ubpmPatchOperations = lens _ubpmPatchOperations (\ s a -> s{_ubpmPatchOperations = a}) . _Default . _Coerce;
+-- | A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+updateBasePathMapping_patchOperations :: Lens.Lens' UpdateBasePathMapping (Prelude.Maybe [PatchOperation])
+updateBasePathMapping_patchOperations = Lens.lens (\UpdateBasePathMapping' {patchOperations} -> patchOperations) (\s@UpdateBasePathMapping' {} a -> s {patchOperations = a} :: UpdateBasePathMapping) Prelude.. Lens.mapping Lens._Coerce
 
--- | The domain name of the 'BasePathMapping' resource to change.
-ubpmDomainName :: Lens' UpdateBasePathMapping Text
-ubpmDomainName = lens _ubpmDomainName (\ s a -> s{_ubpmDomainName = a});
+-- | [Required] The domain name of the BasePathMapping resource to change.
+updateBasePathMapping_domainName :: Lens.Lens' UpdateBasePathMapping Prelude.Text
+updateBasePathMapping_domainName = Lens.lens (\UpdateBasePathMapping' {domainName} -> domainName) (\s@UpdateBasePathMapping' {} a -> s {domainName = a} :: UpdateBasePathMapping)
 
--- | The base path of the 'BasePathMapping' resource to change.
-ubpmBasePath :: Lens' UpdateBasePathMapping Text
-ubpmBasePath = lens _ubpmBasePath (\ s a -> s{_ubpmBasePath = a});
+-- | [Required] The base path of the BasePathMapping resource to change.
+--
+-- To specify an empty base path, set this parameter to @\'(none)\'@.
+updateBasePathMapping_basePath :: Lens.Lens' UpdateBasePathMapping Prelude.Text
+updateBasePathMapping_basePath = Lens.lens (\UpdateBasePathMapping' {basePath} -> basePath) (\s@UpdateBasePathMapping' {} a -> s {basePath = a} :: UpdateBasePathMapping)
 
-instance AWSRequest UpdateBasePathMapping where
-        type Rs UpdateBasePathMapping = BasePathMapping
-        request = patchJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.AWSRequest UpdateBasePathMapping where
+  type
+    AWSResponse UpdateBasePathMapping =
+      BasePathMapping
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable UpdateBasePathMapping where
+instance Prelude.Hashable UpdateBasePathMapping
 
-instance NFData UpdateBasePathMapping where
+instance Prelude.NFData UpdateBasePathMapping
 
-instance ToHeaders UpdateBasePathMapping where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders UpdateBasePathMapping where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToJSON UpdateBasePathMapping where
-        toJSON UpdateBasePathMapping'{..}
-          = object
-              (catMaybes
-                 [("patchOperations" .=) <$> _ubpmPatchOperations])
+instance Core.ToJSON UpdateBasePathMapping where
+  toJSON UpdateBasePathMapping' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("patchOperations" Core..=)
+              Prelude.<$> patchOperations
+          ]
+      )
 
-instance ToPath UpdateBasePathMapping where
-        toPath UpdateBasePathMapping'{..}
-          = mconcat
-              ["/domainnames/", toBS _ubpmDomainName,
-               "/basepathmappings/", toBS _ubpmBasePath]
+instance Core.ToPath UpdateBasePathMapping where
+  toPath UpdateBasePathMapping' {..} =
+    Prelude.mconcat
+      [ "/domainnames/",
+        Core.toBS domainName,
+        "/basepathmappings/",
+        Core.toBS basePath
+      ]
 
-instance ToQuery UpdateBasePathMapping where
-        toQuery = const mempty
+instance Core.ToQuery UpdateBasePathMapping where
+  toQuery = Prelude.const Prelude.mempty

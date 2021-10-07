@@ -1,145 +1,196 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDomainEntry
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates one of the following entry records associated with the domain: A record, CNAME record, TXT record, or MX record.
+-- Creates one of the following domain name system (DNS) records in a
+-- domain DNS zone: Address (A), canonical name (CNAME), mail exchanger
+-- (MX), name server (NS), start of authority (SOA), service locator (SRV),
+-- or text (TXT).
 --
---
+-- The @create domain entry@ operation supports tag-based access control
+-- via resource tags applied to the resource identified by @domain name@.
+-- For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateDomainEntry
-    (
-    -- * Creating a Request
-      createDomainEntry
-    , CreateDomainEntry
+  ( -- * Creating a Request
+    CreateDomainEntry (..),
+    newCreateDomainEntry,
+
     -- * Request Lenses
-    , cdeDomainName
-    , cdeDomainEntry
+    createDomainEntry_domainName,
+    createDomainEntry_domainEntry,
 
     -- * Destructuring the Response
-    , createDomainEntryResponse
-    , CreateDomainEntryResponse
+    CreateDomainEntryResponse (..),
+    newCreateDomainEntryResponse,
+
     -- * Response Lenses
-    , cdersOperation
-    , cdersResponseStatus
-    ) where
+    createDomainEntryResponse_operation,
+    createDomainEntryResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createDomainEntry' smart constructor.
+-- | /See:/ 'newCreateDomainEntry' smart constructor.
 data CreateDomainEntry = CreateDomainEntry'
-  { _cdeDomainName  :: !Text
-  , _cdeDomainEntry :: !DomainEntry
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The domain name (e.g., @example.com@) for which you want to create the
+    -- domain entry.
+    domainName :: Prelude.Text,
+    -- | An array of key-value pairs containing information about the domain
+    -- entry request.
+    domainEntry :: DomainEntry
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDomainEntry' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDomainEntry' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdeDomainName' - The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdeDomainEntry' - An array of key-value pairs containing information about the domain entry request.
-createDomainEntry
-    :: Text -- ^ 'cdeDomainName'
-    -> DomainEntry -- ^ 'cdeDomainEntry'
-    -> CreateDomainEntry
-createDomainEntry pDomainName_ pDomainEntry_ =
+-- 'domainName', 'createDomainEntry_domainName' - The domain name (e.g., @example.com@) for which you want to create the
+-- domain entry.
+--
+-- 'domainEntry', 'createDomainEntry_domainEntry' - An array of key-value pairs containing information about the domain
+-- entry request.
+newCreateDomainEntry ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'domainEntry'
+  DomainEntry ->
+  CreateDomainEntry
+newCreateDomainEntry pDomainName_ pDomainEntry_ =
   CreateDomainEntry'
-  {_cdeDomainName = pDomainName_, _cdeDomainEntry = pDomainEntry_}
+    { domainName = pDomainName_,
+      domainEntry = pDomainEntry_
+    }
 
+-- | The domain name (e.g., @example.com@) for which you want to create the
+-- domain entry.
+createDomainEntry_domainName :: Lens.Lens' CreateDomainEntry Prelude.Text
+createDomainEntry_domainName = Lens.lens (\CreateDomainEntry' {domainName} -> domainName) (\s@CreateDomainEntry' {} a -> s {domainName = a} :: CreateDomainEntry)
 
--- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
-cdeDomainName :: Lens' CreateDomainEntry Text
-cdeDomainName = lens _cdeDomainName (\ s a -> s{_cdeDomainName = a});
+-- | An array of key-value pairs containing information about the domain
+-- entry request.
+createDomainEntry_domainEntry :: Lens.Lens' CreateDomainEntry DomainEntry
+createDomainEntry_domainEntry = Lens.lens (\CreateDomainEntry' {domainEntry} -> domainEntry) (\s@CreateDomainEntry' {} a -> s {domainEntry = a} :: CreateDomainEntry)
 
--- | An array of key-value pairs containing information about the domain entry request.
-cdeDomainEntry :: Lens' CreateDomainEntry DomainEntry
-cdeDomainEntry = lens _cdeDomainEntry (\ s a -> s{_cdeDomainEntry = a});
+instance Core.AWSRequest CreateDomainEntry where
+  type
+    AWSResponse CreateDomainEntry =
+      CreateDomainEntryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDomainEntryResponse'
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateDomainEntry where
-        type Rs CreateDomainEntry = CreateDomainEntryResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDomainEntryResponse' <$>
-                   (x .?> "operation") <*> (pure (fromEnum s)))
+instance Prelude.Hashable CreateDomainEntry
 
-instance Hashable CreateDomainEntry where
+instance Prelude.NFData CreateDomainEntry
 
-instance NFData CreateDomainEntry where
+instance Core.ToHeaders CreateDomainEntry where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.CreateDomainEntry" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders CreateDomainEntry where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.CreateDomainEntry" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON CreateDomainEntry where
+  toJSON CreateDomainEntry' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("domainName" Core..= domainName),
+            Prelude.Just ("domainEntry" Core..= domainEntry)
+          ]
+      )
 
-instance ToJSON CreateDomainEntry where
-        toJSON CreateDomainEntry'{..}
-          = object
-              (catMaybes
-                 [Just ("domainName" .= _cdeDomainName),
-                  Just ("domainEntry" .= _cdeDomainEntry)])
+instance Core.ToPath CreateDomainEntry where
+  toPath = Prelude.const "/"
 
-instance ToPath CreateDomainEntry where
-        toPath = const "/"
+instance Core.ToQuery CreateDomainEntry where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery CreateDomainEntry where
-        toQuery = const mempty
-
--- | /See:/ 'createDomainEntryResponse' smart constructor.
+-- | /See:/ 'newCreateDomainEntryResponse' smart constructor.
 data CreateDomainEntryResponse = CreateDomainEntryResponse'
-  { _cdersOperation      :: !(Maybe Operation)
-  , _cdersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDomainEntryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDomainEntryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdersOperation' - An array of key-value pairs containing information about the operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdersResponseStatus' - -- | The response status code.
-createDomainEntryResponse
-    :: Int -- ^ 'cdersResponseStatus'
-    -> CreateDomainEntryResponse
-createDomainEntryResponse pResponseStatus_ =
+-- 'operation', 'createDomainEntryResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'createDomainEntryResponse_httpStatus' - The response's http status code.
+newCreateDomainEntryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDomainEntryResponse
+newCreateDomainEntryResponse pHttpStatus_ =
   CreateDomainEntryResponse'
-  {_cdersOperation = Nothing, _cdersResponseStatus = pResponseStatus_}
+    { operation =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+createDomainEntryResponse_operation :: Lens.Lens' CreateDomainEntryResponse (Prelude.Maybe Operation)
+createDomainEntryResponse_operation = Lens.lens (\CreateDomainEntryResponse' {operation} -> operation) (\s@CreateDomainEntryResponse' {} a -> s {operation = a} :: CreateDomainEntryResponse)
 
--- | An array of key-value pairs containing information about the operation.
-cdersOperation :: Lens' CreateDomainEntryResponse (Maybe Operation)
-cdersOperation = lens _cdersOperation (\ s a -> s{_cdersOperation = a});
+-- | The response's http status code.
+createDomainEntryResponse_httpStatus :: Lens.Lens' CreateDomainEntryResponse Prelude.Int
+createDomainEntryResponse_httpStatus = Lens.lens (\CreateDomainEntryResponse' {httpStatus} -> httpStatus) (\s@CreateDomainEntryResponse' {} a -> s {httpStatus = a} :: CreateDomainEntryResponse)
 
--- | -- | The response status code.
-cdersResponseStatus :: Lens' CreateDomainEntryResponse Int
-cdersResponseStatus = lens _cdersResponseStatus (\ s a -> s{_cdersResponseStatus = a});
-
-instance NFData CreateDomainEntryResponse where
+instance Prelude.NFData CreateDomainEntryResponse

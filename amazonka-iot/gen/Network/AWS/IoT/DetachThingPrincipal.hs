@@ -1,134 +1,167 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DetachThingPrincipal
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches the specified principal from the specified thing.
+-- Detaches the specified principal from the specified thing. A principal
+-- can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
+-- identities or federated identities.
 --
+-- This call is asynchronous. It might take several seconds for the
+-- detachment to propagate.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DetachThingPrincipal>
+-- action.
 module Network.AWS.IoT.DetachThingPrincipal
-    (
-    -- * Creating a Request
-      detachThingPrincipal
-    , DetachThingPrincipal
+  ( -- * Creating a Request
+    DetachThingPrincipal (..),
+    newDetachThingPrincipal,
+
     -- * Request Lenses
-    , dtpThingName
-    , dtpPrincipal
+    detachThingPrincipal_thingName,
+    detachThingPrincipal_principal,
 
     -- * Destructuring the Response
-    , detachThingPrincipalResponse
-    , DetachThingPrincipalResponse
-    -- * Response Lenses
-    , dtprsResponseStatus
-    ) where
+    DetachThingPrincipalResponse (..),
+    newDetachThingPrincipalResponse,
 
+    -- * Response Lenses
+    detachThingPrincipalResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DetachThingPrincipal operation.
 --
---
---
--- /See:/ 'detachThingPrincipal' smart constructor.
+-- /See:/ 'newDetachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
-  { _dtpThingName :: !Text
-  , _dtpPrincipal :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the thing.
+    thingName :: Prelude.Text,
+    -- | If the principal is a certificate, this value must be ARN of the
+    -- certificate. If the principal is an Amazon Cognito identity, this value
+    -- must be the ID of the Amazon Cognito identity.
+    principal :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DetachThingPrincipal' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachThingPrincipal' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtpThingName' - The name of the thing.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtpPrincipal' - If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
-detachThingPrincipal
-    :: Text -- ^ 'dtpThingName'
-    -> Text -- ^ 'dtpPrincipal'
-    -> DetachThingPrincipal
-detachThingPrincipal pThingName_ pPrincipal_ =
+-- 'thingName', 'detachThingPrincipal_thingName' - The name of the thing.
+--
+-- 'principal', 'detachThingPrincipal_principal' - If the principal is a certificate, this value must be ARN of the
+-- certificate. If the principal is an Amazon Cognito identity, this value
+-- must be the ID of the Amazon Cognito identity.
+newDetachThingPrincipal ::
+  -- | 'thingName'
+  Prelude.Text ->
+  -- | 'principal'
+  Prelude.Text ->
+  DetachThingPrincipal
+newDetachThingPrincipal pThingName_ pPrincipal_ =
   DetachThingPrincipal'
-  {_dtpThingName = pThingName_, _dtpPrincipal = pPrincipal_}
-
+    { thingName = pThingName_,
+      principal = pPrincipal_
+    }
 
 -- | The name of the thing.
-dtpThingName :: Lens' DetachThingPrincipal Text
-dtpThingName = lens _dtpThingName (\ s a -> s{_dtpThingName = a});
+detachThingPrincipal_thingName :: Lens.Lens' DetachThingPrincipal Prelude.Text
+detachThingPrincipal_thingName = Lens.lens (\DetachThingPrincipal' {thingName} -> thingName) (\s@DetachThingPrincipal' {} a -> s {thingName = a} :: DetachThingPrincipal)
 
--- | If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
-dtpPrincipal :: Lens' DetachThingPrincipal Text
-dtpPrincipal = lens _dtpPrincipal (\ s a -> s{_dtpPrincipal = a});
+-- | If the principal is a certificate, this value must be ARN of the
+-- certificate. If the principal is an Amazon Cognito identity, this value
+-- must be the ID of the Amazon Cognito identity.
+detachThingPrincipal_principal :: Lens.Lens' DetachThingPrincipal Prelude.Text
+detachThingPrincipal_principal = Lens.lens (\DetachThingPrincipal' {principal} -> principal) (\s@DetachThingPrincipal' {} a -> s {principal = a} :: DetachThingPrincipal)
 
-instance AWSRequest DetachThingPrincipal where
-        type Rs DetachThingPrincipal =
-             DetachThingPrincipalResponse
-        request = delete ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DetachThingPrincipalResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest DetachThingPrincipal where
+  type
+    AWSResponse DetachThingPrincipal =
+      DetachThingPrincipalResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DetachThingPrincipalResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DetachThingPrincipal where
+instance Prelude.Hashable DetachThingPrincipal
 
-instance NFData DetachThingPrincipal where
+instance Prelude.NFData DetachThingPrincipal
 
-instance ToHeaders DetachThingPrincipal where
-        toHeaders DetachThingPrincipal'{..}
-          = mconcat ["x-amzn-principal" =# _dtpPrincipal]
+instance Core.ToHeaders DetachThingPrincipal where
+  toHeaders DetachThingPrincipal' {..} =
+    Prelude.mconcat
+      ["x-amzn-principal" Core.=# principal]
 
-instance ToPath DetachThingPrincipal where
-        toPath DetachThingPrincipal'{..}
-          = mconcat
-              ["/things/", toBS _dtpThingName, "/principals"]
+instance Core.ToPath DetachThingPrincipal where
+  toPath DetachThingPrincipal' {..} =
+    Prelude.mconcat
+      ["/things/", Core.toBS thingName, "/principals"]
 
-instance ToQuery DetachThingPrincipal where
-        toQuery = const mempty
+instance Core.ToQuery DetachThingPrincipal where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the DetachThingPrincipal operation.
 --
+-- /See:/ 'newDetachThingPrincipalResponse' smart constructor.
+data DetachThingPrincipalResponse = DetachThingPrincipalResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DetachThingPrincipalResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'detachThingPrincipalResponse' smart constructor.
-newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
-  { _dtprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DetachThingPrincipalResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtprsResponseStatus' - -- | The response status code.
-detachThingPrincipalResponse
-    :: Int -- ^ 'dtprsResponseStatus'
-    -> DetachThingPrincipalResponse
-detachThingPrincipalResponse pResponseStatus_ =
-  DetachThingPrincipalResponse' {_dtprsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'detachThingPrincipalResponse_httpStatus' - The response's http status code.
+newDetachThingPrincipalResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DetachThingPrincipalResponse
+newDetachThingPrincipalResponse pHttpStatus_ =
+  DetachThingPrincipalResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+detachThingPrincipalResponse_httpStatus :: Lens.Lens' DetachThingPrincipalResponse Prelude.Int
+detachThingPrincipalResponse_httpStatus = Lens.lens (\DetachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@DetachThingPrincipalResponse' {} a -> s {httpStatus = a} :: DetachThingPrincipalResponse)
 
--- | -- | The response status code.
-dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
-dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
-
-instance NFData DetachThingPrincipalResponse where
+instance Prelude.NFData DetachThingPrincipalResponse

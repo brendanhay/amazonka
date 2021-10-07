@@ -1,125 +1,145 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.OptInPhoneNumber
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.
---
+-- Use this request to opt in a phone number that is opted out, which
+-- enables you to resume sending SMS messages to the number.
 --
 -- You can opt in a phone number only once every 30 days.
---
 module Network.AWS.SNS.OptInPhoneNumber
-    (
-    -- * Creating a Request
-      optInPhoneNumber
-    , OptInPhoneNumber
+  ( -- * Creating a Request
+    OptInPhoneNumber (..),
+    newOptInPhoneNumber,
+
     -- * Request Lenses
-    , oipnPhoneNumber
+    optInPhoneNumber_phoneNumber,
 
     -- * Destructuring the Response
-    , optInPhoneNumberResponse
-    , OptInPhoneNumberResponse
-    -- * Response Lenses
-    , oipnrsResponseStatus
-    ) where
+    OptInPhoneNumberResponse (..),
+    newOptInPhoneNumberResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    optInPhoneNumberResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for the OptInPhoneNumber action.
 --
+-- /See:/ 'newOptInPhoneNumber' smart constructor.
+data OptInPhoneNumber = OptInPhoneNumber'
+  { -- | The phone number to opt in. Use E.164 format.
+    phoneNumber :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'OptInPhoneNumber' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'optInPhoneNumber' smart constructor.
-newtype OptInPhoneNumber = OptInPhoneNumber'
-  { _oipnPhoneNumber :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'OptInPhoneNumber' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oipnPhoneNumber' - The phone number to opt in.
-optInPhoneNumber
-    :: Text -- ^ 'oipnPhoneNumber'
-    -> OptInPhoneNumber
-optInPhoneNumber pPhoneNumber_ =
-  OptInPhoneNumber' {_oipnPhoneNumber = pPhoneNumber_}
+-- 'phoneNumber', 'optInPhoneNumber_phoneNumber' - The phone number to opt in. Use E.164 format.
+newOptInPhoneNumber ::
+  -- | 'phoneNumber'
+  Prelude.Text ->
+  OptInPhoneNumber
+newOptInPhoneNumber pPhoneNumber_ =
+  OptInPhoneNumber' {phoneNumber = pPhoneNumber_}
 
+-- | The phone number to opt in. Use E.164 format.
+optInPhoneNumber_phoneNumber :: Lens.Lens' OptInPhoneNumber Prelude.Text
+optInPhoneNumber_phoneNumber = Lens.lens (\OptInPhoneNumber' {phoneNumber} -> phoneNumber) (\s@OptInPhoneNumber' {} a -> s {phoneNumber = a} :: OptInPhoneNumber)
 
--- | The phone number to opt in.
-oipnPhoneNumber :: Lens' OptInPhoneNumber Text
-oipnPhoneNumber = lens _oipnPhoneNumber (\ s a -> s{_oipnPhoneNumber = a});
+instance Core.AWSRequest OptInPhoneNumber where
+  type
+    AWSResponse OptInPhoneNumber =
+      OptInPhoneNumberResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "OptInPhoneNumberResult"
+      ( \s h x ->
+          OptInPhoneNumberResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest OptInPhoneNumber where
-        type Rs OptInPhoneNumber = OptInPhoneNumberResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper "OptInPhoneNumberResult"
-              (\ s h x ->
-                 OptInPhoneNumberResponse' <$> (pure (fromEnum s)))
+instance Prelude.Hashable OptInPhoneNumber
 
-instance Hashable OptInPhoneNumber where
+instance Prelude.NFData OptInPhoneNumber
 
-instance NFData OptInPhoneNumber where
+instance Core.ToHeaders OptInPhoneNumber where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders OptInPhoneNumber where
-        toHeaders = const mempty
+instance Core.ToPath OptInPhoneNumber where
+  toPath = Prelude.const "/"
 
-instance ToPath OptInPhoneNumber where
-        toPath = const "/"
-
-instance ToQuery OptInPhoneNumber where
-        toQuery OptInPhoneNumber'{..}
-          = mconcat
-              ["Action" =: ("OptInPhoneNumber" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "phoneNumber" =: _oipnPhoneNumber]
+instance Core.ToQuery OptInPhoneNumber where
+  toQuery OptInPhoneNumber' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("OptInPhoneNumber" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
+        "phoneNumber" Core.=: phoneNumber
+      ]
 
 -- | The response for the OptInPhoneNumber action.
 --
+-- /See:/ 'newOptInPhoneNumberResponse' smart constructor.
+data OptInPhoneNumberResponse = OptInPhoneNumberResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'OptInPhoneNumberResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'optInPhoneNumberResponse' smart constructor.
-newtype OptInPhoneNumberResponse = OptInPhoneNumberResponse'
-  { _oipnrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'OptInPhoneNumberResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oipnrsResponseStatus' - -- | The response status code.
-optInPhoneNumberResponse
-    :: Int -- ^ 'oipnrsResponseStatus'
-    -> OptInPhoneNumberResponse
-optInPhoneNumberResponse pResponseStatus_ =
-  OptInPhoneNumberResponse' {_oipnrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'optInPhoneNumberResponse_httpStatus' - The response's http status code.
+newOptInPhoneNumberResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  OptInPhoneNumberResponse
+newOptInPhoneNumberResponse pHttpStatus_ =
+  OptInPhoneNumberResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+optInPhoneNumberResponse_httpStatus :: Lens.Lens' OptInPhoneNumberResponse Prelude.Int
+optInPhoneNumberResponse_httpStatus = Lens.lens (\OptInPhoneNumberResponse' {httpStatus} -> httpStatus) (\s@OptInPhoneNumberResponse' {} a -> s {httpStatus = a} :: OptInPhoneNumberResponse)
 
--- | -- | The response status code.
-oipnrsResponseStatus :: Lens' OptInPhoneNumberResponse Int
-oipnrsResponseStatus = lens _oipnrsResponseStatus (\ s a -> s{_oipnrsResponseStatus = a});
-
-instance NFData OptInPhoneNumberResponse where
+instance Prelude.NFData OptInPhoneNumberResponse

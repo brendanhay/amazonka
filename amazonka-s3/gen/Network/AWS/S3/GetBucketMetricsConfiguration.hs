@@ -1,136 +1,208 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketMetricsConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+-- Gets a metrics configuration (specified by the metrics configuration ID)
+-- from the bucket. Note that this doesn\'t include the daily storage
+-- metrics.
+--
+-- To use this operation, you must have permissions to perform the
+-- @s3:GetMetricsConfiguration@ action. The bucket owner has this
+-- permission by default. The bucket owner can grant this permission to
+-- others. For more information about permissions, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- and
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+--
+-- For information about CloudWatch request metrics for Amazon S3, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch>.
+--
+-- The following operations are related to @GetBucketMetricsConfiguration@:
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html PutBucketMetricsConfiguration>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html DeleteBucketMetricsConfiguration>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html ListBucketMetricsConfigurations>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch>
 module Network.AWS.S3.GetBucketMetricsConfiguration
-    (
-    -- * Creating a Request
-      getBucketMetricsConfiguration
-    , GetBucketMetricsConfiguration
+  ( -- * Creating a Request
+    GetBucketMetricsConfiguration (..),
+    newGetBucketMetricsConfiguration,
+
     -- * Request Lenses
-    , gbmcBucket
-    , gbmcId
+    getBucketMetricsConfiguration_expectedBucketOwner,
+    getBucketMetricsConfiguration_bucket,
+    getBucketMetricsConfiguration_id,
 
     -- * Destructuring the Response
-    , getBucketMetricsConfigurationResponse
-    , GetBucketMetricsConfigurationResponse
+    GetBucketMetricsConfigurationResponse (..),
+    newGetBucketMetricsConfigurationResponse,
+
     -- * Response Lenses
-    , gbmcrsMetricsConfiguration
-    , gbmcrsResponseStatus
-    ) where
+    getBucketMetricsConfigurationResponse_metricsConfiguration,
+    getBucketMetricsConfigurationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'getBucketMetricsConfiguration' smart constructor.
+-- | /See:/ 'newGetBucketMetricsConfiguration' smart constructor.
 data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
-  { _gbmcBucket :: !BucketName
-  , _gbmcId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bucket containing the metrics configuration to retrieve.
+    bucket :: BucketName,
+    -- | The ID used to identify the metrics configuration.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetBucketMetricsConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'expectedBucketOwner', 'getBucketMetricsConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+--
+-- 'bucket', 'getBucketMetricsConfiguration_bucket' - The name of the bucket containing the metrics configuration to retrieve.
+--
+-- 'id', 'getBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration.
+newGetBucketMetricsConfiguration ::
+  -- | 'bucket'
+  BucketName ->
+  -- | 'id'
+  Prelude.Text ->
+  GetBucketMetricsConfiguration
+newGetBucketMetricsConfiguration pBucket_ pId_ =
+  GetBucketMetricsConfiguration'
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      bucket = pBucket_,
+      id = pId_
+    }
 
--- | Creates a value of 'GetBucketMetricsConfiguration' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbmcBucket' - The name of the bucket containing the metrics configuration to retrieve.
---
--- * 'gbmcId' - The ID used to identify the metrics configuration.
-getBucketMetricsConfiguration
-    :: BucketName -- ^ 'gbmcBucket'
-    -> Text -- ^ 'gbmcId'
-    -> GetBucketMetricsConfiguration
-getBucketMetricsConfiguration pBucket_ pId_ =
-  GetBucketMetricsConfiguration' {_gbmcBucket = pBucket_, _gbmcId = pId_}
-
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+getBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketMetricsConfiguration (Prelude.Maybe Prelude.Text)
+getBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\GetBucketMetricsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketMetricsConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketMetricsConfiguration)
 
 -- | The name of the bucket containing the metrics configuration to retrieve.
-gbmcBucket :: Lens' GetBucketMetricsConfiguration BucketName
-gbmcBucket = lens _gbmcBucket (\ s a -> s{_gbmcBucket = a});
+getBucketMetricsConfiguration_bucket :: Lens.Lens' GetBucketMetricsConfiguration BucketName
+getBucketMetricsConfiguration_bucket = Lens.lens (\GetBucketMetricsConfiguration' {bucket} -> bucket) (\s@GetBucketMetricsConfiguration' {} a -> s {bucket = a} :: GetBucketMetricsConfiguration)
 
 -- | The ID used to identify the metrics configuration.
-gbmcId :: Lens' GetBucketMetricsConfiguration Text
-gbmcId = lens _gbmcId (\ s a -> s{_gbmcId = a});
+getBucketMetricsConfiguration_id :: Lens.Lens' GetBucketMetricsConfiguration Prelude.Text
+getBucketMetricsConfiguration_id = Lens.lens (\GetBucketMetricsConfiguration' {id} -> id) (\s@GetBucketMetricsConfiguration' {} a -> s {id = a} :: GetBucketMetricsConfiguration)
 
-instance AWSRequest GetBucketMetricsConfiguration
-         where
-        type Rs GetBucketMetricsConfiguration =
-             GetBucketMetricsConfigurationResponse
-        request = get s3
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetBucketMetricsConfigurationResponse' <$>
-                   (parseXML x) <*> (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    GetBucketMetricsConfiguration
+  where
+  type
+    AWSResponse GetBucketMetricsConfiguration =
+      GetBucketMetricsConfigurationResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetBucketMetricsConfigurationResponse'
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetBucketMetricsConfiguration where
+instance
+  Prelude.Hashable
+    GetBucketMetricsConfiguration
 
-instance NFData GetBucketMetricsConfiguration where
+instance Prelude.NFData GetBucketMetricsConfiguration
 
-instance ToHeaders GetBucketMetricsConfiguration
-         where
-        toHeaders = const mempty
+instance Core.ToHeaders GetBucketMetricsConfiguration where
+  toHeaders GetBucketMetricsConfiguration' {..} =
+    Prelude.mconcat
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
+      ]
 
-instance ToPath GetBucketMetricsConfiguration where
-        toPath GetBucketMetricsConfiguration'{..}
-          = mconcat ["/", toBS _gbmcBucket]
+instance Core.ToPath GetBucketMetricsConfiguration where
+  toPath GetBucketMetricsConfiguration' {..} =
+    Prelude.mconcat ["/", Core.toBS bucket]
 
-instance ToQuery GetBucketMetricsConfiguration where
-        toQuery GetBucketMetricsConfiguration'{..}
-          = mconcat ["id" =: _gbmcId, "metrics"]
+instance Core.ToQuery GetBucketMetricsConfiguration where
+  toQuery GetBucketMetricsConfiguration' {..} =
+    Prelude.mconcat ["id" Core.=: id, "metrics"]
 
--- | /See:/ 'getBucketMetricsConfigurationResponse' smart constructor.
+-- | /See:/ 'newGetBucketMetricsConfigurationResponse' smart constructor.
 data GetBucketMetricsConfigurationResponse = GetBucketMetricsConfigurationResponse'
-  { _gbmcrsMetricsConfiguration :: !(Maybe MetricsConfiguration)
-  , _gbmcrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetBucketMetricsConfigurationResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbmcrsMetricsConfiguration' - Specifies the metrics configuration.
---
--- * 'gbmcrsResponseStatus' - -- | The response status code.
-getBucketMetricsConfigurationResponse
-    :: Int -- ^ 'gbmcrsResponseStatus'
-    -> GetBucketMetricsConfigurationResponse
-getBucketMetricsConfigurationResponse pResponseStatus_ =
-  GetBucketMetricsConfigurationResponse'
-  { _gbmcrsMetricsConfiguration = Nothing
-  , _gbmcrsResponseStatus = pResponseStatus_
+  { -- | Specifies the metrics configuration.
+    metricsConfiguration :: Prelude.Maybe MetricsConfiguration,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetBucketMetricsConfigurationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'metricsConfiguration', 'getBucketMetricsConfigurationResponse_metricsConfiguration' - Specifies the metrics configuration.
+--
+-- 'httpStatus', 'getBucketMetricsConfigurationResponse_httpStatus' - The response's http status code.
+newGetBucketMetricsConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetBucketMetricsConfigurationResponse
+newGetBucketMetricsConfigurationResponse pHttpStatus_ =
+  GetBucketMetricsConfigurationResponse'
+    { metricsConfiguration =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Specifies the metrics configuration.
-gbmcrsMetricsConfiguration :: Lens' GetBucketMetricsConfigurationResponse (Maybe MetricsConfiguration)
-gbmcrsMetricsConfiguration = lens _gbmcrsMetricsConfiguration (\ s a -> s{_gbmcrsMetricsConfiguration = a});
+getBucketMetricsConfigurationResponse_metricsConfiguration :: Lens.Lens' GetBucketMetricsConfigurationResponse (Prelude.Maybe MetricsConfiguration)
+getBucketMetricsConfigurationResponse_metricsConfiguration = Lens.lens (\GetBucketMetricsConfigurationResponse' {metricsConfiguration} -> metricsConfiguration) (\s@GetBucketMetricsConfigurationResponse' {} a -> s {metricsConfiguration = a} :: GetBucketMetricsConfigurationResponse)
 
--- | -- | The response status code.
-gbmcrsResponseStatus :: Lens' GetBucketMetricsConfigurationResponse Int
-gbmcrsResponseStatus = lens _gbmcrsResponseStatus (\ s a -> s{_gbmcrsResponseStatus = a});
+-- | The response's http status code.
+getBucketMetricsConfigurationResponse_httpStatus :: Lens.Lens' GetBucketMetricsConfigurationResponse Prelude.Int
+getBucketMetricsConfigurationResponse_httpStatus = Lens.lens (\GetBucketMetricsConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBucketMetricsConfigurationResponse' {} a -> s {httpStatus = a} :: GetBucketMetricsConfigurationResponse)
 
-instance NFData GetBucketMetricsConfigurationResponse
-         where
+instance
+  Prelude.NFData
+    GetBucketMetricsConfigurationResponse

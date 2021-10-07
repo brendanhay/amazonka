@@ -1,105 +1,129 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteBot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes all versions of the bot, including the @> LATEST@ version. To delete a specific version of the bot, use the 'DeleteBotVersion' operation.
+-- Deletes all versions of the bot, including the @$LATEST@ version. To
+-- delete a specific version of the bot, use the DeleteBotVersion
+-- operation. The @DeleteBot@ operation doesn\'t immediately remove the bot
+-- schema. Instead, it is marked for deletion and removed later.
 --
+-- Amazon Lex stores utterances indefinitely for improving the ability of
+-- your bot to respond to user inputs. These utterances are not removed
+-- when the bot is deleted. To remove the utterances, use the
+-- DeleteUtterances operation.
 --
--- If a bot has an alias, you can't delete it. Instead, the @DeleteBot@ operation returns a @ResourceInUseException@ exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the @DeleteBot@ operation is successful.
+-- If a bot has an alias, you can\'t delete it. Instead, the @DeleteBot@
+-- operation returns a @ResourceInUseException@ exception that includes a
+-- reference to the alias that refers to the bot. To remove the reference
+-- to the bot, delete the alias. If you get the same exception again,
+-- delete the referring alias until the @DeleteBot@ operation is
+-- successful.
 --
 -- This operation requires permissions for the @lex:DeleteBot@ action.
---
 module Network.AWS.LexModels.DeleteBot
-    (
-    -- * Creating a Request
-      deleteBot
-    , DeleteBot
+  ( -- * Creating a Request
+    DeleteBot (..),
+    newDeleteBot,
+
     -- * Request Lenses
-    , dbName
+    deleteBot_name,
 
     -- * Destructuring the Response
-    , deleteBotResponse
-    , DeleteBotResponse
-    ) where
+    DeleteBotResponse (..),
+    newDeleteBotResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.LexModels.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteBot' smart constructor.
-newtype DeleteBot = DeleteBot'
-  { _dbName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteBot' smart constructor.
+data DeleteBot = DeleteBot'
+  { -- | The name of the bot. The name is case sensitive.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteBot' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteBot' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dbName' - The name of the bot. The name is case sensitive.
-deleteBot
-    :: Text -- ^ 'dbName'
-    -> DeleteBot
-deleteBot pName_ = DeleteBot' {_dbName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'deleteBot_name' - The name of the bot. The name is case sensitive.
+newDeleteBot ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteBot
+newDeleteBot pName_ = DeleteBot' {name = pName_}
 
 -- | The name of the bot. The name is case sensitive.
-dbName :: Lens' DeleteBot Text
-dbName = lens _dbName (\ s a -> s{_dbName = a});
+deleteBot_name :: Lens.Lens' DeleteBot Prelude.Text
+deleteBot_name = Lens.lens (\DeleteBot' {name} -> name) (\s@DeleteBot' {} a -> s {name = a} :: DeleteBot)
 
-instance AWSRequest DeleteBot where
-        type Rs DeleteBot = DeleteBotResponse
-        request = delete lexModels
-        response = receiveNull DeleteBotResponse'
+instance Core.AWSRequest DeleteBot where
+  type AWSResponse DeleteBot = DeleteBotResponse
+  request = Request.delete defaultService
+  response = Response.receiveNull DeleteBotResponse'
 
-instance Hashable DeleteBot where
+instance Prelude.Hashable DeleteBot
 
-instance NFData DeleteBot where
+instance Prelude.NFData DeleteBot
 
-instance ToHeaders DeleteBot where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteBot where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DeleteBot where
-        toPath DeleteBot'{..}
-          = mconcat ["/bots/", toBS _dbName]
+instance Core.ToPath DeleteBot where
+  toPath DeleteBot' {..} =
+    Prelude.mconcat ["/bots/", Core.toBS name]
 
-instance ToQuery DeleteBot where
-        toQuery = const mempty
+instance Core.ToQuery DeleteBot where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteBotResponse' smart constructor.
-data DeleteBotResponse =
-  DeleteBotResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteBotResponse' smart constructor.
+data DeleteBotResponse = DeleteBotResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteBotResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteBotResponse' with all optional fields omitted.
 --
-deleteBotResponse
-    :: DeleteBotResponse
-deleteBotResponse = DeleteBotResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteBotResponse ::
+  DeleteBotResponse
+newDeleteBotResponse = DeleteBotResponse'
 
-
-instance NFData DeleteBotResponse where
+instance Prelude.NFData DeleteBotResponse

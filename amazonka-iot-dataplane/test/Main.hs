@@ -2,20 +2,22 @@
 
 -- |
 -- Module      : Main
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Main (main) where
 
+import Test.AWS.IoTData
+import Test.AWS.IoTData.Internal
 import Test.Tasty
-import Test.AWS.IoTDataPlane
-import Test.AWS.IoTDataPlane.Internal
 
 main :: IO ()
-main = defaultMain $ testGroup "IoTDataPlane"
-    [ testGroup "tests"    tests
-    , testGroup "fixtures" fixtures
-    ]
+main =
+  defaultMain $
+    testGroup
+      "IoTData"
+      [ testGroup "tests" tests,
+        testGroup "fixtures" fixtures
+      ]

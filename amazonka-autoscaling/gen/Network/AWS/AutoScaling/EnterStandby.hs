@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.EnterStandby
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,135 +22,175 @@
 --
 -- Moves the specified instances into the standby state.
 --
+-- If you choose to decrement the desired capacity of the Auto Scaling
+-- group, the instances can enter standby as long as the desired capacity
+-- of the Auto Scaling group after the instances are placed into standby is
+-- equal to or greater than the minimum capacity of the group.
 --
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-enter-exit-standby.html Temporarily Removing Instances from Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
+-- If you choose not to decrement the desired capacity of the Auto Scaling
+-- group, the Auto Scaling group launches new instances to replace the
+-- instances on standby.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html Temporarily removing instances from your Auto Scaling group>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.EnterStandby
-    (
-    -- * Creating a Request
-      enterStandby
-    , EnterStandby
+  ( -- * Creating a Request
+    EnterStandby (..),
+    newEnterStandby,
+
     -- * Request Lenses
-    , esInstanceIds
-    , esAutoScalingGroupName
-    , esShouldDecrementDesiredCapacity
+    enterStandby_instanceIds,
+    enterStandby_autoScalingGroupName,
+    enterStandby_shouldDecrementDesiredCapacity,
 
     -- * Destructuring the Response
-    , enterStandbyResponse
-    , EnterStandbyResponse
+    EnterStandbyResponse (..),
+    newEnterStandbyResponse,
+
     -- * Response Lenses
-    , ersActivities
-    , ersResponseStatus
-    ) where
+    enterStandbyResponse_activities,
+    enterStandbyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'enterStandby' smart constructor.
+-- | /See:/ 'newEnterStandby' smart constructor.
 data EnterStandby = EnterStandby'
-  { _esInstanceIds                    :: !(Maybe [Text])
-  , _esAutoScalingGroupName           :: !Text
-  , _esShouldDecrementDesiredCapacity :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'EnterStandby' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esInstanceIds' - One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
---
--- * 'esAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'esShouldDecrementDesiredCapacity' - Specifies whether the instances moved to @Standby@ mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to @Standby@ mode.
-enterStandby
-    :: Text -- ^ 'esAutoScalingGroupName'
-    -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
-    -> EnterStandby
-enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
-  EnterStandby'
-  { _esInstanceIds = Nothing
-  , _esAutoScalingGroupName = pAutoScalingGroupName_
-  , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+  { -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Text,
+    -- | Indicates whether to decrement the desired capacity of the Auto Scaling
+    -- group by the number of instances moved to @Standby@ mode.
+    shouldDecrementDesiredCapacity :: Prelude.Bool
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'EnterStandby' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceIds', 'enterStandby_instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+--
+-- 'autoScalingGroupName', 'enterStandby_autoScalingGroupName' - The name of the Auto Scaling group.
+--
+-- 'shouldDecrementDesiredCapacity', 'enterStandby_shouldDecrementDesiredCapacity' - Indicates whether to decrement the desired capacity of the Auto Scaling
+-- group by the number of instances moved to @Standby@ mode.
+newEnterStandby ::
+  -- | 'autoScalingGroupName'
+  Prelude.Text ->
+  -- | 'shouldDecrementDesiredCapacity'
+  Prelude.Bool ->
+  EnterStandby
+newEnterStandby
+  pAutoScalingGroupName_
+  pShouldDecrementDesiredCapacity_ =
+    EnterStandby'
+      { instanceIds = Prelude.Nothing,
+        autoScalingGroupName = pAutoScalingGroupName_,
+        shouldDecrementDesiredCapacity =
+          pShouldDecrementDesiredCapacity_
+      }
 
--- | One or more instances to move into @Standby@ mode. You must specify at least one instance ID.
-esInstanceIds :: Lens' EnterStandby [Text]
-esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce;
+-- | The IDs of the instances. You can specify up to 20 instances.
+enterStandby_instanceIds :: Lens.Lens' EnterStandby (Prelude.Maybe [Prelude.Text])
+enterStandby_instanceIds = Lens.lens (\EnterStandby' {instanceIds} -> instanceIds) (\s@EnterStandby' {} a -> s {instanceIds = a} :: EnterStandby) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-esAutoScalingGroupName :: Lens' EnterStandby Text
-esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
+enterStandby_autoScalingGroupName :: Lens.Lens' EnterStandby Prelude.Text
+enterStandby_autoScalingGroupName = Lens.lens (\EnterStandby' {autoScalingGroupName} -> autoScalingGroupName) (\s@EnterStandby' {} a -> s {autoScalingGroupName = a} :: EnterStandby)
 
--- | Specifies whether the instances moved to @Standby@ mode count as part of the Auto Scaling group's desired capacity. If set, the desired capacity for the Auto Scaling group decrements by the number of instances moved to @Standby@ mode.
-esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
-esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
+-- | Indicates whether to decrement the desired capacity of the Auto Scaling
+-- group by the number of instances moved to @Standby@ mode.
+enterStandby_shouldDecrementDesiredCapacity :: Lens.Lens' EnterStandby Prelude.Bool
+enterStandby_shouldDecrementDesiredCapacity = Lens.lens (\EnterStandby' {shouldDecrementDesiredCapacity} -> shouldDecrementDesiredCapacity) (\s@EnterStandby' {} a -> s {shouldDecrementDesiredCapacity = a} :: EnterStandby)
 
-instance AWSRequest EnterStandby where
-        type Rs EnterStandby = EnterStandbyResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper "EnterStandbyResult"
-              (\ s h x ->
-                 EnterStandbyResponse' <$>
-                   (x .@? "Activities" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest EnterStandby where
+  type AWSResponse EnterStandby = EnterStandbyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "EnterStandbyResult"
+      ( \s h x ->
+          EnterStandbyResponse'
+            Prelude.<$> ( x Core..@? "Activities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable EnterStandby where
+instance Prelude.Hashable EnterStandby
 
-instance NFData EnterStandby where
+instance Prelude.NFData EnterStandby
 
-instance ToHeaders EnterStandby where
-        toHeaders = const mempty
+instance Core.ToHeaders EnterStandby where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath EnterStandby where
-        toPath = const "/"
+instance Core.ToPath EnterStandby where
+  toPath = Prelude.const "/"
 
-instance ToQuery EnterStandby where
-        toQuery EnterStandby'{..}
-          = mconcat
-              ["Action" =: ("EnterStandby" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _esInstanceIds),
-               "AutoScalingGroupName" =: _esAutoScalingGroupName,
-               "ShouldDecrementDesiredCapacity" =:
-                 _esShouldDecrementDesiredCapacity]
+instance Core.ToQuery EnterStandby where
+  toQuery EnterStandby' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("EnterStandby" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "InstanceIds"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> instanceIds),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "ShouldDecrementDesiredCapacity"
+          Core.=: shouldDecrementDesiredCapacity
+      ]
 
--- | /See:/ 'enterStandbyResponse' smart constructor.
+-- | /See:/ 'newEnterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
-  { _ersActivities     :: !(Maybe [Activity])
-  , _ersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The activities related to moving instances into @Standby@ mode.
+    activities :: Prelude.Maybe [Activity],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'EnterStandbyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnterStandbyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ersActivities' - The activities related to moving instances into @Standby@ mode.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ersResponseStatus' - -- | The response status code.
-enterStandbyResponse
-    :: Int -- ^ 'ersResponseStatus'
-    -> EnterStandbyResponse
-enterStandbyResponse pResponseStatus_ =
+-- 'activities', 'enterStandbyResponse_activities' - The activities related to moving instances into @Standby@ mode.
+--
+-- 'httpStatus', 'enterStandbyResponse_httpStatus' - The response's http status code.
+newEnterStandbyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  EnterStandbyResponse
+newEnterStandbyResponse pHttpStatus_ =
   EnterStandbyResponse'
-  {_ersActivities = Nothing, _ersResponseStatus = pResponseStatus_}
-
+    { activities = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The activities related to moving instances into @Standby@ mode.
-ersActivities :: Lens' EnterStandbyResponse [Activity]
-ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce;
+enterStandbyResponse_activities :: Lens.Lens' EnterStandbyResponse (Prelude.Maybe [Activity])
+enterStandbyResponse_activities = Lens.lens (\EnterStandbyResponse' {activities} -> activities) (\s@EnterStandbyResponse' {} a -> s {activities = a} :: EnterStandbyResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-ersResponseStatus :: Lens' EnterStandbyResponse Int
-ersResponseStatus = lens _ersResponseStatus (\ s a -> s{_ersResponseStatus = a});
+-- | The response's http status code.
+enterStandbyResponse_httpStatus :: Lens.Lens' EnterStandbyResponse Prelude.Int
+enterStandbyResponse_httpStatus = Lens.lens (\EnterStandbyResponse' {httpStatus} -> httpStatus) (\s@EnterStandbyResponse' {} a -> s {httpStatus = a} :: EnterStandbyResponse)
 
-instance NFData EnterStandbyResponse where
+instance Prelude.NFData EnterStandbyResponse

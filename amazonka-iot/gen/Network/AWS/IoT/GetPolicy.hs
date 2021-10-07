@@ -1,161 +1,216 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.GetPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about the specified policy with the policy document of the default version.
+-- Gets information about the specified policy with the policy document of
+-- the default version.
 --
---
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetPolicy>
+-- action.
 module Network.AWS.IoT.GetPolicy
-    (
-    -- * Creating a Request
-      getPolicy
-    , GetPolicy
+  ( -- * Creating a Request
+    GetPolicy (..),
+    newGetPolicy,
+
     -- * Request Lenses
-    , gpPolicyName
+    getPolicy_policyName,
 
     -- * Destructuring the Response
-    , getPolicyResponse
-    , GetPolicyResponse
-    -- * Response Lenses
-    , gprsPolicyName
-    , gprsPolicyDocument
-    , gprsDefaultVersionId
-    , gprsPolicyARN
-    , gprsResponseStatus
-    ) where
+    GetPolicyResponse (..),
+    newGetPolicyResponse,
 
+    -- * Response Lenses
+    getPolicyResponse_lastModifiedDate,
+    getPolicyResponse_policyDocument,
+    getPolicyResponse_policyName,
+    getPolicyResponse_creationDate,
+    getPolicyResponse_defaultVersionId,
+    getPolicyResponse_generationId,
+    getPolicyResponse_policyArn,
+    getPolicyResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the GetPolicy operation.
 --
---
---
--- /See:/ 'getPolicy' smart constructor.
-newtype GetPolicy = GetPolicy'
-  { _gpPolicyName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetPolicy' smart constructor.
+data GetPolicy = GetPolicy'
+  { -- | The name of the policy.
+    policyName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gpPolicyName' - The name of the policy.
-getPolicy
-    :: Text -- ^ 'gpPolicyName'
-    -> GetPolicy
-getPolicy pPolicyName_ = GetPolicy' {_gpPolicyName = pPolicyName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyName', 'getPolicy_policyName' - The name of the policy.
+newGetPolicy ::
+  -- | 'policyName'
+  Prelude.Text ->
+  GetPolicy
+newGetPolicy pPolicyName_ =
+  GetPolicy' {policyName = pPolicyName_}
 
 -- | The name of the policy.
-gpPolicyName :: Lens' GetPolicy Text
-gpPolicyName = lens _gpPolicyName (\ s a -> s{_gpPolicyName = a});
+getPolicy_policyName :: Lens.Lens' GetPolicy Prelude.Text
+getPolicy_policyName = Lens.lens (\GetPolicy' {policyName} -> policyName) (\s@GetPolicy' {} a -> s {policyName = a} :: GetPolicy)
 
-instance AWSRequest GetPolicy where
-        type Rs GetPolicy = GetPolicyResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetPolicyResponse' <$>
-                   (x .?> "policyName") <*> (x .?> "policyDocument") <*>
-                     (x .?> "defaultVersionId")
-                     <*> (x .?> "policyArn")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetPolicy where
+  type AWSResponse GetPolicy = GetPolicyResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetPolicyResponse'
+            Prelude.<$> (x Core..?> "lastModifiedDate")
+            Prelude.<*> (x Core..?> "policyDocument")
+            Prelude.<*> (x Core..?> "policyName")
+            Prelude.<*> (x Core..?> "creationDate")
+            Prelude.<*> (x Core..?> "defaultVersionId")
+            Prelude.<*> (x Core..?> "generationId")
+            Prelude.<*> (x Core..?> "policyArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetPolicy where
+instance Prelude.Hashable GetPolicy
 
-instance NFData GetPolicy where
+instance Prelude.NFData GetPolicy
 
-instance ToHeaders GetPolicy where
-        toHeaders = const mempty
+instance Core.ToHeaders GetPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetPolicy where
-        toPath GetPolicy'{..}
-          = mconcat ["/policies/", toBS _gpPolicyName]
+instance Core.ToPath GetPolicy where
+  toPath GetPolicy' {..} =
+    Prelude.mconcat
+      ["/policies/", Core.toBS policyName]
 
-instance ToQuery GetPolicy where
-        toQuery = const mempty
+instance Core.ToQuery GetPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetPolicy operation.
 --
---
---
--- /See:/ 'getPolicyResponse' smart constructor.
+-- /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicyName       :: !(Maybe Text)
-  , _gprsPolicyDocument   :: !(Maybe Text)
-  , _gprsDefaultVersionId :: !(Maybe Text)
-  , _gprsPolicyARN        :: !(Maybe Text)
-  , _gprsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gprsPolicyName' - The policy name.
---
--- * 'gprsPolicyDocument' - The JSON document that describes the policy.
---
--- * 'gprsDefaultVersionId' - The default policy version ID.
---
--- * 'gprsPolicyARN' - The policy ARN.
---
--- * 'gprsResponseStatus' - -- | The response status code.
-getPolicyResponse
-    :: Int -- ^ 'gprsResponseStatus'
-    -> GetPolicyResponse
-getPolicyResponse pResponseStatus_ =
-  GetPolicyResponse'
-  { _gprsPolicyName = Nothing
-  , _gprsPolicyDocument = Nothing
-  , _gprsDefaultVersionId = Nothing
-  , _gprsPolicyARN = Nothing
-  , _gprsResponseStatus = pResponseStatus_
+  { -- | The date the policy was last modified.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The JSON document that describes the policy.
+    policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | The policy name.
+    policyName :: Prelude.Maybe Prelude.Text,
+    -- | The date the policy was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The default policy version ID.
+    defaultVersionId :: Prelude.Maybe Prelude.Text,
+    -- | The generation ID of the policy.
+    generationId :: Prelude.Maybe Prelude.Text,
+    -- | The policy ARN.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetPolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'lastModifiedDate', 'getPolicyResponse_lastModifiedDate' - The date the policy was last modified.
+--
+-- 'policyDocument', 'getPolicyResponse_policyDocument' - The JSON document that describes the policy.
+--
+-- 'policyName', 'getPolicyResponse_policyName' - The policy name.
+--
+-- 'creationDate', 'getPolicyResponse_creationDate' - The date the policy was created.
+--
+-- 'defaultVersionId', 'getPolicyResponse_defaultVersionId' - The default policy version ID.
+--
+-- 'generationId', 'getPolicyResponse_generationId' - The generation ID of the policy.
+--
+-- 'policyArn', 'getPolicyResponse_policyArn' - The policy ARN.
+--
+-- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
+newGetPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetPolicyResponse
+newGetPolicyResponse pHttpStatus_ =
+  GetPolicyResponse'
+    { lastModifiedDate =
+        Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
+      policyName = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      defaultVersionId = Prelude.Nothing,
+      generationId = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | The policy name.
-gprsPolicyName :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicyName = lens _gprsPolicyName (\ s a -> s{_gprsPolicyName = a});
+-- | The date the policy was last modified.
+getPolicyResponse_lastModifiedDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
+getPolicyResponse_lastModifiedDate = Lens.lens (\GetPolicyResponse' {lastModifiedDate} -> lastModifiedDate) (\s@GetPolicyResponse' {} a -> s {lastModifiedDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The JSON document that describes the policy.
-gprsPolicyDocument :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicyDocument = lens _gprsPolicyDocument (\ s a -> s{_gprsPolicyDocument = a});
+getPolicyResponse_policyDocument :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyDocument = Lens.lens (\GetPolicyResponse' {policyDocument} -> policyDocument) (\s@GetPolicyResponse' {} a -> s {policyDocument = a} :: GetPolicyResponse)
+
+-- | The policy name.
+getPolicyResponse_policyName :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyName = Lens.lens (\GetPolicyResponse' {policyName} -> policyName) (\s@GetPolicyResponse' {} a -> s {policyName = a} :: GetPolicyResponse)
+
+-- | The date the policy was created.
+getPolicyResponse_creationDate :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.UTCTime)
+getPolicyResponse_creationDate = Lens.lens (\GetPolicyResponse' {creationDate} -> creationDate) (\s@GetPolicyResponse' {} a -> s {creationDate = a} :: GetPolicyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The default policy version ID.
-gprsDefaultVersionId :: Lens' GetPolicyResponse (Maybe Text)
-gprsDefaultVersionId = lens _gprsDefaultVersionId (\ s a -> s{_gprsDefaultVersionId = a});
+getPolicyResponse_defaultVersionId :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_defaultVersionId = Lens.lens (\GetPolicyResponse' {defaultVersionId} -> defaultVersionId) (\s@GetPolicyResponse' {} a -> s {defaultVersionId = a} :: GetPolicyResponse)
+
+-- | The generation ID of the policy.
+getPolicyResponse_generationId :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_generationId = Lens.lens (\GetPolicyResponse' {generationId} -> generationId) (\s@GetPolicyResponse' {} a -> s {generationId = a} :: GetPolicyResponse)
 
 -- | The policy ARN.
-gprsPolicyARN :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicyARN = lens _gprsPolicyARN (\ s a -> s{_gprsPolicyARN = a});
+getPolicyResponse_policyArn :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyArn = Lens.lens (\GetPolicyResponse' {policyArn} -> policyArn) (\s@GetPolicyResponse' {} a -> s {policyArn = a} :: GetPolicyResponse)
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+-- | The response's http status code.
+getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
+getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
-instance NFData GetPolicyResponse where
+instance Prelude.NFData GetPolicyResponse

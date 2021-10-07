@@ -1,11 +1,10 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE RecordWildCards    #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Internal
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -13,8 +12,9 @@
 --
 module Network.AWS.EC2.Internal where
 
-import           Network.AWS.Lens
-import           Network.AWS.Prelude
+import Network.AWS.Lens
+import Network.AWS.Core
+import Network.AWS.Prelude
 
 -- | Custom 'Tag' type which has an optional value component.
 --
@@ -22,10 +22,11 @@ import           Network.AWS.Prelude
 data DeleteTag = DeleteTag
     { _deleteTagKey   :: !Text
     , _deleteTagValue :: !(Maybe Text)
-    } deriving (Eq, Read, Show, Data, Typeable, Generic)
+    } deriving (Eq, Read, Show, Generic)
 
-deleteTag :: Text -- ^ 'deleteTagKey'
-          -> DeleteTag
+deleteTag
+  :: Text -- ^ 'deleteTagKey'
+  -> DeleteTag
 deleteTag k = DeleteTag k Nothing
 
 -- | The key of the tag to delete.

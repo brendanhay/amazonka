@@ -1,136 +1,163 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the descriptions of existing applications.
---
---
 module Network.AWS.ElasticBeanstalk.DescribeApplications
-    (
-    -- * Creating a Request
-      describeApplications
-    , DescribeApplications
+  ( -- * Creating a Request
+    DescribeApplications (..),
+    newDescribeApplications,
+
     -- * Request Lenses
-    , daApplicationNames
+    describeApplications_applicationNames,
 
     -- * Destructuring the Response
-    , describeApplicationsResponse
-    , DescribeApplicationsResponse
-    -- * Response Lenses
-    , darsApplications
-    , darsResponseStatus
-    ) where
+    DescribeApplicationsResponse (..),
+    newDescribeApplicationsResponse,
 
+    -- * Response Lenses
+    describeApplicationsResponse_applications,
+    describeApplicationsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to describe one or more applications.
 --
+-- /See:/ 'newDescribeApplications' smart constructor.
+data DescribeApplications = DescribeApplications'
+  { -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to only include those with the specified names.
+    applicationNames :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeApplications' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'describeApplications' smart constructor.
-newtype DescribeApplications = DescribeApplications'
-  { _daApplicationNames :: Maybe [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeApplications' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daApplicationNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
-describeApplications
-    :: DescribeApplications
-describeApplications = DescribeApplications' {_daApplicationNames = Nothing}
+-- 'applicationNames', 'describeApplications_applicationNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to only include those with the specified names.
+newDescribeApplications ::
+  DescribeApplications
+newDescribeApplications =
+  DescribeApplications'
+    { applicationNames =
+        Prelude.Nothing
+    }
 
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to only include those with the specified names.
+describeApplications_applicationNames :: Lens.Lens' DescribeApplications (Prelude.Maybe [Prelude.Text])
+describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Prelude.. Lens.mapping Lens._Coerce
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
-daApplicationNames :: Lens' DescribeApplications [Text]
-daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default . _Coerce;
+instance Core.AWSRequest DescribeApplications where
+  type
+    AWSResponse DescribeApplications =
+      DescribeApplicationsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeApplicationsResult"
+      ( \s h x ->
+          DescribeApplicationsResponse'
+            Prelude.<$> ( x Core..@? "Applications" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeApplications where
-        type Rs DescribeApplications =
-             DescribeApplicationsResponse
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper "DescribeApplicationsResult"
-              (\ s h x ->
-                 DescribeApplicationsResponse' <$>
-                   (x .@? "Applications" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeApplications
 
-instance Hashable DescribeApplications where
+instance Prelude.NFData DescribeApplications
 
-instance NFData DescribeApplications where
+instance Core.ToHeaders DescribeApplications where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeApplications where
-        toHeaders = const mempty
+instance Core.ToPath DescribeApplications where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeApplications where
-        toPath = const "/"
-
-instance ToQuery DescribeApplications where
-        toQuery DescribeApplications'{..}
-          = mconcat
-              ["Action" =: ("DescribeApplications" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ApplicationNames" =:
-                 toQuery
-                   (toQueryList "member" <$> _daApplicationNames)]
+instance Core.ToQuery DescribeApplications where
+  toQuery DescribeApplications' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeApplications" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "ApplicationNames"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> applicationNames
+            )
+      ]
 
 -- | Result message containing a list of application descriptions.
 --
---
---
--- /See:/ 'describeApplicationsResponse' smart constructor.
+-- /See:/ 'newDescribeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
-  { _darsApplications   :: !(Maybe [ApplicationDescription])
-  , _darsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | This parameter contains a list of ApplicationDescription.
+    applications :: Prelude.Maybe [ApplicationDescription],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeApplicationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeApplicationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'darsApplications' - This parameter contains a list of 'ApplicationDescription' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'darsResponseStatus' - -- | The response status code.
-describeApplicationsResponse
-    :: Int -- ^ 'darsResponseStatus'
-    -> DescribeApplicationsResponse
-describeApplicationsResponse pResponseStatus_ =
+-- 'applications', 'describeApplicationsResponse_applications' - This parameter contains a list of ApplicationDescription.
+--
+-- 'httpStatus', 'describeApplicationsResponse_httpStatus' - The response's http status code.
+newDescribeApplicationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeApplicationsResponse
+newDescribeApplicationsResponse pHttpStatus_ =
   DescribeApplicationsResponse'
-  {_darsApplications = Nothing, _darsResponseStatus = pResponseStatus_}
+    { applications =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | This parameter contains a list of ApplicationDescription.
+describeApplicationsResponse_applications :: Lens.Lens' DescribeApplicationsResponse (Prelude.Maybe [ApplicationDescription])
+describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | This parameter contains a list of 'ApplicationDescription' .
-darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
+-- | The response's http status code.
+describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Prelude.Int
+describeApplicationsResponse_httpStatus = Lens.lens (\DescribeApplicationsResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationsResponse' {} a -> s {httpStatus = a} :: DescribeApplicationsResponse)
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeApplicationsResponse Int
-darsResponseStatus = lens _darsResponseStatus (\ s a -> s{_darsResponseStatus = a});
-
-instance NFData DescribeApplicationsResponse where
+instance Prelude.NFData DescribeApplicationsResponse

@@ -1,123 +1,194 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.GetFunctionConfiguration
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the configuration information of the Lambda function. This the same information you provided as parameters when uploading the function by using 'CreateFunction' .
+-- Returns the version-specific settings of a Lambda function or version.
+-- The output includes only options that can vary between versions of a
+-- function. To modify these settings, use UpdateFunctionConfiguration.
 --
---
--- If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional @Qualifier@ parameter and specifying the function version or alias that points to it. If you don't provide it, the API returns information about the $LATEST version of the function. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
---
--- This operation requires permission for the @lambda:GetFunctionConfiguration@ operation.
---
+-- To get all of a function\'s details, including function-level settings,
+-- use GetFunction.
 module Network.AWS.Lambda.GetFunctionConfiguration
-    (
-    -- * Creating a Request
-      getFunctionConfiguration
-    , GetFunctionConfiguration
+  ( -- * Creating a Request
+    GetFunctionConfiguration (..),
+    newGetFunctionConfiguration,
+
     -- * Request Lenses
-    , gfcQualifier
-    , gfcFunctionName
+    getFunctionConfiguration_qualifier,
+    getFunctionConfiguration_functionName,
 
     -- * Destructuring the Response
-    , functionConfiguration
-    , FunctionConfiguration
-    -- * Response Lenses
-    , fcMemorySize
-    , fcRuntime
-    , fcFunctionARN
-    , fcKMSKeyARN
-    , fcEnvironment
-    , fcDeadLetterConfig
-    , fcRole
-    , fcVPCConfig
-    , fcVersion
-    , fcFunctionName
-    , fcCodeSize
-    , fcHandler
-    , fcTimeout
-    , fcLastModified
-    , fcCodeSha256
-    , fcTracingConfig
-    , fcDescription
-    , fcMasterARN
-    ) where
+    FunctionConfiguration (..),
+    newFunctionConfiguration,
 
+    -- * Response Lenses
+    functionConfiguration_vpcConfig,
+    functionConfiguration_signingProfileVersionArn,
+    functionConfiguration_lastUpdateStatus,
+    functionConfiguration_memorySize,
+    functionConfiguration_masterArn,
+    functionConfiguration_revisionId,
+    functionConfiguration_lastUpdateStatusReasonCode,
+    functionConfiguration_codeSha256,
+    functionConfiguration_stateReason,
+    functionConfiguration_timeout,
+    functionConfiguration_handler,
+    functionConfiguration_deadLetterConfig,
+    functionConfiguration_environment,
+    functionConfiguration_functionName,
+    functionConfiguration_version,
+    functionConfiguration_kmsKeyArn,
+    functionConfiguration_state,
+    functionConfiguration_functionArn,
+    functionConfiguration_runtime,
+    functionConfiguration_role,
+    functionConfiguration_signingJobArn,
+    functionConfiguration_stateReasonCode,
+    functionConfiguration_description,
+    functionConfiguration_imageConfigResponse,
+    functionConfiguration_tracingConfig,
+    functionConfiguration_lastUpdateStatusReason,
+    functionConfiguration_lastModified,
+    functionConfiguration_codeSize,
+    functionConfiguration_layers,
+    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_packageType,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newGetFunctionConfiguration' smart constructor.
+data GetFunctionConfiguration = GetFunctionConfiguration'
+  { -- | Specify a version or alias to get details about a published version of
+    -- the function.
+    qualifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+    --     (with alias).
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    --
+    -- You can append a version number or alias to any of the formats. The
+    -- length constraint applies only to the full ARN. If you specify only the
+    -- function name, it is limited to 64 characters in length.
+    functionName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'GetFunctionConfiguration' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'getFunctionConfiguration' smart constructor.
-data GetFunctionConfiguration = GetFunctionConfiguration'
-  { _gfcQualifier    :: !(Maybe Text)
-  , _gfcFunctionName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetFunctionConfiguration' with the minimum fields required to make a request.
+-- 'qualifier', 'getFunctionConfiguration_qualifier' - Specify a version or alias to get details about a published version of
+-- the function.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'functionName', 'getFunctionConfiguration_functionName' - The name of the Lambda function, version, or alias.
 --
--- * 'gfcQualifier' - Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't specify this parameter, the API uses unqualified function ARN, and returns information about the @> LATEST@ function version.
+-- __Name formats__
 --
--- * 'gfcFunctionName' - The name of the Lambda function for which you want to retrieve the configuration information. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-getFunctionConfiguration
-    :: Text -- ^ 'gfcFunctionName'
-    -> GetFunctionConfiguration
-getFunctionConfiguration pFunctionName_ =
+-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+--     (with alias).
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+--
+-- -   __Partial ARN__ - @123456789012:function:my-function@.
+--
+-- You can append a version number or alias to any of the formats. The
+-- length constraint applies only to the full ARN. If you specify only the
+-- function name, it is limited to 64 characters in length.
+newGetFunctionConfiguration ::
+  -- | 'functionName'
+  Prelude.Text ->
+  GetFunctionConfiguration
+newGetFunctionConfiguration pFunctionName_ =
   GetFunctionConfiguration'
-  {_gfcQualifier = Nothing, _gfcFunctionName = pFunctionName_}
+    { qualifier =
+        Prelude.Nothing,
+      functionName = pFunctionName_
+    }
 
+-- | Specify a version or alias to get details about a published version of
+-- the function.
+getFunctionConfiguration_qualifier :: Lens.Lens' GetFunctionConfiguration (Prelude.Maybe Prelude.Text)
+getFunctionConfiguration_qualifier = Lens.lens (\GetFunctionConfiguration' {qualifier} -> qualifier) (\s@GetFunctionConfiguration' {} a -> s {qualifier = a} :: GetFunctionConfiguration)
 
--- | Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points. If you don't specify this parameter, the API uses unqualified function ARN, and returns information about the @> LATEST@ function version.
-gfcQualifier :: Lens' GetFunctionConfiguration (Maybe Text)
-gfcQualifier = lens _gfcQualifier (\ s a -> s{_gfcQualifier = a});
+-- | The name of the Lambda function, version, or alias.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @my-function@ (name-only), @my-function:v1@
+--     (with alias).
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+--
+-- -   __Partial ARN__ - @123456789012:function:my-function@.
+--
+-- You can append a version number or alias to any of the formats. The
+-- length constraint applies only to the full ARN. If you specify only the
+-- function name, it is limited to 64 characters in length.
+getFunctionConfiguration_functionName :: Lens.Lens' GetFunctionConfiguration Prelude.Text
+getFunctionConfiguration_functionName = Lens.lens (\GetFunctionConfiguration' {functionName} -> functionName) (\s@GetFunctionConfiguration' {} a -> s {functionName = a} :: GetFunctionConfiguration)
 
--- | The name of the Lambda function for which you want to retrieve the configuration information. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-gfcFunctionName :: Lens' GetFunctionConfiguration Text
-gfcFunctionName = lens _gfcFunctionName (\ s a -> s{_gfcFunctionName = a});
+instance Core.AWSRequest GetFunctionConfiguration where
+  type
+    AWSResponse GetFunctionConfiguration =
+      FunctionConfiguration
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetFunctionConfiguration where
-        type Rs GetFunctionConfiguration =
-             FunctionConfiguration
-        request = get lambda
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetFunctionConfiguration
 
-instance Hashable GetFunctionConfiguration where
+instance Prelude.NFData GetFunctionConfiguration
 
-instance NFData GetFunctionConfiguration where
+instance Core.ToHeaders GetFunctionConfiguration where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders GetFunctionConfiguration where
-        toHeaders = const mempty
+instance Core.ToPath GetFunctionConfiguration where
+  toPath GetFunctionConfiguration' {..} =
+    Prelude.mconcat
+      [ "/2015-03-31/functions/",
+        Core.toBS functionName,
+        "/configuration"
+      ]
 
-instance ToPath GetFunctionConfiguration where
-        toPath GetFunctionConfiguration'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toBS _gfcFunctionName,
-               "/configuration"]
-
-instance ToQuery GetFunctionConfiguration where
-        toQuery GetFunctionConfiguration'{..}
-          = mconcat ["Qualifier" =: _gfcQualifier]
+instance Core.ToQuery GetFunctionConfiguration where
+  toQuery GetFunctionConfiguration' {..} =
+    Prelude.mconcat ["Qualifier" Core.=: qualifier]

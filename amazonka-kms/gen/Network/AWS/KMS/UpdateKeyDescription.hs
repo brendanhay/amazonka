@@ -1,122 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KMS.UpdateKeyDescription
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the description of a customer master key (CMK). To see the decription of a CMK, use 'DescribeKey' .
+-- Updates the description of a KMS key. To see the description of a KMS
+-- key, use DescribeKey.
 --
+-- The KMS key that you use for this operation must be in a compatible key
+-- state. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- You cannot perform this operation on a CMK in a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
+-- __Required permissions__:
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:UpdateKeyDescription>
+-- (key policy)
+--
+-- __Related operations__
+--
+-- -   CreateKey
+--
+-- -   DescribeKey
 module Network.AWS.KMS.UpdateKeyDescription
-    (
-    -- * Creating a Request
-      updateKeyDescription
-    , UpdateKeyDescription
+  ( -- * Creating a Request
+    UpdateKeyDescription (..),
+    newUpdateKeyDescription,
+
     -- * Request Lenses
-    , ukdKeyId
-    , ukdDescription
+    updateKeyDescription_keyId,
+    updateKeyDescription_description,
 
     -- * Destructuring the Response
-    , updateKeyDescriptionResponse
-    , UpdateKeyDescriptionResponse
-    ) where
+    UpdateKeyDescriptionResponse (..),
+    newUpdateKeyDescriptionResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateKeyDescription' smart constructor.
+-- | /See:/ 'newUpdateKeyDescription' smart constructor.
 data UpdateKeyDescription = UpdateKeyDescription'
-  { _ukdKeyId       :: !Text
-  , _ukdDescription :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Updates the description of the specified KMS key.
+    --
+    -- Specify the key ID or key ARN of the KMS key.
+    --
+    -- For example:
+    --
+    -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Key ARN:
+    --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
+    keyId :: Prelude.Text,
+    -- | New description for the KMS key.
+    description :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateKeyDescription' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateKeyDescription' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ukdKeyId' - A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ukdDescription' - New description for the CMK.
-updateKeyDescription
-    :: Text -- ^ 'ukdKeyId'
-    -> Text -- ^ 'ukdDescription'
-    -> UpdateKeyDescription
-updateKeyDescription pKeyId_ pDescription_ =
-  UpdateKeyDescription' {_ukdKeyId = pKeyId_, _ukdDescription = pDescription_}
+-- 'keyId', 'updateKeyDescription_keyId' - Updates the description of the specified KMS key.
+--
+-- Specify the key ID or key ARN of the KMS key.
+--
+-- For example:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
+--
+-- 'description', 'updateKeyDescription_description' - New description for the KMS key.
+newUpdateKeyDescription ::
+  -- | 'keyId'
+  Prelude.Text ->
+  -- | 'description'
+  Prelude.Text ->
+  UpdateKeyDescription
+newUpdateKeyDescription pKeyId_ pDescription_ =
+  UpdateKeyDescription'
+    { keyId = pKeyId_,
+      description = pDescription_
+    }
 
+-- | Updates the description of the specified KMS key.
+--
+-- Specify the key ID or key ARN of the KMS key.
+--
+-- For example:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
+updateKeyDescription_keyId :: Lens.Lens' UpdateKeyDescription Prelude.Text
+updateKeyDescription_keyId = Lens.lens (\UpdateKeyDescription' {keyId} -> keyId) (\s@UpdateKeyDescription' {} a -> s {keyId = a} :: UpdateKeyDescription)
 
--- | A unique identifier for the customer master key (CMK). Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-ukdKeyId :: Lens' UpdateKeyDescription Text
-ukdKeyId = lens _ukdKeyId (\ s a -> s{_ukdKeyId = a});
+-- | New description for the KMS key.
+updateKeyDescription_description :: Lens.Lens' UpdateKeyDescription Prelude.Text
+updateKeyDescription_description = Lens.lens (\UpdateKeyDescription' {description} -> description) (\s@UpdateKeyDescription' {} a -> s {description = a} :: UpdateKeyDescription)
 
--- | New description for the CMK.
-ukdDescription :: Lens' UpdateKeyDescription Text
-ukdDescription = lens _ukdDescription (\ s a -> s{_ukdDescription = a});
+instance Core.AWSRequest UpdateKeyDescription where
+  type
+    AWSResponse UpdateKeyDescription =
+      UpdateKeyDescriptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull UpdateKeyDescriptionResponse'
 
-instance AWSRequest UpdateKeyDescription where
-        type Rs UpdateKeyDescription =
-             UpdateKeyDescriptionResponse
-        request = postJSON kms
-        response = receiveNull UpdateKeyDescriptionResponse'
+instance Prelude.Hashable UpdateKeyDescription
 
-instance Hashable UpdateKeyDescription where
+instance Prelude.NFData UpdateKeyDescription
 
-instance NFData UpdateKeyDescription where
+instance Core.ToHeaders UpdateKeyDescription where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "TrentService.UpdateKeyDescription" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UpdateKeyDescription where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("TrentService.UpdateKeyDescription" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UpdateKeyDescription where
+  toJSON UpdateKeyDescription' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("Description" Core..= description)
+          ]
+      )
 
-instance ToJSON UpdateKeyDescription where
-        toJSON UpdateKeyDescription'{..}
-          = object
-              (catMaybes
-                 [Just ("KeyId" .= _ukdKeyId),
-                  Just ("Description" .= _ukdDescription)])
+instance Core.ToPath UpdateKeyDescription where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdateKeyDescription where
-        toPath = const "/"
+instance Core.ToQuery UpdateKeyDescription where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateKeyDescription where
-        toQuery = const mempty
+-- | /See:/ 'newUpdateKeyDescriptionResponse' smart constructor.
+data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'updateKeyDescriptionResponse' smart constructor.
-data UpdateKeyDescriptionResponse =
+-- |
+-- Create a value of 'UpdateKeyDescriptionResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateKeyDescriptionResponse ::
+  UpdateKeyDescriptionResponse
+newUpdateKeyDescriptionResponse =
   UpdateKeyDescriptionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'UpdateKeyDescriptionResponse' with the minimum fields required to make a request.
---
-updateKeyDescriptionResponse
-    :: UpdateKeyDescriptionResponse
-updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'
-
-
-instance NFData UpdateKeyDescriptionResponse where
+instance Prelude.NFData UpdateKeyDescriptionResponse

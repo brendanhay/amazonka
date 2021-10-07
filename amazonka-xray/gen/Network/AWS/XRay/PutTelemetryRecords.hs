@@ -1,149 +1,168 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.XRay.PutTelemetryRecords
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by the AWS X-Ray daemon to upload telemetry.
---
---
+-- Used by the Amazon Web Services X-Ray daemon to upload telemetry.
 module Network.AWS.XRay.PutTelemetryRecords
-    (
-    -- * Creating a Request
-      putTelemetryRecords
-    , PutTelemetryRecords
+  ( -- * Creating a Request
+    PutTelemetryRecords (..),
+    newPutTelemetryRecords,
+
     -- * Request Lenses
-    , ptrHostname
-    , ptrEC2InstanceId
-    , ptrResourceARN
-    , ptrTelemetryRecords
+    putTelemetryRecords_hostname,
+    putTelemetryRecords_resourceARN,
+    putTelemetryRecords_eC2InstanceId,
+    putTelemetryRecords_telemetryRecords,
 
     -- * Destructuring the Response
-    , putTelemetryRecordsResponse
-    , PutTelemetryRecordsResponse
+    PutTelemetryRecordsResponse (..),
+    newPutTelemetryRecordsResponse,
+
     -- * Response Lenses
-    , ptrrsResponseStatus
-    ) where
+    putTelemetryRecordsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
-import Network.AWS.XRay.Types.Product
 
--- | /See:/ 'putTelemetryRecords' smart constructor.
+-- | /See:/ 'newPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { _ptrHostname         :: !(Maybe Text)
-  , _ptrEC2InstanceId    :: !(Maybe Text)
-  , _ptrResourceARN      :: !(Maybe Text)
-  , _ptrTelemetryRecords :: ![TelemetryRecord]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutTelemetryRecords' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptrHostname' -
---
--- * 'ptrEC2InstanceId' -
---
--- * 'ptrResourceARN' -
---
--- * 'ptrTelemetryRecords' -
-putTelemetryRecords
-    :: PutTelemetryRecords
-putTelemetryRecords =
-  PutTelemetryRecords'
-  { _ptrHostname = Nothing
-  , _ptrEC2InstanceId = Nothing
-  , _ptrResourceARN = Nothing
-  , _ptrTelemetryRecords = mempty
+  { hostname :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    eC2InstanceId :: Prelude.Maybe Prelude.Text,
+    telemetryRecords :: [TelemetryRecord]
   }
-
-
--- |
-ptrHostname :: Lens' PutTelemetryRecords (Maybe Text)
-ptrHostname = lens _ptrHostname (\ s a -> s{_ptrHostname = a});
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
-ptrEC2InstanceId :: Lens' PutTelemetryRecords (Maybe Text)
-ptrEC2InstanceId = lens _ptrEC2InstanceId (\ s a -> s{_ptrEC2InstanceId = a});
-
--- |
-ptrResourceARN :: Lens' PutTelemetryRecords (Maybe Text)
-ptrResourceARN = lens _ptrResourceARN (\ s a -> s{_ptrResourceARN = a});
-
--- |
-ptrTelemetryRecords :: Lens' PutTelemetryRecords [TelemetryRecord]
-ptrTelemetryRecords = lens _ptrTelemetryRecords (\ s a -> s{_ptrTelemetryRecords = a}) . _Coerce;
-
-instance AWSRequest PutTelemetryRecords where
-        type Rs PutTelemetryRecords =
-             PutTelemetryRecordsResponse
-        request = postJSON xRay
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 PutTelemetryRecordsResponse' <$> (pure (fromEnum s)))
-
-instance Hashable PutTelemetryRecords where
-
-instance NFData PutTelemetryRecords where
-
-instance ToHeaders PutTelemetryRecords where
-        toHeaders = const mempty
-
-instance ToJSON PutTelemetryRecords where
-        toJSON PutTelemetryRecords'{..}
-          = object
-              (catMaybes
-                 [("Hostname" .=) <$> _ptrHostname,
-                  ("EC2InstanceId" .=) <$> _ptrEC2InstanceId,
-                  ("ResourceARN" .=) <$> _ptrResourceARN,
-                  Just ("TelemetryRecords" .= _ptrTelemetryRecords)])
-
-instance ToPath PutTelemetryRecords where
-        toPath = const "/TelemetryRecords"
-
-instance ToQuery PutTelemetryRecords where
-        toQuery = const mempty
-
--- | /See:/ 'putTelemetryRecordsResponse' smart constructor.
-newtype PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
-  { _ptrrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutTelemetryRecordsResponse' with the minimum fields required to make a request.
+-- Create a value of 'PutTelemetryRecords' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ptrrsResponseStatus' - -- | The response status code.
-putTelemetryRecordsResponse
-    :: Int -- ^ 'ptrrsResponseStatus'
-    -> PutTelemetryRecordsResponse
-putTelemetryRecordsResponse pResponseStatus_ =
-  PutTelemetryRecordsResponse' {_ptrrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'hostname', 'putTelemetryRecords_hostname' -
+--
+-- 'resourceARN', 'putTelemetryRecords_resourceARN' -
+--
+-- 'eC2InstanceId', 'putTelemetryRecords_eC2InstanceId' -
+--
+-- 'telemetryRecords', 'putTelemetryRecords_telemetryRecords' -
+newPutTelemetryRecords ::
+  PutTelemetryRecords
+newPutTelemetryRecords =
+  PutTelemetryRecords'
+    { hostname = Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
+      eC2InstanceId = Prelude.Nothing,
+      telemetryRecords = Prelude.mempty
+    }
 
+-- |
+putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
 
--- | -- | The response status code.
-ptrrsResponseStatus :: Lens' PutTelemetryRecordsResponse Int
-ptrrsResponseStatus = lens _ptrrsResponseStatus (\ s a -> s{_ptrrsResponseStatus = a});
+-- |
+putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
 
-instance NFData PutTelemetryRecordsResponse where
+-- |
+putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_eC2InstanceId = Lens.lens (\PutTelemetryRecords' {eC2InstanceId} -> eC2InstanceId) (\s@PutTelemetryRecords' {} a -> s {eC2InstanceId = a} :: PutTelemetryRecords)
+
+-- |
+putTelemetryRecords_telemetryRecords :: Lens.Lens' PutTelemetryRecords [TelemetryRecord]
+putTelemetryRecords_telemetryRecords = Lens.lens (\PutTelemetryRecords' {telemetryRecords} -> telemetryRecords) (\s@PutTelemetryRecords' {} a -> s {telemetryRecords = a} :: PutTelemetryRecords) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest PutTelemetryRecords where
+  type
+    AWSResponse PutTelemetryRecords =
+      PutTelemetryRecordsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          PutTelemetryRecordsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable PutTelemetryRecords
+
+instance Prelude.NFData PutTelemetryRecords
+
+instance Core.ToHeaders PutTelemetryRecords where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToJSON PutTelemetryRecords where
+  toJSON PutTelemetryRecords' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Hostname" Core..=) Prelude.<$> hostname,
+            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
+            ("EC2InstanceId" Core..=) Prelude.<$> eC2InstanceId,
+            Prelude.Just
+              ("TelemetryRecords" Core..= telemetryRecords)
+          ]
+      )
+
+instance Core.ToPath PutTelemetryRecords where
+  toPath = Prelude.const "/TelemetryRecords"
+
+instance Core.ToQuery PutTelemetryRecords where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newPutTelemetryRecordsResponse' smart constructor.
+data PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutTelemetryRecordsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'putTelemetryRecordsResponse_httpStatus' - The response's http status code.
+newPutTelemetryRecordsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutTelemetryRecordsResponse
+newPutTelemetryRecordsResponse pHttpStatus_ =
+  PutTelemetryRecordsResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+putTelemetryRecordsResponse_httpStatus :: Lens.Lens' PutTelemetryRecordsResponse Prelude.Int
+putTelemetryRecordsResponse_httpStatus = Lens.lens (\PutTelemetryRecordsResponse' {httpStatus} -> httpStatus) (\s@PutTelemetryRecordsResponse' {} a -> s {httpStatus = a} :: PutTelemetryRecordsResponse)
+
+instance Prelude.NFData PutTelemetryRecordsResponse

@@ -1,207 +1,265 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Route53Domains.Types
-    (
-    -- * Service Configuration
-      route53Domains
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidInput
-    , _OperationLimitExceeded
-    , _DomainLimitExceeded
-    , _UnsupportedTLD
-    , _TLDRulesViolation
-    , _DuplicateRequest
+    _InvalidInput,
+    _UnsupportedTLD,
+    _DuplicateRequest,
+    _DomainLimitExceeded,
+    _OperationLimitExceeded,
+    _TLDRulesViolation,
 
     -- * ContactType
-    , ContactType (..)
+    ContactType (..),
 
     -- * CountryCode
-    , CountryCode (..)
+    CountryCode (..),
 
     -- * DomainAvailability
-    , DomainAvailability (..)
+    DomainAvailability (..),
 
     -- * ExtraParamName
-    , ExtraParamName (..)
+    ExtraParamName (..),
 
     -- * OperationStatus
-    , OperationStatus (..)
+    OperationStatus (..),
 
     -- * OperationType
-    , OperationType (..)
+    OperationType (..),
 
     -- * ReachabilityStatus
-    , ReachabilityStatus (..)
+    ReachabilityStatus (..),
 
     -- * Transferable
-    , Transferable (..)
+    Transferable (..),
 
     -- * BillingRecord
-    , BillingRecord
-    , billingRecord
-    , brOperation
-    , brInvoiceId
-    , brDomainName
-    , brBillDate
-    , brPrice
+    BillingRecord (..),
+    newBillingRecord,
+    billingRecord_invoiceId,
+    billingRecord_operation,
+    billingRecord_billDate,
+    billingRecord_domainName,
+    billingRecord_price,
 
     -- * ContactDetail
-    , ContactDetail
-    , contactDetail
-    , cdOrganizationName
-    , cdEmail
-    , cdState
-    , cdFax
-    , cdLastName
-    , cdExtraParams
-    , cdZipCode
-    , cdAddressLine1
-    , cdCity
-    , cdPhoneNumber
-    , cdAddressLine2
-    , cdFirstName
-    , cdCountryCode
-    , cdContactType
+    ContactDetail (..),
+    newContactDetail,
+    contactDetail_phoneNumber,
+    contactDetail_organizationName,
+    contactDetail_addressLine1,
+    contactDetail_extraParams,
+    contactDetail_zipCode,
+    contactDetail_contactType,
+    contactDetail_fax,
+    contactDetail_city,
+    contactDetail_state,
+    contactDetail_email,
+    contactDetail_lastName,
+    contactDetail_firstName,
+    contactDetail_countryCode,
+    contactDetail_addressLine2,
 
     -- * DomainSuggestion
-    , DomainSuggestion
-    , domainSuggestion
-    , dAvailability
-    , dDomainName
+    DomainSuggestion (..),
+    newDomainSuggestion,
+    domainSuggestion_availability,
+    domainSuggestion_domainName,
 
     -- * DomainSummary
-    , DomainSummary
-    , domainSummary
-    , dsExpiry
-    , dsTransferLock
-    , dsAutoRenew
-    , dsDomainName
+    DomainSummary (..),
+    newDomainSummary,
+    domainSummary_expiry,
+    domainSummary_autoRenew,
+    domainSummary_transferLock,
+    domainSummary_domainName,
 
     -- * DomainTransferability
-    , DomainTransferability
-    , domainTransferability
-    , dtTransferable
+    DomainTransferability (..),
+    newDomainTransferability,
+    domainTransferability_transferable,
 
     -- * ExtraParam
-    , ExtraParam
-    , extraParam
-    , epName
-    , epValue
+    ExtraParam (..),
+    newExtraParam,
+    extraParam_name,
+    extraParam_value,
 
     -- * Nameserver
-    , Nameserver
-    , nameserver
-    , nGlueIPs
-    , nName
+    Nameserver (..),
+    newNameserver,
+    nameserver_glueIps,
+    nameserver_name,
 
     -- * OperationSummary
-    , OperationSummary
-    , operationSummary
-    , osOperationId
-    , osStatus
-    , osType
-    , osSubmittedDate
+    OperationSummary (..),
+    newOperationSummary,
+    operationSummary_operationId,
+    operationSummary_status,
+    operationSummary_type,
+    operationSummary_submittedDate,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Route53Domains.Types.Product
-import Network.AWS.Route53Domains.Types.Sum
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Route53Domains.Types.BillingRecord
+import Network.AWS.Route53Domains.Types.ContactDetail
+import Network.AWS.Route53Domains.Types.ContactType
+import Network.AWS.Route53Domains.Types.CountryCode
+import Network.AWS.Route53Domains.Types.DomainAvailability
+import Network.AWS.Route53Domains.Types.DomainSuggestion
+import Network.AWS.Route53Domains.Types.DomainSummary
+import Network.AWS.Route53Domains.Types.DomainTransferability
+import Network.AWS.Route53Domains.Types.ExtraParam
+import Network.AWS.Route53Domains.Types.ExtraParamName
+import Network.AWS.Route53Domains.Types.Nameserver
+import Network.AWS.Route53Domains.Types.OperationStatus
+import Network.AWS.Route53Domains.Types.OperationSummary
+import Network.AWS.Route53Domains.Types.OperationType
+import Network.AWS.Route53Domains.Types.ReachabilityStatus
+import Network.AWS.Route53Domains.Types.Tag
+import Network.AWS.Route53Domains.Types.Transferable
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-05-15@ of the Amazon Route 53 Domains SDK configuration.
-route53Domains :: Service
-route53Domains =
-  Service
-  { _svcAbbrev = "Route53Domains"
-  , _svcSigner = v4
-  , _svcPrefix = "route53domains"
-  , _svcVersion = "2014-05-15"
-  , _svcEndpoint = defaultEndpoint route53Domains
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Route53Domains"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "Route53Domains",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "route53domains",
+      Core._serviceSigningName = "route53domains",
+      Core._serviceVersion = "2014-05-15",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Route53Domains",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.
---
---
-_InvalidInput :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInput = _MatchServiceError route53Domains "InvalidInput"
-
-
--- | The number of operations or jobs running exceeded the allowed threshold for the account.
---
---
-_OperationLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationLimitExceeded =
-  _MatchServiceError route53Domains "OperationLimitExceeded"
-
-
--- | The number of domains has exceeded the allowed threshold for the account.
---
---
-_DomainLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_DomainLimitExceeded = _MatchServiceError route53Domains "DomainLimitExceeded"
-
+-- | The requested item is not acceptable. For example, for APIs that accept
+-- a domain name, the request might specify a domain name that doesn\'t
+-- belong to the account that submitted the request. For
+-- @AcceptDomainTransferFromAnotherAwsAccount@, the password might be
+-- invalid.
+_InvalidInput :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInput =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInput"
 
 -- | Amazon Route 53 does not support this top-level domain (TLD).
---
---
-_UnsupportedTLD :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedTLD = _MatchServiceError route53Domains "UnsupportedTLD"
-
-
--- | The top-level domain does not support this operation.
---
---
-_TLDRulesViolation :: AsError a => Getting (First ServiceError) a ServiceError
-_TLDRulesViolation = _MatchServiceError route53Domains "TLDRulesViolation"
-
+_UnsupportedTLD :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedTLD =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedTLD"
 
 -- | The request is already in progress for the domain.
---
---
-_DuplicateRequest :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateRequest = _MatchServiceError route53Domains "DuplicateRequest"
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateRequest"
 
+-- | The number of domains has exceeded the allowed threshold for the
+-- account.
+_DomainLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DomainLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "DomainLimitExceeded"
+
+-- | The number of operations or jobs running exceeded the allowed threshold
+-- for the account.
+_OperationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "OperationLimitExceeded"
+
+-- | The top-level domain does not support this operation.
+_TLDRulesViolation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TLDRulesViolation =
+  Core._MatchServiceError
+    defaultService
+    "TLDRulesViolation"

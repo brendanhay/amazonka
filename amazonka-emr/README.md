@@ -1,4 +1,4 @@
-# Amazon Elastic MapReduce SDK
+# Amazon EMR SDK
 
 * [Version](#version)
 * [Description](#description)
@@ -7,9 +7,8 @@
 
 
 ## Version
-
-`1.5.0`
-
+ 
+`1.6.1` - Derived from API version @2009-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
 
 ## Description
 

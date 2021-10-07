@@ -1,156 +1,233 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeRegions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more regions that are currently available to you.
+-- Describes the Regions that are enabled for your account, or all Regions.
 --
+-- For a list of the Regions supported by Amazon EC2, see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
 --
--- For a list of the regions supported by Amazon EC2, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints> .
---
+-- For information about enabling and disabling Regions for your account,
+-- see
+-- <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html Managing AWS Regions>
+-- in the /AWS General Reference/.
 module Network.AWS.EC2.DescribeRegions
-    (
-    -- * Creating a Request
-      describeRegions
-    , DescribeRegions
+  ( -- * Creating a Request
+    DescribeRegions (..),
+    newDescribeRegions,
+
     -- * Request Lenses
-    , drsRegionNames
-    , drsFilters
-    , drsDryRun
+    describeRegions_dryRun,
+    describeRegions_regionNames,
+    describeRegions_filters,
+    describeRegions_allRegions,
 
     -- * Destructuring the Response
-    , describeRegionsResponse
-    , DescribeRegionsResponse
+    DescribeRegionsResponse (..),
+    newDescribeRegionsResponse,
+
     -- * Response Lenses
-    , drrsRegions
-    , drrsResponseStatus
-    ) where
+    describeRegionsResponse_regions,
+    describeRegionsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DescribeRegions.
---
---
---
--- /See:/ 'describeRegions' smart constructor.
+-- | /See:/ 'newDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
-  { _drsRegionNames :: !(Maybe [Text])
-  , _drsFilters     :: !(Maybe [Filter])
-  , _drsDryRun      :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The names of the Regions. You can specify any Regions, whether they are
+    -- enabled and disabled for your account.
+    regionNames :: Prelude.Maybe [Prelude.Text],
+    -- | The filters.
+    --
+    -- -   @endpoint@ - The endpoint of the Region (for example,
+    --     @ec2.us-east-1.amazonaws.com@).
+    --
+    -- -   @opt-in-status@ - The opt-in status of the Region
+    --     (@opt-in-not-required@ | @opted-in@ | @not-opted-in@).
+    --
+    -- -   @region-name@ - The name of the Region (for example, @us-east-1@).
+    filters :: Prelude.Maybe [Filter],
+    -- | Indicates whether to display all Regions, including Regions that are
+    -- disabled for your account.
+    allRegions :: Prelude.Maybe Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeRegions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeRegions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsRegionNames' - The names of one or more regions.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsFilters' - One or more filters.     * @endpoint@ - The endpoint of the region (for example, @ec2.us-east-1.amazonaws.com@ ).     * @region-name@ - The name of the region (for example, @us-east-1@ ).
+-- 'dryRun', 'describeRegions_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'drsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeRegions
-    :: DescribeRegions
-describeRegions =
+-- 'regionNames', 'describeRegions_regionNames' - The names of the Regions. You can specify any Regions, whether they are
+-- enabled and disabled for your account.
+--
+-- 'filters', 'describeRegions_filters' - The filters.
+--
+-- -   @endpoint@ - The endpoint of the Region (for example,
+--     @ec2.us-east-1.amazonaws.com@).
+--
+-- -   @opt-in-status@ - The opt-in status of the Region
+--     (@opt-in-not-required@ | @opted-in@ | @not-opted-in@).
+--
+-- -   @region-name@ - The name of the Region (for example, @us-east-1@).
+--
+-- 'allRegions', 'describeRegions_allRegions' - Indicates whether to display all Regions, including Regions that are
+-- disabled for your account.
+newDescribeRegions ::
+  DescribeRegions
+newDescribeRegions =
   DescribeRegions'
-  {_drsRegionNames = Nothing, _drsFilters = Nothing, _drsDryRun = Nothing}
+    { dryRun = Prelude.Nothing,
+      regionNames = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      allRegions = Prelude.Nothing
+    }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeRegions_dryRun :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
+describeRegions_dryRun = Lens.lens (\DescribeRegions' {dryRun} -> dryRun) (\s@DescribeRegions' {} a -> s {dryRun = a} :: DescribeRegions)
 
--- | The names of one or more regions.
-drsRegionNames :: Lens' DescribeRegions [Text]
-drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Default . _Coerce;
+-- | The names of the Regions. You can specify any Regions, whether they are
+-- enabled and disabled for your account.
+describeRegions_regionNames :: Lens.Lens' DescribeRegions (Prelude.Maybe [Prelude.Text])
+describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regionNames) (\s@DescribeRegions' {} a -> s {regionNames = a} :: DescribeRegions) Prelude.. Lens.mapping Lens._Coerce
 
--- | One or more filters.     * @endpoint@ - The endpoint of the region (for example, @ec2.us-east-1.amazonaws.com@ ).     * @region-name@ - The name of the region (for example, @us-east-1@ ).
-drsFilters :: Lens' DescribeRegions [Filter]
-drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default . _Coerce;
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-drsDryRun :: Lens' DescribeRegions (Maybe Bool)
-drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a});
-
-instance AWSRequest DescribeRegions where
-        type Rs DescribeRegions = DescribeRegionsResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeRegionsResponse' <$>
-                   (x .@? "regionInfo" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeRegions where
-
-instance NFData DescribeRegions where
-
-instance ToHeaders DescribeRegions where
-        toHeaders = const mempty
-
-instance ToPath DescribeRegions where
-        toPath = const "/"
-
-instance ToQuery DescribeRegions where
-        toQuery DescribeRegions'{..}
-          = mconcat
-              ["Action" =: ("DescribeRegions" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery
-                 (toQueryList "RegionName" <$> _drsRegionNames),
-               toQuery (toQueryList "Filter" <$> _drsFilters),
-               "DryRun" =: _drsDryRun]
-
--- | Contains the output of DescribeRegions.
+-- | The filters.
 --
+-- -   @endpoint@ - The endpoint of the Region (for example,
+--     @ec2.us-east-1.amazonaws.com@).
 --
+-- -   @opt-in-status@ - The opt-in status of the Region
+--     (@opt-in-not-required@ | @opted-in@ | @not-opted-in@).
 --
--- /See:/ 'describeRegionsResponse' smart constructor.
+-- -   @region-name@ - The name of the Region (for example, @us-east-1@).
+describeRegions_filters :: Lens.Lens' DescribeRegions (Prelude.Maybe [Filter])
+describeRegions_filters = Lens.lens (\DescribeRegions' {filters} -> filters) (\s@DescribeRegions' {} a -> s {filters = a} :: DescribeRegions) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Indicates whether to display all Regions, including Regions that are
+-- disabled for your account.
+describeRegions_allRegions :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
+describeRegions_allRegions = Lens.lens (\DescribeRegions' {allRegions} -> allRegions) (\s@DescribeRegions' {} a -> s {allRegions = a} :: DescribeRegions)
+
+instance Core.AWSRequest DescribeRegions where
+  type
+    AWSResponse DescribeRegions =
+      DescribeRegionsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeRegionsResponse'
+            Prelude.<$> ( x Core..@? "regionInfo" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeRegions
+
+instance Prelude.NFData DescribeRegions
+
+instance Core.ToHeaders DescribeRegions where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeRegions where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeRegions where
+  toQuery DescribeRegions' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeRegions" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "RegionName"
+              Prelude.<$> regionNames
+          ),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "AllRegions" Core.=: allRegions
+      ]
+
+-- | /See:/ 'newDescribeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
-  { _drrsRegions        :: !(Maybe [RegionInfo])
-  , _drrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the Regions.
+    regions :: Prelude.Maybe [RegionInfo],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeRegionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drrsRegions' - Information about one or more regions.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drrsResponseStatus' - -- | The response status code.
-describeRegionsResponse
-    :: Int -- ^ 'drrsResponseStatus'
-    -> DescribeRegionsResponse
-describeRegionsResponse pResponseStatus_ =
+-- 'regions', 'describeRegionsResponse_regions' - Information about the Regions.
+--
+-- 'httpStatus', 'describeRegionsResponse_httpStatus' - The response's http status code.
+newDescribeRegionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeRegionsResponse
+newDescribeRegionsResponse pHttpStatus_ =
   DescribeRegionsResponse'
-  {_drrsRegions = Nothing, _drrsResponseStatus = pResponseStatus_}
+    { regions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the Regions.
+describeRegionsResponse_regions :: Lens.Lens' DescribeRegionsResponse (Prelude.Maybe [RegionInfo])
+describeRegionsResponse_regions = Lens.lens (\DescribeRegionsResponse' {regions} -> regions) (\s@DescribeRegionsResponse' {} a -> s {regions = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about one or more regions.
-drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
-drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce;
+-- | The response's http status code.
+describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int
+describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeRegionsResponse' {} a -> s {httpStatus = a} :: DescribeRegionsResponse)
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DescribeRegionsResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
-
-instance NFData DescribeRegionsResponse where
+instance Prelude.NFData DescribeRegionsResponse

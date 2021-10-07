@@ -1,169 +1,226 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetDocumentationVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Undocumented operation.
+-- -- | Undocumented operation.
+--
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetDocumentationVersions
-    (
-    -- * Creating a Request
-      getDocumentationVersions
-    , GetDocumentationVersions
+  ( -- * Creating a Request
+    GetDocumentationVersions (..),
+    newGetDocumentationVersions,
+
     -- * Request Lenses
-    , gdvLimit
-    , gdvPosition
-    , gdvRestAPIId
+    getDocumentationVersions_position,
+    getDocumentationVersions_limit,
+    getDocumentationVersions_restApiId,
 
     -- * Destructuring the Response
-    , getDocumentationVersionsResponse
-    , GetDocumentationVersionsResponse
+    GetDocumentationVersionsResponse (..),
+    newGetDocumentationVersionsResponse,
+
     -- * Response Lenses
-    , gdvrsItems
-    , gdvrsPosition
-    , gdvrsResponseStatus
-    ) where
+    getDocumentationVersionsResponse_items,
+    getDocumentationVersionsResponse_position,
+    getDocumentationVersionsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Gets the documentation versions of an API.
 --
---
---
--- /See:/ 'getDocumentationVersions' smart constructor.
+-- /See:/ 'newGetDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-  { _gdvLimit     :: !(Maybe Int)
-  , _gdvPosition  :: !(Maybe Text)
-  , _gdvRestAPIId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of returned results per page. The default value is 25
+    -- and the maximum value is 500.
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDocumentationVersions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDocumentationVersions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdvLimit' - The maximum number of returned results per page.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdvPosition' - The current pagination position in the paged result set.
+-- 'position', 'getDocumentationVersions_position' - The current pagination position in the paged result set.
 --
--- * 'gdvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getDocumentationVersions
-    :: Text -- ^ 'gdvRestAPIId'
-    -> GetDocumentationVersions
-getDocumentationVersions pRestAPIId_ =
+-- 'limit', 'getDocumentationVersions_limit' - The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+--
+-- 'restApiId', 'getDocumentationVersions_restApiId' - [Required] The string identifier of the associated RestApi.
+newGetDocumentationVersions ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  GetDocumentationVersions
+newGetDocumentationVersions pRestApiId_ =
   GetDocumentationVersions'
-  {_gdvLimit = Nothing, _gdvPosition = Nothing, _gdvRestAPIId = pRestAPIId_}
-
-
--- | The maximum number of returned results per page.
-gdvLimit :: Lens' GetDocumentationVersions (Maybe Int)
-gdvLimit = lens _gdvLimit (\ s a -> s{_gdvLimit = a});
+    { position =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      restApiId = pRestApiId_
+    }
 
 -- | The current pagination position in the paged result set.
-gdvPosition :: Lens' GetDocumentationVersions (Maybe Text)
-gdvPosition = lens _gdvPosition (\ s a -> s{_gdvPosition = a});
+getDocumentationVersions_position :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Text)
+getDocumentationVersions_position = Lens.lens (\GetDocumentationVersions' {position} -> position) (\s@GetDocumentationVersions' {} a -> s {position = a} :: GetDocumentationVersions)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-gdvRestAPIId :: Lens' GetDocumentationVersions Text
-gdvRestAPIId = lens _gdvRestAPIId (\ s a -> s{_gdvRestAPIId = a});
+-- | The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+getDocumentationVersions_limit :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Int)
+getDocumentationVersions_limit = Lens.lens (\GetDocumentationVersions' {limit} -> limit) (\s@GetDocumentationVersions' {} a -> s {limit = a} :: GetDocumentationVersions)
 
-instance AWSRequest GetDocumentationVersions where
-        type Rs GetDocumentationVersions =
-             GetDocumentationVersionsResponse
-        request = get apiGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDocumentationVersionsResponse' <$>
-                   (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
-                     (pure (fromEnum s)))
+-- | [Required] The string identifier of the associated RestApi.
+getDocumentationVersions_restApiId :: Lens.Lens' GetDocumentationVersions Prelude.Text
+getDocumentationVersions_restApiId = Lens.lens (\GetDocumentationVersions' {restApiId} -> restApiId) (\s@GetDocumentationVersions' {} a -> s {restApiId = a} :: GetDocumentationVersions)
 
-instance Hashable GetDocumentationVersions where
+instance Core.AWSPager GetDocumentationVersions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getDocumentationVersionsResponse_position
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getDocumentationVersionsResponse_items
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getDocumentationVersions_position
+          Lens..~ rs
+          Lens.^? getDocumentationVersionsResponse_position
+            Prelude.. Lens._Just
 
-instance NFData GetDocumentationVersions where
+instance Core.AWSRequest GetDocumentationVersions where
+  type
+    AWSResponse GetDocumentationVersions =
+      GetDocumentationVersionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDocumentationVersionsResponse'
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders GetDocumentationVersions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Prelude.Hashable GetDocumentationVersions
 
-instance ToPath GetDocumentationVersions where
-        toPath GetDocumentationVersions'{..}
-          = mconcat
-              ["/restapis/", toBS _gdvRestAPIId,
-               "/documentation/versions"]
+instance Prelude.NFData GetDocumentationVersions
 
-instance ToQuery GetDocumentationVersions where
-        toQuery GetDocumentationVersions'{..}
-          = mconcat
-              ["limit" =: _gdvLimit, "position" =: _gdvPosition]
+instance Core.ToHeaders GetDocumentationVersions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
+
+instance Core.ToPath GetDocumentationVersions where
+  toPath GetDocumentationVersions' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/documentation/versions"
+      ]
+
+instance Core.ToQuery GetDocumentationVersions where
+  toQuery GetDocumentationVersions' {..} =
+    Prelude.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | The collection of documentation snapshots of an API.
 --
+-- Use the DocumentationVersions to manage documentation snapshots
+-- associated with various API stages.
 --
--- Use the 'DocumentationVersions' to manage documentation snapshots associated with various API stages.
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API>,
+-- DocumentationPart, DocumentationVersion
 --
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , 'DocumentationPart' , 'DocumentationVersion'
---
--- /See:/ 'getDocumentationVersionsResponse' smart constructor.
+-- /See:/ 'newGetDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'
-  { _gdvrsItems          :: !(Maybe [DocumentationVersion])
-  , _gdvrsPosition       :: !(Maybe Text)
-  , _gdvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDocumentationVersionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdvrsItems' - The current page of elements from this collection.
---
--- * 'gdvrsPosition' - Undocumented member.
---
--- * 'gdvrsResponseStatus' - -- | The response status code.
-getDocumentationVersionsResponse
-    :: Int -- ^ 'gdvrsResponseStatus'
-    -> GetDocumentationVersionsResponse
-getDocumentationVersionsResponse pResponseStatus_ =
-  GetDocumentationVersionsResponse'
-  { _gdvrsItems = Nothing
-  , _gdvrsPosition = Nothing
-  , _gdvrsResponseStatus = pResponseStatus_
+  { -- | The current page of elements from this collection.
+    items :: Prelude.Maybe [DocumentationVersion],
+    position :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetDocumentationVersionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'items', 'getDocumentationVersionsResponse_items' - The current page of elements from this collection.
+--
+-- 'position', 'getDocumentationVersionsResponse_position' - Undocumented member.
+--
+-- 'httpStatus', 'getDocumentationVersionsResponse_httpStatus' - The response's http status code.
+newGetDocumentationVersionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDocumentationVersionsResponse
+newGetDocumentationVersionsResponse pHttpStatus_ =
+  GetDocumentationVersionsResponse'
+    { items =
+        Prelude.Nothing,
+      position = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The current page of elements from this collection.
-gdvrsItems :: Lens' GetDocumentationVersionsResponse [DocumentationVersion]
-gdvrsItems = lens _gdvrsItems (\ s a -> s{_gdvrsItems = a}) . _Default . _Coerce;
+getDocumentationVersionsResponse_items :: Lens.Lens' GetDocumentationVersionsResponse (Prelude.Maybe [DocumentationVersion])
+getDocumentationVersionsResponse_items = Lens.lens (\GetDocumentationVersionsResponse' {items} -> items) (\s@GetDocumentationVersionsResponse' {} a -> s {items = a} :: GetDocumentationVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-gdvrsPosition :: Lens' GetDocumentationVersionsResponse (Maybe Text)
-gdvrsPosition = lens _gdvrsPosition (\ s a -> s{_gdvrsPosition = a});
+getDocumentationVersionsResponse_position :: Lens.Lens' GetDocumentationVersionsResponse (Prelude.Maybe Prelude.Text)
+getDocumentationVersionsResponse_position = Lens.lens (\GetDocumentationVersionsResponse' {position} -> position) (\s@GetDocumentationVersionsResponse' {} a -> s {position = a} :: GetDocumentationVersionsResponse)
 
--- | -- | The response status code.
-gdvrsResponseStatus :: Lens' GetDocumentationVersionsResponse Int
-gdvrsResponseStatus = lens _gdvrsResponseStatus (\ s a -> s{_gdvrsResponseStatus = a});
+-- | The response's http status code.
+getDocumentationVersionsResponse_httpStatus :: Lens.Lens' GetDocumentationVersionsResponse Prelude.Int
+getDocumentationVersionsResponse_httpStatus = Lens.lens (\GetDocumentationVersionsResponse' {httpStatus} -> httpStatus) (\s@GetDocumentationVersionsResponse' {} a -> s {httpStatus = a} :: GetDocumentationVersionsResponse)
 
-instance NFData GetDocumentationVersionsResponse
-         where
+instance
+  Prelude.NFData
+    GetDocumentationVersionsResponse

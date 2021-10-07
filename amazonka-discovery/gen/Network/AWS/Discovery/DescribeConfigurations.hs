@@ -1,136 +1,185 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeConfigurations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves attributes for a list of configuration item IDs. All of the supplied IDs must be for the same asset type (server, application, process, or connection). Output fields are specific to the asset type selected. For example, the output for a /server/ configuration item includes a list of attributes about the server, such as host name, operating system, and number of network cards.
+-- Retrieves attributes for a list of configuration item IDs.
 --
+-- All of the supplied IDs must be for the same asset type from one of the
+-- following:
 --
--- For a complete list of outputs for each asset type, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#DescribeConfigurations Using the DescribeConfigurations Action> .
+-- -   server
 --
+-- -   application
+--
+-- -   process
+--
+-- -   connection
+--
+-- Output fields are specific to the asset type specified. For example, the
+-- output for a /server/ configuration item includes a list of attributes
+-- about the server, such as host name, operating system, number of network
+-- cards, etc.
+--
+-- For a complete list of outputs for each asset type, see
+-- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations Using the DescribeConfigurations Action>
+-- in the /AWS Application Discovery Service User Guide/.
 module Network.AWS.Discovery.DescribeConfigurations
-    (
-    -- * Creating a Request
-      describeConfigurations
-    , DescribeConfigurations
+  ( -- * Creating a Request
+    DescribeConfigurations (..),
+    newDescribeConfigurations,
+
     -- * Request Lenses
-    , dcConfigurationIds
+    describeConfigurations_configurationIds,
 
     -- * Destructuring the Response
-    , describeConfigurationsResponse
-    , DescribeConfigurationsResponse
+    DescribeConfigurationsResponse (..),
+    newDescribeConfigurationsResponse,
+
     -- * Response Lenses
-    , dcrsConfigurations
-    , dcrsResponseStatus
-    ) where
+    describeConfigurationsResponse_configurations,
+    describeConfigurationsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeConfigurations' smart constructor.
-newtype DescribeConfigurations = DescribeConfigurations'
-  { _dcConfigurationIds :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeConfigurations' smart constructor.
+data DescribeConfigurations = DescribeConfigurations'
+  { -- | One or more configuration IDs.
+    configurationIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeConfigurations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeConfigurations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcConfigurationIds' - One or more configuration IDs.
-describeConfigurations
-    :: DescribeConfigurations
-describeConfigurations = DescribeConfigurations' {_dcConfigurationIds = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'configurationIds', 'describeConfigurations_configurationIds' - One or more configuration IDs.
+newDescribeConfigurations ::
+  DescribeConfigurations
+newDescribeConfigurations =
+  DescribeConfigurations'
+    { configurationIds =
+        Prelude.mempty
+    }
 
 -- | One or more configuration IDs.
-dcConfigurationIds :: Lens' DescribeConfigurations [Text]
-dcConfigurationIds = lens _dcConfigurationIds (\ s a -> s{_dcConfigurationIds = a}) . _Coerce;
+describeConfigurations_configurationIds :: Lens.Lens' DescribeConfigurations [Prelude.Text]
+describeConfigurations_configurationIds = Lens.lens (\DescribeConfigurations' {configurationIds} -> configurationIds) (\s@DescribeConfigurations' {} a -> s {configurationIds = a} :: DescribeConfigurations) Prelude.. Lens._Coerce
 
-instance AWSRequest DescribeConfigurations where
-        type Rs DescribeConfigurations =
-             DescribeConfigurationsResponse
-        request = postJSON discovery
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeConfigurationsResponse' <$>
-                   (x .?> "configurations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest DescribeConfigurations where
+  type
+    AWSResponse DescribeConfigurations =
+      DescribeConfigurationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeConfigurationsResponse'
+            Prelude.<$> (x Core..?> "configurations" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeConfigurations where
+instance Prelude.Hashable DescribeConfigurations
 
-instance NFData DescribeConfigurations where
+instance Prelude.NFData DescribeConfigurations
 
-instance ToHeaders DescribeConfigurations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.DescribeConfigurations"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeConfigurations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeConfigurations where
-        toJSON DescribeConfigurations'{..}
-          = object
-              (catMaybes
-                 [Just ("configurationIds" .= _dcConfigurationIds)])
+instance Core.ToJSON DescribeConfigurations where
+  toJSON DescribeConfigurations' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("configurationIds" Core..= configurationIds)
+          ]
+      )
 
-instance ToPath DescribeConfigurations where
-        toPath = const "/"
+instance Core.ToPath DescribeConfigurations where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeConfigurations where
-        toQuery = const mempty
+instance Core.ToQuery DescribeConfigurations where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeConfigurationsResponse' smart constructor.
+-- | /See:/ 'newDescribeConfigurationsResponse' smart constructor.
 data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
-  { _dcrsConfigurations :: !(Maybe [Map Text Text])
-  , _dcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A key in the response map. The value is an array of data.
+    configurations :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeConfigurationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeConfigurationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcrsConfigurations' - A key in the response map. The value is an array of data.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeConfigurationsResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> DescribeConfigurationsResponse
-describeConfigurationsResponse pResponseStatus_ =
+-- 'configurations', 'describeConfigurationsResponse_configurations' - A key in the response map. The value is an array of data.
+--
+-- 'httpStatus', 'describeConfigurationsResponse_httpStatus' - The response's http status code.
+newDescribeConfigurationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeConfigurationsResponse
+newDescribeConfigurationsResponse pHttpStatus_ =
   DescribeConfigurationsResponse'
-  {_dcrsConfigurations = Nothing, _dcrsResponseStatus = pResponseStatus_}
-
+    { configurations =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A key in the response map. The value is an array of data.
-dcrsConfigurations :: Lens' DescribeConfigurationsResponse [HashMap Text Text]
-dcrsConfigurations = lens _dcrsConfigurations (\ s a -> s{_dcrsConfigurations = a}) . _Default . _Coerce;
+describeConfigurationsResponse_configurations :: Lens.Lens' DescribeConfigurationsResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
+describeConfigurationsResponse_configurations = Lens.lens (\DescribeConfigurationsResponse' {configurations} -> configurations) (\s@DescribeConfigurationsResponse' {} a -> s {configurations = a} :: DescribeConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeConfigurationsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+-- | The response's http status code.
+describeConfigurationsResponse_httpStatus :: Lens.Lens' DescribeConfigurationsResponse Prelude.Int
+describeConfigurationsResponse_httpStatus = Lens.lens (\DescribeConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeConfigurationsResponse)
 
-instance NFData DescribeConfigurationsResponse where
+instance
+  Prelude.NFData
+    DescribeConfigurationsResponse

@@ -1,130 +1,154 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetTrigger
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the definition of a trigger.
---
---
 module Network.AWS.Glue.GetTrigger
-    (
-    -- * Creating a Request
-      getTrigger
-    , GetTrigger
+  ( -- * Creating a Request
+    GetTrigger (..),
+    newGetTrigger,
+
     -- * Request Lenses
-    , gtName
+    getTrigger_name,
 
     -- * Destructuring the Response
-    , getTriggerResponse
-    , GetTriggerResponse
+    GetTriggerResponse (..),
+    newGetTriggerResponse,
+
     -- * Response Lenses
-    , gtrsTrigger
-    , gtrsResponseStatus
-    ) where
+    getTriggerResponse_trigger,
+    getTriggerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getTrigger' smart constructor.
-newtype GetTrigger = GetTrigger'
-  { _gtName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetTrigger' smart constructor.
+data GetTrigger = GetTrigger'
+  { -- | The name of the trigger to retrieve.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTrigger' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTrigger' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtName' - The name of the trigger to retrieve.
-getTrigger
-    :: Text -- ^ 'gtName'
-    -> GetTrigger
-getTrigger pName_ = GetTrigger' {_gtName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'getTrigger_name' - The name of the trigger to retrieve.
+newGetTrigger ::
+  -- | 'name'
+  Prelude.Text ->
+  GetTrigger
+newGetTrigger pName_ = GetTrigger' {name = pName_}
 
 -- | The name of the trigger to retrieve.
-gtName :: Lens' GetTrigger Text
-gtName = lens _gtName (\ s a -> s{_gtName = a});
+getTrigger_name :: Lens.Lens' GetTrigger Prelude.Text
+getTrigger_name = Lens.lens (\GetTrigger' {name} -> name) (\s@GetTrigger' {} a -> s {name = a} :: GetTrigger)
 
-instance AWSRequest GetTrigger where
-        type Rs GetTrigger = GetTriggerResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetTriggerResponse' <$>
-                   (x .?> "Trigger") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetTrigger where
+  type AWSResponse GetTrigger = GetTriggerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetTriggerResponse'
+            Prelude.<$> (x Core..?> "Trigger")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetTrigger where
+instance Prelude.Hashable GetTrigger
 
-instance NFData GetTrigger where
+instance Prelude.NFData GetTrigger
 
-instance ToHeaders GetTrigger where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetTrigger" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetTrigger where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetTrigger" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetTrigger where
-        toJSON GetTrigger'{..}
-          = object (catMaybes [Just ("Name" .= _gtName)])
+instance Core.ToJSON GetTrigger where
+  toJSON GetTrigger' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Core..= name)]
+      )
 
-instance ToPath GetTrigger where
-        toPath = const "/"
+instance Core.ToPath GetTrigger where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetTrigger where
-        toQuery = const mempty
+instance Core.ToQuery GetTrigger where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getTriggerResponse' smart constructor.
+-- | /See:/ 'newGetTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
-  { _gtrsTrigger        :: !(Maybe Trigger)
-  , _gtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The requested trigger definition.
+    trigger :: Prelude.Maybe Trigger,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTriggerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTriggerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtrsTrigger' - The requested trigger definition.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtrsResponseStatus' - -- | The response status code.
-getTriggerResponse
-    :: Int -- ^ 'gtrsResponseStatus'
-    -> GetTriggerResponse
-getTriggerResponse pResponseStatus_ =
+-- 'trigger', 'getTriggerResponse_trigger' - The requested trigger definition.
+--
+-- 'httpStatus', 'getTriggerResponse_httpStatus' - The response's http status code.
+newGetTriggerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTriggerResponse
+newGetTriggerResponse pHttpStatus_ =
   GetTriggerResponse'
-  {_gtrsTrigger = Nothing, _gtrsResponseStatus = pResponseStatus_}
-
+    { trigger = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The requested trigger definition.
-gtrsTrigger :: Lens' GetTriggerResponse (Maybe Trigger)
-gtrsTrigger = lens _gtrsTrigger (\ s a -> s{_gtrsTrigger = a});
+getTriggerResponse_trigger :: Lens.Lens' GetTriggerResponse (Prelude.Maybe Trigger)
+getTriggerResponse_trigger = Lens.lens (\GetTriggerResponse' {trigger} -> trigger) (\s@GetTriggerResponse' {} a -> s {trigger = a} :: GetTriggerResponse)
 
--- | -- | The response status code.
-gtrsResponseStatus :: Lens' GetTriggerResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+-- | The response's http status code.
+getTriggerResponse_httpStatus :: Lens.Lens' GetTriggerResponse Prelude.Int
+getTriggerResponse_httpStatus = Lens.lens (\GetTriggerResponse' {httpStatus} -> httpStatus) (\s@GetTriggerResponse' {} a -> s {httpStatus = a} :: GetTriggerResponse)
 
-instance NFData GetTriggerResponse where
+instance Prelude.NFData GetTriggerResponse

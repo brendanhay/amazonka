@@ -1,0 +1,148 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.FMS.AssociateAdminAccount
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Sets the Firewall Manager administrator account. The account must be a
+-- member of the organization in Organizations whose resources you want to
+-- protect. Firewall Manager sets the permissions that allow the account to
+-- administer your Firewall Manager policies.
+--
+-- The account that you associate with Firewall Manager is called the
+-- Firewall Manager administrator account.
+module Network.AWS.FMS.AssociateAdminAccount
+  ( -- * Creating a Request
+    AssociateAdminAccount (..),
+    newAssociateAdminAccount,
+
+    -- * Request Lenses
+    associateAdminAccount_adminAccount,
+
+    -- * Destructuring the Response
+    AssociateAdminAccountResponse (..),
+    newAssociateAdminAccountResponse,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import Network.AWS.FMS.Types
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newAssociateAdminAccount' smart constructor.
+data AssociateAdminAccount = AssociateAdminAccount'
+  { -- | The Amazon Web Services account ID to associate with Firewall Manager as
+    -- the Firewall Manager administrator account. This must be an
+    -- Organizations member account. For more information about Organizations,
+    -- see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the Amazon Web Services Accounts in Your Organization>.
+    adminAccount :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AssociateAdminAccount' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'adminAccount', 'associateAdminAccount_adminAccount' - The Amazon Web Services account ID to associate with Firewall Manager as
+-- the Firewall Manager administrator account. This must be an
+-- Organizations member account. For more information about Organizations,
+-- see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the Amazon Web Services Accounts in Your Organization>.
+newAssociateAdminAccount ::
+  -- | 'adminAccount'
+  Prelude.Text ->
+  AssociateAdminAccount
+newAssociateAdminAccount pAdminAccount_ =
+  AssociateAdminAccount'
+    { adminAccount =
+        pAdminAccount_
+    }
+
+-- | The Amazon Web Services account ID to associate with Firewall Manager as
+-- the Firewall Manager administrator account. This must be an
+-- Organizations member account. For more information about Organizations,
+-- see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the Amazon Web Services Accounts in Your Organization>.
+associateAdminAccount_adminAccount :: Lens.Lens' AssociateAdminAccount Prelude.Text
+associateAdminAccount_adminAccount = Lens.lens (\AssociateAdminAccount' {adminAccount} -> adminAccount) (\s@AssociateAdminAccount' {} a -> s {adminAccount = a} :: AssociateAdminAccount)
+
+instance Core.AWSRequest AssociateAdminAccount where
+  type
+    AWSResponse AssociateAdminAccount =
+      AssociateAdminAccountResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull AssociateAdminAccountResponse'
+
+instance Prelude.Hashable AssociateAdminAccount
+
+instance Prelude.NFData AssociateAdminAccount
+
+instance Core.ToHeaders AssociateAdminAccount where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSFMS_20180101.AssociateAdminAccount" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON AssociateAdminAccount where
+  toJSON AssociateAdminAccount' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("AdminAccount" Core..= adminAccount)]
+      )
+
+instance Core.ToPath AssociateAdminAccount where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AssociateAdminAccount where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newAssociateAdminAccountResponse' smart constructor.
+data AssociateAdminAccountResponse = AssociateAdminAccountResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AssociateAdminAccountResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAssociateAdminAccountResponse ::
+  AssociateAdminAccountResponse
+newAssociateAdminAccountResponse =
+  AssociateAdminAccountResponse'
+
+instance Prelude.NFData AssociateAdminAccountResponse

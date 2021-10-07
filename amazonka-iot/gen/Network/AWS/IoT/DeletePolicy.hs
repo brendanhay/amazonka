@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,88 +22,106 @@
 --
 -- Deletes the specified policy.
 --
+-- A policy cannot be deleted if it has non-default versions or it is
+-- attached to any certificate.
 --
--- A policy cannot be deleted if it has non-default versions or it is attached to any certificate.
+-- To delete a policy, use the DeletePolicyVersion action to delete all
+-- non-default versions of the policy; use the DetachPolicy action to
+-- detach the policy from any certificate; and then use the DeletePolicy
+-- action to delete the policy.
 --
--- To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.
+-- When a policy is deleted using DeletePolicy, its default version is
+-- deleted with it.
 --
--- When a policy is deleted using DeletePolicy, its default version is deleted with it.
+-- Because of the distributed nature of Amazon Web Services, it can take up
+-- to five minutes after a policy is detached before it\'s ready to be
+-- deleted.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeletePolicy>
+-- action.
 module Network.AWS.IoT.DeletePolicy
-    (
-    -- * Creating a Request
-      deletePolicy
-    , DeletePolicy
+  ( -- * Creating a Request
+    DeletePolicy (..),
+    newDeletePolicy,
+
     -- * Request Lenses
-    , dpPolicyName
+    deletePolicy_policyName,
 
     -- * Destructuring the Response
-    , deletePolicyResponse
-    , DeletePolicyResponse
-    ) where
+    DeletePolicyResponse (..),
+    newDeletePolicyResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeletePolicy operation.
 --
---
---
--- /See:/ 'deletePolicy' smart constructor.
-newtype DeletePolicy = DeletePolicy'
-  { _dpPolicyName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeletePolicy' smart constructor.
+data DeletePolicy = DeletePolicy'
+  { -- | The name of the policy to delete.
+    policyName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpPolicyName' - The name of the policy to delete.
-deletePolicy
-    :: Text -- ^ 'dpPolicyName'
-    -> DeletePolicy
-deletePolicy pPolicyName_ = DeletePolicy' {_dpPolicyName = pPolicyName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyName', 'deletePolicy_policyName' - The name of the policy to delete.
+newDeletePolicy ::
+  -- | 'policyName'
+  Prelude.Text ->
+  DeletePolicy
+newDeletePolicy pPolicyName_ =
+  DeletePolicy' {policyName = pPolicyName_}
 
 -- | The name of the policy to delete.
-dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
+deletePolicy_policyName :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyName = Lens.lens (\DeletePolicy' {policyName} -> policyName) (\s@DeletePolicy' {} a -> s {policyName = a} :: DeletePolicy)
 
-instance AWSRequest DeletePolicy where
-        type Rs DeletePolicy = DeletePolicyResponse
-        request = delete ioT
-        response = receiveNull DeletePolicyResponse'
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
+  request = Request.delete defaultService
+  response = Response.receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy where
+instance Prelude.Hashable DeletePolicy
 
-instance NFData DeletePolicy where
+instance Prelude.NFData DeletePolicy
 
-instance ToHeaders DeletePolicy where
-        toHeaders = const mempty
+instance Core.ToHeaders DeletePolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeletePolicy where
-        toPath DeletePolicy'{..}
-          = mconcat ["/policies/", toBS _dpPolicyName]
+instance Core.ToPath DeletePolicy where
+  toPath DeletePolicy' {..} =
+    Prelude.mconcat
+      ["/policies/", Core.toBS policyName]
 
-instance ToQuery DeletePolicy where
-        toQuery = const mempty
+instance Core.ToQuery DeletePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deletePolicyResponse' smart constructor.
-data DeletePolicyResponse =
-  DeletePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePolicyResponse' smart constructor.
+data DeletePolicyResponse = DeletePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
 --
-deletePolicyResponse
-    :: DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePolicyResponse ::
+  DeletePolicyResponse
+newDeletePolicyResponse = DeletePolicyResponse'
 
-
-instance NFData DeletePolicyResponse where
+instance Prelude.NFData DeletePolicyResponse

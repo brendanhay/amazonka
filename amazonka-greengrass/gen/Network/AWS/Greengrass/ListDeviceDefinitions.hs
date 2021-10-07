@@ -1,147 +1,205 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeviceDefinitions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a list of device definitions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeviceDefinitions
-    (
-    -- * Creating a Request
-      listDeviceDefinitions
-    , ListDeviceDefinitions
+  ( -- * Creating a Request
+    ListDeviceDefinitions (..),
+    newListDeviceDefinitions,
+
     -- * Request Lenses
-    , lddNextToken
-    , lddMaxResults
+    listDeviceDefinitions_nextToken,
+    listDeviceDefinitions_maxResults,
 
     -- * Destructuring the Response
-    , listDeviceDefinitionsResponse
-    , ListDeviceDefinitionsResponse
+    ListDeviceDefinitionsResponse (..),
+    newListDeviceDefinitionsResponse,
+
     -- * Response Lenses
-    , lddrsNextToken
-    , lddrsDefinitions
-    , lddrsResponseStatus
-    ) where
+    listDeviceDefinitionsResponse_nextToken,
+    listDeviceDefinitionsResponse_definitions,
+    listDeviceDefinitionsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listDeviceDefinitions' smart constructor.
+-- | /See:/ 'newListDeviceDefinitions' smart constructor.
 data ListDeviceDefinitions = ListDeviceDefinitions'
-  { _lddNextToken  :: !(Maybe Text)
-  , _lddMaxResults :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListDeviceDefinitions' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lddNextToken' - Specifies the pagination token used when iterating through a paginated request
---
--- * 'lddMaxResults' - Specifies the maximum number of list results to be returned in this page
-listDeviceDefinitions
-    :: ListDeviceDefinitions
-listDeviceDefinitions =
-  ListDeviceDefinitions' {_lddNextToken = Nothing, _lddMaxResults = Nothing}
-
-
--- | Specifies the pagination token used when iterating through a paginated request
-lddNextToken :: Lens' ListDeviceDefinitions (Maybe Text)
-lddNextToken = lens _lddNextToken (\ s a -> s{_lddNextToken = a});
-
--- | Specifies the maximum number of list results to be returned in this page
-lddMaxResults :: Lens' ListDeviceDefinitions (Maybe Text)
-lddMaxResults = lens _lddMaxResults (\ s a -> s{_lddMaxResults = a});
-
-instance AWSRequest ListDeviceDefinitions where
-        type Rs ListDeviceDefinitions =
-             ListDeviceDefinitionsResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListDeviceDefinitionsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Definitions" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListDeviceDefinitions where
-
-instance NFData ListDeviceDefinitions where
-
-instance ToHeaders ListDeviceDefinitions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath ListDeviceDefinitions where
-        toPath = const "/greengrass/definition/devices"
-
-instance ToQuery ListDeviceDefinitions where
-        toQuery ListDeviceDefinitions'{..}
-          = mconcat
-              ["NextToken" =: _lddNextToken,
-               "MaxResults" =: _lddMaxResults]
-
--- | /See:/ 'listDeviceDefinitionsResponse' smart constructor.
-data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
-  { _lddrsNextToken      :: !(Maybe Text)
-  , _lddrsDefinitions    :: !(Maybe [DefinitionInformation])
-  , _lddrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListDeviceDefinitionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lddrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lddrsDefinitions' - Definitions
---
--- * 'lddrsResponseStatus' - -- | The response status code.
-listDeviceDefinitionsResponse
-    :: Int -- ^ 'lddrsResponseStatus'
-    -> ListDeviceDefinitionsResponse
-listDeviceDefinitionsResponse pResponseStatus_ =
-  ListDeviceDefinitionsResponse'
-  { _lddrsNextToken = Nothing
-  , _lddrsDefinitions = Nothing
-  , _lddrsResponseStatus = pResponseStatus_
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListDeviceDefinitions' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listDeviceDefinitions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+--
+-- 'maxResults', 'listDeviceDefinitions_maxResults' - The maximum number of results to be returned per request.
+newListDeviceDefinitions ::
+  ListDeviceDefinitions
+newListDeviceDefinitions =
+  ListDeviceDefinitions'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
--- | The token for the next set of results, or ''null'' if there are no additional results.
-lddrsNextToken :: Lens' ListDeviceDefinitionsResponse (Maybe Text)
-lddrsNextToken = lens _lddrsNextToken (\ s a -> s{_lddrsNextToken = a});
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listDeviceDefinitions_nextToken :: Lens.Lens' ListDeviceDefinitions (Prelude.Maybe Prelude.Text)
+listDeviceDefinitions_nextToken = Lens.lens (\ListDeviceDefinitions' {nextToken} -> nextToken) (\s@ListDeviceDefinitions' {} a -> s {nextToken = a} :: ListDeviceDefinitions)
 
--- | Definitions
-lddrsDefinitions :: Lens' ListDeviceDefinitionsResponse [DefinitionInformation]
-lddrsDefinitions = lens _lddrsDefinitions (\ s a -> s{_lddrsDefinitions = a}) . _Default . _Coerce;
+-- | The maximum number of results to be returned per request.
+listDeviceDefinitions_maxResults :: Lens.Lens' ListDeviceDefinitions (Prelude.Maybe Prelude.Text)
+listDeviceDefinitions_maxResults = Lens.lens (\ListDeviceDefinitions' {maxResults} -> maxResults) (\s@ListDeviceDefinitions' {} a -> s {maxResults = a} :: ListDeviceDefinitions)
 
--- | -- | The response status code.
-lddrsResponseStatus :: Lens' ListDeviceDefinitionsResponse Int
-lddrsResponseStatus = lens _lddrsResponseStatus (\ s a -> s{_lddrsResponseStatus = a});
+instance Core.AWSPager ListDeviceDefinitions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listDeviceDefinitionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listDeviceDefinitionsResponse_definitions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listDeviceDefinitions_nextToken
+          Lens..~ rs
+          Lens.^? listDeviceDefinitionsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData ListDeviceDefinitionsResponse where
+instance Core.AWSRequest ListDeviceDefinitions where
+  type
+    AWSResponse ListDeviceDefinitions =
+      ListDeviceDefinitionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDeviceDefinitionsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Definitions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListDeviceDefinitions
+
+instance Prelude.NFData ListDeviceDefinitions
+
+instance Core.ToHeaders ListDeviceDefinitions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath ListDeviceDefinitions where
+  toPath =
+    Prelude.const "/greengrass/definition/devices"
+
+instance Core.ToQuery ListDeviceDefinitions where
+  toQuery ListDeviceDefinitions' {..} =
+    Prelude.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
+      ]
+
+-- | /See:/ 'newListDeviceDefinitionsResponse' smart constructor.
+data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a definition.
+    definitions :: Prelude.Maybe [DefinitionInformation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListDeviceDefinitionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listDeviceDefinitionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+--
+-- 'definitions', 'listDeviceDefinitionsResponse_definitions' - Information about a definition.
+--
+-- 'httpStatus', 'listDeviceDefinitionsResponse_httpStatus' - The response's http status code.
+newListDeviceDefinitionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListDeviceDefinitionsResponse
+newListDeviceDefinitionsResponse pHttpStatus_ =
+  ListDeviceDefinitionsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      definitions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listDeviceDefinitionsResponse_nextToken :: Lens.Lens' ListDeviceDefinitionsResponse (Prelude.Maybe Prelude.Text)
+listDeviceDefinitionsResponse_nextToken = Lens.lens (\ListDeviceDefinitionsResponse' {nextToken} -> nextToken) (\s@ListDeviceDefinitionsResponse' {} a -> s {nextToken = a} :: ListDeviceDefinitionsResponse)
+
+-- | Information about a definition.
+listDeviceDefinitionsResponse_definitions :: Lens.Lens' ListDeviceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
+listDeviceDefinitionsResponse_definitions = Lens.lens (\ListDeviceDefinitionsResponse' {definitions} -> definitions) (\s@ListDeviceDefinitionsResponse' {} a -> s {definitions = a} :: ListDeviceDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+listDeviceDefinitionsResponse_httpStatus :: Lens.Lens' ListDeviceDefinitionsResponse Prelude.Int
+listDeviceDefinitionsResponse_httpStatus = Lens.lens (\ListDeviceDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListDeviceDefinitionsResponse' {} a -> s {httpStatus = a} :: ListDeviceDefinitionsResponse)
+
+instance Prelude.NFData ListDeviceDefinitionsResponse

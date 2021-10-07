@@ -1,152 +1,183 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.CancelSpotInstanceRequests
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels one or more Spot instance requests. Spot instances are instances that Amazon EC2 starts on your behalf when the bid price that you specify exceeds the current Spot price. Amazon EC2 periodically sets the Spot price based on available Spot instance capacity and current Spot instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Cancels one or more Spot Instance requests.
 --
---
--- /Important:/ Canceling a Spot instance request does not terminate running Spot instances associated with the request.
---
+-- Canceling a Spot Instance request does not terminate running Spot
+-- Instances associated with the request.
 module Network.AWS.EC2.CancelSpotInstanceRequests
-    (
-    -- * Creating a Request
-      cancelSpotInstanceRequests
-    , CancelSpotInstanceRequests
+  ( -- * Creating a Request
+    CancelSpotInstanceRequests (..),
+    newCancelSpotInstanceRequests,
+
     -- * Request Lenses
-    , csirDryRun
-    , csirSpotInstanceRequestIds
+    cancelSpotInstanceRequests_dryRun,
+    cancelSpotInstanceRequests_spotInstanceRequestIds,
 
     -- * Destructuring the Response
-    , cancelSpotInstanceRequestsResponse
-    , CancelSpotInstanceRequestsResponse
-    -- * Response Lenses
-    , csirrsCancelledSpotInstanceRequests
-    , csirrsResponseStatus
-    ) where
+    CancelSpotInstanceRequestsResponse (..),
+    newCancelSpotInstanceRequestsResponse,
 
+    -- * Response Lenses
+    cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests,
+    cancelSpotInstanceRequestsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CancelSpotInstanceRequests.
 --
---
---
--- /See:/ 'cancelSpotInstanceRequests' smart constructor.
+-- /See:/ 'newCancelSpotInstanceRequests' smart constructor.
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-  { _csirDryRun                 :: !(Maybe Bool)
-  , _csirSpotInstanceRequestIds :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more Spot Instance request IDs.
+    spotInstanceRequestIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CancelSpotInstanceRequests' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelSpotInstanceRequests' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csirDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csirSpotInstanceRequestIds' - One or more Spot instance request IDs.
-cancelSpotInstanceRequests
-    :: CancelSpotInstanceRequests
-cancelSpotInstanceRequests =
+-- 'dryRun', 'cancelSpotInstanceRequests_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'spotInstanceRequestIds', 'cancelSpotInstanceRequests_spotInstanceRequestIds' - One or more Spot Instance request IDs.
+newCancelSpotInstanceRequests ::
+  CancelSpotInstanceRequests
+newCancelSpotInstanceRequests =
   CancelSpotInstanceRequests'
-  {_csirDryRun = Nothing, _csirSpotInstanceRequestIds = mempty}
+    { dryRun =
+        Prelude.Nothing,
+      spotInstanceRequestIds = Prelude.mempty
+    }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+cancelSpotInstanceRequests_dryRun :: Lens.Lens' CancelSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
+cancelSpotInstanceRequests_dryRun = Lens.lens (\CancelSpotInstanceRequests' {dryRun} -> dryRun) (\s@CancelSpotInstanceRequests' {} a -> s {dryRun = a} :: CancelSpotInstanceRequests)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
-csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
+-- | One or more Spot Instance request IDs.
+cancelSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' CancelSpotInstanceRequests [Prelude.Text]
+cancelSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\CancelSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@CancelSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: CancelSpotInstanceRequests) Prelude.. Lens._Coerce
 
--- | One or more Spot instance request IDs.
-csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
-csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a}) . _Coerce;
+instance Core.AWSRequest CancelSpotInstanceRequests where
+  type
+    AWSResponse CancelSpotInstanceRequests =
+      CancelSpotInstanceRequestsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CancelSpotInstanceRequestsResponse'
+            Prelude.<$> ( x Core..@? "spotInstanceRequestSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CancelSpotInstanceRequests where
-        type Rs CancelSpotInstanceRequests =
-             CancelSpotInstanceRequestsResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 CancelSpotInstanceRequestsResponse' <$>
-                   (x .@? "spotInstanceRequestSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable CancelSpotInstanceRequests
 
-instance Hashable CancelSpotInstanceRequests where
+instance Prelude.NFData CancelSpotInstanceRequests
 
-instance NFData CancelSpotInstanceRequests where
+instance Core.ToHeaders CancelSpotInstanceRequests where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders CancelSpotInstanceRequests where
-        toHeaders = const mempty
+instance Core.ToPath CancelSpotInstanceRequests where
+  toPath = Prelude.const "/"
 
-instance ToPath CancelSpotInstanceRequests where
-        toPath = const "/"
-
-instance ToQuery CancelSpotInstanceRequests where
-        toQuery CancelSpotInstanceRequests'{..}
-          = mconcat
-              ["Action" =:
-                 ("CancelSpotInstanceRequests" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _csirDryRun,
-               toQueryList "SpotInstanceRequestId"
-                 _csirSpotInstanceRequestIds]
+instance Core.ToQuery CancelSpotInstanceRequests where
+  toQuery CancelSpotInstanceRequests' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CancelSpotInstanceRequests" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList
+          "SpotInstanceRequestId"
+          spotInstanceRequestIds
+      ]
 
 -- | Contains the output of CancelSpotInstanceRequests.
 --
---
---
--- /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
+-- /See:/ 'newCancelSpotInstanceRequestsResponse' smart constructor.
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-  { _csirrsCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
-  , _csirrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CancelSpotInstanceRequestsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csirrsCancelledSpotInstanceRequests' - One or more Spot instance requests.
---
--- * 'csirrsResponseStatus' - -- | The response status code.
-cancelSpotInstanceRequestsResponse
-    :: Int -- ^ 'csirrsResponseStatus'
-    -> CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse pResponseStatus_ =
-  CancelSpotInstanceRequestsResponse'
-  { _csirrsCancelledSpotInstanceRequests = Nothing
-  , _csirrsResponseStatus = pResponseStatus_
+  { -- | One or more Spot Instance requests.
+    cancelledSpotInstanceRequests :: Prelude.Maybe [CancelledSpotInstanceRequest],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CancelSpotInstanceRequestsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'cancelledSpotInstanceRequests', 'cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests' - One or more Spot Instance requests.
+--
+-- 'httpStatus', 'cancelSpotInstanceRequestsResponse_httpStatus' - The response's http status code.
+newCancelSpotInstanceRequestsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CancelSpotInstanceRequestsResponse
+newCancelSpotInstanceRequestsResponse pHttpStatus_ =
+  CancelSpotInstanceRequestsResponse'
+    { cancelledSpotInstanceRequests =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | One or more Spot instance requests.
-csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
-csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce;
+-- | One or more Spot Instance requests.
+cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests :: Lens.Lens' CancelSpotInstanceRequestsResponse (Prelude.Maybe [CancelledSpotInstanceRequest])
+cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests = Lens.lens (\CancelSpotInstanceRequestsResponse' {cancelledSpotInstanceRequests} -> cancelledSpotInstanceRequests) (\s@CancelSpotInstanceRequestsResponse' {} a -> s {cancelledSpotInstanceRequests = a} :: CancelSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-csirrsResponseStatus :: Lens' CancelSpotInstanceRequestsResponse Int
-csirrsResponseStatus = lens _csirrsResponseStatus (\ s a -> s{_csirrsResponseStatus = a});
+-- | The response's http status code.
+cancelSpotInstanceRequestsResponse_httpStatus :: Lens.Lens' CancelSpotInstanceRequestsResponse Prelude.Int
+cancelSpotInstanceRequestsResponse_httpStatus = Lens.lens (\CancelSpotInstanceRequestsResponse' {httpStatus} -> httpStatus) (\s@CancelSpotInstanceRequestsResponse' {} a -> s {httpStatus = a} :: CancelSpotInstanceRequestsResponse)
 
-instance NFData CancelSpotInstanceRequestsResponse
-         where
+instance
+  Prelude.NFData
+    CancelSpotInstanceRequestsResponse

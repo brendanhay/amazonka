@@ -1,7 +1,185 @@
 # Change Log
 
+## 2.0 RC1 (TODO: Linkify)
+Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
+
+### Major Changes
+
+- Every service has been regenerated.
+
+- Enums (sum types) have been replaced with pattern synonyms. (Thanks @rossabaker)
+  - This reduces GHC memory usage on some large packages (notably `amazonka-ec2`), as well as makes them more robust against new enum values in regions, responses, etc.
+
+- Naming
+  - Record smart constructors (previously `describeInstances`, `getObject`, etc.) are now strictly prefixed with `new`, such as `newDescribeInstances`.
+  - Generated lenses are no longer exported from the top-level `Network.AWS.<name>` module - instead a `Network.AWS.<name>.Lens` module is provided.
+  - Generated lenses no longer use mnemonic or heuristically assigned prefixes such as `dirsrsInstances` and instead strictly prefix using the type name `describeInstances_instances` - following the form `<type>_<field>`.
+  - You may prefer to use a library like [`generic-lens`](https://hackage.haskell.org/package/generic-lens) instead of the long lens names.
+
+- Exports
+  - Every `amazonka-*` package re-exports the `Network.AWS.Prelude` module.
+  - All type constructors (Such as record constructors) are now exported by default.
+
+- CI
+  - Nix and GitHub Actions are used for CI (thanks @endgame)
+  - `nix-build-uncached` is used to prevent spurious rebuilds in CI [#627](https://github.com/brendanhay/amazonka/pull/627)
+  - CPP supporting GHC < 8.8 has been removed.
+  - While GHC 8.6 is not in the CI matrix, it currently builds, so packages depend on `base >= 4.12`.
+
+### Fixed
+
+- Fix trailing slash bug in gen model
+[\#528](https://github.com/brendanhay/amazonka/pull/528)
+- Close connections immediately (when we know that we can)
+[\#493](https://github.com/brendanhay/amazonka/pull/493)
+- Remove the Content-Length header when doing V4 streaming signatures
+[\#547](https://github.com/brendanhay/amazonka/pull/547)
+- Ensure that KerberosAttributes is parsed correctly from an empty response
+[\#512](https://github.com/brendanhay/amazonka/pull/512)
+- Correct Stockholm in FromText Region
+[\#565](https://github.com/brendanhay/amazonka/pull/572)
+- Fix MonadUnlifIO compiler errors on ghc-8.10.1
+[\#572](https://github.com/brendanhay/amazonka/pull/572)
+- Deduplicate CreateCertificateFromCSR fixtures
+[\#500](https://github.com/brendanhay/amazonka/pull/500)
+- CloudFormation ListChangeSets and DescribeChangeSets are paginated
+[\#620](https://github.com/brendanhay/amazonka/pull/620)
+- Use `signingName`, not `endpointPrefix`, when signing requests
+[\#622](https://github.com/brendanhay/amazonka/pull/622)
+- Add `x-amz-glacier-version` to glacier headers (and extend generator to let `operationPlugins` support wildcards)
+[\#623](https://github.com/brendanhay/amazonka/pull/623)
+- Add required fields for Glacier multipart uploade
+[\#624](https://github.com/brendanhay/amazonka/pull/624)
+- If nonstandard ports are used, include them in signed host header
+[\#625](https://github.com/brendanhay/amazonka/pull/625)
+- Duplicate files that differ only in case have been removed
+[\#637](https://github.com/brendanhay/amazonka/pull/637)
+- `amazonka-autoscaling`: `AutoScalingGroupName` is optional in `Activity` structures
+[\#648](https://github.com/brendanhay/amazonka/pull/648)
+- S3 object sizes are now `Integer` instead of `Int`
+[\#649](https://github.com/brendanhay/amazonka/pull/649)
+- Fix getting regions from named profiles
+[\#654](https://github.com/brendanhay/amazonka/pull/654)
+- amazonka-rds now supports the `DestinationRegion` pseudo-parameter for cross-region requests
+[\#661](https://github.com/brendanhay/amazonka/pull/661)
+- `amazonka-cognito-idp`: `UserPoolAddOnsType.AdvancedSecurityMode` is optional for unparsing's sake
+[\#662](https://github.com/brendanhay/amazonka/pull/662)
+
+### Other Changes
+
+- Bump the upper bound in the dependency on http-client
+[\#526](https://github.com/brendanhay/amazonka/pull/526)
+- Added new regions to ELB, RedShift, Route53.
+[\#541](https://github.com/brendanhay/amazonka/pull/541)
+- Update service definitions for cloudwatch-events
+[\#544](https://github.com/brendanhay/amazonka/pull/544)
+- Add MonadFail instance for AWST
+[\#551](https://github.com/brendanhay/amazonka/pull/551)
+- Add an instance for `PrimMonad m => PrimMonad (AWST' r m)`
+[\#510](https://github.com/brendanhay/amazonka/pull/510)
+- Set startedAt as optional in AWS batch
+[\#561](https://github.com/brendanhay/amazonka/pull/561)
+- Add `ignoredPaginators` to service definition.
+[\#578](https://github.com/brendanhay/amazonka/pull/578)
+- Adds paginators to AWS Secrets Manager API
+[\#576](https://github.com/brendanhay/amazonka/pull/576)
+- Add intelligent tiering S3 type
+[\#570](https://github.com/brendanhay/amazonka/pull/570)
+- AWS service descriptions appear in haddocks
+[\#619](https://github.com/brendanhay/amazonka/pull/619)
+- Drop some `MonadThrow` and `MonadCatch` constraints
+[\#626](https://github.com/brendanhay/amazonka/pull/626)
+- Use an in-tree script to generate services, instead of pulling the repo into the Nix store
+[\#639](https://github.com/brendanhay/amazonka/pull/639)
+- Provide script to audit missing service configurations from boto
+[\#644](https://github.com/brendanhay/amazonka/pull/644)
+
+### New libraries
+
+- `amazonka-apigatewaymanagementapi`: API management strategies allow you to monitor and manage APIs in a secure and scalable way. [Overview](https://aws.amazon.com/api-gateway/api-management/)
+- `amazonka-eks`: Amazon Elastic Kubernetes Service (Amazon EKS) is a managed container service to run and scale Kubernetes applications in the cloud or on-premises. [Overview](https://aws.amazon.com/eks/)
+[\#618](https://github.com/brendanhay/amazonka/pull/618)
+- `amazonka-qldb`: Fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log. Owned by a central trusted authority. [Overview](https://aws.amazon.com/qldb/)
+[\#621](https://github.com/brendanhay/amazonka/pull/621)
+- `amazonka-sesv2`: High-scale inbound and outbound cloud email service --- V2 API. [Overview](https://aws.amazon.com/ses/)
+[\#633](https://github.com/brendanhay/amazonka/pull/633)
+- `amazonka-textract`: Easily extract printed text, handwriting, and data from any document. [Overview](https://aws.amazon.com/textract/)
+
+## [1.6.1](https://github.com/brendanhay/amazonka/tree/1.6.1)
+Released: **03 Feb, 2019**, Compare: [1.6.0](https://github.com/brendanhay/amazonka/compare/1.6.0...1.6.1)
+
+### Fixed
+
+- Correctly catch exceptions in perform. [\#464](https://github.com/brendanhay/amazonka/pull/464)
+
+### Changed
+
+- Add a `MonadUnliftIO` instance for `AWST'`. [\#461](https://github.com/brendanhay/amazonka/pull/461)
+- Add FromText instances for Int64, String and Seconds. [\#489](https://github.com/brendanhay/amazonka/pull/489)
+- Add generalBracket for MonadMask instance on AWST'. [\#492](https://github.com/brendanhay/amazonka/pull/492)
+- Remove fractional seconds from serialization of iso8601 timestamps [\#502](https://github.com/brendanhay/amazonka/pull/502)
+
+
+## [1.6.0](https://github.com/brendanhay/amazonka/tree/1.6.0)
+Released: **16 May, 2018**, Compare: [1.5.0](https://github.com/brendanhay/amazonka/compare/1.5.0...1.6.0)
+
+### Fixed
+
+- GHC 8.4 compatibility. [\#456](https://github.com/brendanhay/amazonka/pull/456)
+- Conduit `1.3` compatibility. [\#449](https://github.com/brendanhay/amazonka/pull/449)
+- S3 `BucketName` now has a `FromJSON` instance. [\#452](https://github.com/brendanhay/amazonka/pull/452)
+- S3 `ListObjectsV2` is now named correctly. [\#447](https://github.com/brendanhay/amazonka/pull/447)
+- HTTP `Expect` headers are now stripped when presigning URLs. [\#444](https://github.com/brendanhay/amazonka/pull/444)
+- Duplicate generated files no longer exist on case-insensitive file systems. [\#429](https://github.com/brendanhay/amazonka/pull/429), [\#655](https://github.com/brendanhay/amazonka/pull/655)
+- EC2 metadata's instance identity document now has the correct(er) field types. [\#428](https://github.com/brendanhay/amazonka/pull/428)
+- OpsWorks `DescribeApps` and `DescribeStacks` now correctly handle optional attribute values. [\#436](https://github.com/brendanhay/amazonka/pull/436), [\#438](https://github.com/brendanhay/amazonka/pull/438)
+
+### Breaking Changes
+
+- Lambda and other `rest-json` services with binary response payloads now return a raw `ByteString` instead of `HashMap Text Value`,
+  fixing an issue where an empty body could not be deserialized. [\#428](https://github.com/brendanhay/amazonka/pull/394), [\#428](https://github.com/brendanhay/amazonka/pull/407)
+
+### New Libraries
+
+- `amazonka-alexa-business`: Alexa for Business SDK. [Overview](https://aws.amazon.com/alexaforbusiness/)
+- `amazonka-appsync`: Automatically update data in web and mobile applications in real time, and updates data for offline users as soon as they reconnect. [Overview](https://aws.amazon.com/appsync/)
+- `amazonka-autoscaling-plans`: Create instructions to configure dynamic scaling for the scalable resources in your application. [Overview](https://aws.amazon.com/autoscaling/)
+- `amazonka-certificatemanager-pca`: Create a secure private certificate authority (CA). [Overview](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html)
+- `amazonka-cloud9`: A cloud IDE for writing, running, and debugging code. [Overview](https://aws.amazon.com/cloud9/)
+- `amazonka-comprehend`: Natural language processing (NLP) service that uses machine learning to find insights and relationships in text. [Overview](https://aws.amazon.com/comprehend/)
+- `amazonka-connect`: Simple to use, cloud-based contact center. [Overview](https://aws.amazon.com/connect/)
+- `amazonka-cost-explorer`: Dive deeper into your cost and usage data to identify trends, pinpoint cost drivers, and detect anomalies. [Overview](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
+- `amazonka-fms`: Centrally configure and manage firewall rules across accounts and applications. [Overview](https://aws.amazon.com/firewall-manager/)
+- `amazonka-guardduty`: Intelligent threat detection and continuous monitoring to protect your AWS accounts and workloads. [Overview](https://aws.amazon.com/guardduty/)
+- `amazonka-iot-analytics`: Analytics for IoT devices. [Overview](https://aws.amazon.com/iot-analytics/)
+- `amazonka-iot-jobs-dataplane`: Define a set of remote operations that are sent to and executed on one or more devices connected to AWS IoT. [Overview](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html)
+- `amazonka-kinesis-video`: Capture, process, and store video streams for analytics and machine learning. [Overview](https://aws.amazon.com/kinesis/video-streams/)
+- `amazonka-kinesis-video-media`: Media support for Kinesis Video. [Overview](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html)
+- `amazonka-kinesis-video-archived-media`: Archived media support for Kinesis Video. [Overview](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html)
+- `amazonka-mediaconvert`: Process video files and clips to prepare on-demand content for distribution or archiving. [Overview](https://aws.amazon.com/mediaconvert/)
+- `amazonka-medialive`: Encode live video for broadcast and streaming to any device. [Overview](https://aws.amazon.com/medialive/)
+- `amazonka-mediapackage`: Easily prepare and protect video for delivery to Internet devices. [Overview](https://aws.amazon.com/mediapackage/)
+- `amazonka-mediastore`: Store and deliver video assets for live streaming media workflows. [Overview](https://aws.amazon.com/mediastore/)
+- `amazonka-mediastore-dataplane`: MediaStore data plane. [Overview](https://docs.aws.amazon.com/mediastore/latest/apireference/API_Operations_AWS_Elemental_MediaStore_Data_Plane.html)
+- `amazonka-mq`: Managed message broker service for Apache ActiveMQ. [Overview](https://aws.amazon.com/amazon-mq/)
+- `amazonka-resourcegroups`: Resource groups make it easier to manage and automate tasks on large numbers of resources at one time. [Overview](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)
+- `amazonka-route53-autonaming`: Auto naming makes it easier to provision instances for microservices by automating DNS configuration. [Overview](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/autonaming.html)
+- `amazonka-sagemaker`: Build, train, and deploy machine learning models at scale. [Overview](https://aws.amazon.com/sagemaker/)
+- `amazonka-sagemaker-runtime`: Get inferences from SageMaker models. [Overview](https://docs.aws.amazon.com/sagemaker/latest/dg/API_Operations_Amazon_SageMaker_Runtime.html)
+- `amazonka-secretsmanager`: Easily rotate, manage, and retrieve database credentials, API keys, and other secrets through their lifecycle. [Overview](https://aws.amazon.com/secrets-manager/)
+- `amazonka-serverlessrepo`: Discover, deploy, and publish serverless applications. [Overview](https://aws.amazon.com/serverless/serverlessrepo/)
+- `amazonka-transcribe`: Automatic speech recognition. [Overview](https://aws.amazon.com/transcribe/)
+- `amazonka-translate`: A neural machine translation service that delivers fast, high-quality, and affordable language translation. [Overview](https://aws.amazon.com/translate/)
+- `amazonka-workmail`: Secure, managed business email and calendar service with support for existing desktop and mobile email client applications. [Overview](https://aws.amazon.com/workfmail/)
+
+### Updated Service Definitions
+
+> All service definitions and services have been updated and regenerated.
+Please see each individual library's commits for a list of changes.
+
+
 ## [1.5.0](https://github.com/brendanhay/amazonka/tree/1.5.0)
-fReleased: **15 November, 2017**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.5...1.5.0)
+Released: **15 November, 2017**, Compare: [1.4.5](https://github.com/brendanhay/amazonka/compare/1.4.5...1.5.0)
 
 ### Fixed
 

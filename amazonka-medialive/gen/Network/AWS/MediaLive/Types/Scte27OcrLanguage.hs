@@ -1,0 +1,91 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PatternSynonyms #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.MediaLive.Types.Scte27OcrLanguage
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.MediaLive.Types.Scte27OcrLanguage
+  ( Scte27OcrLanguage
+      ( ..,
+        Scte27OcrLanguage_DEU,
+        Scte27OcrLanguage_ENG,
+        Scte27OcrLanguage_FRA,
+        Scte27OcrLanguage_NLD,
+        Scte27OcrLanguage_POR,
+        Scte27OcrLanguage_SPA
+      ),
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Scte27 Ocr Language
+newtype Scte27OcrLanguage = Scte27OcrLanguage'
+  { fromScte27OcrLanguage ::
+      Core.Text
+  }
+  deriving stock
+    ( Prelude.Show,
+      Prelude.Read,
+      Prelude.Eq,
+      Prelude.Ord,
+      Prelude.Generic
+    )
+  deriving newtype
+    ( Prelude.Hashable,
+      Prelude.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
+    )
+
+pattern Scte27OcrLanguage_DEU :: Scte27OcrLanguage
+pattern Scte27OcrLanguage_DEU = Scte27OcrLanguage' "DEU"
+
+pattern Scte27OcrLanguage_ENG :: Scte27OcrLanguage
+pattern Scte27OcrLanguage_ENG = Scte27OcrLanguage' "ENG"
+
+pattern Scte27OcrLanguage_FRA :: Scte27OcrLanguage
+pattern Scte27OcrLanguage_FRA = Scte27OcrLanguage' "FRA"
+
+pattern Scte27OcrLanguage_NLD :: Scte27OcrLanguage
+pattern Scte27OcrLanguage_NLD = Scte27OcrLanguage' "NLD"
+
+pattern Scte27OcrLanguage_POR :: Scte27OcrLanguage
+pattern Scte27OcrLanguage_POR = Scte27OcrLanguage' "POR"
+
+pattern Scte27OcrLanguage_SPA :: Scte27OcrLanguage
+pattern Scte27OcrLanguage_SPA = Scte27OcrLanguage' "SPA"
+
+{-# COMPLETE
+  Scte27OcrLanguage_DEU,
+  Scte27OcrLanguage_ENG,
+  Scte27OcrLanguage_FRA,
+  Scte27OcrLanguage_NLD,
+  Scte27OcrLanguage_POR,
+  Scte27OcrLanguage_SPA,
+  Scte27OcrLanguage'
+  #-}

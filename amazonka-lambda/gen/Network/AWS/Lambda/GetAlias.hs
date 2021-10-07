@@ -1,101 +1,155 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.GetAlias
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
---
---
--- This requires permission for the @lambda:GetAlias@ action.
---
+-- Returns details about a Lambda function
+-- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias>.
 module Network.AWS.Lambda.GetAlias
-    (
-    -- * Creating a Request
-      getAlias
-    , GetAlias
+  ( -- * Creating a Request
+    GetAlias (..),
+    newGetAlias,
+
     -- * Request Lenses
-    , gaFunctionName
-    , gaName
+    getAlias_functionName,
+    getAlias_name,
 
     -- * Destructuring the Response
-    , aliasConfiguration
-    , AliasConfiguration
+    AliasConfiguration (..),
+    newAliasConfiguration,
+
     -- * Response Lenses
-    , acName
-    , acFunctionVersion
-    , acAliasARN
-    , acDescription
-    ) where
+    aliasConfiguration_revisionId,
+    aliasConfiguration_routingConfig,
+    aliasConfiguration_functionVersion,
+    aliasConfiguration_name,
+    aliasConfiguration_description,
+    aliasConfiguration_aliasArn,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getAlias' smart constructor.
+-- | /See:/ 'newGetAlias' smart constructor.
 data GetAlias = GetAlias'
-  { _gaFunctionName :: !Text
-  , _gaName         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @MyFunction@.
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+    --
+    -- The length constraint applies only to the full ARN. If you specify only
+    -- the function name, it is limited to 64 characters in length.
+    functionName :: Prelude.Text,
+    -- | The name of the alias.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetAlias' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAlias' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gaFunctionName' - Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gaName' - Name of the alias for which you want to retrieve information.
-getAlias
-    :: Text -- ^ 'gaFunctionName'
-    -> Text -- ^ 'gaName'
-    -> GetAlias
-getAlias pFunctionName_ pName_ =
-  GetAlias' {_gaFunctionName = pFunctionName_, _gaName = pName_}
+-- 'functionName', 'getAlias_functionName' - The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+--
+-- 'name', 'getAlias_name' - The name of the alias.
+newGetAlias ::
+  -- | 'functionName'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  GetAlias
+newGetAlias pFunctionName_ pName_ =
+  GetAlias'
+    { functionName = pFunctionName_,
+      name = pName_
+    }
 
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+getAlias_functionName :: Lens.Lens' GetAlias Prelude.Text
+getAlias_functionName = Lens.lens (\GetAlias' {functionName} -> functionName) (\s@GetAlias' {} a -> s {functionName = a} :: GetAlias)
 
--- | Function name for which the alias is created. An alias is a subresource that exists only in the context of an existing Lambda function so you must specify the function name. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-gaFunctionName :: Lens' GetAlias Text
-gaFunctionName = lens _gaFunctionName (\ s a -> s{_gaFunctionName = a});
+-- | The name of the alias.
+getAlias_name :: Lens.Lens' GetAlias Prelude.Text
+getAlias_name = Lens.lens (\GetAlias' {name} -> name) (\s@GetAlias' {} a -> s {name = a} :: GetAlias)
 
--- | Name of the alias for which you want to retrieve information.
-gaName :: Lens' GetAlias Text
-gaName = lens _gaName (\ s a -> s{_gaName = a});
+instance Core.AWSRequest GetAlias where
+  type AWSResponse GetAlias = AliasConfiguration
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance AWSRequest GetAlias where
-        type Rs GetAlias = AliasConfiguration
-        request = get lambda
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetAlias
 
-instance Hashable GetAlias where
+instance Prelude.NFData GetAlias
 
-instance NFData GetAlias where
+instance Core.ToHeaders GetAlias where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders GetAlias where
-        toHeaders = const mempty
+instance Core.ToPath GetAlias where
+  toPath GetAlias' {..} =
+    Prelude.mconcat
+      [ "/2015-03-31/functions/",
+        Core.toBS functionName,
+        "/aliases/",
+        Core.toBS name
+      ]
 
-instance ToPath GetAlias where
-        toPath GetAlias'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toBS _gaFunctionName,
-               "/aliases/", toBS _gaName]
-
-instance ToQuery GetAlias where
-        toQuery = const mempty
+instance Core.ToQuery GetAlias where
+  toQuery = Prelude.const Prelude.mempty

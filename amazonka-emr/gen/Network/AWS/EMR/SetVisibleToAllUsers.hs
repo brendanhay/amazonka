@@ -1,126 +1,168 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets whether all AWS Identity and Access Management (IAM) users under your account can access the specified clusters (job flows). This action works on running clusters. You can also set the visibility of a cluster when you launch it using the @VisibleToAllUsers@ parameter of 'RunJobFlow' . The SetVisibleToAllUsers action can be called only by an IAM user who created the cluster or the AWS account that owns the cluster.
+-- Sets the Cluster$VisibleToAllUsers value for an EMR cluster. When
+-- @true@, IAM principals in the Amazon Web Services account can perform
+-- EMR cluster actions that their IAM policies allow. When @false@, only
+-- the IAM principal that created the cluster and the Amazon Web Services
+-- account root user can perform EMR actions on the cluster, regardless of
+-- IAM permissions policies attached to other IAM principals.
 --
+-- This action works on running clusters. When you create a cluster, use
+-- the RunJobFlowInput$VisibleToAllUsers parameter.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
+-- in the /Amazon EMRManagement Guide/.
 module Network.AWS.EMR.SetVisibleToAllUsers
-    (
-    -- * Creating a Request
-      setVisibleToAllUsers
-    , SetVisibleToAllUsers
+  ( -- * Creating a Request
+    SetVisibleToAllUsers (..),
+    newSetVisibleToAllUsers,
+
     -- * Request Lenses
-    , svtauJobFlowIds
-    , svtauVisibleToAllUsers
+    setVisibleToAllUsers_jobFlowIds,
+    setVisibleToAllUsers_visibleToAllUsers,
 
     -- * Destructuring the Response
-    , setVisibleToAllUsersResponse
-    , SetVisibleToAllUsersResponse
-    ) where
+    SetVisibleToAllUsersResponse (..),
+    newSetVisibleToAllUsersResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input to the SetVisibleToAllUsers action.
 --
---
---
--- /See:/ 'setVisibleToAllUsers' smart constructor.
+-- /See:/ 'newSetVisibleToAllUsers' smart constructor.
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
-  { _svtauJobFlowIds        :: ![Text]
-  , _svtauVisibleToAllUsers :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier of the job flow (cluster).
+    jobFlowIds :: [Prelude.Text],
+    -- | A value of @true@ indicates that an IAM principal in the Amazon Web
+    -- Services account can perform EMR actions on the cluster that the IAM
+    -- policies attached to the principal allow. A value of @false@ indicates
+    -- that only the IAM principal that created the cluster and the Amazon Web
+    -- Services root user can perform EMR actions on the cluster.
+    visibleToAllUsers :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetVisibleToAllUsers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetVisibleToAllUsers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'svtauJobFlowIds' - Identifiers of the job flows to receive the new visibility setting.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'svtauVisibleToAllUsers' - Whether the specified clusters are visible to all IAM users of the AWS account associated with the cluster. If this value is set to True, all IAM users of that AWS account can view and, if they have the proper IAM policy permissions set, manage the clusters. If it is set to False, only the IAM user that created a cluster can view and manage it.
-setVisibleToAllUsers
-    :: Bool -- ^ 'svtauVisibleToAllUsers'
-    -> SetVisibleToAllUsers
-setVisibleToAllUsers pVisibleToAllUsers_ =
+-- 'jobFlowIds', 'setVisibleToAllUsers_jobFlowIds' - The unique identifier of the job flow (cluster).
+--
+-- 'visibleToAllUsers', 'setVisibleToAllUsers_visibleToAllUsers' - A value of @true@ indicates that an IAM principal in the Amazon Web
+-- Services account can perform EMR actions on the cluster that the IAM
+-- policies attached to the principal allow. A value of @false@ indicates
+-- that only the IAM principal that created the cluster and the Amazon Web
+-- Services root user can perform EMR actions on the cluster.
+newSetVisibleToAllUsers ::
+  -- | 'visibleToAllUsers'
+  Prelude.Bool ->
+  SetVisibleToAllUsers
+newSetVisibleToAllUsers pVisibleToAllUsers_ =
   SetVisibleToAllUsers'
-  {_svtauJobFlowIds = mempty, _svtauVisibleToAllUsers = pVisibleToAllUsers_}
+    { jobFlowIds = Prelude.mempty,
+      visibleToAllUsers = pVisibleToAllUsers_
+    }
 
+-- | The unique identifier of the job flow (cluster).
+setVisibleToAllUsers_jobFlowIds :: Lens.Lens' SetVisibleToAllUsers [Prelude.Text]
+setVisibleToAllUsers_jobFlowIds = Lens.lens (\SetVisibleToAllUsers' {jobFlowIds} -> jobFlowIds) (\s@SetVisibleToAllUsers' {} a -> s {jobFlowIds = a} :: SetVisibleToAllUsers) Prelude.. Lens._Coerce
 
--- | Identifiers of the job flows to receive the new visibility setting.
-svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
-svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a}) . _Coerce;
+-- | A value of @true@ indicates that an IAM principal in the Amazon Web
+-- Services account can perform EMR actions on the cluster that the IAM
+-- policies attached to the principal allow. A value of @false@ indicates
+-- that only the IAM principal that created the cluster and the Amazon Web
+-- Services root user can perform EMR actions on the cluster.
+setVisibleToAllUsers_visibleToAllUsers :: Lens.Lens' SetVisibleToAllUsers Prelude.Bool
+setVisibleToAllUsers_visibleToAllUsers = Lens.lens (\SetVisibleToAllUsers' {visibleToAllUsers} -> visibleToAllUsers) (\s@SetVisibleToAllUsers' {} a -> s {visibleToAllUsers = a} :: SetVisibleToAllUsers)
 
--- | Whether the specified clusters are visible to all IAM users of the AWS account associated with the cluster. If this value is set to True, all IAM users of that AWS account can view and, if they have the proper IAM policy permissions set, manage the clusters. If it is set to False, only the IAM user that created a cluster can view and manage it.
-svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
-svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
+instance Core.AWSRequest SetVisibleToAllUsers where
+  type
+    AWSResponse SetVisibleToAllUsers =
+      SetVisibleToAllUsersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull SetVisibleToAllUsersResponse'
 
-instance AWSRequest SetVisibleToAllUsers where
-        type Rs SetVisibleToAllUsers =
-             SetVisibleToAllUsersResponse
-        request = postJSON emr
-        response = receiveNull SetVisibleToAllUsersResponse'
+instance Prelude.Hashable SetVisibleToAllUsers
 
-instance Hashable SetVisibleToAllUsers where
+instance Prelude.NFData SetVisibleToAllUsers
 
-instance NFData SetVisibleToAllUsers where
+instance Core.ToHeaders SetVisibleToAllUsers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.SetVisibleToAllUsers" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders SetVisibleToAllUsers where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.SetVisibleToAllUsers" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON SetVisibleToAllUsers where
+  toJSON SetVisibleToAllUsers' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("JobFlowIds" Core..= jobFlowIds),
+            Prelude.Just
+              ("VisibleToAllUsers" Core..= visibleToAllUsers)
+          ]
+      )
 
-instance ToJSON SetVisibleToAllUsers where
-        toJSON SetVisibleToAllUsers'{..}
-          = object
-              (catMaybes
-                 [Just ("JobFlowIds" .= _svtauJobFlowIds),
-                  Just
-                    ("VisibleToAllUsers" .= _svtauVisibleToAllUsers)])
+instance Core.ToPath SetVisibleToAllUsers where
+  toPath = Prelude.const "/"
 
-instance ToPath SetVisibleToAllUsers where
-        toPath = const "/"
+instance Core.ToQuery SetVisibleToAllUsers where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery SetVisibleToAllUsers where
-        toQuery = const mempty
+-- | /See:/ 'newSetVisibleToAllUsersResponse' smart constructor.
+data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'setVisibleToAllUsersResponse' smart constructor.
-data SetVisibleToAllUsersResponse =
-  SetVisibleToAllUsersResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SetVisibleToAllUsersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetVisibleToAllUsersResponse' with all optional fields omitted.
 --
-setVisibleToAllUsersResponse
-    :: SetVisibleToAllUsersResponse
-setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newSetVisibleToAllUsersResponse ::
+  SetVisibleToAllUsersResponse
+newSetVisibleToAllUsersResponse =
+  SetVisibleToAllUsersResponse'
 
-
-instance NFData SetVisibleToAllUsersResponse where
+instance Prelude.NFData SetVisibleToAllUsersResponse

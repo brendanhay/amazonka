@@ -1,209 +1,380 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a target with a Maintenance Window.
---
---
+-- Registers a target with a maintenance window.
 module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
-    (
-    -- * Creating a Request
-      registerTargetWithMaintenanceWindow
-    , RegisterTargetWithMaintenanceWindow
+  ( -- * Creating a Request
+    RegisterTargetWithMaintenanceWindow (..),
+    newRegisterTargetWithMaintenanceWindow,
+
     -- * Request Lenses
-    , rClientToken
-    , rOwnerInformation
-    , rName
-    , rDescription
-    , rWindowId
-    , rResourceType
-    , rTargets
+    registerTargetWithMaintenanceWindow_name,
+    registerTargetWithMaintenanceWindow_description,
+    registerTargetWithMaintenanceWindow_ownerInformation,
+    registerTargetWithMaintenanceWindow_clientToken,
+    registerTargetWithMaintenanceWindow_windowId,
+    registerTargetWithMaintenanceWindow_resourceType,
+    registerTargetWithMaintenanceWindow_targets,
 
     -- * Destructuring the Response
-    , registerTargetWithMaintenanceWindowResponse
-    , RegisterTargetWithMaintenanceWindowResponse
+    RegisterTargetWithMaintenanceWindowResponse (..),
+    newRegisterTargetWithMaintenanceWindowResponse,
+
     -- * Response Lenses
-    , rrsWindowTargetId
-    , rrsResponseStatus
-    ) where
+    registerTargetWithMaintenanceWindowResponse_windowTargetId,
+    registerTargetWithMaintenanceWindowResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'registerTargetWithMaintenanceWindow' smart constructor.
+-- | /See:/ 'newRegisterTargetWithMaintenanceWindow' smart constructor.
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
-  { _rClientToken      :: !(Maybe Text)
-  , _rOwnerInformation :: !(Maybe (Sensitive Text))
-  , _rName             :: !(Maybe Text)
-  , _rDescription      :: !(Maybe (Sensitive Text))
-  , _rWindowId         :: !Text
-  , _rResourceType     :: !MaintenanceWindowResourceType
-  , _rTargets          :: ![Target]
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RegisterTargetWithMaintenanceWindow' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rClientToken' - User-provided idempotency token.
---
--- * 'rOwnerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
---
--- * 'rName' - An optional name for the target.
---
--- * 'rDescription' - An optional description for the target.
---
--- * 'rWindowId' - The ID of the Maintenance Window the target should be registered with.
---
--- * 'rResourceType' - The type of target being registered with the Maintenance Window.
---
--- * 'rTargets' - The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
-registerTargetWithMaintenanceWindow
-    :: Text -- ^ 'rWindowId'
-    -> MaintenanceWindowResourceType -- ^ 'rResourceType'
-    -> RegisterTargetWithMaintenanceWindow
-registerTargetWithMaintenanceWindow pWindowId_ pResourceType_ =
-  RegisterTargetWithMaintenanceWindow'
-  { _rClientToken = Nothing
-  , _rOwnerInformation = Nothing
-  , _rName = Nothing
-  , _rDescription = Nothing
-  , _rWindowId = pWindowId_
-  , _rResourceType = pResourceType_
-  , _rTargets = mempty
+  { -- | An optional name for the target.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An optional description for the target.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | User-provided value that will be included in any Amazon CloudWatch
+    -- Events events raised while running tasks for these targets in this
+    -- maintenance window.
+    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | User-provided idempotency token.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the maintenance window the target should be registered with.
+    windowId :: Prelude.Text,
+    -- | The type of target being registered with the maintenance window.
+    resourceType :: MaintenanceWindowResourceType,
+    -- | The targets to register with the maintenance window. In other words, the
+    -- instances to run commands on when the maintenance window runs.
+    --
+    -- If a single maintenance window task is registered with multiple targets,
+    -- its task invocations occur sequentially and not in parallel. If your
+    -- task must run on multiple targets at the same time, register a task for
+    -- each target individually and assign each task the same priority level.
+    --
+    -- You can specify targets using instance IDs, resource group names, or
+    -- tags that have been applied to instances.
+    --
+    -- __Example 1__: Specify instance IDs
+    --
+    -- @Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 @
+    --
+    -- __Example 2__: Use tag key-pairs applied to instances
+    --
+    -- @Key=tag:my-tag-key,Values=my-tag-value-1,my-tag-value-2 @
+    --
+    -- __Example 3__: Use tag-keys applied to instances
+    --
+    -- @Key=tag-key,Values=my-tag-key-1,my-tag-key-2 @
+    --
+    -- __Example 4__: Use resource group names
+    --
+    -- @Key=resource-groups:Name,Values=resource-group-name @
+    --
+    -- __Example 5__: Use filters for resource group types
+    --
+    -- @Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 @
+    --
+    -- For @Key=resource-groups:ResourceTypeFilters@, specify resource types in
+    -- the following format
+    --
+    -- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
+    --
+    -- For more information about these examples formats, including the best
+    -- use case for each one, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    targets :: [Target]
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | User-provided idempotency token.
-rClientToken :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
-
--- | User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-rOwnerInformation :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rOwnerInformation = lens _rOwnerInformation (\ s a -> s{_rOwnerInformation = a}) . mapping _Sensitive;
+-- |
+-- Create a value of 'RegisterTargetWithMaintenanceWindow' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'registerTargetWithMaintenanceWindow_name' - An optional name for the target.
+--
+-- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.
+--
+-- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
+--
+-- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.
+--
+-- 'windowId', 'registerTargetWithMaintenanceWindow_windowId' - The ID of the maintenance window the target should be registered with.
+--
+-- 'resourceType', 'registerTargetWithMaintenanceWindow_resourceType' - The type of target being registered with the maintenance window.
+--
+-- 'targets', 'registerTargetWithMaintenanceWindow_targets' - The targets to register with the maintenance window. In other words, the
+-- instances to run commands on when the maintenance window runs.
+--
+-- If a single maintenance window task is registered with multiple targets,
+-- its task invocations occur sequentially and not in parallel. If your
+-- task must run on multiple targets at the same time, register a task for
+-- each target individually and assign each task the same priority level.
+--
+-- You can specify targets using instance IDs, resource group names, or
+-- tags that have been applied to instances.
+--
+-- __Example 1__: Specify instance IDs
+--
+-- @Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 @
+--
+-- __Example 2__: Use tag key-pairs applied to instances
+--
+-- @Key=tag:my-tag-key,Values=my-tag-value-1,my-tag-value-2 @
+--
+-- __Example 3__: Use tag-keys applied to instances
+--
+-- @Key=tag-key,Values=my-tag-key-1,my-tag-key-2 @
+--
+-- __Example 4__: Use resource group names
+--
+-- @Key=resource-groups:Name,Values=resource-group-name @
+--
+-- __Example 5__: Use filters for resource group types
+--
+-- @Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 @
+--
+-- For @Key=resource-groups:ResourceTypeFilters@, specify resource types in
+-- the following format
+--
+-- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
+--
+-- For more information about these examples formats, including the best
+-- use case for each one, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+newRegisterTargetWithMaintenanceWindow ::
+  -- | 'windowId'
+  Prelude.Text ->
+  -- | 'resourceType'
+  MaintenanceWindowResourceType ->
+  RegisterTargetWithMaintenanceWindow
+newRegisterTargetWithMaintenanceWindow
+  pWindowId_
+  pResourceType_ =
+    RegisterTargetWithMaintenanceWindow'
+      { name =
+          Prelude.Nothing,
+        description = Prelude.Nothing,
+        ownerInformation = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        windowId = pWindowId_,
+        resourceType = pResourceType_,
+        targets = Prelude.mempty
+      }
 
 -- | An optional name for the target.
-rName :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rName = lens _rName (\ s a -> s{_rName = a});
+registerTargetWithMaintenanceWindow_name :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMaintenanceWindow' {name} -> name) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTargetWithMaintenanceWindow)
 
 -- | An optional description for the target.
-rDescription :: Lens' RegisterTargetWithMaintenanceWindow (Maybe Text)
-rDescription = lens _rDescription (\ s a -> s{_rDescription = a}) . mapping _Sensitive;
+registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
--- | The ID of the Maintenance Window the target should be registered with.
-rWindowId :: Lens' RegisterTargetWithMaintenanceWindow Text
-rWindowId = lens _rWindowId (\ s a -> s{_rWindowId = a});
+-- | User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
+registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
--- | The type of target being registered with the Maintenance Window.
-rResourceType :: Lens' RegisterTargetWithMaintenanceWindow MaintenanceWindowResourceType
-rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
+-- | User-provided idempotency token.
+registerTargetWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTargetWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTargetWithMaintenanceWindow)
 
--- | The targets (either instances or tags). Instances are specified using Key=instanceids,Values=<instanceid1>,<instanceid2>. Tags are specified using Key=<tag name>,Values=<tag value>.
-rTargets :: Lens' RegisterTargetWithMaintenanceWindow [Target]
-rTargets = lens _rTargets (\ s a -> s{_rTargets = a}) . _Coerce;
+-- | The ID of the maintenance window the target should be registered with.
+registerTargetWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Prelude.Text
+registerTargetWithMaintenanceWindow_windowId = Lens.lens (\RegisterTargetWithMaintenanceWindow' {windowId} -> windowId) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {windowId = a} :: RegisterTargetWithMaintenanceWindow)
 
-instance AWSRequest
-           RegisterTargetWithMaintenanceWindow
-         where
-        type Rs RegisterTargetWithMaintenanceWindow =
-             RegisterTargetWithMaintenanceWindowResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterTargetWithMaintenanceWindowResponse' <$>
-                   (x .?> "WindowTargetId") <*> (pure (fromEnum s)))
+-- | The type of target being registered with the maintenance window.
+registerTargetWithMaintenanceWindow_resourceType :: Lens.Lens' RegisterTargetWithMaintenanceWindow MaintenanceWindowResourceType
+registerTargetWithMaintenanceWindow_resourceType = Lens.lens (\RegisterTargetWithMaintenanceWindow' {resourceType} -> resourceType) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {resourceType = a} :: RegisterTargetWithMaintenanceWindow)
 
-instance Hashable RegisterTargetWithMaintenanceWindow
-         where
+-- | The targets to register with the maintenance window. In other words, the
+-- instances to run commands on when the maintenance window runs.
+--
+-- If a single maintenance window task is registered with multiple targets,
+-- its task invocations occur sequentially and not in parallel. If your
+-- task must run on multiple targets at the same time, register a task for
+-- each target individually and assign each task the same priority level.
+--
+-- You can specify targets using instance IDs, resource group names, or
+-- tags that have been applied to instances.
+--
+-- __Example 1__: Specify instance IDs
+--
+-- @Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 @
+--
+-- __Example 2__: Use tag key-pairs applied to instances
+--
+-- @Key=tag:my-tag-key,Values=my-tag-value-1,my-tag-value-2 @
+--
+-- __Example 3__: Use tag-keys applied to instances
+--
+-- @Key=tag-key,Values=my-tag-key-1,my-tag-key-2 @
+--
+-- __Example 4__: Use resource group names
+--
+-- @Key=resource-groups:Name,Values=resource-group-name @
+--
+-- __Example 5__: Use filters for resource group types
+--
+-- @Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 @
+--
+-- For @Key=resource-groups:ResourceTypeFilters@, specify resource types in
+-- the following format
+--
+-- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
+--
+-- For more information about these examples formats, including the best
+-- use case for each one, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+registerTargetWithMaintenanceWindow_targets :: Lens.Lens' RegisterTargetWithMaintenanceWindow [Target]
+registerTargetWithMaintenanceWindow_targets = Lens.lens (\RegisterTargetWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens._Coerce
 
-instance NFData RegisterTargetWithMaintenanceWindow
-         where
+instance
+  Core.AWSRequest
+    RegisterTargetWithMaintenanceWindow
+  where
+  type
+    AWSResponse RegisterTargetWithMaintenanceWindow =
+      RegisterTargetWithMaintenanceWindowResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterTargetWithMaintenanceWindowResponse'
+            Prelude.<$> (x Core..?> "WindowTargetId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders
-           RegisterTargetWithMaintenanceWindow
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.RegisterTargetWithMaintenanceWindow" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.Hashable
+    RegisterTargetWithMaintenanceWindow
 
-instance ToJSON RegisterTargetWithMaintenanceWindow
-         where
-        toJSON RegisterTargetWithMaintenanceWindow'{..}
-          = object
-              (catMaybes
-                 [("ClientToken" .=) <$> _rClientToken,
-                  ("OwnerInformation" .=) <$> _rOwnerInformation,
-                  ("Name" .=) <$> _rName,
-                  ("Description" .=) <$> _rDescription,
-                  Just ("WindowId" .= _rWindowId),
-                  Just ("ResourceType" .= _rResourceType),
-                  Just ("Targets" .= _rTargets)])
+instance
+  Prelude.NFData
+    RegisterTargetWithMaintenanceWindow
 
-instance ToPath RegisterTargetWithMaintenanceWindow
-         where
-        toPath = const "/"
+instance
+  Core.ToHeaders
+    RegisterTargetWithMaintenanceWindow
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonSSM.RegisterTargetWithMaintenanceWindow" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToQuery RegisterTargetWithMaintenanceWindow
-         where
-        toQuery = const mempty
+instance
+  Core.ToJSON
+    RegisterTargetWithMaintenanceWindow
+  where
+  toJSON RegisterTargetWithMaintenanceWindow' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
+            ("OwnerInformation" Core..=)
+              Prelude.<$> ownerInformation,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            Prelude.Just ("WindowId" Core..= windowId),
+            Prelude.Just ("ResourceType" Core..= resourceType),
+            Prelude.Just ("Targets" Core..= targets)
+          ]
+      )
 
--- | /See:/ 'registerTargetWithMaintenanceWindowResponse' smart constructor.
+instance
+  Core.ToPath
+    RegisterTargetWithMaintenanceWindow
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    RegisterTargetWithMaintenanceWindow
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newRegisterTargetWithMaintenanceWindowResponse' smart constructor.
 data RegisterTargetWithMaintenanceWindowResponse = RegisterTargetWithMaintenanceWindowResponse'
-  { _rrsWindowTargetId :: !(Maybe Text)
-  , _rrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the target definition in this maintenance window.
+    windowTargetId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterTargetWithMaintenanceWindowResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterTargetWithMaintenanceWindowResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rrsWindowTargetId' - The ID of the target definition in this Maintenance Window.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rrsResponseStatus' - -- | The response status code.
-registerTargetWithMaintenanceWindowResponse
-    :: Int -- ^ 'rrsResponseStatus'
-    -> RegisterTargetWithMaintenanceWindowResponse
-registerTargetWithMaintenanceWindowResponse pResponseStatus_ =
-  RegisterTargetWithMaintenanceWindowResponse'
-  {_rrsWindowTargetId = Nothing, _rrsResponseStatus = pResponseStatus_}
+-- 'windowTargetId', 'registerTargetWithMaintenanceWindowResponse_windowTargetId' - The ID of the target definition in this maintenance window.
+--
+-- 'httpStatus', 'registerTargetWithMaintenanceWindowResponse_httpStatus' - The response's http status code.
+newRegisterTargetWithMaintenanceWindowResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterTargetWithMaintenanceWindowResponse
+newRegisterTargetWithMaintenanceWindowResponse
+  pHttpStatus_ =
+    RegisterTargetWithMaintenanceWindowResponse'
+      { windowTargetId =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | The ID of the target definition in this maintenance window.
+registerTargetWithMaintenanceWindowResponse_windowTargetId :: Lens.Lens' RegisterTargetWithMaintenanceWindowResponse (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindowResponse_windowTargetId = Lens.lens (\RegisterTargetWithMaintenanceWindowResponse' {windowTargetId} -> windowTargetId) (\s@RegisterTargetWithMaintenanceWindowResponse' {} a -> s {windowTargetId = a} :: RegisterTargetWithMaintenanceWindowResponse)
 
--- | The ID of the target definition in this Maintenance Window.
-rrsWindowTargetId :: Lens' RegisterTargetWithMaintenanceWindowResponse (Maybe Text)
-rrsWindowTargetId = lens _rrsWindowTargetId (\ s a -> s{_rrsWindowTargetId = a});
+-- | The response's http status code.
+registerTargetWithMaintenanceWindowResponse_httpStatus :: Lens.Lens' RegisterTargetWithMaintenanceWindowResponse Prelude.Int
+registerTargetWithMaintenanceWindowResponse_httpStatus = Lens.lens (\RegisterTargetWithMaintenanceWindowResponse' {httpStatus} -> httpStatus) (\s@RegisterTargetWithMaintenanceWindowResponse' {} a -> s {httpStatus = a} :: RegisterTargetWithMaintenanceWindowResponse)
 
--- | -- | The response status code.
-rrsResponseStatus :: Lens' RegisterTargetWithMaintenanceWindowResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a});
-
-instance NFData
-           RegisterTargetWithMaintenanceWindowResponse
-         where
+instance
+  Prelude.NFData
+    RegisterTargetWithMaintenanceWindowResponse

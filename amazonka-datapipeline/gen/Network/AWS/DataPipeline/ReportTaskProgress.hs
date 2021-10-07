@@ -1,154 +1,200 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DataPipeline.ReportTaskProgress
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call @ReportTaskProgress@ when assigned a task to acknowledge that it has the task. If the web service does not receive this acknowledgement within 2 minutes, it assigns the task in a subsequent 'PollForTask' call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a @reportProgressTimeout@ field in your pipeline.
+-- Task runners call @ReportTaskProgress@ when assigned a task to
+-- acknowledge that it has the task. If the web service does not receive
+-- this acknowledgement within 2 minutes, it assigns the task in a
+-- subsequent PollForTask call. After this initial acknowledgement, the
+-- task runner only needs to report progress every 15 minutes to maintain
+-- its ownership of the task. You can change this reporting time from 15
+-- minutes by specifying a @reportProgressTimeout@ field in your pipeline.
 --
---
--- If a task runner does not report its status after 5 minutes, AWS Data Pipeline assumes that the task runner is unable to process the task and reassigns the task in a subsequent response to 'PollForTask' . Task runners should call @ReportTaskProgress@ every 60 seconds.
---
+-- If a task runner does not report its status after 5 minutes, AWS Data
+-- Pipeline assumes that the task runner is unable to process the task and
+-- reassigns the task in a subsequent response to PollForTask. Task runners
+-- should call @ReportTaskProgress@ every 60 seconds.
 module Network.AWS.DataPipeline.ReportTaskProgress
-    (
-    -- * Creating a Request
-      reportTaskProgress
-    , ReportTaskProgress
+  ( -- * Creating a Request
+    ReportTaskProgress (..),
+    newReportTaskProgress,
+
     -- * Request Lenses
-    , rtpFields
-    , rtpTaskId
+    reportTaskProgress_fields,
+    reportTaskProgress_taskId,
 
     -- * Destructuring the Response
-    , reportTaskProgressResponse
-    , ReportTaskProgressResponse
-    -- * Response Lenses
-    , rtprsResponseStatus
-    , rtprsCanceled
-    ) where
+    ReportTaskProgressResponse (..),
+    newReportTaskProgressResponse,
 
+    -- * Response Lenses
+    reportTaskProgressResponse_httpStatus,
+    reportTaskProgressResponse_canceled,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ReportTaskProgress.
 --
---
---
--- /See:/ 'reportTaskProgress' smart constructor.
+-- /See:/ 'newReportTaskProgress' smart constructor.
 data ReportTaskProgress = ReportTaskProgress'
-  { _rtpFields :: !(Maybe [Field])
-  , _rtpTaskId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Key-value pairs that define the properties of the
+    -- ReportTaskProgressInput object.
+    fields :: Prelude.Maybe [Field],
+    -- | The ID of the task assigned to the task runner. This value is provided
+    -- in the response for PollForTask.
+    taskId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ReportTaskProgress' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ReportTaskProgress' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtpFields' - Key-value pairs that define the properties of the ReportTaskProgressInput object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtpTaskId' - The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
-reportTaskProgress
-    :: Text -- ^ 'rtpTaskId'
-    -> ReportTaskProgress
-reportTaskProgress pTaskId_ =
-  ReportTaskProgress' {_rtpFields = Nothing, _rtpTaskId = pTaskId_}
+-- 'fields', 'reportTaskProgress_fields' - Key-value pairs that define the properties of the
+-- ReportTaskProgressInput object.
+--
+-- 'taskId', 'reportTaskProgress_taskId' - The ID of the task assigned to the task runner. This value is provided
+-- in the response for PollForTask.
+newReportTaskProgress ::
+  -- | 'taskId'
+  Prelude.Text ->
+  ReportTaskProgress
+newReportTaskProgress pTaskId_ =
+  ReportTaskProgress'
+    { fields = Prelude.Nothing,
+      taskId = pTaskId_
+    }
 
+-- | Key-value pairs that define the properties of the
+-- ReportTaskProgressInput object.
+reportTaskProgress_fields :: Lens.Lens' ReportTaskProgress (Prelude.Maybe [Field])
+reportTaskProgress_fields = Lens.lens (\ReportTaskProgress' {fields} -> fields) (\s@ReportTaskProgress' {} a -> s {fields = a} :: ReportTaskProgress) Prelude.. Lens.mapping Lens._Coerce
 
--- | Key-value pairs that define the properties of the ReportTaskProgressInput object.
-rtpFields :: Lens' ReportTaskProgress [Field]
-rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default . _Coerce;
+-- | The ID of the task assigned to the task runner. This value is provided
+-- in the response for PollForTask.
+reportTaskProgress_taskId :: Lens.Lens' ReportTaskProgress Prelude.Text
+reportTaskProgress_taskId = Lens.lens (\ReportTaskProgress' {taskId} -> taskId) (\s@ReportTaskProgress' {} a -> s {taskId = a} :: ReportTaskProgress)
 
--- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
-rtpTaskId :: Lens' ReportTaskProgress Text
-rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
+instance Core.AWSRequest ReportTaskProgress where
+  type
+    AWSResponse ReportTaskProgress =
+      ReportTaskProgressResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ReportTaskProgressResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "canceled")
+      )
 
-instance AWSRequest ReportTaskProgress where
-        type Rs ReportTaskProgress =
-             ReportTaskProgressResponse
-        request = postJSON dataPipeline
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ReportTaskProgressResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "canceled"))
+instance Prelude.Hashable ReportTaskProgress
 
-instance Hashable ReportTaskProgress where
+instance Prelude.NFData ReportTaskProgress
 
-instance NFData ReportTaskProgress where
+instance Core.ToHeaders ReportTaskProgress where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DataPipeline.ReportTaskProgress" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ReportTaskProgress where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DataPipeline.ReportTaskProgress" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ReportTaskProgress where
+  toJSON ReportTaskProgress' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("fields" Core..=) Prelude.<$> fields,
+            Prelude.Just ("taskId" Core..= taskId)
+          ]
+      )
 
-instance ToJSON ReportTaskProgress where
-        toJSON ReportTaskProgress'{..}
-          = object
-              (catMaybes
-                 [("fields" .=) <$> _rtpFields,
-                  Just ("taskId" .= _rtpTaskId)])
+instance Core.ToPath ReportTaskProgress where
+  toPath = Prelude.const "/"
 
-instance ToPath ReportTaskProgress where
-        toPath = const "/"
-
-instance ToQuery ReportTaskProgress where
-        toQuery = const mempty
+instance Core.ToQuery ReportTaskProgress where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of ReportTaskProgress.
 --
---
---
--- /See:/ 'reportTaskProgressResponse' smart constructor.
+-- /See:/ 'newReportTaskProgressResponse' smart constructor.
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-  { _rtprsResponseStatus :: !Int
-  , _rtprsCanceled       :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | If true, the calling task runner should cancel processing of the task.
+    -- The task runner does not need to call SetTaskStatus for canceled tasks.
+    canceled :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ReportTaskProgressResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ReportTaskProgressResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtprsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtprsCanceled' - If true, the calling task runner should cancel processing of the task. The task runner does not need to call 'SetTaskStatus' for canceled tasks.
-reportTaskProgressResponse
-    :: Int -- ^ 'rtprsResponseStatus'
-    -> Bool -- ^ 'rtprsCanceled'
-    -> ReportTaskProgressResponse
-reportTaskProgressResponse pResponseStatus_ pCanceled_ =
+-- 'httpStatus', 'reportTaskProgressResponse_httpStatus' - The response's http status code.
+--
+-- 'canceled', 'reportTaskProgressResponse_canceled' - If true, the calling task runner should cancel processing of the task.
+-- The task runner does not need to call SetTaskStatus for canceled tasks.
+newReportTaskProgressResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'canceled'
+  Prelude.Bool ->
+  ReportTaskProgressResponse
+newReportTaskProgressResponse pHttpStatus_ pCanceled_ =
   ReportTaskProgressResponse'
-  {_rtprsResponseStatus = pResponseStatus_, _rtprsCanceled = pCanceled_}
+    { httpStatus =
+        pHttpStatus_,
+      canceled = pCanceled_
+    }
 
+-- | The response's http status code.
+reportTaskProgressResponse_httpStatus :: Lens.Lens' ReportTaskProgressResponse Prelude.Int
+reportTaskProgressResponse_httpStatus = Lens.lens (\ReportTaskProgressResponse' {httpStatus} -> httpStatus) (\s@ReportTaskProgressResponse' {} a -> s {httpStatus = a} :: ReportTaskProgressResponse)
 
--- | -- | The response status code.
-rtprsResponseStatus :: Lens' ReportTaskProgressResponse Int
-rtprsResponseStatus = lens _rtprsResponseStatus (\ s a -> s{_rtprsResponseStatus = a});
+-- | If true, the calling task runner should cancel processing of the task.
+-- The task runner does not need to call SetTaskStatus for canceled tasks.
+reportTaskProgressResponse_canceled :: Lens.Lens' ReportTaskProgressResponse Prelude.Bool
+reportTaskProgressResponse_canceled = Lens.lens (\ReportTaskProgressResponse' {canceled} -> canceled) (\s@ReportTaskProgressResponse' {} a -> s {canceled = a} :: ReportTaskProgressResponse)
 
--- | If true, the calling task runner should cancel processing of the task. The task runner does not need to call 'SetTaskStatus' for canceled tasks.
-rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
-rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a});
-
-instance NFData ReportTaskProgressResponse where
+instance Prelude.NFData ReportTaskProgressResponse

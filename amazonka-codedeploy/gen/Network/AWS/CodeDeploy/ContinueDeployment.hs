@@ -1,108 +1,157 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.ContinueDeployment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For a blue/green deployment, starts the process of rerouting traffic from instances in the original environment to instances in the replacement environment without waiting for a specified wait time to elapse. (Traffic rerouting, which is achieved by registering instances in the replacement environment with the load balancer, can start as soon as all instances have a status of Ready.)
---
---
+-- For a blue\/green deployment, starts the process of rerouting traffic
+-- from instances in the original environment to instances in the
+-- replacement environment without waiting for a specified wait time to
+-- elapse. (Traffic rerouting, which is achieved by registering instances
+-- in the replacement environment with the load balancer, can start as soon
+-- as all instances have a status of Ready.)
 module Network.AWS.CodeDeploy.ContinueDeployment
-    (
-    -- * Creating a Request
-      continueDeployment
-    , ContinueDeployment
+  ( -- * Creating a Request
+    ContinueDeployment (..),
+    newContinueDeployment,
+
     -- * Request Lenses
-    , cdDeploymentId
+    continueDeployment_deploymentId,
+    continueDeployment_deploymentWaitType,
 
     -- * Destructuring the Response
-    , continueDeploymentResponse
-    , ContinueDeploymentResponse
-    ) where
+    ContinueDeploymentResponse (..),
+    newContinueDeploymentResponse,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'continueDeployment' smart constructor.
-newtype ContinueDeployment = ContinueDeployment'
-  { _cdDeploymentId :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newContinueDeployment' smart constructor.
+data ContinueDeployment = ContinueDeployment'
+  { -- | The unique ID of a blue\/green deployment for which you want to start
+    -- rerouting traffic to the replacement environment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the deployment\'s waiting period. @READY_WAIT@ indicates
+    -- that the deployment is ready to start shifting traffic.
+    -- @TERMINATION_WAIT@ indicates that the traffic is shifted, but the
+    -- original target is not terminated.
+    deploymentWaitType :: Prelude.Maybe DeploymentWaitType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ContinueDeployment' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ContinueDeployment' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdDeploymentId' - The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
-continueDeployment
-    :: ContinueDeployment
-continueDeployment = ContinueDeployment' {_cdDeploymentId = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'deploymentId', 'continueDeployment_deploymentId' - The unique ID of a blue\/green deployment for which you want to start
+-- rerouting traffic to the replacement environment.
+--
+-- 'deploymentWaitType', 'continueDeployment_deploymentWaitType' - The status of the deployment\'s waiting period. @READY_WAIT@ indicates
+-- that the deployment is ready to start shifting traffic.
+-- @TERMINATION_WAIT@ indicates that the traffic is shifted, but the
+-- original target is not terminated.
+newContinueDeployment ::
+  ContinueDeployment
+newContinueDeployment =
+  ContinueDeployment'
+    { deploymentId = Prelude.Nothing,
+      deploymentWaitType = Prelude.Nothing
+    }
 
+-- | The unique ID of a blue\/green deployment for which you want to start
+-- rerouting traffic to the replacement environment.
+continueDeployment_deploymentId :: Lens.Lens' ContinueDeployment (Prelude.Maybe Prelude.Text)
+continueDeployment_deploymentId = Lens.lens (\ContinueDeployment' {deploymentId} -> deploymentId) (\s@ContinueDeployment' {} a -> s {deploymentId = a} :: ContinueDeployment)
 
--- | The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment.
-cdDeploymentId :: Lens' ContinueDeployment (Maybe Text)
-cdDeploymentId = lens _cdDeploymentId (\ s a -> s{_cdDeploymentId = a});
+-- | The status of the deployment\'s waiting period. @READY_WAIT@ indicates
+-- that the deployment is ready to start shifting traffic.
+-- @TERMINATION_WAIT@ indicates that the traffic is shifted, but the
+-- original target is not terminated.
+continueDeployment_deploymentWaitType :: Lens.Lens' ContinueDeployment (Prelude.Maybe DeploymentWaitType)
+continueDeployment_deploymentWaitType = Lens.lens (\ContinueDeployment' {deploymentWaitType} -> deploymentWaitType) (\s@ContinueDeployment' {} a -> s {deploymentWaitType = a} :: ContinueDeployment)
 
-instance AWSRequest ContinueDeployment where
-        type Rs ContinueDeployment =
-             ContinueDeploymentResponse
-        request = postJSON codeDeploy
-        response = receiveNull ContinueDeploymentResponse'
+instance Core.AWSRequest ContinueDeployment where
+  type
+    AWSResponse ContinueDeployment =
+      ContinueDeploymentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull ContinueDeploymentResponse'
 
-instance Hashable ContinueDeployment where
+instance Prelude.Hashable ContinueDeployment
 
-instance NFData ContinueDeployment where
+instance Prelude.NFData ContinueDeployment
 
-instance ToHeaders ContinueDeployment where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.ContinueDeployment" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ContinueDeployment where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.ContinueDeployment" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ContinueDeployment where
-        toJSON ContinueDeployment'{..}
-          = object
-              (catMaybes [("deploymentId" .=) <$> _cdDeploymentId])
+instance Core.ToJSON ContinueDeployment where
+  toJSON ContinueDeployment' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
+            ("deploymentWaitType" Core..=)
+              Prelude.<$> deploymentWaitType
+          ]
+      )
 
-instance ToPath ContinueDeployment where
-        toPath = const "/"
+instance Core.ToPath ContinueDeployment where
+  toPath = Prelude.const "/"
 
-instance ToQuery ContinueDeployment where
-        toQuery = const mempty
+instance Core.ToQuery ContinueDeployment where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'continueDeploymentResponse' smart constructor.
-data ContinueDeploymentResponse =
+-- | /See:/ 'newContinueDeploymentResponse' smart constructor.
+data ContinueDeploymentResponse = ContinueDeploymentResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ContinueDeploymentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newContinueDeploymentResponse ::
+  ContinueDeploymentResponse
+newContinueDeploymentResponse =
   ContinueDeploymentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'ContinueDeploymentResponse' with the minimum fields required to make a request.
---
-continueDeploymentResponse
-    :: ContinueDeploymentResponse
-continueDeploymentResponse = ContinueDeploymentResponse'
-
-
-instance NFData ContinueDeploymentResponse where
+instance Prelude.NFData ContinueDeploymentResponse

@@ -1,147 +1,176 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeNFSFileShares
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a description for one or more file shares from a file gateway. This operation is only supported in file gateways.
---
---
+-- Gets a description for one or more Network File System (NFS) file shares
+-- from an S3 File Gateway. This operation is only supported for S3 File
+-- Gateways.
 module Network.AWS.StorageGateway.DescribeNFSFileShares
-    (
-    -- * Creating a Request
-      describeNFSFileShares
-    , DescribeNFSFileShares
+  ( -- * Creating a Request
+    DescribeNFSFileShares (..),
+    newDescribeNFSFileShares,
+
     -- * Request Lenses
-    , dnfsfsFileShareARNList
+    describeNFSFileShares_fileShareARNList,
 
     -- * Destructuring the Response
-    , describeNFSFileSharesResponse
-    , DescribeNFSFileSharesResponse
-    -- * Response Lenses
-    , dnfsfsrsNFSFileShareInfoList
-    , dnfsfsrsResponseStatus
-    ) where
+    DescribeNFSFileSharesResponse (..),
+    newDescribeNFSFileSharesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    describeNFSFileSharesResponse_nFSFileShareInfoList,
+    describeNFSFileSharesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeNFSFileSharesInput
 --
+-- /See:/ 'newDescribeNFSFileShares' smart constructor.
+data DescribeNFSFileShares = DescribeNFSFileShares'
+  { -- | An array containing the Amazon Resource Name (ARN) of each file share to
+    -- be described.
+    fileShareARNList :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeNFSFileShares' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'describeNFSFileShares' smart constructor.
-newtype DescribeNFSFileShares = DescribeNFSFileShares'
-  { _dnfsfsFileShareARNList :: List1 Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeNFSFileShares' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnfsfsFileShareARNList' - An array containing the Amazon Resource Name (ARN) of each file share to be described.
-describeNFSFileShares
-    :: NonEmpty Text -- ^ 'dnfsfsFileShareARNList'
-    -> DescribeNFSFileShares
-describeNFSFileShares pFileShareARNList_ =
-  DescribeNFSFileShares' {_dnfsfsFileShareARNList = _List1 # pFileShareARNList_}
+-- 'fileShareARNList', 'describeNFSFileShares_fileShareARNList' - An array containing the Amazon Resource Name (ARN) of each file share to
+-- be described.
+newDescribeNFSFileShares ::
+  -- | 'fileShareARNList'
+  Prelude.NonEmpty Prelude.Text ->
+  DescribeNFSFileShares
+newDescribeNFSFileShares pFileShareARNList_ =
+  DescribeNFSFileShares'
+    { fileShareARNList =
+        Lens._Coerce Lens.# pFileShareARNList_
+    }
 
+-- | An array containing the Amazon Resource Name (ARN) of each file share to
+-- be described.
+describeNFSFileShares_fileShareARNList :: Lens.Lens' DescribeNFSFileShares (Prelude.NonEmpty Prelude.Text)
+describeNFSFileShares_fileShareARNList = Lens.lens (\DescribeNFSFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeNFSFileShares' {} a -> s {fileShareARNList = a} :: DescribeNFSFileShares) Prelude.. Lens._Coerce
 
--- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
-dnfsfsFileShareARNList :: Lens' DescribeNFSFileShares (NonEmpty Text)
-dnfsfsFileShareARNList = lens _dnfsfsFileShareARNList (\ s a -> s{_dnfsfsFileShareARNList = a}) . _List1;
+instance Core.AWSRequest DescribeNFSFileShares where
+  type
+    AWSResponse DescribeNFSFileShares =
+      DescribeNFSFileSharesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeNFSFileSharesResponse'
+            Prelude.<$> ( x Core..?> "NFSFileShareInfoList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeNFSFileShares where
-        type Rs DescribeNFSFileShares =
-             DescribeNFSFileSharesResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeNFSFileSharesResponse' <$>
-                   (x .?> "NFSFileShareInfoList" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DescribeNFSFileShares
 
-instance Hashable DescribeNFSFileShares where
+instance Prelude.NFData DescribeNFSFileShares
 
-instance NFData DescribeNFSFileShares where
+instance Core.ToHeaders DescribeNFSFileShares where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.DescribeNFSFileShares" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeNFSFileShares where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.DescribeNFSFileShares" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeNFSFileShares where
+  toJSON DescribeNFSFileShares' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("FileShareARNList" Core..= fileShareARNList)
+          ]
+      )
 
-instance ToJSON DescribeNFSFileShares where
-        toJSON DescribeNFSFileShares'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("FileShareARNList" .= _dnfsfsFileShareARNList)])
+instance Core.ToPath DescribeNFSFileShares where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeNFSFileShares where
-        toPath = const "/"
-
-instance ToQuery DescribeNFSFileShares where
-        toQuery = const mempty
+instance Core.ToQuery DescribeNFSFileShares where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeNFSFileSharesOutput
 --
---
---
--- /See:/ 'describeNFSFileSharesResponse' smart constructor.
+-- /See:/ 'newDescribeNFSFileSharesResponse' smart constructor.
 data DescribeNFSFileSharesResponse = DescribeNFSFileSharesResponse'
-  { _dnfsfsrsNFSFileShareInfoList :: !(Maybe [NFSFileShareInfo])
-  , _dnfsfsrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeNFSFileSharesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnfsfsrsNFSFileShareInfoList' - An array containing a description for each requested file share.
---
--- * 'dnfsfsrsResponseStatus' - -- | The response status code.
-describeNFSFileSharesResponse
-    :: Int -- ^ 'dnfsfsrsResponseStatus'
-    -> DescribeNFSFileSharesResponse
-describeNFSFileSharesResponse pResponseStatus_ =
-  DescribeNFSFileSharesResponse'
-  { _dnfsfsrsNFSFileShareInfoList = Nothing
-  , _dnfsfsrsResponseStatus = pResponseStatus_
+  { -- | An array containing a description for each requested file share.
+    nFSFileShareInfoList :: Prelude.Maybe [NFSFileShareInfo],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeNFSFileSharesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nFSFileShareInfoList', 'describeNFSFileSharesResponse_nFSFileShareInfoList' - An array containing a description for each requested file share.
+--
+-- 'httpStatus', 'describeNFSFileSharesResponse_httpStatus' - The response's http status code.
+newDescribeNFSFileSharesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeNFSFileSharesResponse
+newDescribeNFSFileSharesResponse pHttpStatus_ =
+  DescribeNFSFileSharesResponse'
+    { nFSFileShareInfoList =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | An array containing a description for each requested file share.
-dnfsfsrsNFSFileShareInfoList :: Lens' DescribeNFSFileSharesResponse [NFSFileShareInfo]
-dnfsfsrsNFSFileShareInfoList = lens _dnfsfsrsNFSFileShareInfoList (\ s a -> s{_dnfsfsrsNFSFileShareInfoList = a}) . _Default . _Coerce;
+describeNFSFileSharesResponse_nFSFileShareInfoList :: Lens.Lens' DescribeNFSFileSharesResponse (Prelude.Maybe [NFSFileShareInfo])
+describeNFSFileSharesResponse_nFSFileShareInfoList = Lens.lens (\DescribeNFSFileSharesResponse' {nFSFileShareInfoList} -> nFSFileShareInfoList) (\s@DescribeNFSFileSharesResponse' {} a -> s {nFSFileShareInfoList = a} :: DescribeNFSFileSharesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dnfsfsrsResponseStatus :: Lens' DescribeNFSFileSharesResponse Int
-dnfsfsrsResponseStatus = lens _dnfsfsrsResponseStatus (\ s a -> s{_dnfsfsrsResponseStatus = a});
+-- | The response's http status code.
+describeNFSFileSharesResponse_httpStatus :: Lens.Lens' DescribeNFSFileSharesResponse Prelude.Int
+describeNFSFileSharesResponse_httpStatus = Lens.lens (\DescribeNFSFileSharesResponse' {httpStatus} -> httpStatus) (\s@DescribeNFSFileSharesResponse' {} a -> s {httpStatus = a} :: DescribeNFSFileSharesResponse)
 
-instance NFData DescribeNFSFileSharesResponse where
+instance Prelude.NFData DescribeNFSFileSharesResponse

@@ -1,133 +1,162 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.TagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.
---
---
+-- Adds or overwrites one or more tags for the specified AWS CloudHSM
+-- cluster.
 module Network.AWS.CloudHSMv2.TagResource
-    (
-    -- * Creating a Request
-      tagResource
-    , TagResource
+  ( -- * Creating a Request
+    TagResource (..),
+    newTagResource,
+
     -- * Request Lenses
-    , trResourceId
-    , trTagList
+    tagResource_resourceId,
+    tagResource_tagList,
 
     -- * Destructuring the Response
-    , tagResourceResponse
-    , TagResourceResponse
+    TagResourceResponse (..),
+    newTagResourceResponse,
+
     -- * Response Lenses
-    , trrsResponseStatus
-    ) where
+    tagResourceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.CloudHSMv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceId :: !Text
-  , _trTagList    :: !(List1 Tag)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The cluster identifier (ID) for the cluster that you are tagging. To
+    -- find the cluster ID, use DescribeClusters.
+    resourceId :: Prelude.Text,
+    -- | A list of one or more tags.
+    tagList :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'trResourceId' - The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use 'DescribeClusters' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'trTagList' - A list of one or more tags.
-tagResource
-    :: Text -- ^ 'trResourceId'
-    -> NonEmpty Tag -- ^ 'trTagList'
-    -> TagResource
-tagResource pResourceId_ pTagList_ =
-  TagResource' {_trResourceId = pResourceId_, _trTagList = _List1 # pTagList_}
+-- 'resourceId', 'tagResource_resourceId' - The cluster identifier (ID) for the cluster that you are tagging. To
+-- find the cluster ID, use DescribeClusters.
+--
+-- 'tagList', 'tagResource_tagList' - A list of one or more tags.
+newTagResource ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  TagResource
+newTagResource pResourceId_ =
+  TagResource'
+    { resourceId = pResourceId_,
+      tagList = Prelude.mempty
+    }
 
-
--- | The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use 'DescribeClusters' .
-trResourceId :: Lens' TagResource Text
-trResourceId = lens _trResourceId (\ s a -> s{_trResourceId = a});
+-- | The cluster identifier (ID) for the cluster that you are tagging. To
+-- find the cluster ID, use DescribeClusters.
+tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
 
 -- | A list of one or more tags.
-trTagList :: Lens' TagResource (NonEmpty Tag)
-trTagList = lens _trTagList (\ s a -> s{_trTagList = a}) . _List1;
+tagResource_tagList :: Lens.Lens' TagResource [Tag]
+tagResource_tagList = Lens.lens (\TagResource' {tagList} -> tagList) (\s@TagResource' {} a -> s {tagList = a} :: TagResource) Prelude.. Lens._Coerce
 
-instance AWSRequest TagResource where
-        type Rs TagResource = TagResourceResponse
-        request = postJSON cloudHSMv2
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 TagResourceResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          TagResourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable TagResource where
+instance Prelude.Hashable TagResource
 
-instance NFData TagResource where
+instance Prelude.NFData TagResource
 
-instance ToHeaders TagResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("BaldrApiService.TagResource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders TagResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "BaldrApiService.TagResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON TagResource where
-        toJSON TagResource'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceId" .= _trResourceId),
-                  Just ("TagList" .= _trTagList)])
+instance Core.ToJSON TagResource where
+  toJSON TagResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Core..= resourceId),
+            Prelude.Just ("TagList" Core..= tagList)
+          ]
+      )
 
-instance ToPath TagResource where
-        toPath = const "/"
+instance Core.ToPath TagResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery TagResource where
-        toQuery = const mempty
+instance Core.ToQuery TagResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
-newtype TagResourceResponse = TagResourceResponse'
-  { _trrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newTagResourceResponse' smart constructor.
+data TagResourceResponse = TagResourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'trrsResponseStatus' - -- | The response status code.
-tagResourceResponse
-    :: Int -- ^ 'trrsResponseStatus'
-    -> TagResourceResponse
-tagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
+newTagResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  TagResourceResponse
+newTagResourceResponse pHttpStatus_ =
+  TagResourceResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
+tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
--- | -- | The response status code.
-trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a});
-
-instance NFData TagResourceResponse where
+instance Prelude.NFData TagResourceResponse

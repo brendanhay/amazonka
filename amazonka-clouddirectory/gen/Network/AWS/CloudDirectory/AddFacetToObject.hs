@@ -1,155 +1,193 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AddFacetToObject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a new 'Facet' to an object.
---
---
+-- Adds a new Facet to an object. An object can have more than one facet
+-- applied on it.
 module Network.AWS.CloudDirectory.AddFacetToObject
-    (
-    -- * Creating a Request
-      addFacetToObject
-    , AddFacetToObject
+  ( -- * Creating a Request
+    AddFacetToObject (..),
+    newAddFacetToObject,
+
     -- * Request Lenses
-    , aftoObjectAttributeList
-    , aftoDirectoryARN
-    , aftoSchemaFacet
-    , aftoObjectReference
+    addFacetToObject_objectAttributeList,
+    addFacetToObject_directoryArn,
+    addFacetToObject_schemaFacet,
+    addFacetToObject_objectReference,
 
     -- * Destructuring the Response
-    , addFacetToObjectResponse
-    , AddFacetToObjectResponse
+    AddFacetToObjectResponse (..),
+    newAddFacetToObjectResponse,
+
     -- * Response Lenses
-    , aftorsResponseStatus
-    ) where
+    addFacetToObjectResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'addFacetToObject' smart constructor.
+-- | /See:/ 'newAddFacetToObject' smart constructor.
 data AddFacetToObject = AddFacetToObject'
-  { _aftoObjectAttributeList :: !(Maybe [AttributeKeyAndValue])
-  , _aftoDirectoryARN        :: !Text
-  , _aftoSchemaFacet         :: !SchemaFacet
-  , _aftoObjectReference     :: !ObjectReference
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddFacetToObject' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aftoObjectAttributeList' - Attributes on the facet that you are adding to the object.
---
--- * 'aftoDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
---
--- * 'aftoSchemaFacet' - Identifiers for the facet that you are adding to the object.
---
--- * 'aftoObjectReference' - A reference to the object you are adding the specified facet to.
-addFacetToObject
-    :: Text -- ^ 'aftoDirectoryARN'
-    -> SchemaFacet -- ^ 'aftoSchemaFacet'
-    -> ObjectReference -- ^ 'aftoObjectReference'
-    -> AddFacetToObject
-addFacetToObject pDirectoryARN_ pSchemaFacet_ pObjectReference_ =
-  AddFacetToObject'
-  { _aftoObjectAttributeList = Nothing
-  , _aftoDirectoryARN = pDirectoryARN_
-  , _aftoSchemaFacet = pSchemaFacet_
-  , _aftoObjectReference = pObjectReference_
+  { -- | Attributes on the facet that you are adding to the object.
+    objectAttributeList :: Prelude.Maybe [AttributeKeyAndValue],
+    -- | The Amazon Resource Name (ARN) that is associated with the Directory
+    -- where the object resides. For more information, see arns.
+    directoryArn :: Prelude.Text,
+    -- | Identifiers for the facet that you are adding to the object. See
+    -- SchemaFacet for details.
+    schemaFacet :: SchemaFacet,
+    -- | A reference to the object you are adding the specified facet to.
+    objectReference :: ObjectReference
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AddFacetToObject' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'objectAttributeList', 'addFacetToObject_objectAttributeList' - Attributes on the facet that you are adding to the object.
+--
+-- 'directoryArn', 'addFacetToObject_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
+-- where the object resides. For more information, see arns.
+--
+-- 'schemaFacet', 'addFacetToObject_schemaFacet' - Identifiers for the facet that you are adding to the object. See
+-- SchemaFacet for details.
+--
+-- 'objectReference', 'addFacetToObject_objectReference' - A reference to the object you are adding the specified facet to.
+newAddFacetToObject ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'schemaFacet'
+  SchemaFacet ->
+  -- | 'objectReference'
+  ObjectReference ->
+  AddFacetToObject
+newAddFacetToObject
+  pDirectoryArn_
+  pSchemaFacet_
+  pObjectReference_ =
+    AddFacetToObject'
+      { objectAttributeList =
+          Prelude.Nothing,
+        directoryArn = pDirectoryArn_,
+        schemaFacet = pSchemaFacet_,
+        objectReference = pObjectReference_
+      }
 
 -- | Attributes on the facet that you are adding to the object.
-aftoObjectAttributeList :: Lens' AddFacetToObject [AttributeKeyAndValue]
-aftoObjectAttributeList = lens _aftoObjectAttributeList (\ s a -> s{_aftoObjectAttributeList = a}) . _Default . _Coerce;
+addFacetToObject_objectAttributeList :: Lens.Lens' AddFacetToObject (Prelude.Maybe [AttributeKeyAndValue])
+addFacetToObject_objectAttributeList = Lens.lens (\AddFacetToObject' {objectAttributeList} -> objectAttributeList) (\s@AddFacetToObject' {} a -> s {objectAttributeList = a} :: AddFacetToObject) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
-aftoDirectoryARN :: Lens' AddFacetToObject Text
-aftoDirectoryARN = lens _aftoDirectoryARN (\ s a -> s{_aftoDirectoryARN = a});
+-- | The Amazon Resource Name (ARN) that is associated with the Directory
+-- where the object resides. For more information, see arns.
+addFacetToObject_directoryArn :: Lens.Lens' AddFacetToObject Prelude.Text
+addFacetToObject_directoryArn = Lens.lens (\AddFacetToObject' {directoryArn} -> directoryArn) (\s@AddFacetToObject' {} a -> s {directoryArn = a} :: AddFacetToObject)
 
--- | Identifiers for the facet that you are adding to the object.
-aftoSchemaFacet :: Lens' AddFacetToObject SchemaFacet
-aftoSchemaFacet = lens _aftoSchemaFacet (\ s a -> s{_aftoSchemaFacet = a});
+-- | Identifiers for the facet that you are adding to the object. See
+-- SchemaFacet for details.
+addFacetToObject_schemaFacet :: Lens.Lens' AddFacetToObject SchemaFacet
+addFacetToObject_schemaFacet = Lens.lens (\AddFacetToObject' {schemaFacet} -> schemaFacet) (\s@AddFacetToObject' {} a -> s {schemaFacet = a} :: AddFacetToObject)
 
 -- | A reference to the object you are adding the specified facet to.
-aftoObjectReference :: Lens' AddFacetToObject ObjectReference
-aftoObjectReference = lens _aftoObjectReference (\ s a -> s{_aftoObjectReference = a});
+addFacetToObject_objectReference :: Lens.Lens' AddFacetToObject ObjectReference
+addFacetToObject_objectReference = Lens.lens (\AddFacetToObject' {objectReference} -> objectReference) (\s@AddFacetToObject' {} a -> s {objectReference = a} :: AddFacetToObject)
 
-instance AWSRequest AddFacetToObject where
-        type Rs AddFacetToObject = AddFacetToObjectResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AddFacetToObjectResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest AddFacetToObject where
+  type
+    AWSResponse AddFacetToObject =
+      AddFacetToObjectResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AddFacetToObjectResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AddFacetToObject where
+instance Prelude.Hashable AddFacetToObject
 
-instance NFData AddFacetToObject where
+instance Prelude.NFData AddFacetToObject
 
-instance ToHeaders AddFacetToObject where
-        toHeaders AddFacetToObject'{..}
-          = mconcat
-              ["x-amz-data-partition" =# _aftoDirectoryARN]
+instance Core.ToHeaders AddFacetToObject where
+  toHeaders AddFacetToObject' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance ToJSON AddFacetToObject where
-        toJSON AddFacetToObject'{..}
-          = object
-              (catMaybes
-                 [("ObjectAttributeList" .=) <$>
-                    _aftoObjectAttributeList,
-                  Just ("SchemaFacet" .= _aftoSchemaFacet),
-                  Just ("ObjectReference" .= _aftoObjectReference)])
+instance Core.ToJSON AddFacetToObject where
+  toJSON AddFacetToObject' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("ObjectAttributeList" Core..=)
+              Prelude.<$> objectAttributeList,
+            Prelude.Just ("SchemaFacet" Core..= schemaFacet),
+            Prelude.Just
+              ("ObjectReference" Core..= objectReference)
+          ]
+      )
 
-instance ToPath AddFacetToObject where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/object/facets"
+instance Core.ToPath AddFacetToObject where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/object/facets"
 
-instance ToQuery AddFacetToObject where
-        toQuery = const mempty
+instance Core.ToQuery AddFacetToObject where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'addFacetToObjectResponse' smart constructor.
-newtype AddFacetToObjectResponse = AddFacetToObjectResponse'
-  { _aftorsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAddFacetToObjectResponse' smart constructor.
+data AddFacetToObjectResponse = AddFacetToObjectResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddFacetToObjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddFacetToObjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aftorsResponseStatus' - -- | The response status code.
-addFacetToObjectResponse
-    :: Int -- ^ 'aftorsResponseStatus'
-    -> AddFacetToObjectResponse
-addFacetToObjectResponse pResponseStatus_ =
-  AddFacetToObjectResponse' {_aftorsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'addFacetToObjectResponse_httpStatus' - The response's http status code.
+newAddFacetToObjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddFacetToObjectResponse
+newAddFacetToObjectResponse pHttpStatus_ =
+  AddFacetToObjectResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+addFacetToObjectResponse_httpStatus :: Lens.Lens' AddFacetToObjectResponse Prelude.Int
+addFacetToObjectResponse_httpStatus = Lens.lens (\AddFacetToObjectResponse' {httpStatus} -> httpStatus) (\s@AddFacetToObjectResponse' {} a -> s {httpStatus = a} :: AddFacetToObjectResponse)
 
--- | -- | The response status code.
-aftorsResponseStatus :: Lens' AddFacetToObjectResponse Int
-aftorsResponseStatus = lens _aftorsResponseStatus (\ s a -> s{_aftorsResponseStatus = a});
-
-instance NFData AddFacetToObjectResponse where
+instance Prelude.NFData AddFacetToObjectResponse

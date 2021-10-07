@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,89 +22,114 @@
 --
 -- Deletes a cache subnet group.
 --
---
+-- You cannot delete a default cache subnet group or one that is associated
+-- with any clusters.
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-    (
-    -- * Creating a Request
-      deleteCacheSubnetGroup
-    , DeleteCacheSubnetGroup
+  ( -- * Creating a Request
+    DeleteCacheSubnetGroup (..),
+    newDeleteCacheSubnetGroup,
+
     -- * Request Lenses
-    , dCacheSubnetGroupName
+    deleteCacheSubnetGroup_cacheSubnetGroupName,
 
     -- * Destructuring the Response
-    , deleteCacheSubnetGroupResponse
-    , DeleteCacheSubnetGroupResponse
-    ) where
+    DeleteCacheSubnetGroupResponse (..),
+    newDeleteCacheSubnetGroupResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteCacheSubnetGroup@ operation.
 --
+-- /See:/ 'newDeleteCacheSubnetGroup' smart constructor.
+data DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
+  { -- | The name of the cache subnet group to delete.
+    --
+    -- Constraints: Must contain no more than 255 alphanumeric characters or
+    -- hyphens.
+    cacheSubnetGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteCacheSubnetGroup' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteCacheSubnetGroup' smart constructor.
-newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
-  { _dCacheSubnetGroupName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteCacheSubnetGroup' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'cacheSubnetGroupName', 'deleteCacheSubnetGroup_cacheSubnetGroupName' - The name of the cache subnet group to delete.
 --
--- * 'dCacheSubnetGroupName' - The name of the cache subnet group to delete. Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
-deleteCacheSubnetGroup
-    :: Text -- ^ 'dCacheSubnetGroupName'
-    -> DeleteCacheSubnetGroup
-deleteCacheSubnetGroup pCacheSubnetGroupName_ =
-  DeleteCacheSubnetGroup' {_dCacheSubnetGroupName = pCacheSubnetGroupName_}
+-- Constraints: Must contain no more than 255 alphanumeric characters or
+-- hyphens.
+newDeleteCacheSubnetGroup ::
+  -- | 'cacheSubnetGroupName'
+  Prelude.Text ->
+  DeleteCacheSubnetGroup
+newDeleteCacheSubnetGroup pCacheSubnetGroupName_ =
+  DeleteCacheSubnetGroup'
+    { cacheSubnetGroupName =
+        pCacheSubnetGroupName_
+    }
 
+-- | The name of the cache subnet group to delete.
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters or
+-- hyphens.
+deleteCacheSubnetGroup_cacheSubnetGroupName :: Lens.Lens' DeleteCacheSubnetGroup Prelude.Text
+deleteCacheSubnetGroup_cacheSubnetGroupName = Lens.lens (\DeleteCacheSubnetGroup' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@DeleteCacheSubnetGroup' {} a -> s {cacheSubnetGroupName = a} :: DeleteCacheSubnetGroup)
 
--- | The name of the cache subnet group to delete. Constraints: Must contain no more than 255 alphanumeric characters or hyphens.
-dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
-dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
+instance Core.AWSRequest DeleteCacheSubnetGroup where
+  type
+    AWSResponse DeleteCacheSubnetGroup =
+      DeleteCacheSubnetGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteCacheSubnetGroupResponse'
 
-instance AWSRequest DeleteCacheSubnetGroup where
-        type Rs DeleteCacheSubnetGroup =
-             DeleteCacheSubnetGroupResponse
-        request = postQuery elastiCache
-        response
-          = receiveNull DeleteCacheSubnetGroupResponse'
+instance Prelude.Hashable DeleteCacheSubnetGroup
 
-instance Hashable DeleteCacheSubnetGroup where
+instance Prelude.NFData DeleteCacheSubnetGroup
 
-instance NFData DeleteCacheSubnetGroup where
+instance Core.ToHeaders DeleteCacheSubnetGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DeleteCacheSubnetGroup where
-        toHeaders = const mempty
+instance Core.ToPath DeleteCacheSubnetGroup where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteCacheSubnetGroup where
-        toPath = const "/"
+instance Core.ToQuery DeleteCacheSubnetGroup where
+  toQuery DeleteCacheSubnetGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteCacheSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName
+      ]
 
-instance ToQuery DeleteCacheSubnetGroup where
-        toQuery DeleteCacheSubnetGroup'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteCacheSubnetGroup" :: ByteString),
-               "Version" =: ("2015-02-02" :: ByteString),
-               "CacheSubnetGroupName" =: _dCacheSubnetGroupName]
+-- | /See:/ 'newDeleteCacheSubnetGroupResponse' smart constructor.
+data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteCacheSubnetGroupResponse' smart constructor.
-data DeleteCacheSubnetGroupResponse =
+-- |
+-- Create a value of 'DeleteCacheSubnetGroupResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteCacheSubnetGroupResponse ::
+  DeleteCacheSubnetGroupResponse
+newDeleteCacheSubnetGroupResponse =
   DeleteCacheSubnetGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteCacheSubnetGroupResponse' with the minimum fields required to make a request.
---
-deleteCacheSubnetGroupResponse
-    :: DeleteCacheSubnetGroupResponse
-deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'
-
-
-instance NFData DeleteCacheSubnetGroupResponse where
+instance
+  Prelude.NFData
+    DeleteCacheSubnetGroupResponse

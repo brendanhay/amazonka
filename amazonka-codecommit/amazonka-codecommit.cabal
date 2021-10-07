@@ -1,103 +1,232 @@
-name:                  amazonka-codecommit
-version:               1.5.0
-synopsis:              Amazon CodeCommit SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-codecommit
+version:            1.6.1
+synopsis:           Amazon CodeCommit SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CodeCommit" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2015-04-13@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CodeCommit.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CodeCommit" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-codecommit
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-codecommit
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CodeCommit
+    Network.AWS.CodeCommit.AssociateApprovalRuleTemplateWithRepository
+    Network.AWS.CodeCommit.BatchAssociateApprovalRuleTemplateWithRepositories
+    Network.AWS.CodeCommit.BatchDescribeMergeConflicts
+    Network.AWS.CodeCommit.BatchDisassociateApprovalRuleTemplateFromRepositories
+    Network.AWS.CodeCommit.BatchGetCommits
+    Network.AWS.CodeCommit.BatchGetRepositories
+    Network.AWS.CodeCommit.CreateApprovalRuleTemplate
+    Network.AWS.CodeCommit.CreateBranch
+    Network.AWS.CodeCommit.CreateCommit
+    Network.AWS.CodeCommit.CreatePullRequest
+    Network.AWS.CodeCommit.CreatePullRequestApprovalRule
+    Network.AWS.CodeCommit.CreateRepository
+    Network.AWS.CodeCommit.CreateUnreferencedMergeCommit
+    Network.AWS.CodeCommit.DeleteApprovalRuleTemplate
+    Network.AWS.CodeCommit.DeleteBranch
+    Network.AWS.CodeCommit.DeleteCommentContent
+    Network.AWS.CodeCommit.DeleteFile
+    Network.AWS.CodeCommit.DeletePullRequestApprovalRule
+    Network.AWS.CodeCommit.DeleteRepository
+    Network.AWS.CodeCommit.DescribeMergeConflicts
+    Network.AWS.CodeCommit.DescribePullRequestEvents
+    Network.AWS.CodeCommit.DisassociateApprovalRuleTemplateFromRepository
+    Network.AWS.CodeCommit.EvaluatePullRequestApprovalRules
+    Network.AWS.CodeCommit.GetApprovalRuleTemplate
+    Network.AWS.CodeCommit.GetBlob
+    Network.AWS.CodeCommit.GetBranch
+    Network.AWS.CodeCommit.GetComment
+    Network.AWS.CodeCommit.GetCommentReactions
+    Network.AWS.CodeCommit.GetCommentsForComparedCommit
+    Network.AWS.CodeCommit.GetCommentsForPullRequest
+    Network.AWS.CodeCommit.GetCommit
+    Network.AWS.CodeCommit.GetDifferences
+    Network.AWS.CodeCommit.GetFile
+    Network.AWS.CodeCommit.GetFolder
+    Network.AWS.CodeCommit.GetMergeCommit
+    Network.AWS.CodeCommit.GetMergeConflicts
+    Network.AWS.CodeCommit.GetMergeOptions
+    Network.AWS.CodeCommit.GetPullRequest
+    Network.AWS.CodeCommit.GetPullRequestApprovalStates
+    Network.AWS.CodeCommit.GetPullRequestOverrideState
+    Network.AWS.CodeCommit.GetRepository
+    Network.AWS.CodeCommit.GetRepositoryTriggers
+    Network.AWS.CodeCommit.Lens
+    Network.AWS.CodeCommit.ListApprovalRuleTemplates
+    Network.AWS.CodeCommit.ListAssociatedApprovalRuleTemplatesForRepository
+    Network.AWS.CodeCommit.ListBranches
+    Network.AWS.CodeCommit.ListPullRequests
+    Network.AWS.CodeCommit.ListRepositories
+    Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate
+    Network.AWS.CodeCommit.ListTagsForResource
+    Network.AWS.CodeCommit.MergeBranchesByFastForward
+    Network.AWS.CodeCommit.MergeBranchesBySquash
+    Network.AWS.CodeCommit.MergeBranchesByThreeWay
+    Network.AWS.CodeCommit.MergePullRequestByFastForward
+    Network.AWS.CodeCommit.MergePullRequestBySquash
+    Network.AWS.CodeCommit.MergePullRequestByThreeWay
+    Network.AWS.CodeCommit.OverridePullRequestApprovalRules
+    Network.AWS.CodeCommit.PostCommentForComparedCommit
+    Network.AWS.CodeCommit.PostCommentForPullRequest
+    Network.AWS.CodeCommit.PostCommentReply
+    Network.AWS.CodeCommit.PutCommentReaction
+    Network.AWS.CodeCommit.PutFile
+    Network.AWS.CodeCommit.PutRepositoryTriggers
+    Network.AWS.CodeCommit.TagResource
+    Network.AWS.CodeCommit.TestRepositoryTriggers
+    Network.AWS.CodeCommit.Types
+    Network.AWS.CodeCommit.Types.Approval
+    Network.AWS.CodeCommit.Types.ApprovalRule
+    Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
+    Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
+    Network.AWS.CodeCommit.Types.ApprovalRuleTemplate
+    Network.AWS.CodeCommit.Types.ApprovalState
+    Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata
+    Network.AWS.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError
+    Network.AWS.CodeCommit.Types.BatchDescribeMergeConflictsError
+    Network.AWS.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+    Network.AWS.CodeCommit.Types.BatchGetCommitsError
+    Network.AWS.CodeCommit.Types.BlobMetadata
+    Network.AWS.CodeCommit.Types.BranchInfo
+    Network.AWS.CodeCommit.Types.ChangeTypeEnum
+    Network.AWS.CodeCommit.Types.Comment
+    Network.AWS.CodeCommit.Types.CommentsForComparedCommit
+    Network.AWS.CodeCommit.Types.CommentsForPullRequest
+    Network.AWS.CodeCommit.Types.Commit
+    Network.AWS.CodeCommit.Types.Conflict
+    Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum
+    Network.AWS.CodeCommit.Types.ConflictMetadata
+    Network.AWS.CodeCommit.Types.ConflictResolution
+    Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
+    Network.AWS.CodeCommit.Types.DeleteFileEntry
+    Network.AWS.CodeCommit.Types.Difference
+    Network.AWS.CodeCommit.Types.Evaluation
+    Network.AWS.CodeCommit.Types.File
+    Network.AWS.CodeCommit.Types.FileMetadata
+    Network.AWS.CodeCommit.Types.FileModes
+    Network.AWS.CodeCommit.Types.FileModeTypeEnum
+    Network.AWS.CodeCommit.Types.FileSizes
+    Network.AWS.CodeCommit.Types.Folder
+    Network.AWS.CodeCommit.Types.IsBinaryFile
+    Network.AWS.CodeCommit.Types.Location
+    Network.AWS.CodeCommit.Types.MergeHunk
+    Network.AWS.CodeCommit.Types.MergeHunkDetail
+    Network.AWS.CodeCommit.Types.MergeMetadata
+    Network.AWS.CodeCommit.Types.MergeOperations
+    Network.AWS.CodeCommit.Types.MergeOptionTypeEnum
+    Network.AWS.CodeCommit.Types.ObjectTypeEnum
+    Network.AWS.CodeCommit.Types.ObjectTypes
+    Network.AWS.CodeCommit.Types.OrderEnum
+    Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate
+    Network.AWS.CodeCommit.Types.OverrideStatus
+    Network.AWS.CodeCommit.Types.PullRequest
+    Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
+    Network.AWS.CodeCommit.Types.PullRequestEvent
+    Network.AWS.CodeCommit.Types.PullRequestEventType
+    Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
+    Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
+    Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
+    Network.AWS.CodeCommit.Types.PullRequestStatusEnum
+    Network.AWS.CodeCommit.Types.PullRequestTarget
+    Network.AWS.CodeCommit.Types.PutFileEntry
+    Network.AWS.CodeCommit.Types.ReactionForComment
+    Network.AWS.CodeCommit.Types.ReactionValueFormats
+    Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
+    Network.AWS.CodeCommit.Types.ReplaceContentEntry
+    Network.AWS.CodeCommit.Types.ReplacementTypeEnum
+    Network.AWS.CodeCommit.Types.RepositoryMetadata
+    Network.AWS.CodeCommit.Types.RepositoryNameIdPair
+    Network.AWS.CodeCommit.Types.RepositoryTrigger
+    Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
+    Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure
+    Network.AWS.CodeCommit.Types.SetFileModeEntry
+    Network.AWS.CodeCommit.Types.SortByEnum
+    Network.AWS.CodeCommit.Types.SourceFileSpecifier
+    Network.AWS.CodeCommit.Types.SubModule
+    Network.AWS.CodeCommit.Types.SymbolicLink
+    Network.AWS.CodeCommit.Types.Target
+    Network.AWS.CodeCommit.Types.UserInfo
+    Network.AWS.CodeCommit.UntagResource
+    Network.AWS.CodeCommit.UpdateApprovalRuleTemplateContent
+    Network.AWS.CodeCommit.UpdateApprovalRuleTemplateDescription
+    Network.AWS.CodeCommit.UpdateApprovalRuleTemplateName
+    Network.AWS.CodeCommit.UpdateComment
+    Network.AWS.CodeCommit.UpdateDefaultBranch
+    Network.AWS.CodeCommit.UpdatePullRequestApprovalRuleContent
+    Network.AWS.CodeCommit.UpdatePullRequestApprovalState
+    Network.AWS.CodeCommit.UpdatePullRequestDescription
+    Network.AWS.CodeCommit.UpdatePullRequestStatus
+    Network.AWS.CodeCommit.UpdatePullRequestTitle
+    Network.AWS.CodeCommit.UpdateRepositoryDescription
+    Network.AWS.CodeCommit.UpdateRepositoryName
+    Network.AWS.CodeCommit.Waiters
 
-    exposed-modules:
-          Network.AWS.CodeCommit
-        , Network.AWS.CodeCommit.BatchGetRepositories
-        , Network.AWS.CodeCommit.CreateBranch
-        , Network.AWS.CodeCommit.CreateRepository
-        , Network.AWS.CodeCommit.DeleteBranch
-        , Network.AWS.CodeCommit.DeleteRepository
-        , Network.AWS.CodeCommit.GetBlob
-        , Network.AWS.CodeCommit.GetBranch
-        , Network.AWS.CodeCommit.GetCommit
-        , Network.AWS.CodeCommit.GetDifferences
-        , Network.AWS.CodeCommit.GetRepository
-        , Network.AWS.CodeCommit.GetRepositoryTriggers
-        , Network.AWS.CodeCommit.ListBranches
-        , Network.AWS.CodeCommit.ListRepositories
-        , Network.AWS.CodeCommit.PutRepositoryTriggers
-        , Network.AWS.CodeCommit.TestRepositoryTriggers
-        , Network.AWS.CodeCommit.Types
-        , Network.AWS.CodeCommit.UpdateDefaultBranch
-        , Network.AWS.CodeCommit.UpdateRepositoryDescription
-        , Network.AWS.CodeCommit.UpdateRepositoryName
-        , Network.AWS.CodeCommit.Waiters
-
-    other-modules:
-          Network.AWS.CodeCommit.Types.Product
-        , Network.AWS.CodeCommit.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-codecommit-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CodeCommit
+    Test.AWS.CodeCommit.Internal
+    Test.AWS.Gen.CodeCommit
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CodeCommit
-        , Test.AWS.Gen.CodeCommit
-        , Test.AWS.CodeCommit.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-codecommit
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-codecommit
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

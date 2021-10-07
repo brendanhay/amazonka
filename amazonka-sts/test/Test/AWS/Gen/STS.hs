@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.STS
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.STS where
 
 import Data.Proxy
@@ -28,138 +27,172 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetCallerIdentity $
---             getCallerIdentity
+--         [ requestAssumeRoleWithWebIdentity $
+--             newAssumeRoleWithWebIdentity
 --
---         , requestAssumeRole $
---             assumeRole
---
---         , requestDecodeAuthorizationMessage $
---             decodeAuthorizationMessage
---
---         , requestAssumeRoleWithWebIdentity $
---             assumeRoleWithWebIdentity
---
---         , requestGetFederationToken $
---             getFederationToken
+--         , requestGetAccessKeyInfo $
+--             newGetAccessKeyInfo
 --
 --         , requestGetSessionToken $
---             getSessionToken
+--             newGetSessionToken
+--
+--         , requestAssumeRole $
+--             newAssumeRole
+--
+--         , requestGetCallerIdentity $
+--             newGetCallerIdentity
+--
+--         , requestDecodeAuthorizationMessage $
+--             newDecodeAuthorizationMessage
 --
 --         , requestAssumeRoleWithSAML $
---             assumeRoleWithSAML
+--             newAssumeRoleWithSAML
+--
+--         , requestGetFederationToken $
+--             newGetFederationToken
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetCallerIdentity $
---             getCallerIdentityResponse
+--         [ responseAssumeRoleWithWebIdentity $
+--             newAssumeRoleWithWebIdentityResponse
 --
---         , responseAssumeRole $
---             assumeRoleResponse
---
---         , responseDecodeAuthorizationMessage $
---             decodeAuthorizationMessageResponse
---
---         , responseAssumeRoleWithWebIdentity $
---             assumeRoleWithWebIdentityResponse
---
---         , responseGetFederationToken $
---             getFederationTokenResponse
+--         , responseGetAccessKeyInfo $
+--             newGetAccessKeyInfoResponse
 --
 --         , responseGetSessionToken $
---             getSessionTokenResponse
+--             newGetSessionTokenResponse
+--
+--         , responseAssumeRole $
+--             newAssumeRoleResponse
+--
+--         , responseGetCallerIdentity $
+--             newGetCallerIdentityResponse
+--
+--         , responseDecodeAuthorizationMessage $
+--             newDecodeAuthorizationMessageResponse
 --
 --         , responseAssumeRoleWithSAML $
---             assumeRoleWithSAMLResponse
+--             newAssumeRoleWithSAMLResponse
+--
+--         , responseGetFederationToken $
+--             newGetFederationTokenResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestGetCallerIdentity :: GetCallerIdentity -> TestTree
-requestGetCallerIdentity = req
-    "GetCallerIdentity"
-    "fixture/GetCallerIdentity.yaml"
-
-requestAssumeRole :: AssumeRole -> TestTree
-requestAssumeRole = req
-    "AssumeRole"
-    "fixture/AssumeRole.yaml"
-
-requestDecodeAuthorizationMessage :: DecodeAuthorizationMessage -> TestTree
-requestDecodeAuthorizationMessage = req
-    "DecodeAuthorizationMessage"
-    "fixture/DecodeAuthorizationMessage.yaml"
-
 requestAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentity -> TestTree
-requestAssumeRoleWithWebIdentity = req
+requestAssumeRoleWithWebIdentity =
+  req
     "AssumeRoleWithWebIdentity"
     "fixture/AssumeRoleWithWebIdentity.yaml"
 
-requestGetFederationToken :: GetFederationToken -> TestTree
-requestGetFederationToken = req
-    "GetFederationToken"
-    "fixture/GetFederationToken.yaml"
+requestGetAccessKeyInfo :: GetAccessKeyInfo -> TestTree
+requestGetAccessKeyInfo =
+  req
+    "GetAccessKeyInfo"
+    "fixture/GetAccessKeyInfo.yaml"
 
 requestGetSessionToken :: GetSessionToken -> TestTree
-requestGetSessionToken = req
+requestGetSessionToken =
+  req
     "GetSessionToken"
     "fixture/GetSessionToken.yaml"
 
+requestAssumeRole :: AssumeRole -> TestTree
+requestAssumeRole =
+  req
+    "AssumeRole"
+    "fixture/AssumeRole.yaml"
+
+requestGetCallerIdentity :: GetCallerIdentity -> TestTree
+requestGetCallerIdentity =
+  req
+    "GetCallerIdentity"
+    "fixture/GetCallerIdentity.yaml"
+
+requestDecodeAuthorizationMessage :: DecodeAuthorizationMessage -> TestTree
+requestDecodeAuthorizationMessage =
+  req
+    "DecodeAuthorizationMessage"
+    "fixture/DecodeAuthorizationMessage.yaml"
+
 requestAssumeRoleWithSAML :: AssumeRoleWithSAML -> TestTree
-requestAssumeRoleWithSAML = req
+requestAssumeRoleWithSAML =
+  req
     "AssumeRoleWithSAML"
     "fixture/AssumeRoleWithSAML.yaml"
 
+requestGetFederationToken :: GetFederationToken -> TestTree
+requestGetFederationToken =
+  req
+    "GetFederationToken"
+    "fixture/GetFederationToken.yaml"
+
 -- Responses
 
-responseGetCallerIdentity :: GetCallerIdentityResponse -> TestTree
-responseGetCallerIdentity = res
-    "GetCallerIdentityResponse"
-    "fixture/GetCallerIdentityResponse.proto"
-    sts
-    (Proxy :: Proxy GetCallerIdentity)
-
-responseAssumeRole :: AssumeRoleResponse -> TestTree
-responseAssumeRole = res
-    "AssumeRoleResponse"
-    "fixture/AssumeRoleResponse.proto"
-    sts
-    (Proxy :: Proxy AssumeRole)
-
-responseDecodeAuthorizationMessage :: DecodeAuthorizationMessageResponse -> TestTree
-responseDecodeAuthorizationMessage = res
-    "DecodeAuthorizationMessageResponse"
-    "fixture/DecodeAuthorizationMessageResponse.proto"
-    sts
-    (Proxy :: Proxy DecodeAuthorizationMessage)
-
 responseAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentityResponse -> TestTree
-responseAssumeRoleWithWebIdentity = res
+responseAssumeRoleWithWebIdentity =
+  res
     "AssumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse.proto"
-    sts
+    defaultService
     (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
-responseGetFederationToken :: GetFederationTokenResponse -> TestTree
-responseGetFederationToken = res
-    "GetFederationTokenResponse"
-    "fixture/GetFederationTokenResponse.proto"
-    sts
-    (Proxy :: Proxy GetFederationToken)
+responseGetAccessKeyInfo :: GetAccessKeyInfoResponse -> TestTree
+responseGetAccessKeyInfo =
+  res
+    "GetAccessKeyInfoResponse"
+    "fixture/GetAccessKeyInfoResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetAccessKeyInfo)
 
 responseGetSessionToken :: GetSessionTokenResponse -> TestTree
-responseGetSessionToken = res
+responseGetSessionToken =
+  res
     "GetSessionTokenResponse"
     "fixture/GetSessionTokenResponse.proto"
-    sts
+    defaultService
     (Proxy :: Proxy GetSessionToken)
 
+responseAssumeRole :: AssumeRoleResponse -> TestTree
+responseAssumeRole =
+  res
+    "AssumeRoleResponse"
+    "fixture/AssumeRoleResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssumeRole)
+
+responseGetCallerIdentity :: GetCallerIdentityResponse -> TestTree
+responseGetCallerIdentity =
+  res
+    "GetCallerIdentityResponse"
+    "fixture/GetCallerIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCallerIdentity)
+
+responseDecodeAuthorizationMessage :: DecodeAuthorizationMessageResponse -> TestTree
+responseDecodeAuthorizationMessage =
+  res
+    "DecodeAuthorizationMessageResponse"
+    "fixture/DecodeAuthorizationMessageResponse.proto"
+    defaultService
+    (Proxy :: Proxy DecodeAuthorizationMessage)
+
 responseAssumeRoleWithSAML :: AssumeRoleWithSAMLResponse -> TestTree
-responseAssumeRoleWithSAML = res
+responseAssumeRoleWithSAML =
+  res
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse.proto"
-    sts
+    defaultService
     (Proxy :: Proxy AssumeRoleWithSAML)
+
+responseGetFederationToken :: GetFederationTokenResponse -> TestTree
+responseGetFederationToken =
+  res
+    "GetFederationTokenResponse"
+    "fixture/GetFederationTokenResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetFederationToken)

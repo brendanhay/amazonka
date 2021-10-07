@@ -1,136 +1,166 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.GetQualificationType
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @GetQualificationType@ operation retrieves information about a Qualification type using its ID.
---
---
+-- The @GetQualificationType@operation retrieves information about a
+-- Qualification type using its ID.
 module Network.AWS.MechanicalTurk.GetQualificationType
-    (
-    -- * Creating a Request
-      getQualificationType
-    , GetQualificationType
+  ( -- * Creating a Request
+    GetQualificationType (..),
+    newGetQualificationType,
+
     -- * Request Lenses
-    , gqtQualificationTypeId
+    getQualificationType_qualificationTypeId,
 
     -- * Destructuring the Response
-    , getQualificationTypeResponse
-    , GetQualificationTypeResponse
+    GetQualificationTypeResponse (..),
+    newGetQualificationTypeResponse,
+
     -- * Response Lenses
-    , gqtrsQualificationType
-    , gqtrsResponseStatus
-    ) where
+    getQualificationTypeResponse_qualificationType,
+    getQualificationTypeResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getQualificationType' smart constructor.
-newtype GetQualificationType = GetQualificationType'
-  { _gqtQualificationTypeId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetQualificationType' smart constructor.
+data GetQualificationType = GetQualificationType'
+  { -- | The ID of the QualificationType.
+    qualificationTypeId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetQualificationType' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetQualificationType' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gqtQualificationTypeId' - The ID of the QualificationType.
-getQualificationType
-    :: Text -- ^ 'gqtQualificationTypeId'
-    -> GetQualificationType
-getQualificationType pQualificationTypeId_ =
-  GetQualificationType' {_gqtQualificationTypeId = pQualificationTypeId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'qualificationTypeId', 'getQualificationType_qualificationTypeId' - The ID of the QualificationType.
+newGetQualificationType ::
+  -- | 'qualificationTypeId'
+  Prelude.Text ->
+  GetQualificationType
+newGetQualificationType pQualificationTypeId_ =
+  GetQualificationType'
+    { qualificationTypeId =
+        pQualificationTypeId_
+    }
 
 -- | The ID of the QualificationType.
-gqtQualificationTypeId :: Lens' GetQualificationType Text
-gqtQualificationTypeId = lens _gqtQualificationTypeId (\ s a -> s{_gqtQualificationTypeId = a});
+getQualificationType_qualificationTypeId :: Lens.Lens' GetQualificationType Prelude.Text
+getQualificationType_qualificationTypeId = Lens.lens (\GetQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@GetQualificationType' {} a -> s {qualificationTypeId = a} :: GetQualificationType)
 
-instance AWSRequest GetQualificationType where
-        type Rs GetQualificationType =
-             GetQualificationTypeResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetQualificationTypeResponse' <$>
-                   (x .?> "QualificationType") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetQualificationType where
+  type
+    AWSResponse GetQualificationType =
+      GetQualificationTypeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetQualificationTypeResponse'
+            Prelude.<$> (x Core..?> "QualificationType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetQualificationType where
+instance Prelude.Hashable GetQualificationType
 
-instance NFData GetQualificationType where
+instance Prelude.NFData GetQualificationType
 
-instance ToHeaders GetQualificationType where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.GetQualificationType"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetQualificationType where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "MTurkRequesterServiceV20170117.GetQualificationType" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetQualificationType where
-        toJSON GetQualificationType'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("QualificationTypeId" .= _gqtQualificationTypeId)])
+instance Core.ToJSON GetQualificationType where
+  toJSON GetQualificationType' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("QualificationTypeId" Core..= qualificationTypeId)
+          ]
+      )
 
-instance ToPath GetQualificationType where
-        toPath = const "/"
+instance Core.ToPath GetQualificationType where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetQualificationType where
-        toQuery = const mempty
+instance Core.ToQuery GetQualificationType where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getQualificationTypeResponse' smart constructor.
+-- | /See:/ 'newGetQualificationTypeResponse' smart constructor.
 data GetQualificationTypeResponse = GetQualificationTypeResponse'
-  { _gqtrsQualificationType :: !(Maybe QualificationType)
-  , _gqtrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The returned Qualification Type
+    qualificationType :: Prelude.Maybe QualificationType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetQualificationTypeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetQualificationTypeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gqtrsQualificationType' - The returned Qualification Type
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gqtrsResponseStatus' - -- | The response status code.
-getQualificationTypeResponse
-    :: Int -- ^ 'gqtrsResponseStatus'
-    -> GetQualificationTypeResponse
-getQualificationTypeResponse pResponseStatus_ =
+-- 'qualificationType', 'getQualificationTypeResponse_qualificationType' - The returned Qualification Type
+--
+-- 'httpStatus', 'getQualificationTypeResponse_httpStatus' - The response's http status code.
+newGetQualificationTypeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetQualificationTypeResponse
+newGetQualificationTypeResponse pHttpStatus_ =
   GetQualificationTypeResponse'
-  {_gqtrsQualificationType = Nothing, _gqtrsResponseStatus = pResponseStatus_}
-
+    { qualificationType =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The returned Qualification Type
-gqtrsQualificationType :: Lens' GetQualificationTypeResponse (Maybe QualificationType)
-gqtrsQualificationType = lens _gqtrsQualificationType (\ s a -> s{_gqtrsQualificationType = a});
+getQualificationTypeResponse_qualificationType :: Lens.Lens' GetQualificationTypeResponse (Prelude.Maybe QualificationType)
+getQualificationTypeResponse_qualificationType = Lens.lens (\GetQualificationTypeResponse' {qualificationType} -> qualificationType) (\s@GetQualificationTypeResponse' {} a -> s {qualificationType = a} :: GetQualificationTypeResponse)
 
--- | -- | The response status code.
-gqtrsResponseStatus :: Lens' GetQualificationTypeResponse Int
-gqtrsResponseStatus = lens _gqtrsResponseStatus (\ s a -> s{_gqtrsResponseStatus = a});
+-- | The response's http status code.
+getQualificationTypeResponse_httpStatus :: Lens.Lens' GetQualificationTypeResponse Prelude.Int
+getQualificationTypeResponse_httpStatus = Lens.lens (\GetQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@GetQualificationTypeResponse' {} a -> s {httpStatus = a} :: GetQualificationTypeResponse)
 
-instance NFData GetQualificationTypeResponse where
+instance Prelude.NFData GetQualificationTypeResponse

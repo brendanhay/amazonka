@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,99 +22,122 @@
 --
 -- Attaches one or more EC2 instances to the specified Auto Scaling group.
 --
+-- When you attach instances, Amazon EC2 Auto Scaling increases the desired
+-- capacity of the group by the number of instances being attached. If the
+-- number of instances being attached plus the desired capacity of the
+-- group exceeds the maximum size of the group, the operation fails.
 --
--- When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.
+-- If there is a Classic Load Balancer attached to your Auto Scaling group,
+-- the instances are also registered with the load balancer. If there are
+-- target groups attached to your Auto Scaling group, the instances are
+-- also registered with the target groups.
 --
--- If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.
---
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html Attach EC2 instances to your Auto Scaling group>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.AttachInstances
-    (
-    -- * Creating a Request
-      attachInstances
-    , AttachInstances
+  ( -- * Creating a Request
+    AttachInstances (..),
+    newAttachInstances,
+
     -- * Request Lenses
-    , aiInstanceIds
-    , aiAutoScalingGroupName
+    attachInstances_instanceIds,
+    attachInstances_autoScalingGroupName,
 
     -- * Destructuring the Response
-    , attachInstancesResponse
-    , AttachInstancesResponse
-    ) where
+    AttachInstancesResponse (..),
+    newAttachInstancesResponse,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'attachInstances' smart constructor.
+-- | /See:/ 'newAttachInstances' smart constructor.
 data AttachInstances = AttachInstances'
-  { _aiInstanceIds          :: !(Maybe [Text])
-  , _aiAutoScalingGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AttachInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aiInstanceIds' - One or more instance IDs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aiAutoScalingGroupName' - The name of the group.
-attachInstances
-    :: Text -- ^ 'aiAutoScalingGroupName'
-    -> AttachInstances
-attachInstances pAutoScalingGroupName_ =
+-- 'instanceIds', 'attachInstances_instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+--
+-- 'autoScalingGroupName', 'attachInstances_autoScalingGroupName' - The name of the Auto Scaling group.
+newAttachInstances ::
+  -- | 'autoScalingGroupName'
+  Prelude.Text ->
+  AttachInstances
+newAttachInstances pAutoScalingGroupName_ =
   AttachInstances'
-  {_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName_}
+    { instanceIds = Prelude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
+    }
 
+-- | The IDs of the instances. You can specify up to 20 instances.
+attachInstances_instanceIds :: Lens.Lens' AttachInstances (Prelude.Maybe [Prelude.Text])
+attachInstances_instanceIds = Lens.lens (\AttachInstances' {instanceIds} -> instanceIds) (\s@AttachInstances' {} a -> s {instanceIds = a} :: AttachInstances) Prelude.. Lens.mapping Lens._Coerce
 
--- | One or more instance IDs.
-aiInstanceIds :: Lens' AttachInstances [Text]
-aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default . _Coerce;
+-- | The name of the Auto Scaling group.
+attachInstances_autoScalingGroupName :: Lens.Lens' AttachInstances Prelude.Text
+attachInstances_autoScalingGroupName = Lens.lens (\AttachInstances' {autoScalingGroupName} -> autoScalingGroupName) (\s@AttachInstances' {} a -> s {autoScalingGroupName = a} :: AttachInstances)
 
--- | The name of the group.
-aiAutoScalingGroupName :: Lens' AttachInstances Text
-aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\ s a -> s{_aiAutoScalingGroupName = a});
+instance Core.AWSRequest AttachInstances where
+  type
+    AWSResponse AttachInstances =
+      AttachInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull AttachInstancesResponse'
 
-instance AWSRequest AttachInstances where
-        type Rs AttachInstances = AttachInstancesResponse
-        request = postQuery autoScaling
-        response = receiveNull AttachInstancesResponse'
+instance Prelude.Hashable AttachInstances
 
-instance Hashable AttachInstances where
+instance Prelude.NFData AttachInstances
 
-instance NFData AttachInstances where
+instance Core.ToHeaders AttachInstances where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders AttachInstances where
-        toHeaders = const mempty
+instance Core.ToPath AttachInstances where
+  toPath = Prelude.const "/"
 
-instance ToPath AttachInstances where
-        toPath = const "/"
+instance Core.ToQuery AttachInstances where
+  toQuery AttachInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AttachInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "InstanceIds"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> instanceIds),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
+      ]
 
-instance ToQuery AttachInstances where
-        toQuery AttachInstances'{..}
-          = mconcat
-              ["Action" =: ("AttachInstances" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _aiInstanceIds),
-               "AutoScalingGroupName" =: _aiAutoScalingGroupName]
+-- | /See:/ 'newAttachInstancesResponse' smart constructor.
+data AttachInstancesResponse = AttachInstancesResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'attachInstancesResponse' smart constructor.
-data AttachInstancesResponse =
-  AttachInstancesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AttachInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachInstancesResponse' with all optional fields omitted.
 --
-attachInstancesResponse
-    :: AttachInstancesResponse
-attachInstancesResponse = AttachInstancesResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAttachInstancesResponse ::
+  AttachInstancesResponse
+newAttachInstancesResponse = AttachInstancesResponse'
 
-
-instance NFData AttachInstancesResponse where
+instance Prelude.NFData AttachInstancesResponse

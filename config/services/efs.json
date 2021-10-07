@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-efs",
+    "typeOverrides": {
+        "Status": {
+            "renamedTo": "BackupStatus"
+        }
+    }
+}

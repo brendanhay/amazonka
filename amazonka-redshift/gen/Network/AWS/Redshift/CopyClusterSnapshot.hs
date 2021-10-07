@@ -1,160 +1,299 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the specified automated cluster snapshot to a new manual cluster snapshot. The source must be an automated snapshot and it must be in the available state.
+-- Copies the specified automated cluster snapshot to a new manual cluster
+-- snapshot. The source must be an automated snapshot and it must be in the
+-- available state.
 --
+-- When you delete a cluster, Amazon Redshift deletes any automated
+-- snapshots of the cluster. Also, when the retention period of the
+-- snapshot expires, Amazon Redshift automatically deletes it. If you want
+-- to keep an automated snapshot for a longer period, you can make a manual
+-- copy of the snapshot. Manual snapshots are retained until you delete
+-- them.
 --
--- When you delete a cluster, Amazon Redshift deletes any automated snapshots of the cluster. Also, when the retention period of the snapshot expires, Amazon Redshift automatically deletes it. If you want to keep an automated snapshot for a longer period, you can make a manual copy of the snapshot. Manual snapshots are retained until you delete them.
---
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
---
+-- For more information about working with snapshots, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
+-- in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CopyClusterSnapshot
-    (
-    -- * Creating a Request
-      copyClusterSnapshot
-    , CopyClusterSnapshot
+  ( -- * Creating a Request
+    CopyClusterSnapshot (..),
+    newCopyClusterSnapshot,
+
     -- * Request Lenses
-    , ccsSourceSnapshotClusterIdentifier
-    , ccsSourceSnapshotIdentifier
-    , ccsTargetSnapshotIdentifier
+    copyClusterSnapshot_manualSnapshotRetentionPeriod,
+    copyClusterSnapshot_sourceSnapshotClusterIdentifier,
+    copyClusterSnapshot_sourceSnapshotIdentifier,
+    copyClusterSnapshot_targetSnapshotIdentifier,
 
     -- * Destructuring the Response
-    , copyClusterSnapshotResponse
-    , CopyClusterSnapshotResponse
-    -- * Response Lenses
-    , ccsrsSnapshot
-    , ccsrsResponseStatus
-    ) where
+    CopyClusterSnapshotResponse (..),
+    newCopyClusterSnapshotResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    copyClusterSnapshotResponse_snapshot,
+    copyClusterSnapshotResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'copyClusterSnapshot' smart constructor.
+-- /See:/ 'newCopyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
-  { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
-  , _ccsSourceSnapshotIdentifier        :: !Text
-  , _ccsTargetSnapshotIdentifier        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CopyClusterSnapshot' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsSourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
---
--- * 'ccsSourceSnapshotIdentifier' - The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
---
--- * 'ccsTargetSnapshotIdentifier' - The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
-copyClusterSnapshot
-    :: Text -- ^ 'ccsSourceSnapshotIdentifier'
-    -> Text -- ^ 'ccsTargetSnapshotIdentifier'
-    -> CopyClusterSnapshot
-copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
-  CopyClusterSnapshot'
-  { _ccsSourceSnapshotClusterIdentifier = Nothing
-  , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
-  , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
+  { -- | The number of days that a manual snapshot is retained. If the value is
+    -- -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    --
+    -- The default value is -1.
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The identifier of the cluster the source snapshot was created from. This
+    -- parameter is required if your IAM user has a policy containing a
+    -- snapshot resource element that specifies anything other than * for the
+    -- cluster name.
+    --
+    -- Constraints:
+    --
+    -- -   Must be the identifier for a valid cluster.
+    sourceSnapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the source snapshot.
+    --
+    -- Constraints:
+    --
+    -- -   Must be the identifier for a valid automated snapshot whose state is
+    --     @available@.
+    sourceSnapshotIdentifier :: Prelude.Text,
+    -- | The identifier given to the new manual snapshot.
+    --
+    -- Constraints:
+    --
+    -- -   Cannot be null, empty, or blank.
+    --
+    -- -   Must contain from 1 to 255 alphanumeric characters or hyphens.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    -- -   Must be unique for the Amazon Web Services account that is making
+    --     the request.
+    targetSnapshotIdentifier :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CopyClusterSnapshot' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'manualSnapshotRetentionPeriod', 'copyClusterSnapshot_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is
+-- -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- The default value is -1.
+--
+-- 'sourceSnapshotClusterIdentifier', 'copyClusterSnapshot_sourceSnapshotClusterIdentifier' - The identifier of the cluster the source snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+--
+-- Constraints:
+--
+-- -   Must be the identifier for a valid cluster.
+--
+-- 'sourceSnapshotIdentifier', 'copyClusterSnapshot_sourceSnapshotIdentifier' - The identifier for the source snapshot.
+--
+-- Constraints:
+--
+-- -   Must be the identifier for a valid automated snapshot whose state is
+--     @available@.
+--
+-- 'targetSnapshotIdentifier', 'copyClusterSnapshot_targetSnapshotIdentifier' - The identifier given to the new manual snapshot.
+--
+-- Constraints:
+--
+-- -   Cannot be null, empty, or blank.
+--
+-- -   Must contain from 1 to 255 alphanumeric characters or hyphens.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- -   Must be unique for the Amazon Web Services account that is making
+--     the request.
+newCopyClusterSnapshot ::
+  -- | 'sourceSnapshotIdentifier'
+  Prelude.Text ->
+  -- | 'targetSnapshotIdentifier'
+  Prelude.Text ->
+  CopyClusterSnapshot
+newCopyClusterSnapshot
+  pSourceSnapshotIdentifier_
+  pTargetSnapshotIdentifier_ =
+    CopyClusterSnapshot'
+      { manualSnapshotRetentionPeriod =
+          Prelude.Nothing,
+        sourceSnapshotClusterIdentifier = Prelude.Nothing,
+        sourceSnapshotIdentifier =
+          pSourceSnapshotIdentifier_,
+        targetSnapshotIdentifier =
+          pTargetSnapshotIdentifier_
+      }
 
--- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints:     * Must be the identifier for a valid cluster.
-ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
-ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a});
+-- | The number of days that a manual snapshot is retained. If the value is
+-- -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- The default value is -1.
+copyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Int)
+copyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CopyClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CopyClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: CopyClusterSnapshot)
 
--- | The identifier for the source snapshot. Constraints:     * Must be the identifier for a valid automated snapshot whose state is @available@ .
-ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
+-- | The identifier of the cluster the source snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+--
+-- Constraints:
+--
+-- -   Must be the identifier for a valid cluster.
+copyClusterSnapshot_sourceSnapshotClusterIdentifier :: Lens.Lens' CopyClusterSnapshot (Prelude.Maybe Prelude.Text)
+copyClusterSnapshot_sourceSnapshotClusterIdentifier = Lens.lens (\CopyClusterSnapshot' {sourceSnapshotClusterIdentifier} -> sourceSnapshotClusterIdentifier) (\s@CopyClusterSnapshot' {} a -> s {sourceSnapshotClusterIdentifier = a} :: CopyClusterSnapshot)
 
--- | The identifier given to the new manual snapshot. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for the AWS account that is making the request.
-ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
+-- | The identifier for the source snapshot.
+--
+-- Constraints:
+--
+-- -   Must be the identifier for a valid automated snapshot whose state is
+--     @available@.
+copyClusterSnapshot_sourceSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Prelude.Text
+copyClusterSnapshot_sourceSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' {sourceSnapshotIdentifier} -> sourceSnapshotIdentifier) (\s@CopyClusterSnapshot' {} a -> s {sourceSnapshotIdentifier = a} :: CopyClusterSnapshot)
 
-instance AWSRequest CopyClusterSnapshot where
-        type Rs CopyClusterSnapshot =
-             CopyClusterSnapshotResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "CopyClusterSnapshotResult"
-              (\ s h x ->
-                 CopyClusterSnapshotResponse' <$>
-                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
+-- | The identifier given to the new manual snapshot.
+--
+-- Constraints:
+--
+-- -   Cannot be null, empty, or blank.
+--
+-- -   Must contain from 1 to 255 alphanumeric characters or hyphens.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- -   Must be unique for the Amazon Web Services account that is making
+--     the request.
+copyClusterSnapshot_targetSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Prelude.Text
+copyClusterSnapshot_targetSnapshotIdentifier = Lens.lens (\CopyClusterSnapshot' {targetSnapshotIdentifier} -> targetSnapshotIdentifier) (\s@CopyClusterSnapshot' {} a -> s {targetSnapshotIdentifier = a} :: CopyClusterSnapshot)
 
-instance Hashable CopyClusterSnapshot where
+instance Core.AWSRequest CopyClusterSnapshot where
+  type
+    AWSResponse CopyClusterSnapshot =
+      CopyClusterSnapshotResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CopyClusterSnapshotResult"
+      ( \s h x ->
+          CopyClusterSnapshotResponse'
+            Prelude.<$> (x Core..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData CopyClusterSnapshot where
+instance Prelude.Hashable CopyClusterSnapshot
 
-instance ToHeaders CopyClusterSnapshot where
-        toHeaders = const mempty
+instance Prelude.NFData CopyClusterSnapshot
 
-instance ToPath CopyClusterSnapshot where
-        toPath = const "/"
+instance Core.ToHeaders CopyClusterSnapshot where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery CopyClusterSnapshot where
-        toQuery CopyClusterSnapshot'{..}
-          = mconcat
-              ["Action" =: ("CopyClusterSnapshot" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "SourceSnapshotClusterIdentifier" =:
-                 _ccsSourceSnapshotClusterIdentifier,
-               "SourceSnapshotIdentifier" =:
-                 _ccsSourceSnapshotIdentifier,
-               "TargetSnapshotIdentifier" =:
-                 _ccsTargetSnapshotIdentifier]
+instance Core.ToPath CopyClusterSnapshot where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
+instance Core.ToQuery CopyClusterSnapshot where
+  toQuery CopyClusterSnapshot' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CopyClusterSnapshot" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "ManualSnapshotRetentionPeriod"
+          Core.=: manualSnapshotRetentionPeriod,
+        "SourceSnapshotClusterIdentifier"
+          Core.=: sourceSnapshotClusterIdentifier,
+        "SourceSnapshotIdentifier"
+          Core.=: sourceSnapshotIdentifier,
+        "TargetSnapshotIdentifier"
+          Core.=: targetSnapshotIdentifier
+      ]
+
+-- | /See:/ 'newCopyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-  { _ccsrsSnapshot       :: !(Maybe Snapshot)
-  , _ccsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { snapshot :: Prelude.Maybe Snapshot,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CopyClusterSnapshotResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CopyClusterSnapshotResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccsrsSnapshot' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccsrsResponseStatus' - -- | The response status code.
-copyClusterSnapshotResponse
-    :: Int -- ^ 'ccsrsResponseStatus'
-    -> CopyClusterSnapshotResponse
-copyClusterSnapshotResponse pResponseStatus_ =
+-- 'snapshot', 'copyClusterSnapshotResponse_snapshot' - Undocumented member.
+--
+-- 'httpStatus', 'copyClusterSnapshotResponse_httpStatus' - The response's http status code.
+newCopyClusterSnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CopyClusterSnapshotResponse
+newCopyClusterSnapshotResponse pHttpStatus_ =
   CopyClusterSnapshotResponse'
-  {_ccsrsSnapshot = Nothing, _ccsrsResponseStatus = pResponseStatus_}
-
+    { snapshot =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
-ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
+copyClusterSnapshotResponse_snapshot :: Lens.Lens' CopyClusterSnapshotResponse (Prelude.Maybe Snapshot)
+copyClusterSnapshotResponse_snapshot = Lens.lens (\CopyClusterSnapshotResponse' {snapshot} -> snapshot) (\s@CopyClusterSnapshotResponse' {} a -> s {snapshot = a} :: CopyClusterSnapshotResponse)
 
--- | -- | The response status code.
-ccsrsResponseStatus :: Lens' CopyClusterSnapshotResponse Int
-ccsrsResponseStatus = lens _ccsrsResponseStatus (\ s a -> s{_ccsrsResponseStatus = a});
+-- | The response's http status code.
+copyClusterSnapshotResponse_httpStatus :: Lens.Lens' CopyClusterSnapshotResponse Prelude.Int
+copyClusterSnapshotResponse_httpStatus = Lens.lens (\CopyClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@CopyClusterSnapshotResponse' {} a -> s {httpStatus = a} :: CopyClusterSnapshotResponse)
 
-instance NFData CopyClusterSnapshotResponse where
+instance Prelude.NFData CopyClusterSnapshotResponse

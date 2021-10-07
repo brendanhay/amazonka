@@ -1,130 +1,165 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Rotates the encryption keys for a cluster.
---
---
 module Network.AWS.Redshift.RotateEncryptionKey
-    (
-    -- * Creating a Request
-      rotateEncryptionKey
-    , RotateEncryptionKey
+  ( -- * Creating a Request
+    RotateEncryptionKey (..),
+    newRotateEncryptionKey,
+
     -- * Request Lenses
-    , rekClusterIdentifier
+    rotateEncryptionKey_clusterIdentifier,
 
     -- * Destructuring the Response
-    , rotateEncryptionKeyResponse
-    , RotateEncryptionKeyResponse
-    -- * Response Lenses
-    , rekrsCluster
-    , rekrsResponseStatus
-    ) where
+    RotateEncryptionKeyResponse (..),
+    newRotateEncryptionKeyResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    rotateEncryptionKeyResponse_cluster,
+    rotateEncryptionKeyResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
+-- /See:/ 'newRotateEncryptionKey' smart constructor.
+data RotateEncryptionKey = RotateEncryptionKey'
+  { -- | The unique identifier of the cluster that you want to rotate the
+    -- encryption keys for.
+    --
+    -- Constraints: Must be the name of valid cluster that has encryption
+    -- enabled.
+    clusterIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'RotateEncryptionKey' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'rotateEncryptionKey' smart constructor.
-newtype RotateEncryptionKey = RotateEncryptionKey'
-  { _rekClusterIdentifier :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RotateEncryptionKey' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'clusterIdentifier', 'rotateEncryptionKey_clusterIdentifier' - The unique identifier of the cluster that you want to rotate the
+-- encryption keys for.
 --
--- * 'rekClusterIdentifier' - The unique identifier of the cluster that you want to rotate the encryption keys for. Constraints: Must be the name of valid cluster that has encryption enabled.
-rotateEncryptionKey
-    :: Text -- ^ 'rekClusterIdentifier'
-    -> RotateEncryptionKey
-rotateEncryptionKey pClusterIdentifier_ =
-  RotateEncryptionKey' {_rekClusterIdentifier = pClusterIdentifier_}
+-- Constraints: Must be the name of valid cluster that has encryption
+-- enabled.
+newRotateEncryptionKey ::
+  -- | 'clusterIdentifier'
+  Prelude.Text ->
+  RotateEncryptionKey
+newRotateEncryptionKey pClusterIdentifier_ =
+  RotateEncryptionKey'
+    { clusterIdentifier =
+        pClusterIdentifier_
+    }
 
+-- | The unique identifier of the cluster that you want to rotate the
+-- encryption keys for.
+--
+-- Constraints: Must be the name of valid cluster that has encryption
+-- enabled.
+rotateEncryptionKey_clusterIdentifier :: Lens.Lens' RotateEncryptionKey Prelude.Text
+rotateEncryptionKey_clusterIdentifier = Lens.lens (\RotateEncryptionKey' {clusterIdentifier} -> clusterIdentifier) (\s@RotateEncryptionKey' {} a -> s {clusterIdentifier = a} :: RotateEncryptionKey)
 
--- | The unique identifier of the cluster that you want to rotate the encryption keys for. Constraints: Must be the name of valid cluster that has encryption enabled.
-rekClusterIdentifier :: Lens' RotateEncryptionKey Text
-rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
+instance Core.AWSRequest RotateEncryptionKey where
+  type
+    AWSResponse RotateEncryptionKey =
+      RotateEncryptionKeyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "RotateEncryptionKeyResult"
+      ( \s h x ->
+          RotateEncryptionKeyResponse'
+            Prelude.<$> (x Core..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest RotateEncryptionKey where
-        type Rs RotateEncryptionKey =
-             RotateEncryptionKeyResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "RotateEncryptionKeyResult"
-              (\ s h x ->
-                 RotateEncryptionKeyResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+instance Prelude.Hashable RotateEncryptionKey
 
-instance Hashable RotateEncryptionKey where
+instance Prelude.NFData RotateEncryptionKey
 
-instance NFData RotateEncryptionKey where
+instance Core.ToHeaders RotateEncryptionKey where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders RotateEncryptionKey where
-        toHeaders = const mempty
+instance Core.ToPath RotateEncryptionKey where
+  toPath = Prelude.const "/"
 
-instance ToPath RotateEncryptionKey where
-        toPath = const "/"
+instance Core.ToQuery RotateEncryptionKey where
+  toQuery RotateEncryptionKey' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("RotateEncryptionKey" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
+      ]
 
-instance ToQuery RotateEncryptionKey where
-        toQuery RotateEncryptionKey'{..}
-          = mconcat
-              ["Action" =: ("RotateEncryptionKey" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _rekClusterIdentifier]
-
--- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
+-- | /See:/ 'newRotateEncryptionKeyResponse' smart constructor.
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-  { _rekrsCluster        :: !(Maybe Cluster)
-  , _rekrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { cluster :: Prelude.Maybe Cluster,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RotateEncryptionKeyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RotateEncryptionKeyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rekrsCluster' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rekrsResponseStatus' - -- | The response status code.
-rotateEncryptionKeyResponse
-    :: Int -- ^ 'rekrsResponseStatus'
-    -> RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse pResponseStatus_ =
+-- 'cluster', 'rotateEncryptionKeyResponse_cluster' - Undocumented member.
+--
+-- 'httpStatus', 'rotateEncryptionKeyResponse_httpStatus' - The response's http status code.
+newRotateEncryptionKeyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RotateEncryptionKeyResponse
+newRotateEncryptionKeyResponse pHttpStatus_ =
   RotateEncryptionKeyResponse'
-  {_rekrsCluster = Nothing, _rekrsResponseStatus = pResponseStatus_}
-
+    { cluster =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
+rotateEncryptionKeyResponse_cluster :: Lens.Lens' RotateEncryptionKeyResponse (Prelude.Maybe Cluster)
+rotateEncryptionKeyResponse_cluster = Lens.lens (\RotateEncryptionKeyResponse' {cluster} -> cluster) (\s@RotateEncryptionKeyResponse' {} a -> s {cluster = a} :: RotateEncryptionKeyResponse)
 
--- | -- | The response status code.
-rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
-rekrsResponseStatus = lens _rekrsResponseStatus (\ s a -> s{_rekrsResponseStatus = a});
+-- | The response's http status code.
+rotateEncryptionKeyResponse_httpStatus :: Lens.Lens' RotateEncryptionKeyResponse Prelude.Int
+rotateEncryptionKeyResponse_httpStatus = Lens.lens (\RotateEncryptionKeyResponse' {httpStatus} -> httpStatus) (\s@RotateEncryptionKeyResponse' {} a -> s {httpStatus = a} :: RotateEncryptionKeyResponse)
 
-instance NFData RotateEncryptionKeyResponse where
+instance Prelude.NFData RotateEncryptionKeyResponse

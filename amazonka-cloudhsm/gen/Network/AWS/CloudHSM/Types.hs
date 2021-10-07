@@ -1,106 +1,143 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudHSM.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.CloudHSM.Types
-    (
-    -- * Service Configuration
-      cloudHSM
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidRequestException
-    , _CloudHSMServiceException
-    , _CloudHSMInternalException
+    _CloudHsmInternalException,
+    _InvalidRequestException,
+    _CloudHsmServiceException,
 
     -- * ClientVersion
-    , ClientVersion (..)
+    ClientVersion (..),
 
-    -- * CloudHSMObjectState
-    , CloudHSMObjectState (..)
+    -- * CloudHsmObjectState
+    CloudHsmObjectState (..),
 
-    -- * HSMStatus
-    , HSMStatus (..)
+    -- * HsmStatus
+    HsmStatus (..),
 
     -- * SubscriptionType
-    , SubscriptionType (..)
+    SubscriptionType (..),
 
     -- * Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
-    ) where
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+  )
+where
 
-import Network.AWS.CloudHSM.Types.Product
-import Network.AWS.CloudHSM.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.CloudHSM.Types.ClientVersion
+import Network.AWS.CloudHSM.Types.CloudHsmObjectState
+import Network.AWS.CloudHSM.Types.HsmStatus
+import Network.AWS.CloudHSM.Types.SubscriptionType
+import Network.AWS.CloudHSM.Types.Tag
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-05-30@ of the Amazon CloudHSM SDK configuration.
-cloudHSM :: Service
-cloudHSM =
-  Service
-  { _svcAbbrev = "CloudHSM"
-  , _svcSigner = v4
-  , _svcPrefix = "cloudhsm"
-  , _svcVersion = "2014-05-30"
-  , _svcEndpoint = defaultEndpoint cloudHSM
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CloudHSM"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "CloudHSM",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "cloudhsm",
+      Core._serviceSigningName = "cloudhsm",
+      Core._serviceVersion = "2014-05-30",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "CloudHSM",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | Indicates that one or more of the request parameters are not valid.
---
---
-_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException = _MatchServiceError cloudHSM "InvalidRequestException"
-
-
--- | Indicates that an exception occurred in the AWS CloudHSM service.
---
---
-_CloudHSMServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-_CloudHSMServiceException =
-  _MatchServiceError cloudHSM "CloudHsmServiceException"
-
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that an internal error occurred.
---
---
-_CloudHSMInternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_CloudHSMInternalException =
-  _MatchServiceError cloudHSM "CloudHsmInternalException"
+_CloudHsmInternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmInternalException =
+  Core._MatchServiceError
+    defaultService
+    "CloudHsmInternalException"
 
+-- | Indicates that one or more of the request parameters are not valid.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- | Indicates that an exception occurred in the AWS CloudHSM service.
+_CloudHsmServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmServiceException =
+  Core._MatchServiceError
+    defaultService
+    "CloudHsmServiceException"

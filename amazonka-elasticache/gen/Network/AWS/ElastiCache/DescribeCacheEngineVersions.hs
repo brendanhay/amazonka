@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheEngineVersions
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,193 +22,309 @@
 --
 -- Returns a list of the available cache engines and their versions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
-    (
-    -- * Creating a Request
-      describeCacheEngineVersions
-    , DescribeCacheEngineVersions
+  ( -- * Creating a Request
+    DescribeCacheEngineVersions (..),
+    newDescribeCacheEngineVersions,
+
     -- * Request Lenses
-    , dcevEngineVersion
-    , dcevCacheParameterGroupFamily
-    , dcevDefaultOnly
-    , dcevEngine
-    , dcevMarker
-    , dcevMaxRecords
+    describeCacheEngineVersions_defaultOnly,
+    describeCacheEngineVersions_engineVersion,
+    describeCacheEngineVersions_cacheParameterGroupFamily,
+    describeCacheEngineVersions_engine,
+    describeCacheEngineVersions_maxRecords,
+    describeCacheEngineVersions_marker,
 
     -- * Destructuring the Response
-    , describeCacheEngineVersionsResponse
-    , DescribeCacheEngineVersionsResponse
-    -- * Response Lenses
-    , dcevrsCacheEngineVersions
-    , dcevrsMarker
-    , dcevrsResponseStatus
-    ) where
+    DescribeCacheEngineVersionsResponse (..),
+    newDescribeCacheEngineVersionsResponse,
 
+    -- * Response Lenses
+    describeCacheEngineVersionsResponse_cacheEngineVersions,
+    describeCacheEngineVersionsResponse_marker,
+    describeCacheEngineVersionsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeCacheEngineVersions@ operation.
 --
---
---
--- /See:/ 'describeCacheEngineVersions' smart constructor.
+-- /See:/ 'newDescribeCacheEngineVersions' smart constructor.
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
-  { _dcevEngineVersion             :: !(Maybe Text)
-  , _dcevCacheParameterGroupFamily :: !(Maybe Text)
-  , _dcevDefaultOnly               :: !(Maybe Bool)
-  , _dcevEngine                    :: !(Maybe Text)
-  , _dcevMarker                    :: !(Maybe Text)
-  , _dcevMaxRecords                :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCacheEngineVersions' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcevEngineVersion' - The cache engine version to return. Example: @1.4.14@
---
--- * 'dcevCacheParameterGroupFamily' - The name of a specific cache parameter group family to return details for. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@ | @redis3.2@  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
---
--- * 'dcevDefaultOnly' - If @true@ , specifies that only the default version of the specified engine or engine and major version combination is to be returned.
---
--- * 'dcevEngine' - The cache engine to return. Valid values: @memcached@ | @redis@
---
--- * 'dcevMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dcevMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-describeCacheEngineVersions
-    :: DescribeCacheEngineVersions
-describeCacheEngineVersions =
-  DescribeCacheEngineVersions'
-  { _dcevEngineVersion = Nothing
-  , _dcevCacheParameterGroupFamily = Nothing
-  , _dcevDefaultOnly = Nothing
-  , _dcevEngine = Nothing
-  , _dcevMarker = Nothing
-  , _dcevMaxRecords = Nothing
+  { -- | If @true@, specifies that only the default version of the specified
+    -- engine or engine and major version combination is to be returned.
+    defaultOnly :: Prelude.Maybe Prelude.Bool,
+    -- | The cache engine version to return.
+    --
+    -- Example: @1.4.14@
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of a specific cache parameter group family to return details
+    -- for.
+    --
+    -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
+    -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
+    -- @redis6.x@ |
+    --
+    -- Constraints:
+    --
+    -- -   Must be 1 to 255 alphanumeric characters
+    --
+    -- -   First character must be a letter
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens
+    cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    -- | The cache engine to return. Valid values: @memcached@ | @redis@
+    engine :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a marker is
+    -- included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: minimum 20; maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeCacheEngineVersions' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'defaultOnly', 'describeCacheEngineVersions_defaultOnly' - If @true@, specifies that only the default version of the specified
+-- engine or engine and major version combination is to be returned.
+--
+-- 'engineVersion', 'describeCacheEngineVersions_engineVersion' - The cache engine version to return.
+--
+-- Example: @1.4.14@
+--
+-- 'cacheParameterGroupFamily', 'describeCacheEngineVersions_cacheParameterGroupFamily' - The name of a specific cache parameter group family to return details
+-- for.
+--
+-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
+-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
+-- @redis6.x@ |
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters
+--
+-- -   First character must be a letter
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
+-- 'engine', 'describeCacheEngineVersions_engine' - The cache engine to return. Valid values: @memcached@ | @redis@
+--
+-- 'maxRecords', 'describeCacheEngineVersions_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeCacheEngineVersions_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+newDescribeCacheEngineVersions ::
+  DescribeCacheEngineVersions
+newDescribeCacheEngineVersions =
+  DescribeCacheEngineVersions'
+    { defaultOnly =
+        Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      cacheParameterGroupFamily = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
--- | The cache engine version to return. Example: @1.4.14@
-dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevEngineVersion = lens _dcevEngineVersion (\ s a -> s{_dcevEngineVersion = a});
+-- | If @true@, specifies that only the default version of the specified
+-- engine or engine and major version combination is to be returned.
+describeCacheEngineVersions_defaultOnly :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Bool)
+describeCacheEngineVersions_defaultOnly = Lens.lens (\DescribeCacheEngineVersions' {defaultOnly} -> defaultOnly) (\s@DescribeCacheEngineVersions' {} a -> s {defaultOnly = a} :: DescribeCacheEngineVersions)
 
--- | The name of a specific cache parameter group family to return details for. Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@ | @redis3.2@  Constraints:     * Must be 1 to 255 alphanumeric characters     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens
-dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevCacheParameterGroupFamily = lens _dcevCacheParameterGroupFamily (\ s a -> s{_dcevCacheParameterGroupFamily = a});
+-- | The cache engine version to return.
+--
+-- Example: @1.4.14@
+describeCacheEngineVersions_engineVersion :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_engineVersion = Lens.lens (\DescribeCacheEngineVersions' {engineVersion} -> engineVersion) (\s@DescribeCacheEngineVersions' {} a -> s {engineVersion = a} :: DescribeCacheEngineVersions)
 
--- | If @true@ , specifies that only the default version of the specified engine or engine and major version combination is to be returned.
-dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
-dcevDefaultOnly = lens _dcevDefaultOnly (\ s a -> s{_dcevDefaultOnly = a});
+-- | The name of a specific cache parameter group family to return details
+-- for.
+--
+-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
+-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
+-- @redis6.x@ |
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters
+--
+-- -   First character must be a letter
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+describeCacheEngineVersions_cacheParameterGroupFamily :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_cacheParameterGroupFamily = Lens.lens (\DescribeCacheEngineVersions' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@DescribeCacheEngineVersions' {} a -> s {cacheParameterGroupFamily = a} :: DescribeCacheEngineVersions)
 
 -- | The cache engine to return. Valid values: @memcached@ | @redis@
-dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevEngine = lens _dcevEngine (\ s a -> s{_dcevEngine = a});
+describeCacheEngineVersions_engine :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_engine = Lens.lens (\DescribeCacheEngineVersions' {engine} -> engine) (\s@DescribeCacheEngineVersions' {} a -> s {engine = a} :: DescribeCacheEngineVersions)
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
-dcevMaxRecords = lens _dcevMaxRecords (\ s a -> s{_dcevMaxRecords = a});
-
-instance AWSPager DescribeCacheEngineVersions where
-        page rq rs
-          | stop (rs ^. dcevrsMarker) = Nothing
-          | stop (rs ^. dcevrsCacheEngineVersions) = Nothing
-          | otherwise =
-            Just $ rq & dcevMarker .~ rs ^. dcevrsMarker
-
-instance AWSRequest DescribeCacheEngineVersions where
-        type Rs DescribeCacheEngineVersions =
-             DescribeCacheEngineVersionsResponse
-        request = postQuery elastiCache
-        response
-          = receiveXMLWrapper
-              "DescribeCacheEngineVersionsResult"
-              (\ s h x ->
-                 DescribeCacheEngineVersionsResponse' <$>
-                   (x .@? "CacheEngineVersions" .!@ mempty >>=
-                      may (parseXMLList "CacheEngineVersion"))
-                     <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeCacheEngineVersions where
-
-instance NFData DescribeCacheEngineVersions where
-
-instance ToHeaders DescribeCacheEngineVersions where
-        toHeaders = const mempty
-
-instance ToPath DescribeCacheEngineVersions where
-        toPath = const "/"
-
-instance ToQuery DescribeCacheEngineVersions where
-        toQuery DescribeCacheEngineVersions'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeCacheEngineVersions" :: ByteString),
-               "Version" =: ("2015-02-02" :: ByteString),
-               "EngineVersion" =: _dcevEngineVersion,
-               "CacheParameterGroupFamily" =:
-                 _dcevCacheParameterGroupFamily,
-               "DefaultOnly" =: _dcevDefaultOnly,
-               "Engine" =: _dcevEngine, "Marker" =: _dcevMarker,
-               "MaxRecords" =: _dcevMaxRecords]
-
--- | Represents the output of a 'DescribeCacheEngineVersions' operation.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
 --
+-- Default: 100
 --
+-- Constraints: minimum 20; maximum 100.
+describeCacheEngineVersions_maxRecords :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Int)
+describeCacheEngineVersions_maxRecords = Lens.lens (\DescribeCacheEngineVersions' {maxRecords} -> maxRecords) (\s@DescribeCacheEngineVersions' {} a -> s {maxRecords = a} :: DescribeCacheEngineVersions)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCacheEngineVersions_marker :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_marker = Lens.lens (\DescribeCacheEngineVersions' {marker} -> marker) (\s@DescribeCacheEngineVersions' {} a -> s {marker = a} :: DescribeCacheEngineVersions)
+
+instance Core.AWSPager DescribeCacheEngineVersions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeCacheEngineVersionsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeCacheEngineVersionsResponse_cacheEngineVersions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeCacheEngineVersions_marker
+          Lens..~ rs
+          Lens.^? describeCacheEngineVersionsResponse_marker
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeCacheEngineVersions where
+  type
+    AWSResponse DescribeCacheEngineVersions =
+      DescribeCacheEngineVersionsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeCacheEngineVersionsResult"
+      ( \s h x ->
+          DescribeCacheEngineVersionsResponse'
+            Prelude.<$> ( x Core..@? "CacheEngineVersions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "CacheEngineVersion")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeCacheEngineVersions
+
+instance Prelude.NFData DescribeCacheEngineVersions
+
+instance Core.ToHeaders DescribeCacheEngineVersions where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeCacheEngineVersions where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeCacheEngineVersions where
+  toQuery DescribeCacheEngineVersions' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeCacheEngineVersions" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "DefaultOnly" Core.=: defaultOnly,
+        "EngineVersion" Core.=: engineVersion,
+        "CacheParameterGroupFamily"
+          Core.=: cacheParameterGroupFamily,
+        "Engine" Core.=: engine,
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
+      ]
+
+-- | Represents the output of a DescribeCacheEngineVersions operation.
 --
--- /See:/ 'describeCacheEngineVersionsResponse' smart constructor.
+-- /See:/ 'newDescribeCacheEngineVersionsResponse' smart constructor.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
-  { _dcevrsCacheEngineVersions :: !(Maybe [CacheEngineVersion])
-  , _dcevrsMarker              :: !(Maybe Text)
-  , _dcevrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCacheEngineVersionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcevrsCacheEngineVersions' - A list of cache engine version details. Each element in the list contains detailed information about one cache engine version.
---
--- * 'dcevrsMarker' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'dcevrsResponseStatus' - -- | The response status code.
-describeCacheEngineVersionsResponse
-    :: Int -- ^ 'dcevrsResponseStatus'
-    -> DescribeCacheEngineVersionsResponse
-describeCacheEngineVersionsResponse pResponseStatus_ =
-  DescribeCacheEngineVersionsResponse'
-  { _dcevrsCacheEngineVersions = Nothing
-  , _dcevrsMarker = Nothing
-  , _dcevrsResponseStatus = pResponseStatus_
+  { -- | A list of cache engine version details. Each element in the list
+    -- contains detailed information about one cache engine version.
+    cacheEngineVersions :: Prelude.Maybe [CacheEngineVersion],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeCacheEngineVersionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'cacheEngineVersions', 'describeCacheEngineVersionsResponse_cacheEngineVersions' - A list of cache engine version details. Each element in the list
+-- contains detailed information about one cache engine version.
+--
+-- 'marker', 'describeCacheEngineVersionsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
+--
+-- 'httpStatus', 'describeCacheEngineVersionsResponse_httpStatus' - The response's http status code.
+newDescribeCacheEngineVersionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeCacheEngineVersionsResponse
+newDescribeCacheEngineVersionsResponse pHttpStatus_ =
+  DescribeCacheEngineVersionsResponse'
+    { cacheEngineVersions =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | A list of cache engine version details. Each element in the list contains detailed information about one cache engine version.
-dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
-dcevrsCacheEngineVersions = lens _dcevrsCacheEngineVersions (\ s a -> s{_dcevrsCacheEngineVersions = a}) . _Default . _Coerce;
+-- | A list of cache engine version details. Each element in the list
+-- contains detailed information about one cache engine version.
+describeCacheEngineVersionsResponse_cacheEngineVersions :: Lens.Lens' DescribeCacheEngineVersionsResponse (Prelude.Maybe [CacheEngineVersion])
+describeCacheEngineVersionsResponse_cacheEngineVersions = Lens.lens (\DescribeCacheEngineVersionsResponse' {cacheEngineVersions} -> cacheEngineVersions) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {cacheEngineVersions = a} :: DescribeCacheEngineVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
-dcevrsMarker = lens _dcevrsMarker (\ s a -> s{_dcevrsMarker = a});
+describeCacheEngineVersionsResponse_marker :: Lens.Lens' DescribeCacheEngineVersionsResponse (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersionsResponse_marker = Lens.lens (\DescribeCacheEngineVersionsResponse' {marker} -> marker) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {marker = a} :: DescribeCacheEngineVersionsResponse)
 
--- | -- | The response status code.
-dcevrsResponseStatus :: Lens' DescribeCacheEngineVersionsResponse Int
-dcevrsResponseStatus = lens _dcevrsResponseStatus (\ s a -> s{_dcevrsResponseStatus = a});
+-- | The response's http status code.
+describeCacheEngineVersionsResponse_httpStatus :: Lens.Lens' DescribeCacheEngineVersionsResponse Prelude.Int
+describeCacheEngineVersionsResponse_httpStatus = Lens.lens (\DescribeCacheEngineVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {httpStatus = a} :: DescribeCacheEngineVersionsResponse)
 
-instance NFData DescribeCacheEngineVersionsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeCacheEngineVersionsResponse

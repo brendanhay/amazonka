@@ -1,153 +1,506 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.Subscribe
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the @ConfirmSubscription@ action with the token from the confirmation message. Confirmation tokens are valid for three days.
+-- Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is
+-- HTTP\/S or email, or if the endpoint and the topic are not in the same
+-- account, the endpoint owner must run the @ConfirmSubscription@ action to
+-- confirm the subscription.
 --
+-- You call the @ConfirmSubscription@ action with the token from the
+-- subscription response. Confirmation tokens are valid for three days.
 --
+-- This action is throttled at 100 transactions per second (TPS).
 module Network.AWS.SNS.Subscribe
-    (
-    -- * Creating a Request
-      subscribe
-    , Subscribe
+  ( -- * Creating a Request
+    Subscribe (..),
+    newSubscribe,
+
     -- * Request Lenses
-    , subEndpoint
-    , subTopicARN
-    , subProtocol
+    subscribe_attributes,
+    subscribe_returnSubscriptionArn,
+    subscribe_endpoint,
+    subscribe_topicArn,
+    subscribe_protocol,
 
     -- * Destructuring the Response
-    , subscribeResponse
-    , SubscribeResponse
-    -- * Response Lenses
-    , srsSubscriptionARN
-    , srsResponseStatus
-    ) where
+    SubscribeResponse (..),
+    newSubscribeResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    subscribeResponse_subscriptionArn,
+    subscribeResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for Subscribe action.
 --
---
---
--- /See:/ 'subscribe' smart constructor.
+-- /See:/ 'newSubscribe' smart constructor.
 data Subscribe = Subscribe'
-  { _subEndpoint :: !(Maybe Text)
-  , _subTopicARN :: !Text
-  , _subProtocol :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A map of attributes with their corresponding values.
+    --
+    -- The following lists the names, descriptions, and values of the special
+    -- request parameters that the @Subscribe@ action uses:
+    --
+    -- -   @DeliveryPolicy@ – The policy that defines how Amazon SNS retries
+    --     failed deliveries to HTTP\/S endpoints.
+    --
+    -- -   @FilterPolicy@ – The simple JSON object that lets your subscriber
+    --     receive only a subset of messages, rather than receiving every
+    --     message published to the topic.
+    --
+    -- -   @RawMessageDelivery@ – When set to @true@, enables raw message
+    --     delivery to Amazon SQS or HTTP\/S endpoints. This eliminates the
+    --     need for the endpoints to process JSON formatting, which is
+    --     otherwise created for Amazon SNS metadata.
+    --
+    -- -   @RedrivePolicy@ – When specified, sends undeliverable messages to
+    --     the specified Amazon SQS dead-letter queue. Messages that can\'t be
+    --     delivered due to client errors (for example, when the subscribed
+    --     endpoint is unreachable) or server errors (for example, when the
+    --     service that powers the subscribed endpoint becomes unavailable) are
+    --     held in the dead-letter queue for further analysis or reprocessing.
+    --
+    -- The following attribute applies only to Amazon Kinesis Data Firehose
+    -- delivery stream subscriptions:
+    --
+    -- -   @SubscriptionRoleArn@ – The ARN of the IAM role that has the
+    --     following:
+    --
+    --     -   Permission to write to the Kinesis Data Firehose delivery stream
+    --
+    --     -   Amazon SNS listed as a trusted entity
+    --
+    --     Specifying a valid ARN for this attribute is required for Kinesis
+    --     Data Firehose delivery stream subscriptions. For more information,
+    --     see
+    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+    --     in the /Amazon SNS Developer Guide/.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Sets whether the response from the @Subscribe@ request includes the
+    -- subscription ARN, even if the subscription is not yet confirmed.
+    --
+    -- If you set this parameter to @true@, the response includes the ARN in
+    -- all cases, even if the subscription is not yet confirmed. In addition to
+    -- the ARN for confirmed subscriptions, the response also includes the
+    -- @pending subscription@ ARN value for subscriptions that aren\'t yet
+    -- confirmed. A subscription becomes confirmed when the subscriber calls
+    -- the @ConfirmSubscription@ action with a confirmation token.
+    --
+    -- The default value is @false@.
+    returnSubscriptionArn :: Prelude.Maybe Prelude.Bool,
+    -- | The endpoint that you want to receive notifications. Endpoints vary by
+    -- protocol:
+    --
+    -- -   For the @http@ protocol, the (public) endpoint is a URL beginning
+    --     with @http:\/\/@.
+    --
+    -- -   For the @https@ protocol, the (public) endpoint is a URL beginning
+    --     with @https:\/\/@.
+    --
+    -- -   For the @email@ protocol, the endpoint is an email address.
+    --
+    -- -   For the @email-json@ protocol, the endpoint is an email address.
+    --
+    -- -   For the @sms@ protocol, the endpoint is a phone number of an
+    --     SMS-enabled device.
+    --
+    -- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS
+    --     queue.
+    --
+    -- -   For the @application@ protocol, the endpoint is the EndpointArn of a
+    --     mobile app and device.
+    --
+    -- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda
+    --     function.
+    --
+    -- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
+    --     Kinesis Data Firehose delivery stream.
+    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the topic you want to subscribe to.
+    topicArn :: Prelude.Text,
+    -- | The protocol that you want to use. Supported protocols include:
+    --
+    -- -   @http@ – delivery of JSON-encoded message via HTTP POST
+    --
+    -- -   @https@ – delivery of JSON-encoded message via HTTPS POST
+    --
+    -- -   @email@ – delivery of message via SMTP
+    --
+    -- -   @email-json@ – delivery of JSON-encoded message via SMTP
+    --
+    -- -   @sms@ – delivery of message via SMS
+    --
+    -- -   @sqs@ – delivery of JSON-encoded message to an Amazon SQS queue
+    --
+    -- -   @application@ – delivery of JSON-encoded message to an EndpointArn
+    --     for a mobile app and device
+    --
+    -- -   @lambda@ – delivery of JSON-encoded message to an Lambda function
+    --
+    -- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
+    --     Data Firehose delivery stream.
+    protocol :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'Subscribe' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'Subscribe' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'subEndpoint' - The endpoint that you want to receive notifications. Endpoints vary by protocol:     * For the @http@ protocol, the endpoint is an URL beginning with "http://"     * For the @https@ protocol, the endpoint is a URL beginning with "https://"     * For the @email@ protocol, the endpoint is an email address     * For the @email-json@ protocol, the endpoint is an email address     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.     * For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda function.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'subTopicARN' - The ARN of the topic you want to subscribe to.
+-- 'attributes', 'subscribe_attributes' - A map of attributes with their corresponding values.
 --
--- * 'subProtocol' - The protocol you want to use. Supported protocols include:     * @http@ -- delivery of JSON-encoded message via HTTP POST     * @https@ -- delivery of JSON-encoded message via HTTPS POST     * @email@ -- delivery of message via SMTP     * @email-json@ -- delivery of JSON-encoded message via SMTP     * @sms@ -- delivery of message via SMS     * @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue     * @application@ -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.     * @lambda@ -- delivery of JSON-encoded message to an AWS Lambda function.
-subscribe
-    :: Text -- ^ 'subTopicARN'
-    -> Text -- ^ 'subProtocol'
-    -> Subscribe
-subscribe pTopicARN_ pProtocol_ =
+-- The following lists the names, descriptions, and values of the special
+-- request parameters that the @Subscribe@ action uses:
+--
+-- -   @DeliveryPolicy@ – The policy that defines how Amazon SNS retries
+--     failed deliveries to HTTP\/S endpoints.
+--
+-- -   @FilterPolicy@ – The simple JSON object that lets your subscriber
+--     receive only a subset of messages, rather than receiving every
+--     message published to the topic.
+--
+-- -   @RawMessageDelivery@ – When set to @true@, enables raw message
+--     delivery to Amazon SQS or HTTP\/S endpoints. This eliminates the
+--     need for the endpoints to process JSON formatting, which is
+--     otherwise created for Amazon SNS metadata.
+--
+-- -   @RedrivePolicy@ – When specified, sends undeliverable messages to
+--     the specified Amazon SQS dead-letter queue. Messages that can\'t be
+--     delivered due to client errors (for example, when the subscribed
+--     endpoint is unreachable) or server errors (for example, when the
+--     service that powers the subscribed endpoint becomes unavailable) are
+--     held in the dead-letter queue for further analysis or reprocessing.
+--
+-- The following attribute applies only to Amazon Kinesis Data Firehose
+-- delivery stream subscriptions:
+--
+-- -   @SubscriptionRoleArn@ – The ARN of the IAM role that has the
+--     following:
+--
+--     -   Permission to write to the Kinesis Data Firehose delivery stream
+--
+--     -   Amazon SNS listed as a trusted entity
+--
+--     Specifying a valid ARN for this attribute is required for Kinesis
+--     Data Firehose delivery stream subscriptions. For more information,
+--     see
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     in the /Amazon SNS Developer Guide/.
+--
+-- 'returnSubscriptionArn', 'subscribe_returnSubscriptionArn' - Sets whether the response from the @Subscribe@ request includes the
+-- subscription ARN, even if the subscription is not yet confirmed.
+--
+-- If you set this parameter to @true@, the response includes the ARN in
+-- all cases, even if the subscription is not yet confirmed. In addition to
+-- the ARN for confirmed subscriptions, the response also includes the
+-- @pending subscription@ ARN value for subscriptions that aren\'t yet
+-- confirmed. A subscription becomes confirmed when the subscriber calls
+-- the @ConfirmSubscription@ action with a confirmation token.
+--
+-- The default value is @false@.
+--
+-- 'endpoint', 'subscribe_endpoint' - The endpoint that you want to receive notifications. Endpoints vary by
+-- protocol:
+--
+-- -   For the @http@ protocol, the (public) endpoint is a URL beginning
+--     with @http:\/\/@.
+--
+-- -   For the @https@ protocol, the (public) endpoint is a URL beginning
+--     with @https:\/\/@.
+--
+-- -   For the @email@ protocol, the endpoint is an email address.
+--
+-- -   For the @email-json@ protocol, the endpoint is an email address.
+--
+-- -   For the @sms@ protocol, the endpoint is a phone number of an
+--     SMS-enabled device.
+--
+-- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS
+--     queue.
+--
+-- -   For the @application@ protocol, the endpoint is the EndpointArn of a
+--     mobile app and device.
+--
+-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda
+--     function.
+--
+-- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
+--     Kinesis Data Firehose delivery stream.
+--
+-- 'topicArn', 'subscribe_topicArn' - The ARN of the topic you want to subscribe to.
+--
+-- 'protocol', 'subscribe_protocol' - The protocol that you want to use. Supported protocols include:
+--
+-- -   @http@ – delivery of JSON-encoded message via HTTP POST
+--
+-- -   @https@ – delivery of JSON-encoded message via HTTPS POST
+--
+-- -   @email@ – delivery of message via SMTP
+--
+-- -   @email-json@ – delivery of JSON-encoded message via SMTP
+--
+-- -   @sms@ – delivery of message via SMS
+--
+-- -   @sqs@ – delivery of JSON-encoded message to an Amazon SQS queue
+--
+-- -   @application@ – delivery of JSON-encoded message to an EndpointArn
+--     for a mobile app and device
+--
+-- -   @lambda@ – delivery of JSON-encoded message to an Lambda function
+--
+-- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
+--     Data Firehose delivery stream.
+newSubscribe ::
+  -- | 'topicArn'
+  Prelude.Text ->
+  -- | 'protocol'
+  Prelude.Text ->
+  Subscribe
+newSubscribe pTopicArn_ pProtocol_ =
   Subscribe'
-  {_subEndpoint = Nothing, _subTopicARN = pTopicARN_, _subProtocol = pProtocol_}
+    { attributes = Prelude.Nothing,
+      returnSubscriptionArn = Prelude.Nothing,
+      endpoint = Prelude.Nothing,
+      topicArn = pTopicArn_,
+      protocol = pProtocol_
+    }
 
+-- | A map of attributes with their corresponding values.
+--
+-- The following lists the names, descriptions, and values of the special
+-- request parameters that the @Subscribe@ action uses:
+--
+-- -   @DeliveryPolicy@ – The policy that defines how Amazon SNS retries
+--     failed deliveries to HTTP\/S endpoints.
+--
+-- -   @FilterPolicy@ – The simple JSON object that lets your subscriber
+--     receive only a subset of messages, rather than receiving every
+--     message published to the topic.
+--
+-- -   @RawMessageDelivery@ – When set to @true@, enables raw message
+--     delivery to Amazon SQS or HTTP\/S endpoints. This eliminates the
+--     need for the endpoints to process JSON formatting, which is
+--     otherwise created for Amazon SNS metadata.
+--
+-- -   @RedrivePolicy@ – When specified, sends undeliverable messages to
+--     the specified Amazon SQS dead-letter queue. Messages that can\'t be
+--     delivered due to client errors (for example, when the subscribed
+--     endpoint is unreachable) or server errors (for example, when the
+--     service that powers the subscribed endpoint becomes unavailable) are
+--     held in the dead-letter queue for further analysis or reprocessing.
+--
+-- The following attribute applies only to Amazon Kinesis Data Firehose
+-- delivery stream subscriptions:
+--
+-- -   @SubscriptionRoleArn@ – The ARN of the IAM role that has the
+--     following:
+--
+--     -   Permission to write to the Kinesis Data Firehose delivery stream
+--
+--     -   Amazon SNS listed as a trusted entity
+--
+--     Specifying a valid ARN for this attribute is required for Kinesis
+--     Data Firehose delivery stream subscriptions. For more information,
+--     see
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     in the /Amazon SNS Developer Guide/.
+subscribe_attributes :: Lens.Lens' Subscribe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Subscribe' {} a -> s {attributes = a} :: Subscribe) Prelude.. Lens.mapping Lens._Coerce
 
--- | The endpoint that you want to receive notifications. Endpoints vary by protocol:     * For the @http@ protocol, the endpoint is an URL beginning with "http://"     * For the @https@ protocol, the endpoint is a URL beginning with "https://"     * For the @email@ protocol, the endpoint is an email address     * For the @email-json@ protocol, the endpoint is an email address     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.     * For the @lambda@ protocol, the endpoint is the ARN of an AWS Lambda function.
-subEndpoint :: Lens' Subscribe (Maybe Text)
-subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
+-- | Sets whether the response from the @Subscribe@ request includes the
+-- subscription ARN, even if the subscription is not yet confirmed.
+--
+-- If you set this parameter to @true@, the response includes the ARN in
+-- all cases, even if the subscription is not yet confirmed. In addition to
+-- the ARN for confirmed subscriptions, the response also includes the
+-- @pending subscription@ ARN value for subscriptions that aren\'t yet
+-- confirmed. A subscription becomes confirmed when the subscriber calls
+-- the @ConfirmSubscription@ action with a confirmation token.
+--
+-- The default value is @false@.
+subscribe_returnSubscriptionArn :: Lens.Lens' Subscribe (Prelude.Maybe Prelude.Bool)
+subscribe_returnSubscriptionArn = Lens.lens (\Subscribe' {returnSubscriptionArn} -> returnSubscriptionArn) (\s@Subscribe' {} a -> s {returnSubscriptionArn = a} :: Subscribe)
+
+-- | The endpoint that you want to receive notifications. Endpoints vary by
+-- protocol:
+--
+-- -   For the @http@ protocol, the (public) endpoint is a URL beginning
+--     with @http:\/\/@.
+--
+-- -   For the @https@ protocol, the (public) endpoint is a URL beginning
+--     with @https:\/\/@.
+--
+-- -   For the @email@ protocol, the endpoint is an email address.
+--
+-- -   For the @email-json@ protocol, the endpoint is an email address.
+--
+-- -   For the @sms@ protocol, the endpoint is a phone number of an
+--     SMS-enabled device.
+--
+-- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS
+--     queue.
+--
+-- -   For the @application@ protocol, the endpoint is the EndpointArn of a
+--     mobile app and device.
+--
+-- -   For the @lambda@ protocol, the endpoint is the ARN of an Lambda
+--     function.
+--
+-- -   For the @firehose@ protocol, the endpoint is the ARN of an Amazon
+--     Kinesis Data Firehose delivery stream.
+subscribe_endpoint :: Lens.Lens' Subscribe (Prelude.Maybe Prelude.Text)
+subscribe_endpoint = Lens.lens (\Subscribe' {endpoint} -> endpoint) (\s@Subscribe' {} a -> s {endpoint = a} :: Subscribe)
 
 -- | The ARN of the topic you want to subscribe to.
-subTopicARN :: Lens' Subscribe Text
-subTopicARN = lens _subTopicARN (\ s a -> s{_subTopicARN = a});
+subscribe_topicArn :: Lens.Lens' Subscribe Prelude.Text
+subscribe_topicArn = Lens.lens (\Subscribe' {topicArn} -> topicArn) (\s@Subscribe' {} a -> s {topicArn = a} :: Subscribe)
 
--- | The protocol you want to use. Supported protocols include:     * @http@ -- delivery of JSON-encoded message via HTTP POST     * @https@ -- delivery of JSON-encoded message via HTTPS POST     * @email@ -- delivery of message via SMTP     * @email-json@ -- delivery of JSON-encoded message via SMTP     * @sms@ -- delivery of message via SMS     * @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue     * @application@ -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.     * @lambda@ -- delivery of JSON-encoded message to an AWS Lambda function.
-subProtocol :: Lens' Subscribe Text
-subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
+-- | The protocol that you want to use. Supported protocols include:
+--
+-- -   @http@ – delivery of JSON-encoded message via HTTP POST
+--
+-- -   @https@ – delivery of JSON-encoded message via HTTPS POST
+--
+-- -   @email@ – delivery of message via SMTP
+--
+-- -   @email-json@ – delivery of JSON-encoded message via SMTP
+--
+-- -   @sms@ – delivery of message via SMS
+--
+-- -   @sqs@ – delivery of JSON-encoded message to an Amazon SQS queue
+--
+-- -   @application@ – delivery of JSON-encoded message to an EndpointArn
+--     for a mobile app and device
+--
+-- -   @lambda@ – delivery of JSON-encoded message to an Lambda function
+--
+-- -   @firehose@ – delivery of JSON-encoded message to an Amazon Kinesis
+--     Data Firehose delivery stream.
+subscribe_protocol :: Lens.Lens' Subscribe Prelude.Text
+subscribe_protocol = Lens.lens (\Subscribe' {protocol} -> protocol) (\s@Subscribe' {} a -> s {protocol = a} :: Subscribe)
 
-instance AWSRequest Subscribe where
-        type Rs Subscribe = SubscribeResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper "SubscribeResult"
-              (\ s h x ->
-                 SubscribeResponse' <$>
-                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
+instance Core.AWSRequest Subscribe where
+  type AWSResponse Subscribe = SubscribeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "SubscribeResult"
+      ( \s h x ->
+          SubscribeResponse'
+            Prelude.<$> (x Core..@? "SubscriptionArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable Subscribe where
+instance Prelude.Hashable Subscribe
 
-instance NFData Subscribe where
+instance Prelude.NFData Subscribe
 
-instance ToHeaders Subscribe where
-        toHeaders = const mempty
+instance Core.ToHeaders Subscribe where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath Subscribe where
-        toPath = const "/"
+instance Core.ToPath Subscribe where
+  toPath = Prelude.const "/"
 
-instance ToQuery Subscribe where
-        toQuery Subscribe'{..}
-          = mconcat
-              ["Action" =: ("Subscribe" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "Endpoint" =: _subEndpoint,
-               "TopicArn" =: _subTopicARN,
-               "Protocol" =: _subProtocol]
+instance Core.ToQuery Subscribe where
+  toQuery Subscribe' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("Subscribe" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-03-31" :: Prelude.ByteString),
+        "Attributes"
+          Core.=: Core.toQuery
+            ( Core.toQueryMap "entry" "key" "value"
+                Prelude.<$> attributes
+            ),
+        "ReturnSubscriptionArn"
+          Core.=: returnSubscriptionArn,
+        "Endpoint" Core.=: endpoint,
+        "TopicArn" Core.=: topicArn,
+        "Protocol" Core.=: protocol
+      ]
 
 -- | Response for Subscribe action.
 --
---
---
--- /See:/ 'subscribeResponse' smart constructor.
+-- /See:/ 'newSubscribeResponse' smart constructor.
 data SubscribeResponse = SubscribeResponse'
-  { _srsSubscriptionARN :: !(Maybe Text)
-  , _srsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the subscription if it is confirmed, or the string \"pending
+    -- confirmation\" if the subscription requires confirmation. However, if
+    -- the API request parameter @ReturnSubscriptionArn@ is true, then the
+    -- value is always the subscription ARN, even if the subscription requires
+    -- confirmation.
+    subscriptionArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SubscribeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SubscribeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srsSubscriptionARN' - The ARN of the subscription, if the service was able to create a subscription immediately (without requiring endpoint owner confirmation).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srsResponseStatus' - -- | The response status code.
-subscribeResponse
-    :: Int -- ^ 'srsResponseStatus'
-    -> SubscribeResponse
-subscribeResponse pResponseStatus_ =
+-- 'subscriptionArn', 'subscribeResponse_subscriptionArn' - The ARN of the subscription if it is confirmed, or the string \"pending
+-- confirmation\" if the subscription requires confirmation. However, if
+-- the API request parameter @ReturnSubscriptionArn@ is true, then the
+-- value is always the subscription ARN, even if the subscription requires
+-- confirmation.
+--
+-- 'httpStatus', 'subscribeResponse_httpStatus' - The response's http status code.
+newSubscribeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SubscribeResponse
+newSubscribeResponse pHttpStatus_ =
   SubscribeResponse'
-  {_srsSubscriptionARN = Nothing, _srsResponseStatus = pResponseStatus_}
+    { subscriptionArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The ARN of the subscription if it is confirmed, or the string \"pending
+-- confirmation\" if the subscription requires confirmation. However, if
+-- the API request parameter @ReturnSubscriptionArn@ is true, then the
+-- value is always the subscription ARN, even if the subscription requires
+-- confirmation.
+subscribeResponse_subscriptionArn :: Lens.Lens' SubscribeResponse (Prelude.Maybe Prelude.Text)
+subscribeResponse_subscriptionArn = Lens.lens (\SubscribeResponse' {subscriptionArn} -> subscriptionArn) (\s@SubscribeResponse' {} a -> s {subscriptionArn = a} :: SubscribeResponse)
 
--- | The ARN of the subscription, if the service was able to create a subscription immediately (without requiring endpoint owner confirmation).
-srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
-srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
+-- | The response's http status code.
+subscribeResponse_httpStatus :: Lens.Lens' SubscribeResponse Prelude.Int
+subscribeResponse_httpStatus = Lens.lens (\SubscribeResponse' {httpStatus} -> httpStatus) (\s@SubscribeResponse' {} a -> s {httpStatus = a} :: SubscribeResponse)
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' SubscribeResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
-
-instance NFData SubscribeResponse where
+instance Prelude.NFData SubscribeResponse

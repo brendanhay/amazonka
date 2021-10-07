@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListArtifacts
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,163 +22,237 @@
 --
 -- Gets information about artifacts.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListArtifacts
-    (
-    -- * Creating a Request
-      listArtifacts
-    , ListArtifacts
+  ( -- * Creating a Request
+    ListArtifacts (..),
+    newListArtifacts,
+
     -- * Request Lenses
-    , laNextToken
-    , laArn
-    , laType
+    listArtifacts_nextToken,
+    listArtifacts_arn,
+    listArtifacts_type,
 
     -- * Destructuring the Response
-    , listArtifactsResponse
-    , ListArtifactsResponse
-    -- * Response Lenses
-    , larsArtifacts
-    , larsNextToken
-    , larsResponseStatus
-    ) where
+    ListArtifactsResponse (..),
+    newListArtifactsResponse,
 
+    -- * Response Lenses
+    listArtifactsResponse_nextToken,
+    listArtifactsResponse_artifacts,
+    listArtifactsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the list artifacts operation.
 --
---
---
--- /See:/ 'listArtifacts' smart constructor.
+-- /See:/ 'newListArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-  { _laNextToken :: !(Maybe Text)
-  , _laArn       :: !Text
-  , _laType      :: !ArtifactCategory
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The run, job, suite, or test ARN.
+    arn :: Prelude.Text,
+    -- | The artifacts\' type.
+    --
+    -- Allowed values include:
+    --
+    -- -   FILE
+    --
+    -- -   LOG
+    --
+    -- -   SCREENSHOT
+    type' :: ArtifactCategory
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListArtifacts' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListArtifacts' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'laNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'laArn' - The Run, Job, Suite, or Test ARN.
+-- 'nextToken', 'listArtifacts_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 --
--- * 'laType' - The artifacts' type. Allowed values include:     * FILE: The artifacts are files.     * LOG: The artifacts are logs.     * SCREENSHOT: The artifacts are screenshots.
-listArtifacts
-    :: Text -- ^ 'laArn'
-    -> ArtifactCategory -- ^ 'laType'
-    -> ListArtifacts
-listArtifacts pArn_ pType_ =
-  ListArtifacts' {_laNextToken = Nothing, _laArn = pArn_, _laType = pType_}
+-- 'arn', 'listArtifacts_arn' - The run, job, suite, or test ARN.
+--
+-- 'type'', 'listArtifacts_type' - The artifacts\' type.
+--
+-- Allowed values include:
+--
+-- -   FILE
+--
+-- -   LOG
+--
+-- -   SCREENSHOT
+newListArtifacts ::
+  -- | 'arn'
+  Prelude.Text ->
+  -- | 'type''
+  ArtifactCategory ->
+  ListArtifacts
+newListArtifacts pArn_ pType_ =
+  ListArtifacts'
+    { nextToken = Prelude.Nothing,
+      arn = pArn_,
+      type' = pType_
+    }
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listArtifacts_nextToken :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
+listArtifacts_nextToken = Lens.lens (\ListArtifacts' {nextToken} -> nextToken) (\s@ListArtifacts' {} a -> s {nextToken = a} :: ListArtifacts)
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-laNextToken :: Lens' ListArtifacts (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+-- | The run, job, suite, or test ARN.
+listArtifacts_arn :: Lens.Lens' ListArtifacts Prelude.Text
+listArtifacts_arn = Lens.lens (\ListArtifacts' {arn} -> arn) (\s@ListArtifacts' {} a -> s {arn = a} :: ListArtifacts)
 
--- | The Run, Job, Suite, or Test ARN.
-laArn :: Lens' ListArtifacts Text
-laArn = lens _laArn (\ s a -> s{_laArn = a});
+-- | The artifacts\' type.
+--
+-- Allowed values include:
+--
+-- -   FILE
+--
+-- -   LOG
+--
+-- -   SCREENSHOT
+listArtifacts_type :: Lens.Lens' ListArtifacts ArtifactCategory
+listArtifacts_type = Lens.lens (\ListArtifacts' {type'} -> type') (\s@ListArtifacts' {} a -> s {type' = a} :: ListArtifacts)
 
--- | The artifacts' type. Allowed values include:     * FILE: The artifacts are files.     * LOG: The artifacts are logs.     * SCREENSHOT: The artifacts are screenshots.
-laType :: Lens' ListArtifacts ArtifactCategory
-laType = lens _laType (\ s a -> s{_laType = a});
+instance Core.AWSPager ListArtifacts where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listArtifactsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listArtifactsResponse_artifacts Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listArtifacts_nextToken
+          Lens..~ rs
+          Lens.^? listArtifactsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSPager ListArtifacts where
-        page rq rs
-          | stop (rs ^. larsNextToken) = Nothing
-          | stop (rs ^. larsArtifacts) = Nothing
-          | otherwise =
-            Just $ rq & laNextToken .~ rs ^. larsNextToken
+instance Core.AWSRequest ListArtifacts where
+  type
+    AWSResponse ListArtifacts =
+      ListArtifactsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListArtifactsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListArtifacts where
-        type Rs ListArtifacts = ListArtifactsResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListArtifactsResponse' <$>
-                   (x .?> "artifacts" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListArtifacts
 
-instance Hashable ListArtifacts where
+instance Prelude.NFData ListArtifacts
 
-instance NFData ListArtifacts where
+instance Core.ToHeaders ListArtifacts where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.ListArtifacts" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListArtifacts where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.ListArtifacts" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ListArtifacts where
+  toJSON ListArtifacts' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("arn" Core..= arn),
+            Prelude.Just ("type" Core..= type')
+          ]
+      )
 
-instance ToJSON ListArtifacts where
-        toJSON ListArtifacts'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _laNextToken,
-                  Just ("arn" .= _laArn), Just ("type" .= _laType)])
+instance Core.ToPath ListArtifacts where
+  toPath = Prelude.const "/"
 
-instance ToPath ListArtifacts where
-        toPath = const "/"
-
-instance ToQuery ListArtifacts where
-        toQuery = const mempty
+instance Core.ToQuery ListArtifacts where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list artifacts operation.
 --
---
---
--- /See:/ 'listArtifactsResponse' smart constructor.
+-- /See:/ 'newListArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-  { _larsArtifacts      :: !(Maybe [Artifact])
-  , _larsNextToken      :: !(Maybe Text)
-  , _larsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListArtifactsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larsArtifacts' - Information about the artifacts.
---
--- * 'larsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'larsResponseStatus' - -- | The response status code.
-listArtifactsResponse
-    :: Int -- ^ 'larsResponseStatus'
-    -> ListArtifactsResponse
-listArtifactsResponse pResponseStatus_ =
-  ListArtifactsResponse'
-  { _larsArtifacts = Nothing
-  , _larsNextToken = Nothing
-  , _larsResponseStatus = pResponseStatus_
+  { -- | If the number of items that are returned is significantly large, this is
+    -- an identifier that is also returned. It can be used in a subsequent call
+    -- to this operation to return the next set of items in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the artifacts.
+    artifacts :: Prelude.Maybe [Artifact],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListArtifactsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listArtifactsResponse_nextToken' - If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+--
+-- 'artifacts', 'listArtifactsResponse_artifacts' - Information about the artifacts.
+--
+-- 'httpStatus', 'listArtifactsResponse_httpStatus' - The response's http status code.
+newListArtifactsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListArtifactsResponse
+newListArtifactsResponse pHttpStatus_ =
+  ListArtifactsResponse'
+    { nextToken = Prelude.Nothing,
+      artifacts = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+listArtifactsResponse_nextToken :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe Prelude.Text)
+listArtifactsResponse_nextToken = Lens.lens (\ListArtifactsResponse' {nextToken} -> nextToken) (\s@ListArtifactsResponse' {} a -> s {nextToken = a} :: ListArtifactsResponse)
 
 -- | Information about the artifacts.
-larsArtifacts :: Lens' ListArtifactsResponse [Artifact]
-larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default . _Coerce;
+listArtifactsResponse_artifacts :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe [Artifact])
+listArtifactsResponse_artifacts = Lens.lens (\ListArtifactsResponse' {artifacts} -> artifacts) (\s@ListArtifactsResponse' {} a -> s {artifacts = a} :: ListArtifactsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
-larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
+-- | The response's http status code.
+listArtifactsResponse_httpStatus :: Lens.Lens' ListArtifactsResponse Prelude.Int
+listArtifactsResponse_httpStatus = Lens.lens (\ListArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListArtifactsResponse' {} a -> s {httpStatus = a} :: ListArtifactsResponse)
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListArtifactsResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a});
-
-instance NFData ListArtifactsResponse where
+instance Prelude.NFData ListArtifactsResponse

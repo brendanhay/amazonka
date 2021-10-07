@@ -1,243 +1,631 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.SendRawEmail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Composes an email message and immediately queues it for sending. When calling this operation, you may specify the message headers as well as the content. The @SendRawEmail@ operation is particularly useful for sending multipart MIME emails (such as those that contain both a plain-text and an HTML version).
+-- Composes an email message and immediately queues it for sending.
 --
+-- This operation is more flexible than the @SendEmail@ API operation. When
+-- you use the @SendRawEmail@ operation, you can specify the headers of the
+-- message as well as its content. This flexibility is useful, for example,
+-- when you want to send a multipart MIME email (such a message that
+-- contains both a text and an HTML version). You can also use this
+-- operation to send messages that include attachments.
 --
--- In order to send email using the @SendRawEmail@ operation, your message must meet the following requirements:
+-- The @SendRawEmail@ operation has the following requirements:
 --
---     * The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an "Email address not verified" error.
+-- -   You can only send email from
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html verified email addresses or domains>.
+--     If you try to send email from an address that isn\'t verified, the
+--     operation results in an \"Email address not verified\" error.
 --
---     * If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Verifying Email Addresses and Domains> in the /Amazon SES Developer Guide./
+-- -   If your account is still in the
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html Amazon SES sandbox>,
+--     you can only send email to other verified addresses in your account,
+--     or to addresses that are associated with the
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mailbox-simulator.html Amazon SES mailbox simulator>.
 --
---     * The total size of the message, including attachments, must be smaller than 10 MB.
+-- -   The maximum message size, including attachments, is 10 MB.
 --
---     * The message must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format /UserName@[SubDomain.]Domain.TopLevelDomain/ ), the entire message will be rejected, even if the message contains other recipients that are valid.
+-- -   Each message has to include at least one recipient address. A
+--     recipient address includes any address on the To:, CC:, or BCC:
+--     lines.
 --
---     * The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the @SendRawEmail@ operation several times to send the message to each group.
+-- -   If you send a single message to more than one recipient address, and
+--     one of the recipient addresses isn\'t in a valid format (that is,
+--     it\'s not in the format
+--     /UserName\@[SubDomain.]Domain.TopLevelDomain/), Amazon SES rejects
+--     the entire message, even if the other addresses are valid.
 --
+-- -   Each message can include up to 50 recipient addresses across the
+--     To:, CC:, or BCC: lines. If you need to send a single message to
+--     more than 50 recipients, you have to split the list of recipient
+--     addresses into groups of less than 50 recipients, and send separate
+--     messages to each group.
 --
+-- -   Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for
+--     MIME message parts. However, if Amazon SES has to modify the
+--     contents of your message (for example, if you use open and click
+--     tracking), 8-bit content isn\'t preserved. For this reason, we
+--     highly recommend that you encode all content that isn\'t 7-bit
+--     ASCII. For more information, see
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding MIME Encoding>
+--     in the /Amazon SES Developer Guide/.
 --
--- /Important:/ For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your /sending quota/ ). For more information about sending quotas in Amazon SES, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Managing Your Amazon SES Sending Limits> in the /Amazon SES Developer Guide./
+-- Additionally, keep the following considerations in mind when using the
+-- @SendRawEmail@ operation:
 --
--- Additionally, keep the following considerations in mind when using the @SendRawEmail@ operation:
+-- -   Although you can customize the message headers when using the
+--     @SendRawEmail@ operation, Amazon SES will automatically apply its
+--     own @Message-ID@ and @Date@ headers; if you passed these headers
+--     when creating the message, they will be overwritten by the values
+--     that Amazon SES provides.
 --
---     * Although you can customize the message headers when using the @SendRawEmail@ operation, Amazon SES will automatically apply its own @Message-ID@ and @Date@ headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.
+-- -   If you are using sending authorization to send on behalf of another
+--     user, @SendRawEmail@ enables you to specify the cross-account
+--     identity for the email\'s Source, From, and Return-Path parameters
+--     in one of two ways: you can pass optional parameters @SourceArn@,
+--     @FromArn@, and\/or @ReturnPathArn@ to the API, or you can include
+--     the following X-headers in the header of your raw email:
 --
---     * If you are using sending authorization to send on behalf of another user, @SendRawEmail@ enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters @SourceArn@ , @FromArn@ , and/or @ReturnPathArn@ to the API, or you can include the following X-headers in the header of your raw email:
+--     -   @X-SES-SOURCE-ARN@
 --
---     * @X-SES-SOURCE-ARN@
+--     -   @X-SES-FROM-ARN@
 --
---     * @X-SES-FROM-ARN@
+--     -   @X-SES-RETURN-PATH-ARN@
 --
---     * @X-SES-RETURN-PATH-ARN@
+--     Don\'t include these X-headers in the DKIM signature. Amazon SES
+--     removes these before it sends the email.
 --
+--     If you only specify the @SourceIdentityArn@ parameter, Amazon SES
+--     sets the From and Return-Path addresses to the same identity that
+--     you specified.
 --
+--     For more information about sending authorization, see the
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Using Sending Authorization with Amazon SES>
+--     in the /Amazon SES Developer Guide./
 --
--- /Important:/ Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.
---
--- For most common sending authorization scenarios, we recommend that you specify the @SourceIdentityArn@ parameter and not the @FromIdentityArn@ or @ReturnPathIdentityArn@ parameters. If you only specify the @SourceIdentityArn@ parameter, Amazon SES will set the From and Return Path addresses to the identity specified in @SourceIdentityArn@ . For more information about sending authorization, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Using Sending Authorization with Amazon SES> in the /Amazon SES Developer Guide./
---
---
---
+-- -   For every message that you send, the total number of recipients
+--     (including each recipient in the To:, CC: and BCC: fields) is
+--     counted against the maximum number of emails you can send in a
+--     24-hour period (your /sending quota/). For more information about
+--     sending quotas in Amazon SES, see
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Managing Your Amazon SES Sending Limits>
+--     in the /Amazon SES Developer Guide./
 module Network.AWS.SES.SendRawEmail
-    (
-    -- * Creating a Request
-      sendRawEmail
-    , SendRawEmail
+  ( -- * Creating a Request
+    SendRawEmail (..),
+    newSendRawEmail,
+
     -- * Request Lenses
-    , sreConfigurationSetName
-    , sreSourceARN
-    , sreDestinations
-    , sreReturnPathARN
-    , sreSource
-    , sreFromARN
-    , sreTags
-    , sreRawMessage
+    sendRawEmail_fromArn,
+    sendRawEmail_source,
+    sendRawEmail_returnPathArn,
+    sendRawEmail_destinations,
+    sendRawEmail_tags,
+    sendRawEmail_sourceArn,
+    sendRawEmail_configurationSetName,
+    sendRawEmail_rawMessage,
 
     -- * Destructuring the Response
-    , sendRawEmailResponse
-    , SendRawEmailResponse
+    SendRawEmailResponse (..),
+    newSendRawEmailResponse,
+
     -- * Response Lenses
-    , srersResponseStatus
-    , srersMessageId
-    ) where
+    sendRawEmailResponse_httpStatus,
+    sendRawEmailResponse_messageId,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to send a single raw email using Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> .
+-- | Represents a request to send a single raw email using Amazon SES. For
+-- more information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'sendRawEmail' smart constructor.
+-- /See:/ 'newSendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
-  { _sreConfigurationSetName :: !(Maybe Text)
-  , _sreSourceARN            :: !(Maybe Text)
-  , _sreDestinations         :: !(Maybe [Text])
-  , _sreReturnPathARN        :: !(Maybe Text)
-  , _sreSource               :: !(Maybe Text)
-  , _sreFromARN              :: !(Maybe Text)
-  , _sreTags                 :: !(Maybe [MessageTag])
-  , _sreRawMessage           :: !RawMessage
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SendRawEmail' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sreConfigurationSetName' - The name of the configuration set to use when you send an email using @SendRawEmail@ .
---
--- * 'sreSourceARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . Instead of using this parameter, you can use the X-header @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the @SourceArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @SourceArn@ parameter.
---
--- * 'sreDestinations' - A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.
---
--- * 'sreReturnPathARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . Instead of using this parameter, you can use the X-header @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @ReturnPathArn@ parameter.
---
--- * 'sreSource' - The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.) By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
---
--- * 'sreFromARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email. Instead of using this parameter, you can use the X-header @X-SES-FROM-ARN@ in the raw message of the email. If you use both the @FromArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @FromArn@ parameter.
---
--- * 'sreTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
---
--- * 'sreRawMessage' - The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.     * Per <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321> , the maximum length of each line of text, including the <CRLF>, must not exceed 1,000 characters.
-sendRawEmail
-    :: RawMessage -- ^ 'sreRawMessage'
-    -> SendRawEmail
-sendRawEmail pRawMessage_ =
-  SendRawEmail'
-  { _sreConfigurationSetName = Nothing
-  , _sreSourceARN = Nothing
-  , _sreDestinations = Nothing
-  , _sreReturnPathARN = Nothing
-  , _sreSource = Nothing
-  , _sreFromARN = Nothing
-  , _sreTags = Nothing
-  , _sreRawMessage = pRawMessage_
+  { -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to specify a particular \"From\" address in the header
+    -- of the raw email.
+    --
+    -- Instead of using this parameter, you can use the X-header
+    -- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
+    -- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
+    -- value of the @FromArn@ parameter.
+    --
+    -- For information about when to use this parameter, see the description of
+    -- @SendRawEmail@ in this guide, or see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+    fromArn :: Prelude.Maybe Prelude.Text,
+    -- | The identity\'s email address. If you do not provide a value for this
+    -- parameter, you must specify a \"From\" address in the raw text of the
+    -- message. (You can also specify both.)
+    --
+    -- Amazon SES does not support the SMTPUTF8 extension, as described
+    -- in<https://tools.ietf.org/html/rfc6531 RFC6531>. For this reason, the
+    -- /local part/ of a source email address (the part of the email address
+    -- that precedes the \@ sign) may only contain
+    -- <https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters>.
+    -- If the /domain part/ of an address (the part after the \@ sign) contains
+    -- non-ASCII characters, they must be encoded using Punycode, as described
+    -- in <https://tools.ietf.org/html/rfc3492.html RFC3492>. The sender name
+    -- (also known as the /friendly name/) may contain non-ASCII characters.
+    -- These characters must be encoded using MIME encoded-word syntax, as
+    -- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
+    -- encoded-word syntax uses the following form:
+    -- @=?charset?encoding?encoded-text?=@.
+    --
+    -- If you specify the @Source@ parameter and have feedback forwarding
+    -- enabled, then bounces and complaints will be sent to this email address.
+    -- This takes precedence over any Return-Path header that you might include
+    -- in the raw text of the message.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to use the email address specified in the @ReturnPath@
+    -- parameter.
+    --
+    -- For example, if the owner of @example.com@ (which has ARN
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+    -- policy to it that authorizes you to use @feedback\@example.com@, then
+    -- you would specify the @ReturnPathArn@ to be
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+    -- @ReturnPath@ to be @feedback\@example.com@.
+    --
+    -- Instead of using this parameter, you can use the X-header
+    -- @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both
+    -- the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES
+    -- uses the value of the @ReturnPathArn@ parameter.
+    --
+    -- For information about when to use this parameter, see the description of
+    -- @SendRawEmail@ in this guide, or see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+    returnPathArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
+    -- addresses.
+    destinations :: Prelude.Maybe [Prelude.Text],
+    -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send using @SendRawEmail@. Tags correspond to characteristics
+    -- of the email that you define, so that you can publish email sending
+    -- events.
+    tags :: Prelude.Maybe [MessageTag],
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to send for the email address specified in the @Source@
+    -- parameter.
+    --
+    -- For example, if the owner of @example.com@ (which has ARN
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+    -- policy to it that authorizes you to send from @user\@example.com@, then
+    -- you would specify the @SourceArn@ to be
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+    -- @Source@ to be @user\@example.com@.
+    --
+    -- Instead of using this parameter, you can use the X-header
+    -- @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the
+    -- @SourceArn@ parameter and the corresponding X-header, Amazon SES uses
+    -- the value of the @SourceArn@ parameter.
+    --
+    -- For information about when to use this parameter, see the description of
+    -- @SendRawEmail@ in this guide, or see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+    sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the configuration set to use when you send an email using
+    -- @SendRawEmail@.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | The raw email message itself. The message has to meet the following
+    -- criteria:
+    --
+    -- -   The message has to contain a header and a body, separated by a blank
+    --     line.
+    --
+    -- -   All of the required header fields must be present in the message.
+    --
+    -- -   Each part of a multipart MIME message must be formatted properly.
+    --
+    -- -   Attachments must be of a content type that Amazon SES supports. For
+    --     a list on unsupported content types, see
+    --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Unsupported Attachment Types>
+    --     in the /Amazon SES Developer Guide/.
+    --
+    -- -   The entire message must be base64-encoded.
+    --
+    -- -   If any of the MIME parts in your message contain content that is
+    --     outside of the 7-bit ASCII character range, we highly recommend that
+    --     you encode that content. For more information, see
+    --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Sending Raw Email>
+    --     in the /Amazon SES Developer Guide/.
+    --
+    -- -   Per
+    --     <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321>,
+    --     the maximum length of each line of text, including the \<CRLF>, must
+    --     not exceed 1,000 characters.
+    rawMessage :: RawMessage
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'SendRawEmail' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'fromArn', 'sendRawEmail_fromArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to specify a particular \"From\" address in the header
+-- of the raw email.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
+-- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
+-- value of the @FromArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+--
+-- 'source', 'sendRawEmail_source' - The identity\'s email address. If you do not provide a value for this
+-- parameter, you must specify a \"From\" address in the raw text of the
+-- message. (You can also specify both.)
+--
+-- Amazon SES does not support the SMTPUTF8 extension, as described
+-- in<https://tools.ietf.org/html/rfc6531 RFC6531>. For this reason, the
+-- /local part/ of a source email address (the part of the email address
+-- that precedes the \@ sign) may only contain
+-- <https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters>.
+-- If the /domain part/ of an address (the part after the \@ sign) contains
+-- non-ASCII characters, they must be encoded using Punycode, as described
+-- in <https://tools.ietf.org/html/rfc3492.html RFC3492>. The sender name
+-- (also known as the /friendly name/) may contain non-ASCII characters.
+-- These characters must be encoded using MIME encoded-word syntax, as
+-- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
+-- encoded-word syntax uses the following form:
+-- @=?charset?encoding?encoded-text?=@.
+--
+-- If you specify the @Source@ parameter and have feedback forwarding
+-- enabled, then bounces and complaints will be sent to this email address.
+-- This takes precedence over any Return-Path header that you might include
+-- in the raw text of the message.
+--
+-- 'returnPathArn', 'sendRawEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the @ReturnPath@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to use @feedback\@example.com@, then
+-- you would specify the @ReturnPathArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @ReturnPath@ to be @feedback\@example.com@.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both
+-- the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES
+-- uses the value of the @ReturnPathArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+--
+-- 'destinations', 'sendRawEmail_destinations' - A list of destinations for the message, consisting of To:, CC:, and BCC:
+-- addresses.
+--
+-- 'tags', 'sendRawEmail_tags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendRawEmail@. Tags correspond to characteristics
+-- of the email that you define, so that you can publish email sending
+-- events.
+--
+-- 'sourceArn', 'sendRawEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to send for the email address specified in the @Source@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to send from @user\@example.com@, then
+-- you would specify the @SourceArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @Source@ to be @user\@example.com@.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the
+-- @SourceArn@ parameter and the corresponding X-header, Amazon SES uses
+-- the value of the @SourceArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+--
+-- 'configurationSetName', 'sendRawEmail_configurationSetName' - The name of the configuration set to use when you send an email using
+-- @SendRawEmail@.
+--
+-- 'rawMessage', 'sendRawEmail_rawMessage' - The raw email message itself. The message has to meet the following
+-- criteria:
+--
+-- -   The message has to contain a header and a body, separated by a blank
+--     line.
+--
+-- -   All of the required header fields must be present in the message.
+--
+-- -   Each part of a multipart MIME message must be formatted properly.
+--
+-- -   Attachments must be of a content type that Amazon SES supports. For
+--     a list on unsupported content types, see
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Unsupported Attachment Types>
+--     in the /Amazon SES Developer Guide/.
+--
+-- -   The entire message must be base64-encoded.
+--
+-- -   If any of the MIME parts in your message contain content that is
+--     outside of the 7-bit ASCII character range, we highly recommend that
+--     you encode that content. For more information, see
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Sending Raw Email>
+--     in the /Amazon SES Developer Guide/.
+--
+-- -   Per
+--     <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321>,
+--     the maximum length of each line of text, including the \<CRLF>, must
+--     not exceed 1,000 characters.
+newSendRawEmail ::
+  -- | 'rawMessage'
+  RawMessage ->
+  SendRawEmail
+newSendRawEmail pRawMessage_ =
+  SendRawEmail'
+    { fromArn = Prelude.Nothing,
+      source = Prelude.Nothing,
+      returnPathArn = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      configurationSetName = Prelude.Nothing,
+      rawMessage = pRawMessage_
+    }
 
--- | The name of the configuration set to use when you send an email using @SendRawEmail@ .
-sreConfigurationSetName :: Lens' SendRawEmail (Maybe Text)
-sreConfigurationSetName = lens _sreConfigurationSetName (\ s a -> s{_sreConfigurationSetName = a});
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to specify a particular \"From\" address in the header
+-- of the raw email.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-FROM-ARN@ in the raw message of the email. If you use both the
+-- @FromArn@ parameter and the corresponding X-header, Amazon SES uses the
+-- value of the @FromArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+sendRawEmail_fromArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_fromArn = Lens.lens (\SendRawEmail' {fromArn} -> fromArn) (\s@SendRawEmail' {} a -> s {fromArn = a} :: SendRawEmail)
 
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . Instead of using this parameter, you can use the X-header @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the @SourceArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @SourceArn@ parameter.
-sreSourceARN :: Lens' SendRawEmail (Maybe Text)
-sreSourceARN = lens _sreSourceARN (\ s a -> s{_sreSourceARN = a});
+-- | The identity\'s email address. If you do not provide a value for this
+-- parameter, you must specify a \"From\" address in the raw text of the
+-- message. (You can also specify both.)
+--
+-- Amazon SES does not support the SMTPUTF8 extension, as described
+-- in<https://tools.ietf.org/html/rfc6531 RFC6531>. For this reason, the
+-- /local part/ of a source email address (the part of the email address
+-- that precedes the \@ sign) may only contain
+-- <https://en.wikipedia.org/wiki/Email_address#Local-part 7-bit ASCII characters>.
+-- If the /domain part/ of an address (the part after the \@ sign) contains
+-- non-ASCII characters, they must be encoded using Punycode, as described
+-- in <https://tools.ietf.org/html/rfc3492.html RFC3492>. The sender name
+-- (also known as the /friendly name/) may contain non-ASCII characters.
+-- These characters must be encoded using MIME encoded-word syntax, as
+-- described in <https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
+-- encoded-word syntax uses the following form:
+-- @=?charset?encoding?encoded-text?=@.
+--
+-- If you specify the @Source@ parameter and have feedback forwarding
+-- enabled, then bounces and complaints will be sent to this email address.
+-- This takes precedence over any Return-Path header that you might include
+-- in the raw text of the message.
+sendRawEmail_source :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_source = Lens.lens (\SendRawEmail' {source} -> source) (\s@SendRawEmail' {} a -> s {source = a} :: SendRawEmail)
 
--- | A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.
-sreDestinations :: Lens' SendRawEmail [Text]
-sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a}) . _Default . _Coerce;
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the @ReturnPath@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to use @feedback\@example.com@, then
+-- you would specify the @ReturnPathArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @ReturnPath@ to be @feedback\@example.com@.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both
+-- the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES
+-- uses the value of the @ReturnPathArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+sendRawEmail_returnPathArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_returnPathArn = Lens.lens (\SendRawEmail' {returnPathArn} -> returnPathArn) (\s@SendRawEmail' {} a -> s {returnPathArn = a} :: SendRawEmail)
 
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . Instead of using this parameter, you can use the X-header @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @ReturnPathArn@ parameter.
-sreReturnPathARN :: Lens' SendRawEmail (Maybe Text)
-sreReturnPathARN = lens _sreReturnPathARN (\ s a -> s{_sreReturnPathARN = a});
+-- | A list of destinations for the message, consisting of To:, CC:, and BCC:
+-- addresses.
+sendRawEmail_destinations :: Lens.Lens' SendRawEmail (Prelude.Maybe [Prelude.Text])
+sendRawEmail_destinations = Lens.lens (\SendRawEmail' {destinations} -> destinations) (\s@SendRawEmail' {} a -> s {destinations = a} :: SendRawEmail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.) By default, the string must be 7-bit ASCII. If the text must contain any other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string. MIME encoded-word syntax uses the following form: @=?charset?encoding?encoded-text?=@ . For more information, see <https://tools.ietf.org/html/rfc2047 RFC 2047> .
-sreSource :: Lens' SendRawEmail (Maybe Text)
-sreSource = lens _sreSource (\ s a -> s{_sreSource = a});
+-- | A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send using @SendRawEmail@. Tags correspond to characteristics
+-- of the email that you define, so that you can publish email sending
+-- events.
+sendRawEmail_tags :: Lens.Lens' SendRawEmail (Prelude.Maybe [MessageTag])
+sendRawEmail_tags = Lens.lens (\SendRawEmail' {tags} -> tags) (\s@SendRawEmail' {} a -> s {tags = a} :: SendRawEmail) Prelude.. Lens.mapping Lens._Coerce
 
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email. Instead of using this parameter, you can use the X-header @X-SES-FROM-ARN@ in the raw message of the email. If you use both the @FromArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @FromArn@ parameter.
-sreFromARN :: Lens' SendRawEmail (Maybe Text)
-sreFromARN = lens _sreFromARN (\ s a -> s{_sreFromARN = a});
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to send for the email address specified in the @Source@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to send from @user\@example.com@, then
+-- you would specify the @SourceArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @Source@ to be @user\@example.com@.
+--
+-- Instead of using this parameter, you can use the X-header
+-- @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the
+-- @SourceArn@ parameter and the corresponding X-header, Amazon SES uses
+-- the value of the @SourceArn@ parameter.
+--
+-- For information about when to use this parameter, see the description of
+-- @SendRawEmail@ in this guide, or see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
+sendRawEmail_sourceArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_sourceArn = Lens.lens (\SendRawEmail' {sourceArn} -> sourceArn) (\s@SendRawEmail' {} a -> s {sourceArn = a} :: SendRawEmail)
 
--- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
-sreTags :: Lens' SendRawEmail [MessageTag]
-sreTags = lens _sreTags (\ s a -> s{_sreTags = a}) . _Default . _Coerce;
+-- | The name of the configuration set to use when you send an email using
+-- @SendRawEmail@.
+sendRawEmail_configurationSetName :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_configurationSetName = Lens.lens (\SendRawEmail' {configurationSetName} -> configurationSetName) (\s@SendRawEmail' {} a -> s {configurationSetName = a} :: SendRawEmail)
 
--- | The raw text of the message. The client is responsible for ensuring the following:     * Message must contain a header and a body, separated by a blank line.     * All required header fields must be present.     * Each part of a multipart MIME message must be formatted properly.     * MIME content types must be among those supported by Amazon SES. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide> .     * Must be base64-encoded.     * Per <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321> , the maximum length of each line of text, including the <CRLF>, must not exceed 1,000 characters.
-sreRawMessage :: Lens' SendRawEmail RawMessage
-sreRawMessage = lens _sreRawMessage (\ s a -> s{_sreRawMessage = a});
+-- | The raw email message itself. The message has to meet the following
+-- criteria:
+--
+-- -   The message has to contain a header and a body, separated by a blank
+--     line.
+--
+-- -   All of the required header fields must be present in the message.
+--
+-- -   Each part of a multipart MIME message must be formatted properly.
+--
+-- -   Attachments must be of a content type that Amazon SES supports. For
+--     a list on unsupported content types, see
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Unsupported Attachment Types>
+--     in the /Amazon SES Developer Guide/.
+--
+-- -   The entire message must be base64-encoded.
+--
+-- -   If any of the MIME parts in your message contain content that is
+--     outside of the 7-bit ASCII character range, we highly recommend that
+--     you encode that content. For more information, see
+--     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Sending Raw Email>
+--     in the /Amazon SES Developer Guide/.
+--
+-- -   Per
+--     <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321>,
+--     the maximum length of each line of text, including the \<CRLF>, must
+--     not exceed 1,000 characters.
+sendRawEmail_rawMessage :: Lens.Lens' SendRawEmail RawMessage
+sendRawEmail_rawMessage = Lens.lens (\SendRawEmail' {rawMessage} -> rawMessage) (\s@SendRawEmail' {} a -> s {rawMessage = a} :: SendRawEmail)
 
-instance AWSRequest SendRawEmail where
-        type Rs SendRawEmail = SendRawEmailResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "SendRawEmailResult"
-              (\ s h x ->
-                 SendRawEmailResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "MessageId"))
+instance Core.AWSRequest SendRawEmail where
+  type AWSResponse SendRawEmail = SendRawEmailResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "SendRawEmailResult"
+      ( \s h x ->
+          SendRawEmailResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..@ "MessageId")
+      )
 
-instance Hashable SendRawEmail where
+instance Prelude.Hashable SendRawEmail
 
-instance NFData SendRawEmail where
+instance Prelude.NFData SendRawEmail
 
-instance ToHeaders SendRawEmail where
-        toHeaders = const mempty
+instance Core.ToHeaders SendRawEmail where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath SendRawEmail where
-        toPath = const "/"
+instance Core.ToPath SendRawEmail where
+  toPath = Prelude.const "/"
 
-instance ToQuery SendRawEmail where
-        toQuery SendRawEmail'{..}
-          = mconcat
-              ["Action" =: ("SendRawEmail" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ConfigurationSetName" =: _sreConfigurationSetName,
-               "SourceArn" =: _sreSourceARN,
-               "Destinations" =:
-                 toQuery (toQueryList "member" <$> _sreDestinations),
-               "ReturnPathArn" =: _sreReturnPathARN,
-               "Source" =: _sreSource, "FromArn" =: _sreFromARN,
-               "Tags" =:
-                 toQuery (toQueryList "member" <$> _sreTags),
-               "RawMessage" =: _sreRawMessage]
+instance Core.ToQuery SendRawEmail where
+  toQuery SendRawEmail' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("SendRawEmail" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "FromArn" Core.=: fromArn,
+        "Source" Core.=: source,
+        "ReturnPathArn" Core.=: returnPathArn,
+        "Destinations"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> destinations),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "SourceArn" Core.=: sourceArn,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "RawMessage" Core.=: rawMessage
+      ]
 
 -- | Represents a unique message ID.
 --
---
---
--- /See:/ 'sendRawEmailResponse' smart constructor.
+-- /See:/ 'newSendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
-  { _srersResponseStatus :: !Int
-  , _srersMessageId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The unique message identifier returned from the @SendRawEmail@ action.
+    messageId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SendRawEmailResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SendRawEmailResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srersResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srersMessageId' - The unique message identifier returned from the @SendRawEmail@ action.
-sendRawEmailResponse
-    :: Int -- ^ 'srersResponseStatus'
-    -> Text -- ^ 'srersMessageId'
-    -> SendRawEmailResponse
-sendRawEmailResponse pResponseStatus_ pMessageId_ =
+-- 'httpStatus', 'sendRawEmailResponse_httpStatus' - The response's http status code.
+--
+-- 'messageId', 'sendRawEmailResponse_messageId' - The unique message identifier returned from the @SendRawEmail@ action.
+newSendRawEmailResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'messageId'
+  Prelude.Text ->
+  SendRawEmailResponse
+newSendRawEmailResponse pHttpStatus_ pMessageId_ =
   SendRawEmailResponse'
-  {_srersResponseStatus = pResponseStatus_, _srersMessageId = pMessageId_}
+    { httpStatus = pHttpStatus_,
+      messageId = pMessageId_
+    }
 
-
--- | -- | The response status code.
-srersResponseStatus :: Lens' SendRawEmailResponse Int
-srersResponseStatus = lens _srersResponseStatus (\ s a -> s{_srersResponseStatus = a});
+-- | The response's http status code.
+sendRawEmailResponse_httpStatus :: Lens.Lens' SendRawEmailResponse Prelude.Int
+sendRawEmailResponse_httpStatus = Lens.lens (\SendRawEmailResponse' {httpStatus} -> httpStatus) (\s@SendRawEmailResponse' {} a -> s {httpStatus = a} :: SendRawEmailResponse)
 
 -- | The unique message identifier returned from the @SendRawEmail@ action.
-srersMessageId :: Lens' SendRawEmailResponse Text
-srersMessageId = lens _srersMessageId (\ s a -> s{_srersMessageId = a});
+sendRawEmailResponse_messageId :: Lens.Lens' SendRawEmailResponse Prelude.Text
+sendRawEmailResponse_messageId = Lens.lens (\SendRawEmailResponse' {messageId} -> messageId) (\s@SendRawEmailResponse' {} a -> s {messageId = a} :: SendRawEmailResponse)
 
-instance NFData SendRawEmailResponse where
+instance Prelude.NFData SendRawEmailResponse

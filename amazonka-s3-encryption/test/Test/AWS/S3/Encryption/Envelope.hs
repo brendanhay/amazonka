@@ -23,6 +23,7 @@ import qualified Data.ByteString.Char8 as BS8
 import           Data.Conduit
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
+import           Network.AWS.Core
 import           Network.AWS.Prelude
 import           Network.AWS.S3.Encryption.Body
 import           Network.AWS.S3.Encryption.Envelope
@@ -37,16 +38,7 @@ import           Test.Tasty.QuickCheck (Arbitrary, Gen, Property, testProperty, 
 
 envelopeTests :: [TestTree]
 envelopeTests =
-    [ testGroup "block align chunks"
-        [ testCase "empty" testBlockAlignChunksEmpty
-        , testCase "one empty chunk" testBlockAlignChunksOneEmptyChunk
-        , testCase "collapse empty chunks" testBlockAlignChunksCollapsEmptyChunks
-        , testCase "one small chunk" testBlockAlignChunksOneSmallChunk
-        , testCase "misaligned chunks" testBlockAlignChunksMisalignedChunks
-        , testCase "already aligned chunks" testBlockAlignChunksAlreadyAlignedChunks
-        , testCase "leftover" testBlockAlignChunksLeftover
-        ]
-    , testGroup "encrypt/decrypt"
+    [ testGroup "encrypt/decrypt"
         [ testCase "empty input" testEncryptEmptyInput
         , testCase "tiny input" testEncryptTinyInput
         , testCase "multiple of block size" testEncryptMultipleOfBlockSize
@@ -54,51 +46,6 @@ envelopeTests =
         , testProperty "random" testEncryptRandom
         ]
     ]
-
-testBlockAlignChunksEmpty :: Assertion
-testBlockAlignChunksEmpty = do
-    res <- runConduit (return () =$= blockAlignChunks 4 $$ CL.consume)
-    res @?= []
-
-
-testBlockAlignChunksOneEmptyChunk :: Assertion
-testBlockAlignChunksOneEmptyChunk = do
-    res <- runConduit (CL.sourceList [""] =$= blockAlignChunks 4 $$ CL.consume)
-    res @?= [""]
-
-
-testBlockAlignChunksCollapsEmptyChunks :: Assertion
-testBlockAlignChunksCollapsEmptyChunks = do
-    res <- runConduit (CL.sourceList ["", "", ""] =$= blockAlignChunks 4 $$ CL.consume)
-    res @?= [""]
-
-
-testBlockAlignChunksOneSmallChunk :: Assertion
-testBlockAlignChunksOneSmallChunk = do
-    res <- runConduit (CL.sourceList ["abc"] =$= blockAlignChunks 4 $$ CL.consume)
-    res @?= ["abc"]
-
-
-testBlockAlignChunksMisalignedChunks :: Assertion
-testBlockAlignChunksMisalignedChunks = do
-    let input = ["a", "aabbbc", "cc", "dddeeefff"]
-    res <- runConduit (CL.sourceList input =$= blockAlignChunks 3 $$ CL.consume)
-    res @?= ["aaabbb", "ccc", "dddeeefff"]
-
-
-testBlockAlignChunksAlreadyAlignedChunks :: Assertion
-testBlockAlignChunksAlreadyAlignedChunks = do
-    let input = ["aaa", "bbbcccddd", "eee"]
-    res <- runConduit (CL.sourceList input =$= blockAlignChunks 3 $$ CL.consume)
-    res @?= ["aaa", "bbbcccddd", "eee"]
-
-
-testBlockAlignChunksLeftover :: Assertion
-testBlockAlignChunksLeftover = do
-    let input = ["aaabbbcccd"]
-    res <- runConduit (CL.sourceList input =$= blockAlignChunks 3 $$ CL.consume)
-    res @?= ["aaabbbccc", "d"]
-
 
 testEncryptEmptyInput :: Assertion
 testEncryptEmptyInput = do
@@ -147,9 +94,9 @@ testEncryptDecrypt bs = do
 
     encRes <- runResourceT (_chunkedBody encBody $$ CL.consume)
 
-    let rsb = bodyDecrypt e $ RsBody $ (newResumableSource . CL.sourceList) encRes
+    let rsb = bodyDecrypt e $ ResponseBody $ CL.sourceList encRes
 
-    (_, decRes) <- runResourceT (_streamBody rsb $$++ CL.consume)
+    decRes <- runResourceT (_streamBody rsb $$ CL.consume)
 
     mconcat bs @?= mconcat decRes
 

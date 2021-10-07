@@ -1,5 +1,4 @@
 {-# LANGUAGE BangPatterns               #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -10,7 +9,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Internal
--- Copyright   : (c) 2013-2016 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -38,14 +37,9 @@ module Network.AWS.S3.Internal
     , getWebsiteEndpoint
     ) where
 
-import Data.String (IsString)
-
-import Network.AWS.Data.Log
-import Network.AWS.Data.XML
-import Network.AWS.Lens     (IndexedTraversal', Iso', Prism', Traversal')
-import Network.AWS.Lens     (iso, prism, traversed, _1, _2)
+import Network.AWS.Lens (IndexedTraversal', Iso', Prism', Traversal', iso, prism, traversed, _1, _2)
+import Network.AWS.Core
 import Network.AWS.Prelude
-
 import qualified Data.Text as Text
 
 newtype BucketName = BucketName Text
@@ -54,8 +48,6 @@ newtype BucketName = BucketName Text
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
         , Generic
         , IsString
         , FromText
@@ -65,6 +57,7 @@ newtype BucketName = BucketName Text
         , ToXML
         , ToQuery
         , ToLog
+        , FromJSON
         )
 
 instance Hashable BucketName
@@ -78,8 +71,6 @@ newtype ETag = ETag ByteString
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
         , Generic
         , IsString
         , FromText
@@ -100,8 +91,6 @@ newtype ObjectVersionId = ObjectVersionId Text
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
         , Generic
         , IsString
         , FromText
@@ -122,8 +111,6 @@ newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
         , Generic
         , ToText
         , ToByteString
@@ -137,13 +124,12 @@ instance Hashable LocationConstraint
 instance NFData   LocationConstraint
 
 instance FromText LocationConstraint where
-    parser = LocationConstraint <$> (parser <|> go)
-      where
-        go = takeLowerText >>= \case
+    fromText text =
+      fmap LocationConstraint $
+        case Text.toLower text of
             ""   -> pure NorthVirginia
             "eu" -> pure Ireland
-            e    -> fromTextError $
-                "Failure parsing LocationConstraint from " <> e
+            other -> Left ("Failure parsing LocationConstraint from " ++ show other)
 
 instance FromXML LocationConstraint where
     parseXML = \case
@@ -161,8 +147,6 @@ newtype ObjectKey = ObjectKey Text
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
         , Generic
         , IsString
         , FromText

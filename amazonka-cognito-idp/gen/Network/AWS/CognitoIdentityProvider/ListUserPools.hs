@@ -1,164 +1,224 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserPools
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the user pools associated with an AWS account.
+-- Lists the user pools associated with an account.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListUserPools
-    (
-    -- * Creating a Request
-      listUserPools
-    , ListUserPools
+  ( -- * Creating a Request
+    ListUserPools (..),
+    newListUserPools,
+
     -- * Request Lenses
-    , lupNextToken
-    , lupMaxResults
+    listUserPools_nextToken,
+    listUserPools_maxResults,
 
     -- * Destructuring the Response
-    , listUserPoolsResponse
-    , ListUserPoolsResponse
+    ListUserPoolsResponse (..),
+    newListUserPoolsResponse,
+
     -- * Response Lenses
-    , luprsUserPools
-    , luprsNextToken
-    , luprsResponseStatus
-    ) where
+    listUserPoolsResponse_nextToken,
+    listUserPoolsResponse_userPools,
+    listUserPoolsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to list user pools.
 --
---
---
--- /See:/ 'listUserPools' smart constructor.
+-- /See:/ 'newListUserPools' smart constructor.
 data ListUserPools = ListUserPools'
-  { _lupNextToken  :: !(Maybe Text)
-  , _lupMaxResults :: !Nat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results you want the request to return when
+    -- listing the user pools.
+    maxResults :: Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListUserPools' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListUserPools' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lupNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lupMaxResults' - The maximum number of results you want the request to return when listing the user pools.
-listUserPools
-    :: Natural -- ^ 'lupMaxResults'
-    -> ListUserPools
-listUserPools pMaxResults_ =
-  ListUserPools' {_lupNextToken = Nothing, _lupMaxResults = _Nat # pMaxResults_}
+-- 'nextToken', 'listUserPools_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'maxResults', 'listUserPools_maxResults' - The maximum number of results you want the request to return when
+-- listing the user pools.
+newListUserPools ::
+  -- | 'maxResults'
+  Prelude.Natural ->
+  ListUserPools
+newListUserPools pMaxResults_ =
+  ListUserPools'
+    { nextToken = Prelude.Nothing,
+      maxResults = pMaxResults_
+    }
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listUserPools_nextToken :: Lens.Lens' ListUserPools (Prelude.Maybe Prelude.Text)
+listUserPools_nextToken = Lens.lens (\ListUserPools' {nextToken} -> nextToken) (\s@ListUserPools' {} a -> s {nextToken = a} :: ListUserPools)
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lupNextToken :: Lens' ListUserPools (Maybe Text)
-lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
+-- | The maximum number of results you want the request to return when
+-- listing the user pools.
+listUserPools_maxResults :: Lens.Lens' ListUserPools Prelude.Natural
+listUserPools_maxResults = Lens.lens (\ListUserPools' {maxResults} -> maxResults) (\s@ListUserPools' {} a -> s {maxResults = a} :: ListUserPools)
 
--- | The maximum number of results you want the request to return when listing the user pools.
-lupMaxResults :: Lens' ListUserPools Natural
-lupMaxResults = lens _lupMaxResults (\ s a -> s{_lupMaxResults = a}) . _Nat;
+instance Core.AWSPager ListUserPools where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listUserPoolsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listUserPoolsResponse_userPools Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listUserPools_nextToken
+          Lens..~ rs
+          Lens.^? listUserPoolsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListUserPools where
-        type Rs ListUserPools = ListUserPoolsResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListUserPoolsResponse' <$>
-                   (x .?> "UserPools" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListUserPools where
+  type
+    AWSResponse ListUserPools =
+      ListUserPoolsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListUserPoolsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "UserPools" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListUserPools where
+instance Prelude.Hashable ListUserPools
 
-instance NFData ListUserPools where
+instance Prelude.NFData ListUserPools
 
-instance ToHeaders ListUserPools where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.ListUserPools" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListUserPools where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.ListUserPools" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ListUserPools where
-        toJSON ListUserPools'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lupNextToken,
-                  Just ("MaxResults" .= _lupMaxResults)])
+instance Core.ToJSON ListUserPools where
+  toJSON ListUserPools' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("MaxResults" Core..= maxResults)
+          ]
+      )
 
-instance ToPath ListUserPools where
-        toPath = const "/"
+instance Core.ToPath ListUserPools where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListUserPools where
-        toQuery = const mempty
+instance Core.ToQuery ListUserPools where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response to list user pools.
 --
---
---
--- /See:/ 'listUserPoolsResponse' smart constructor.
+-- /See:/ 'newListUserPoolsResponse' smart constructor.
 data ListUserPoolsResponse = ListUserPoolsResponse'
-  { _luprsUserPools      :: !(Maybe [UserPoolDescriptionType])
-  , _luprsNextToken      :: !(Maybe Text)
-  , _luprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListUserPoolsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luprsUserPools' - The user pools from the response to list users.
---
--- * 'luprsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'luprsResponseStatus' - -- | The response status code.
-listUserPoolsResponse
-    :: Int -- ^ 'luprsResponseStatus'
-    -> ListUserPoolsResponse
-listUserPoolsResponse pResponseStatus_ =
-  ListUserPoolsResponse'
-  { _luprsUserPools = Nothing
-  , _luprsNextToken = Nothing
-  , _luprsResponseStatus = pResponseStatus_
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The user pools from the response to list users.
+    userPools :: Prelude.Maybe [UserPoolDescriptionType],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListUserPoolsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listUserPoolsResponse_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'userPools', 'listUserPoolsResponse_userPools' - The user pools from the response to list users.
+--
+-- 'httpStatus', 'listUserPoolsResponse_httpStatus' - The response's http status code.
+newListUserPoolsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListUserPoolsResponse
+newListUserPoolsResponse pHttpStatus_ =
+  ListUserPoolsResponse'
+    { nextToken = Prelude.Nothing,
+      userPools = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listUserPoolsResponse_nextToken :: Lens.Lens' ListUserPoolsResponse (Prelude.Maybe Prelude.Text)
+listUserPoolsResponse_nextToken = Lens.lens (\ListUserPoolsResponse' {nextToken} -> nextToken) (\s@ListUserPoolsResponse' {} a -> s {nextToken = a} :: ListUserPoolsResponse)
 
 -- | The user pools from the response to list users.
-luprsUserPools :: Lens' ListUserPoolsResponse [UserPoolDescriptionType]
-luprsUserPools = lens _luprsUserPools (\ s a -> s{_luprsUserPools = a}) . _Default . _Coerce;
+listUserPoolsResponse_userPools :: Lens.Lens' ListUserPoolsResponse (Prelude.Maybe [UserPoolDescriptionType])
+listUserPoolsResponse_userPools = Lens.lens (\ListUserPoolsResponse' {userPools} -> userPools) (\s@ListUserPoolsResponse' {} a -> s {userPools = a} :: ListUserPoolsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-luprsNextToken :: Lens' ListUserPoolsResponse (Maybe Text)
-luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
+-- | The response's http status code.
+listUserPoolsResponse_httpStatus :: Lens.Lens' ListUserPoolsResponse Prelude.Int
+listUserPoolsResponse_httpStatus = Lens.lens (\ListUserPoolsResponse' {httpStatus} -> httpStatus) (\s@ListUserPoolsResponse' {} a -> s {httpStatus = a} :: ListUserPoolsResponse)
 
--- | -- | The response status code.
-luprsResponseStatus :: Lens' ListUserPoolsResponse Int
-luprsResponseStatus = lens _luprsResponseStatus (\ s a -> s{_luprsResponseStatus = a});
-
-instance NFData ListUserPoolsResponse where
+instance Prelude.NFData ListUserPoolsResponse

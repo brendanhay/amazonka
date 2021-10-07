@@ -1,135 +1,159 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.RemoveListenerCertificates
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified certificate from the specified secure listener.
---
---
--- You can't remove the default certificate for a listener. To replace the default certificate, call 'ModifyListener' .
---
--- To list the certificates for your listener, use 'DescribeListenerCertificates' .
---
+-- Removes the specified certificate from the certificate list for the
+-- specified HTTPS or TLS listener.
 module Network.AWS.ELBv2.RemoveListenerCertificates
-    (
-    -- * Creating a Request
-      removeListenerCertificates
-    , RemoveListenerCertificates
+  ( -- * Creating a Request
+    RemoveListenerCertificates (..),
+    newRemoveListenerCertificates,
+
     -- * Request Lenses
-    , rlcListenerARN
-    , rlcCertificates
+    removeListenerCertificates_listenerArn,
+    removeListenerCertificates_certificates,
 
     -- * Destructuring the Response
-    , removeListenerCertificatesResponse
-    , RemoveListenerCertificatesResponse
+    RemoveListenerCertificatesResponse (..),
+    newRemoveListenerCertificatesResponse,
+
     -- * Response Lenses
-    , rlcrsResponseStatus
-    ) where
+    removeListenerCertificatesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'removeListenerCertificates' smart constructor.
+-- | /See:/ 'newRemoveListenerCertificates' smart constructor.
 data RemoveListenerCertificates = RemoveListenerCertificates'
-  { _rlcListenerARN  :: !Text
-  , _rlcCertificates :: ![Certificate]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the listener.
+    listenerArn :: Prelude.Text,
+    -- | The certificate to remove. You can specify one certificate per call. Set
+    -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
+    certificates :: [Certificate]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveListenerCertificates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveListenerCertificates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rlcListenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rlcCertificates' - The certificate to remove. You can specify one certificate per call.
-removeListenerCertificates
-    :: Text -- ^ 'rlcListenerARN'
-    -> RemoveListenerCertificates
-removeListenerCertificates pListenerARN_ =
+-- 'listenerArn', 'removeListenerCertificates_listenerArn' - The Amazon Resource Name (ARN) of the listener.
+--
+-- 'certificates', 'removeListenerCertificates_certificates' - The certificate to remove. You can specify one certificate per call. Set
+-- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
+newRemoveListenerCertificates ::
+  -- | 'listenerArn'
+  Prelude.Text ->
+  RemoveListenerCertificates
+newRemoveListenerCertificates pListenerArn_ =
   RemoveListenerCertificates'
-  {_rlcListenerARN = pListenerARN_, _rlcCertificates = mempty}
-
+    { listenerArn =
+        pListenerArn_,
+      certificates = Prelude.mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the listener.
-rlcListenerARN :: Lens' RemoveListenerCertificates Text
-rlcListenerARN = lens _rlcListenerARN (\ s a -> s{_rlcListenerARN = a});
+removeListenerCertificates_listenerArn :: Lens.Lens' RemoveListenerCertificates Prelude.Text
+removeListenerCertificates_listenerArn = Lens.lens (\RemoveListenerCertificates' {listenerArn} -> listenerArn) (\s@RemoveListenerCertificates' {} a -> s {listenerArn = a} :: RemoveListenerCertificates)
 
--- | The certificate to remove. You can specify one certificate per call.
-rlcCertificates :: Lens' RemoveListenerCertificates [Certificate]
-rlcCertificates = lens _rlcCertificates (\ s a -> s{_rlcCertificates = a}) . _Coerce;
+-- | The certificate to remove. You can specify one certificate per call. Set
+-- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
+removeListenerCertificates_certificates :: Lens.Lens' RemoveListenerCertificates [Certificate]
+removeListenerCertificates_certificates = Lens.lens (\RemoveListenerCertificates' {certificates} -> certificates) (\s@RemoveListenerCertificates' {} a -> s {certificates = a} :: RemoveListenerCertificates) Prelude.. Lens._Coerce
 
-instance AWSRequest RemoveListenerCertificates where
-        type Rs RemoveListenerCertificates =
-             RemoveListenerCertificatesResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper
-              "RemoveListenerCertificatesResult"
-              (\ s h x ->
-                 RemoveListenerCertificatesResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest RemoveListenerCertificates where
+  type
+    AWSResponse RemoveListenerCertificates =
+      RemoveListenerCertificatesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "RemoveListenerCertificatesResult"
+      ( \s h x ->
+          RemoveListenerCertificatesResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RemoveListenerCertificates where
+instance Prelude.Hashable RemoveListenerCertificates
 
-instance NFData RemoveListenerCertificates where
+instance Prelude.NFData RemoveListenerCertificates
 
-instance ToHeaders RemoveListenerCertificates where
-        toHeaders = const mempty
+instance Core.ToHeaders RemoveListenerCertificates where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath RemoveListenerCertificates where
-        toPath = const "/"
+instance Core.ToPath RemoveListenerCertificates where
+  toPath = Prelude.const "/"
 
-instance ToQuery RemoveListenerCertificates where
-        toQuery RemoveListenerCertificates'{..}
-          = mconcat
-              ["Action" =:
-                 ("RemoveListenerCertificates" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "ListenerArn" =: _rlcListenerARN,
-               "Certificates" =:
-                 toQueryList "member" _rlcCertificates]
+instance Core.ToQuery RemoveListenerCertificates where
+  toQuery RemoveListenerCertificates' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("RemoveListenerCertificates" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "ListenerArn" Core.=: listenerArn,
+        "Certificates"
+          Core.=: Core.toQueryList "member" certificates
+      ]
 
--- | /See:/ 'removeListenerCertificatesResponse' smart constructor.
-newtype RemoveListenerCertificatesResponse = RemoveListenerCertificatesResponse'
-  { _rlcrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRemoveListenerCertificatesResponse' smart constructor.
+data RemoveListenerCertificatesResponse = RemoveListenerCertificatesResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveListenerCertificatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveListenerCertificatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rlcrsResponseStatus' - -- | The response status code.
-removeListenerCertificatesResponse
-    :: Int -- ^ 'rlcrsResponseStatus'
-    -> RemoveListenerCertificatesResponse
-removeListenerCertificatesResponse pResponseStatus_ =
-  RemoveListenerCertificatesResponse' {_rlcrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'removeListenerCertificatesResponse_httpStatus' - The response's http status code.
+newRemoveListenerCertificatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RemoveListenerCertificatesResponse
+newRemoveListenerCertificatesResponse pHttpStatus_ =
+  RemoveListenerCertificatesResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+removeListenerCertificatesResponse_httpStatus :: Lens.Lens' RemoveListenerCertificatesResponse Prelude.Int
+removeListenerCertificatesResponse_httpStatus = Lens.lens (\RemoveListenerCertificatesResponse' {httpStatus} -> httpStatus) (\s@RemoveListenerCertificatesResponse' {} a -> s {httpStatus = a} :: RemoveListenerCertificatesResponse)
 
--- | -- | The response status code.
-rlcrsResponseStatus :: Lens' RemoveListenerCertificatesResponse Int
-rlcrsResponseStatus = lens _rlcrsResponseStatus (\ s a -> s{_rlcrsResponseStatus = a});
-
-instance NFData RemoveListenerCertificatesResponse
-         where
+instance
+  Prelude.NFData
+    RemoveListenerCertificatesResponse

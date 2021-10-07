@@ -1,133 +1,184 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.DeletePortfolio
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified portfolio. This operation does not work with a portfolio that has been shared with you or if it has products, users, constraints, or shared accounts associated with it.
+-- Deletes the specified portfolio.
 --
+-- You cannot delete a portfolio if it was shared with you or if it has
+-- associated products, users, constraints, or shared accounts.
 --
+-- A delegated admin is authorized to invoke this command.
 module Network.AWS.ServiceCatalog.DeletePortfolio
-    (
-    -- * Creating a Request
-      deletePortfolio
-    , DeletePortfolio
+  ( -- * Creating a Request
+    DeletePortfolio (..),
+    newDeletePortfolio,
+
     -- * Request Lenses
-    , dppAcceptLanguage
-    , dppId
+    deletePortfolio_acceptLanguage,
+    deletePortfolio_id,
 
     -- * Destructuring the Response
-    , deletePortfolioResponse
-    , DeletePortfolioResponse
+    DeletePortfolioResponse (..),
+    newDeletePortfolioResponse,
+
     -- * Response Lenses
-    , delrsResponseStatus
-    ) where
+    deletePortfolioResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'deletePortfolio' smart constructor.
+-- | /See:/ 'newDeletePortfolio' smart constructor.
 data DeletePortfolio = DeletePortfolio'
-  { _dppAcceptLanguage :: !(Maybe Text)
-  , _dppId             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePortfolio' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePortfolio' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dppId' - The identifier of the portfolio for the delete request.
-deletePortfolio
-    :: Text -- ^ 'dppId'
-    -> DeletePortfolio
-deletePortfolio pId_ =
-  DeletePortfolio' {_dppAcceptLanguage = Nothing, _dppId = pId_}
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-dppAcceptLanguage :: Lens' DeletePortfolio (Maybe Text)
-dppAcceptLanguage = lens _dppAcceptLanguage (\ s a -> s{_dppAcceptLanguage = a});
-
--- | The identifier of the portfolio for the delete request.
-dppId :: Lens' DeletePortfolio Text
-dppId = lens _dppId (\ s a -> s{_dppId = a});
-
-instance AWSRequest DeletePortfolio where
-        type Rs DeletePortfolio = DeletePortfolioResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeletePortfolioResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeletePortfolio where
-
-instance NFData DeletePortfolio where
-
-instance ToHeaders DeletePortfolio where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.DeletePortfolio" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeletePortfolio where
-        toJSON DeletePortfolio'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _dppAcceptLanguage,
-                  Just ("Id" .= _dppId)])
-
-instance ToPath DeletePortfolio where
-        toPath = const "/"
-
-instance ToQuery DeletePortfolio where
-        toQuery = const mempty
-
--- | /See:/ 'deletePortfolioResponse' smart constructor.
-newtype DeletePortfolioResponse = DeletePortfolioResponse'
-  { _delrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeletePortfolioResponse' with the minimum fields required to make a request.
+-- 'acceptLanguage', 'deletePortfolio_acceptLanguage' - The language code.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- -   @en@ - English (default)
 --
--- * 'delrsResponseStatus' - -- | The response status code.
-deletePortfolioResponse
-    :: Int -- ^ 'delrsResponseStatus'
-    -> DeletePortfolioResponse
-deletePortfolioResponse pResponseStatus_ =
-  DeletePortfolioResponse' {_delrsResponseStatus = pResponseStatus_}
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'id', 'deletePortfolio_id' - The portfolio identifier.
+newDeletePortfolio ::
+  -- | 'id'
+  Prelude.Text ->
+  DeletePortfolio
+newDeletePortfolio pId_ =
+  DeletePortfolio'
+    { acceptLanguage = Prelude.Nothing,
+      id = pId_
+    }
 
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+deletePortfolio_acceptLanguage :: Lens.Lens' DeletePortfolio (Prelude.Maybe Prelude.Text)
+deletePortfolio_acceptLanguage = Lens.lens (\DeletePortfolio' {acceptLanguage} -> acceptLanguage) (\s@DeletePortfolio' {} a -> s {acceptLanguage = a} :: DeletePortfolio)
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeletePortfolioResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
+-- | The portfolio identifier.
+deletePortfolio_id :: Lens.Lens' DeletePortfolio Prelude.Text
+deletePortfolio_id = Lens.lens (\DeletePortfolio' {id} -> id) (\s@DeletePortfolio' {} a -> s {id = a} :: DeletePortfolio)
 
-instance NFData DeletePortfolioResponse where
+instance Core.AWSRequest DeletePortfolio where
+  type
+    AWSResponse DeletePortfolio =
+      DeletePortfolioResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeletePortfolioResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeletePortfolio
+
+instance Prelude.NFData DeletePortfolio
+
+instance Core.ToHeaders DeletePortfolio where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.DeletePortfolio" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeletePortfolio where
+  toJSON DeletePortfolio' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("Id" Core..= id)
+          ]
+      )
+
+instance Core.ToPath DeletePortfolio where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeletePortfolio where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeletePortfolioResponse' smart constructor.
+data DeletePortfolioResponse = DeletePortfolioResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeletePortfolioResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deletePortfolioResponse_httpStatus' - The response's http status code.
+newDeletePortfolioResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeletePortfolioResponse
+newDeletePortfolioResponse pHttpStatus_ =
+  DeletePortfolioResponse' {httpStatus = pHttpStatus_}
+
+-- | The response's http status code.
+deletePortfolioResponse_httpStatus :: Lens.Lens' DeletePortfolioResponse Prelude.Int
+deletePortfolioResponse_httpStatus = Lens.lens (\DeletePortfolioResponse' {httpStatus} -> httpStatus) (\s@DeletePortfolioResponse' {} a -> s {httpStatus = a} :: DeletePortfolioResponse)
+
+instance Prelude.NFData DeletePortfolioResponse

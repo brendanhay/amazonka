@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.DeleteTable
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,124 +22,168 @@
 --
 -- Removes a table definition from the Data Catalog.
 --
+-- After completing this operation, you no longer have access to the table
+-- versions and partitions that belong to the deleted table. Glue deletes
+-- these \"orphaned\" resources asynchronously in a timely manner, at the
+-- discretion of the service.
 --
+-- To ensure the immediate deletion of all related resources, before
+-- calling @DeleteTable@, use @DeleteTableVersion@ or
+-- @BatchDeleteTableVersion@, and @DeletePartition@ or
+-- @BatchDeletePartition@, to delete any resources that belong to the
+-- table.
 module Network.AWS.Glue.DeleteTable
-    (
-    -- * Creating a Request
-      deleteTable
-    , DeleteTable
+  ( -- * Creating a Request
+    DeleteTable (..),
+    newDeleteTable,
+
     -- * Request Lenses
-    , dtCatalogId
-    , dtDatabaseName
-    , dtName
+    deleteTable_catalogId,
+    deleteTable_databaseName,
+    deleteTable_name,
 
     -- * Destructuring the Response
-    , deleteTableResponse
-    , DeleteTableResponse
+    DeleteTableResponse (..),
+    newDeleteTableResponse,
+
     -- * Response Lenses
-    , dtrsResponseStatus
-    ) where
+    deleteTableResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteTable' smart constructor.
+-- | /See:/ 'newDeleteTable' smart constructor.
 data DeleteTable = DeleteTable'
-  { _dtCatalogId    :: !(Maybe Text)
-  , _dtDatabaseName :: !Text
-  , _dtName         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Data Catalog where the table resides. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the catalog database in which the table resides. For Hive
+    -- compatibility, this name is entirely lowercase.
+    databaseName :: Prelude.Text,
+    -- | The name of the table to be deleted. For Hive compatibility, this name
+    -- is entirely lowercase.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTable' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTable' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtCatalogId' - The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtDatabaseName' - The name of the catalog database in which the table resides.
+-- 'catalogId', 'deleteTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
--- * 'dtName' - The name of the table to be deleted.
-deleteTable
-    :: Text -- ^ 'dtDatabaseName'
-    -> Text -- ^ 'dtName'
-    -> DeleteTable
-deleteTable pDatabaseName_ pName_ =
+-- 'databaseName', 'deleteTable_databaseName' - The name of the catalog database in which the table resides. For Hive
+-- compatibility, this name is entirely lowercase.
+--
+-- 'name', 'deleteTable_name' - The name of the table to be deleted. For Hive compatibility, this name
+-- is entirely lowercase.
+newDeleteTable ::
+  -- | 'databaseName'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  DeleteTable
+newDeleteTable pDatabaseName_ pName_ =
   DeleteTable'
-  {_dtCatalogId = Nothing, _dtDatabaseName = pDatabaseName_, _dtName = pName_}
+    { catalogId = Prelude.Nothing,
+      databaseName = pDatabaseName_,
+      name = pName_
+    }
 
+-- | The ID of the Data Catalog where the table resides. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+deleteTable_catalogId :: Lens.Lens' DeleteTable (Prelude.Maybe Prelude.Text)
+deleteTable_catalogId = Lens.lens (\DeleteTable' {catalogId} -> catalogId) (\s@DeleteTable' {} a -> s {catalogId = a} :: DeleteTable)
 
--- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
-dtCatalogId :: Lens' DeleteTable (Maybe Text)
-dtCatalogId = lens _dtCatalogId (\ s a -> s{_dtCatalogId = a});
+-- | The name of the catalog database in which the table resides. For Hive
+-- compatibility, this name is entirely lowercase.
+deleteTable_databaseName :: Lens.Lens' DeleteTable Prelude.Text
+deleteTable_databaseName = Lens.lens (\DeleteTable' {databaseName} -> databaseName) (\s@DeleteTable' {} a -> s {databaseName = a} :: DeleteTable)
 
--- | The name of the catalog database in which the table resides.
-dtDatabaseName :: Lens' DeleteTable Text
-dtDatabaseName = lens _dtDatabaseName (\ s a -> s{_dtDatabaseName = a});
+-- | The name of the table to be deleted. For Hive compatibility, this name
+-- is entirely lowercase.
+deleteTable_name :: Lens.Lens' DeleteTable Prelude.Text
+deleteTable_name = Lens.lens (\DeleteTable' {name} -> name) (\s@DeleteTable' {} a -> s {name = a} :: DeleteTable)
 
--- | The name of the table to be deleted.
-dtName :: Lens' DeleteTable Text
-dtName = lens _dtName (\ s a -> s{_dtName = a});
+instance Core.AWSRequest DeleteTable where
+  type AWSResponse DeleteTable = DeleteTableResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteTableResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteTable where
-        type Rs DeleteTable = DeleteTableResponse
-        request = postJSON glue
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteTableResponse' <$> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteTable
 
-instance Hashable DeleteTable where
+instance Prelude.NFData DeleteTable
 
-instance NFData DeleteTable where
+instance Core.ToHeaders DeleteTable where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.DeleteTable" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteTable where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.DeleteTable" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteTable where
+  toJSON DeleteTable' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
 
-instance ToJSON DeleteTable where
-        toJSON DeleteTable'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _dtCatalogId,
-                  Just ("DatabaseName" .= _dtDatabaseName),
-                  Just ("Name" .= _dtName)])
+instance Core.ToPath DeleteTable where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteTable where
-        toPath = const "/"
+instance Core.ToQuery DeleteTable where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteTable where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteTableResponse' smart constructor.
+data DeleteTableResponse = DeleteTableResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteTableResponse' smart constructor.
-newtype DeleteTableResponse = DeleteTableResponse'
-  { _dtrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTableResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-deleteTableResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DeleteTableResponse
-deleteTableResponse pResponseStatus_ =
-  DeleteTableResponse' {_dtrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteTableResponse_httpStatus' - The response's http status code.
+newDeleteTableResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTableResponse
+newDeleteTableResponse pHttpStatus_ =
+  DeleteTableResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Prelude.Int
+deleteTableResponse_httpStatus = Lens.lens (\DeleteTableResponse' {httpStatus} -> httpStatus) (\s@DeleteTableResponse' {} a -> s {httpStatus = a} :: DeleteTableResponse)
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DeleteTableResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a});
-
-instance NFData DeleteTableResponse where
+instance Prelude.NFData DeleteTableResponse

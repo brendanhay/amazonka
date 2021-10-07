@@ -11,12 +11,9 @@
 module Main (main) where
 
 import Test.Tasty
-import Test.AWS.S3.Encryption.Body
 import Test.AWS.S3.Encryption.Envelope
-
 
 main :: IO ()
 main = defaultMain $ testGroup "S3-encryption"
-    [ testGroup "body"     bodyTests
-    , testGroup "envelope" envelopeTests
+    [ testGroup "envelope" envelopeTests
     ]

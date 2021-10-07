@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminListDevices
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,171 +22,196 @@
 --
 -- Lists devices, as an administrator.
 --
---
--- Requires developer credentials.
---
+-- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminListDevices
-    (
-    -- * Creating a Request
-      adminListDevices
-    , AdminListDevices
+  ( -- * Creating a Request
+    AdminListDevices (..),
+    newAdminListDevices,
+
     -- * Request Lenses
-    , aldPaginationToken
-    , aldLimit
-    , aldUserPoolId
-    , aldUsername
+    adminListDevices_paginationToken,
+    adminListDevices_limit,
+    adminListDevices_userPoolId,
+    adminListDevices_username,
 
     -- * Destructuring the Response
-    , adminListDevicesResponse
-    , AdminListDevicesResponse
+    AdminListDevicesResponse (..),
+    newAdminListDevicesResponse,
+
     -- * Response Lenses
-    , aldrsPaginationToken
-    , aldrsDevices
-    , aldrsResponseStatus
-    ) where
+    adminListDevicesResponse_devices,
+    adminListDevicesResponse_paginationToken,
+    adminListDevicesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to list devices, as an administrator.
 --
---
---
--- /See:/ 'adminListDevices' smart constructor.
+-- /See:/ 'newAdminListDevices' smart constructor.
 data AdminListDevices = AdminListDevices'
-  { _aldPaginationToken :: !(Maybe Text)
-  , _aldLimit           :: !(Maybe Nat)
-  , _aldUserPoolId      :: !Text
-  , _aldUsername        :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AdminListDevices' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aldPaginationToken' - The pagination token.
---
--- * 'aldLimit' - The limit of the devices request.
---
--- * 'aldUserPoolId' - The user pool ID.
---
--- * 'aldUsername' - The user name.
-adminListDevices
-    :: Text -- ^ 'aldUserPoolId'
-    -> Text -- ^ 'aldUsername'
-    -> AdminListDevices
-adminListDevices pUserPoolId_ pUsername_ =
-  AdminListDevices'
-  { _aldPaginationToken = Nothing
-  , _aldLimit = Nothing
-  , _aldUserPoolId = pUserPoolId_
-  , _aldUsername = _Sensitive # pUsername_
+  { -- | The pagination token.
+    paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | The limit of the devices request.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The user pool ID.
+    userPoolId :: Prelude.Text,
+    -- | The user name.
+    username :: Core.Sensitive Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AdminListDevices' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'paginationToken', 'adminListDevices_paginationToken' - The pagination token.
+--
+-- 'limit', 'adminListDevices_limit' - The limit of the devices request.
+--
+-- 'userPoolId', 'adminListDevices_userPoolId' - The user pool ID.
+--
+-- 'username', 'adminListDevices_username' - The user name.
+newAdminListDevices ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'username'
+  Prelude.Text ->
+  AdminListDevices
+newAdminListDevices pUserPoolId_ pUsername_ =
+  AdminListDevices'
+    { paginationToken =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      userPoolId = pUserPoolId_,
+      username = Core._Sensitive Lens.# pUsername_
+    }
 
 -- | The pagination token.
-aldPaginationToken :: Lens' AdminListDevices (Maybe Text)
-aldPaginationToken = lens _aldPaginationToken (\ s a -> s{_aldPaginationToken = a});
+adminListDevices_paginationToken :: Lens.Lens' AdminListDevices (Prelude.Maybe Prelude.Text)
+adminListDevices_paginationToken = Lens.lens (\AdminListDevices' {paginationToken} -> paginationToken) (\s@AdminListDevices' {} a -> s {paginationToken = a} :: AdminListDevices)
 
 -- | The limit of the devices request.
-aldLimit :: Lens' AdminListDevices (Maybe Natural)
-aldLimit = lens _aldLimit (\ s a -> s{_aldLimit = a}) . mapping _Nat;
+adminListDevices_limit :: Lens.Lens' AdminListDevices (Prelude.Maybe Prelude.Natural)
+adminListDevices_limit = Lens.lens (\AdminListDevices' {limit} -> limit) (\s@AdminListDevices' {} a -> s {limit = a} :: AdminListDevices)
 
 -- | The user pool ID.
-aldUserPoolId :: Lens' AdminListDevices Text
-aldUserPoolId = lens _aldUserPoolId (\ s a -> s{_aldUserPoolId = a});
+adminListDevices_userPoolId :: Lens.Lens' AdminListDevices Prelude.Text
+adminListDevices_userPoolId = Lens.lens (\AdminListDevices' {userPoolId} -> userPoolId) (\s@AdminListDevices' {} a -> s {userPoolId = a} :: AdminListDevices)
 
 -- | The user name.
-aldUsername :: Lens' AdminListDevices Text
-aldUsername = lens _aldUsername (\ s a -> s{_aldUsername = a}) . _Sensitive;
+adminListDevices_username :: Lens.Lens' AdminListDevices Prelude.Text
+adminListDevices_username = Lens.lens (\AdminListDevices' {username} -> username) (\s@AdminListDevices' {} a -> s {username = a} :: AdminListDevices) Prelude.. Core._Sensitive
 
-instance AWSRequest AdminListDevices where
-        type Rs AdminListDevices = AdminListDevicesResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AdminListDevicesResponse' <$>
-                   (x .?> "PaginationToken") <*>
-                     (x .?> "Devices" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest AdminListDevices where
+  type
+    AWSResponse AdminListDevices =
+      AdminListDevicesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AdminListDevicesResponse'
+            Prelude.<$> (x Core..?> "Devices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AdminListDevices where
+instance Prelude.Hashable AdminListDevices
 
-instance NFData AdminListDevices where
+instance Prelude.NFData AdminListDevices
 
-instance ToHeaders AdminListDevices where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminListDevices"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AdminListDevices where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminListDevices" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AdminListDevices where
-        toJSON AdminListDevices'{..}
-          = object
-              (catMaybes
-                 [("PaginationToken" .=) <$> _aldPaginationToken,
-                  ("Limit" .=) <$> _aldLimit,
-                  Just ("UserPoolId" .= _aldUserPoolId),
-                  Just ("Username" .= _aldUsername)])
+instance Core.ToJSON AdminListDevices where
+  toJSON AdminListDevices' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("PaginationToken" Core..=)
+              Prelude.<$> paginationToken,
+            ("Limit" Core..=) Prelude.<$> limit,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("Username" Core..= username)
+          ]
+      )
 
-instance ToPath AdminListDevices where
-        toPath = const "/"
+instance Core.ToPath AdminListDevices where
+  toPath = Prelude.const "/"
 
-instance ToQuery AdminListDevices where
-        toQuery = const mempty
+instance Core.ToQuery AdminListDevices where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Lists the device's response, as an administrator.
+-- | Lists the device\'s response, as an administrator.
 --
---
---
--- /See:/ 'adminListDevicesResponse' smart constructor.
+-- /See:/ 'newAdminListDevicesResponse' smart constructor.
 data AdminListDevicesResponse = AdminListDevicesResponse'
-  { _aldrsPaginationToken :: !(Maybe Text)
-  , _aldrsDevices         :: !(Maybe [DeviceType])
-  , _aldrsResponseStatus  :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AdminListDevicesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aldrsPaginationToken' - The pagination token.
---
--- * 'aldrsDevices' - The devices in the list of devices response.
---
--- * 'aldrsResponseStatus' - -- | The response status code.
-adminListDevicesResponse
-    :: Int -- ^ 'aldrsResponseStatus'
-    -> AdminListDevicesResponse
-adminListDevicesResponse pResponseStatus_ =
-  AdminListDevicesResponse'
-  { _aldrsPaginationToken = Nothing
-  , _aldrsDevices = Nothing
-  , _aldrsResponseStatus = pResponseStatus_
+  { -- | The devices in the list of devices response.
+    devices :: Prelude.Maybe [DeviceType],
+    -- | The pagination token.
+    paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | The pagination token.
-aldrsPaginationToken :: Lens' AdminListDevicesResponse (Maybe Text)
-aldrsPaginationToken = lens _aldrsPaginationToken (\ s a -> s{_aldrsPaginationToken = a});
+-- |
+-- Create a value of 'AdminListDevicesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'devices', 'adminListDevicesResponse_devices' - The devices in the list of devices response.
+--
+-- 'paginationToken', 'adminListDevicesResponse_paginationToken' - The pagination token.
+--
+-- 'httpStatus', 'adminListDevicesResponse_httpStatus' - The response's http status code.
+newAdminListDevicesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AdminListDevicesResponse
+newAdminListDevicesResponse pHttpStatus_ =
+  AdminListDevicesResponse'
+    { devices =
+        Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The devices in the list of devices response.
-aldrsDevices :: Lens' AdminListDevicesResponse [DeviceType]
-aldrsDevices = lens _aldrsDevices (\ s a -> s{_aldrsDevices = a}) . _Default . _Coerce;
+adminListDevicesResponse_devices :: Lens.Lens' AdminListDevicesResponse (Prelude.Maybe [DeviceType])
+adminListDevicesResponse_devices = Lens.lens (\AdminListDevicesResponse' {devices} -> devices) (\s@AdminListDevicesResponse' {} a -> s {devices = a} :: AdminListDevicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-aldrsResponseStatus :: Lens' AdminListDevicesResponse Int
-aldrsResponseStatus = lens _aldrsResponseStatus (\ s a -> s{_aldrsResponseStatus = a});
+-- | The pagination token.
+adminListDevicesResponse_paginationToken :: Lens.Lens' AdminListDevicesResponse (Prelude.Maybe Prelude.Text)
+adminListDevicesResponse_paginationToken = Lens.lens (\AdminListDevicesResponse' {paginationToken} -> paginationToken) (\s@AdminListDevicesResponse' {} a -> s {paginationToken = a} :: AdminListDevicesResponse)
 
-instance NFData AdminListDevicesResponse where
+-- | The response's http status code.
+adminListDevicesResponse_httpStatus :: Lens.Lens' AdminListDevicesResponse Prelude.Int
+adminListDevicesResponse_httpStatus = Lens.lens (\AdminListDevicesResponse' {httpStatus} -> httpStatus) (\s@AdminListDevicesResponse' {} a -> s {httpStatus = a} :: AdminListDevicesResponse)
+
+instance Prelude.NFData AdminListDevicesResponse

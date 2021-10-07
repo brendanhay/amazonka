@@ -1,156 +1,206 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a 'Rule' . You can't delete a @Rule@ if it's still used in any @WebACL@ objects or if it still includes any predicates, such as @ByteMatchSet@ objects.
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
--- If you just want to remove a @Rule@ from a @WebACL@ , use 'UpdateWebACL' .
+-- Permanently deletes a Rule. You can\'t delete a @Rule@ if it\'s still
+-- used in any @WebACL@ objects or if it still includes any predicates,
+-- such as @ByteMatchSet@ objects.
 --
--- To permanently delete a @Rule@ from AWS WAF, perform the following steps:
+-- If you just want to remove a @Rule@ from a @WebACL@, use UpdateWebACL.
 --
---     * Update the @Rule@ to remove predicates, if any. For more information, see 'UpdateRule' .
+-- To permanently delete a @Rule@ from AWS WAF, perform the following
+-- steps:
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRule@ request.
+-- 1.  Update the @Rule@ to remove predicates, if any. For more
+--     information, see UpdateRule.
 --
---     * Submit a @DeleteRule@ request.
+-- 2.  Use GetChangeToken to get the change token that you provide in the
+--     @ChangeToken@ parameter of a @DeleteRule@ request.
 --
---
---
+-- 3.  Submit a @DeleteRule@ request.
 module Network.AWS.WAFRegional.DeleteRule
-    (
-    -- * Creating a Request
-      deleteRule
-    , DeleteRule
+  ( -- * Creating a Request
+    DeleteRule (..),
+    newDeleteRule,
+
     -- * Request Lenses
-    , drRuleId
-    , drChangeToken
+    deleteRule_ruleId,
+    deleteRule_changeToken,
 
     -- * Destructuring the Response
-    , deleteRuleResponse
-    , DeleteRuleResponse
+    DeleteRuleResponse (..),
+    newDeleteRuleResponse,
+
     -- * Response Lenses
-    , drrsChangeToken
-    , drrsResponseStatus
-    ) where
+    deleteRuleResponse_changeToken,
+    deleteRuleResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
--- | /See:/ 'deleteRule' smart constructor.
+-- | /See:/ 'newDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { _drRuleId      :: !Text
-  , _drChangeToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @RuleId@ of the Rule that you want to delete. @RuleId@ is returned
+    -- by CreateRule and by ListRules.
+    ruleId :: Prelude.Text,
+    -- | The value returned by the most recent call to GetChangeToken.
+    changeToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drRuleId' - The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteRule
-    :: Text -- ^ 'drRuleId'
-    -> Text -- ^ 'drChangeToken'
-    -> DeleteRule
-deleteRule pRuleId_ pChangeToken_ =
-  DeleteRule' {_drRuleId = pRuleId_, _drChangeToken = pChangeToken_}
+-- 'ruleId', 'deleteRule_ruleId' - The @RuleId@ of the Rule that you want to delete. @RuleId@ is returned
+-- by CreateRule and by ListRules.
+--
+-- 'changeToken', 'deleteRule_changeToken' - The value returned by the most recent call to GetChangeToken.
+newDeleteRule ::
+  -- | 'ruleId'
+  Prelude.Text ->
+  -- | 'changeToken'
+  Prelude.Text ->
+  DeleteRule
+newDeleteRule pRuleId_ pChangeToken_ =
+  DeleteRule'
+    { ruleId = pRuleId_,
+      changeToken = pChangeToken_
+    }
 
+-- | The @RuleId@ of the Rule that you want to delete. @RuleId@ is returned
+-- by CreateRule and by ListRules.
+deleteRule_ruleId :: Lens.Lens' DeleteRule Prelude.Text
+deleteRule_ruleId = Lens.lens (\DeleteRule' {ruleId} -> ruleId) (\s@DeleteRule' {} a -> s {ruleId = a} :: DeleteRule)
 
--- | The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
-drRuleId :: Lens' DeleteRule Text
-drRuleId = lens _drRuleId (\ s a -> s{_drRuleId = a});
+-- | The value returned by the most recent call to GetChangeToken.
+deleteRule_changeToken :: Lens.Lens' DeleteRule Prelude.Text
+deleteRule_changeToken = Lens.lens (\DeleteRule' {changeToken} -> changeToken) (\s@DeleteRule' {} a -> s {changeToken = a} :: DeleteRule)
 
--- | The value returned by the most recent call to 'GetChangeToken' .
-drChangeToken :: Lens' DeleteRule Text
-drChangeToken = lens _drChangeToken (\ s a -> s{_drChangeToken = a});
+instance Core.AWSRequest DeleteRule where
+  type AWSResponse DeleteRule = DeleteRuleResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteRuleResponse'
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteRule where
-        type Rs DeleteRule = DeleteRuleResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteRuleResponse' <$>
-                   (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteRule
 
-instance Hashable DeleteRule where
+instance Prelude.NFData DeleteRule
 
-instance NFData DeleteRule where
+instance Core.ToHeaders DeleteRule where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_Regional_20161128.DeleteRule" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteRule where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.DeleteRule" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteRule where
+  toJSON DeleteRule' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("RuleId" Core..= ruleId),
+            Prelude.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
 
-instance ToJSON DeleteRule where
-        toJSON DeleteRule'{..}
-          = object
-              (catMaybes
-                 [Just ("RuleId" .= _drRuleId),
-                  Just ("ChangeToken" .= _drChangeToken)])
+instance Core.ToPath DeleteRule where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteRule where
-        toPath = const "/"
+instance Core.ToQuery DeleteRule where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteRule where
-        toQuery = const mempty
-
--- | /See:/ 'deleteRuleResponse' smart constructor.
+-- | /See:/ 'newDeleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
-  { _drrsChangeToken    :: !(Maybe Text)
-  , _drrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You
+    -- can also use this value to query the status of the request. For more
+    -- information, see GetChangeTokenStatus.
+    changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteRuleResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drrsResponseStatus' - -- | The response status code.
-deleteRuleResponse
-    :: Int -- ^ 'drrsResponseStatus'
-    -> DeleteRuleResponse
-deleteRuleResponse pResponseStatus_ =
+-- 'changeToken', 'deleteRuleResponse_changeToken' - The @ChangeToken@ that you used to submit the @DeleteRule@ request. You
+-- can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+--
+-- 'httpStatus', 'deleteRuleResponse_httpStatus' - The response's http status code.
+newDeleteRuleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteRuleResponse
+newDeleteRuleResponse pHttpStatus_ =
   DeleteRuleResponse'
-  {_drrsChangeToken = Nothing, _drrsResponseStatus = pResponseStatus_}
+    { changeToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You
+-- can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+deleteRuleResponse_changeToken :: Lens.Lens' DeleteRuleResponse (Prelude.Maybe Prelude.Text)
+deleteRuleResponse_changeToken = Lens.lens (\DeleteRuleResponse' {changeToken} -> changeToken) (\s@DeleteRuleResponse' {} a -> s {changeToken = a} :: DeleteRuleResponse)
 
--- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-drrsChangeToken :: Lens' DeleteRuleResponse (Maybe Text)
-drrsChangeToken = lens _drrsChangeToken (\ s a -> s{_drrsChangeToken = a});
+-- | The response's http status code.
+deleteRuleResponse_httpStatus :: Lens.Lens' DeleteRuleResponse Prelude.Int
+deleteRuleResponse_httpStatus = Lens.lens (\DeleteRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteRuleResponse' {} a -> s {httpStatus = a} :: DeleteRuleResponse)
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DeleteRuleResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\ s a -> s{_drrsResponseStatus = a});
-
-instance NFData DeleteRuleResponse where
+instance Prelude.NFData DeleteRuleResponse

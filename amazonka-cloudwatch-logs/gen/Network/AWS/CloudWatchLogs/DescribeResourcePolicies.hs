@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeResourcePolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,138 +22,192 @@
 --
 -- Lists the resource policies in this account.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeResourcePolicies
-    (
-    -- * Creating a Request
-      describeResourcePolicies
-    , DescribeResourcePolicies
+  ( -- * Creating a Request
+    DescribeResourcePolicies (..),
+    newDescribeResourcePolicies,
+
     -- * Request Lenses
-    , drpNextToken
-    , drpLimit
+    describeResourcePolicies_nextToken,
+    describeResourcePolicies_limit,
 
     -- * Destructuring the Response
-    , describeResourcePoliciesResponse
-    , DescribeResourcePoliciesResponse
+    DescribeResourcePoliciesResponse (..),
+    newDescribeResourcePoliciesResponse,
+
     -- * Response Lenses
-    , drprsResourcePolicies
-    , drprsNextToken
-    , drprsResponseStatus
-    ) where
+    describeResourcePoliciesResponse_nextToken,
+    describeResourcePoliciesResponse_resourcePolicies,
+    describeResourcePoliciesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeResourcePolicies' smart constructor.
+-- | /See:/ 'newDescribeResourcePolicies' smart constructor.
 data DescribeResourcePolicies = DescribeResourcePolicies'
-  { _drpNextToken :: !(Maybe Text)
-  , _drpLimit     :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of resource policies to be displayed with one call of
+    -- this API.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeResourcePolicies' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeResourcePolicies' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drpNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drpLimit' - The maximum number of resource policies to be displayed with one call of this API.
-describeResourcePolicies
-    :: DescribeResourcePolicies
-describeResourcePolicies =
-  DescribeResourcePolicies' {_drpNextToken = Nothing, _drpLimit = Nothing}
-
+-- 'nextToken', 'describeResourcePolicies_nextToken' - Undocumented member.
+--
+-- 'limit', 'describeResourcePolicies_limit' - The maximum number of resource policies to be displayed with one call of
+-- this API.
+newDescribeResourcePolicies ::
+  DescribeResourcePolicies
+newDescribeResourcePolicies =
+  DescribeResourcePolicies'
+    { nextToken =
+        Prelude.Nothing,
+      limit = Prelude.Nothing
+    }
 
 -- | Undocumented member.
-drpNextToken :: Lens' DescribeResourcePolicies (Maybe Text)
-drpNextToken = lens _drpNextToken (\ s a -> s{_drpNextToken = a});
+describeResourcePolicies_nextToken :: Lens.Lens' DescribeResourcePolicies (Prelude.Maybe Prelude.Text)
+describeResourcePolicies_nextToken = Lens.lens (\DescribeResourcePolicies' {nextToken} -> nextToken) (\s@DescribeResourcePolicies' {} a -> s {nextToken = a} :: DescribeResourcePolicies)
 
--- | The maximum number of resource policies to be displayed with one call of this API.
-drpLimit :: Lens' DescribeResourcePolicies (Maybe Natural)
-drpLimit = lens _drpLimit (\ s a -> s{_drpLimit = a}) . mapping _Nat;
+-- | The maximum number of resource policies to be displayed with one call of
+-- this API.
+describeResourcePolicies_limit :: Lens.Lens' DescribeResourcePolicies (Prelude.Maybe Prelude.Natural)
+describeResourcePolicies_limit = Lens.lens (\DescribeResourcePolicies' {limit} -> limit) (\s@DescribeResourcePolicies' {} a -> s {limit = a} :: DescribeResourcePolicies)
 
-instance AWSRequest DescribeResourcePolicies where
-        type Rs DescribeResourcePolicies =
-             DescribeResourcePoliciesResponse
-        request = postJSON cloudWatchLogs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeResourcePoliciesResponse' <$>
-                   (x .?> "resourcePolicies" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSPager DescribeResourcePolicies where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeResourcePoliciesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeResourcePoliciesResponse_resourcePolicies
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeResourcePolicies_nextToken
+          Lens..~ rs
+          Lens.^? describeResourcePoliciesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable DescribeResourcePolicies where
+instance Core.AWSRequest DescribeResourcePolicies where
+  type
+    AWSResponse DescribeResourcePolicies =
+      DescribeResourcePoliciesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeResourcePoliciesResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> ( x Core..?> "resourcePolicies"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeResourcePolicies where
+instance Prelude.Hashable DescribeResourcePolicies
 
-instance ToHeaders DescribeResourcePolicies where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.DescribeResourcePolicies" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData DescribeResourcePolicies
 
-instance ToJSON DescribeResourcePolicies where
-        toJSON DescribeResourcePolicies'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _drpNextToken,
-                  ("limit" .=) <$> _drpLimit])
+instance Core.ToHeaders DescribeResourcePolicies where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.DescribeResourcePolicies" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToPath DescribeResourcePolicies where
-        toPath = const "/"
+instance Core.ToJSON DescribeResourcePolicies where
+  toJSON DescribeResourcePolicies' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("limit" Core..=) Prelude.<$> limit
+          ]
+      )
 
-instance ToQuery DescribeResourcePolicies where
-        toQuery = const mempty
+instance Core.ToPath DescribeResourcePolicies where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'describeResourcePoliciesResponse' smart constructor.
+instance Core.ToQuery DescribeResourcePolicies where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeResourcePoliciesResponse' smart constructor.
 data DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse'
-  { _drprsResourcePolicies :: !(Maybe [ResourcePolicy])
-  , _drprsNextToken        :: !(Maybe Text)
-  , _drprsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeResourcePoliciesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drprsResourcePolicies' - The resource policies that exist in this account.
---
--- * 'drprsNextToken' - Undocumented member.
---
--- * 'drprsResponseStatus' - -- | The response status code.
-describeResourcePoliciesResponse
-    :: Int -- ^ 'drprsResponseStatus'
-    -> DescribeResourcePoliciesResponse
-describeResourcePoliciesResponse pResponseStatus_ =
-  DescribeResourcePoliciesResponse'
-  { _drprsResourcePolicies = Nothing
-  , _drprsNextToken = Nothing
-  , _drprsResponseStatus = pResponseStatus_
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The resource policies that exist in this account.
+    resourcePolicies :: Prelude.Maybe [ResourcePolicy],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeResourcePoliciesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeResourcePoliciesResponse_nextToken' - Undocumented member.
+--
+-- 'resourcePolicies', 'describeResourcePoliciesResponse_resourcePolicies' - The resource policies that exist in this account.
+--
+-- 'httpStatus', 'describeResourcePoliciesResponse_httpStatus' - The response's http status code.
+newDescribeResourcePoliciesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeResourcePoliciesResponse
+newDescribeResourcePoliciesResponse pHttpStatus_ =
+  DescribeResourcePoliciesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      resourcePolicies = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Undocumented member.
+describeResourcePoliciesResponse_nextToken :: Lens.Lens' DescribeResourcePoliciesResponse (Prelude.Maybe Prelude.Text)
+describeResourcePoliciesResponse_nextToken = Lens.lens (\DescribeResourcePoliciesResponse' {nextToken} -> nextToken) (\s@DescribeResourcePoliciesResponse' {} a -> s {nextToken = a} :: DescribeResourcePoliciesResponse)
 
 -- | The resource policies that exist in this account.
-drprsResourcePolicies :: Lens' DescribeResourcePoliciesResponse [ResourcePolicy]
-drprsResourcePolicies = lens _drprsResourcePolicies (\ s a -> s{_drprsResourcePolicies = a}) . _Default . _Coerce;
+describeResourcePoliciesResponse_resourcePolicies :: Lens.Lens' DescribeResourcePoliciesResponse (Prelude.Maybe [ResourcePolicy])
+describeResourcePoliciesResponse_resourcePolicies = Lens.lens (\DescribeResourcePoliciesResponse' {resourcePolicies} -> resourcePolicies) (\s@DescribeResourcePoliciesResponse' {} a -> s {resourcePolicies = a} :: DescribeResourcePoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
-drprsNextToken :: Lens' DescribeResourcePoliciesResponse (Maybe Text)
-drprsNextToken = lens _drprsNextToken (\ s a -> s{_drprsNextToken = a});
+-- | The response's http status code.
+describeResourcePoliciesResponse_httpStatus :: Lens.Lens' DescribeResourcePoliciesResponse Prelude.Int
+describeResourcePoliciesResponse_httpStatus = Lens.lens (\DescribeResourcePoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeResourcePoliciesResponse' {} a -> s {httpStatus = a} :: DescribeResourcePoliciesResponse)
 
--- | -- | The response status code.
-drprsResponseStatus :: Lens' DescribeResourcePoliciesResponse Int
-drprsResponseStatus = lens _drprsResponseStatus (\ s a -> s{_drprsResponseStatus = a});
-
-instance NFData DescribeResourcePoliciesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeResourcePoliciesResponse

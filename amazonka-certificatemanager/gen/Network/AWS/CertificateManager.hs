@@ -1,213 +1,309 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.CertificateManager
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Certificate Manager__
+-- Derived from API version @2015-12-08@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Welcome to the AWS Certificate Manager (ACM) API documentation.
+-- Amazon Web Services Certificate Manager
 --
--- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <http://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
---
+-- You can use Amazon Web Services Certificate Manager (ACM) to manage
+-- SSL\/TLS certificates for your Amazon Web Services-based websites and
+-- applications. For more information about using ACM, see the
+-- <https://docs.aws.amazon.com/acm/latest/userguide/ Amazon Web Services Certificate Manager User Guide>.
 module Network.AWS.CertificateManager
-    (
-    -- * Service Configuration
-      certificateManager
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** InvalidTagException
-    , _InvalidTagException
-
-    -- ** InvalidDomainValidationOptionsException
-    , _InvalidDomainValidationOptionsException
-
     -- ** TooManyTagsException
-    , _TooManyTagsException
-
-    -- ** RequestInProgressException
-    , _RequestInProgressException
-
-    -- ** InvalidARNException
-    , _InvalidARNException
-
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    _TooManyTagsException,
 
     -- ** InvalidStateException
-    , _InvalidStateException
+    _InvalidStateException,
+
+    -- ** InvalidArgsException
+    _InvalidArgsException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidDomainValidationOptionsException
+    _InvalidDomainValidationOptionsException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** RequestInProgressException
+    _RequestInProgressException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** LimitExceededException
-    , _LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceInUseException
-    , _ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
 
+    -- ** CertificateValidated
+    newCertificateValidated,
+
     -- * Operations
     -- $operations
 
-    -- ** ResendValidationEmail
-    , module Network.AWS.CertificateManager.ResendValidationEmail
-
-    -- ** ListTagsForCertificate
-    , module Network.AWS.CertificateManager.ListTagsForCertificate
-
-    -- ** GetCertificate
-    , module Network.AWS.CertificateManager.GetCertificate
-
-    -- ** AddTagsToCertificate
-    , module Network.AWS.CertificateManager.AddTagsToCertificate
-
-    -- ** RequestCertificate
-    , module Network.AWS.CertificateManager.RequestCertificate
-
-    -- ** ListCertificates (Paginated)
-    , module Network.AWS.CertificateManager.ListCertificates
-
-    -- ** DeleteCertificate
-    , module Network.AWS.CertificateManager.DeleteCertificate
+    -- ** GetAccountConfiguration
+    GetAccountConfiguration (GetAccountConfiguration'),
+    newGetAccountConfiguration,
+    GetAccountConfigurationResponse (GetAccountConfigurationResponse'),
+    newGetAccountConfigurationResponse,
 
     -- ** RemoveTagsFromCertificate
-    , module Network.AWS.CertificateManager.RemoveTagsFromCertificate
+    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
+    newRemoveTagsFromCertificate,
+    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
+    newRemoveTagsFromCertificateResponse,
+
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
+
+    -- ** UpdateCertificateOptions
+    UpdateCertificateOptions (UpdateCertificateOptions'),
+    newUpdateCertificateOptions,
+    UpdateCertificateOptionsResponse (UpdateCertificateOptionsResponse'),
+    newUpdateCertificateOptionsResponse,
+
+    -- ** ExportCertificate
+    ExportCertificate (ExportCertificate'),
+    newExportCertificate,
+    ExportCertificateResponse (ExportCertificateResponse'),
+    newExportCertificateResponse,
+
+    -- ** RenewCertificate
+    RenewCertificate (RenewCertificate'),
+    newRenewCertificate,
+    RenewCertificateResponse (RenewCertificateResponse'),
+    newRenewCertificateResponse,
+
+    -- ** GetCertificate
+    GetCertificate (GetCertificate'),
+    newGetCertificate,
+    GetCertificateResponse (GetCertificateResponse'),
+    newGetCertificateResponse,
 
     -- ** ImportCertificate
-    , module Network.AWS.CertificateManager.ImportCertificate
+    ImportCertificate (ImportCertificate'),
+    newImportCertificate,
+    ImportCertificateResponse (ImportCertificateResponse'),
+    newImportCertificateResponse,
 
     -- ** DescribeCertificate
-    , module Network.AWS.CertificateManager.DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
+    -- ** PutAccountConfiguration
+    PutAccountConfiguration (PutAccountConfiguration'),
+    newPutAccountConfiguration,
+    PutAccountConfigurationResponse (PutAccountConfigurationResponse'),
+    newPutAccountConfigurationResponse,
+
+    -- ** ResendValidationEmail
+    ResendValidationEmail (ResendValidationEmail'),
+    newResendValidationEmail,
+    ResendValidationEmailResponse (ResendValidationEmailResponse'),
+    newResendValidationEmailResponse,
+
+    -- ** ListCertificates (Paginated)
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
+
+    -- ** RequestCertificate
+    RequestCertificate (RequestCertificate'),
+    newRequestCertificate,
+    RequestCertificateResponse (RequestCertificateResponse'),
+    newRequestCertificateResponse,
+
+    -- ** AddTagsToCertificate
+    AddTagsToCertificate (AddTagsToCertificate'),
+    newAddTagsToCertificate,
+    AddTagsToCertificateResponse (AddTagsToCertificateResponse'),
+    newAddTagsToCertificateResponse,
+
+    -- ** ListTagsForCertificate
+    ListTagsForCertificate (ListTagsForCertificate'),
+    newListTagsForCertificate,
+    ListTagsForCertificateResponse (ListTagsForCertificateResponse'),
+    newListTagsForCertificateResponse,
 
     -- * Types
 
     -- ** CertificateStatus
-    , CertificateStatus (..)
+    CertificateStatus (..),
+
+    -- ** CertificateTransparencyLoggingPreference
+    CertificateTransparencyLoggingPreference (..),
 
     -- ** CertificateType
-    , CertificateType (..)
+    CertificateType (..),
 
     -- ** DomainStatus
-    , DomainStatus (..)
+    DomainStatus (..),
+
+    -- ** ExtendedKeyUsageName
+    ExtendedKeyUsageName (..),
 
     -- ** FailureReason
-    , FailureReason (..)
+    FailureReason (..),
 
     -- ** KeyAlgorithm
-    , KeyAlgorithm (..)
+    KeyAlgorithm (..),
+
+    -- ** KeyUsageName
+    KeyUsageName (..),
+
+    -- ** RecordType
+    RecordType (..),
+
+    -- ** RenewalEligibility
+    RenewalEligibility (..),
 
     -- ** RenewalStatus
-    , RenewalStatus (..)
+    RenewalStatus (..),
 
     -- ** RevocationReason
-    , RevocationReason (..)
+    RevocationReason (..),
+
+    -- ** ValidationMethod
+    ValidationMethod (..),
 
     -- ** CertificateDetail
-    , CertificateDetail
-    , certificateDetail
-    , cdSubject
-    , cdStatus
-    , cdFailureReason
-    , cdSubjectAlternativeNames
-    , cdInUseBy
-    , cdCreatedAt
-    , cdCertificateARN
-    , cdSerial
-    , cdImportedAt
-    , cdRevokedAt
-    , cdNotBefore
-    , cdRevocationReason
-    , cdDomainName
-    , cdRenewalSummary
-    , cdKeyAlgorithm
-    , cdType
-    , cdIssuedAt
-    , cdSignatureAlgorithm
-    , cdDomainValidationOptions
-    , cdIssuer
-    , cdNotAfter
+    CertificateDetail (CertificateDetail'),
+    newCertificateDetail,
+
+    -- ** CertificateOptions
+    CertificateOptions (CertificateOptions'),
+    newCertificateOptions,
 
     -- ** CertificateSummary
-    , CertificateSummary
-    , certificateSummary
-    , csCertificateARN
-    , csDomainName
+    CertificateSummary (CertificateSummary'),
+    newCertificateSummary,
 
     -- ** DomainValidation
-    , DomainValidation
-    , domainValidation
-    , dvValidationEmails
-    , dvValidationStatus
-    , dvValidationDomain
-    , dvDomainName
+    DomainValidation (DomainValidation'),
+    newDomainValidation,
 
     -- ** DomainValidationOption
-    , DomainValidationOption
-    , domainValidationOption
-    , dvoDomainName
-    , dvoValidationDomain
+    DomainValidationOption (DomainValidationOption'),
+    newDomainValidationOption,
+
+    -- ** ExpiryEventsConfiguration
+    ExpiryEventsConfiguration (ExpiryEventsConfiguration'),
+    newExpiryEventsConfiguration,
+
+    -- ** ExtendedKeyUsage
+    ExtendedKeyUsage (ExtendedKeyUsage'),
+    newExtendedKeyUsage,
+
+    -- ** Filters
+    Filters (Filters'),
+    newFilters,
+
+    -- ** KeyUsage
+    KeyUsage (KeyUsage'),
+    newKeyUsage,
 
     -- ** RenewalSummary
-    , RenewalSummary
-    , renewalSummary
-    , rsRenewalStatus
-    , rsDomainValidationOptions
+    RenewalSummary (RenewalSummary'),
+    newRenewalSummary,
+
+    -- ** ResourceRecord
+    ResourceRecord (ResourceRecord'),
+    newResourceRecord,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (Tag'),
+    newTag,
+  )
+where
 
 import Network.AWS.CertificateManager.AddTagsToCertificate
 import Network.AWS.CertificateManager.DeleteCertificate
 import Network.AWS.CertificateManager.DescribeCertificate
+import Network.AWS.CertificateManager.ExportCertificate
+import Network.AWS.CertificateManager.GetAccountConfiguration
 import Network.AWS.CertificateManager.GetCertificate
 import Network.AWS.CertificateManager.ImportCertificate
+import Network.AWS.CertificateManager.Lens
 import Network.AWS.CertificateManager.ListCertificates
 import Network.AWS.CertificateManager.ListTagsForCertificate
+import Network.AWS.CertificateManager.PutAccountConfiguration
 import Network.AWS.CertificateManager.RemoveTagsFromCertificate
+import Network.AWS.CertificateManager.RenewCertificate
 import Network.AWS.CertificateManager.RequestCertificate
 import Network.AWS.CertificateManager.ResendValidationEmail
 import Network.AWS.CertificateManager.Types
+import Network.AWS.CertificateManager.UpdateCertificateOptions
 import Network.AWS.CertificateManager.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'CertificateManager'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'CertificateManager'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

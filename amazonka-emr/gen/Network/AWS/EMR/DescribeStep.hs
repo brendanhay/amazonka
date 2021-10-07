@@ -1,151 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeStep
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides more detail about the cluster step.
---
---
 module Network.AWS.EMR.DescribeStep
-    (
-    -- * Creating a Request
-      describeStep
-    , DescribeStep
+  ( -- * Creating a Request
+    DescribeStep (..),
+    newDescribeStep,
+
     -- * Request Lenses
-    , dsClusterId
-    , dsStepId
+    describeStep_clusterId,
+    describeStep_stepId,
 
     -- * Destructuring the Response
-    , describeStepResponse
-    , DescribeStepResponse
-    -- * Response Lenses
-    , dsrsStep
-    , dsrsResponseStatus
-    ) where
+    DescribeStepResponse (..),
+    newDescribeStepResponse,
 
+    -- * Response Lenses
+    describeStepResponse_step,
+    describeStepResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input determines which step to describe.
 --
---
---
--- /See:/ 'describeStep' smart constructor.
+-- /See:/ 'newDescribeStep' smart constructor.
 data DescribeStep = DescribeStep'
-  { _dsClusterId :: !Text
-  , _dsStepId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier of the cluster with steps to describe.
+    clusterId :: Prelude.Text,
+    -- | The identifier of the step to describe.
+    stepId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStep' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStep' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsClusterId' - The identifier of the cluster with steps to describe.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsStepId' - The identifier of the step to describe.
-describeStep
-    :: Text -- ^ 'dsClusterId'
-    -> Text -- ^ 'dsStepId'
-    -> DescribeStep
-describeStep pClusterId_ pStepId_ =
-  DescribeStep' {_dsClusterId = pClusterId_, _dsStepId = pStepId_}
-
+-- 'clusterId', 'describeStep_clusterId' - The identifier of the cluster with steps to describe.
+--
+-- 'stepId', 'describeStep_stepId' - The identifier of the step to describe.
+newDescribeStep ::
+  -- | 'clusterId'
+  Prelude.Text ->
+  -- | 'stepId'
+  Prelude.Text ->
+  DescribeStep
+newDescribeStep pClusterId_ pStepId_ =
+  DescribeStep'
+    { clusterId = pClusterId_,
+      stepId = pStepId_
+    }
 
 -- | The identifier of the cluster with steps to describe.
-dsClusterId :: Lens' DescribeStep Text
-dsClusterId = lens _dsClusterId (\ s a -> s{_dsClusterId = a});
+describeStep_clusterId :: Lens.Lens' DescribeStep Prelude.Text
+describeStep_clusterId = Lens.lens (\DescribeStep' {clusterId} -> clusterId) (\s@DescribeStep' {} a -> s {clusterId = a} :: DescribeStep)
 
 -- | The identifier of the step to describe.
-dsStepId :: Lens' DescribeStep Text
-dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
+describeStep_stepId :: Lens.Lens' DescribeStep Prelude.Text
+describeStep_stepId = Lens.lens (\DescribeStep' {stepId} -> stepId) (\s@DescribeStep' {} a -> s {stepId = a} :: DescribeStep)
 
-instance AWSRequest DescribeStep where
-        type Rs DescribeStep = DescribeStepResponse
-        request = postJSON emr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeStepResponse' <$>
-                   (x .?> "Step") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeStep where
+  type AWSResponse DescribeStep = DescribeStepResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeStepResponse'
+            Prelude.<$> (x Core..?> "Step")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeStep where
+instance Prelude.Hashable DescribeStep
 
-instance NFData DescribeStep where
+instance Prelude.NFData DescribeStep
 
-instance ToHeaders DescribeStep where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.DescribeStep" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeStep where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.DescribeStep" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeStep where
-        toJSON DescribeStep'{..}
-          = object
-              (catMaybes
-                 [Just ("ClusterId" .= _dsClusterId),
-                  Just ("StepId" .= _dsStepId)])
+instance Core.ToJSON DescribeStep where
+  toJSON DescribeStep' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ClusterId" Core..= clusterId),
+            Prelude.Just ("StepId" Core..= stepId)
+          ]
+      )
 
-instance ToPath DescribeStep where
-        toPath = const "/"
+instance Core.ToPath DescribeStep where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeStep where
-        toQuery = const mempty
+instance Core.ToQuery DescribeStep where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | This output contains the description of the cluster step.
 --
---
---
--- /See:/ 'describeStepResponse' smart constructor.
+-- /See:/ 'newDescribeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
-  { _dsrsStep           :: !(Maybe Step)
-  , _dsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The step details for the requested step identifier.
+    step :: Prelude.Maybe Step,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStepResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStepResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrsStep' - The step details for the requested step identifier.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeStepResponse
-    :: Int -- ^ 'dsrsResponseStatus'
-    -> DescribeStepResponse
-describeStepResponse pResponseStatus_ =
+-- 'step', 'describeStepResponse_step' - The step details for the requested step identifier.
+--
+-- 'httpStatus', 'describeStepResponse_httpStatus' - The response's http status code.
+newDescribeStepResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeStepResponse
+newDescribeStepResponse pHttpStatus_ =
   DescribeStepResponse'
-  {_dsrsStep = Nothing, _dsrsResponseStatus = pResponseStatus_}
-
+    { step = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The step details for the requested step identifier.
-dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
-dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
+describeStepResponse_step :: Lens.Lens' DescribeStepResponse (Prelude.Maybe Step)
+describeStepResponse_step = Lens.lens (\DescribeStepResponse' {step} -> step) (\s@DescribeStepResponse' {} a -> s {step = a} :: DescribeStepResponse)
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeStepResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a});
+-- | The response's http status code.
+describeStepResponse_httpStatus :: Lens.Lens' DescribeStepResponse Prelude.Int
+describeStepResponse_httpStatus = Lens.lens (\DescribeStepResponse' {httpStatus} -> httpStatus) (\s@DescribeStepResponse' {} a -> s {httpStatus = a} :: DescribeStepResponse)
 
-instance NFData DescribeStepResponse where
+instance Prelude.NFData DescribeStepResponse

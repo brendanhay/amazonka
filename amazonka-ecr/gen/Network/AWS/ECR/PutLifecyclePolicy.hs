@@ -1,182 +1,221 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECR.PutLifecyclePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a lifecycle policy.
---
---
+-- Creates or updates the lifecycle policy for the specified repository.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html Lifecycle policy template>.
 module Network.AWS.ECR.PutLifecyclePolicy
-    (
-    -- * Creating a Request
-      putLifecyclePolicy
-    , PutLifecyclePolicy
+  ( -- * Creating a Request
+    PutLifecyclePolicy (..),
+    newPutLifecyclePolicy,
+
     -- * Request Lenses
-    , plpRegistryId
-    , plpRepositoryName
-    , plpLifecyclePolicyText
+    putLifecyclePolicy_registryId,
+    putLifecyclePolicy_repositoryName,
+    putLifecyclePolicy_lifecyclePolicyText,
 
     -- * Destructuring the Response
-    , putLifecyclePolicyResponse
-    , PutLifecyclePolicyResponse
+    PutLifecyclePolicyResponse (..),
+    newPutLifecyclePolicyResponse,
+
     -- * Response Lenses
-    , plprsRegistryId
-    , plprsLifecyclePolicyText
-    , plprsRepositoryName
-    , plprsResponseStatus
-    ) where
+    putLifecyclePolicyResponse_registryId,
+    putLifecyclePolicyResponse_repositoryName,
+    putLifecyclePolicyResponse_lifecyclePolicyText,
+    putLifecyclePolicyResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
-import Network.AWS.ECR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putLifecyclePolicy' smart constructor.
+-- | /See:/ 'newPutLifecyclePolicy' smart constructor.
 data PutLifecyclePolicy = PutLifecyclePolicy'
-  { _plpRegistryId          :: !(Maybe Text)
-  , _plpRepositoryName      :: !Text
-  , _plpLifecyclePolicyText :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutLifecyclePolicy' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
---
--- * 'plpRepositoryName' - The name of the repository to receive the policy.
---
--- * 'plpLifecyclePolicyText' - The JSON repository policy text to apply to the repository.
-putLifecyclePolicy
-    :: Text -- ^ 'plpRepositoryName'
-    -> Text -- ^ 'plpLifecyclePolicyText'
-    -> PutLifecyclePolicy
-putLifecyclePolicy pRepositoryName_ pLifecyclePolicyText_ =
-  PutLifecyclePolicy'
-  { _plpRegistryId = Nothing
-  , _plpRepositoryName = pRepositoryName_
-  , _plpLifecyclePolicyText = pLifecyclePolicyText_
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository. If you do  not specify a registry, the default
+    -- registry is assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository to receive the policy.
+    repositoryName :: Prelude.Text,
+    -- | The JSON repository policy text to apply to the repository.
+    lifecyclePolicyText :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'PutLifecyclePolicy' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'registryId', 'putLifecyclePolicy_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do  not specify a registry, the default
+-- registry is assumed.
+--
+-- 'repositoryName', 'putLifecyclePolicy_repositoryName' - The name of the repository to receive the policy.
+--
+-- 'lifecyclePolicyText', 'putLifecyclePolicy_lifecyclePolicyText' - The JSON repository policy text to apply to the repository.
+newPutLifecyclePolicy ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  -- | 'lifecyclePolicyText'
+  Prelude.Text ->
+  PutLifecyclePolicy
+newPutLifecyclePolicy
+  pRepositoryName_
+  pLifecyclePolicyText_ =
+    PutLifecyclePolicy'
+      { registryId = Prelude.Nothing,
+        repositoryName = pRepositoryName_,
+        lifecyclePolicyText = pLifecyclePolicyText_
+      }
 
--- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
-plpRegistryId :: Lens' PutLifecyclePolicy (Maybe Text)
-plpRegistryId = lens _plpRegistryId (\ s a -> s{_plpRegistryId = a});
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository. If you do  not specify a registry, the default
+-- registry is assumed.
+putLifecyclePolicy_registryId :: Lens.Lens' PutLifecyclePolicy (Prelude.Maybe Prelude.Text)
+putLifecyclePolicy_registryId = Lens.lens (\PutLifecyclePolicy' {registryId} -> registryId) (\s@PutLifecyclePolicy' {} a -> s {registryId = a} :: PutLifecyclePolicy)
 
 -- | The name of the repository to receive the policy.
-plpRepositoryName :: Lens' PutLifecyclePolicy Text
-plpRepositoryName = lens _plpRepositoryName (\ s a -> s{_plpRepositoryName = a});
+putLifecyclePolicy_repositoryName :: Lens.Lens' PutLifecyclePolicy Prelude.Text
+putLifecyclePolicy_repositoryName = Lens.lens (\PutLifecyclePolicy' {repositoryName} -> repositoryName) (\s@PutLifecyclePolicy' {} a -> s {repositoryName = a} :: PutLifecyclePolicy)
 
 -- | The JSON repository policy text to apply to the repository.
-plpLifecyclePolicyText :: Lens' PutLifecyclePolicy Text
-plpLifecyclePolicyText = lens _plpLifecyclePolicyText (\ s a -> s{_plpLifecyclePolicyText = a});
+putLifecyclePolicy_lifecyclePolicyText :: Lens.Lens' PutLifecyclePolicy Prelude.Text
+putLifecyclePolicy_lifecyclePolicyText = Lens.lens (\PutLifecyclePolicy' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@PutLifecyclePolicy' {} a -> s {lifecyclePolicyText = a} :: PutLifecyclePolicy)
 
-instance AWSRequest PutLifecyclePolicy where
-        type Rs PutLifecyclePolicy =
-             PutLifecyclePolicyResponse
-        request = postJSON ecr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutLifecyclePolicyResponse' <$>
-                   (x .?> "registryId") <*>
-                     (x .?> "lifecyclePolicyText")
-                     <*> (x .?> "repositoryName")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest PutLifecyclePolicy where
+  type
+    AWSResponse PutLifecyclePolicy =
+      PutLifecyclePolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutLifecyclePolicyResponse'
+            Prelude.<$> (x Core..?> "registryId")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "lifecyclePolicyText")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable PutLifecyclePolicy where
+instance Prelude.Hashable PutLifecyclePolicy
 
-instance NFData PutLifecyclePolicy where
+instance Prelude.NFData PutLifecyclePolicy
 
-instance ToHeaders PutLifecyclePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders PutLifecyclePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON PutLifecyclePolicy where
-        toJSON PutLifecyclePolicy'{..}
-          = object
-              (catMaybes
-                 [("registryId" .=) <$> _plpRegistryId,
-                  Just ("repositoryName" .= _plpRepositoryName),
-                  Just
-                    ("lifecyclePolicyText" .= _plpLifecyclePolicyText)])
+instance Core.ToJSON PutLifecyclePolicy where
+  toJSON PutLifecyclePolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName),
+            Prelude.Just
+              ("lifecyclePolicyText" Core..= lifecyclePolicyText)
+          ]
+      )
 
-instance ToPath PutLifecyclePolicy where
-        toPath = const "/"
+instance Core.ToPath PutLifecyclePolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutLifecyclePolicy where
-        toQuery = const mempty
+instance Core.ToQuery PutLifecyclePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putLifecyclePolicyResponse' smart constructor.
+-- | /See:/ 'newPutLifecyclePolicyResponse' smart constructor.
 data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
-  { _plprsRegistryId          :: !(Maybe Text)
-  , _plprsLifecyclePolicyText :: !(Maybe Text)
-  , _plprsRepositoryName      :: !(Maybe Text)
-  , _plprsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutLifecyclePolicyResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plprsRegistryId' - The registry ID associated with the request.
---
--- * 'plprsLifecyclePolicyText' - The JSON repository policy text.
---
--- * 'plprsRepositoryName' - The repository name associated with the request.
---
--- * 'plprsResponseStatus' - -- | The response status code.
-putLifecyclePolicyResponse
-    :: Int -- ^ 'plprsResponseStatus'
-    -> PutLifecyclePolicyResponse
-putLifecyclePolicyResponse pResponseStatus_ =
-  PutLifecyclePolicyResponse'
-  { _plprsRegistryId = Nothing
-  , _plprsLifecyclePolicyText = Nothing
-  , _plprsRepositoryName = Nothing
-  , _plprsResponseStatus = pResponseStatus_
+  { -- | The registry ID associated with the request.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The JSON repository policy text.
+    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'PutLifecyclePolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'registryId', 'putLifecyclePolicyResponse_registryId' - The registry ID associated with the request.
+--
+-- 'repositoryName', 'putLifecyclePolicyResponse_repositoryName' - The repository name associated with the request.
+--
+-- 'lifecyclePolicyText', 'putLifecyclePolicyResponse_lifecyclePolicyText' - The JSON repository policy text.
+--
+-- 'httpStatus', 'putLifecyclePolicyResponse_httpStatus' - The response's http status code.
+newPutLifecyclePolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PutLifecyclePolicyResponse
+newPutLifecyclePolicyResponse pHttpStatus_ =
+  PutLifecyclePolicyResponse'
+    { registryId =
+        Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      lifecyclePolicyText = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The registry ID associated with the request.
-plprsRegistryId :: Lens' PutLifecyclePolicyResponse (Maybe Text)
-plprsRegistryId = lens _plprsRegistryId (\ s a -> s{_plprsRegistryId = a});
-
--- | The JSON repository policy text.
-plprsLifecyclePolicyText :: Lens' PutLifecyclePolicyResponse (Maybe Text)
-plprsLifecyclePolicyText = lens _plprsLifecyclePolicyText (\ s a -> s{_plprsLifecyclePolicyText = a});
+putLifecyclePolicyResponse_registryId :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+putLifecyclePolicyResponse_registryId = Lens.lens (\PutLifecyclePolicyResponse' {registryId} -> registryId) (\s@PutLifecyclePolicyResponse' {} a -> s {registryId = a} :: PutLifecyclePolicyResponse)
 
 -- | The repository name associated with the request.
-plprsRepositoryName :: Lens' PutLifecyclePolicyResponse (Maybe Text)
-plprsRepositoryName = lens _plprsRepositoryName (\ s a -> s{_plprsRepositoryName = a});
+putLifecyclePolicyResponse_repositoryName :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+putLifecyclePolicyResponse_repositoryName = Lens.lens (\PutLifecyclePolicyResponse' {repositoryName} -> repositoryName) (\s@PutLifecyclePolicyResponse' {} a -> s {repositoryName = a} :: PutLifecyclePolicyResponse)
 
--- | -- | The response status code.
-plprsResponseStatus :: Lens' PutLifecyclePolicyResponse Int
-plprsResponseStatus = lens _plprsResponseStatus (\ s a -> s{_plprsResponseStatus = a});
+-- | The JSON repository policy text.
+putLifecyclePolicyResponse_lifecyclePolicyText :: Lens.Lens' PutLifecyclePolicyResponse (Prelude.Maybe Prelude.Text)
+putLifecyclePolicyResponse_lifecyclePolicyText = Lens.lens (\PutLifecyclePolicyResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@PutLifecyclePolicyResponse' {} a -> s {lifecyclePolicyText = a} :: PutLifecyclePolicyResponse)
 
-instance NFData PutLifecyclePolicyResponse where
+-- | The response's http status code.
+putLifecyclePolicyResponse_httpStatus :: Lens.Lens' PutLifecyclePolicyResponse Prelude.Int
+putLifecyclePolicyResponse_httpStatus = Lens.lens (\PutLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@PutLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: PutLifecyclePolicyResponse)
+
+instance Prelude.NFData PutLifecyclePolicyResponse

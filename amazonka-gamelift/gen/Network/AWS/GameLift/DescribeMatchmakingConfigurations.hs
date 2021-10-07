@@ -1,214 +1,311 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.DescribeMatchmakingConfigurations
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the details of FlexMatch matchmaking configurations. with this operation, you have the following options: (1) retrieve all existing configurations, (2) provide the names of one or more configurations to retrieve, or (3) retrieve all configurations that use a specified rule set name. When requesting multiple items, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a configuration is returned for each requested name. When specifying a list of names, only configurations that currently exist are returned.
+-- Retrieves the details of FlexMatch matchmaking configurations.
 --
+-- This operation offers the following options: (1) retrieve all
+-- matchmaking configurations, (2) retrieve configurations for a specified
+-- list, or (3) retrieve all configurations that use a specified rule set
+-- name. When requesting multiple items, use the pagination parameters to
+-- retrieve results as a set of sequential pages.
 --
--- Operations related to match configurations and rule sets include:
+-- If successful, a configuration is returned for each requested name. When
+-- specifying a list of names, only configurations that currently exist are
+-- returned.
 --
---     * 'CreateMatchmakingConfiguration'
+-- __Learn more__
 --
---     * 'DescribeMatchmakingConfigurations'
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/matchmaker-build.html Setting up FlexMatch matchmakers>
 --
---     * 'UpdateMatchmakingConfiguration'
+-- __Related actions__
 --
---     * 'DeleteMatchmakingConfiguration'
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
---     * 'CreateMatchmakingRuleSet'
---
---     * 'DescribeMatchmakingRuleSets'
---
---     * 'ValidateMatchmakingRuleSet'
---
---
---
+-- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeMatchmakingConfigurations
-    (
-    -- * Creating a Request
-      describeMatchmakingConfigurations
-    , DescribeMatchmakingConfigurations
+  ( -- * Creating a Request
+    DescribeMatchmakingConfigurations (..),
+    newDescribeMatchmakingConfigurations,
+
     -- * Request Lenses
-    , dmcRuleSetName
-    , dmcNextToken
-    , dmcNames
-    , dmcLimit
+    describeMatchmakingConfigurations_names,
+    describeMatchmakingConfigurations_nextToken,
+    describeMatchmakingConfigurations_ruleSetName,
+    describeMatchmakingConfigurations_limit,
 
     -- * Destructuring the Response
-    , describeMatchmakingConfigurationsResponse
-    , DescribeMatchmakingConfigurationsResponse
+    DescribeMatchmakingConfigurationsResponse (..),
+    newDescribeMatchmakingConfigurationsResponse,
+
     -- * Response Lenses
-    , dmcsrsConfigurations
-    , dmcsrsNextToken
-    , dmcsrsResponseStatus
-    ) where
+    describeMatchmakingConfigurationsResponse_nextToken,
+    describeMatchmakingConfigurationsResponse_configurations,
+    describeMatchmakingConfigurationsResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeMatchmakingConfigurations' smart constructor.
+-- /See:/ 'newDescribeMatchmakingConfigurations' smart constructor.
 data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
-  { _dmcRuleSetName :: !(Maybe Text)
-  , _dmcNextToken   :: !(Maybe Text)
-  , _dmcNames       :: !(Maybe [Text])
-  , _dmcLimit       :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier for the matchmaking configuration(s) to retrieve.
+    -- You can use either the configuration name or ARN value. To request all
+    -- existing configurations, leave this parameter empty.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the matchmaking rule set. You can use either the
+    -- rule set name or ARN value. Use this parameter to retrieve all
+    -- matchmaking configurations that use this rule set.
+    ruleSetName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return. Use this parameter with
+    -- @NextToken@ to get results as a set of sequential pages. This parameter
+    -- is limited to 10.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMatchmakingConfigurations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMatchmakingConfigurations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmcRuleSetName' - Unique identifier for a matchmaking rule set. Use this parameter to retrieve all matchmaking configurations that use this rule set.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmcNextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
+-- 'names', 'describeMatchmakingConfigurations_names' - A unique identifier for the matchmaking configuration(s) to retrieve.
+-- You can use either the configuration name or ARN value. To request all
+-- existing configurations, leave this parameter empty.
 --
--- * 'dmcNames' - Unique identifier for a matchmaking configuration(s) to retrieve. To request all existing configurations, leave this parameter empty.
+-- 'nextToken', 'describeMatchmakingConfigurations_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
 --
--- * 'dmcLimit' - Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
-describeMatchmakingConfigurations
-    :: DescribeMatchmakingConfigurations
-describeMatchmakingConfigurations =
+-- 'ruleSetName', 'describeMatchmakingConfigurations_ruleSetName' - A unique identifier for the matchmaking rule set. You can use either the
+-- rule set name or ARN value. Use this parameter to retrieve all
+-- matchmaking configurations that use this rule set.
+--
+-- 'limit', 'describeMatchmakingConfigurations_limit' - The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages. This parameter
+-- is limited to 10.
+newDescribeMatchmakingConfigurations ::
+  DescribeMatchmakingConfigurations
+newDescribeMatchmakingConfigurations =
   DescribeMatchmakingConfigurations'
-  { _dmcRuleSetName = Nothing
-  , _dmcNextToken = Nothing
-  , _dmcNames = Nothing
-  , _dmcLimit = Nothing
-  }
+    { names =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      ruleSetName = Prelude.Nothing,
+      limit = Prelude.Nothing
+    }
 
+-- | A unique identifier for the matchmaking configuration(s) to retrieve.
+-- You can use either the configuration name or ARN value. To request all
+-- existing configurations, leave this parameter empty.
+describeMatchmakingConfigurations_names :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe [Prelude.Text])
+describeMatchmakingConfigurations_names = Lens.lens (\DescribeMatchmakingConfigurations' {names} -> names) (\s@DescribeMatchmakingConfigurations' {} a -> s {names = a} :: DescribeMatchmakingConfigurations) Prelude.. Lens.mapping Lens._Coerce
 
--- | Unique identifier for a matchmaking rule set. Use this parameter to retrieve all matchmaking configurations that use this rule set.
-dmcRuleSetName :: Lens' DescribeMatchmakingConfigurations (Maybe Text)
-dmcRuleSetName = lens _dmcRuleSetName (\ s a -> s{_dmcRuleSetName = a});
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+describeMatchmakingConfigurations_nextToken :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)
+describeMatchmakingConfigurations_nextToken = Lens.lens (\DescribeMatchmakingConfigurations' {nextToken} -> nextToken) (\s@DescribeMatchmakingConfigurations' {} a -> s {nextToken = a} :: DescribeMatchmakingConfigurations)
 
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this action. To start at the beginning of the result set, do not specify a value.
-dmcNextToken :: Lens' DescribeMatchmakingConfigurations (Maybe Text)
-dmcNextToken = lens _dmcNextToken (\ s a -> s{_dmcNextToken = a});
+-- | A unique identifier for the matchmaking rule set. You can use either the
+-- rule set name or ARN value. Use this parameter to retrieve all
+-- matchmaking configurations that use this rule set.
+describeMatchmakingConfigurations_ruleSetName :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Text)
+describeMatchmakingConfigurations_ruleSetName = Lens.lens (\DescribeMatchmakingConfigurations' {ruleSetName} -> ruleSetName) (\s@DescribeMatchmakingConfigurations' {} a -> s {ruleSetName = a} :: DescribeMatchmakingConfigurations)
 
--- | Unique identifier for a matchmaking configuration(s) to retrieve. To request all existing configurations, leave this parameter empty.
-dmcNames :: Lens' DescribeMatchmakingConfigurations [Text]
-dmcNames = lens _dmcNames (\ s a -> s{_dmcNames = a}) . _Default . _Coerce;
+-- | The maximum number of results to return. Use this parameter with
+-- @NextToken@ to get results as a set of sequential pages. This parameter
+-- is limited to 10.
+describeMatchmakingConfigurations_limit :: Lens.Lens' DescribeMatchmakingConfigurations (Prelude.Maybe Prelude.Natural)
+describeMatchmakingConfigurations_limit = Lens.lens (\DescribeMatchmakingConfigurations' {limit} -> limit) (\s@DescribeMatchmakingConfigurations' {} a -> s {limit = a} :: DescribeMatchmakingConfigurations)
 
--- | Maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
-dmcLimit :: Lens' DescribeMatchmakingConfigurations (Maybe Natural)
-dmcLimit = lens _dmcLimit (\ s a -> s{_dmcLimit = a}) . mapping _Nat;
+instance
+  Core.AWSPager
+    DescribeMatchmakingConfigurations
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeMatchmakingConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeMatchmakingConfigurationsResponse_configurations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeMatchmakingConfigurations_nextToken
+          Lens..~ rs
+          Lens.^? describeMatchmakingConfigurationsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeMatchmakingConfigurations
-         where
-        type Rs DescribeMatchmakingConfigurations =
-             DescribeMatchmakingConfigurationsResponse
-        request = postJSON gameLift
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeMatchmakingConfigurationsResponse' <$>
-                   (x .?> "Configurations" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance
+  Core.AWSRequest
+    DescribeMatchmakingConfigurations
+  where
+  type
+    AWSResponse DescribeMatchmakingConfigurations =
+      DescribeMatchmakingConfigurationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeMatchmakingConfigurationsResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+              Prelude.<*> (x Core..?> "Configurations" Core..!@ Prelude.mempty)
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeMatchmakingConfigurations
-         where
+instance
+  Prelude.Hashable
+    DescribeMatchmakingConfigurations
 
-instance NFData DescribeMatchmakingConfigurations
-         where
+instance
+  Prelude.NFData
+    DescribeMatchmakingConfigurations
 
-instance ToHeaders DescribeMatchmakingConfigurations
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.DescribeMatchmakingConfigurations" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Core.ToHeaders
+    DescribeMatchmakingConfigurations
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "GameLift.DescribeMatchmakingConfigurations" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeMatchmakingConfigurations
-         where
-        toJSON DescribeMatchmakingConfigurations'{..}
-          = object
-              (catMaybes
-                 [("RuleSetName" .=) <$> _dmcRuleSetName,
-                  ("NextToken" .=) <$> _dmcNextToken,
-                  ("Names" .=) <$> _dmcNames,
-                  ("Limit" .=) <$> _dmcLimit])
+instance
+  Core.ToJSON
+    DescribeMatchmakingConfigurations
+  where
+  toJSON DescribeMatchmakingConfigurations' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Names" Core..=) Prelude.<$> names,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("RuleSetName" Core..=) Prelude.<$> ruleSetName,
+            ("Limit" Core..=) Prelude.<$> limit
+          ]
+      )
 
-instance ToPath DescribeMatchmakingConfigurations
-         where
-        toPath = const "/"
+instance
+  Core.ToPath
+    DescribeMatchmakingConfigurations
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeMatchmakingConfigurations
-         where
-        toQuery = const mempty
+instance
+  Core.ToQuery
+    DescribeMatchmakingConfigurations
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request action.
+-- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeMatchmakingConfigurationsResponse' smart constructor.
+-- /See:/ 'newDescribeMatchmakingConfigurationsResponse' smart constructor.
 data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfigurationsResponse'
-  { _dmcsrsConfigurations :: !(Maybe [MatchmakingConfiguration])
-  , _dmcsrsNextToken      :: !(Maybe Text)
-  , _dmcsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeMatchmakingConfigurationsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmcsrsConfigurations' - Collection of requested matchmaking configuration objects.
---
--- * 'dmcsrsNextToken' - Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
---
--- * 'dmcsrsResponseStatus' - -- | The response status code.
-describeMatchmakingConfigurationsResponse
-    :: Int -- ^ 'dmcsrsResponseStatus'
-    -> DescribeMatchmakingConfigurationsResponse
-describeMatchmakingConfigurationsResponse pResponseStatus_ =
-  DescribeMatchmakingConfigurationsResponse'
-  { _dmcsrsConfigurations = Nothing
-  , _dmcsrsNextToken = Nothing
-  , _dmcsrsResponseStatus = pResponseStatus_
+  { -- | A token that indicates where to resume retrieving results on the next
+    -- call to this operation. If no token is returned, these results represent
+    -- the end of the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A collection of requested matchmaking configurations.
+    configurations :: Prelude.Maybe [MatchmakingConfiguration],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeMatchmakingConfigurationsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeMatchmakingConfigurationsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
+--
+-- 'configurations', 'describeMatchmakingConfigurationsResponse_configurations' - A collection of requested matchmaking configurations.
+--
+-- 'httpStatus', 'describeMatchmakingConfigurationsResponse_httpStatus' - The response's http status code.
+newDescribeMatchmakingConfigurationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeMatchmakingConfigurationsResponse
+newDescribeMatchmakingConfigurationsResponse
+  pHttpStatus_ =
+    DescribeMatchmakingConfigurationsResponse'
+      { nextToken =
+          Prelude.Nothing,
+        configurations = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
--- | Collection of requested matchmaking configuration objects.
-dmcsrsConfigurations :: Lens' DescribeMatchmakingConfigurationsResponse [MatchmakingConfiguration]
-dmcsrsConfigurations = lens _dmcsrsConfigurations (\ s a -> s{_dmcsrsConfigurations = a}) . _Default . _Coerce;
+-- | A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
+describeMatchmakingConfigurationsResponse_nextToken :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe Prelude.Text)
+describeMatchmakingConfigurationsResponse_nextToken = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeMatchmakingConfigurationsResponse)
 
--- | Token that indicates where to resume retrieving results on the next call to this action. If no token is returned, these results represent the end of the list.
-dmcsrsNextToken :: Lens' DescribeMatchmakingConfigurationsResponse (Maybe Text)
-dmcsrsNextToken = lens _dmcsrsNextToken (\ s a -> s{_dmcsrsNextToken = a});
+-- | A collection of requested matchmaking configurations.
+describeMatchmakingConfigurationsResponse_configurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Prelude.Maybe [MatchmakingConfiguration])
+describeMatchmakingConfigurationsResponse_configurations = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {configurations} -> configurations) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dmcsrsResponseStatus :: Lens' DescribeMatchmakingConfigurationsResponse Int
-dmcsrsResponseStatus = lens _dmcsrsResponseStatus (\ s a -> s{_dmcsrsResponseStatus = a});
+-- | The response's http status code.
+describeMatchmakingConfigurationsResponse_httpStatus :: Lens.Lens' DescribeMatchmakingConfigurationsResponse Prelude.Int
+describeMatchmakingConfigurationsResponse_httpStatus = Lens.lens (\DescribeMatchmakingConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeMatchmakingConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeMatchmakingConfigurationsResponse)
 
-instance NFData
-           DescribeMatchmakingConfigurationsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeMatchmakingConfigurationsResponse

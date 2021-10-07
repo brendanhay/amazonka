@@ -1,177 +1,304 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accept ownership of a private virtual interface created by another customer.
+-- Accepts ownership of a private virtual interface created by another
+-- account.
 --
---
--- After the virtual interface owner calls this function, the virtual interface will be created and attached to the given virtual private gateway or direct connect gateway, and will be available for handling traffic.
---
+-- After the virtual interface owner makes this call, the virtual interface
+-- is created and attached to the specified virtual private gateway or
+-- Direct Connect gateway, and is made available to handle traffic.
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
-    (
-    -- * Creating a Request
-      confirmPrivateVirtualInterface
-    , ConfirmPrivateVirtualInterface
+  ( -- * Creating a Request
+    ConfirmPrivateVirtualInterface (..),
+    newConfirmPrivateVirtualInterface,
+
     -- * Request Lenses
-    , cpviVirtualGatewayId
-    , cpviDirectConnectGatewayId
-    , cpviVirtualInterfaceId
+    confirmPrivateVirtualInterface_virtualGatewayId,
+    confirmPrivateVirtualInterface_directConnectGatewayId,
+    confirmPrivateVirtualInterface_virtualInterfaceId,
 
     -- * Destructuring the Response
-    , confirmPrivateVirtualInterfaceResponse
-    , ConfirmPrivateVirtualInterfaceResponse
+    ConfirmPrivateVirtualInterfaceResponse (..),
+    newConfirmPrivateVirtualInterfaceResponse,
+
     -- * Response Lenses
-    , cpvirsVirtualInterfaceState
-    , cpvirsResponseStatus
-    ) where
+    confirmPrivateVirtualInterfaceResponse_virtualInterfaceState,
+    confirmPrivateVirtualInterfaceResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the ConfirmPrivateVirtualInterface operation.
---
---
---
--- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
+-- | /See:/ 'newConfirmPrivateVirtualInterface' smart constructor.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
-  { _cpviVirtualGatewayId       :: !(Maybe Text)
-  , _cpviDirectConnectGatewayId :: !(Maybe Text)
-  , _cpviVirtualInterfaceId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ConfirmPrivateVirtualInterface' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpviVirtualGatewayId' - ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
---
--- * 'cpviDirectConnectGatewayId' - ID of the direct connect gateway that will be attached to the virtual interface. A direct connect gateway can be managed via the AWS Direct Connect console or the 'CreateDirectConnectGateway' action. Default: None
---
--- * 'cpviVirtualInterfaceId' - Undocumented member.
-confirmPrivateVirtualInterface
-    :: Text -- ^ 'cpviVirtualInterfaceId'
-    -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface pVirtualInterfaceId_ =
-  ConfirmPrivateVirtualInterface'
-  { _cpviVirtualGatewayId = Nothing
-  , _cpviDirectConnectGatewayId = Nothing
-  , _cpviVirtualInterfaceId = pVirtualInterfaceId_
+  { -- | The ID of the virtual private gateway.
+    virtualGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | ID of the virtual private gateway that will be attached to the virtual interface. A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action. Default: None
-cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface (Maybe Text)
-cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
-
--- | ID of the direct connect gateway that will be attached to the virtual interface. A direct connect gateway can be managed via the AWS Direct Connect console or the 'CreateDirectConnectGateway' action. Default: None
-cpviDirectConnectGatewayId :: Lens' ConfirmPrivateVirtualInterface (Maybe Text)
-cpviDirectConnectGatewayId = lens _cpviDirectConnectGatewayId (\ s a -> s{_cpviDirectConnectGatewayId = a});
-
--- | Undocumented member.
-cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
-
-instance AWSRequest ConfirmPrivateVirtualInterface
-         where
-        type Rs ConfirmPrivateVirtualInterface =
-             ConfirmPrivateVirtualInterfaceResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ConfirmPrivateVirtualInterfaceResponse' <$>
-                   (x .?> "virtualInterfaceState") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable ConfirmPrivateVirtualInterface
-         where
-
-instance NFData ConfirmPrivateVirtualInterface where
-
-instance ToHeaders ConfirmPrivateVirtualInterface
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.ConfirmPrivateVirtualInterface" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ConfirmPrivateVirtualInterface where
-        toJSON ConfirmPrivateVirtualInterface'{..}
-          = object
-              (catMaybes
-                 [("virtualGatewayId" .=) <$> _cpviVirtualGatewayId,
-                  ("directConnectGatewayId" .=) <$>
-                    _cpviDirectConnectGatewayId,
-                  Just
-                    ("virtualInterfaceId" .= _cpviVirtualInterfaceId)])
-
-instance ToPath ConfirmPrivateVirtualInterface where
-        toPath = const "/"
-
-instance ToQuery ConfirmPrivateVirtualInterface where
-        toQuery = const mempty
-
--- | The response received when ConfirmPrivateVirtualInterface is called.
+-- |
+-- Create a value of 'ConfirmPrivateVirtualInterface' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
+-- 'virtualGatewayId', 'confirmPrivateVirtualInterface_virtualGatewayId' - The ID of the virtual private gateway.
+--
+-- 'directConnectGatewayId', 'confirmPrivateVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.
+--
+-- 'virtualInterfaceId', 'confirmPrivateVirtualInterface_virtualInterfaceId' - The ID of the virtual interface.
+newConfirmPrivateVirtualInterface ::
+  -- | 'virtualInterfaceId'
+  Prelude.Text ->
+  ConfirmPrivateVirtualInterface
+newConfirmPrivateVirtualInterface
+  pVirtualInterfaceId_ =
+    ConfirmPrivateVirtualInterface'
+      { virtualGatewayId =
+          Prelude.Nothing,
+        directConnectGatewayId = Prelude.Nothing,
+        virtualInterfaceId = pVirtualInterfaceId_
+      }
+
+-- | The ID of the virtual private gateway.
+confirmPrivateVirtualInterface_virtualGatewayId :: Lens.Lens' ConfirmPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
+confirmPrivateVirtualInterface_virtualGatewayId = Lens.lens (\ConfirmPrivateVirtualInterface' {virtualGatewayId} -> virtualGatewayId) (\s@ConfirmPrivateVirtualInterface' {} a -> s {virtualGatewayId = a} :: ConfirmPrivateVirtualInterface)
+
+-- | The ID of the Direct Connect gateway.
+confirmPrivateVirtualInterface_directConnectGatewayId :: Lens.Lens' ConfirmPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
+confirmPrivateVirtualInterface_directConnectGatewayId = Lens.lens (\ConfirmPrivateVirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@ConfirmPrivateVirtualInterface' {} a -> s {directConnectGatewayId = a} :: ConfirmPrivateVirtualInterface)
+
+-- | The ID of the virtual interface.
+confirmPrivateVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmPrivateVirtualInterface Prelude.Text
+confirmPrivateVirtualInterface_virtualInterfaceId = Lens.lens (\ConfirmPrivateVirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@ConfirmPrivateVirtualInterface' {} a -> s {virtualInterfaceId = a} :: ConfirmPrivateVirtualInterface)
+
+instance
+  Core.AWSRequest
+    ConfirmPrivateVirtualInterface
+  where
+  type
+    AWSResponse ConfirmPrivateVirtualInterface =
+      ConfirmPrivateVirtualInterfaceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ConfirmPrivateVirtualInterfaceResponse'
+            Prelude.<$> (x Core..?> "virtualInterfaceState")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    ConfirmPrivateVirtualInterface
+
+instance
+  Prelude.NFData
+    ConfirmPrivateVirtualInterface
+
+instance
+  Core.ToHeaders
+    ConfirmPrivateVirtualInterface
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OvertureService.ConfirmPrivateVirtualInterface" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ConfirmPrivateVirtualInterface where
+  toJSON ConfirmPrivateVirtualInterface' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("virtualGatewayId" Core..=)
+              Prelude.<$> virtualGatewayId,
+            ("directConnectGatewayId" Core..=)
+              Prelude.<$> directConnectGatewayId,
+            Prelude.Just
+              ("virtualInterfaceId" Core..= virtualInterfaceId)
+          ]
+      )
+
+instance Core.ToPath ConfirmPrivateVirtualInterface where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ConfirmPrivateVirtualInterface where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newConfirmPrivateVirtualInterfaceResponse' smart constructor.
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
-  { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-  , _cpvirsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ConfirmPrivateVirtualInterfaceResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpvirsVirtualInterfaceState' - Undocumented member.
---
--- * 'cpvirsResponseStatus' - -- | The response status code.
-confirmPrivateVirtualInterfaceResponse
-    :: Int -- ^ 'cpvirsResponseStatus'
-    -> ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse pResponseStatus_ =
-  ConfirmPrivateVirtualInterfaceResponse'
-  { _cpvirsVirtualInterfaceState = Nothing
-  , _cpvirsResponseStatus = pResponseStatus_
+  { -- | The state of the virtual interface. The following are the possible
+    -- values:
+    --
+    -- -   @confirming@: The creation of the virtual interface is pending
+    --     confirmation from the virtual interface owner. If the owner of the
+    --     virtual interface is different from the owner of the connection on
+    --     which it is provisioned, then the virtual interface will remain in
+    --     this state until it is confirmed by the virtual interface owner.
+    --
+    -- -   @verifying@: This state only applies to public virtual interfaces.
+    --     Each public virtual interface needs validation before the virtual
+    --     interface can be created.
+    --
+    -- -   @pending@: A virtual interface is in this state from the time that
+    --     it is created until the virtual interface is ready to forward
+    --     traffic.
+    --
+    -- -   @available@: A virtual interface that is able to forward traffic.
+    --
+    -- -   @down@: A virtual interface that is BGP down.
+    --
+    -- -   @deleting@: A virtual interface is in this state immediately after
+    --     calling DeleteVirtualInterface until it can no longer forward
+    --     traffic.
+    --
+    -- -   @deleted@: A virtual interface that cannot forward traffic.
+    --
+    -- -   @rejected@: The virtual interface owner has declined creation of the
+    --     virtual interface. If a virtual interface in the @Confirming@ state
+    --     is deleted by the virtual interface owner, the virtual interface
+    --     enters the @Rejected@ state.
+    --
+    -- -   @unknown@: The state of the virtual interface is not available.
+    virtualInterfaceState :: Prelude.Maybe VirtualInterfaceState,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ConfirmPrivateVirtualInterfaceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'virtualInterfaceState', 'confirmPrivateVirtualInterfaceResponse_virtualInterfaceState' - The state of the virtual interface. The following are the possible
+-- values:
+--
+-- -   @confirming@: The creation of the virtual interface is pending
+--     confirmation from the virtual interface owner. If the owner of the
+--     virtual interface is different from the owner of the connection on
+--     which it is provisioned, then the virtual interface will remain in
+--     this state until it is confirmed by the virtual interface owner.
+--
+-- -   @verifying@: This state only applies to public virtual interfaces.
+--     Each public virtual interface needs validation before the virtual
+--     interface can be created.
+--
+-- -   @pending@: A virtual interface is in this state from the time that
+--     it is created until the virtual interface is ready to forward
+--     traffic.
+--
+-- -   @available@: A virtual interface that is able to forward traffic.
+--
+-- -   @down@: A virtual interface that is BGP down.
+--
+-- -   @deleting@: A virtual interface is in this state immediately after
+--     calling DeleteVirtualInterface until it can no longer forward
+--     traffic.
+--
+-- -   @deleted@: A virtual interface that cannot forward traffic.
+--
+-- -   @rejected@: The virtual interface owner has declined creation of the
+--     virtual interface. If a virtual interface in the @Confirming@ state
+--     is deleted by the virtual interface owner, the virtual interface
+--     enters the @Rejected@ state.
+--
+-- -   @unknown@: The state of the virtual interface is not available.
+--
+-- 'httpStatus', 'confirmPrivateVirtualInterfaceResponse_httpStatus' - The response's http status code.
+newConfirmPrivateVirtualInterfaceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ConfirmPrivateVirtualInterfaceResponse
+newConfirmPrivateVirtualInterfaceResponse
+  pHttpStatus_ =
+    ConfirmPrivateVirtualInterfaceResponse'
+      { virtualInterfaceState =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
--- | Undocumented member.
-cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
+-- | The state of the virtual interface. The following are the possible
+-- values:
+--
+-- -   @confirming@: The creation of the virtual interface is pending
+--     confirmation from the virtual interface owner. If the owner of the
+--     virtual interface is different from the owner of the connection on
+--     which it is provisioned, then the virtual interface will remain in
+--     this state until it is confirmed by the virtual interface owner.
+--
+-- -   @verifying@: This state only applies to public virtual interfaces.
+--     Each public virtual interface needs validation before the virtual
+--     interface can be created.
+--
+-- -   @pending@: A virtual interface is in this state from the time that
+--     it is created until the virtual interface is ready to forward
+--     traffic.
+--
+-- -   @available@: A virtual interface that is able to forward traffic.
+--
+-- -   @down@: A virtual interface that is BGP down.
+--
+-- -   @deleting@: A virtual interface is in this state immediately after
+--     calling DeleteVirtualInterface until it can no longer forward
+--     traffic.
+--
+-- -   @deleted@: A virtual interface that cannot forward traffic.
+--
+-- -   @rejected@: The virtual interface owner has declined creation of the
+--     virtual interface. If a virtual interface in the @Confirming@ state
+--     is deleted by the virtual interface owner, the virtual interface
+--     enters the @Rejected@ state.
+--
+-- -   @unknown@: The state of the virtual interface is not available.
+confirmPrivateVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmPrivateVirtualInterfaceResponse (Prelude.Maybe VirtualInterfaceState)
+confirmPrivateVirtualInterfaceResponse_virtualInterfaceState = Lens.lens (\ConfirmPrivateVirtualInterfaceResponse' {virtualInterfaceState} -> virtualInterfaceState) (\s@ConfirmPrivateVirtualInterfaceResponse' {} a -> s {virtualInterfaceState = a} :: ConfirmPrivateVirtualInterfaceResponse)
 
--- | -- | The response status code.
-cpvirsResponseStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
-cpvirsResponseStatus = lens _cpvirsResponseStatus (\ s a -> s{_cpvirsResponseStatus = a});
+-- | The response's http status code.
+confirmPrivateVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmPrivateVirtualInterfaceResponse Prelude.Int
+confirmPrivateVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmPrivateVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@ConfirmPrivateVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: ConfirmPrivateVirtualInterfaceResponse)
 
-instance NFData
-           ConfirmPrivateVirtualInterfaceResponse
-         where
+instance
+  Prelude.NFData
+    ConfirmPrivateVirtualInterfaceResponse

@@ -1,143 +1,171 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.UpdateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing job definition.
---
---
 module Network.AWS.Glue.UpdateJob
-    (
-    -- * Creating a Request
-      updateJob
-    , UpdateJob
+  ( -- * Creating a Request
+    UpdateJob (..),
+    newUpdateJob,
+
     -- * Request Lenses
-    , ujJobName
-    , ujJobUpdate
+    updateJob_jobName,
+    updateJob_jobUpdate,
 
     -- * Destructuring the Response
-    , updateJobResponse
-    , UpdateJobResponse
+    UpdateJobResponse (..),
+    newUpdateJobResponse,
+
     -- * Response Lenses
-    , ujrsJobName
-    , ujrsResponseStatus
-    ) where
+    updateJobResponse_jobName,
+    updateJobResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateJob' smart constructor.
+-- | /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujJobName   :: !Text
-  , _ujJobUpdate :: !JobUpdate
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the job definition to update.
+    jobName :: Prelude.Text,
+    -- | Specifies the values with which to update the job definition.
+    jobUpdate :: JobUpdate
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ujJobName' - Name of the job definition to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ujJobUpdate' - Specifies the values with which to update the job.
-updateJob
-    :: Text -- ^ 'ujJobName'
-    -> JobUpdate -- ^ 'ujJobUpdate'
-    -> UpdateJob
-updateJob pJobName_ pJobUpdate_ =
-  UpdateJob' {_ujJobName = pJobName_, _ujJobUpdate = pJobUpdate_}
+-- 'jobName', 'updateJob_jobName' - The name of the job definition to update.
+--
+-- 'jobUpdate', 'updateJob_jobUpdate' - Specifies the values with which to update the job definition.
+newUpdateJob ::
+  -- | 'jobName'
+  Prelude.Text ->
+  -- | 'jobUpdate'
+  JobUpdate ->
+  UpdateJob
+newUpdateJob pJobName_ pJobUpdate_ =
+  UpdateJob'
+    { jobName = pJobName_,
+      jobUpdate = pJobUpdate_
+    }
 
+-- | The name of the job definition to update.
+updateJob_jobName :: Lens.Lens' UpdateJob Prelude.Text
+updateJob_jobName = Lens.lens (\UpdateJob' {jobName} -> jobName) (\s@UpdateJob' {} a -> s {jobName = a} :: UpdateJob)
 
--- | Name of the job definition to update.
-ujJobName :: Lens' UpdateJob Text
-ujJobName = lens _ujJobName (\ s a -> s{_ujJobName = a});
+-- | Specifies the values with which to update the job definition.
+updateJob_jobUpdate :: Lens.Lens' UpdateJob JobUpdate
+updateJob_jobUpdate = Lens.lens (\UpdateJob' {jobUpdate} -> jobUpdate) (\s@UpdateJob' {} a -> s {jobUpdate = a} :: UpdateJob)
 
--- | Specifies the values with which to update the job.
-ujJobUpdate :: Lens' UpdateJob JobUpdate
-ujJobUpdate = lens _ujJobUpdate (\ s a -> s{_ujJobUpdate = a});
+instance Core.AWSRequest UpdateJob where
+  type AWSResponse UpdateJob = UpdateJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateJobResponse'
+            Prelude.<$> (x Core..?> "JobName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdateJob where
-        type Rs UpdateJob = UpdateJobResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateJobResponse' <$>
-                   (x .?> "JobName") <*> (pure (fromEnum s)))
+instance Prelude.Hashable UpdateJob
 
-instance Hashable UpdateJob where
+instance Prelude.NFData UpdateJob
 
-instance NFData UpdateJob where
+instance Core.ToHeaders UpdateJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.UpdateJob" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UpdateJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.UpdateJob" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UpdateJob where
+  toJSON UpdateJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("JobName" Core..= jobName),
+            Prelude.Just ("JobUpdate" Core..= jobUpdate)
+          ]
+      )
 
-instance ToJSON UpdateJob where
-        toJSON UpdateJob'{..}
-          = object
-              (catMaybes
-                 [Just ("JobName" .= _ujJobName),
-                  Just ("JobUpdate" .= _ujJobUpdate)])
+instance Core.ToPath UpdateJob where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdateJob where
-        toPath = const "/"
+instance Core.ToQuery UpdateJob where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateJob where
-        toQuery = const mempty
-
--- | /See:/ 'updateJobResponse' smart constructor.
+-- | /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { _ujrsJobName        :: !(Maybe Text)
-  , _ujrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Returns the name of the updated job definition.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ujrsJobName' - Returns the name of the updated job.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ujrsResponseStatus' - -- | The response status code.
-updateJobResponse
-    :: Int -- ^ 'ujrsResponseStatus'
-    -> UpdateJobResponse
-updateJobResponse pResponseStatus_ =
+-- 'jobName', 'updateJobResponse_jobName' - Returns the name of the updated job definition.
+--
+-- 'httpStatus', 'updateJobResponse_httpStatus' - The response's http status code.
+newUpdateJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateJobResponse
+newUpdateJobResponse pHttpStatus_ =
   UpdateJobResponse'
-  {_ujrsJobName = Nothing, _ujrsResponseStatus = pResponseStatus_}
+    { jobName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Returns the name of the updated job definition.
+updateJobResponse_jobName :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Text)
+updateJobResponse_jobName = Lens.lens (\UpdateJobResponse' {jobName} -> jobName) (\s@UpdateJobResponse' {} a -> s {jobName = a} :: UpdateJobResponse)
 
--- | Returns the name of the updated job.
-ujrsJobName :: Lens' UpdateJobResponse (Maybe Text)
-ujrsJobName = lens _ujrsJobName (\ s a -> s{_ujrsJobName = a});
+-- | The response's http status code.
+updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
+updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
--- | -- | The response status code.
-ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
-
-instance NFData UpdateJobResponse where
+instance Prelude.NFData UpdateJobResponse

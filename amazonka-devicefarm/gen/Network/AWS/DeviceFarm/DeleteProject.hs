@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.DeleteProject
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,111 +22,133 @@
 --
 -- Deletes an AWS Device Farm project, given the project ARN.
 --
---
--- __Note__ Deleting this resource does not stop an in-progress run.
---
+-- Deleting this resource does not stop an in-progress run.
 module Network.AWS.DeviceFarm.DeleteProject
-    (
-    -- * Creating a Request
-      deleteProject
-    , DeleteProject
+  ( -- * Creating a Request
+    DeleteProject (..),
+    newDeleteProject,
+
     -- * Request Lenses
-    , dpArn
+    deleteProject_arn,
 
     -- * Destructuring the Response
-    , deleteProjectResponse
-    , DeleteProjectResponse
-    -- * Response Lenses
-    , dprsResponseStatus
-    ) where
+    DeleteProjectResponse (..),
+    newDeleteProjectResponse,
 
+    -- * Response Lenses
+    deleteProjectResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the delete project operation.
 --
+-- /See:/ 'newDeleteProject' smart constructor.
+data DeleteProject = DeleteProject'
+  { -- | Represents the Amazon Resource Name (ARN) of the Device Farm project to
+    -- delete.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteProject' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteProject' smart constructor.
-newtype DeleteProject = DeleteProject'
-  { _dpArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpArn' - Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.
-deleteProject
-    :: Text -- ^ 'dpArn'
-    -> DeleteProject
-deleteProject pArn_ = DeleteProject' {_dpArn = pArn_}
+-- 'arn', 'deleteProject_arn' - Represents the Amazon Resource Name (ARN) of the Device Farm project to
+-- delete.
+newDeleteProject ::
+  -- | 'arn'
+  Prelude.Text ->
+  DeleteProject
+newDeleteProject pArn_ = DeleteProject' {arn = pArn_}
 
+-- | Represents the Amazon Resource Name (ARN) of the Device Farm project to
+-- delete.
+deleteProject_arn :: Lens.Lens' DeleteProject Prelude.Text
+deleteProject_arn = Lens.lens (\DeleteProject' {arn} -> arn) (\s@DeleteProject' {} a -> s {arn = a} :: DeleteProject)
 
--- | Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.
-dpArn :: Lens' DeleteProject Text
-dpArn = lens _dpArn (\ s a -> s{_dpArn = a});
+instance Core.AWSRequest DeleteProject where
+  type
+    AWSResponse DeleteProject =
+      DeleteProjectResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteProjectResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteProject where
-        type Rs DeleteProject = DeleteProjectResponse
-        request = postJSON deviceFarm
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteProjectResponse' <$> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteProject
 
-instance Hashable DeleteProject where
+instance Prelude.NFData DeleteProject
 
-instance NFData DeleteProject where
+instance Core.ToHeaders DeleteProject where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.DeleteProject" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteProject where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.DeleteProject" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteProject where
+  toJSON DeleteProject' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Core..= arn)]
+      )
 
-instance ToJSON DeleteProject where
-        toJSON DeleteProject'{..}
-          = object (catMaybes [Just ("arn" .= _dpArn)])
+instance Core.ToPath DeleteProject where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteProject where
-        toPath = const "/"
-
-instance ToQuery DeleteProject where
-        toQuery = const mempty
+instance Core.ToQuery DeleteProject where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a delete project request.
 --
+-- /See:/ 'newDeleteProjectResponse' smart constructor.
+data DeleteProjectResponse = DeleteProjectResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteProjectResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteProjectResponse' smart constructor.
-newtype DeleteProjectResponse = DeleteProjectResponse'
-  { _dprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dprsResponseStatus' - -- | The response status code.
-deleteProjectResponse
-    :: Int -- ^ 'dprsResponseStatus'
-    -> DeleteProjectResponse
-deleteProjectResponse pResponseStatus_ =
-  DeleteProjectResponse' {_dprsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteProjectResponse_httpStatus' - The response's http status code.
+newDeleteProjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteProjectResponse
+newDeleteProjectResponse pHttpStatus_ =
+  DeleteProjectResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
+deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteProjectResponse' {} a -> s {httpStatus = a} :: DeleteProjectResponse)
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DeleteProjectResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a});
-
-instance NFData DeleteProjectResponse where
+instance Prelude.NFData DeleteProjectResponse

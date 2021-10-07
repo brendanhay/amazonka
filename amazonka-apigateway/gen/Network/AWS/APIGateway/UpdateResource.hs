@@ -1,125 +1,147 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes information about a 'Resource' resource.
---
---
+-- Changes information about a Resource resource.
 module Network.AWS.APIGateway.UpdateResource
-    (
-    -- * Creating a Request
-      updateResource
-    , UpdateResource
+  ( -- * Creating a Request
+    UpdateResource (..),
+    newUpdateResource,
+
     -- * Request Lenses
-    , urPatchOperations
-    , urRestAPIId
-    , urResourceId
+    updateResource_patchOperations,
+    updateResource_restApiId,
+    updateResource_resourceId,
 
     -- * Destructuring the Response
-    , resource
-    , Resource
+    Resource (..),
+    newResource,
+
     -- * Response Lenses
-    , rPathPart
-    , rPath
-    , rId
-    , rResourceMethods
-    , rParentId
-    ) where
+    resource_id,
+    resource_pathPart,
+    resource_parentId,
+    resource_resourceMethods,
+    resource_path,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to change information about a 'Resource' resource.
+-- | Request to change information about a Resource resource.
 --
---
---
--- /See:/ 'updateResource' smart constructor.
+-- /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { _urPatchOperations :: !(Maybe [PatchOperation])
-  , _urRestAPIId       :: !Text
-  , _urResourceId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateResource' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'urRestAPIId' - The string identifier of the associated 'RestApi' .
---
--- * 'urResourceId' - The identifier of the 'Resource' resource.
-updateResource
-    :: Text -- ^ 'urRestAPIId'
-    -> Text -- ^ 'urResourceId'
-    -> UpdateResource
-updateResource pRestAPIId_ pResourceId_ =
-  UpdateResource'
-  { _urPatchOperations = Nothing
-  , _urRestAPIId = pRestAPIId_
-  , _urResourceId = pResourceId_
+  { -- | A list of update operations to be applied to the specified resource and
+    -- in the order specified in this list.
+    patchOperations :: Prelude.Maybe [PatchOperation],
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The identifier of the Resource resource.
+    resourceId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateResource' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'patchOperations', 'updateResource_patchOperations' - A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+--
+-- 'restApiId', 'updateResource_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'resourceId', 'updateResource_resourceId' - [Required] The identifier of the Resource resource.
+newUpdateResource ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  UpdateResource
+newUpdateResource pRestApiId_ pResourceId_ =
+  UpdateResource'
+    { patchOperations = Prelude.Nothing,
+      restApiId = pRestApiId_,
+      resourceId = pResourceId_
+    }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-urPatchOperations :: Lens' UpdateResource [PatchOperation]
-urPatchOperations = lens _urPatchOperations (\ s a -> s{_urPatchOperations = a}) . _Default . _Coerce;
+-- | A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+updateResource_patchOperations :: Lens.Lens' UpdateResource (Prelude.Maybe [PatchOperation])
+updateResource_patchOperations = Lens.lens (\UpdateResource' {patchOperations} -> patchOperations) (\s@UpdateResource' {} a -> s {patchOperations = a} :: UpdateResource) Prelude.. Lens.mapping Lens._Coerce
 
--- | The string identifier of the associated 'RestApi' .
-urRestAPIId :: Lens' UpdateResource Text
-urRestAPIId = lens _urRestAPIId (\ s a -> s{_urRestAPIId = a});
+-- | [Required] The string identifier of the associated RestApi.
+updateResource_restApiId :: Lens.Lens' UpdateResource Prelude.Text
+updateResource_restApiId = Lens.lens (\UpdateResource' {restApiId} -> restApiId) (\s@UpdateResource' {} a -> s {restApiId = a} :: UpdateResource)
 
--- | The identifier of the 'Resource' resource.
-urResourceId :: Lens' UpdateResource Text
-urResourceId = lens _urResourceId (\ s a -> s{_urResourceId = a});
+-- | [Required] The identifier of the Resource resource.
+updateResource_resourceId :: Lens.Lens' UpdateResource Prelude.Text
+updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resourceId) (\s@UpdateResource' {} a -> s {resourceId = a} :: UpdateResource)
 
-instance AWSRequest UpdateResource where
-        type Rs UpdateResource = Resource
-        request = patchJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.AWSRequest UpdateResource where
+  type AWSResponse UpdateResource = Resource
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable UpdateResource where
+instance Prelude.Hashable UpdateResource
 
-instance NFData UpdateResource where
+instance Prelude.NFData UpdateResource
 
-instance ToHeaders UpdateResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders UpdateResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToJSON UpdateResource where
-        toJSON UpdateResource'{..}
-          = object
-              (catMaybes
-                 [("patchOperations" .=) <$> _urPatchOperations])
+instance Core.ToJSON UpdateResource where
+  toJSON UpdateResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("patchOperations" Core..=)
+              Prelude.<$> patchOperations
+          ]
+      )
 
-instance ToPath UpdateResource where
-        toPath UpdateResource'{..}
-          = mconcat
-              ["/restapis/", toBS _urRestAPIId, "/resources/",
-               toBS _urResourceId]
+instance Core.ToPath UpdateResource where
+  toPath UpdateResource' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/resources/",
+        Core.toBS resourceId
+      ]
 
-instance ToQuery UpdateResource where
-        toQuery = const mempty
+instance Core.ToQuery UpdateResource where
+  toQuery = Prelude.const Prelude.mempty

@@ -1,112 +1,285 @@
-name:                  amazonka-config
-version:               1.5.0
-synopsis:              Amazon Config SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-config
+version:            1.6.1
+synopsis:           Amazon Config SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Config" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2014-11-12@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Config.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Config" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-config
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-config
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Config
+    Network.AWS.Config.BatchGetAggregateResourceConfig
+    Network.AWS.Config.BatchGetResourceConfig
+    Network.AWS.Config.DeleteAggregationAuthorization
+    Network.AWS.Config.DeleteConfigRule
+    Network.AWS.Config.DeleteConfigurationAggregator
+    Network.AWS.Config.DeleteConfigurationRecorder
+    Network.AWS.Config.DeleteConformancePack
+    Network.AWS.Config.DeleteDeliveryChannel
+    Network.AWS.Config.DeleteEvaluationResults
+    Network.AWS.Config.DeleteOrganizationConfigRule
+    Network.AWS.Config.DeleteOrganizationConformancePack
+    Network.AWS.Config.DeletePendingAggregationRequest
+    Network.AWS.Config.DeleteRemediationConfiguration
+    Network.AWS.Config.DeleteRemediationExceptions
+    Network.AWS.Config.DeleteResourceConfig
+    Network.AWS.Config.DeleteRetentionConfiguration
+    Network.AWS.Config.DeleteStoredQuery
+    Network.AWS.Config.DeliverConfigSnapshot
+    Network.AWS.Config.DescribeAggregateComplianceByConfigRules
+    Network.AWS.Config.DescribeAggregateComplianceByConformancePacks
+    Network.AWS.Config.DescribeAggregationAuthorizations
+    Network.AWS.Config.DescribeComplianceByConfigRule
+    Network.AWS.Config.DescribeComplianceByResource
+    Network.AWS.Config.DescribeConfigRuleEvaluationStatus
+    Network.AWS.Config.DescribeConfigRules
+    Network.AWS.Config.DescribeConfigurationAggregators
+    Network.AWS.Config.DescribeConfigurationAggregatorSourcesStatus
+    Network.AWS.Config.DescribeConfigurationRecorders
+    Network.AWS.Config.DescribeConfigurationRecorderStatus
+    Network.AWS.Config.DescribeConformancePackCompliance
+    Network.AWS.Config.DescribeConformancePacks
+    Network.AWS.Config.DescribeConformancePackStatus
+    Network.AWS.Config.DescribeDeliveryChannels
+    Network.AWS.Config.DescribeDeliveryChannelStatus
+    Network.AWS.Config.DescribeOrganizationConfigRules
+    Network.AWS.Config.DescribeOrganizationConfigRuleStatuses
+    Network.AWS.Config.DescribeOrganizationConformancePacks
+    Network.AWS.Config.DescribeOrganizationConformancePackStatuses
+    Network.AWS.Config.DescribePendingAggregationRequests
+    Network.AWS.Config.DescribeRemediationConfigurations
+    Network.AWS.Config.DescribeRemediationExceptions
+    Network.AWS.Config.DescribeRemediationExecutionStatus
+    Network.AWS.Config.DescribeRetentionConfigurations
+    Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
+    Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
+    Network.AWS.Config.GetAggregateConformancePackComplianceSummary
+    Network.AWS.Config.GetAggregateDiscoveredResourceCounts
+    Network.AWS.Config.GetAggregateResourceConfig
+    Network.AWS.Config.GetComplianceDetailsByConfigRule
+    Network.AWS.Config.GetComplianceDetailsByResource
+    Network.AWS.Config.GetComplianceSummaryByConfigRule
+    Network.AWS.Config.GetComplianceSummaryByResourceType
+    Network.AWS.Config.GetConformancePackComplianceDetails
+    Network.AWS.Config.GetConformancePackComplianceSummary
+    Network.AWS.Config.GetDiscoveredResourceCounts
+    Network.AWS.Config.GetOrganizationConfigRuleDetailedStatus
+    Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
+    Network.AWS.Config.GetResourceConfigHistory
+    Network.AWS.Config.GetStoredQuery
+    Network.AWS.Config.Lens
+    Network.AWS.Config.ListAggregateDiscoveredResources
+    Network.AWS.Config.ListDiscoveredResources
+    Network.AWS.Config.ListStoredQueries
+    Network.AWS.Config.ListTagsForResource
+    Network.AWS.Config.PutAggregationAuthorization
+    Network.AWS.Config.PutConfigRule
+    Network.AWS.Config.PutConfigurationAggregator
+    Network.AWS.Config.PutConfigurationRecorder
+    Network.AWS.Config.PutConformancePack
+    Network.AWS.Config.PutDeliveryChannel
+    Network.AWS.Config.PutEvaluations
+    Network.AWS.Config.PutExternalEvaluation
+    Network.AWS.Config.PutOrganizationConfigRule
+    Network.AWS.Config.PutOrganizationConformancePack
+    Network.AWS.Config.PutRemediationConfigurations
+    Network.AWS.Config.PutRemediationExceptions
+    Network.AWS.Config.PutResourceConfig
+    Network.AWS.Config.PutRetentionConfiguration
+    Network.AWS.Config.PutStoredQuery
+    Network.AWS.Config.SelectAggregateResourceConfig
+    Network.AWS.Config.SelectResourceConfig
+    Network.AWS.Config.StartConfigRulesEvaluation
+    Network.AWS.Config.StartConfigurationRecorder
+    Network.AWS.Config.StartRemediationExecution
+    Network.AWS.Config.StopConfigurationRecorder
+    Network.AWS.Config.TagResource
+    Network.AWS.Config.Types
+    Network.AWS.Config.Types.AccountAggregationSource
+    Network.AWS.Config.Types.AggregateComplianceByConfigRule
+    Network.AWS.Config.Types.AggregateComplianceByConformancePack
+    Network.AWS.Config.Types.AggregateComplianceCount
+    Network.AWS.Config.Types.AggregateConformancePackCompliance
+    Network.AWS.Config.Types.AggregateConformancePackComplianceCount
+    Network.AWS.Config.Types.AggregateConformancePackComplianceFilters
+    Network.AWS.Config.Types.AggregateConformancePackComplianceSummary
+    Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryFilters
+    Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryGroupKey
+    Network.AWS.Config.Types.AggregatedSourceStatus
+    Network.AWS.Config.Types.AggregatedSourceStatusType
+    Network.AWS.Config.Types.AggregatedSourceType
+    Network.AWS.Config.Types.AggregateEvaluationResult
+    Network.AWS.Config.Types.AggregateResourceIdentifier
+    Network.AWS.Config.Types.AggregationAuthorization
+    Network.AWS.Config.Types.BaseConfigurationItem
+    Network.AWS.Config.Types.ChronologicalOrder
+    Network.AWS.Config.Types.Compliance
+    Network.AWS.Config.Types.ComplianceByConfigRule
+    Network.AWS.Config.Types.ComplianceByResource
+    Network.AWS.Config.Types.ComplianceContributorCount
+    Network.AWS.Config.Types.ComplianceSummary
+    Network.AWS.Config.Types.ComplianceSummaryByResourceType
+    Network.AWS.Config.Types.ComplianceType
+    Network.AWS.Config.Types.ConfigExportDeliveryInfo
+    Network.AWS.Config.Types.ConfigRule
+    Network.AWS.Config.Types.ConfigRuleComplianceFilters
+    Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters
+    Network.AWS.Config.Types.ConfigRuleComplianceSummaryGroupKey
+    Network.AWS.Config.Types.ConfigRuleEvaluationStatus
+    Network.AWS.Config.Types.ConfigRuleState
+    Network.AWS.Config.Types.ConfigSnapshotDeliveryProperties
+    Network.AWS.Config.Types.ConfigStreamDeliveryInfo
+    Network.AWS.Config.Types.ConfigurationAggregator
+    Network.AWS.Config.Types.ConfigurationItem
+    Network.AWS.Config.Types.ConfigurationItemStatus
+    Network.AWS.Config.Types.ConfigurationRecorder
+    Network.AWS.Config.Types.ConfigurationRecorderStatus
+    Network.AWS.Config.Types.ConformancePackComplianceFilters
+    Network.AWS.Config.Types.ConformancePackComplianceSummary
+    Network.AWS.Config.Types.ConformancePackComplianceType
+    Network.AWS.Config.Types.ConformancePackDetail
+    Network.AWS.Config.Types.ConformancePackEvaluationFilters
+    Network.AWS.Config.Types.ConformancePackEvaluationResult
+    Network.AWS.Config.Types.ConformancePackInputParameter
+    Network.AWS.Config.Types.ConformancePackRuleCompliance
+    Network.AWS.Config.Types.ConformancePackState
+    Network.AWS.Config.Types.ConformancePackStatusDetail
+    Network.AWS.Config.Types.DeliveryChannel
+    Network.AWS.Config.Types.DeliveryChannelStatus
+    Network.AWS.Config.Types.DeliveryStatus
+    Network.AWS.Config.Types.Evaluation
+    Network.AWS.Config.Types.EvaluationResult
+    Network.AWS.Config.Types.EvaluationResultIdentifier
+    Network.AWS.Config.Types.EvaluationResultQualifier
+    Network.AWS.Config.Types.EventSource
+    Network.AWS.Config.Types.ExecutionControls
+    Network.AWS.Config.Types.ExternalEvaluation
+    Network.AWS.Config.Types.FailedDeleteRemediationExceptionsBatch
+    Network.AWS.Config.Types.FailedRemediationBatch
+    Network.AWS.Config.Types.FailedRemediationExceptionBatch
+    Network.AWS.Config.Types.FieldInfo
+    Network.AWS.Config.Types.GroupedResourceCount
+    Network.AWS.Config.Types.MaximumExecutionFrequency
+    Network.AWS.Config.Types.MemberAccountRuleStatus
+    Network.AWS.Config.Types.MemberAccountStatus
+    Network.AWS.Config.Types.MessageType
+    Network.AWS.Config.Types.OrganizationAggregationSource
+    Network.AWS.Config.Types.OrganizationConfigRule
+    Network.AWS.Config.Types.OrganizationConfigRuleStatus
+    Network.AWS.Config.Types.OrganizationConfigRuleTriggerType
+    Network.AWS.Config.Types.OrganizationConformancePack
+    Network.AWS.Config.Types.OrganizationConformancePackDetailedStatus
+    Network.AWS.Config.Types.OrganizationConformancePackStatus
+    Network.AWS.Config.Types.OrganizationCustomRuleMetadata
+    Network.AWS.Config.Types.OrganizationManagedRuleMetadata
+    Network.AWS.Config.Types.OrganizationResourceDetailedStatus
+    Network.AWS.Config.Types.OrganizationResourceDetailedStatusFilters
+    Network.AWS.Config.Types.OrganizationResourceStatus
+    Network.AWS.Config.Types.OrganizationRuleStatus
+    Network.AWS.Config.Types.Owner
+    Network.AWS.Config.Types.PendingAggregationRequest
+    Network.AWS.Config.Types.QueryInfo
+    Network.AWS.Config.Types.RecorderStatus
+    Network.AWS.Config.Types.RecordingGroup
+    Network.AWS.Config.Types.Relationship
+    Network.AWS.Config.Types.RemediationConfiguration
+    Network.AWS.Config.Types.RemediationException
+    Network.AWS.Config.Types.RemediationExceptionResourceKey
+    Network.AWS.Config.Types.RemediationExecutionState
+    Network.AWS.Config.Types.RemediationExecutionStatus
+    Network.AWS.Config.Types.RemediationExecutionStep
+    Network.AWS.Config.Types.RemediationExecutionStepState
+    Network.AWS.Config.Types.RemediationParameterValue
+    Network.AWS.Config.Types.RemediationTargetType
+    Network.AWS.Config.Types.ResourceCount
+    Network.AWS.Config.Types.ResourceCountFilters
+    Network.AWS.Config.Types.ResourceCountGroupKey
+    Network.AWS.Config.Types.ResourceFilters
+    Network.AWS.Config.Types.ResourceIdentifier
+    Network.AWS.Config.Types.ResourceKey
+    Network.AWS.Config.Types.ResourceType
+    Network.AWS.Config.Types.ResourceValue
+    Network.AWS.Config.Types.ResourceValueType
+    Network.AWS.Config.Types.RetentionConfiguration
+    Network.AWS.Config.Types.Scope
+    Network.AWS.Config.Types.Source
+    Network.AWS.Config.Types.SourceDetail
+    Network.AWS.Config.Types.SsmControls
+    Network.AWS.Config.Types.StaticValue
+    Network.AWS.Config.Types.StatusDetailFilters
+    Network.AWS.Config.Types.StoredQuery
+    Network.AWS.Config.Types.StoredQueryMetadata
+    Network.AWS.Config.Types.Tag
+    Network.AWS.Config.UntagResource
+    Network.AWS.Config.Waiters
 
-    exposed-modules:
-          Network.AWS.Config
-        , Network.AWS.Config.DeleteConfigRule
-        , Network.AWS.Config.DeleteConfigurationRecorder
-        , Network.AWS.Config.DeleteDeliveryChannel
-        , Network.AWS.Config.DeleteEvaluationResults
-        , Network.AWS.Config.DeliverConfigSnapshot
-        , Network.AWS.Config.DescribeComplianceByConfigRule
-        , Network.AWS.Config.DescribeComplianceByResource
-        , Network.AWS.Config.DescribeConfigRuleEvaluationStatus
-        , Network.AWS.Config.DescribeConfigRules
-        , Network.AWS.Config.DescribeConfigurationRecorderStatus
-        , Network.AWS.Config.DescribeConfigurationRecorders
-        , Network.AWS.Config.DescribeDeliveryChannelStatus
-        , Network.AWS.Config.DescribeDeliveryChannels
-        , Network.AWS.Config.GetComplianceDetailsByConfigRule
-        , Network.AWS.Config.GetComplianceDetailsByResource
-        , Network.AWS.Config.GetComplianceSummaryByConfigRule
-        , Network.AWS.Config.GetComplianceSummaryByResourceType
-        , Network.AWS.Config.GetDiscoveredResourceCounts
-        , Network.AWS.Config.GetResourceConfigHistory
-        , Network.AWS.Config.ListDiscoveredResources
-        , Network.AWS.Config.PutConfigRule
-        , Network.AWS.Config.PutConfigurationRecorder
-        , Network.AWS.Config.PutDeliveryChannel
-        , Network.AWS.Config.PutEvaluations
-        , Network.AWS.Config.StartConfigRulesEvaluation
-        , Network.AWS.Config.StartConfigurationRecorder
-        , Network.AWS.Config.StopConfigurationRecorder
-        , Network.AWS.Config.Types
-        , Network.AWS.Config.Waiters
-
-    other-modules:
-          Network.AWS.Config.Types.Product
-        , Network.AWS.Config.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-config-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Config
+    Test.AWS.Config.Internal
+    Test.AWS.Gen.Config
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Config
-        , Test.AWS.Gen.Config
-        , Test.AWS.Config.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-config
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-config
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

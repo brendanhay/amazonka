@@ -1,425 +1,279 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.ElasticTranscoder
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Elastic Transcoder Service__
+-- Derived from API version @2012-09-25@ of the AWS service descriptions, licensed under Apache 2.0.
+--
+-- AWS Elastic Transcoder Service
 --
 -- The AWS Elastic Transcoder Service.
---
 module Network.AWS.ElasticTranscoder
-    (
-    -- * Service Configuration
-      elasticTranscoder
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
     -- ** IncompatibleVersionException
-    , _IncompatibleVersionException
-
-    -- ** ValidationException
-    , _ValidationException
-
-    -- ** AccessDeniedException
-    , _AccessDeniedException
+    _IncompatibleVersionException,
 
     -- ** InternalServiceException
-    , _InternalServiceException
+    _InternalServiceException,
 
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** LimitExceededException
-    , _LimitExceededException
+    _LimitExceededException,
 
     -- ** ResourceInUseException
-    , _ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
 
     -- ** JobComplete
-    , jobComplete
+    newJobComplete,
 
     -- * Operations
     -- $operations
 
-    -- ** DeletePreset
-    , module Network.AWS.ElasticTranscoder.DeletePreset
-
     -- ** UpdatePipelineStatus
-    , module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
+    UpdatePipelineStatus (UpdatePipelineStatus'),
+    newUpdatePipelineStatus,
+    UpdatePipelineStatusResponse (UpdatePipelineStatusResponse'),
+    newUpdatePipelineStatusResponse,
 
     -- ** ListJobsByPipeline (Paginated)
-    , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
+    ListJobsByPipeline (ListJobsByPipeline'),
+    newListJobsByPipeline,
+    ListJobsByPipelineResponse (ListJobsByPipelineResponse'),
+    newListJobsByPipelineResponse,
 
-    -- ** UpdatePipeline
-    , module Network.AWS.ElasticTranscoder.UpdatePipeline
-
-    -- ** DeletePipeline
-    , module Network.AWS.ElasticTranscoder.DeletePipeline
-
-    -- ** CreateJob
-    , module Network.AWS.ElasticTranscoder.CreateJob
-
-    -- ** ListPipelines (Paginated)
-    , module Network.AWS.ElasticTranscoder.ListPipelines
-
-    -- ** CreatePreset
-    , module Network.AWS.ElasticTranscoder.CreatePreset
+    -- ** DeletePreset
+    DeletePreset (DeletePreset'),
+    newDeletePreset,
+    DeletePresetResponse (DeletePresetResponse'),
+    newDeletePresetResponse,
 
     -- ** ListPresets (Paginated)
-    , module Network.AWS.ElasticTranscoder.ListPresets
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
 
-    -- ** ReadPreset
-    , module Network.AWS.ElasticTranscoder.ReadPreset
-
-    -- ** ReadJob
-    , module Network.AWS.ElasticTranscoder.ReadJob
-
-    -- ** UpdatePipelineNotifications
-    , module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
-
-    -- ** ReadPipeline
-    , module Network.AWS.ElasticTranscoder.ReadPipeline
-
-    -- ** CreatePipeline
-    , module Network.AWS.ElasticTranscoder.CreatePipeline
-
-    -- ** ListJobsByStatus (Paginated)
-    , module Network.AWS.ElasticTranscoder.ListJobsByStatus
+    -- ** CreatePreset
+    CreatePreset (CreatePreset'),
+    newCreatePreset,
+    CreatePresetResponse (CreatePresetResponse'),
+    newCreatePresetResponse,
 
     -- ** CancelJob
-    , module Network.AWS.ElasticTranscoder.CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
+
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
+
+    -- ** UpdatePipeline
+    UpdatePipeline (UpdatePipeline'),
+    newUpdatePipeline,
+    UpdatePipelineResponse (UpdatePipelineResponse'),
+    newUpdatePipelineResponse,
+
+    -- ** ReadPreset
+    ReadPreset (ReadPreset'),
+    newReadPreset,
+    ReadPresetResponse (ReadPresetResponse'),
+    newReadPresetResponse,
+
+    -- ** ListJobsByStatus (Paginated)
+    ListJobsByStatus (ListJobsByStatus'),
+    newListJobsByStatus,
+    ListJobsByStatusResponse (ListJobsByStatusResponse'),
+    newListJobsByStatusResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** ListPipelines (Paginated)
+    ListPipelines (ListPipelines'),
+    newListPipelines,
+    ListPipelinesResponse (ListPipelinesResponse'),
+    newListPipelinesResponse,
+
+    -- ** ReadPipeline
+    ReadPipeline (ReadPipeline'),
+    newReadPipeline,
+    ReadPipelineResponse (ReadPipelineResponse'),
+    newReadPipelineResponse,
+
+    -- ** UpdatePipelineNotifications
+    UpdatePipelineNotifications (UpdatePipelineNotifications'),
+    newUpdatePipelineNotifications,
+    UpdatePipelineNotificationsResponse (UpdatePipelineNotificationsResponse'),
+    newUpdatePipelineNotificationsResponse,
+
+    -- ** ReadJob
+    ReadJob (ReadJob'),
+    newReadJob,
+    ReadJobResponse (ReadJobResponse'),
+    newReadJobResponse,
 
     -- * Types
 
     -- ** Artwork
-    , Artwork
-    , artwork
-    , aSizingPolicy
-    , aAlbumArtFormat
-    , aMaxHeight
-    , aInputKey
-    , aPaddingPolicy
-    , aEncryption
-    , aMaxWidth
+    Artwork (Artwork'),
+    newArtwork,
 
     -- ** AudioCodecOptions
-    , AudioCodecOptions
-    , audioCodecOptions
-    , acoSigned
-    , acoBitDepth
-    , acoProfile
-    , acoBitOrder
+    AudioCodecOptions (AudioCodecOptions'),
+    newAudioCodecOptions,
 
     -- ** AudioParameters
-    , AudioParameters
-    , audioParameters
-    , apChannels
-    , apCodec
-    , apAudioPackingMode
-    , apSampleRate
-    , apBitRate
-    , apCodecOptions
+    AudioParameters (AudioParameters'),
+    newAudioParameters,
 
     -- ** CaptionFormat
-    , CaptionFormat
-    , captionFormat
-    , cfPattern
-    , cfFormat
-    , cfEncryption
+    CaptionFormat (CaptionFormat'),
+    newCaptionFormat,
 
     -- ** CaptionSource
-    , CaptionSource
-    , captionSource
-    , csTimeOffset
-    , csEncryption
-    , csKey
-    , csLanguage
-    , csLabel
+    CaptionSource (CaptionSource'),
+    newCaptionSource,
 
     -- ** Captions
-    , Captions
-    , captions
-    , cMergePolicy
-    , cCaptionSources
-    , cCaptionFormats
+    Captions (Captions'),
+    newCaptions,
 
     -- ** Clip
-    , Clip
-    , clip
-    , cTimeSpan
+    Clip (Clip'),
+    newClip,
 
     -- ** CreateJobOutput
-    , CreateJobOutput
-    , createJobOutput
-    , cjoThumbnailPattern
-    , cjoCaptions
-    , cjoPresetId
-    , cjoComposition
-    , cjoAlbumArt
-    , cjoWatermarks
-    , cjoEncryption
-    , cjoKey
-    , cjoSegmentDuration
-    , cjoThumbnailEncryption
-    , cjoRotate
+    CreateJobOutput (CreateJobOutput'),
+    newCreateJobOutput,
 
     -- ** CreateJobPlaylist
-    , CreateJobPlaylist
-    , createJobPlaylist
-    , cjpPlayReadyDrm
-    , cjpFormat
-    , cjpOutputKeys
-    , cjpName
-    , cjpHlsContentProtection
+    CreateJobPlaylist (CreateJobPlaylist'),
+    newCreateJobPlaylist,
 
     -- ** DetectedProperties
-    , DetectedProperties
-    , detectedProperties
-    , dpHeight
-    , dpFrameRate
-    , dpFileSize
-    , dpWidth
-    , dpDurationMillis
+    DetectedProperties (DetectedProperties'),
+    newDetectedProperties,
 
     -- ** Encryption
-    , Encryption
-    , encryption
-    , eMode
-    , eKeyMD5
-    , eKey
-    , eInitializationVector
+    Encryption (Encryption'),
+    newEncryption,
 
     -- ** HlsContentProtection
-    , HlsContentProtection
-    , hlsContentProtection
-    , hcpKeyMD5
-    , hcpKeyStoragePolicy
-    , hcpKey
-    , hcpMethod
-    , hcpInitializationVector
-    , hcpLicenseAcquisitionURL
+    HlsContentProtection (HlsContentProtection'),
+    newHlsContentProtection,
 
     -- ** InputCaptions
-    , InputCaptions
-    , inputCaptions
-    , icMergePolicy
-    , icCaptionSources
+    InputCaptions (InputCaptions'),
+    newInputCaptions,
 
     -- ** Job'
-    , Job'
-    , job'
-    , jStatus
-    , jPipelineId
-    , jARN
-    , jInputs
-    , jInput
-    , jUserMetadata
-    , jOutputs
-    , jOutput
-    , jId
-    , jPlaylists
-    , jOutputKeyPrefix
-    , jTiming
+    Job' (Job''),
+    newJob',
 
     -- ** JobAlbumArt
-    , JobAlbumArt
-    , jobAlbumArt
-    , jaaMergePolicy
-    , jaaArtwork
+    JobAlbumArt (JobAlbumArt'),
+    newJobAlbumArt,
 
     -- ** JobInput
-    , JobInput
-    , jobInput
-    , jiFrameRate
-    , jiResolution
-    , jiAspectRatio
-    , jiTimeSpan
-    , jiEncryption
-    , jiKey
-    , jiDetectedProperties
-    , jiContainer
-    , jiInterlaced
-    , jiInputCaptions
+    JobInput (JobInput'),
+    newJobInput,
 
     -- ** JobOutput
-    , JobOutput
-    , jobOutput
-    , joAppliedColorSpaceConversion
-    , joThumbnailPattern
-    , joStatus
-    , joHeight
-    , joFrameRate
-    , joCaptions
-    , joPresetId
-    , joComposition
-    , joAlbumArt
-    , joFileSize
-    , joWatermarks
-    , joWidth
-    , joEncryption
-    , joKey
-    , joStatusDetail
-    , joId
-    , joSegmentDuration
-    , joDurationMillis
-    , joThumbnailEncryption
-    , joDuration
-    , joRotate
+    JobOutput (JobOutput'),
+    newJobOutput,
 
     -- ** JobWatermark
-    , JobWatermark
-    , jobWatermark
-    , jwPresetWatermarkId
-    , jwInputKey
-    , jwEncryption
+    JobWatermark (JobWatermark'),
+    newJobWatermark,
 
     -- ** Notifications
-    , Notifications
-    , notifications
-    , nError
-    , nWarning
-    , nProgressing
-    , nCompleted
+    Notifications (Notifications'),
+    newNotifications,
 
     -- ** Permission
-    , Permission
-    , permission
-    , pAccess
-    , pGranteeType
-    , pGrantee
+    Permission (Permission'),
+    newPermission,
 
     -- ** Pipeline
-    , Pipeline
-    , pipeline
-    , pipStatus
-    , pipARN
-    , pipInputBucket
-    , pipContentConfig
-    , pipOutputBucket
-    , pipRole
-    , pipName
-    , pipAWSKMSKeyARN
-    , pipId
-    , pipNotifications
-    , pipThumbnailConfig
+    Pipeline (Pipeline'),
+    newPipeline,
 
     -- ** PipelineOutputConfig
-    , PipelineOutputConfig
-    , pipelineOutputConfig
-    , pocBucket
-    , pocStorageClass
-    , pocPermissions
+    PipelineOutputConfig (PipelineOutputConfig'),
+    newPipelineOutputConfig,
 
     -- ** PlayReadyDrm
-    , PlayReadyDrm
-    , playReadyDrm
-    , prdKeyId
-    , prdFormat
-    , prdKeyMD5
-    , prdKey
-    , prdInitializationVector
-    , prdLicenseAcquisitionURL
+    PlayReadyDrm (PlayReadyDrm'),
+    newPlayReadyDrm,
 
     -- ** Playlist
-    , Playlist
-    , playlist
-    , pStatus
-    , pPlayReadyDrm
-    , pFormat
-    , pOutputKeys
-    , pName
-    , pStatusDetail
-    , pHlsContentProtection
+    Playlist (Playlist'),
+    newPlaylist,
 
     -- ** Preset
-    , Preset
-    , preset
-    , preARN
-    , preVideo
-    , preThumbnails
-    , preName
-    , preContainer
-    , preId
-    , preType
-    , preDescription
-    , preAudio
+    Preset (Preset'),
+    newPreset,
 
     -- ** PresetWatermark
-    , PresetWatermark
-    , presetWatermark
-    , pwVerticalAlign
-    , pwSizingPolicy
-    , pwHorizontalOffset
-    , pwMaxHeight
-    , pwOpacity
-    , pwVerticalOffset
-    , pwMaxWidth
-    , pwId
-    , pwHorizontalAlign
-    , pwTarget
+    PresetWatermark (PresetWatermark'),
+    newPresetWatermark,
 
     -- ** Thumbnails
-    , Thumbnails
-    , thumbnails
-    , tSizingPolicy
-    , tFormat
-    , tMaxHeight
-    , tResolution
-    , tAspectRatio
-    , tPaddingPolicy
-    , tInterval
-    , tMaxWidth
+    Thumbnails (Thumbnails'),
+    newThumbnails,
 
     -- ** TimeSpan
-    , TimeSpan
-    , timeSpan
-    , tsStartTime
-    , tsDuration
+    TimeSpan (TimeSpan'),
+    newTimeSpan,
 
     -- ** Timing
-    , Timing
-    , timing
-    , tSubmitTimeMillis
-    , tFinishTimeMillis
-    , tStartTimeMillis
+    Timing (Timing'),
+    newTiming,
 
     -- ** VideoParameters
-    , VideoParameters
-    , videoParameters
-    , vpKeyframesMaxDist
-    , vpFrameRate
-    , vpSizingPolicy
-    , vpMaxFrameRate
-    , vpMaxHeight
-    , vpWatermarks
-    , vpDisplayAspectRatio
-    , vpResolution
-    , vpCodec
-    , vpAspectRatio
-    , vpPaddingPolicy
-    , vpMaxWidth
-    , vpBitRate
-    , vpFixedGOP
-    , vpCodecOptions
+    VideoParameters (VideoParameters'),
+    newVideoParameters,
 
     -- ** Warning
-    , Warning
-    , warning
-    , wCode
-    , wMessage
-    ) where
+    Warning (Warning'),
+    newWarning,
+  )
+where
 
 import Network.AWS.ElasticTranscoder.CancelJob
 import Network.AWS.ElasticTranscoder.CreateJob
@@ -427,6 +281,7 @@ import Network.AWS.ElasticTranscoder.CreatePipeline
 import Network.AWS.ElasticTranscoder.CreatePreset
 import Network.AWS.ElasticTranscoder.DeletePipeline
 import Network.AWS.ElasticTranscoder.DeletePreset
+import Network.AWS.ElasticTranscoder.Lens
 import Network.AWS.ElasticTranscoder.ListJobsByPipeline
 import Network.AWS.ElasticTranscoder.ListJobsByStatus
 import Network.AWS.ElasticTranscoder.ListPipelines
@@ -440,32 +295,29 @@ import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 import Network.AWS.ElasticTranscoder.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'ElasticTranscoder'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'ElasticTranscoder'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

@@ -1,173 +1,210 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateIndex
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an index object. See <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_indexing.html Indexing> for more information.
---
---
+-- Creates an index object. See
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html Indexing and search>
+-- for more information.
 module Network.AWS.CloudDirectory.CreateIndex
-    (
-    -- * Creating a Request
-      createIndex
-    , CreateIndex
+  ( -- * Creating a Request
+    CreateIndex (..),
+    newCreateIndex,
+
     -- * Request Lenses
-    , ciParentReference
-    , ciLinkName
-    , ciDirectoryARN
-    , ciOrderedIndexedAttributeList
-    , ciIsUnique
+    createIndex_linkName,
+    createIndex_parentReference,
+    createIndex_directoryArn,
+    createIndex_orderedIndexedAttributeList,
+    createIndex_isUnique,
 
     -- * Destructuring the Response
-    , createIndexResponse
-    , CreateIndexResponse
+    CreateIndexResponse (..),
+    newCreateIndexResponse,
+
     -- * Response Lenses
-    , cirsObjectIdentifier
-    , cirsResponseStatus
-    ) where
+    createIndexResponse_objectIdentifier,
+    createIndexResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createIndex' smart constructor.
+-- | /See:/ 'newCreateIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { _ciParentReference             :: !(Maybe ObjectReference)
-  , _ciLinkName                    :: !(Maybe Text)
-  , _ciDirectoryARN                :: !Text
-  , _ciOrderedIndexedAttributeList :: ![AttributeKey]
-  , _ciIsUnique                    :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateIndex' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciParentReference' - A reference to the parent object that contains the index object.
---
--- * 'ciLinkName' - The name of the link between the parent object and the index object.
---
--- * 'ciDirectoryARN' - The ARN of the directory where the index should be created.
---
--- * 'ciOrderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
---
--- * 'ciIsUnique' - Indicates whether the attribute that is being indexed has unique values or not.
-createIndex
-    :: Text -- ^ 'ciDirectoryARN'
-    -> Bool -- ^ 'ciIsUnique'
-    -> CreateIndex
-createIndex pDirectoryARN_ pIsUnique_ =
-  CreateIndex'
-  { _ciParentReference = Nothing
-  , _ciLinkName = Nothing
-  , _ciDirectoryARN = pDirectoryARN_
-  , _ciOrderedIndexedAttributeList = mempty
-  , _ciIsUnique = pIsUnique_
+  { -- | The name of the link between the parent object and the index object.
+    linkName :: Prelude.Maybe Prelude.Text,
+    -- | A reference to the parent object that contains the index object.
+    parentReference :: Prelude.Maybe ObjectReference,
+    -- | The ARN of the directory where the index should be created.
+    directoryArn :: Prelude.Text,
+    -- | Specifies the attributes that should be indexed on. Currently only a
+    -- single attribute is supported.
+    orderedIndexedAttributeList :: [AttributeKey],
+    -- | Indicates whether the attribute that is being indexed has unique values
+    -- or not.
+    isUnique :: Prelude.Bool
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | A reference to the parent object that contains the index object.
-ciParentReference :: Lens' CreateIndex (Maybe ObjectReference)
-ciParentReference = lens _ciParentReference (\ s a -> s{_ciParentReference = a});
+-- |
+-- Create a value of 'CreateIndex' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'linkName', 'createIndex_linkName' - The name of the link between the parent object and the index object.
+--
+-- 'parentReference', 'createIndex_parentReference' - A reference to the parent object that contains the index object.
+--
+-- 'directoryArn', 'createIndex_directoryArn' - The ARN of the directory where the index should be created.
+--
+-- 'orderedIndexedAttributeList', 'createIndex_orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a
+-- single attribute is supported.
+--
+-- 'isUnique', 'createIndex_isUnique' - Indicates whether the attribute that is being indexed has unique values
+-- or not.
+newCreateIndex ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'isUnique'
+  Prelude.Bool ->
+  CreateIndex
+newCreateIndex pDirectoryArn_ pIsUnique_ =
+  CreateIndex'
+    { linkName = Prelude.Nothing,
+      parentReference = Prelude.Nothing,
+      directoryArn = pDirectoryArn_,
+      orderedIndexedAttributeList = Prelude.mempty,
+      isUnique = pIsUnique_
+    }
 
 -- | The name of the link between the parent object and the index object.
-ciLinkName :: Lens' CreateIndex (Maybe Text)
-ciLinkName = lens _ciLinkName (\ s a -> s{_ciLinkName = a});
+createIndex_linkName :: Lens.Lens' CreateIndex (Prelude.Maybe Prelude.Text)
+createIndex_linkName = Lens.lens (\CreateIndex' {linkName} -> linkName) (\s@CreateIndex' {} a -> s {linkName = a} :: CreateIndex)
+
+-- | A reference to the parent object that contains the index object.
+createIndex_parentReference :: Lens.Lens' CreateIndex (Prelude.Maybe ObjectReference)
+createIndex_parentReference = Lens.lens (\CreateIndex' {parentReference} -> parentReference) (\s@CreateIndex' {} a -> s {parentReference = a} :: CreateIndex)
 
 -- | The ARN of the directory where the index should be created.
-ciDirectoryARN :: Lens' CreateIndex Text
-ciDirectoryARN = lens _ciDirectoryARN (\ s a -> s{_ciDirectoryARN = a});
+createIndex_directoryArn :: Lens.Lens' CreateIndex Prelude.Text
+createIndex_directoryArn = Lens.lens (\CreateIndex' {directoryArn} -> directoryArn) (\s@CreateIndex' {} a -> s {directoryArn = a} :: CreateIndex)
 
--- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
-ciOrderedIndexedAttributeList :: Lens' CreateIndex [AttributeKey]
-ciOrderedIndexedAttributeList = lens _ciOrderedIndexedAttributeList (\ s a -> s{_ciOrderedIndexedAttributeList = a}) . _Coerce;
+-- | Specifies the attributes that should be indexed on. Currently only a
+-- single attribute is supported.
+createIndex_orderedIndexedAttributeList :: Lens.Lens' CreateIndex [AttributeKey]
+createIndex_orderedIndexedAttributeList = Lens.lens (\CreateIndex' {orderedIndexedAttributeList} -> orderedIndexedAttributeList) (\s@CreateIndex' {} a -> s {orderedIndexedAttributeList = a} :: CreateIndex) Prelude.. Lens._Coerce
 
--- | Indicates whether the attribute that is being indexed has unique values or not.
-ciIsUnique :: Lens' CreateIndex Bool
-ciIsUnique = lens _ciIsUnique (\ s a -> s{_ciIsUnique = a});
+-- | Indicates whether the attribute that is being indexed has unique values
+-- or not.
+createIndex_isUnique :: Lens.Lens' CreateIndex Prelude.Bool
+createIndex_isUnique = Lens.lens (\CreateIndex' {isUnique} -> isUnique) (\s@CreateIndex' {} a -> s {isUnique = a} :: CreateIndex)
 
-instance AWSRequest CreateIndex where
-        type Rs CreateIndex = CreateIndexResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateIndexResponse' <$>
-                   (x .?> "ObjectIdentifier") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateIndex where
+  type AWSResponse CreateIndex = CreateIndexResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateIndexResponse'
+            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateIndex where
+instance Prelude.Hashable CreateIndex
 
-instance NFData CreateIndex where
+instance Prelude.NFData CreateIndex
 
-instance ToHeaders CreateIndex where
-        toHeaders CreateIndex'{..}
-          = mconcat ["x-amz-data-partition" =# _ciDirectoryARN]
+instance Core.ToHeaders CreateIndex where
+  toHeaders CreateIndex' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance ToJSON CreateIndex where
-        toJSON CreateIndex'{..}
-          = object
-              (catMaybes
-                 [("ParentReference" .=) <$> _ciParentReference,
-                  ("LinkName" .=) <$> _ciLinkName,
-                  Just
-                    ("OrderedIndexedAttributeList" .=
-                       _ciOrderedIndexedAttributeList),
-                  Just ("IsUnique" .= _ciIsUnique)])
+instance Core.ToJSON CreateIndex where
+  toJSON CreateIndex' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("LinkName" Core..=) Prelude.<$> linkName,
+            ("ParentReference" Core..=)
+              Prelude.<$> parentReference,
+            Prelude.Just
+              ( "OrderedIndexedAttributeList"
+                  Core..= orderedIndexedAttributeList
+              ),
+            Prelude.Just ("IsUnique" Core..= isUnique)
+          ]
+      )
 
-instance ToPath CreateIndex where
-        toPath
-          = const "/amazonclouddirectory/2017-01-11/index"
+instance Core.ToPath CreateIndex where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/index"
 
-instance ToQuery CreateIndex where
-        toQuery = const mempty
+instance Core.ToQuery CreateIndex where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createIndexResponse' smart constructor.
+-- | /See:/ 'newCreateIndexResponse' smart constructor.
 data CreateIndexResponse = CreateIndexResponse'
-  { _cirsObjectIdentifier :: !(Maybe Text)
-  , _cirsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ObjectIdentifier@ of the index created by this operation.
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateIndexResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateIndexResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cirsObjectIdentifier' - The @ObjectIdentifier@ of the index created by this operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cirsResponseStatus' - -- | The response status code.
-createIndexResponse
-    :: Int -- ^ 'cirsResponseStatus'
-    -> CreateIndexResponse
-createIndexResponse pResponseStatus_ =
+-- 'objectIdentifier', 'createIndexResponse_objectIdentifier' - The @ObjectIdentifier@ of the index created by this operation.
+--
+-- 'httpStatus', 'createIndexResponse_httpStatus' - The response's http status code.
+newCreateIndexResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateIndexResponse
+newCreateIndexResponse pHttpStatus_ =
   CreateIndexResponse'
-  {_cirsObjectIdentifier = Nothing, _cirsResponseStatus = pResponseStatus_}
-
+    { objectIdentifier =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
-cirsObjectIdentifier :: Lens' CreateIndexResponse (Maybe Text)
-cirsObjectIdentifier = lens _cirsObjectIdentifier (\ s a -> s{_cirsObjectIdentifier = a});
+createIndexResponse_objectIdentifier :: Lens.Lens' CreateIndexResponse (Prelude.Maybe Prelude.Text)
+createIndexResponse_objectIdentifier = Lens.lens (\CreateIndexResponse' {objectIdentifier} -> objectIdentifier) (\s@CreateIndexResponse' {} a -> s {objectIdentifier = a} :: CreateIndexResponse)
 
--- | -- | The response status code.
-cirsResponseStatus :: Lens' CreateIndexResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a});
+-- | The response's http status code.
+createIndexResponse_httpStatus :: Lens.Lens' CreateIndexResponse Prelude.Int
+createIndexResponse_httpStatus = Lens.lens (\CreateIndexResponse' {httpStatus} -> httpStatus) (\s@CreateIndexResponse' {} a -> s {httpStatus = a} :: CreateIndexResponse)
 
-instance NFData CreateIndexResponse where
+instance Prelude.NFData CreateIndexResponse

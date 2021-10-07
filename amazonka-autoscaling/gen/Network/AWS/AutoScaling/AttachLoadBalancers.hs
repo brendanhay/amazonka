@@ -1,135 +1,170 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
+-- To attach an Application Load Balancer, Network Load Balancer, or
+-- Gateway Load Balancer, use the AttachLoadBalancerTargetGroups API
+-- operation instead.
 --
+-- Attaches one or more Classic Load Balancers to the specified Auto
+-- Scaling group. Amazon EC2 Auto Scaling registers the running instances
+-- with these Classic Load Balancers.
 --
--- To attach an Application Load Balancer instead, see 'AttachLoadBalancerTargetGroups' .
+-- To describe the load balancers for an Auto Scaling group, call the
+-- DescribeLoadBalancers API. To detach the load balancer from the Auto
+-- Scaling group, call the DetachLoadBalancers API.
 --
--- To describe the load balancers for an Auto Scaling group, use 'DescribeLoadBalancers' . To detach the load balancer from the Auto Scaling group, use 'DetachLoadBalancers' .
---
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/attach-load-balancer-asg.html Attach a Load Balancer to Your Auto Scaling Group> in the /Auto Scaling User Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.AttachLoadBalancers
-    (
-    -- * Creating a Request
-      attachLoadBalancers
-    , AttachLoadBalancers
+  ( -- * Creating a Request
+    AttachLoadBalancers (..),
+    newAttachLoadBalancers,
+
     -- * Request Lenses
-    , albAutoScalingGroupName
-    , albLoadBalancerNames
+    attachLoadBalancers_autoScalingGroupName,
+    attachLoadBalancers_loadBalancerNames,
 
     -- * Destructuring the Response
-    , attachLoadBalancersResponse
-    , AttachLoadBalancersResponse
+    AttachLoadBalancersResponse (..),
+    newAttachLoadBalancersResponse,
+
     -- * Response Lenses
-    , albrsResponseStatus
-    ) where
+    attachLoadBalancersResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'attachLoadBalancers' smart constructor.
+-- | /See:/ 'newAttachLoadBalancers' smart constructor.
 data AttachLoadBalancers = AttachLoadBalancers'
-  { _albAutoScalingGroupName :: !Text
-  , _albLoadBalancerNames    :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AttachLoadBalancers' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'albAutoScalingGroupName' - The name of the group.
---
--- * 'albLoadBalancerNames' - One or more load balancer names.
-attachLoadBalancers
-    :: Text -- ^ 'albAutoScalingGroupName'
-    -> AttachLoadBalancers
-attachLoadBalancers pAutoScalingGroupName_ =
-  AttachLoadBalancers'
-  { _albAutoScalingGroupName = pAutoScalingGroupName_
-  , _albLoadBalancerNames = mempty
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Text,
+    -- | The names of the load balancers. You can specify up to 10 load
+    -- balancers.
+    loadBalancerNames :: [Prelude.Text]
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The name of the group.
-albAutoScalingGroupName :: Lens' AttachLoadBalancers Text
-albAutoScalingGroupName = lens _albAutoScalingGroupName (\ s a -> s{_albAutoScalingGroupName = a});
-
--- | One or more load balancer names.
-albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
-albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Coerce;
-
-instance AWSRequest AttachLoadBalancers where
-        type Rs AttachLoadBalancers =
-             AttachLoadBalancersResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper "AttachLoadBalancersResult"
-              (\ s h x ->
-                 AttachLoadBalancersResponse' <$> (pure (fromEnum s)))
-
-instance Hashable AttachLoadBalancers where
-
-instance NFData AttachLoadBalancers where
-
-instance ToHeaders AttachLoadBalancers where
-        toHeaders = const mempty
-
-instance ToPath AttachLoadBalancers where
-        toPath = const "/"
-
-instance ToQuery AttachLoadBalancers where
-        toQuery AttachLoadBalancers'{..}
-          = mconcat
-              ["Action" =: ("AttachLoadBalancers" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _albAutoScalingGroupName,
-               "LoadBalancerNames" =:
-                 toQueryList "member" _albLoadBalancerNames]
-
--- | /See:/ 'attachLoadBalancersResponse' smart constructor.
-newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-  { _albrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AttachLoadBalancersResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachLoadBalancers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'albrsResponseStatus' - -- | The response status code.
-attachLoadBalancersResponse
-    :: Int -- ^ 'albrsResponseStatus'
-    -> AttachLoadBalancersResponse
-attachLoadBalancersResponse pResponseStatus_ =
-  AttachLoadBalancersResponse' {_albrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'autoScalingGroupName', 'attachLoadBalancers_autoScalingGroupName' - The name of the Auto Scaling group.
+--
+-- 'loadBalancerNames', 'attachLoadBalancers_loadBalancerNames' - The names of the load balancers. You can specify up to 10 load
+-- balancers.
+newAttachLoadBalancers ::
+  -- | 'autoScalingGroupName'
+  Prelude.Text ->
+  AttachLoadBalancers
+newAttachLoadBalancers pAutoScalingGroupName_ =
+  AttachLoadBalancers'
+    { autoScalingGroupName =
+        pAutoScalingGroupName_,
+      loadBalancerNames = Prelude.mempty
+    }
 
+-- | The name of the Auto Scaling group.
+attachLoadBalancers_autoScalingGroupName :: Lens.Lens' AttachLoadBalancers Prelude.Text
+attachLoadBalancers_autoScalingGroupName = Lens.lens (\AttachLoadBalancers' {autoScalingGroupName} -> autoScalingGroupName) (\s@AttachLoadBalancers' {} a -> s {autoScalingGroupName = a} :: AttachLoadBalancers)
 
--- | -- | The response status code.
-albrsResponseStatus :: Lens' AttachLoadBalancersResponse Int
-albrsResponseStatus = lens _albrsResponseStatus (\ s a -> s{_albrsResponseStatus = a});
+-- | The names of the load balancers. You can specify up to 10 load
+-- balancers.
+attachLoadBalancers_loadBalancerNames :: Lens.Lens' AttachLoadBalancers [Prelude.Text]
+attachLoadBalancers_loadBalancerNames = Lens.lens (\AttachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@AttachLoadBalancers' {} a -> s {loadBalancerNames = a} :: AttachLoadBalancers) Prelude.. Lens._Coerce
 
-instance NFData AttachLoadBalancersResponse where
+instance Core.AWSRequest AttachLoadBalancers where
+  type
+    AWSResponse AttachLoadBalancers =
+      AttachLoadBalancersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "AttachLoadBalancersResult"
+      ( \s h x ->
+          AttachLoadBalancersResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable AttachLoadBalancers
+
+instance Prelude.NFData AttachLoadBalancers
+
+instance Core.ToHeaders AttachLoadBalancers where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath AttachLoadBalancers where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery AttachLoadBalancers where
+  toQuery AttachLoadBalancers' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AttachLoadBalancers" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "LoadBalancerNames"
+          Core.=: Core.toQueryList "member" loadBalancerNames
+      ]
+
+-- | /See:/ 'newAttachLoadBalancersResponse' smart constructor.
+data AttachLoadBalancersResponse = AttachLoadBalancersResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'AttachLoadBalancersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'attachLoadBalancersResponse_httpStatus' - The response's http status code.
+newAttachLoadBalancersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AttachLoadBalancersResponse
+newAttachLoadBalancersResponse pHttpStatus_ =
+  AttachLoadBalancersResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
+
+-- | The response's http status code.
+attachLoadBalancersResponse_httpStatus :: Lens.Lens' AttachLoadBalancersResponse Prelude.Int
+attachLoadBalancersResponse_httpStatus = Lens.lens (\AttachLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@AttachLoadBalancersResponse' {} a -> s {httpStatus = a} :: AttachLoadBalancersResponse)
+
+instance Prelude.NFData AttachLoadBalancersResponse

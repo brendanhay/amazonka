@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEndpointTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,155 +22,242 @@
 --
 -- Returns information about the type of endpoints available.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEndpointTypes
-    (
-    -- * Creating a Request
-      describeEndpointTypes
-    , DescribeEndpointTypes
+  ( -- * Creating a Request
+    DescribeEndpointTypes (..),
+    newDescribeEndpointTypes,
+
     -- * Request Lenses
-    , detFilters
-    , detMarker
-    , detMaxRecords
+    describeEndpointTypes_filters,
+    describeEndpointTypes_maxRecords,
+    describeEndpointTypes_marker,
 
     -- * Destructuring the Response
-    , describeEndpointTypesResponse
-    , DescribeEndpointTypesResponse
+    DescribeEndpointTypesResponse (..),
+    newDescribeEndpointTypesResponse,
+
     -- * Response Lenses
-    , detrsSupportedEndpointTypes
-    , detrsMarker
-    , detrsResponseStatus
-    ) where
+    describeEndpointTypesResponse_supportedEndpointTypes,
+    describeEndpointTypesResponse_marker,
+    describeEndpointTypesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeEndpointTypes' smart constructor.
+-- /See:/ 'newDescribeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
-  { _detFilters    :: !(Maybe [Filter])
-  , _detMarker     :: !(Maybe Text)
-  , _detMaxRecords :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Filters applied to the endpoint types.
+    --
+    -- Valid filter names: engine-name | endpoint-type
+    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that the remaining
+    -- results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEndpointTypes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEndpointTypes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detFilters' - Filters applied to the describe action. Valid filter names: engine-name | endpoint-type
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- 'filters', 'describeEndpointTypes_filters' - Filters applied to the endpoint types.
 --
--- * 'detMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeEndpointTypes
-    :: DescribeEndpointTypes
-describeEndpointTypes =
+-- Valid filter names: engine-name | endpoint-type
+--
+-- 'maxRecords', 'describeEndpointTypes_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeEndpointTypes_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+newDescribeEndpointTypes ::
+  DescribeEndpointTypes
+newDescribeEndpointTypes =
   DescribeEndpointTypes'
-  {_detFilters = Nothing, _detMarker = Nothing, _detMaxRecords = Nothing}
+    { filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
+-- | Filters applied to the endpoint types.
+--
+-- Valid filter names: engine-name | endpoint-type
+describeEndpointTypes_filters :: Lens.Lens' DescribeEndpointTypes (Prelude.Maybe [Filter])
+describeEndpointTypes_filters = Lens.lens (\DescribeEndpointTypes' {filters} -> filters) (\s@DescribeEndpointTypes' {} a -> s {filters = a} :: DescribeEndpointTypes) Prelude.. Lens.mapping Lens._Coerce
 
--- | Filters applied to the describe action. Valid filter names: engine-name | endpoint-type
-detFilters :: Lens' DescribeEndpointTypes [Filter]
-detFilters = lens _detFilters (\ s a -> s{_detFilters = a}) . _Default . _Coerce;
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeEndpointTypes_maxRecords :: Lens.Lens' DescribeEndpointTypes (Prelude.Maybe Prelude.Int)
+describeEndpointTypes_maxRecords = Lens.lens (\DescribeEndpointTypes' {maxRecords} -> maxRecords) (\s@DescribeEndpointTypes' {} a -> s {maxRecords = a} :: DescribeEndpointTypes)
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-detMarker :: Lens' DescribeEndpointTypes (Maybe Text)
-detMarker = lens _detMarker (\ s a -> s{_detMarker = a});
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEndpointTypes_marker :: Lens.Lens' DescribeEndpointTypes (Prelude.Maybe Prelude.Text)
+describeEndpointTypes_marker = Lens.lens (\DescribeEndpointTypes' {marker} -> marker) (\s@DescribeEndpointTypes' {} a -> s {marker = a} :: DescribeEndpointTypes)
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-detMaxRecords :: Lens' DescribeEndpointTypes (Maybe Int)
-detMaxRecords = lens _detMaxRecords (\ s a -> s{_detMaxRecords = a});
+instance Core.AWSPager DescribeEndpointTypes where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeEndpointTypesResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeEndpointTypesResponse_supportedEndpointTypes
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeEndpointTypes_marker
+          Lens..~ rs
+          Lens.^? describeEndpointTypesResponse_marker
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeEndpointTypes where
-        type Rs DescribeEndpointTypes =
-             DescribeEndpointTypesResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeEndpointTypesResponse' <$>
-                   (x .?> "SupportedEndpointTypes" .!@ mempty) <*>
-                     (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeEndpointTypes where
+  type
+    AWSResponse DescribeEndpointTypes =
+      DescribeEndpointTypesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeEndpointTypesResponse'
+            Prelude.<$> ( x Core..?> "SupportedEndpointTypes"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeEndpointTypes where
+instance Prelude.Hashable DescribeEndpointTypes
 
-instance NFData DescribeEndpointTypes where
+instance Prelude.NFData DescribeEndpointTypes
 
-instance ToHeaders DescribeEndpointTypes where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.DescribeEndpointTypes" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeEndpointTypes where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonDMSv20160101.DescribeEndpointTypes" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeEndpointTypes where
-        toJSON DescribeEndpointTypes'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _detFilters,
-                  ("Marker" .=) <$> _detMarker,
-                  ("MaxRecords" .=) <$> _detMaxRecords])
+instance Core.ToJSON DescribeEndpointTypes where
+  toJSON DescribeEndpointTypes' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker
+          ]
+      )
 
-instance ToPath DescribeEndpointTypes where
-        toPath = const "/"
+instance Core.ToPath DescribeEndpointTypes where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeEndpointTypes where
-        toQuery = const mempty
+instance Core.ToQuery DescribeEndpointTypes where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeEndpointTypesResponse' smart constructor.
+-- /See:/ 'newDescribeEndpointTypesResponse' smart constructor.
 data DescribeEndpointTypesResponse = DescribeEndpointTypesResponse'
-  { _detrsSupportedEndpointTypes :: !(Maybe [SupportedEndpointType])
-  , _detrsMarker                 :: !(Maybe Text)
-  , _detrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEndpointTypesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detrsSupportedEndpointTypes' - The type of endpoints that are supported.
---
--- * 'detrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'detrsResponseStatus' - -- | The response status code.
-describeEndpointTypesResponse
-    :: Int -- ^ 'detrsResponseStatus'
-    -> DescribeEndpointTypesResponse
-describeEndpointTypesResponse pResponseStatus_ =
-  DescribeEndpointTypesResponse'
-  { _detrsSupportedEndpointTypes = Nothing
-  , _detrsMarker = Nothing
-  , _detrsResponseStatus = pResponseStatus_
+  { -- | The types of endpoints that are supported.
+    supportedEndpointTypes :: Prelude.Maybe [SupportedEndpointType],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeEndpointTypesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'supportedEndpointTypes', 'describeEndpointTypesResponse_supportedEndpointTypes' - The types of endpoints that are supported.
+--
+-- 'marker', 'describeEndpointTypesResponse_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
+-- 'httpStatus', 'describeEndpointTypesResponse_httpStatus' - The response's http status code.
+newDescribeEndpointTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEndpointTypesResponse
+newDescribeEndpointTypesResponse pHttpStatus_ =
+  DescribeEndpointTypesResponse'
+    { supportedEndpointTypes =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | The type of endpoints that are supported.
-detrsSupportedEndpointTypes :: Lens' DescribeEndpointTypesResponse [SupportedEndpointType]
-detrsSupportedEndpointTypes = lens _detrsSupportedEndpointTypes (\ s a -> s{_detrsSupportedEndpointTypes = a}) . _Default . _Coerce;
+-- | The types of endpoints that are supported.
+describeEndpointTypesResponse_supportedEndpointTypes :: Lens.Lens' DescribeEndpointTypesResponse (Prelude.Maybe [SupportedEndpointType])
+describeEndpointTypesResponse_supportedEndpointTypes = Lens.lens (\DescribeEndpointTypesResponse' {supportedEndpointTypes} -> supportedEndpointTypes) (\s@DescribeEndpointTypesResponse' {} a -> s {supportedEndpointTypes = a} :: DescribeEndpointTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-detrsMarker :: Lens' DescribeEndpointTypesResponse (Maybe Text)
-detrsMarker = lens _detrsMarker (\ s a -> s{_detrsMarker = a});
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEndpointTypesResponse_marker :: Lens.Lens' DescribeEndpointTypesResponse (Prelude.Maybe Prelude.Text)
+describeEndpointTypesResponse_marker = Lens.lens (\DescribeEndpointTypesResponse' {marker} -> marker) (\s@DescribeEndpointTypesResponse' {} a -> s {marker = a} :: DescribeEndpointTypesResponse)
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeEndpointTypesResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a});
+-- | The response's http status code.
+describeEndpointTypesResponse_httpStatus :: Lens.Lens' DescribeEndpointTypesResponse Prelude.Int
+describeEndpointTypesResponse_httpStatus = Lens.lens (\DescribeEndpointTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointTypesResponse' {} a -> s {httpStatus = a} :: DescribeEndpointTypesResponse)
 
-instance NFData DescribeEndpointTypesResponse where
+instance Prelude.NFData DescribeEndpointTypesResponse

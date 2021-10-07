@@ -1,256 +1,416 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Kinesis.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Kinesis.Types
-    (
-    -- * Service Configuration
-      kinesis
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _KMSInvalidStateException
-    , _KMSThrottlingException
-    , _ExpiredIteratorException
-    , _InvalidArgumentException
-    , _KMSOptInRequired
-    , _ProvisionedThroughputExceededException
-    , _KMSNotFoundException
-    , _KMSDisabledException
-    , _ResourceNotFoundException
-    , _KMSAccessDeniedException
-    , _LimitExceededException
-    , _ResourceInUseException
+    _KMSThrottlingException,
+    _ExpiredNextTokenException,
+    _KMSInvalidStateException,
+    _KMSNotFoundException,
+    _KMSOptInRequired,
+    _ExpiredIteratorException,
+    _KMSAccessDeniedException,
+    _LimitExceededException,
+    _ResourceInUseException,
+    _ResourceNotFoundException,
+    _ProvisionedThroughputExceededException,
+    _InternalFailureException,
+    _InvalidArgumentException,
+    _KMSDisabledException,
+
+    -- * ConsumerStatus
+    ConsumerStatus (..),
 
     -- * EncryptionType
-    , EncryptionType (..)
+    EncryptionType (..),
 
     -- * MetricsName
-    , MetricsName (..)
+    MetricsName (..),
 
     -- * ScalingType
-    , ScalingType (..)
+    ScalingType (..),
+
+    -- * ShardFilterType
+    ShardFilterType (..),
 
     -- * ShardIteratorType
-    , ShardIteratorType (..)
+    ShardIteratorType (..),
 
     -- * StreamStatus
-    , StreamStatus (..)
+    StreamStatus (..),
+
+    -- * ChildShard
+    ChildShard (..),
+    newChildShard,
+    childShard_shardId,
+    childShard_parentShards,
+    childShard_hashKeyRange,
+
+    -- * Consumer
+    Consumer (..),
+    newConsumer,
+    consumer_consumerName,
+    consumer_consumerARN,
+    consumer_consumerStatus,
+    consumer_consumerCreationTimestamp,
+
+    -- * ConsumerDescription
+    ConsumerDescription (..),
+    newConsumerDescription,
+    consumerDescription_consumerName,
+    consumerDescription_consumerARN,
+    consumerDescription_consumerStatus,
+    consumerDescription_consumerCreationTimestamp,
+    consumerDescription_streamARN,
 
     -- * EnhancedMetrics
-    , EnhancedMetrics
-    , enhancedMetrics
-    , emShardLevelMetrics
+    EnhancedMetrics (..),
+    newEnhancedMetrics,
+    enhancedMetrics_shardLevelMetrics,
 
     -- * EnhancedMonitoringOutput
-    , EnhancedMonitoringOutput
-    , enhancedMonitoringOutput
-    , emoDesiredShardLevelMetrics
-    , emoCurrentShardLevelMetrics
-    , emoStreamName
+    EnhancedMonitoringOutput (..),
+    newEnhancedMonitoringOutput,
+    enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_streamName,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
 
     -- * HashKeyRange
-    , HashKeyRange
-    , hashKeyRange
-    , hkrStartingHashKey
-    , hkrEndingHashKey
+    HashKeyRange (..),
+    newHashKeyRange,
+    hashKeyRange_startingHashKey,
+    hashKeyRange_endingHashKey,
 
     -- * PutRecordsRequestEntry
-    , PutRecordsRequestEntry
-    , putRecordsRequestEntry
-    , prreExplicitHashKey
-    , prreData
-    , prrePartitionKey
+    PutRecordsRequestEntry (..),
+    newPutRecordsRequestEntry,
+    putRecordsRequestEntry_explicitHashKey,
+    putRecordsRequestEntry_data,
+    putRecordsRequestEntry_partitionKey,
 
     -- * PutRecordsResultEntry
-    , PutRecordsResultEntry
-    , putRecordsResultEntry
-    , prreSequenceNumber
-    , prreErrorCode
-    , prreErrorMessage
-    , prreShardId
+    PutRecordsResultEntry (..),
+    newPutRecordsResultEntry,
+    putRecordsResultEntry_sequenceNumber,
+    putRecordsResultEntry_shardId,
+    putRecordsResultEntry_errorMessage,
+    putRecordsResultEntry_errorCode,
 
     -- * Record
-    , Record
-    , record
-    , rEncryptionType
-    , rApproximateArrivalTimestamp
-    , rSequenceNumber
-    , rData
-    , rPartitionKey
+    Record (..),
+    newRecord,
+    record_encryptionType,
+    record_approximateArrivalTimestamp,
+    record_sequenceNumber,
+    record_data,
+    record_partitionKey,
 
     -- * SequenceNumberRange
-    , SequenceNumberRange
-    , sequenceNumberRange
-    , snrEndingSequenceNumber
-    , snrStartingSequenceNumber
+    SequenceNumberRange (..),
+    newSequenceNumberRange,
+    sequenceNumberRange_endingSequenceNumber,
+    sequenceNumberRange_startingSequenceNumber,
 
     -- * Shard
-    , Shard
-    , shard
-    , sAdjacentParentShardId
-    , sParentShardId
-    , sShardId
-    , sHashKeyRange
-    , sSequenceNumberRange
+    Shard (..),
+    newShard,
+    shard_adjacentParentShardId,
+    shard_parentShardId,
+    shard_shardId,
+    shard_hashKeyRange,
+    shard_sequenceNumberRange,
+
+    -- * ShardFilter
+    ShardFilter (..),
+    newShardFilter,
+    shardFilter_shardId,
+    shardFilter_timestamp,
+    shardFilter_type,
+
+    -- * StartingPosition
+    StartingPosition (..),
+    newStartingPosition,
+    startingPosition_sequenceNumber,
+    startingPosition_timestamp,
+    startingPosition_type,
 
     -- * StreamDescription
-    , StreamDescription
-    , streamDescription
-    , sdEncryptionType
-    , sdKeyId
-    , sdStreamName
-    , sdStreamARN
-    , sdStreamStatus
-    , sdShards
-    , sdHasMoreShards
-    , sdRetentionPeriodHours
-    , sdStreamCreationTimestamp
-    , sdEnhancedMonitoring
+    StreamDescription (..),
+    newStreamDescription,
+    streamDescription_encryptionType,
+    streamDescription_keyId,
+    streamDescription_streamName,
+    streamDescription_streamARN,
+    streamDescription_streamStatus,
+    streamDescription_shards,
+    streamDescription_hasMoreShards,
+    streamDescription_retentionPeriodHours,
+    streamDescription_streamCreationTimestamp,
+    streamDescription_enhancedMonitoring,
+
+    -- * StreamDescriptionSummary
+    StreamDescriptionSummary (..),
+    newStreamDescriptionSummary,
+    streamDescriptionSummary_encryptionType,
+    streamDescriptionSummary_consumerCount,
+    streamDescriptionSummary_keyId,
+    streamDescriptionSummary_streamName,
+    streamDescriptionSummary_streamARN,
+    streamDescriptionSummary_streamStatus,
+    streamDescriptionSummary_retentionPeriodHours,
+    streamDescriptionSummary_streamCreationTimestamp,
+    streamDescriptionSummary_enhancedMonitoring,
+    streamDescriptionSummary_openShardCount,
+
+    -- * SubscribeToShardEvent
+    SubscribeToShardEvent (..),
+    newSubscribeToShardEvent,
+    subscribeToShardEvent_childShards,
+    subscribeToShardEvent_records,
+    subscribeToShardEvent_continuationSequenceNumber,
+    subscribeToShardEvent_millisBehindLatest,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (..),
+    newTag,
+    tag_value,
+    tag_key,
+  )
+where
 
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Kinesis.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import Network.AWS.Kinesis.Types.ChildShard
+import Network.AWS.Kinesis.Types.Consumer
+import Network.AWS.Kinesis.Types.ConsumerDescription
+import Network.AWS.Kinesis.Types.ConsumerStatus
+import Network.AWS.Kinesis.Types.EncryptionType
+import Network.AWS.Kinesis.Types.EnhancedMetrics
+import Network.AWS.Kinesis.Types.EnhancedMonitoringOutput
+import Network.AWS.Kinesis.Types.HashKeyRange
+import Network.AWS.Kinesis.Types.MetricsName
+import Network.AWS.Kinesis.Types.PutRecordsRequestEntry
+import Network.AWS.Kinesis.Types.PutRecordsResultEntry
+import Network.AWS.Kinesis.Types.Record
+import Network.AWS.Kinesis.Types.ScalingType
+import Network.AWS.Kinesis.Types.SequenceNumberRange
+import Network.AWS.Kinesis.Types.Shard
+import Network.AWS.Kinesis.Types.ShardFilter
+import Network.AWS.Kinesis.Types.ShardFilterType
+import Network.AWS.Kinesis.Types.ShardIteratorType
+import Network.AWS.Kinesis.Types.StartingPosition
+import Network.AWS.Kinesis.Types.StreamDescription
+import Network.AWS.Kinesis.Types.StreamDescriptionSummary
+import Network.AWS.Kinesis.Types.StreamStatus
+import Network.AWS.Kinesis.Types.SubscribeToShardEvent
+import Network.AWS.Kinesis.Types.Tag
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2013-12-02@ of the Amazon Kinesis SDK configuration.
-kinesis :: Service
-kinesis =
-  Service
-  { _svcAbbrev = "Kinesis"
-  , _svcSigner = v4
-  , _svcPrefix = "kinesis"
-  , _svcVersion = "2013-12-02"
-  , _svcEndpoint = defaultEndpoint kinesis
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "Kinesis"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "Kinesis",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "kinesis",
+      Core._serviceSigningName = "kinesis",
+      Core._serviceVersion = "2013-12-02",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Kinesis",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has
+          ( Core.hasCode "LimitExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_limit_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | The request was denied due to request throttling. For more information
+-- about throttling, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
+-- in the /AWS Key Management Service Developer Guide/.
+_KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "KMSThrottlingException"
 
--- | The request was rejected because the state of the specified resource isn't valid for this request. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> in the /AWS Key Management Service Developer Guide/ .
---
---
-_KMSInvalidStateException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The pagination token passed to the operation is expired.
+_ExpiredNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "ExpiredNextTokenException"
+
+-- | The request was rejected because the state of the specified resource
+-- isn\'t valid for this request. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
+-- in the /AWS Key Management Service Developer Guide/.
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateException =
-  _MatchServiceError kinesis "KMSInvalidStateException"
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidStateException"
 
-
--- | The request was denied due to request throttling. For more information about throttling, see <http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits> in the /AWS Key Management Service Developer Guide/ .
---
---
-_KMSThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSThrottlingException = _MatchServiceError kinesis "KMSThrottlingException"
-
-
--- | The provided iterator exceeds the maximum age allowed.
---
---
-_ExpiredIteratorException :: AsError a => Getting (First ServiceError) a ServiceError
-_ExpiredIteratorException =
-  _MatchServiceError kinesis "ExpiredIteratorException"
-
-
--- | A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
---
---
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidArgumentException =
-  _MatchServiceError kinesis "InvalidArgumentException"
-
+-- | The request was rejected because the specified entity or resource can\'t
+-- be found.
+_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "KMSNotFoundException"
 
 -- | The AWS access key ID needs a subscription for the service.
---
---
-_KMSOptInRequired :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSOptInRequired = _MatchServiceError kinesis "KMSOptInRequired"
+_KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSOptInRequired =
+  Core._MatchServiceError
+    defaultService
+    "KMSOptInRequired"
 
+-- | The provided iterator exceeds the maximum age allowed.
+_ExpiredIteratorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredIteratorException =
+  Core._MatchServiceError
+    defaultService
+    "ExpiredIteratorException"
 
--- | The request rate for the stream is too high, or the requested data is too large for the available throughput. Reduce the frequency or size of your requests. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits> in the /Amazon Kinesis Streams Developer Guide/ , and <http://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS> in the /AWS General Reference/ .
---
---
-_ProvisionedThroughputExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_ProvisionedThroughputExceededException =
-  _MatchServiceError kinesis "ProvisionedThroughputExceededException"
-
-
--- | The request was rejected because the specified entity or resource couldn't be found.
---
---
-_KMSNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSNotFoundException = _MatchServiceError kinesis "KMSNotFoundException"
-
-
--- | The request was rejected because the specified CMK isn't enabled.
---
---
-_KMSDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_KMSDisabledException = _MatchServiceError kinesis "KMSDisabledException"
-
-
--- | The requested resource could not be found. The stream might not be specified correctly.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError kinesis "ResourceNotFoundException"
-
-
--- | The ciphertext references a key that doesn't exist or that you don't have access to.
---
---
-_KMSAccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The ciphertext references a key that doesn\'t exist or that you don\'t
+-- have access to.
+_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSAccessDeniedException =
-  _MatchServiceError kinesis "KMSAccessDeniedException"
+  Core._MatchServiceError
+    defaultService
+    "KMSAccessDeniedException"
 
+-- | The requested resource exceeds the maximum number allowed, or the number
+-- of concurrent stream requests exceeds the maximum number allowed.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
--- | The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed (5).
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _MatchServiceError kinesis "LimitExceededException"
+-- | The resource is not available for this operation. For successful
+-- operation, the resource must be in the @ACTIVE@ state.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
+-- | The requested resource could not be found. The stream might not be
+-- specified correctly.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
 
--- | The resource is not available for this operation. For successful operation, the resource needs to be in the @ACTIVE@ state.
---
---
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceInUseException = _MatchServiceError kinesis "ResourceInUseException"
+-- | The request rate for the stream is too high, or the requested data is
+-- too large for the available throughput. Reduce the frequency or size of
+-- your requests. For more information, see
+-- <https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
+-- in the /Amazon Kinesis Data Streams Developer Guide/, and
+-- <https://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
+-- in the /AWS General Reference/.
+_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProvisionedThroughputExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ProvisionedThroughputExceededException"
 
+-- | The processing of the request failed because of an unknown error,
+-- exception, or failure.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+
+-- | A specified parameter exceeds its restrictions, is not supported, or
+-- can\'t be used. For more information, see the returned message.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArgumentException"
+
+-- | The request was rejected because the specified customer master key (CMK)
+-- isn\'t enabled.
+_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "KMSDisabledException"

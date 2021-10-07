@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.CreateNetworkInterface
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,205 +22,446 @@
 --
 -- Creates a network interface in the specified subnet.
 --
---
--- For more information about network interfaces, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces> in the /Amazon Virtual Private Cloud User Guide/ .
---
+-- For more information about network interfaces, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>
+-- in the /Amazon Virtual Private Cloud User Guide/.
 module Network.AWS.EC2.CreateNetworkInterface
-    (
-    -- * Creating a Request
-      createNetworkInterface
-    , CreateNetworkInterface
+  ( -- * Creating a Request
+    CreateNetworkInterface (..),
+    newCreateNetworkInterface,
+
     -- * Request Lenses
-    , cniGroups
-    , cniPrivateIPAddresses
-    , cniIPv6AddressCount
-    , cniPrivateIPAddress
-    , cniSecondaryPrivateIPAddressCount
-    , cniDescription
-    , cniDryRun
-    , cniIPv6Addresses
-    , cniSubnetId
+    createNetworkInterface_tagSpecifications,
+    createNetworkInterface_groups,
+    createNetworkInterface_privateIpAddresses,
+    createNetworkInterface_ipv6Addresses,
+    createNetworkInterface_dryRun,
+    createNetworkInterface_interfaceType,
+    createNetworkInterface_ipv6PrefixCount,
+    createNetworkInterface_ipv6Prefixes,
+    createNetworkInterface_ipv6AddressCount,
+    createNetworkInterface_description,
+    createNetworkInterface_secondaryPrivateIpAddressCount,
+    createNetworkInterface_ipv4PrefixCount,
+    createNetworkInterface_ipv4Prefixes,
+    createNetworkInterface_privateIpAddress,
+    createNetworkInterface_clientToken,
+    createNetworkInterface_subnetId,
 
     -- * Destructuring the Response
-    , createNetworkInterfaceResponse
-    , CreateNetworkInterfaceResponse
-    -- * Response Lenses
-    , cnirsNetworkInterface
-    , cnirsResponseStatus
-    ) where
+    CreateNetworkInterfaceResponse (..),
+    newCreateNetworkInterfaceResponse,
 
+    -- * Response Lenses
+    createNetworkInterfaceResponse_networkInterface,
+    createNetworkInterfaceResponse_clientToken,
+    createNetworkInterfaceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateNetworkInterface.
 --
---
---
--- /See:/ 'createNetworkInterface' smart constructor.
+-- /See:/ 'newCreateNetworkInterface' smart constructor.
 data CreateNetworkInterface = CreateNetworkInterface'
-  { _cniGroups :: !(Maybe [Text])
-  , _cniPrivateIPAddresses :: !(Maybe [PrivateIPAddressSpecification])
-  , _cniIPv6AddressCount :: !(Maybe Int)
-  , _cniPrivateIPAddress :: !(Maybe Text)
-  , _cniSecondaryPrivateIPAddressCount :: !(Maybe Int)
-  , _cniDescription :: !(Maybe Text)
-  , _cniDryRun :: !(Maybe Bool)
-  , _cniIPv6Addresses :: !(Maybe [InstanceIPv6Address])
-  , _cniSubnetId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateNetworkInterface' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cniGroups' - The IDs of one or more security groups.
---
--- * 'cniPrivateIPAddresses' - One or more private IPv4 addresses.
---
--- * 'cniIPv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
---
--- * 'cniPrivateIPAddress' - The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
---
--- * 'cniSecondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ . The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
---
--- * 'cniDescription' - A description for the network interface.
---
--- * 'cniDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'cniIPv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
---
--- * 'cniSubnetId' - The ID of the subnet to associate with the network interface.
-createNetworkInterface
-    :: Text -- ^ 'cniSubnetId'
-    -> CreateNetworkInterface
-createNetworkInterface pSubnetId_ =
-  CreateNetworkInterface'
-  { _cniGroups = Nothing
-  , _cniPrivateIPAddresses = Nothing
-  , _cniIPv6AddressCount = Nothing
-  , _cniPrivateIPAddress = Nothing
-  , _cniSecondaryPrivateIPAddressCount = Nothing
-  , _cniDescription = Nothing
-  , _cniDryRun = Nothing
-  , _cniIPv6Addresses = Nothing
-  , _cniSubnetId = pSubnetId_
+  { -- | The tags to apply to the new network interface.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The IDs of one or more security groups.
+    groups :: Prelude.Maybe [Prelude.Text],
+    -- | One or more private IPv4 addresses.
+    privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
+    -- | One or more specific IPv6 addresses from the IPv6 CIDR block range of
+    -- your subnet. You can\'t use this option if you\'re specifying a number
+    -- of IPv6 addresses.
+    ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the type of network interface. To create an Elastic Fabric
+    -- Adapter (EFA), specify @efa@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
+    -- in the /Amazon Elastic Compute Cloud User Guide/. To create a trunk
+    -- network interface, specify @efa@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    interfaceType :: Prelude.Maybe NetworkInterfaceCreationType,
+    -- | The number of IPv6 prefixes that Amazon Web Services automatically
+    -- assigns to the network interface. You cannot use this option if you use
+    -- the @Ipv6Prefixes@ option.
+    ipv6PrefixCount :: Prelude.Maybe Prelude.Int,
+    -- | One or more IPv6 prefixes assigned to the network interface. You cannot
+    -- use this option if you use the @Ipv6PrefixCount@ option.
+    ipv6Prefixes :: Prelude.Maybe [Ipv6PrefixSpecificationRequest],
+    -- | The number of IPv6 addresses to assign to a network interface. Amazon
+    -- EC2 automatically selects the IPv6 addresses from the subnet range. You
+    -- can\'t use this option if specifying specific IPv6 addresses. If your
+    -- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
+    -- you can specify @0@ to override this setting.
+    ipv6AddressCount :: Prelude.Maybe Prelude.Int,
+    -- | A description for the network interface.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The number of secondary private IPv4 addresses to assign to a network
+    -- interface. When you specify a number of secondary IPv4 addresses, Amazon
+    -- EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You
+    -- can\'t specify this option and specify more than one private IP address
+    -- using @privateIpAddresses@.
+    --
+    -- The number of IP addresses you can assign to a network interface varies
+    -- by instance type. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
+    -- in the /Amazon Virtual Private Cloud User Guide/.
+    secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of IPv4 prefixes that Amazon Web Services automatically
+    -- assigns to the network interface. You cannot use this option if you use
+    -- the @Ipv4 Prefixes@ option.
+    ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
+    -- | One or more IPv4 prefixes assigned to the network interface. You cannot
+    -- use this option if you use the @Ipv4PrefixCount@ option.
+    ipv4Prefixes :: Prelude.Maybe [Ipv4PrefixSpecificationRequest],
+    -- | The primary private IPv4 address of the network interface. If you don\'t
+    -- specify an IPv4 address, Amazon EC2 selects one for you from the
+    -- subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot
+    -- indicate any IP addresses specified in @privateIpAddresses@ as primary
+    -- (only one IP address can be designated as primary).
+    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet to associate with the network interface.
+    subnetId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateNetworkInterface' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tagSpecifications', 'createNetworkInterface_tagSpecifications' - The tags to apply to the new network interface.
+--
+-- 'groups', 'createNetworkInterface_groups' - The IDs of one or more security groups.
+--
+-- 'privateIpAddresses', 'createNetworkInterface_privateIpAddresses' - One or more private IPv4 addresses.
+--
+-- 'ipv6Addresses', 'createNetworkInterface_ipv6Addresses' - One or more specific IPv6 addresses from the IPv6 CIDR block range of
+-- your subnet. You can\'t use this option if you\'re specifying a number
+-- of IPv6 addresses.
+--
+-- 'dryRun', 'createNetworkInterface_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'interfaceType', 'createNetworkInterface_interfaceType' - Indicates the type of network interface. To create an Elastic Fabric
+-- Adapter (EFA), specify @efa@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
+-- in the /Amazon Elastic Compute Cloud User Guide/. To create a trunk
+-- network interface, specify @efa@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- 'ipv6PrefixCount', 'createNetworkInterface_ipv6PrefixCount' - The number of IPv6 prefixes that Amazon Web Services automatically
+-- assigns to the network interface. You cannot use this option if you use
+-- the @Ipv6Prefixes@ option.
+--
+-- 'ipv6Prefixes', 'createNetworkInterface_ipv6Prefixes' - One or more IPv6 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv6PrefixCount@ option.
+--
+-- 'ipv6AddressCount', 'createNetworkInterface_ipv6AddressCount' - The number of IPv6 addresses to assign to a network interface. Amazon
+-- EC2 automatically selects the IPv6 addresses from the subnet range. You
+-- can\'t use this option if specifying specific IPv6 addresses. If your
+-- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
+-- you can specify @0@ to override this setting.
+--
+-- 'description', 'createNetworkInterface_description' - A description for the network interface.
+--
+-- 'secondaryPrivateIpAddressCount', 'createNetworkInterface_secondaryPrivateIpAddressCount' - The number of secondary private IPv4 addresses to assign to a network
+-- interface. When you specify a number of secondary IPv4 addresses, Amazon
+-- EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You
+-- can\'t specify this option and specify more than one private IP address
+-- using @privateIpAddresses@.
+--
+-- The number of IP addresses you can assign to a network interface varies
+-- by instance type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- 'ipv4PrefixCount', 'createNetworkInterface_ipv4PrefixCount' - The number of IPv4 prefixes that Amazon Web Services automatically
+-- assigns to the network interface. You cannot use this option if you use
+-- the @Ipv4 Prefixes@ option.
+--
+-- 'ipv4Prefixes', 'createNetworkInterface_ipv4Prefixes' - One or more IPv4 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv4PrefixCount@ option.
+--
+-- 'privateIpAddress', 'createNetworkInterface_privateIpAddress' - The primary private IPv4 address of the network interface. If you don\'t
+-- specify an IPv4 address, Amazon EC2 selects one for you from the
+-- subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot
+-- indicate any IP addresses specified in @privateIpAddresses@ as primary
+-- (only one IP address can be designated as primary).
+--
+-- 'clientToken', 'createNetworkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
+-- 'subnetId', 'createNetworkInterface_subnetId' - The ID of the subnet to associate with the network interface.
+newCreateNetworkInterface ::
+  -- | 'subnetId'
+  Prelude.Text ->
+  CreateNetworkInterface
+newCreateNetworkInterface pSubnetId_ =
+  CreateNetworkInterface'
+    { tagSpecifications =
+        Prelude.Nothing,
+      groups = Prelude.Nothing,
+      privateIpAddresses = Prelude.Nothing,
+      ipv6Addresses = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      interfaceType = Prelude.Nothing,
+      ipv6PrefixCount = Prelude.Nothing,
+      ipv6Prefixes = Prelude.Nothing,
+      ipv6AddressCount = Prelude.Nothing,
+      description = Prelude.Nothing,
+      secondaryPrivateIpAddressCount = Prelude.Nothing,
+      ipv4PrefixCount = Prelude.Nothing,
+      ipv4Prefixes = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      subnetId = pSubnetId_
+    }
+
+-- | The tags to apply to the new network interface.
+createNetworkInterface_tagSpecifications :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [TagSpecification])
+createNetworkInterface_tagSpecifications = Lens.lens (\CreateNetworkInterface' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInterface' {} a -> s {tagSpecifications = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The IDs of one or more security groups.
-cniGroups :: Lens' CreateNetworkInterface [Text]
-cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a}) . _Default . _Coerce;
+createNetworkInterface_groups :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Prelude.Text])
+createNetworkInterface_groups = Lens.lens (\CreateNetworkInterface' {groups} -> groups) (\s@CreateNetworkInterface' {} a -> s {groups = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more private IPv4 addresses.
-cniPrivateIPAddresses :: Lens' CreateNetworkInterface [PrivateIPAddressSpecification]
-cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a}) . _Default . _Coerce;
+createNetworkInterface_privateIpAddresses :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [PrivateIpAddressSpecification])
+createNetworkInterface_privateIpAddresses = Lens.lens (\CreateNetworkInterface' {privateIpAddresses} -> privateIpAddresses) (\s@CreateNetworkInterface' {} a -> s {privateIpAddresses = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
--- | The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@ , you can specify @0@ to override this setting.
-cniIPv6AddressCount :: Lens' CreateNetworkInterface (Maybe Int)
-cniIPv6AddressCount = lens _cniIPv6AddressCount (\ s a -> s{_cniIPv6AddressCount = a});
+-- | One or more specific IPv6 addresses from the IPv6 CIDR block range of
+-- your subnet. You can\'t use this option if you\'re specifying a number
+-- of IPv6 addresses.
+createNetworkInterface_ipv6Addresses :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [InstanceIpv6Address])
+createNetworkInterface_ipv6Addresses = Lens.lens (\CreateNetworkInterface' {ipv6Addresses} -> ipv6Addresses) (\s@CreateNetworkInterface' {} a -> s {ipv6Addresses = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
 
--- | The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in @privateIpAddresses@ as primary (only one IP address can be designated as primary).
-cniPrivateIPAddress :: Lens' CreateNetworkInterface (Maybe Text)
-cniPrivateIPAddress = lens _cniPrivateIPAddress (\ s a -> s{_cniPrivateIPAddress = a});
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createNetworkInterface_dryRun :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Bool)
+createNetworkInterface_dryRun = Lens.lens (\CreateNetworkInterface' {dryRun} -> dryRun) (\s@CreateNetworkInterface' {} a -> s {dryRun = a} :: CreateNetworkInterface)
 
--- | The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using @privateIpAddresses@ . The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type> in the /Amazon Virtual Private Cloud User Guide/ .
-cniSecondaryPrivateIPAddressCount :: Lens' CreateNetworkInterface (Maybe Int)
-cniSecondaryPrivateIPAddressCount = lens _cniSecondaryPrivateIPAddressCount (\ s a -> s{_cniSecondaryPrivateIPAddressCount = a});
+-- | Indicates the type of network interface. To create an Elastic Fabric
+-- Adapter (EFA), specify @efa@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
+-- in the /Amazon Elastic Compute Cloud User Guide/. To create a trunk
+-- network interface, specify @efa@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+createNetworkInterface_interfaceType :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe NetworkInterfaceCreationType)
+createNetworkInterface_interfaceType = Lens.lens (\CreateNetworkInterface' {interfaceType} -> interfaceType) (\s@CreateNetworkInterface' {} a -> s {interfaceType = a} :: CreateNetworkInterface)
+
+-- | The number of IPv6 prefixes that Amazon Web Services automatically
+-- assigns to the network interface. You cannot use this option if you use
+-- the @Ipv6Prefixes@ option.
+createNetworkInterface_ipv6PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
+createNetworkInterface_ipv6PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv6PrefixCount} -> ipv6PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv6PrefixCount = a} :: CreateNetworkInterface)
+
+-- | One or more IPv6 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv6PrefixCount@ option.
+createNetworkInterface_ipv6Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv6PrefixSpecificationRequest])
+createNetworkInterface_ipv6Prefixes = Lens.lens (\CreateNetworkInterface' {ipv6Prefixes} -> ipv6Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv6Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The number of IPv6 addresses to assign to a network interface. Amazon
+-- EC2 automatically selects the IPv6 addresses from the subnet range. You
+-- can\'t use this option if specifying specific IPv6 addresses. If your
+-- subnet has the @AssignIpv6AddressOnCreation@ attribute set to @true@,
+-- you can specify @0@ to override this setting.
+createNetworkInterface_ipv6AddressCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
+createNetworkInterface_ipv6AddressCount = Lens.lens (\CreateNetworkInterface' {ipv6AddressCount} -> ipv6AddressCount) (\s@CreateNetworkInterface' {} a -> s {ipv6AddressCount = a} :: CreateNetworkInterface)
 
 -- | A description for the network interface.
-cniDescription :: Lens' CreateNetworkInterface (Maybe Text)
-cniDescription = lens _cniDescription (\ s a -> s{_cniDescription = a});
+createNetworkInterface_description :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
+createNetworkInterface_description = Lens.lens (\CreateNetworkInterface' {description} -> description) (\s@CreateNetworkInterface' {} a -> s {description = a} :: CreateNetworkInterface)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cniDryRun :: Lens' CreateNetworkInterface (Maybe Bool)
-cniDryRun = lens _cniDryRun (\ s a -> s{_cniDryRun = a});
+-- | The number of secondary private IPv4 addresses to assign to a network
+-- interface. When you specify a number of secondary IPv4 addresses, Amazon
+-- EC2 selects these IP addresses within the subnet\'s IPv4 CIDR range. You
+-- can\'t specify this option and specify more than one private IP address
+-- using @privateIpAddresses@.
+--
+-- The number of IP addresses you can assign to a network interface varies
+-- by instance type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI IP Addresses Per ENI Per Instance Type>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+createNetworkInterface_secondaryPrivateIpAddressCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
+createNetworkInterface_secondaryPrivateIpAddressCount = Lens.lens (\CreateNetworkInterface' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@CreateNetworkInterface' {} a -> s {secondaryPrivateIpAddressCount = a} :: CreateNetworkInterface)
 
--- | One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.
-cniIPv6Addresses :: Lens' CreateNetworkInterface [InstanceIPv6Address]
-cniIPv6Addresses = lens _cniIPv6Addresses (\ s a -> s{_cniIPv6Addresses = a}) . _Default . _Coerce;
+-- | The number of IPv4 prefixes that Amazon Web Services automatically
+-- assigns to the network interface. You cannot use this option if you use
+-- the @Ipv4 Prefixes@ option.
+createNetworkInterface_ipv4PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
+createNetworkInterface_ipv4PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv4PrefixCount = a} :: CreateNetworkInterface)
+
+-- | One or more IPv4 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv4PrefixCount@ option.
+createNetworkInterface_ipv4Prefixes :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe [Ipv4PrefixSpecificationRequest])
+createNetworkInterface_ipv4Prefixes = Lens.lens (\CreateNetworkInterface' {ipv4Prefixes} -> ipv4Prefixes) (\s@CreateNetworkInterface' {} a -> s {ipv4Prefixes = a} :: CreateNetworkInterface) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The primary private IPv4 address of the network interface. If you don\'t
+-- specify an IPv4 address, Amazon EC2 selects one for you from the
+-- subnet\'s IPv4 CIDR range. If you specify an IP address, you cannot
+-- indicate any IP addresses specified in @privateIpAddresses@ as primary
+-- (only one IP address can be designated as primary).
+createNetworkInterface_privateIpAddress :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
+createNetworkInterface_privateIpAddress = Lens.lens (\CreateNetworkInterface' {privateIpAddress} -> privateIpAddress) (\s@CreateNetworkInterface' {} a -> s {privateIpAddress = a} :: CreateNetworkInterface)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+createNetworkInterface_clientToken :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Text)
+createNetworkInterface_clientToken = Lens.lens (\CreateNetworkInterface' {clientToken} -> clientToken) (\s@CreateNetworkInterface' {} a -> s {clientToken = a} :: CreateNetworkInterface)
 
 -- | The ID of the subnet to associate with the network interface.
-cniSubnetId :: Lens' CreateNetworkInterface Text
-cniSubnetId = lens _cniSubnetId (\ s a -> s{_cniSubnetId = a});
+createNetworkInterface_subnetId :: Lens.Lens' CreateNetworkInterface Prelude.Text
+createNetworkInterface_subnetId = Lens.lens (\CreateNetworkInterface' {subnetId} -> subnetId) (\s@CreateNetworkInterface' {} a -> s {subnetId = a} :: CreateNetworkInterface)
 
-instance AWSRequest CreateNetworkInterface where
-        type Rs CreateNetworkInterface =
-             CreateNetworkInterfaceResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 CreateNetworkInterfaceResponse' <$>
-                   (x .@? "networkInterface") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateNetworkInterface where
+  type
+    AWSResponse CreateNetworkInterface =
+      CreateNetworkInterfaceResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreateNetworkInterfaceResponse'
+            Prelude.<$> (x Core..@? "networkInterface")
+            Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateNetworkInterface where
+instance Prelude.Hashable CreateNetworkInterface
 
-instance NFData CreateNetworkInterface where
+instance Prelude.NFData CreateNetworkInterface
 
-instance ToHeaders CreateNetworkInterface where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateNetworkInterface where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CreateNetworkInterface where
-        toPath = const "/"
+instance Core.ToPath CreateNetworkInterface where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateNetworkInterface where
-        toQuery CreateNetworkInterface'{..}
-          = mconcat
-              ["Action" =:
-                 ("CreateNetworkInterface" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery
-                 (toQueryList "SecurityGroupId" <$> _cniGroups),
-               toQuery
-                 (toQueryList "PrivateIpAddresses" <$>
-                    _cniPrivateIPAddresses),
-               "Ipv6AddressCount" =: _cniIPv6AddressCount,
-               "PrivateIpAddress" =: _cniPrivateIPAddress,
-               "SecondaryPrivateIpAddressCount" =:
-                 _cniSecondaryPrivateIPAddressCount,
-               "Description" =: _cniDescription,
-               "DryRun" =: _cniDryRun,
-               toQuery
-                 (toQueryList "Ipv6Addresses" <$> _cniIPv6Addresses),
-               "SubnetId" =: _cniSubnetId]
+instance Core.ToQuery CreateNetworkInterface where
+  toQuery CreateNetworkInterface' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateNetworkInterface" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroupId"
+              Prelude.<$> groups
+          ),
+        Core.toQuery
+          ( Core.toQueryList "PrivateIpAddresses"
+              Prelude.<$> privateIpAddresses
+          ),
+        Core.toQuery
+          ( Core.toQueryList "Ipv6Addresses"
+              Prelude.<$> ipv6Addresses
+          ),
+        "DryRun" Core.=: dryRun,
+        "InterfaceType" Core.=: interfaceType,
+        "Ipv6PrefixCount" Core.=: ipv6PrefixCount,
+        Core.toQuery
+          ( Core.toQueryList "Ipv6Prefix"
+              Prelude.<$> ipv6Prefixes
+          ),
+        "Ipv6AddressCount" Core.=: ipv6AddressCount,
+        "Description" Core.=: description,
+        "SecondaryPrivateIpAddressCount"
+          Core.=: secondaryPrivateIpAddressCount,
+        "Ipv4PrefixCount" Core.=: ipv4PrefixCount,
+        Core.toQuery
+          ( Core.toQueryList "Ipv4Prefix"
+              Prelude.<$> ipv4Prefixes
+          ),
+        "PrivateIpAddress" Core.=: privateIpAddress,
+        "ClientToken" Core.=: clientToken,
+        "SubnetId" Core.=: subnetId
+      ]
 
 -- | Contains the output of CreateNetworkInterface.
 --
---
---
--- /See:/ 'createNetworkInterfaceResponse' smart constructor.
+-- /See:/ 'newCreateNetworkInterfaceResponse' smart constructor.
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
-  { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
-  , _cnirsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the network interface.
+    networkInterface :: Prelude.Maybe NetworkInterface,
+    -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateNetworkInterfaceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateNetworkInterfaceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cnirsNetworkInterface' - Information about the network interface.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cnirsResponseStatus' - -- | The response status code.
-createNetworkInterfaceResponse
-    :: Int -- ^ 'cnirsResponseStatus'
-    -> CreateNetworkInterfaceResponse
-createNetworkInterfaceResponse pResponseStatus_ =
+-- 'networkInterface', 'createNetworkInterfaceResponse_networkInterface' - Information about the network interface.
+--
+-- 'clientToken', 'createNetworkInterfaceResponse_clientToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+--
+-- 'httpStatus', 'createNetworkInterfaceResponse_httpStatus' - The response's http status code.
+newCreateNetworkInterfaceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateNetworkInterfaceResponse
+newCreateNetworkInterfaceResponse pHttpStatus_ =
   CreateNetworkInterfaceResponse'
-  {_cnirsNetworkInterface = Nothing, _cnirsResponseStatus = pResponseStatus_}
-
+    { networkInterface =
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the network interface.
-cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
-cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInterface = a});
+createNetworkInterfaceResponse_networkInterface :: Lens.Lens' CreateNetworkInterfaceResponse (Prelude.Maybe NetworkInterface)
+createNetworkInterfaceResponse_networkInterface = Lens.lens (\CreateNetworkInterfaceResponse' {networkInterface} -> networkInterface) (\s@CreateNetworkInterfaceResponse' {} a -> s {networkInterface = a} :: CreateNetworkInterfaceResponse)
 
--- | -- | The response status code.
-cnirsResponseStatus :: Lens' CreateNetworkInterfaceResponse Int
-cnirsResponseStatus = lens _cnirsResponseStatus (\ s a -> s{_cnirsResponseStatus = a});
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+createNetworkInterfaceResponse_clientToken :: Lens.Lens' CreateNetworkInterfaceResponse (Prelude.Maybe Prelude.Text)
+createNetworkInterfaceResponse_clientToken = Lens.lens (\CreateNetworkInterfaceResponse' {clientToken} -> clientToken) (\s@CreateNetworkInterfaceResponse' {} a -> s {clientToken = a} :: CreateNetworkInterfaceResponse)
 
-instance NFData CreateNetworkInterfaceResponse where
+-- | The response's http status code.
+createNetworkInterfaceResponse_httpStatus :: Lens.Lens' CreateNetworkInterfaceResponse Prelude.Int
+createNetworkInterfaceResponse_httpStatus = Lens.lens (\CreateNetworkInterfaceResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkInterfaceResponse' {} a -> s {httpStatus = a} :: CreateNetworkInterfaceResponse)
+
+instance
+  Prelude.NFData
+    CreateNetworkInterfaceResponse

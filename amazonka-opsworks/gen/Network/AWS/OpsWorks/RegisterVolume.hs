@@ -1,148 +1,185 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one stack at a time. If the volume is already registered, you must first deregister it by calling 'DeregisterVolume' . For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
+-- Registers an Amazon EBS volume with a specified stack. A volume can be
+-- registered with only one stack at a time. If the volume is already
+-- registered, you must first deregister it by calling DeregisterVolume.
+-- For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.RegisterVolume
-    (
-    -- * Creating a Request
-      registerVolume
-    , RegisterVolume
+  ( -- * Creating a Request
+    RegisterVolume (..),
+    newRegisterVolume,
+
     -- * Request Lenses
-    , rvEC2VolumeId
-    , rvStackId
+    registerVolume_ec2VolumeId,
+    registerVolume_stackId,
 
     -- * Destructuring the Response
-    , registerVolumeResponse
-    , RegisterVolumeResponse
+    RegisterVolumeResponse (..),
+    newRegisterVolumeResponse,
+
     -- * Response Lenses
-    , rvrsVolumeId
-    , rvrsResponseStatus
-    ) where
+    registerVolumeResponse_volumeId,
+    registerVolumeResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'registerVolume' smart constructor.
+-- | /See:/ 'newRegisterVolume' smart constructor.
 data RegisterVolume = RegisterVolume'
-  { _rvEC2VolumeId :: !(Maybe Text)
-  , _rvStackId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon EBS volume ID.
+    ec2VolumeId :: Prelude.Maybe Prelude.Text,
+    -- | The stack ID.
+    stackId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterVolume' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterVolume' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rvEC2VolumeId' - The Amazon EBS volume ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rvStackId' - The stack ID.
-registerVolume
-    :: Text -- ^ 'rvStackId'
-    -> RegisterVolume
-registerVolume pStackId_ =
-  RegisterVolume' {_rvEC2VolumeId = Nothing, _rvStackId = pStackId_}
-
+-- 'ec2VolumeId', 'registerVolume_ec2VolumeId' - The Amazon EBS volume ID.
+--
+-- 'stackId', 'registerVolume_stackId' - The stack ID.
+newRegisterVolume ::
+  -- | 'stackId'
+  Prelude.Text ->
+  RegisterVolume
+newRegisterVolume pStackId_ =
+  RegisterVolume'
+    { ec2VolumeId = Prelude.Nothing,
+      stackId = pStackId_
+    }
 
 -- | The Amazon EBS volume ID.
-rvEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
-rvEC2VolumeId = lens _rvEC2VolumeId (\ s a -> s{_rvEC2VolumeId = a});
+registerVolume_ec2VolumeId :: Lens.Lens' RegisterVolume (Prelude.Maybe Prelude.Text)
+registerVolume_ec2VolumeId = Lens.lens (\RegisterVolume' {ec2VolumeId} -> ec2VolumeId) (\s@RegisterVolume' {} a -> s {ec2VolumeId = a} :: RegisterVolume)
 
 -- | The stack ID.
-rvStackId :: Lens' RegisterVolume Text
-rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a});
+registerVolume_stackId :: Lens.Lens' RegisterVolume Prelude.Text
+registerVolume_stackId = Lens.lens (\RegisterVolume' {stackId} -> stackId) (\s@RegisterVolume' {} a -> s {stackId = a} :: RegisterVolume)
 
-instance AWSRequest RegisterVolume where
-        type Rs RegisterVolume = RegisterVolumeResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterVolumeResponse' <$>
-                   (x .?> "VolumeId") <*> (pure (fromEnum s)))
+instance Core.AWSRequest RegisterVolume where
+  type
+    AWSResponse RegisterVolume =
+      RegisterVolumeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterVolumeResponse'
+            Prelude.<$> (x Core..?> "VolumeId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RegisterVolume where
+instance Prelude.Hashable RegisterVolume
 
-instance NFData RegisterVolume where
+instance Prelude.NFData RegisterVolume
 
-instance ToHeaders RegisterVolume where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.RegisterVolume" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders RegisterVolume where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.RegisterVolume" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON RegisterVolume where
-        toJSON RegisterVolume'{..}
-          = object
-              (catMaybes
-                 [("Ec2VolumeId" .=) <$> _rvEC2VolumeId,
-                  Just ("StackId" .= _rvStackId)])
+instance Core.ToJSON RegisterVolume where
+  toJSON RegisterVolume' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("Ec2VolumeId" Core..=) Prelude.<$> ec2VolumeId,
+            Prelude.Just ("StackId" Core..= stackId)
+          ]
+      )
 
-instance ToPath RegisterVolume where
-        toPath = const "/"
+instance Core.ToPath RegisterVolume where
+  toPath = Prelude.const "/"
 
-instance ToQuery RegisterVolume where
-        toQuery = const mempty
+instance Core.ToQuery RegisterVolume where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @RegisterVolume@ request.
 --
---
---
--- /See:/ 'registerVolumeResponse' smart constructor.
+-- /See:/ 'newRegisterVolumeResponse' smart constructor.
 data RegisterVolumeResponse = RegisterVolumeResponse'
-  { _rvrsVolumeId       :: !(Maybe Text)
-  , _rvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The volume ID.
+    volumeId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterVolumeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterVolumeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rvrsVolumeId' - The volume ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rvrsResponseStatus' - -- | The response status code.
-registerVolumeResponse
-    :: Int -- ^ 'rvrsResponseStatus'
-    -> RegisterVolumeResponse
-registerVolumeResponse pResponseStatus_ =
+-- 'volumeId', 'registerVolumeResponse_volumeId' - The volume ID.
+--
+-- 'httpStatus', 'registerVolumeResponse_httpStatus' - The response's http status code.
+newRegisterVolumeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterVolumeResponse
+newRegisterVolumeResponse pHttpStatus_ =
   RegisterVolumeResponse'
-  {_rvrsVolumeId = Nothing, _rvrsResponseStatus = pResponseStatus_}
-
+    { volumeId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The volume ID.
-rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
-rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
+registerVolumeResponse_volumeId :: Lens.Lens' RegisterVolumeResponse (Prelude.Maybe Prelude.Text)
+registerVolumeResponse_volumeId = Lens.lens (\RegisterVolumeResponse' {volumeId} -> volumeId) (\s@RegisterVolumeResponse' {} a -> s {volumeId = a} :: RegisterVolumeResponse)
 
--- | -- | The response status code.
-rvrsResponseStatus :: Lens' RegisterVolumeResponse Int
-rvrsResponseStatus = lens _rvrsResponseStatus (\ s a -> s{_rvrsResponseStatus = a});
+-- | The response's http status code.
+registerVolumeResponse_httpStatus :: Lens.Lens' RegisterVolumeResponse Prelude.Int
+registerVolumeResponse_httpStatus = Lens.lens (\RegisterVolumeResponse' {httpStatus} -> httpStatus) (\s@RegisterVolumeResponse' {} a -> s {httpStatus = a} :: RegisterVolumeResponse)
 
-instance NFData RegisterVolumeResponse where
+instance Prelude.NFData RegisterVolumeResponse

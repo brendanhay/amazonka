@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,85 +22,100 @@
 --
 -- Creates or updates tags for the specified Auto Scaling group.
 --
+-- When you specify a tag with a key that already exists, the operation
+-- overwrites the previous tag definition, and you do not get an error
+-- message.
 --
--- When you specify a tag with a key that already exists, the operation overwrites the previous tag definition, and you do not get an error message.
---
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html Tagging Auto Scaling Groups and Instances> in the /Auto Scaling User Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html Tagging Auto Scaling groups and instances>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.CreateOrUpdateTags
-    (
-    -- * Creating a Request
-      createOrUpdateTags
-    , CreateOrUpdateTags
+  ( -- * Creating a Request
+    CreateOrUpdateTags (..),
+    newCreateOrUpdateTags,
+
     -- * Request Lenses
-    , coutTags
+    createOrUpdateTags_tags,
 
     -- * Destructuring the Response
-    , createOrUpdateTagsResponse
-    , CreateOrUpdateTagsResponse
-    ) where
+    CreateOrUpdateTagsResponse (..),
+    newCreateOrUpdateTagsResponse,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createOrUpdateTags' smart constructor.
-newtype CreateOrUpdateTags = CreateOrUpdateTags'
-  { _coutTags :: [Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateOrUpdateTags' smart constructor.
+data CreateOrUpdateTags = CreateOrUpdateTags'
+  { -- | One or more tags.
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateOrUpdateTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateOrUpdateTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'coutTags' - One or more tags.
-createOrUpdateTags
-    :: CreateOrUpdateTags
-createOrUpdateTags = CreateOrUpdateTags' {_coutTags = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'createOrUpdateTags_tags' - One or more tags.
+newCreateOrUpdateTags ::
+  CreateOrUpdateTags
+newCreateOrUpdateTags =
+  CreateOrUpdateTags' {tags = Prelude.mempty}
 
 -- | One or more tags.
-coutTags :: Lens' CreateOrUpdateTags [Tag]
-coutTags = lens _coutTags (\ s a -> s{_coutTags = a}) . _Coerce;
+createOrUpdateTags_tags :: Lens.Lens' CreateOrUpdateTags [Tag]
+createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Prelude.. Lens._Coerce
 
-instance AWSRequest CreateOrUpdateTags where
-        type Rs CreateOrUpdateTags =
-             CreateOrUpdateTagsResponse
-        request = postQuery autoScaling
-        response = receiveNull CreateOrUpdateTagsResponse'
+instance Core.AWSRequest CreateOrUpdateTags where
+  type
+    AWSResponse CreateOrUpdateTags =
+      CreateOrUpdateTagsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull CreateOrUpdateTagsResponse'
 
-instance Hashable CreateOrUpdateTags where
+instance Prelude.Hashable CreateOrUpdateTags
 
-instance NFData CreateOrUpdateTags where
+instance Prelude.NFData CreateOrUpdateTags
 
-instance ToHeaders CreateOrUpdateTags where
-        toHeaders = const mempty
+instance Core.ToHeaders CreateOrUpdateTags where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CreateOrUpdateTags where
-        toPath = const "/"
+instance Core.ToPath CreateOrUpdateTags where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateOrUpdateTags where
-        toQuery CreateOrUpdateTags'{..}
-          = mconcat
-              ["Action" =: ("CreateOrUpdateTags" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "Tags" =: toQueryList "member" _coutTags]
+instance Core.ToQuery CreateOrUpdateTags where
+  toQuery CreateOrUpdateTags' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("CreateOrUpdateTags" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "Tags" Core.=: Core.toQueryList "member" tags
+      ]
 
--- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
-data CreateOrUpdateTagsResponse =
-  CreateOrUpdateTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateOrUpdateTagsResponse' smart constructor.
+data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateOrUpdateTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateOrUpdateTagsResponse' with all optional fields omitted.
 --
-createOrUpdateTagsResponse
-    :: CreateOrUpdateTagsResponse
-createOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCreateOrUpdateTagsResponse ::
+  CreateOrUpdateTagsResponse
+newCreateOrUpdateTagsResponse =
+  CreateOrUpdateTagsResponse'
 
-
-instance NFData CreateOrUpdateTagsResponse where
+instance Prelude.NFData CreateOrUpdateTagsResponse

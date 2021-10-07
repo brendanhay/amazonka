@@ -1,414 +1,774 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.AutoScaling.Types
-    (
-    -- * Service Configuration
-      autoScaling
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _AlreadyExistsFault
-    , _LimitExceededFault
-    , _ResourceInUseFault
-    , _InvalidNextToken
-    , _ScalingActivityInProgressFault
-    , _ResourceContentionFault
+    _InstanceRefreshInProgressFault,
+    _ResourceInUseFault,
+    _AlreadyExistsFault,
+    _LimitExceededFault,
+    _ScalingActivityInProgressFault,
+    _ResourceContentionFault,
+    _ActiveInstanceRefreshNotFoundFault,
+    _ServiceLinkedRoleFailure,
+    _InvalidNextToken,
+
+    -- * InstanceMetadataEndpointState
+    InstanceMetadataEndpointState (..),
+
+    -- * InstanceMetadataHttpTokensState
+    InstanceMetadataHttpTokensState (..),
+
+    -- * InstanceRefreshStatus
+    InstanceRefreshStatus (..),
 
     -- * LifecycleState
-    , LifecycleState (..)
+    LifecycleState (..),
 
     -- * MetricStatistic
-    , MetricStatistic (..)
+    MetricStatistic (..),
 
     -- * MetricType
-    , MetricType (..)
+    MetricType (..),
+
+    -- * PredefinedLoadMetricType
+    PredefinedLoadMetricType (..),
+
+    -- * PredefinedMetricPairType
+    PredefinedMetricPairType (..),
+
+    -- * PredefinedScalingMetricType
+    PredefinedScalingMetricType (..),
+
+    -- * PredictiveScalingMaxCapacityBreachBehavior
+    PredictiveScalingMaxCapacityBreachBehavior (..),
+
+    -- * PredictiveScalingMode
+    PredictiveScalingMode (..),
+
+    -- * RefreshStrategy
+    RefreshStrategy (..),
 
     -- * ScalingActivityStatusCode
-    , ScalingActivityStatusCode (..)
+    ScalingActivityStatusCode (..),
+
+    -- * WarmPoolState
+    WarmPoolState (..),
+
+    -- * WarmPoolStatus
+    WarmPoolStatus (..),
 
     -- * Activity
-    , Activity
-    , activity
-    , aProgress
-    , aStatusMessage
-    , aEndTime
-    , aDetails
-    , aDescription
-    , aActivityId
-    , aAutoScalingGroupName
-    , aCause
-    , aStartTime
-    , aStatusCode
+    Activity (..),
+    newActivity,
+    activity_statusMessage,
+    activity_autoScalingGroupARN,
+    activity_endTime,
+    activity_autoScalingGroupState,
+    activity_details,
+    activity_description,
+    activity_progress,
+    activity_autoScalingGroupName,
+    activity_activityId,
+    activity_cause,
+    activity_startTime,
+    activity_statusCode,
 
     -- * AdjustmentType
-    , AdjustmentType
-    , adjustmentType
-    , atAdjustmentType
+    AdjustmentType (..),
+    newAdjustmentType,
+    adjustmentType_adjustmentType,
 
     -- * Alarm
-    , Alarm
-    , alarm
-    , aAlarmName
-    , aAlarmARN
+    Alarm (..),
+    newAlarm,
+    alarm_alarmARN,
+    alarm_alarmName,
 
     -- * AutoScalingGroup
-    , AutoScalingGroup
-    , autoScalingGroup
-    , asgStatus
-    , asgTerminationPolicies
-    , asgHealthCheckGracePeriod
-    , asgNewInstancesProtectedFromScaleIn
-    , asgVPCZoneIdentifier
-    , asgTargetGroupARNs
-    , asgEnabledMetrics
-    , asgLaunchConfigurationName
-    , asgInstances
-    , asgAutoScalingGroupARN
-    , asgPlacementGroup
-    , asgSuspendedProcesses
-    , asgLoadBalancerNames
-    , asgTags
-    , asgAutoScalingGroupName
-    , asgMinSize
-    , asgMaxSize
-    , asgDesiredCapacity
-    , asgDefaultCooldown
-    , asgAvailabilityZones
-    , asgHealthCheckType
-    , asgCreatedTime
+    AutoScalingGroup (..),
+    newAutoScalingGroup,
+    autoScalingGroup_status,
+    autoScalingGroup_maxInstanceLifetime,
+    autoScalingGroup_placementGroup,
+    autoScalingGroup_suspendedProcesses,
+    autoScalingGroup_predictedCapacity,
+    autoScalingGroup_autoScalingGroupARN,
+    autoScalingGroup_launchTemplate,
+    autoScalingGroup_launchConfigurationName,
+    autoScalingGroup_instances,
+    autoScalingGroup_context,
+    autoScalingGroup_mixedInstancesPolicy,
+    autoScalingGroup_tags,
+    autoScalingGroup_loadBalancerNames,
+    autoScalingGroup_targetGroupARNs,
+    autoScalingGroup_vPCZoneIdentifier,
+    autoScalingGroup_warmPoolSize,
+    autoScalingGroup_warmPoolConfiguration,
+    autoScalingGroup_capacityRebalance,
+    autoScalingGroup_serviceLinkedRoleARN,
+    autoScalingGroup_healthCheckGracePeriod,
+    autoScalingGroup_newInstancesProtectedFromScaleIn,
+    autoScalingGroup_enabledMetrics,
+    autoScalingGroup_terminationPolicies,
+    autoScalingGroup_autoScalingGroupName,
+    autoScalingGroup_minSize,
+    autoScalingGroup_maxSize,
+    autoScalingGroup_desiredCapacity,
+    autoScalingGroup_defaultCooldown,
+    autoScalingGroup_availabilityZones,
+    autoScalingGroup_healthCheckType,
+    autoScalingGroup_createdTime,
 
     -- * AutoScalingInstanceDetails
-    , AutoScalingInstanceDetails
-    , autoScalingInstanceDetails
-    , asidLaunchConfigurationName
-    , asidInstanceId
-    , asidAutoScalingGroupName
-    , asidAvailabilityZone
-    , asidLifecycleState
-    , asidHealthStatus
-    , asidProtectedFromScaleIn
+    AutoScalingInstanceDetails (..),
+    newAutoScalingInstanceDetails,
+    autoScalingInstanceDetails_instanceType,
+    autoScalingInstanceDetails_launchTemplate,
+    autoScalingInstanceDetails_launchConfigurationName,
+    autoScalingInstanceDetails_weightedCapacity,
+    autoScalingInstanceDetails_instanceId,
+    autoScalingInstanceDetails_autoScalingGroupName,
+    autoScalingInstanceDetails_availabilityZone,
+    autoScalingInstanceDetails_lifecycleState,
+    autoScalingInstanceDetails_healthStatus,
+    autoScalingInstanceDetails_protectedFromScaleIn,
 
     -- * BlockDeviceMapping
-    , BlockDeviceMapping
-    , blockDeviceMapping
-    , bdmVirtualName
-    , bdmNoDevice
-    , bdmEBS
-    , bdmDeviceName
+    BlockDeviceMapping (..),
+    newBlockDeviceMapping,
+    blockDeviceMapping_ebs,
+    blockDeviceMapping_noDevice,
+    blockDeviceMapping_virtualName,
+    blockDeviceMapping_deviceName,
+
+    -- * CapacityForecast
+    CapacityForecast (..),
+    newCapacityForecast,
+    capacityForecast_timestamps,
+    capacityForecast_values,
 
     -- * CustomizedMetricSpecification
-    , CustomizedMetricSpecification
-    , customizedMetricSpecification
-    , cmsDimensions
-    , cmsUnit
-    , cmsMetricName
-    , cmsNamespace
-    , cmsStatistic
+    CustomizedMetricSpecification (..),
+    newCustomizedMetricSpecification,
+    customizedMetricSpecification_unit,
+    customizedMetricSpecification_dimensions,
+    customizedMetricSpecification_metricName,
+    customizedMetricSpecification_namespace,
+    customizedMetricSpecification_statistic,
 
-    -- * EBS
-    , EBS
-    , ebs
-    , ebsDeleteOnTermination
-    , ebsVolumeSize
-    , ebsIOPS
-    , ebsEncrypted
-    , ebsVolumeType
-    , ebsSnapshotId
+    -- * DesiredConfiguration
+    DesiredConfiguration (..),
+    newDesiredConfiguration,
+    desiredConfiguration_launchTemplate,
+    desiredConfiguration_mixedInstancesPolicy,
+
+    -- * Ebs
+    Ebs (..),
+    newEbs,
+    ebs_encrypted,
+    ebs_throughput,
+    ebs_deleteOnTermination,
+    ebs_snapshotId,
+    ebs_volumeType,
+    ebs_iops,
+    ebs_volumeSize,
 
     -- * EnabledMetric
-    , EnabledMetric
-    , enabledMetric
-    , emGranularity
-    , emMetric
+    EnabledMetric (..),
+    newEnabledMetric,
+    enabledMetric_granularity,
+    enabledMetric_metric,
+
+    -- * FailedScheduledUpdateGroupActionRequest
+    FailedScheduledUpdateGroupActionRequest (..),
+    newFailedScheduledUpdateGroupActionRequest,
+    failedScheduledUpdateGroupActionRequest_errorMessage,
+    failedScheduledUpdateGroupActionRequest_errorCode,
+    failedScheduledUpdateGroupActionRequest_scheduledActionName,
 
     -- * Filter
-    , Filter
-    , filter'
-    , fValues
-    , fName
+    Filter (..),
+    newFilter,
+    filter_values,
+    filter_name,
 
     -- * Instance
-    , Instance
-    , instance'
-    , iLaunchConfigurationName
-    , iInstanceId
-    , iAvailabilityZone
-    , iLifecycleState
-    , iHealthStatus
-    , iProtectedFromScaleIn
+    Instance (..),
+    newInstance,
+    instance_instanceType,
+    instance_launchTemplate,
+    instance_launchConfigurationName,
+    instance_weightedCapacity,
+    instance_instanceId,
+    instance_availabilityZone,
+    instance_lifecycleState,
+    instance_healthStatus,
+    instance_protectedFromScaleIn,
+
+    -- * InstanceMetadataOptions
+    InstanceMetadataOptions (..),
+    newInstanceMetadataOptions,
+    instanceMetadataOptions_httpEndpoint,
+    instanceMetadataOptions_httpPutResponseHopLimit,
+    instanceMetadataOptions_httpTokens,
 
     -- * InstanceMonitoring
-    , InstanceMonitoring
-    , instanceMonitoring
-    , imEnabled
+    InstanceMonitoring (..),
+    newInstanceMonitoring,
+    instanceMonitoring_enabled,
+
+    -- * InstanceRefresh
+    InstanceRefresh (..),
+    newInstanceRefresh,
+    instanceRefresh_status,
+    instanceRefresh_instanceRefreshId,
+    instanceRefresh_percentageComplete,
+    instanceRefresh_startTime,
+    instanceRefresh_endTime,
+    instanceRefresh_progressDetails,
+    instanceRefresh_desiredConfiguration,
+    instanceRefresh_preferences,
+    instanceRefresh_statusReason,
+    instanceRefresh_instancesToUpdate,
+    instanceRefresh_autoScalingGroupName,
+
+    -- * InstanceRefreshLivePoolProgress
+    InstanceRefreshLivePoolProgress (..),
+    newInstanceRefreshLivePoolProgress,
+    instanceRefreshLivePoolProgress_percentageComplete,
+    instanceRefreshLivePoolProgress_instancesToUpdate,
+
+    -- * InstanceRefreshProgressDetails
+    InstanceRefreshProgressDetails (..),
+    newInstanceRefreshProgressDetails,
+    instanceRefreshProgressDetails_livePoolProgress,
+    instanceRefreshProgressDetails_warmPoolProgress,
+
+    -- * InstanceRefreshWarmPoolProgress
+    InstanceRefreshWarmPoolProgress (..),
+    newInstanceRefreshWarmPoolProgress,
+    instanceRefreshWarmPoolProgress_percentageComplete,
+    instanceRefreshWarmPoolProgress_instancesToUpdate,
+
+    -- * InstancesDistribution
+    InstancesDistribution (..),
+    newInstancesDistribution,
+    instancesDistribution_spotMaxPrice,
+    instancesDistribution_spotInstancePools,
+    instancesDistribution_spotAllocationStrategy,
+    instancesDistribution_onDemandPercentageAboveBaseCapacity,
+    instancesDistribution_onDemandAllocationStrategy,
+    instancesDistribution_onDemandBaseCapacity,
 
     -- * LaunchConfiguration
-    , LaunchConfiguration
-    , launchConfiguration
-    , lcAssociatePublicIPAddress
-    , lcSecurityGroups
-    , lcSpotPrice
-    , lcInstanceMonitoring
-    , lcKeyName
-    , lcClassicLinkVPCSecurityGroups
-    , lcRAMDiskId
-    , lcKernelId
-    , lcEBSOptimized
-    , lcUserData
-    , lcClassicLinkVPCId
-    , lcIAMInstanceProfile
-    , lcLaunchConfigurationARN
-    , lcPlacementTenancy
-    , lcBlockDeviceMappings
-    , lcLaunchConfigurationName
-    , lcImageId
-    , lcInstanceType
-    , lcCreatedTime
+    LaunchConfiguration (..),
+    newLaunchConfiguration,
+    launchConfiguration_ebsOptimized,
+    launchConfiguration_userData,
+    launchConfiguration_ramdiskId,
+    launchConfiguration_classicLinkVPCSecurityGroups,
+    launchConfiguration_spotPrice,
+    launchConfiguration_associatePublicIpAddress,
+    launchConfiguration_securityGroups,
+    launchConfiguration_iamInstanceProfile,
+    launchConfiguration_classicLinkVPCId,
+    launchConfiguration_blockDeviceMappings,
+    launchConfiguration_kernelId,
+    launchConfiguration_placementTenancy,
+    launchConfiguration_launchConfigurationARN,
+    launchConfiguration_keyName,
+    launchConfiguration_instanceMonitoring,
+    launchConfiguration_metadataOptions,
+    launchConfiguration_launchConfigurationName,
+    launchConfiguration_imageId,
+    launchConfiguration_instanceType,
+    launchConfiguration_createdTime,
+
+    -- * LaunchTemplate
+    LaunchTemplate (..),
+    newLaunchTemplate,
+    launchTemplate_launchTemplateSpecification,
+    launchTemplate_overrides,
+
+    -- * LaunchTemplateOverrides
+    LaunchTemplateOverrides (..),
+    newLaunchTemplateOverrides,
+    launchTemplateOverrides_instanceType,
+    launchTemplateOverrides_launchTemplateSpecification,
+    launchTemplateOverrides_weightedCapacity,
+
+    -- * LaunchTemplateSpecification
+    LaunchTemplateSpecification (..),
+    newLaunchTemplateSpecification,
+    launchTemplateSpecification_launchTemplateId,
+    launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
 
     -- * LifecycleHook
-    , LifecycleHook
-    , lifecycleHook
-    , lhDefaultResult
-    , lhLifecycleHookName
-    , lhHeartbeatTimeout
-    , lhAutoScalingGroupName
-    , lhNotificationMetadata
-    , lhGlobalTimeout
-    , lhNotificationTargetARN
-    , lhLifecycleTransition
-    , lhRoleARN
+    LifecycleHook (..),
+    newLifecycleHook,
+    lifecycleHook_roleARN,
+    lifecycleHook_lifecycleTransition,
+    lifecycleHook_notificationTargetARN,
+    lifecycleHook_heartbeatTimeout,
+    lifecycleHook_globalTimeout,
+    lifecycleHook_notificationMetadata,
+    lifecycleHook_lifecycleHookName,
+    lifecycleHook_defaultResult,
+    lifecycleHook_autoScalingGroupName,
 
     -- * LifecycleHookSpecification
-    , LifecycleHookSpecification
-    , lifecycleHookSpecification
-    , lhsDefaultResult
-    , lhsHeartbeatTimeout
-    , lhsNotificationMetadata
-    , lhsNotificationTargetARN
-    , lhsLifecycleTransition
-    , lhsRoleARN
-    , lhsLifecycleHookName
+    LifecycleHookSpecification (..),
+    newLifecycleHookSpecification,
+    lifecycleHookSpecification_roleARN,
+    lifecycleHookSpecification_notificationTargetARN,
+    lifecycleHookSpecification_heartbeatTimeout,
+    lifecycleHookSpecification_notificationMetadata,
+    lifecycleHookSpecification_defaultResult,
+    lifecycleHookSpecification_lifecycleHookName,
+    lifecycleHookSpecification_lifecycleTransition,
 
     -- * LoadBalancerState
-    , LoadBalancerState
-    , loadBalancerState
-    , lbsState
-    , lbsLoadBalancerName
+    LoadBalancerState (..),
+    newLoadBalancerState,
+    loadBalancerState_state,
+    loadBalancerState_loadBalancerName,
 
     -- * LoadBalancerTargetGroupState
-    , LoadBalancerTargetGroupState
-    , loadBalancerTargetGroupState
-    , lbtgsState
-    , lbtgsLoadBalancerTargetGroupARN
+    LoadBalancerTargetGroupState (..),
+    newLoadBalancerTargetGroupState,
+    loadBalancerTargetGroupState_state,
+    loadBalancerTargetGroupState_loadBalancerTargetGroupARN,
+
+    -- * LoadForecast
+    LoadForecast (..),
+    newLoadForecast,
+    loadForecast_timestamps,
+    loadForecast_values,
+    loadForecast_metricSpecification,
 
     -- * MetricCollectionType
-    , MetricCollectionType
-    , metricCollectionType
-    , mctMetric
+    MetricCollectionType (..),
+    newMetricCollectionType,
+    metricCollectionType_metric,
 
     -- * MetricDimension
-    , MetricDimension
-    , metricDimension
-    , mdName
-    , mdValue
+    MetricDimension (..),
+    newMetricDimension,
+    metricDimension_name,
+    metricDimension_value,
 
     -- * MetricGranularityType
-    , MetricGranularityType
-    , metricGranularityType
-    , mgtGranularity
+    MetricGranularityType (..),
+    newMetricGranularityType,
+    metricGranularityType_granularity,
+
+    -- * MixedInstancesPolicy
+    MixedInstancesPolicy (..),
+    newMixedInstancesPolicy,
+    mixedInstancesPolicy_instancesDistribution,
+    mixedInstancesPolicy_launchTemplate,
 
     -- * NotificationConfiguration
-    , NotificationConfiguration
-    , notificationConfiguration
-    , ncTopicARN
-    , ncAutoScalingGroupName
-    , ncNotificationType
+    NotificationConfiguration (..),
+    newNotificationConfiguration,
+    notificationConfiguration_notificationType,
+    notificationConfiguration_topicARN,
+    notificationConfiguration_autoScalingGroupName,
 
     -- * PredefinedMetricSpecification
-    , PredefinedMetricSpecification
-    , predefinedMetricSpecification
-    , pmsResourceLabel
-    , pmsPredefinedMetricType
+    PredefinedMetricSpecification (..),
+    newPredefinedMetricSpecification,
+    predefinedMetricSpecification_resourceLabel,
+    predefinedMetricSpecification_predefinedMetricType,
+
+    -- * PredictiveScalingConfiguration
+    PredictiveScalingConfiguration (..),
+    newPredictiveScalingConfiguration,
+    predictiveScalingConfiguration_maxCapacityBreachBehavior,
+    predictiveScalingConfiguration_mode,
+    predictiveScalingConfiguration_maxCapacityBuffer,
+    predictiveScalingConfiguration_schedulingBufferTime,
+    predictiveScalingConfiguration_metricSpecifications,
+
+    -- * PredictiveScalingMetricSpecification
+    PredictiveScalingMetricSpecification (..),
+    newPredictiveScalingMetricSpecification,
+    predictiveScalingMetricSpecification_predefinedLoadMetricSpecification,
+    predictiveScalingMetricSpecification_predefinedScalingMetricSpecification,
+    predictiveScalingMetricSpecification_predefinedMetricPairSpecification,
+    predictiveScalingMetricSpecification_targetValue,
+
+    -- * PredictiveScalingPredefinedLoadMetric
+    PredictiveScalingPredefinedLoadMetric (..),
+    newPredictiveScalingPredefinedLoadMetric,
+    predictiveScalingPredefinedLoadMetric_resourceLabel,
+    predictiveScalingPredefinedLoadMetric_predefinedMetricType,
+
+    -- * PredictiveScalingPredefinedMetricPair
+    PredictiveScalingPredefinedMetricPair (..),
+    newPredictiveScalingPredefinedMetricPair,
+    predictiveScalingPredefinedMetricPair_resourceLabel,
+    predictiveScalingPredefinedMetricPair_predefinedMetricType,
+
+    -- * PredictiveScalingPredefinedScalingMetric
+    PredictiveScalingPredefinedScalingMetric (..),
+    newPredictiveScalingPredefinedScalingMetric,
+    predictiveScalingPredefinedScalingMetric_resourceLabel,
+    predictiveScalingPredefinedScalingMetric_predefinedMetricType,
 
     -- * ProcessType
-    , ProcessType
-    , processType
-    , ptProcessName
+    ProcessType (..),
+    newProcessType,
+    processType_processName,
+
+    -- * RefreshPreferences
+    RefreshPreferences (..),
+    newRefreshPreferences,
+    refreshPreferences_checkpointDelay,
+    refreshPreferences_minHealthyPercentage,
+    refreshPreferences_instanceWarmup,
+    refreshPreferences_skipMatching,
+    refreshPreferences_checkpointPercentages,
 
     -- * ScalingPolicy
-    , ScalingPolicy
-    , scalingPolicy
-    , sMinAdjustmentStep
-    , sEstimatedInstanceWarmup
-    , sPolicyName
-    , sPolicyType
-    , sStepAdjustments
-    , sTargetTrackingConfiguration
-    , sAdjustmentType
-    , sAutoScalingGroupName
-    , sScalingAdjustment
-    , sCooldown
-    , sPolicyARN
-    , sAlarms
-    , sMetricAggregationType
-    , sMinAdjustmentMagnitude
+    ScalingPolicy (..),
+    newScalingPolicy,
+    scalingPolicy_policyName,
+    scalingPolicy_targetTrackingConfiguration,
+    scalingPolicy_stepAdjustments,
+    scalingPolicy_metricAggregationType,
+    scalingPolicy_policyType,
+    scalingPolicy_enabled,
+    scalingPolicy_cooldown,
+    scalingPolicy_scalingAdjustment,
+    scalingPolicy_adjustmentType,
+    scalingPolicy_minAdjustmentStep,
+    scalingPolicy_estimatedInstanceWarmup,
+    scalingPolicy_minAdjustmentMagnitude,
+    scalingPolicy_alarms,
+    scalingPolicy_policyARN,
+    scalingPolicy_predictiveScalingConfiguration,
+    scalingPolicy_autoScalingGroupName,
 
     -- * ScalingProcessQuery
-    , ScalingProcessQuery
-    , scalingProcessQuery
-    , spqScalingProcesses
-    , spqAutoScalingGroupName
+    ScalingProcessQuery (..),
+    newScalingProcessQuery,
+    scalingProcessQuery_scalingProcesses,
+    scalingProcessQuery_autoScalingGroupName,
 
     -- * ScheduledUpdateGroupAction
-    , ScheduledUpdateGroupAction
-    , scheduledUpdateGroupAction
-    , sugaScheduledActionARN
-    , sugaStartTime
-    , sugaTime
-    , sugaScheduledActionName
-    , sugaMaxSize
-    , sugaRecurrence
-    , sugaDesiredCapacity
-    , sugaMinSize
-    , sugaAutoScalingGroupName
-    , sugaEndTime
+    ScheduledUpdateGroupAction (..),
+    newScheduledUpdateGroupAction,
+    scheduledUpdateGroupAction_minSize,
+    scheduledUpdateGroupAction_desiredCapacity,
+    scheduledUpdateGroupAction_startTime,
+    scheduledUpdateGroupAction_endTime,
+    scheduledUpdateGroupAction_scheduledActionARN,
+    scheduledUpdateGroupAction_recurrence,
+    scheduledUpdateGroupAction_maxSize,
+    scheduledUpdateGroupAction_timeZone,
+    scheduledUpdateGroupAction_scheduledActionName,
+    scheduledUpdateGroupAction_time,
+    scheduledUpdateGroupAction_autoScalingGroupName,
+
+    -- * ScheduledUpdateGroupActionRequest
+    ScheduledUpdateGroupActionRequest (..),
+    newScheduledUpdateGroupActionRequest,
+    scheduledUpdateGroupActionRequest_minSize,
+    scheduledUpdateGroupActionRequest_desiredCapacity,
+    scheduledUpdateGroupActionRequest_startTime,
+    scheduledUpdateGroupActionRequest_endTime,
+    scheduledUpdateGroupActionRequest_recurrence,
+    scheduledUpdateGroupActionRequest_maxSize,
+    scheduledUpdateGroupActionRequest_timeZone,
+    scheduledUpdateGroupActionRequest_scheduledActionName,
 
     -- * StepAdjustment
-    , StepAdjustment
-    , stepAdjustment
-    , saMetricIntervalLowerBound
-    , saMetricIntervalUpperBound
-    , saScalingAdjustment
+    StepAdjustment (..),
+    newStepAdjustment,
+    stepAdjustment_metricIntervalUpperBound,
+    stepAdjustment_metricIntervalLowerBound,
+    stepAdjustment_scalingAdjustment,
 
     -- * SuspendedProcess
-    , SuspendedProcess
-    , suspendedProcess
-    , spProcessName
-    , spSuspensionReason
+    SuspendedProcess (..),
+    newSuspendedProcess,
+    suspendedProcess_processName,
+    suspendedProcess_suspensionReason,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagResourceId
-    , tagResourceType
-    , tagPropagateAtLaunch
-    , tagValue
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_resourceId,
+    tag_resourceType,
+    tag_propagateAtLaunch,
+    tag_value,
 
     -- * TagDescription
-    , TagDescription
-    , tagDescription
-    , tdResourceId
-    , tdResourceType
-    , tdKey
-    , tdPropagateAtLaunch
-    , tdValue
+    TagDescription (..),
+    newTagDescription,
+    tagDescription_resourceId,
+    tagDescription_resourceType,
+    tagDescription_key,
+    tagDescription_propagateAtLaunch,
+    tagDescription_value,
 
     -- * TargetTrackingConfiguration
-    , TargetTrackingConfiguration
-    , targetTrackingConfiguration
-    , ttcPredefinedMetricSpecification
-    , ttcCustomizedMetricSpecification
-    , ttcDisableScaleIn
-    , ttcTargetValue
-    ) where
+    TargetTrackingConfiguration (..),
+    newTargetTrackingConfiguration,
+    targetTrackingConfiguration_disableScaleIn,
+    targetTrackingConfiguration_predefinedMetricSpecification,
+    targetTrackingConfiguration_customizedMetricSpecification,
+    targetTrackingConfiguration_targetValue,
 
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.AutoScaling.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+    -- * WarmPoolConfiguration
+    WarmPoolConfiguration (..),
+    newWarmPoolConfiguration,
+    warmPoolConfiguration_minSize,
+    warmPoolConfiguration_status,
+    warmPoolConfiguration_poolState,
+    warmPoolConfiguration_maxGroupPreparedCapacity,
+  )
+where
+
+import Network.AWS.AutoScaling.Types.Activity
+import Network.AWS.AutoScaling.Types.AdjustmentType
+import Network.AWS.AutoScaling.Types.Alarm
+import Network.AWS.AutoScaling.Types.AutoScalingGroup
+import Network.AWS.AutoScaling.Types.AutoScalingInstanceDetails
+import Network.AWS.AutoScaling.Types.BlockDeviceMapping
+import Network.AWS.AutoScaling.Types.CapacityForecast
+import Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
+import Network.AWS.AutoScaling.Types.DesiredConfiguration
+import Network.AWS.AutoScaling.Types.Ebs
+import Network.AWS.AutoScaling.Types.EnabledMetric
+import Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
+import Network.AWS.AutoScaling.Types.Filter
+import Network.AWS.AutoScaling.Types.Instance
+import Network.AWS.AutoScaling.Types.InstanceMetadataEndpointState
+import Network.AWS.AutoScaling.Types.InstanceMetadataHttpTokensState
+import Network.AWS.AutoScaling.Types.InstanceMetadataOptions
+import Network.AWS.AutoScaling.Types.InstanceMonitoring
+import Network.AWS.AutoScaling.Types.InstanceRefresh
+import Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress
+import Network.AWS.AutoScaling.Types.InstanceRefreshProgressDetails
+import Network.AWS.AutoScaling.Types.InstanceRefreshStatus
+import Network.AWS.AutoScaling.Types.InstanceRefreshWarmPoolProgress
+import Network.AWS.AutoScaling.Types.InstancesDistribution
+import Network.AWS.AutoScaling.Types.LaunchConfiguration
+import Network.AWS.AutoScaling.Types.LaunchTemplate
+import Network.AWS.AutoScaling.Types.LaunchTemplateOverrides
+import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
+import Network.AWS.AutoScaling.Types.LifecycleHook
+import Network.AWS.AutoScaling.Types.LifecycleHookSpecification
+import Network.AWS.AutoScaling.Types.LifecycleState
+import Network.AWS.AutoScaling.Types.LoadBalancerState
+import Network.AWS.AutoScaling.Types.LoadBalancerTargetGroupState
+import Network.AWS.AutoScaling.Types.LoadForecast
+import Network.AWS.AutoScaling.Types.MetricCollectionType
+import Network.AWS.AutoScaling.Types.MetricDimension
+import Network.AWS.AutoScaling.Types.MetricGranularityType
+import Network.AWS.AutoScaling.Types.MetricStatistic
+import Network.AWS.AutoScaling.Types.MetricType
+import Network.AWS.AutoScaling.Types.MixedInstancesPolicy
+import Network.AWS.AutoScaling.Types.NotificationConfiguration
+import Network.AWS.AutoScaling.Types.PredefinedLoadMetricType
+import Network.AWS.AutoScaling.Types.PredefinedMetricPairType
+import Network.AWS.AutoScaling.Types.PredefinedMetricSpecification
+import Network.AWS.AutoScaling.Types.PredefinedScalingMetricType
+import Network.AWS.AutoScaling.Types.PredictiveScalingConfiguration
+import Network.AWS.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
+import Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification
+import Network.AWS.AutoScaling.Types.PredictiveScalingMode
+import Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric
+import Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
+import Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
+import Network.AWS.AutoScaling.Types.ProcessType
+import Network.AWS.AutoScaling.Types.RefreshPreferences
+import Network.AWS.AutoScaling.Types.RefreshStrategy
+import Network.AWS.AutoScaling.Types.ScalingActivityStatusCode
+import Network.AWS.AutoScaling.Types.ScalingPolicy
+import Network.AWS.AutoScaling.Types.ScalingProcessQuery
+import Network.AWS.AutoScaling.Types.ScheduledUpdateGroupAction
+import Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest
+import Network.AWS.AutoScaling.Types.StepAdjustment
+import Network.AWS.AutoScaling.Types.SuspendedProcess
+import Network.AWS.AutoScaling.Types.Tag
+import Network.AWS.AutoScaling.Types.TagDescription
+import Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
+import Network.AWS.AutoScaling.Types.WarmPoolConfiguration
+import Network.AWS.AutoScaling.Types.WarmPoolState
+import Network.AWS.AutoScaling.Types.WarmPoolStatus
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2011-01-01@ of the Amazon Auto Scaling SDK configuration.
-autoScaling :: Service
-autoScaling =
-  Service
-  { _svcAbbrev = "AutoScaling"
-  , _svcSigner = v4
-  , _svcPrefix = "autoscaling"
-  , _svcVersion = "2011-01-01"
-  , _svcEndpoint = defaultEndpoint autoScaling
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "AutoScaling"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "AutoScaling",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "autoscaling",
+      Core._serviceSigningName = "autoscaling",
+      Core._serviceVersion = "2011-01-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseXMLError "AutoScaling",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | The request failed because an active instance refresh operation already
+-- exists for the specified Auto Scaling group.
+_InstanceRefreshInProgressFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InstanceRefreshInProgressFault =
+  Core._MatchServiceError
+    defaultService
+    "InstanceRefreshInProgress"
+    Prelude.. Core.hasStatus 400
 
--- | You already have an Auto Scaling group or launch configuration with this name.
---
---
-_AlreadyExistsFault :: AsError a => Getting (First ServiceError) a ServiceError
-_AlreadyExistsFault =
-  _MatchServiceError autoScaling "AlreadyExists" . hasStatus 400
-
-
--- | You have already reached a limit for your Auto Scaling resources (for example, groups, launch configurations, or lifecycle hooks). For more information, see 'DescribeAccountLimits' .
---
---
-_LimitExceededFault :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededFault =
-  _MatchServiceError autoScaling "LimitExceeded" . hasStatus 400
-
-
--- | The operation can't be performed because the resource is in use.
---
---
-_ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The operation can\'t be performed because the resource is in use.
+_ResourceInUseFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseFault =
-  _MatchServiceError autoScaling "ResourceInUse" . hasStatus 400
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUse"
+    Prelude.. Core.hasStatus 400
 
+-- | You already have an Auto Scaling group or launch configuration with this
+-- name.
+_AlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsFault =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | You have already reached a limit for your Amazon EC2 Auto Scaling
+-- resources (for example, Auto Scaling groups, launch configurations, or
+-- lifecycle hooks). For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html DescribeAccountLimits>
+-- in the /Amazon EC2 Auto Scaling API Reference/.
+_LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededFault =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation can\'t be performed because there are scaling activities
+-- in progress.
+_ScalingActivityInProgressFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ScalingActivityInProgressFault =
+  Core._MatchServiceError
+    defaultService
+    "ScalingActivityInProgress"
+    Prelude.. Core.hasStatus 400
+
+-- | You already have a pending update to an Amazon EC2 Auto Scaling resource
+-- (for example, an Auto Scaling group, instance, or load balancer).
+_ResourceContentionFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceContentionFault =
+  Core._MatchServiceError
+    defaultService
+    "ResourceContention"
+    Prelude.. Core.hasStatus 500
+
+-- | The request failed because an active instance refresh for the specified
+-- Auto Scaling group was not found.
+_ActiveInstanceRefreshNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActiveInstanceRefreshNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ActiveInstanceRefreshNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | The service-linked role is not yet ready for use.
+_ServiceLinkedRoleFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceLinkedRoleFailure =
+  Core._MatchServiceError
+    defaultService
+    "ServiceLinkedRoleFailure"
+    Prelude.. Core.hasStatus 500
 
 -- | The @NextToken@ value is not valid.
---
---
-_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidNextToken =
-  _MatchServiceError autoScaling "InvalidNextToken" . hasStatus 400
-
-
--- | The operation can't be performed because there are scaling activities in progress.
---
---
-_ScalingActivityInProgressFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ScalingActivityInProgressFault =
-  _MatchServiceError autoScaling "ScalingActivityInProgress" . hasStatus 400
-
-
--- | You already have a pending update to an Auto Scaling resource (for example, a group, instance, or load balancer).
---
---
-_ResourceContentionFault :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceContentionFault =
-  _MatchServiceError autoScaling "ResourceContention" . hasStatus 500
-
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextToken"
+    Prelude.. Core.hasStatus 400

@@ -1,164 +1,208 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates engine-specific attributes on a specified server. The server enters the @MODIFYING@ state when this operation is in progress. Only one update can occur at a time. You can use this command to reset the Chef server's private key (@CHEF_PIVOTAL_KEY@ ).
---
+-- Updates engine-specific attributes on a specified server. The server
+-- enters the @MODIFYING@ state when this operation is in progress. Only
+-- one update can occur at a time. You can use this command to reset a Chef
+-- server\'s public key (@CHEF_PIVOTAL_KEY@) or a Puppet server\'s admin
+-- password (@PUPPET_ADMIN_PASSWORD@).
 --
 -- This operation is asynchronous.
 --
--- This operation can only be called for servers in @HEALTHY@ or @UNHEALTHY@ states. Otherwise, an @InvalidStateException@ is raised. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
---
+-- This operation can only be called for servers in @HEALTHY@ or
+-- @UNHEALTHY@ states. Otherwise, an @InvalidStateException@ is raised. A
+-- @ResourceNotFoundException@ is thrown when the server does not exist. A
+-- @ValidationException@ is raised when parameters of the request are not
+-- valid.
 module Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
-    (
-    -- * Creating a Request
-      updateServerEngineAttributes
-    , UpdateServerEngineAttributes
+  ( -- * Creating a Request
+    UpdateServerEngineAttributes (..),
+    newUpdateServerEngineAttributes,
+
     -- * Request Lenses
-    , useaAttributeValue
-    , useaServerName
-    , useaAttributeName
+    updateServerEngineAttributes_attributeValue,
+    updateServerEngineAttributes_serverName,
+    updateServerEngineAttributes_attributeName,
 
     -- * Destructuring the Response
-    , updateServerEngineAttributesResponse
-    , UpdateServerEngineAttributesResponse
+    UpdateServerEngineAttributesResponse (..),
+    newUpdateServerEngineAttributesResponse,
+
     -- * Response Lenses
-    , usearsServer
-    , usearsResponseStatus
-    ) where
+    updateServerEngineAttributesResponse_server,
+    updateServerEngineAttributesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.OpsWorksCM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateServerEngineAttributes' smart constructor.
+-- | /See:/ 'newUpdateServerEngineAttributes' smart constructor.
 data UpdateServerEngineAttributes = UpdateServerEngineAttributes'
-  { _useaAttributeValue :: !(Maybe Text)
-  , _useaServerName     :: !Text
-  , _useaAttributeName  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateServerEngineAttributes' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'useaAttributeValue' - The value to set for the attribute.
---
--- * 'useaServerName' - The name of the server to update.
---
--- * 'useaAttributeName' - The name of the engine attribute to update.
-updateServerEngineAttributes
-    :: Text -- ^ 'useaServerName'
-    -> Text -- ^ 'useaAttributeName'
-    -> UpdateServerEngineAttributes
-updateServerEngineAttributes pServerName_ pAttributeName_ =
-  UpdateServerEngineAttributes'
-  { _useaAttributeValue = Nothing
-  , _useaServerName = pServerName_
-  , _useaAttributeName = pAttributeName_
+  { -- | The value to set for the attribute.
+    attributeValue :: Prelude.Maybe Prelude.Text,
+    -- | The name of the server to update.
+    serverName :: Prelude.Text,
+    -- | The name of the engine attribute to update.
+    attributeName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateServerEngineAttributes' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'attributeValue', 'updateServerEngineAttributes_attributeValue' - The value to set for the attribute.
+--
+-- 'serverName', 'updateServerEngineAttributes_serverName' - The name of the server to update.
+--
+-- 'attributeName', 'updateServerEngineAttributes_attributeName' - The name of the engine attribute to update.
+newUpdateServerEngineAttributes ::
+  -- | 'serverName'
+  Prelude.Text ->
+  -- | 'attributeName'
+  Prelude.Text ->
+  UpdateServerEngineAttributes
+newUpdateServerEngineAttributes
+  pServerName_
+  pAttributeName_ =
+    UpdateServerEngineAttributes'
+      { attributeValue =
+          Prelude.Nothing,
+        serverName = pServerName_,
+        attributeName = pAttributeName_
+      }
 
 -- | The value to set for the attribute.
-useaAttributeValue :: Lens' UpdateServerEngineAttributes (Maybe Text)
-useaAttributeValue = lens _useaAttributeValue (\ s a -> s{_useaAttributeValue = a});
+updateServerEngineAttributes_attributeValue :: Lens.Lens' UpdateServerEngineAttributes (Prelude.Maybe Prelude.Text)
+updateServerEngineAttributes_attributeValue = Lens.lens (\UpdateServerEngineAttributes' {attributeValue} -> attributeValue) (\s@UpdateServerEngineAttributes' {} a -> s {attributeValue = a} :: UpdateServerEngineAttributes)
 
 -- | The name of the server to update.
-useaServerName :: Lens' UpdateServerEngineAttributes Text
-useaServerName = lens _useaServerName (\ s a -> s{_useaServerName = a});
+updateServerEngineAttributes_serverName :: Lens.Lens' UpdateServerEngineAttributes Prelude.Text
+updateServerEngineAttributes_serverName = Lens.lens (\UpdateServerEngineAttributes' {serverName} -> serverName) (\s@UpdateServerEngineAttributes' {} a -> s {serverName = a} :: UpdateServerEngineAttributes)
 
 -- | The name of the engine attribute to update.
-useaAttributeName :: Lens' UpdateServerEngineAttributes Text
-useaAttributeName = lens _useaAttributeName (\ s a -> s{_useaAttributeName = a});
+updateServerEngineAttributes_attributeName :: Lens.Lens' UpdateServerEngineAttributes Prelude.Text
+updateServerEngineAttributes_attributeName = Lens.lens (\UpdateServerEngineAttributes' {attributeName} -> attributeName) (\s@UpdateServerEngineAttributes' {} a -> s {attributeName = a} :: UpdateServerEngineAttributes)
 
-instance AWSRequest UpdateServerEngineAttributes
-         where
-        type Rs UpdateServerEngineAttributes =
-             UpdateServerEngineAttributesResponse
-        request = postJSON opsWorksCM
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateServerEngineAttributesResponse' <$>
-                   (x .?> "Server") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateServerEngineAttributes where
+  type
+    AWSResponse UpdateServerEngineAttributes =
+      UpdateServerEngineAttributesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateServerEngineAttributesResponse'
+            Prelude.<$> (x Core..?> "Server")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateServerEngineAttributes where
+instance
+  Prelude.Hashable
+    UpdateServerEngineAttributes
 
-instance NFData UpdateServerEngineAttributes where
+instance Prelude.NFData UpdateServerEngineAttributes
 
-instance ToHeaders UpdateServerEngineAttributes where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateServerEngineAttributes where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateServerEngineAttributes where
-        toJSON UpdateServerEngineAttributes'{..}
-          = object
-              (catMaybes
-                 [("AttributeValue" .=) <$> _useaAttributeValue,
-                  Just ("ServerName" .= _useaServerName),
-                  Just ("AttributeName" .= _useaAttributeName)])
+instance Core.ToJSON UpdateServerEngineAttributes where
+  toJSON UpdateServerEngineAttributes' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AttributeValue" Core..=)
+              Prelude.<$> attributeValue,
+            Prelude.Just ("ServerName" Core..= serverName),
+            Prelude.Just
+              ("AttributeName" Core..= attributeName)
+          ]
+      )
 
-instance ToPath UpdateServerEngineAttributes where
-        toPath = const "/"
+instance Core.ToPath UpdateServerEngineAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateServerEngineAttributes where
-        toQuery = const mempty
+instance Core.ToQuery UpdateServerEngineAttributes where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateServerEngineAttributesResponse' smart constructor.
+-- | /See:/ 'newUpdateServerEngineAttributesResponse' smart constructor.
 data UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse'
-  { _usearsServer         :: !(Maybe Server)
-  , _usearsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Contains the response to an @UpdateServerEngineAttributes@ request.
+    server :: Prelude.Maybe Server,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateServerEngineAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateServerEngineAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usearsServer' - Contains the response to an @UpdateServerEngineAttributes@ request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usearsResponseStatus' - -- | The response status code.
-updateServerEngineAttributesResponse
-    :: Int -- ^ 'usearsResponseStatus'
-    -> UpdateServerEngineAttributesResponse
-updateServerEngineAttributesResponse pResponseStatus_ =
+-- 'server', 'updateServerEngineAttributesResponse_server' - Contains the response to an @UpdateServerEngineAttributes@ request.
+--
+-- 'httpStatus', 'updateServerEngineAttributesResponse_httpStatus' - The response's http status code.
+newUpdateServerEngineAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateServerEngineAttributesResponse
+newUpdateServerEngineAttributesResponse pHttpStatus_ =
   UpdateServerEngineAttributesResponse'
-  {_usearsServer = Nothing, _usearsResponseStatus = pResponseStatus_}
-
+    { server =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains the response to an @UpdateServerEngineAttributes@ request.
-usearsServer :: Lens' UpdateServerEngineAttributesResponse (Maybe Server)
-usearsServer = lens _usearsServer (\ s a -> s{_usearsServer = a});
+updateServerEngineAttributesResponse_server :: Lens.Lens' UpdateServerEngineAttributesResponse (Prelude.Maybe Server)
+updateServerEngineAttributesResponse_server = Lens.lens (\UpdateServerEngineAttributesResponse' {server} -> server) (\s@UpdateServerEngineAttributesResponse' {} a -> s {server = a} :: UpdateServerEngineAttributesResponse)
 
--- | -- | The response status code.
-usearsResponseStatus :: Lens' UpdateServerEngineAttributesResponse Int
-usearsResponseStatus = lens _usearsResponseStatus (\ s a -> s{_usearsResponseStatus = a});
+-- | The response's http status code.
+updateServerEngineAttributesResponse_httpStatus :: Lens.Lens' UpdateServerEngineAttributesResponse Prelude.Int
+updateServerEngineAttributesResponse_httpStatus = Lens.lens (\UpdateServerEngineAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateServerEngineAttributesResponse' {} a -> s {httpStatus = a} :: UpdateServerEngineAttributesResponse)
 
-instance NFData UpdateServerEngineAttributesResponse
-         where
+instance
+  Prelude.NFData
+    UpdateServerEngineAttributesResponse

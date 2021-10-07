@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Mobile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Mobile where
 
 import Data.Proxy
@@ -29,61 +28,61 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListProjects $
---             listProjects
---
---         , requestDeleteProject $
---             deleteProject
---
---         , requestUpdateProject $
---             updateProject
---
---         , requestListBundles $
---             listBundles
---
---         , requestDescribeProject $
---             describeProject
---
---         , requestExportProject $
---             exportProject
---
---         , requestDescribeBundle $
---             describeBundle
---
---         , requestExportBundle $
---             exportBundle
+--             newListProjects
 --
 --         , requestCreateProject $
---             createProject
+--             newCreateProject
+--
+--         , requestDescribeBundle $
+--             newDescribeBundle
+--
+--         , requestListBundles $
+--             newListBundles
+--
+--         , requestUpdateProject $
+--             newUpdateProject
+--
+--         , requestDeleteProject $
+--             newDeleteProject
+--
+--         , requestExportProject $
+--             newExportProject
+--
+--         , requestDescribeProject $
+--             newDescribeProject
+--
+--         , requestExportBundle $
+--             newExportBundle
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListProjects $
---             listProjectsResponse
---
---         , responseDeleteProject $
---             deleteProjectResponse
---
---         , responseUpdateProject $
---             updateProjectResponse
---
---         , responseListBundles $
---             listBundlesResponse
---
---         , responseDescribeProject $
---             describeProjectResponse
---
---         , responseExportProject $
---             exportProjectResponse
---
---         , responseDescribeBundle $
---             describeBundleResponse
---
---         , responseExportBundle $
---             exportBundleResponse
+--             newListProjectsResponse
 --
 --         , responseCreateProject $
---             createProjectResponse
+--             newCreateProjectResponse
+--
+--         , responseDescribeBundle $
+--             newDescribeBundleResponse
+--
+--         , responseListBundles $
+--             newListBundlesResponse
+--
+--         , responseUpdateProject $
+--             newUpdateProjectResponse
+--
+--         , responseDeleteProject $
+--             newDeleteProjectResponse
+--
+--         , responseExportProject $
+--             newExportProjectResponse
+--
+--         , responseDescribeProject $
+--             newDescribeProjectResponse
+--
+--         , responseExportBundle $
+--             newExportBundleResponse
 --
 --           ]
 --     ]
@@ -91,111 +90,129 @@ import Test.Tasty
 -- Requests
 
 requestListProjects :: ListProjects -> TestTree
-requestListProjects = req
+requestListProjects =
+  req
     "ListProjects"
     "fixture/ListProjects.yaml"
 
-requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject = req
-    "DeleteProject"
-    "fixture/DeleteProject.yaml"
-
-requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject = req
-    "UpdateProject"
-    "fixture/UpdateProject.yaml"
-
-requestListBundles :: ListBundles -> TestTree
-requestListBundles = req
-    "ListBundles"
-    "fixture/ListBundles.yaml"
-
-requestDescribeProject :: DescribeProject -> TestTree
-requestDescribeProject = req
-    "DescribeProject"
-    "fixture/DescribeProject.yaml"
-
-requestExportProject :: ExportProject -> TestTree
-requestExportProject = req
-    "ExportProject"
-    "fixture/ExportProject.yaml"
+requestCreateProject :: CreateProject -> TestTree
+requestCreateProject =
+  req
+    "CreateProject"
+    "fixture/CreateProject.yaml"
 
 requestDescribeBundle :: DescribeBundle -> TestTree
-requestDescribeBundle = req
+requestDescribeBundle =
+  req
     "DescribeBundle"
     "fixture/DescribeBundle.yaml"
 
+requestListBundles :: ListBundles -> TestTree
+requestListBundles =
+  req
+    "ListBundles"
+    "fixture/ListBundles.yaml"
+
+requestUpdateProject :: UpdateProject -> TestTree
+requestUpdateProject =
+  req
+    "UpdateProject"
+    "fixture/UpdateProject.yaml"
+
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject =
+  req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
+
+requestExportProject :: ExportProject -> TestTree
+requestExportProject =
+  req
+    "ExportProject"
+    "fixture/ExportProject.yaml"
+
+requestDescribeProject :: DescribeProject -> TestTree
+requestDescribeProject =
+  req
+    "DescribeProject"
+    "fixture/DescribeProject.yaml"
+
 requestExportBundle :: ExportBundle -> TestTree
-requestExportBundle = req
+requestExportBundle =
+  req
     "ExportBundle"
     "fixture/ExportBundle.yaml"
-
-requestCreateProject :: CreateProject -> TestTree
-requestCreateProject = req
-    "CreateProject"
-    "fixture/CreateProject.yaml"
 
 -- Responses
 
 responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects = res
+responseListProjects =
+  res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
-    mobile
+    defaultService
     (Proxy :: Proxy ListProjects)
 
-responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject = res
-    "DeleteProjectResponse"
-    "fixture/DeleteProjectResponse.proto"
-    mobile
-    (Proxy :: Proxy DeleteProject)
-
-responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject = res
-    "UpdateProjectResponse"
-    "fixture/UpdateProjectResponse.proto"
-    mobile
-    (Proxy :: Proxy UpdateProject)
-
-responseListBundles :: ListBundlesResponse -> TestTree
-responseListBundles = res
-    "ListBundlesResponse"
-    "fixture/ListBundlesResponse.proto"
-    mobile
-    (Proxy :: Proxy ListBundles)
-
-responseDescribeProject :: DescribeProjectResponse -> TestTree
-responseDescribeProject = res
-    "DescribeProjectResponse"
-    "fixture/DescribeProjectResponse.proto"
-    mobile
-    (Proxy :: Proxy DescribeProject)
-
-responseExportProject :: ExportProjectResponse -> TestTree
-responseExportProject = res
-    "ExportProjectResponse"
-    "fixture/ExportProjectResponse.proto"
-    mobile
-    (Proxy :: Proxy ExportProject)
-
-responseDescribeBundle :: DescribeBundleResponse -> TestTree
-responseDescribeBundle = res
-    "DescribeBundleResponse"
-    "fixture/DescribeBundleResponse.proto"
-    mobile
-    (Proxy :: Proxy DescribeBundle)
-
-responseExportBundle :: ExportBundleResponse -> TestTree
-responseExportBundle = res
-    "ExportBundleResponse"
-    "fixture/ExportBundleResponse.proto"
-    mobile
-    (Proxy :: Proxy ExportBundle)
-
 responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject = res
+responseCreateProject =
+  res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    mobile
+    defaultService
     (Proxy :: Proxy CreateProject)
+
+responseDescribeBundle :: DescribeBundleResponse -> TestTree
+responseDescribeBundle =
+  res
+    "DescribeBundleResponse"
+    "fixture/DescribeBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeBundle)
+
+responseListBundles :: ListBundlesResponse -> TestTree
+responseListBundles =
+  res
+    "ListBundlesResponse"
+    "fixture/ListBundlesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListBundles)
+
+responseUpdateProject :: UpdateProjectResponse -> TestTree
+responseUpdateProject =
+  res
+    "UpdateProjectResponse"
+    "fixture/UpdateProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateProject)
+
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject =
+  res
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteProject)
+
+responseExportProject :: ExportProjectResponse -> TestTree
+responseExportProject =
+  res
+    "ExportProjectResponse"
+    "fixture/ExportProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy ExportProject)
+
+responseDescribeProject :: DescribeProjectResponse -> TestTree
+responseDescribeProject =
+  res
+    "DescribeProjectResponse"
+    "fixture/DescribeProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeProject)
+
+responseExportBundle :: ExportBundleResponse -> TestTree
+responseExportBundle =
+  res
+    "ExportBundleResponse"
+    "fixture/ExportBundleResponse.proto"
+    defaultService
+    (Proxy :: Proxy ExportBundle)

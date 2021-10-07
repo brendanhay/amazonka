@@ -1,126 +1,159 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Athena.StopQueryExecution
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a query execution.
+-- Stops a query execution. Requires you to have access to the workgroup in
+-- which the query ran.
 --
---
--- For code samples using the AWS SDK for Java, see <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples> in the /Amazon Athena User Guide/ .
---
+-- For code samples using the Amazon Web Services SDK for Java, see
+-- <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
+-- in the /Amazon Athena User Guide/.
 module Network.AWS.Athena.StopQueryExecution
-    (
-    -- * Creating a Request
-      stopQueryExecution
-    , StopQueryExecution
+  ( -- * Creating a Request
+    StopQueryExecution (..),
+    newStopQueryExecution,
+
     -- * Request Lenses
-    , sqeQueryExecutionId
+    stopQueryExecution_queryExecutionId,
 
     -- * Destructuring the Response
-    , stopQueryExecutionResponse
-    , StopQueryExecutionResponse
+    StopQueryExecutionResponse (..),
+    newStopQueryExecutionResponse,
+
     -- * Response Lenses
-    , srsResponseStatus
-    ) where
+    stopQueryExecutionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Athena.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'stopQueryExecution' smart constructor.
-newtype StopQueryExecution = StopQueryExecution'
-  { _sqeQueryExecutionId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopQueryExecution' smart constructor.
+data StopQueryExecution = StopQueryExecution'
+  { -- | The unique ID of the query execution to stop.
+    queryExecutionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StopQueryExecution' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopQueryExecution' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sqeQueryExecutionId' - The unique ID of the query execution to stop.
-stopQueryExecution
-    :: Text -- ^ 'sqeQueryExecutionId'
-    -> StopQueryExecution
-stopQueryExecution pQueryExecutionId_ =
-  StopQueryExecution' {_sqeQueryExecutionId = pQueryExecutionId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'queryExecutionId', 'stopQueryExecution_queryExecutionId' - The unique ID of the query execution to stop.
+newStopQueryExecution ::
+  -- | 'queryExecutionId'
+  Prelude.Text ->
+  StopQueryExecution
+newStopQueryExecution pQueryExecutionId_ =
+  StopQueryExecution'
+    { queryExecutionId =
+        pQueryExecutionId_
+    }
 
 -- | The unique ID of the query execution to stop.
-sqeQueryExecutionId :: Lens' StopQueryExecution Text
-sqeQueryExecutionId = lens _sqeQueryExecutionId (\ s a -> s{_sqeQueryExecutionId = a});
+stopQueryExecution_queryExecutionId :: Lens.Lens' StopQueryExecution Prelude.Text
+stopQueryExecution_queryExecutionId = Lens.lens (\StopQueryExecution' {queryExecutionId} -> queryExecutionId) (\s@StopQueryExecution' {} a -> s {queryExecutionId = a} :: StopQueryExecution)
 
-instance AWSRequest StopQueryExecution where
-        type Rs StopQueryExecution =
-             StopQueryExecutionResponse
-        request = postJSON athena
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 StopQueryExecutionResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest StopQueryExecution where
+  type
+    AWSResponse StopQueryExecution =
+      StopQueryExecutionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          StopQueryExecutionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StopQueryExecution where
+instance Prelude.Hashable StopQueryExecution
 
-instance NFData StopQueryExecution where
+instance Prelude.NFData StopQueryExecution
 
-instance ToHeaders StopQueryExecution where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonAthena.StopQueryExecution" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders StopQueryExecution where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonAthena.StopQueryExecution" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON StopQueryExecution where
-        toJSON StopQueryExecution'{..}
-          = object
-              (catMaybes
-                 [Just ("QueryExecutionId" .= _sqeQueryExecutionId)])
+instance Core.ToJSON StopQueryExecution where
+  toJSON StopQueryExecution' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("QueryExecutionId" Core..= queryExecutionId)
+          ]
+      )
 
-instance ToPath StopQueryExecution where
-        toPath = const "/"
+instance Core.ToPath StopQueryExecution where
+  toPath = Prelude.const "/"
 
-instance ToQuery StopQueryExecution where
-        toQuery = const mempty
+instance Core.ToQuery StopQueryExecution where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'stopQueryExecutionResponse' smart constructor.
-newtype StopQueryExecutionResponse = StopQueryExecutionResponse'
-  { _srsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopQueryExecutionResponse' smart constructor.
+data StopQueryExecutionResponse = StopQueryExecutionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StopQueryExecutionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopQueryExecutionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srsResponseStatus' - -- | The response status code.
-stopQueryExecutionResponse
-    :: Int -- ^ 'srsResponseStatus'
-    -> StopQueryExecutionResponse
-stopQueryExecutionResponse pResponseStatus_ =
-  StopQueryExecutionResponse' {_srsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'stopQueryExecutionResponse_httpStatus' - The response's http status code.
+newStopQueryExecutionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StopQueryExecutionResponse
+newStopQueryExecutionResponse pHttpStatus_ =
+  StopQueryExecutionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+stopQueryExecutionResponse_httpStatus :: Lens.Lens' StopQueryExecutionResponse Prelude.Int
+stopQueryExecutionResponse_httpStatus = Lens.lens (\StopQueryExecutionResponse' {httpStatus} -> httpStatus) (\s@StopQueryExecutionResponse' {} a -> s {httpStatus = a} :: StopQueryExecutionResponse)
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopQueryExecutionResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
-
-instance NFData StopQueryExecutionResponse where
+instance Prelude.NFData StopQueryExecutionResponse

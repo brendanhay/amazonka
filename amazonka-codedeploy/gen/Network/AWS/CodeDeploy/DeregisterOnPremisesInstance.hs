@@ -1,118 +1,137 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters an on-premises instance.
---
---
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
-    (
-    -- * Creating a Request
-      deregisterOnPremisesInstance
-    , DeregisterOnPremisesInstance
+  ( -- * Creating a Request
+    DeregisterOnPremisesInstance (..),
+    newDeregisterOnPremisesInstance,
+
     -- * Request Lenses
-    , dopiInstanceName
+    deregisterOnPremisesInstance_instanceName,
 
     -- * Destructuring the Response
-    , deregisterOnPremisesInstanceResponse
-    , DeregisterOnPremisesInstanceResponse
-    ) where
+    DeregisterOnPremisesInstanceResponse (..),
+    newDeregisterOnPremisesInstanceResponse,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a DeregisterOnPremisesInstance operation.
+-- | Represents the input of a @DeregisterOnPremisesInstance@ operation.
 --
---
---
--- /See:/ 'deregisterOnPremisesInstance' smart constructor.
-newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
-  { _dopiInstanceName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeregisterOnPremisesInstance' smart constructor.
+data DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
+  { -- | The name of the on-premises instance to deregister.
+    instanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeregisterOnPremisesInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeregisterOnPremisesInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dopiInstanceName' - The name of the on-premises instance to deregister.
-deregisterOnPremisesInstance
-    :: Text -- ^ 'dopiInstanceName'
-    -> DeregisterOnPremisesInstance
-deregisterOnPremisesInstance pInstanceName_ =
-  DeregisterOnPremisesInstance' {_dopiInstanceName = pInstanceName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceName', 'deregisterOnPremisesInstance_instanceName' - The name of the on-premises instance to deregister.
+newDeregisterOnPremisesInstance ::
+  -- | 'instanceName'
+  Prelude.Text ->
+  DeregisterOnPremisesInstance
+newDeregisterOnPremisesInstance pInstanceName_ =
+  DeregisterOnPremisesInstance'
+    { instanceName =
+        pInstanceName_
+    }
 
 -- | The name of the on-premises instance to deregister.
-dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
-dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
+deregisterOnPremisesInstance_instanceName :: Lens.Lens' DeregisterOnPremisesInstance Prelude.Text
+deregisterOnPremisesInstance_instanceName = Lens.lens (\DeregisterOnPremisesInstance' {instanceName} -> instanceName) (\s@DeregisterOnPremisesInstance' {} a -> s {instanceName = a} :: DeregisterOnPremisesInstance)
 
-instance AWSRequest DeregisterOnPremisesInstance
-         where
-        type Rs DeregisterOnPremisesInstance =
-             DeregisterOnPremisesInstanceResponse
-        request = postJSON codeDeploy
-        response
-          = receiveNull DeregisterOnPremisesInstanceResponse'
+instance Core.AWSRequest DeregisterOnPremisesInstance where
+  type
+    AWSResponse DeregisterOnPremisesInstance =
+      DeregisterOnPremisesInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      DeregisterOnPremisesInstanceResponse'
 
-instance Hashable DeregisterOnPremisesInstance where
+instance
+  Prelude.Hashable
+    DeregisterOnPremisesInstance
 
-instance NFData DeregisterOnPremisesInstance where
+instance Prelude.NFData DeregisterOnPremisesInstance
 
-instance ToHeaders DeregisterOnPremisesInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.DeregisterOnPremisesInstance"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeregisterOnPremisesInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.DeregisterOnPremisesInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeregisterOnPremisesInstance where
-        toJSON DeregisterOnPremisesInstance'{..}
-          = object
-              (catMaybes
-                 [Just ("instanceName" .= _dopiInstanceName)])
+instance Core.ToJSON DeregisterOnPremisesInstance where
+  toJSON DeregisterOnPremisesInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("instanceName" Core..= instanceName)]
+      )
 
-instance ToPath DeregisterOnPremisesInstance where
-        toPath = const "/"
+instance Core.ToPath DeregisterOnPremisesInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeregisterOnPremisesInstance where
-        toQuery = const mempty
+instance Core.ToQuery DeregisterOnPremisesInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deregisterOnPremisesInstanceResponse' smart constructor.
-data DeregisterOnPremisesInstanceResponse =
-  DeregisterOnPremisesInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeregisterOnPremisesInstanceResponse' smart constructor.
+data DeregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeregisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeregisterOnPremisesInstanceResponse' with all optional fields omitted.
 --
-deregisterOnPremisesInstanceResponse
-    :: DeregisterOnPremisesInstanceResponse
-deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeregisterOnPremisesInstanceResponse ::
+  DeregisterOnPremisesInstanceResponse
+newDeregisterOnPremisesInstanceResponse =
+  DeregisterOnPremisesInstanceResponse'
 
-
-instance NFData DeregisterOnPremisesInstanceResponse
-         where
+instance
+  Prelude.NFData
+    DeregisterOnPremisesInstanceResponse

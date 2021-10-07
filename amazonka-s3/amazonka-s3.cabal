@@ -1,161 +1,360 @@
-name:                  amazonka-s3
-version:               1.5.0
-synopsis:              Amazon Simple Storage Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-s3
+version:            1.6.1
+synopsis:           Amazon Simple Storage Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.S3" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2006-03-01@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.S3.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.S3" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-s3
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-s3
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.S3
+    Network.AWS.S3.AbortMultipartUpload
+    Network.AWS.S3.CompleteMultipartUpload
+    Network.AWS.S3.CopyObject
+    Network.AWS.S3.CreateBucket
+    Network.AWS.S3.CreateMultipartUpload
+    Network.AWS.S3.DeleteBucket
+    Network.AWS.S3.DeleteBucketAnalyticsConfiguration
+    Network.AWS.S3.DeleteBucketCors
+    Network.AWS.S3.DeleteBucketEncryption
+    Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
+    Network.AWS.S3.DeleteBucketInventoryConfiguration
+    Network.AWS.S3.DeleteBucketLifecycle
+    Network.AWS.S3.DeleteBucketMetricsConfiguration
+    Network.AWS.S3.DeleteBucketOwnershipControls
+    Network.AWS.S3.DeleteBucketPolicy
+    Network.AWS.S3.DeleteBucketReplication
+    Network.AWS.S3.DeleteBucketTagging
+    Network.AWS.S3.DeleteBucketWebsite
+    Network.AWS.S3.DeleteObject
+    Network.AWS.S3.DeleteObjects
+    Network.AWS.S3.DeleteObjectTagging
+    Network.AWS.S3.DeletePublicAccessBlock
+    Network.AWS.S3.GetBucketAccelerateConfiguration
+    Network.AWS.S3.GetBucketAcl
+    Network.AWS.S3.GetBucketAnalyticsConfiguration
+    Network.AWS.S3.GetBucketCors
+    Network.AWS.S3.GetBucketEncryption
+    Network.AWS.S3.GetBucketIntelligentTieringConfiguration
+    Network.AWS.S3.GetBucketInventoryConfiguration
+    Network.AWS.S3.GetBucketLifecycleConfiguration
+    Network.AWS.S3.GetBucketLocation
+    Network.AWS.S3.GetBucketLogging
+    Network.AWS.S3.GetBucketMetricsConfiguration
+    Network.AWS.S3.GetBucketNotificationConfiguration
+    Network.AWS.S3.GetBucketOwnershipControls
+    Network.AWS.S3.GetBucketPolicy
+    Network.AWS.S3.GetBucketPolicyStatus
+    Network.AWS.S3.GetBucketReplication
+    Network.AWS.S3.GetBucketRequestPayment
+    Network.AWS.S3.GetBucketTagging
+    Network.AWS.S3.GetBucketVersioning
+    Network.AWS.S3.GetBucketWebsite
+    Network.AWS.S3.GetObject
+    Network.AWS.S3.GetObjectAcl
+    Network.AWS.S3.GetObjectLegalHold
+    Network.AWS.S3.GetObjectLockConfiguration
+    Network.AWS.S3.GetObjectRetention
+    Network.AWS.S3.GetObjectTagging
+    Network.AWS.S3.GetObjectTorrent
+    Network.AWS.S3.GetPublicAccessBlock
+    Network.AWS.S3.HeadBucket
+    Network.AWS.S3.HeadObject
+    Network.AWS.S3.Internal
+    Network.AWS.S3.Lens
+    Network.AWS.S3.ListBucketAnalyticsConfigurations
+    Network.AWS.S3.ListBucketIntelligentTieringConfigurations
+    Network.AWS.S3.ListBucketInventoryConfigurations
+    Network.AWS.S3.ListBucketMetricsConfigurations
+    Network.AWS.S3.ListBuckets
+    Network.AWS.S3.ListMultipartUploads
+    Network.AWS.S3.ListObjects
+    Network.AWS.S3.ListObjectsV
+    Network.AWS.S3.ListObjectVersions
+    Network.AWS.S3.ListParts
+    Network.AWS.S3.PutBucketAccelerateConfiguration
+    Network.AWS.S3.PutBucketAcl
+    Network.AWS.S3.PutBucketAnalyticsConfiguration
+    Network.AWS.S3.PutBucketCors
+    Network.AWS.S3.PutBucketEncryption
+    Network.AWS.S3.PutBucketIntelligentTieringConfiguration
+    Network.AWS.S3.PutBucketInventoryConfiguration
+    Network.AWS.S3.PutBucketLifecycleConfiguration
+    Network.AWS.S3.PutBucketLogging
+    Network.AWS.S3.PutBucketMetricsConfiguration
+    Network.AWS.S3.PutBucketNotificationConfiguration
+    Network.AWS.S3.PutBucketOwnershipControls
+    Network.AWS.S3.PutBucketPolicy
+    Network.AWS.S3.PutBucketReplication
+    Network.AWS.S3.PutBucketRequestPayment
+    Network.AWS.S3.PutBucketTagging
+    Network.AWS.S3.PutBucketVersioning
+    Network.AWS.S3.PutBucketWebsite
+    Network.AWS.S3.PutObject
+    Network.AWS.S3.PutObjectAcl
+    Network.AWS.S3.PutObjectLegalHold
+    Network.AWS.S3.PutObjectLockConfiguration
+    Network.AWS.S3.PutObjectRetention
+    Network.AWS.S3.PutObjectTagging
+    Network.AWS.S3.PutPublicAccessBlock
+    Network.AWS.S3.RestoreObject
+    Network.AWS.S3.SelectObjectContent
+    Network.AWS.S3.Types
+    Network.AWS.S3.Types.AbortIncompleteMultipartUpload
+    Network.AWS.S3.Types.AccelerateConfiguration
+    Network.AWS.S3.Types.AccessControlPolicy
+    Network.AWS.S3.Types.AccessControlTranslation
+    Network.AWS.S3.Types.AnalyticsAndOperator
+    Network.AWS.S3.Types.AnalyticsConfiguration
+    Network.AWS.S3.Types.AnalyticsExportDestination
+    Network.AWS.S3.Types.AnalyticsFilter
+    Network.AWS.S3.Types.AnalyticsS3BucketDestination
+    Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
+    Network.AWS.S3.Types.ArchiveStatus
+    Network.AWS.S3.Types.Bucket
+    Network.AWS.S3.Types.BucketAccelerateStatus
+    Network.AWS.S3.Types.BucketCannedACL
+    Network.AWS.S3.Types.BucketLifecycleConfiguration
+    Network.AWS.S3.Types.BucketLoggingStatus
+    Network.AWS.S3.Types.BucketLogsPermission
+    Network.AWS.S3.Types.BucketVersioningStatus
+    Network.AWS.S3.Types.CommonPrefix
+    Network.AWS.S3.Types.CompletedMultipartUpload
+    Network.AWS.S3.Types.CompletedPart
+    Network.AWS.S3.Types.CompressionType
+    Network.AWS.S3.Types.Condition
+    Network.AWS.S3.Types.ContinuationEvent
+    Network.AWS.S3.Types.CopyObjectResult
+    Network.AWS.S3.Types.CopyPartResult
+    Network.AWS.S3.Types.CORSConfiguration
+    Network.AWS.S3.Types.CORSRule
+    Network.AWS.S3.Types.CreateBucketConfiguration
+    Network.AWS.S3.Types.CSVInput
+    Network.AWS.S3.Types.CSVOutput
+    Network.AWS.S3.Types.DefaultRetention
+    Network.AWS.S3.Types.Delete
+    Network.AWS.S3.Types.DeletedObject
+    Network.AWS.S3.Types.DeleteMarkerEntry
+    Network.AWS.S3.Types.DeleteMarkerReplication
+    Network.AWS.S3.Types.DeleteMarkerReplicationStatus
+    Network.AWS.S3.Types.Destination
+    Network.AWS.S3.Types.EncodingType
+    Network.AWS.S3.Types.Encryption
+    Network.AWS.S3.Types.EncryptionConfiguration
+    Network.AWS.S3.Types.EndEvent
+    Network.AWS.S3.Types.ErrorDocument
+    Network.AWS.S3.Types.Event
+    Network.AWS.S3.Types.ExistingObjectReplication
+    Network.AWS.S3.Types.ExistingObjectReplicationStatus
+    Network.AWS.S3.Types.ExpirationStatus
+    Network.AWS.S3.Types.ExpressionType
+    Network.AWS.S3.Types.FileHeaderInfo
+    Network.AWS.S3.Types.FilterRule
+    Network.AWS.S3.Types.FilterRuleName
+    Network.AWS.S3.Types.GlacierJobParameters
+    Network.AWS.S3.Types.Grant
+    Network.AWS.S3.Types.Grantee
+    Network.AWS.S3.Types.IndexDocument
+    Network.AWS.S3.Types.Initiator
+    Network.AWS.S3.Types.InputSerialization
+    Network.AWS.S3.Types.IntelligentTieringAccessTier
+    Network.AWS.S3.Types.IntelligentTieringAndOperator
+    Network.AWS.S3.Types.IntelligentTieringConfiguration
+    Network.AWS.S3.Types.IntelligentTieringFilter
+    Network.AWS.S3.Types.IntelligentTieringStatus
+    Network.AWS.S3.Types.InventoryConfiguration
+    Network.AWS.S3.Types.InventoryDestination
+    Network.AWS.S3.Types.InventoryEncryption
+    Network.AWS.S3.Types.InventoryFilter
+    Network.AWS.S3.Types.InventoryFormat
+    Network.AWS.S3.Types.InventoryFrequency
+    Network.AWS.S3.Types.InventoryIncludedObjectVersions
+    Network.AWS.S3.Types.InventoryOptionalField
+    Network.AWS.S3.Types.InventoryS3BucketDestination
+    Network.AWS.S3.Types.InventorySchedule
+    Network.AWS.S3.Types.JSONInput
+    Network.AWS.S3.Types.JSONOutput
+    Network.AWS.S3.Types.JSONType
+    Network.AWS.S3.Types.LambdaFunctionConfiguration
+    Network.AWS.S3.Types.LifecycleExpiration
+    Network.AWS.S3.Types.LifecycleRule
+    Network.AWS.S3.Types.LifecycleRuleAndOperator
+    Network.AWS.S3.Types.LifecycleRuleFilter
+    Network.AWS.S3.Types.LoggingEnabled
+    Network.AWS.S3.Types.MetadataDirective
+    Network.AWS.S3.Types.MetadataEntry
+    Network.AWS.S3.Types.Metrics
+    Network.AWS.S3.Types.MetricsAndOperator
+    Network.AWS.S3.Types.MetricsConfiguration
+    Network.AWS.S3.Types.MetricsFilter
+    Network.AWS.S3.Types.MetricsStatus
+    Network.AWS.S3.Types.MFADelete
+    Network.AWS.S3.Types.MFADeleteStatus
+    Network.AWS.S3.Types.MultipartUpload
+    Network.AWS.S3.Types.NoncurrentVersionExpiration
+    Network.AWS.S3.Types.NoncurrentVersionTransition
+    Network.AWS.S3.Types.NotificationConfiguration
+    Network.AWS.S3.Types.NotificationConfigurationFilter
+    Network.AWS.S3.Types.Object
+    Network.AWS.S3.Types.ObjectCannedACL
+    Network.AWS.S3.Types.ObjectIdentifier
+    Network.AWS.S3.Types.ObjectLockConfiguration
+    Network.AWS.S3.Types.ObjectLockEnabled
+    Network.AWS.S3.Types.ObjectLockLegalHold
+    Network.AWS.S3.Types.ObjectLockLegalHoldStatus
+    Network.AWS.S3.Types.ObjectLockMode
+    Network.AWS.S3.Types.ObjectLockRetention
+    Network.AWS.S3.Types.ObjectLockRetentionMode
+    Network.AWS.S3.Types.ObjectLockRule
+    Network.AWS.S3.Types.ObjectOwnership
+    Network.AWS.S3.Types.ObjectStorageClass
+    Network.AWS.S3.Types.ObjectVersion
+    Network.AWS.S3.Types.ObjectVersionStorageClass
+    Network.AWS.S3.Types.OutputLocation
+    Network.AWS.S3.Types.OutputSerialization
+    Network.AWS.S3.Types.Owner
+    Network.AWS.S3.Types.OwnerOverride
+    Network.AWS.S3.Types.OwnershipControls
+    Network.AWS.S3.Types.OwnershipControlsRule
+    Network.AWS.S3.Types.ParquetInput
+    Network.AWS.S3.Types.Part
+    Network.AWS.S3.Types.Payer
+    Network.AWS.S3.Types.Permission
+    Network.AWS.S3.Types.PolicyStatus
+    Network.AWS.S3.Types.Progress
+    Network.AWS.S3.Types.ProgressEvent
+    Network.AWS.S3.Types.Protocol
+    Network.AWS.S3.Types.PublicAccessBlockConfiguration
+    Network.AWS.S3.Types.QueueConfiguration
+    Network.AWS.S3.Types.QuoteFields
+    Network.AWS.S3.Types.RecordsEvent
+    Network.AWS.S3.Types.Redirect
+    Network.AWS.S3.Types.RedirectAllRequestsTo
+    Network.AWS.S3.Types.ReplicaModifications
+    Network.AWS.S3.Types.ReplicaModificationsStatus
+    Network.AWS.S3.Types.ReplicationConfiguration
+    Network.AWS.S3.Types.ReplicationRule
+    Network.AWS.S3.Types.ReplicationRuleAndOperator
+    Network.AWS.S3.Types.ReplicationRuleFilter
+    Network.AWS.S3.Types.ReplicationRuleStatus
+    Network.AWS.S3.Types.ReplicationStatus
+    Network.AWS.S3.Types.ReplicationTime
+    Network.AWS.S3.Types.ReplicationTimeStatus
+    Network.AWS.S3.Types.ReplicationTimeValue
+    Network.AWS.S3.Types.RequestCharged
+    Network.AWS.S3.Types.RequestPayer
+    Network.AWS.S3.Types.RequestPaymentConfiguration
+    Network.AWS.S3.Types.RequestProgress
+    Network.AWS.S3.Types.RestoreRequest
+    Network.AWS.S3.Types.RestoreRequestType
+    Network.AWS.S3.Types.RoutingRule
+    Network.AWS.S3.Types.S3KeyFilter
+    Network.AWS.S3.Types.S3Location
+    Network.AWS.S3.Types.S3ServiceError
+    Network.AWS.S3.Types.ScanRange
+    Network.AWS.S3.Types.SelectObjectContentEventStream
+    Network.AWS.S3.Types.SelectParameters
+    Network.AWS.S3.Types.ServerSideEncryption
+    Network.AWS.S3.Types.ServerSideEncryptionByDefault
+    Network.AWS.S3.Types.ServerSideEncryptionConfiguration
+    Network.AWS.S3.Types.ServerSideEncryptionRule
+    Network.AWS.S3.Types.SourceSelectionCriteria
+    Network.AWS.S3.Types.SSEKMS
+    Network.AWS.S3.Types.SseKmsEncryptedObjects
+    Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus
+    Network.AWS.S3.Types.SSES3
+    Network.AWS.S3.Types.Stats
+    Network.AWS.S3.Types.StatsEvent
+    Network.AWS.S3.Types.StorageClass
+    Network.AWS.S3.Types.StorageClassAnalysis
+    Network.AWS.S3.Types.StorageClassAnalysisDataExport
+    Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
+    Network.AWS.S3.Types.Tag
+    Network.AWS.S3.Types.Tagging
+    Network.AWS.S3.Types.TaggingDirective
+    Network.AWS.S3.Types.TargetGrant
+    Network.AWS.S3.Types.Tier
+    Network.AWS.S3.Types.Tiering
+    Network.AWS.S3.Types.TopicConfiguration
+    Network.AWS.S3.Types.Transition
+    Network.AWS.S3.Types.TransitionStorageClass
+    Network.AWS.S3.Types.Type
+    Network.AWS.S3.Types.VersioningConfiguration
+    Network.AWS.S3.Types.WebsiteConfiguration
+    Network.AWS.S3.UploadPart
+    Network.AWS.S3.UploadPartCopy
+    Network.AWS.S3.Waiters
+    Network.AWS.S3.WriteGetObjectResponse
 
-    exposed-modules:
-          Network.AWS.S3
-        , Network.AWS.S3.AbortMultipartUpload
-        , Network.AWS.S3.CompleteMultipartUpload
-        , Network.AWS.S3.CopyObject
-        , Network.AWS.S3.CreateBucket
-        , Network.AWS.S3.CreateMultipartUpload
-        , Network.AWS.S3.DeleteBucket
-        , Network.AWS.S3.DeleteBucketAnalyticsConfiguration
-        , Network.AWS.S3.DeleteBucketCORS
-        , Network.AWS.S3.DeleteBucketEncryption
-        , Network.AWS.S3.DeleteBucketInventoryConfiguration
-        , Network.AWS.S3.DeleteBucketLifecycle
-        , Network.AWS.S3.DeleteBucketMetricsConfiguration
-        , Network.AWS.S3.DeleteBucketPolicy
-        , Network.AWS.S3.DeleteBucketReplication
-        , Network.AWS.S3.DeleteBucketTagging
-        , Network.AWS.S3.DeleteBucketWebsite
-        , Network.AWS.S3.DeleteObject
-        , Network.AWS.S3.DeleteObjectTagging
-        , Network.AWS.S3.DeleteObjects
-        , Network.AWS.S3.GetBucketACL
-        , Network.AWS.S3.GetBucketAccelerateConfiguration
-        , Network.AWS.S3.GetBucketAnalyticsConfiguration
-        , Network.AWS.S3.GetBucketCORS
-        , Network.AWS.S3.GetBucketEncryption
-        , Network.AWS.S3.GetBucketInventoryConfiguration
-        , Network.AWS.S3.GetBucketLifecycleConfiguration
-        , Network.AWS.S3.GetBucketLocation
-        , Network.AWS.S3.GetBucketLogging
-        , Network.AWS.S3.GetBucketMetricsConfiguration
-        , Network.AWS.S3.GetBucketNotificationConfiguration
-        , Network.AWS.S3.GetBucketPolicy
-        , Network.AWS.S3.GetBucketReplication
-        , Network.AWS.S3.GetBucketRequestPayment
-        , Network.AWS.S3.GetBucketTagging
-        , Network.AWS.S3.GetBucketVersioning
-        , Network.AWS.S3.GetBucketWebsite
-        , Network.AWS.S3.GetObject
-        , Network.AWS.S3.GetObjectACL
-        , Network.AWS.S3.GetObjectTagging
-        , Network.AWS.S3.GetObjectTorrent
-        , Network.AWS.S3.HeadBucket
-        , Network.AWS.S3.HeadObject
-        , Network.AWS.S3.ListBucketAnalyticsConfigurations
-        , Network.AWS.S3.ListBucketInventoryConfigurations
-        , Network.AWS.S3.ListBucketMetricsConfigurations
-        , Network.AWS.S3.ListBuckets
-        , Network.AWS.S3.ListMultipartUploads
-        , Network.AWS.S3.ListObjectVersions
-        , Network.AWS.S3.ListObjects
-        , Network.AWS.S3.ListObjectsV
-        , Network.AWS.S3.ListParts
-        , Network.AWS.S3.PutBucketACL
-        , Network.AWS.S3.PutBucketAccelerateConfiguration
-        , Network.AWS.S3.PutBucketAnalyticsConfiguration
-        , Network.AWS.S3.PutBucketCORS
-        , Network.AWS.S3.PutBucketEncryption
-        , Network.AWS.S3.PutBucketInventoryConfiguration
-        , Network.AWS.S3.PutBucketLifecycleConfiguration
-        , Network.AWS.S3.PutBucketLogging
-        , Network.AWS.S3.PutBucketMetricsConfiguration
-        , Network.AWS.S3.PutBucketNotificationConfiguration
-        , Network.AWS.S3.PutBucketPolicy
-        , Network.AWS.S3.PutBucketReplication
-        , Network.AWS.S3.PutBucketRequestPayment
-        , Network.AWS.S3.PutBucketTagging
-        , Network.AWS.S3.PutBucketVersioning
-        , Network.AWS.S3.PutBucketWebsite
-        , Network.AWS.S3.PutObject
-        , Network.AWS.S3.PutObjectACL
-        , Network.AWS.S3.PutObjectTagging
-        , Network.AWS.S3.RestoreObject
-        , Network.AWS.S3.Types
-        , Network.AWS.S3.UploadPart
-        , Network.AWS.S3.UploadPartCopy
-        , Network.AWS.S3.Waiters
-
-    other-modules:
-          Network.AWS.S3.Internal
-        , Network.AWS.S3.Types.Product
-        , Network.AWS.S3.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
-        , lens >= 4.4
-        , text >= 1.1
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
+    , lens      >=4.14
+    , text      >=1.1
 
 test-suite amazonka-s3-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.S3
+    Test.AWS.S3
+    Test.AWS.S3.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.S3
-        , Test.AWS.Gen.S3
-        , Test.AWS.S3.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-s3
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-s3
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

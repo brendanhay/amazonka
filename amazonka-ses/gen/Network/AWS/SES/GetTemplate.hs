@@ -1,126 +1,148 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.GetTemplate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Displays the template object (which includes the Subject line, HTML part and text part) for the template you specify.
---
+-- Displays the template object (which includes the Subject line, HTML part
+-- and text part) for the template you specify.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.GetTemplate
-    (
-    -- * Creating a Request
-      getTemplate
-    , GetTemplate
+  ( -- * Creating a Request
+    GetTemplate (..),
+    newGetTemplate,
+
     -- * Request Lenses
-    , gtTemplateName
+    getTemplate_templateName,
 
     -- * Destructuring the Response
-    , getTemplateResponse
-    , GetTemplateResponse
+    GetTemplateResponse (..),
+    newGetTemplateResponse,
+
     -- * Response Lenses
-    , gtrsTemplate
-    , gtrsResponseStatus
-    ) where
+    getTemplateResponse_template,
+    getTemplateResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | /See:/ 'getTemplate' smart constructor.
-newtype GetTemplate = GetTemplate'
-  { _gtTemplateName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetTemplate' smart constructor.
+data GetTemplate = GetTemplate'
+  { -- | The name of the template you want to retrieve.
+    templateName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTemplate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTemplate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtTemplateName' - The name of the template you want to retrieve.
-getTemplate
-    :: Text -- ^ 'gtTemplateName'
-    -> GetTemplate
-getTemplate pTemplateName_ = GetTemplate' {_gtTemplateName = pTemplateName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'templateName', 'getTemplate_templateName' - The name of the template you want to retrieve.
+newGetTemplate ::
+  -- | 'templateName'
+  Prelude.Text ->
+  GetTemplate
+newGetTemplate pTemplateName_ =
+  GetTemplate' {templateName = pTemplateName_}
 
 -- | The name of the template you want to retrieve.
-gtTemplateName :: Lens' GetTemplate Text
-gtTemplateName = lens _gtTemplateName (\ s a -> s{_gtTemplateName = a});
+getTemplate_templateName :: Lens.Lens' GetTemplate Prelude.Text
+getTemplate_templateName = Lens.lens (\GetTemplate' {templateName} -> templateName) (\s@GetTemplate' {} a -> s {templateName = a} :: GetTemplate)
 
-instance AWSRequest GetTemplate where
-        type Rs GetTemplate = GetTemplateResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "GetTemplateResult"
-              (\ s h x ->
-                 GetTemplateResponse' <$>
-                   (x .@? "Template") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetTemplate where
+  type AWSResponse GetTemplate = GetTemplateResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetTemplateResult"
+      ( \s h x ->
+          GetTemplateResponse'
+            Prelude.<$> (x Core..@? "Template")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetTemplate where
+instance Prelude.Hashable GetTemplate
 
-instance NFData GetTemplate where
+instance Prelude.NFData GetTemplate
 
-instance ToHeaders GetTemplate where
-        toHeaders = const mempty
+instance Core.ToHeaders GetTemplate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetTemplate where
-        toPath = const "/"
+instance Core.ToPath GetTemplate where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetTemplate where
-        toQuery GetTemplate'{..}
-          = mconcat
-              ["Action" =: ("GetTemplate" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _gtTemplateName]
+instance Core.ToQuery GetTemplate where
+  toQuery GetTemplate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetTemplate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "TemplateName" Core.=: templateName
+      ]
 
--- | /See:/ 'getTemplateResponse' smart constructor.
+-- | /See:/ 'newGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { _gtrsTemplate       :: !(Maybe Template)
-  , _gtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { template :: Prelude.Maybe Template,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTemplateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtrsTemplate' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtrsResponseStatus' - -- | The response status code.
-getTemplateResponse
-    :: Int -- ^ 'gtrsResponseStatus'
-    -> GetTemplateResponse
-getTemplateResponse pResponseStatus_ =
+-- 'template', 'getTemplateResponse_template' - Undocumented member.
+--
+-- 'httpStatus', 'getTemplateResponse_httpStatus' - The response's http status code.
+newGetTemplateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTemplateResponse
+newGetTemplateResponse pHttpStatus_ =
   GetTemplateResponse'
-  {_gtrsTemplate = Nothing, _gtrsResponseStatus = pResponseStatus_}
-
+    { template = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-gtrsTemplate :: Lens' GetTemplateResponse (Maybe Template)
-gtrsTemplate = lens _gtrsTemplate (\ s a -> s{_gtrsTemplate = a});
+getTemplateResponse_template :: Lens.Lens' GetTemplateResponse (Prelude.Maybe Template)
+getTemplateResponse_template = Lens.lens (\GetTemplateResponse' {template} -> template) (\s@GetTemplateResponse' {} a -> s {template = a} :: GetTemplateResponse)
 
--- | -- | The response status code.
-gtrsResponseStatus :: Lens' GetTemplateResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a});
+-- | The response's http status code.
+getTemplateResponse_httpStatus :: Lens.Lens' GetTemplateResponse Prelude.Int
+getTemplateResponse_httpStatus = Lens.lens (\GetTemplateResponse' {httpStatus} -> httpStatus) (\s@GetTemplateResponse' {} a -> s {httpStatus = a} :: GetTemplateResponse)
 
-instance NFData GetTemplateResponse where
+instance Prelude.NFData GetTemplateResponse

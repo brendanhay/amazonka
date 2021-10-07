@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,98 +22,145 @@
 --
 -- Deletes a signing certificate associated with the specified IAM user.
 --
---
--- If you do not specify a user name, IAM determines the user name implicitly based on the AWS access key ID signing the request. Because this action works for access keys under the AWS account, you can use this action to manage root credentials even if the AWS account has no associated IAM users.
---
+-- If you do not specify a user name, IAM determines the user name
+-- implicitly based on the Amazon Web Services access key ID signing the
+-- request. This operation works for access keys under the Amazon Web
+-- Services account. Consequently, you can use this operation to manage
+-- Amazon Web Services account root user credentials even if the Amazon Web
+-- Services account has no associated IAM users.
 module Network.AWS.IAM.DeleteSigningCertificate
-    (
-    -- * Creating a Request
-      deleteSigningCertificate
-    , DeleteSigningCertificate
+  ( -- * Creating a Request
+    DeleteSigningCertificate (..),
+    newDeleteSigningCertificate,
+
     -- * Request Lenses
-    , dscUserName
-    , dscCertificateId
+    deleteSigningCertificate_userName,
+    deleteSigningCertificate_certificateId,
 
     -- * Destructuring the Response
-    , deleteSigningCertificateResponse
-    , DeleteSigningCertificateResponse
-    ) where
+    DeleteSigningCertificateResponse (..),
+    newDeleteSigningCertificateResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteSigningCertificate' smart constructor.
+-- | /See:/ 'newDeleteSigningCertificate' smart constructor.
 data DeleteSigningCertificate = DeleteSigningCertificate'
-  { _dscUserName      :: !(Maybe Text)
-  , _dscCertificateId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the user the signing certificate belongs to.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    userName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the signing certificate to delete.
+    --
+    -- The format of this parameter, as described by its
+    -- <http://wikipedia.org/wiki/regex regex> pattern, is a string of
+    -- characters that can be upper- or lower-cased letters or digits.
+    certificateId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSigningCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSigningCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dscUserName' - The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dscCertificateId' - The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
-deleteSigningCertificate
-    :: Text -- ^ 'dscCertificateId'
-    -> DeleteSigningCertificate
-deleteSigningCertificate pCertificateId_ =
+-- 'userName', 'deleteSigningCertificate_userName' - The name of the user the signing certificate belongs to.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'certificateId', 'deleteSigningCertificate_certificateId' - The ID of the signing certificate to delete.
+--
+-- The format of this parameter, as described by its
+-- <http://wikipedia.org/wiki/regex regex> pattern, is a string of
+-- characters that can be upper- or lower-cased letters or digits.
+newDeleteSigningCertificate ::
+  -- | 'certificateId'
+  Prelude.Text ->
+  DeleteSigningCertificate
+newDeleteSigningCertificate pCertificateId_ =
   DeleteSigningCertificate'
-  {_dscUserName = Nothing, _dscCertificateId = pCertificateId_}
+    { userName =
+        Prelude.Nothing,
+      certificateId = pCertificateId_
+    }
 
-
--- | The name of the user the signing certificate belongs to. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
-dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
-dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
-
--- | The ID of the signing certificate to delete. The format of this parameter, as described by its <http://wikipedia.org/wiki/regex regex> pattern, is a string of characters that can be upper- or lower-cased letters or digits.
-dscCertificateId :: Lens' DeleteSigningCertificate Text
-dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
-
-instance AWSRequest DeleteSigningCertificate where
-        type Rs DeleteSigningCertificate =
-             DeleteSigningCertificateResponse
-        request = postQuery iam
-        response
-          = receiveNull DeleteSigningCertificateResponse'
-
-instance Hashable DeleteSigningCertificate where
-
-instance NFData DeleteSigningCertificate where
-
-instance ToHeaders DeleteSigningCertificate where
-        toHeaders = const mempty
-
-instance ToPath DeleteSigningCertificate where
-        toPath = const "/"
-
-instance ToQuery DeleteSigningCertificate where
-        toQuery DeleteSigningCertificate'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteSigningCertificate" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dscUserName,
-               "CertificateId" =: _dscCertificateId]
-
--- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
-data DeleteSigningCertificateResponse =
-  DeleteSigningCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteSigningCertificateResponse' with the minimum fields required to make a request.
+-- | The name of the user the signing certificate belongs to.
 --
-deleteSigningCertificateResponse
-    :: DeleteSigningCertificateResponse
-deleteSigningCertificateResponse = DeleteSigningCertificateResponse'
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deleteSigningCertificate_userName :: Lens.Lens' DeleteSigningCertificate (Prelude.Maybe Prelude.Text)
+deleteSigningCertificate_userName = Lens.lens (\DeleteSigningCertificate' {userName} -> userName) (\s@DeleteSigningCertificate' {} a -> s {userName = a} :: DeleteSigningCertificate)
 
+-- | The ID of the signing certificate to delete.
+--
+-- The format of this parameter, as described by its
+-- <http://wikipedia.org/wiki/regex regex> pattern, is a string of
+-- characters that can be upper- or lower-cased letters or digits.
+deleteSigningCertificate_certificateId :: Lens.Lens' DeleteSigningCertificate Prelude.Text
+deleteSigningCertificate_certificateId = Lens.lens (\DeleteSigningCertificate' {certificateId} -> certificateId) (\s@DeleteSigningCertificate' {} a -> s {certificateId = a} :: DeleteSigningCertificate)
 
-instance NFData DeleteSigningCertificateResponse
-         where
+instance Core.AWSRequest DeleteSigningCertificate where
+  type
+    AWSResponse DeleteSigningCertificate =
+      DeleteSigningCertificateResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteSigningCertificateResponse'
+
+instance Prelude.Hashable DeleteSigningCertificate
+
+instance Prelude.NFData DeleteSigningCertificate
+
+instance Core.ToHeaders DeleteSigningCertificate where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DeleteSigningCertificate where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteSigningCertificate where
+  toQuery DeleteSigningCertificate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteSigningCertificate" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Core.=: userName,
+        "CertificateId" Core.=: certificateId
+      ]
+
+-- | /See:/ 'newDeleteSigningCertificateResponse' smart constructor.
+data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteSigningCertificateResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteSigningCertificateResponse ::
+  DeleteSigningCertificateResponse
+newDeleteSigningCertificateResponse =
+  DeleteSigningCertificateResponse'
+
+instance
+  Prelude.NFData
+    DeleteSigningCertificateResponse

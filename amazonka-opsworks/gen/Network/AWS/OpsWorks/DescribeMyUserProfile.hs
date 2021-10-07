@@ -1,127 +1,147 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a user's SSH information.
+-- Describes a user\'s SSH information.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have
+-- self-management enabled or an attached policy that explicitly grants
+-- permissions. For more information about user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeMyUserProfile
-    (
-    -- * Creating a Request
-      describeMyUserProfile
-    , DescribeMyUserProfile
+  ( -- * Creating a Request
+    DescribeMyUserProfile (..),
+    newDescribeMyUserProfile,
 
     -- * Destructuring the Response
-    , describeMyUserProfileResponse
-    , DescribeMyUserProfileResponse
+    DescribeMyUserProfileResponse (..),
+    newDescribeMyUserProfileResponse,
+
     -- * Response Lenses
-    , dmuprsUserProfile
-    , dmuprsResponseStatus
-    ) where
+    describeMyUserProfileResponse_userProfile,
+    describeMyUserProfileResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeMyUserProfile' smart constructor.
-data DescribeMyUserProfile =
-  DescribeMyUserProfile'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeMyUserProfile' smart constructor.
+data DescribeMyUserProfile = DescribeMyUserProfile'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMyUserProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMyUserProfile' with all optional fields omitted.
 --
-describeMyUserProfile
-    :: DescribeMyUserProfile
-describeMyUserProfile = DescribeMyUserProfile'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeMyUserProfile ::
+  DescribeMyUserProfile
+newDescribeMyUserProfile = DescribeMyUserProfile'
 
+instance Core.AWSRequest DescribeMyUserProfile where
+  type
+    AWSResponse DescribeMyUserProfile =
+      DescribeMyUserProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeMyUserProfileResponse'
+            Prelude.<$> (x Core..?> "UserProfile")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeMyUserProfile where
-        type Rs DescribeMyUserProfile =
-             DescribeMyUserProfileResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeMyUserProfileResponse' <$>
-                   (x .?> "UserProfile") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeMyUserProfile
 
-instance Hashable DescribeMyUserProfile where
+instance Prelude.NFData DescribeMyUserProfile
 
-instance NFData DescribeMyUserProfile where
+instance Core.ToHeaders DescribeMyUserProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DescribeMyUserProfile" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DescribeMyUserProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeMyUserProfile" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DescribeMyUserProfile where
+  toJSON = Prelude.const (Core.Object Prelude.mempty)
 
-instance ToJSON DescribeMyUserProfile where
-        toJSON = const (Object mempty)
+instance Core.ToPath DescribeMyUserProfile where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeMyUserProfile where
-        toPath = const "/"
-
-instance ToQuery DescribeMyUserProfile where
-        toQuery = const mempty
+instance Core.ToQuery DescribeMyUserProfile where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeMyUserProfile@ request.
 --
---
---
--- /See:/ 'describeMyUserProfileResponse' smart constructor.
+-- /See:/ 'newDescribeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-  { _dmuprsUserProfile    :: !(Maybe SelfUserProfile)
-  , _dmuprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A @UserProfile@ object that describes the user\'s SSH information.
+    userProfile :: Prelude.Maybe SelfUserProfile,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMyUserProfileResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMyUserProfileResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmuprsUserProfile' - A @UserProfile@ object that describes the user's SSH information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmuprsResponseStatus' - -- | The response status code.
-describeMyUserProfileResponse
-    :: Int -- ^ 'dmuprsResponseStatus'
-    -> DescribeMyUserProfileResponse
-describeMyUserProfileResponse pResponseStatus_ =
+-- 'userProfile', 'describeMyUserProfileResponse_userProfile' - A @UserProfile@ object that describes the user\'s SSH information.
+--
+-- 'httpStatus', 'describeMyUserProfileResponse_httpStatus' - The response's http status code.
+newDescribeMyUserProfileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeMyUserProfileResponse
+newDescribeMyUserProfileResponse pHttpStatus_ =
   DescribeMyUserProfileResponse'
-  {_dmuprsUserProfile = Nothing, _dmuprsResponseStatus = pResponseStatus_}
+    { userProfile =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A @UserProfile@ object that describes the user\'s SSH information.
+describeMyUserProfileResponse_userProfile :: Lens.Lens' DescribeMyUserProfileResponse (Prelude.Maybe SelfUserProfile)
+describeMyUserProfileResponse_userProfile = Lens.lens (\DescribeMyUserProfileResponse' {userProfile} -> userProfile) (\s@DescribeMyUserProfileResponse' {} a -> s {userProfile = a} :: DescribeMyUserProfileResponse)
 
--- | A @UserProfile@ object that describes the user's SSH information.
-dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
+-- | The response's http status code.
+describeMyUserProfileResponse_httpStatus :: Lens.Lens' DescribeMyUserProfileResponse Prelude.Int
+describeMyUserProfileResponse_httpStatus = Lens.lens (\DescribeMyUserProfileResponse' {httpStatus} -> httpStatus) (\s@DescribeMyUserProfileResponse' {} a -> s {httpStatus = a} :: DescribeMyUserProfileResponse)
 
--- | -- | The response status code.
-dmuprsResponseStatus :: Lens' DescribeMyUserProfileResponse Int
-dmuprsResponseStatus = lens _dmuprsResponseStatus (\ s a -> s{_dmuprsResponseStatus = a});
-
-instance NFData DescribeMyUserProfileResponse where
+instance Prelude.NFData DescribeMyUserProfileResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptRule
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,119 +22,146 @@
 --
 -- Deletes the specified receipt rule.
 --
---
--- For information about managing receipt rules, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide> .
+-- For information about managing receipt rules, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.DeleteReceiptRule
-    (
-    -- * Creating a Request
-      deleteReceiptRule
-    , DeleteReceiptRule
+  ( -- * Creating a Request
+    DeleteReceiptRule (..),
+    newDeleteReceiptRule,
+
     -- * Request Lenses
-    , delRuleSetName
-    , delRuleName
+    deleteReceiptRule_ruleSetName,
+    deleteReceiptRule_ruleName,
 
     -- * Destructuring the Response
-    , deleteReceiptRuleResponse
-    , DeleteReceiptRuleResponse
+    DeleteReceiptRuleResponse (..),
+    newDeleteReceiptRuleResponse,
+
     -- * Response Lenses
-    , delrsResponseStatus
-    ) where
+    deleteReceiptRuleResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+-- | Represents a request to delete a receipt rule. You use receipt rules to
+-- receive email with Amazon SES. For more information, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'deleteReceiptRule' smart constructor.
+-- /See:/ 'newDeleteReceiptRule' smart constructor.
 data DeleteReceiptRule = DeleteReceiptRule'
-  { _delRuleSetName :: !Text
-  , _delRuleName    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the receipt rule set that contains the receipt rule to
+    -- delete.
+    ruleSetName :: Prelude.Text,
+    -- | The name of the receipt rule to delete.
+    ruleName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteReceiptRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteReceiptRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delRuleSetName' - The name of the receipt rule set that contains the receipt rule to delete.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delRuleName' - The name of the receipt rule to delete.
-deleteReceiptRule
-    :: Text -- ^ 'delRuleSetName'
-    -> Text -- ^ 'delRuleName'
-    -> DeleteReceiptRule
-deleteReceiptRule pRuleSetName_ pRuleName_ =
+-- 'ruleSetName', 'deleteReceiptRule_ruleSetName' - The name of the receipt rule set that contains the receipt rule to
+-- delete.
+--
+-- 'ruleName', 'deleteReceiptRule_ruleName' - The name of the receipt rule to delete.
+newDeleteReceiptRule ::
+  -- | 'ruleSetName'
+  Prelude.Text ->
+  -- | 'ruleName'
+  Prelude.Text ->
+  DeleteReceiptRule
+newDeleteReceiptRule pRuleSetName_ pRuleName_ =
   DeleteReceiptRule'
-  {_delRuleSetName = pRuleSetName_, _delRuleName = pRuleName_}
+    { ruleSetName = pRuleSetName_,
+      ruleName = pRuleName_
+    }
 
-
--- | The name of the receipt rule set that contains the receipt rule to delete.
-delRuleSetName :: Lens' DeleteReceiptRule Text
-delRuleSetName = lens _delRuleSetName (\ s a -> s{_delRuleSetName = a});
+-- | The name of the receipt rule set that contains the receipt rule to
+-- delete.
+deleteReceiptRule_ruleSetName :: Lens.Lens' DeleteReceiptRule Prelude.Text
+deleteReceiptRule_ruleSetName = Lens.lens (\DeleteReceiptRule' {ruleSetName} -> ruleSetName) (\s@DeleteReceiptRule' {} a -> s {ruleSetName = a} :: DeleteReceiptRule)
 
 -- | The name of the receipt rule to delete.
-delRuleName :: Lens' DeleteReceiptRule Text
-delRuleName = lens _delRuleName (\ s a -> s{_delRuleName = a});
+deleteReceiptRule_ruleName :: Lens.Lens' DeleteReceiptRule Prelude.Text
+deleteReceiptRule_ruleName = Lens.lens (\DeleteReceiptRule' {ruleName} -> ruleName) (\s@DeleteReceiptRule' {} a -> s {ruleName = a} :: DeleteReceiptRule)
 
-instance AWSRequest DeleteReceiptRule where
-        type Rs DeleteReceiptRule = DeleteReceiptRuleResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "DeleteReceiptRuleResult"
-              (\ s h x ->
-                 DeleteReceiptRuleResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteReceiptRule where
+  type
+    AWSResponse DeleteReceiptRule =
+      DeleteReceiptRuleResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteReceiptRuleResult"
+      ( \s h x ->
+          DeleteReceiptRuleResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteReceiptRule where
+instance Prelude.Hashable DeleteReceiptRule
 
-instance NFData DeleteReceiptRule where
+instance Prelude.NFData DeleteReceiptRule
 
-instance ToHeaders DeleteReceiptRule where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteReceiptRule where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteReceiptRule where
-        toPath = const "/"
+instance Core.ToPath DeleteReceiptRule where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteReceiptRule where
-        toQuery DeleteReceiptRule'{..}
-          = mconcat
-              ["Action" =: ("DeleteReceiptRule" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "RuleSetName" =: _delRuleSetName,
-               "RuleName" =: _delRuleName]
+instance Core.ToQuery DeleteReceiptRule where
+  toQuery DeleteReceiptRule' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeleteReceiptRule" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "RuleSetName" Core.=: ruleSetName,
+        "RuleName" Core.=: ruleName
+      ]
 
 -- | An empty element returned on a successful request.
 --
+-- /See:/ 'newDeleteReceiptRuleResponse' smart constructor.
+data DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteReceiptRuleResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteReceiptRuleResponse' smart constructor.
-newtype DeleteReceiptRuleResponse = DeleteReceiptRuleResponse'
-  { _delrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteReceiptRuleResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteReceiptRuleResponse
-    :: Int -- ^ 'delrsResponseStatus'
-    -> DeleteReceiptRuleResponse
-deleteReceiptRuleResponse pResponseStatus_ =
-  DeleteReceiptRuleResponse' {_delrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteReceiptRuleResponse_httpStatus' - The response's http status code.
+newDeleteReceiptRuleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteReceiptRuleResponse
+newDeleteReceiptRuleResponse pHttpStatus_ =
+  DeleteReceiptRuleResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteReceiptRuleResponse_httpStatus :: Lens.Lens' DeleteReceiptRuleResponse Prelude.Int
+deleteReceiptRuleResponse_httpStatus = Lens.lens (\DeleteReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@DeleteReceiptRuleResponse' {} a -> s {httpStatus = a} :: DeleteReceiptRuleResponse)
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteReceiptRuleResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a});
-
-instance NFData DeleteReceiptRuleResponse where
+instance Prelude.NFData DeleteReceiptRuleResponse

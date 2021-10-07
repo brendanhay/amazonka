@@ -1,107 +1,126 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DeleteResourcePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.
---
---
+-- Deletes a resource policy from this account. This revokes the access of
+-- the identities in that policy to put log events to this account.
 module Network.AWS.CloudWatchLogs.DeleteResourcePolicy
-    (
-    -- * Creating a Request
-      deleteResourcePolicy
-    , DeleteResourcePolicy
+  ( -- * Creating a Request
+    DeleteResourcePolicy (..),
+    newDeleteResourcePolicy,
+
     -- * Request Lenses
-    , drpPolicyName
+    deleteResourcePolicy_policyName,
 
     -- * Destructuring the Response
-    , deleteResourcePolicyResponse
-    , DeleteResourcePolicyResponse
-    ) where
+    DeleteResourcePolicyResponse (..),
+    newDeleteResourcePolicyResponse,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteResourcePolicy' smart constructor.
-newtype DeleteResourcePolicy = DeleteResourcePolicy'
-  { _drpPolicyName :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteResourcePolicy' smart constructor.
+data DeleteResourcePolicy = DeleteResourcePolicy'
+  { -- | The name of the policy to be revoked. This parameter is required.
+    policyName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteResourcePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteResourcePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drpPolicyName' - The name of the policy to be revoked. This parameter is required.
-deleteResourcePolicy
-    :: DeleteResourcePolicy
-deleteResourcePolicy = DeleteResourcePolicy' {_drpPolicyName = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyName', 'deleteResourcePolicy_policyName' - The name of the policy to be revoked. This parameter is required.
+newDeleteResourcePolicy ::
+  DeleteResourcePolicy
+newDeleteResourcePolicy =
+  DeleteResourcePolicy' {policyName = Prelude.Nothing}
 
 -- | The name of the policy to be revoked. This parameter is required.
-drpPolicyName :: Lens' DeleteResourcePolicy (Maybe Text)
-drpPolicyName = lens _drpPolicyName (\ s a -> s{_drpPolicyName = a});
+deleteResourcePolicy_policyName :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
+deleteResourcePolicy_policyName = Lens.lens (\DeleteResourcePolicy' {policyName} -> policyName) (\s@DeleteResourcePolicy' {} a -> s {policyName = a} :: DeleteResourcePolicy)
 
-instance AWSRequest DeleteResourcePolicy where
-        type Rs DeleteResourcePolicy =
-             DeleteResourcePolicyResponse
-        request = postJSON cloudWatchLogs
-        response = receiveNull DeleteResourcePolicyResponse'
+instance Core.AWSRequest DeleteResourcePolicy where
+  type
+    AWSResponse DeleteResourcePolicy =
+      DeleteResourcePolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeleteResourcePolicyResponse'
 
-instance Hashable DeleteResourcePolicy where
+instance Prelude.Hashable DeleteResourcePolicy
 
-instance NFData DeleteResourcePolicy where
+instance Prelude.NFData DeleteResourcePolicy
 
-instance ToHeaders DeleteResourcePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.DeleteResourcePolicy" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteResourcePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Logs_20140328.DeleteResourcePolicy" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteResourcePolicy where
-        toJSON DeleteResourcePolicy'{..}
-          = object
-              (catMaybes [("policyName" .=) <$> _drpPolicyName])
+instance Core.ToJSON DeleteResourcePolicy where
+  toJSON DeleteResourcePolicy' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("policyName" Core..=) Prelude.<$> policyName]
+      )
 
-instance ToPath DeleteResourcePolicy where
-        toPath = const "/"
+instance Core.ToPath DeleteResourcePolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteResourcePolicy where
-        toQuery = const mempty
+instance Core.ToQuery DeleteResourcePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteResourcePolicyResponse' smart constructor.
-data DeleteResourcePolicyResponse =
-  DeleteResourcePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.
+data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteResourcePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteResourcePolicyResponse' with all optional fields omitted.
 --
-deleteResourcePolicyResponse
-    :: DeleteResourcePolicyResponse
-deleteResourcePolicyResponse = DeleteResourcePolicyResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteResourcePolicyResponse ::
+  DeleteResourcePolicyResponse
+newDeleteResourcePolicyResponse =
+  DeleteResourcePolicyResponse'
 
-
-instance NFData DeleteResourcePolicyResponse where
+instance Prelude.NFData DeleteResourcePolicyResponse

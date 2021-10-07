@@ -1,146 +1,183 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeMountTargetSecurityGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the security groups currently in effect for a mount target. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not @deleted@ .
---
+-- Returns the security groups currently in effect for a mount target. This
+-- operation requires that the network interface of the mount target has
+-- been created and the lifecycle state of the mount target is not
+-- @deleted@.
 --
 -- This operation requires permissions for the following actions:
 --
---     * @elasticfilesystem:DescribeMountTargetSecurityGroups@ action on the mount target's file system.
+-- -   @elasticfilesystem:DescribeMountTargetSecurityGroups@ action on the
+--     mount target\'s file system.
 --
---     * @ec2:DescribeNetworkInterfaceAttribute@ action on the mount target's network interface.
---
---
---
+-- -   @ec2:DescribeNetworkInterfaceAttribute@ action on the mount
+--     target\'s network interface.
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
-    (
-    -- * Creating a Request
-      describeMountTargetSecurityGroups
-    , DescribeMountTargetSecurityGroups
+  ( -- * Creating a Request
+    DescribeMountTargetSecurityGroups (..),
+    newDescribeMountTargetSecurityGroups,
+
     -- * Request Lenses
-    , dmtsgMountTargetId
+    describeMountTargetSecurityGroups_mountTargetId,
 
     -- * Destructuring the Response
-    , describeMountTargetSecurityGroupsResponse
-    , DescribeMountTargetSecurityGroupsResponse
-    -- * Response Lenses
-    , dmtsgrsResponseStatus
-    , dmtsgrsSecurityGroups
-    ) where
+    DescribeMountTargetSecurityGroupsResponse (..),
+    newDescribeMountTargetSecurityGroupsResponse,
 
+    -- * Response Lenses
+    describeMountTargetSecurityGroupsResponse_httpStatus,
+    describeMountTargetSecurityGroupsResponse_securityGroups,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
+-- /See:/ 'newDescribeMountTargetSecurityGroups' smart constructor.
+data DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
+  { -- | The ID of the mount target whose security groups you want to retrieve.
+    mountTargetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeMountTargetSecurityGroups' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'describeMountTargetSecurityGroups' smart constructor.
-newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
-  { _dmtsgMountTargetId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeMountTargetSecurityGroups' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmtsgMountTargetId' - ID of the mount target whose security groups you want to retrieve.
-describeMountTargetSecurityGroups
-    :: Text -- ^ 'dmtsgMountTargetId'
-    -> DescribeMountTargetSecurityGroups
-describeMountTargetSecurityGroups pMountTargetId_ =
-  DescribeMountTargetSecurityGroups' {_dmtsgMountTargetId = pMountTargetId_}
+-- 'mountTargetId', 'describeMountTargetSecurityGroups_mountTargetId' - The ID of the mount target whose security groups you want to retrieve.
+newDescribeMountTargetSecurityGroups ::
+  -- | 'mountTargetId'
+  Prelude.Text ->
+  DescribeMountTargetSecurityGroups
+newDescribeMountTargetSecurityGroups pMountTargetId_ =
+  DescribeMountTargetSecurityGroups'
+    { mountTargetId =
+        pMountTargetId_
+    }
 
+-- | The ID of the mount target whose security groups you want to retrieve.
+describeMountTargetSecurityGroups_mountTargetId :: Lens.Lens' DescribeMountTargetSecurityGroups Prelude.Text
+describeMountTargetSecurityGroups_mountTargetId = Lens.lens (\DescribeMountTargetSecurityGroups' {mountTargetId} -> mountTargetId) (\s@DescribeMountTargetSecurityGroups' {} a -> s {mountTargetId = a} :: DescribeMountTargetSecurityGroups)
 
--- | ID of the mount target whose security groups you want to retrieve.
-dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
-dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a});
+instance
+  Core.AWSRequest
+    DescribeMountTargetSecurityGroups
+  where
+  type
+    AWSResponse DescribeMountTargetSecurityGroups =
+      DescribeMountTargetSecurityGroupsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeMountTargetSecurityGroupsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> ( x Core..?> "SecurityGroups"
+                              Core..!@ Prelude.mempty
+                          )
+      )
 
-instance AWSRequest DescribeMountTargetSecurityGroups
-         where
-        type Rs DescribeMountTargetSecurityGroups =
-             DescribeMountTargetSecurityGroupsResponse
-        request = get efs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeMountTargetSecurityGroupsResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .?> "SecurityGroups" .!@ mempty))
+instance
+  Prelude.Hashable
+    DescribeMountTargetSecurityGroups
 
-instance Hashable DescribeMountTargetSecurityGroups
-         where
+instance
+  Prelude.NFData
+    DescribeMountTargetSecurityGroups
 
-instance NFData DescribeMountTargetSecurityGroups
-         where
+instance
+  Core.ToHeaders
+    DescribeMountTargetSecurityGroups
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeMountTargetSecurityGroups
-         where
-        toHeaders = const mempty
+instance
+  Core.ToPath
+    DescribeMountTargetSecurityGroups
+  where
+  toPath DescribeMountTargetSecurityGroups' {..} =
+    Prelude.mconcat
+      [ "/2015-02-01/mount-targets/",
+        Core.toBS mountTargetId,
+        "/security-groups"
+      ]
 
-instance ToPath DescribeMountTargetSecurityGroups
-         where
-        toPath DescribeMountTargetSecurityGroups'{..}
-          = mconcat
-              ["/2015-02-01/mount-targets/",
-               toBS _dmtsgMountTargetId, "/security-groups"]
+instance
+  Core.ToQuery
+    DescribeMountTargetSecurityGroups
+  where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeMountTargetSecurityGroups
-         where
-        toQuery = const mempty
-
--- | /See:/ 'describeMountTargetSecurityGroupsResponse' smart constructor.
+-- | /See:/ 'newDescribeMountTargetSecurityGroupsResponse' smart constructor.
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-  { _dmtsgrsResponseStatus :: !Int
-  , _dmtsgrsSecurityGroups :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | An array of security groups.
+    securityGroups :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMountTargetSecurityGroupsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmtsgrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmtsgrsSecurityGroups' - Array of security groups.
-describeMountTargetSecurityGroupsResponse
-    :: Int -- ^ 'dmtsgrsResponseStatus'
-    -> DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse pResponseStatus_ =
-  DescribeMountTargetSecurityGroupsResponse'
-  {_dmtsgrsResponseStatus = pResponseStatus_, _dmtsgrsSecurityGroups = mempty}
+-- 'httpStatus', 'describeMountTargetSecurityGroupsResponse_httpStatus' - The response's http status code.
+--
+-- 'securityGroups', 'describeMountTargetSecurityGroupsResponse_securityGroups' - An array of security groups.
+newDescribeMountTargetSecurityGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeMountTargetSecurityGroupsResponse
+newDescribeMountTargetSecurityGroupsResponse
+  pHttpStatus_ =
+    DescribeMountTargetSecurityGroupsResponse'
+      { httpStatus =
+          pHttpStatus_,
+        securityGroups = Prelude.mempty
+      }
 
+-- | The response's http status code.
+describeMountTargetSecurityGroupsResponse_httpStatus :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse Prelude.Int
+describeMountTargetSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {httpStatus = a} :: DescribeMountTargetSecurityGroupsResponse)
 
--- | -- | The response status code.
-dmtsgrsResponseStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
-dmtsgrsResponseStatus = lens _dmtsgrsResponseStatus (\ s a -> s{_dmtsgrsResponseStatus = a});
+-- | An array of security groups.
+describeMountTargetSecurityGroupsResponse_securityGroups :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse [Prelude.Text]
+describeMountTargetSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeMountTargetSecurityGroupsResponse) Prelude.. Lens._Coerce
 
--- | Array of security groups.
-dmtsgrsSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
-dmtsgrsSecurityGroups = lens _dmtsgrsSecurityGroups (\ s a -> s{_dmtsgrsSecurityGroups = a}) . _Coerce;
-
-instance NFData
-           DescribeMountTargetSecurityGroupsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeMountTargetSecurityGroupsResponse

@@ -1,105 +1,156 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElastiCache.AddTagsToResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds up to 50 cost allocation tags to the named resource. A cost allocation tag is a key-value pair where the key and value are case-sensitive. You can use cost allocation tags to categorize and track your AWS costs.
+-- A tag is a key-value pair where the key and value are case-sensitive.
+-- You can use tags to categorize and track all your ElastiCache resources,
+-- with the exception of global replication group. When you add or remove
+-- tags on replication groups, those actions will be replicated to all
+-- nodes in the replication group. For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html Resource-level permissions>.
 --
+-- For example, you can use cost-allocation tags to your ElastiCache
+-- resources, Amazon generates a cost allocation report as a
+-- comma-separated value (CSV) file with your usage and costs aggregated by
+-- your tags. You can apply tags that represent business categories (such
+-- as cost centers, application names, or owners) to organize your costs
+-- across multiple services.
 --
--- When you apply tags to your ElastiCache resources, AWS generates a cost allocation report as a comma-separated value (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache> in the /ElastiCache User Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache>
+-- in the /ElastiCache User Guide/.
 module Network.AWS.ElastiCache.AddTagsToResource
-    (
-    -- * Creating a Request
-      addTagsToResource
-    , AddTagsToResource
+  ( -- * Creating a Request
+    AddTagsToResource (..),
+    newAddTagsToResource,
+
     -- * Request Lenses
-    , attrResourceName
-    , attrTags
+    addTagsToResource_resourceName,
+    addTagsToResource_tags,
 
     -- * Destructuring the Response
-    , tagListMessage
-    , TagListMessage
-    -- * Response Lenses
-    , tlmTagList
-    ) where
+    TagListMessage (..),
+    newTagListMessage,
 
+    -- * Response Lenses
+    tagListMessage_tagList,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an AddTagsToResource operation.
 --
---
---
--- /See:/ 'addTagsToResource' smart constructor.
+-- /See:/ 'newAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceName :: !Text
-  , _attrTags         :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the resource to which the tags are to
+    -- be added, for example
+    -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or
+    -- @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@.
+    -- ElastiCache resources are /cluster/ and /snapshot/.
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Service Namespaces>.
+    resourceName :: Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'attrResourceName' - The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . ElastiCache resources are /cluster/ and /snapshot/ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'attrTags' - A list of cost allocation tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value.
-addTagsToResource
-    :: Text -- ^ 'attrResourceName'
-    -> AddTagsToResource
-addTagsToResource pResourceName_ =
-  AddTagsToResource' {_attrResourceName = pResourceName_, _attrTags = mempty}
+-- 'resourceName', 'addTagsToResource_resourceName' - The Amazon Resource Name (ARN) of the resource to which the tags are to
+-- be added, for example
+-- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or
+-- @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@.
+-- ElastiCache resources are /cluster/ and /snapshot/.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Service Namespaces>.
+--
+-- 'tags', 'addTagsToResource_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+newAddTagsToResource ::
+  -- | 'resourceName'
+  Prelude.Text ->
+  AddTagsToResource
+newAddTagsToResource pResourceName_ =
+  AddTagsToResource'
+    { resourceName = pResourceName_,
+      tags = Prelude.mempty
+    }
 
+-- | The Amazon Resource Name (ARN) of the resource to which the tags are to
+-- be added, for example
+-- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or
+-- @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@.
+-- ElastiCache resources are /cluster/ and /snapshot/.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Service Namespaces>.
+addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Prelude.Text
+addTagsToResource_resourceName = Lens.lens (\AddTagsToResource' {resourceName} -> resourceName) (\s@AddTagsToResource' {} a -> s {resourceName = a} :: AddTagsToResource)
 
--- | The Amazon Resource Name (ARN) of the resource to which the tags are to be added, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . ElastiCache resources are /cluster/ and /snapshot/ . For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 
--- | A list of cost allocation tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
+instance Core.AWSRequest AddTagsToResource where
+  type AWSResponse AddTagsToResource = TagListMessage
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "AddTagsToResourceResult"
+      (\s h x -> Core.parseXML x)
 
-instance AWSRequest AddTagsToResource where
-        type Rs AddTagsToResource = TagListMessage
-        request = postQuery elastiCache
-        response
-          = receiveXMLWrapper "AddTagsToResourceResult"
-              (\ s h x -> parseXML x)
+instance Prelude.Hashable AddTagsToResource
 
-instance Hashable AddTagsToResource where
+instance Prelude.NFData AddTagsToResource
 
-instance NFData AddTagsToResource where
+instance Core.ToHeaders AddTagsToResource where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders AddTagsToResource where
-        toHeaders = const mempty
+instance Core.ToPath AddTagsToResource where
+  toPath = Prelude.const "/"
 
-instance ToPath AddTagsToResource where
-        toPath = const "/"
-
-instance ToQuery AddTagsToResource where
-        toQuery AddTagsToResource'{..}
-          = mconcat
-              ["Action" =: ("AddTagsToResource" :: ByteString),
-               "Version" =: ("2015-02-02" :: ByteString),
-               "ResourceName" =: _attrResourceName,
-               "Tags" =: toQueryList "Tag" _attrTags]
+instance Core.ToQuery AddTagsToResource where
+  toQuery AddTagsToResource' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("AddTagsToResource" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "ResourceName" Core.=: resourceName,
+        "Tags" Core.=: Core.toQueryList "Tag" tags
+      ]

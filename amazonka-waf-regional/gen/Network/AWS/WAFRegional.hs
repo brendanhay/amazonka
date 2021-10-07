@@ -1,65 +1,106 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.WAFRegional
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This is the /AWS WAF Regional API Reference/ for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancers. The AWS WAF actions and data types listed in the reference are available for protecting Application Load Balancers. You can use these actions and data types by means of the endpoints listed in <http://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region AWS Regions and Endpoints> . This guide is for developers who need detailed information about the AWS WAF API actions, data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
+-- Derived from API version @2016-11-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
+-- This is __AWS WAF Classic Regional__ documentation. For more
+-- information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
+--
+-- This is the /AWS WAF Regional Classic API Reference/ for using AWS WAF
+-- Classic with the AWS resources, Elastic Load Balancing (ELB) Application
+-- Load Balancers and API Gateway APIs. The AWS WAF Classic actions and
+-- data types listed in the reference are available for protecting Elastic
+-- Load Balancing (ELB) Application Load Balancers and API Gateway APIs.
+-- You can use these actions and data types by means of the endpoints
+-- listed in
+-- <https://docs.aws.amazon.com/general/latest/gr/rande.html#waf_region AWS Regions and Endpoints>.
+-- This guide is for developers who need detailed information about the AWS
+-- WAF Classic API actions, data types, and errors. For detailed
+-- information about AWS WAF Classic features and an overview of how to use
+-- the AWS WAF Classic API, see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 module Network.AWS.WAFRegional
-    (
-    -- * Service Configuration
-      wAFRegional
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
+    -- ** WAFSubscriptionNotFoundException
+    _WAFSubscriptionNotFoundException,
+
+    -- ** WAFTagOperationInternalErrorException
+    _WAFTagOperationInternalErrorException,
+
     -- ** WAFInvalidAccountException
-    , _WAFInvalidAccountException
+    _WAFInvalidAccountException,
 
-    -- ** WAFReferencedItemException
-    , _WAFReferencedItemException
-
-    -- ** WAFInvalidRegexPatternException
-    , _WAFInvalidRegexPatternException
-
-    -- ** WAFInvalidOperationException
-    , _WAFInvalidOperationException
-
-    -- ** WAFNonexistentItemException
-    , _WAFNonexistentItemException
-
-    -- ** WAFInvalidParameterException
-    , _WAFInvalidParameterException
-
-    -- ** WAFLimitsExceededException
-    , _WAFLimitsExceededException
-
-    -- ** WAFStaleDataException
-    , _WAFStaleDataException
-
-    -- ** WAFInternalErrorException
-    , _WAFInternalErrorException
-
-    -- ** WAFNonexistentContainerException
-    , _WAFNonexistentContainerException
-
-    -- ** WAFUnavailableEntityException
-    , _WAFUnavailableEntityException
+    -- ** WAFBadRequestException
+    _WAFBadRequestException,
 
     -- ** WAFDisallowedNameException
-    , _WAFDisallowedNameException
+    _WAFDisallowedNameException,
 
     -- ** WAFNonEmptyEntityException
-    , _WAFNonEmptyEntityException
+    _WAFNonEmptyEntityException,
+
+    -- ** WAFInvalidOperationException
+    _WAFInvalidOperationException,
+
+    -- ** WAFStaleDataException
+    _WAFStaleDataException,
+
+    -- ** WAFTagOperationException
+    _WAFTagOperationException,
+
+    -- ** WAFInternalErrorException
+    _WAFInternalErrorException,
+
+    -- ** WAFServiceLinkedRoleErrorException
+    _WAFServiceLinkedRoleErrorException,
+
+    -- ** WAFInvalidParameterException
+    _WAFInvalidParameterException,
+
+    -- ** WAFNonexistentItemException
+    _WAFNonexistentItemException,
+
+    -- ** WAFUnavailableEntityException
+    _WAFUnavailableEntityException,
+
+    -- ** WAFInvalidRegexPatternException
+    _WAFInvalidRegexPatternException,
+
+    -- ** WAFNonexistentContainerException
+    _WAFNonexistentContainerException,
+
+    -- ** WAFEntityMigrationException
+    _WAFEntityMigrationException,
+
+    -- ** WAFReferencedItemException
+    _WAFReferencedItemException,
+
+    -- ** WAFInvalidPermissionPolicyException
+    _WAFInvalidPermissionPolicyException,
+
+    -- ** WAFLimitsExceededException
+    _WAFLimitsExceededException,
 
     -- * Waiters
     -- $waiters
@@ -67,542 +108,760 @@ module Network.AWS.WAFRegional
     -- * Operations
     -- $operations
 
-    -- ** ListRateBasedRules
-    , module Network.AWS.WAFRegional.ListRateBasedRules
-
-    -- ** GetSizeConstraintSet
-    , module Network.AWS.WAFRegional.GetSizeConstraintSet
-
-    -- ** DeleteRateBasedRule
-    , module Network.AWS.WAFRegional.DeleteRateBasedRule
-
-    -- ** UpdateRateBasedRule
-    , module Network.AWS.WAFRegional.UpdateRateBasedRule
+    -- ** GetChangeTokenStatus
+    GetChangeTokenStatus (GetChangeTokenStatus'),
+    newGetChangeTokenStatus,
+    GetChangeTokenStatusResponse (GetChangeTokenStatusResponse'),
+    newGetChangeTokenStatusResponse,
 
     -- ** UpdateRule
-    , module Network.AWS.WAFRegional.UpdateRule
+    UpdateRule (UpdateRule'),
+    newUpdateRule,
+    UpdateRuleResponse (UpdateRuleResponse'),
+    newUpdateRuleResponse,
 
     -- ** DeleteRule
-    , module Network.AWS.WAFRegional.DeleteRule
+    DeleteRule (DeleteRule'),
+    newDeleteRule,
+    DeleteRuleResponse (DeleteRuleResponse'),
+    newDeleteRuleResponse,
 
-    -- ** CreateIPSet
-    , module Network.AWS.WAFRegional.CreateIPSet
-
-    -- ** GetChangeTokenStatus
-    , module Network.AWS.WAFRegional.GetChangeTokenStatus
+    -- ** GetRuleGroup
+    GetRuleGroup (GetRuleGroup'),
+    newGetRuleGroup,
+    GetRuleGroupResponse (GetRuleGroupResponse'),
+    newGetRuleGroupResponse,
 
     -- ** DeleteWebACL
-    , module Network.AWS.WAFRegional.DeleteWebACL
+    DeleteWebACL (DeleteWebACL'),
+    newDeleteWebACL,
+    DeleteWebACLResponse (DeleteWebACLResponse'),
+    newDeleteWebACLResponse,
 
     -- ** UpdateWebACL
-    , module Network.AWS.WAFRegional.UpdateWebACL
+    UpdateWebACL (UpdateWebACL'),
+    newUpdateWebACL,
+    UpdateWebACLResponse (UpdateWebACLResponse'),
+    newUpdateWebACLResponse,
 
-    -- ** ListWebACLs
-    , module Network.AWS.WAFRegional.ListWebACLs
+    -- ** GetSizeConstraintSet
+    GetSizeConstraintSet (GetSizeConstraintSet'),
+    newGetSizeConstraintSet,
+    GetSizeConstraintSetResponse (GetSizeConstraintSetResponse'),
+    newGetSizeConstraintSetResponse,
 
-    -- ** ListRules
-    , module Network.AWS.WAFRegional.ListRules
-
-    -- ** CreateRule
-    , module Network.AWS.WAFRegional.CreateRule
-
-    -- ** CreateWebACL
-    , module Network.AWS.WAFRegional.CreateWebACL
-
-    -- ** GetGeoMatchSet
-    , module Network.AWS.WAFRegional.GetGeoMatchSet
-
-    -- ** ListByteMatchSets
-    , module Network.AWS.WAFRegional.ListByteMatchSets
-
-    -- ** ListGeoMatchSets
-    , module Network.AWS.WAFRegional.ListGeoMatchSets
-
-    -- ** DeleteRegexMatchSet
-    , module Network.AWS.WAFRegional.DeleteRegexMatchSet
-
-    -- ** UpdateRegexMatchSet
-    , module Network.AWS.WAFRegional.UpdateRegexMatchSet
-
-    -- ** GetIPSet
-    , module Network.AWS.WAFRegional.GetIPSet
-
-    -- ** GetWebACL
-    , module Network.AWS.WAFRegional.GetWebACL
-
-    -- ** GetRule
-    , module Network.AWS.WAFRegional.GetRule
-
-    -- ** DeleteXSSMatchSet
-    , module Network.AWS.WAFRegional.DeleteXSSMatchSet
-
-    -- ** UpdateXSSMatchSet
-    , module Network.AWS.WAFRegional.UpdateXSSMatchSet
-
-    -- ** ListXSSMatchSets
-    , module Network.AWS.WAFRegional.ListXSSMatchSets
-
-    -- ** CreateGeoMatchSet
-    , module Network.AWS.WAFRegional.CreateGeoMatchSet
-
-    -- ** GetChangeToken
-    , module Network.AWS.WAFRegional.GetChangeToken
-
-    -- ** ListSizeConstraintSets
-    , module Network.AWS.WAFRegional.ListSizeConstraintSets
-
-    -- ** ListResourcesForWebACL
-    , module Network.AWS.WAFRegional.ListResourcesForWebACL
-
-    -- ** GetSampledRequests
-    , module Network.AWS.WAFRegional.GetSampledRequests
-
-    -- ** GetSqlInjectionMatchSet
-    , module Network.AWS.WAFRegional.GetSqlInjectionMatchSet
+    -- ** ListRateBasedRules
+    ListRateBasedRules (ListRateBasedRules'),
+    newListRateBasedRules,
+    ListRateBasedRulesResponse (ListRateBasedRulesResponse'),
+    newListRateBasedRulesResponse,
 
     -- ** GetWebACLForResource
-    , module Network.AWS.WAFRegional.GetWebACLForResource
-
-    -- ** DisassociateWebACL
-    , module Network.AWS.WAFRegional.DisassociateWebACL
-
-    -- ** CreateSqlInjectionMatchSet
-    , module Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
-
-    -- ** GetXSSMatchSet
-    , module Network.AWS.WAFRegional.GetXSSMatchSet
-
-    -- ** CreateByteMatchSet
-    , module Network.AWS.WAFRegional.CreateByteMatchSet
-
-    -- ** UpdateByteMatchSet
-    , module Network.AWS.WAFRegional.UpdateByteMatchSet
-
-    -- ** DeleteByteMatchSet
-    , module Network.AWS.WAFRegional.DeleteByteMatchSet
-
-    -- ** GetRateBasedRuleManagedKeys
-    , module Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
-
-    -- ** AssociateWebACL
-    , module Network.AWS.WAFRegional.AssociateWebACL
-
-    -- ** GetRegexMatchSet
-    , module Network.AWS.WAFRegional.GetRegexMatchSet
-
-    -- ** DeleteIPSet
-    , module Network.AWS.WAFRegional.DeleteIPSet
-
-    -- ** UpdateIPSet
-    , module Network.AWS.WAFRegional.UpdateIPSet
-
-    -- ** ListIPSets
-    , module Network.AWS.WAFRegional.ListIPSets
-
-    -- ** ListRegexMatchSets
-    , module Network.AWS.WAFRegional.ListRegexMatchSets
-
-    -- ** CreateXSSMatchSet
-    , module Network.AWS.WAFRegional.CreateXSSMatchSet
-
-    -- ** DeleteGeoMatchSet
-    , module Network.AWS.WAFRegional.DeleteGeoMatchSet
-
-    -- ** UpdateGeoMatchSet
-    , module Network.AWS.WAFRegional.UpdateGeoMatchSet
-
-    -- ** GetByteMatchSet
-    , module Network.AWS.WAFRegional.GetByteMatchSet
-
-    -- ** CreateRegexMatchSet
-    , module Network.AWS.WAFRegional.CreateRegexMatchSet
-
-    -- ** GetRateBasedRule
-    , module Network.AWS.WAFRegional.GetRateBasedRule
-
-    -- ** CreateRegexPatternSet
-    , module Network.AWS.WAFRegional.CreateRegexPatternSet
-
-    -- ** DeleteSizeConstraintSet
-    , module Network.AWS.WAFRegional.DeleteSizeConstraintSet
-
-    -- ** UpdateSizeConstraintSet
-    , module Network.AWS.WAFRegional.UpdateSizeConstraintSet
-
-    -- ** DeleteRegexPatternSet
-    , module Network.AWS.WAFRegional.DeleteRegexPatternSet
-
-    -- ** UpdateRegexPatternSet
-    , module Network.AWS.WAFRegional.UpdateRegexPatternSet
-
-    -- ** CreateSizeConstraintSet
-    , module Network.AWS.WAFRegional.CreateSizeConstraintSet
-
-    -- ** ListRegexPatternSets
-    , module Network.AWS.WAFRegional.ListRegexPatternSets
-
-    -- ** ListSqlInjectionMatchSets
-    , module Network.AWS.WAFRegional.ListSqlInjectionMatchSets
-
-    -- ** GetRegexPatternSet
-    , module Network.AWS.WAFRegional.GetRegexPatternSet
+    GetWebACLForResource (GetWebACLForResource'),
+    newGetWebACLForResource,
+    GetWebACLForResourceResponse (GetWebACLForResourceResponse'),
+    newGetWebACLForResourceResponse,
 
     -- ** CreateRateBasedRule
-    , module Network.AWS.WAFRegional.CreateRateBasedRule
+    CreateRateBasedRule (CreateRateBasedRule'),
+    newCreateRateBasedRule,
+    CreateRateBasedRuleResponse (CreateRateBasedRuleResponse'),
+    newCreateRateBasedRuleResponse,
+
+    -- ** ListSqlInjectionMatchSets
+    ListSqlInjectionMatchSets (ListSqlInjectionMatchSets'),
+    newListSqlInjectionMatchSets,
+    ListSqlInjectionMatchSetsResponse (ListSqlInjectionMatchSetsResponse'),
+    newListSqlInjectionMatchSetsResponse,
+
+    -- ** ListRegexPatternSets
+    ListRegexPatternSets (ListRegexPatternSets'),
+    newListRegexPatternSets,
+    ListRegexPatternSetsResponse (ListRegexPatternSetsResponse'),
+    newListRegexPatternSetsResponse,
+
+    -- ** GetSqlInjectionMatchSet
+    GetSqlInjectionMatchSet (GetSqlInjectionMatchSet'),
+    newGetSqlInjectionMatchSet,
+    GetSqlInjectionMatchSetResponse (GetSqlInjectionMatchSetResponse'),
+    newGetSqlInjectionMatchSetResponse,
+
+    -- ** ListSizeConstraintSets
+    ListSizeConstraintSets (ListSizeConstraintSets'),
+    newListSizeConstraintSets,
+    ListSizeConstraintSetsResponse (ListSizeConstraintSetsResponse'),
+    newListSizeConstraintSetsResponse,
+
+    -- ** UpdateSizeConstraintSet
+    UpdateSizeConstraintSet (UpdateSizeConstraintSet'),
+    newUpdateSizeConstraintSet,
+    UpdateSizeConstraintSetResponse (UpdateSizeConstraintSetResponse'),
+    newUpdateSizeConstraintSetResponse,
+
+    -- ** CreateRegexPatternSet
+    CreateRegexPatternSet (CreateRegexPatternSet'),
+    newCreateRegexPatternSet,
+    CreateRegexPatternSetResponse (CreateRegexPatternSetResponse'),
+    newCreateRegexPatternSetResponse,
+
+    -- ** DeleteSizeConstraintSet
+    DeleteSizeConstraintSet (DeleteSizeConstraintSet'),
+    newDeleteSizeConstraintSet,
+    DeleteSizeConstraintSetResponse (DeleteSizeConstraintSetResponse'),
+    newDeleteSizeConstraintSetResponse,
+
+    -- ** GetChangeToken
+    GetChangeToken (GetChangeToken'),
+    newGetChangeToken,
+    GetChangeTokenResponse (GetChangeTokenResponse'),
+    newGetChangeTokenResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** CreateWebACLMigrationStack
+    CreateWebACLMigrationStack (CreateWebACLMigrationStack'),
+    newCreateWebACLMigrationStack,
+    CreateWebACLMigrationStackResponse (CreateWebACLMigrationStackResponse'),
+    newCreateWebACLMigrationStackResponse,
+
+    -- ** UpdateRuleGroup
+    UpdateRuleGroup (UpdateRuleGroup'),
+    newUpdateRuleGroup,
+    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
+    newUpdateRuleGroupResponse,
+
+    -- ** ListXssMatchSets
+    ListXssMatchSets (ListXssMatchSets'),
+    newListXssMatchSets,
+    ListXssMatchSetsResponse (ListXssMatchSetsResponse'),
+    newListXssMatchSetsResponse,
+
+    -- ** DeleteRuleGroup
+    DeleteRuleGroup (DeleteRuleGroup'),
+    newDeleteRuleGroup,
+    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
+    newDeleteRuleGroupResponse,
+
+    -- ** CreateRegexMatchSet
+    CreateRegexMatchSet (CreateRegexMatchSet'),
+    newCreateRegexMatchSet,
+    CreateRegexMatchSetResponse (CreateRegexMatchSetResponse'),
+    newCreateRegexMatchSetResponse,
+
+    -- ** CreateRuleGroup
+    CreateRuleGroup (CreateRuleGroup'),
+    newCreateRuleGroup,
+    CreateRuleGroupResponse (CreateRuleGroupResponse'),
+    newCreateRuleGroupResponse,
+
+    -- ** DeleteRegexMatchSet
+    DeleteRegexMatchSet (DeleteRegexMatchSet'),
+    newDeleteRegexMatchSet,
+    DeleteRegexMatchSetResponse (DeleteRegexMatchSetResponse'),
+    newDeleteRegexMatchSetResponse,
+
+    -- ** ListRegexMatchSets
+    ListRegexMatchSets (ListRegexMatchSets'),
+    newListRegexMatchSets,
+    ListRegexMatchSetsResponse (ListRegexMatchSetsResponse'),
+    newListRegexMatchSetsResponse,
+
+    -- ** GetLoggingConfiguration
+    GetLoggingConfiguration (GetLoggingConfiguration'),
+    newGetLoggingConfiguration,
+    GetLoggingConfigurationResponse (GetLoggingConfigurationResponse'),
+    newGetLoggingConfigurationResponse,
+
+    -- ** UpdateRegexMatchSet
+    UpdateRegexMatchSet (UpdateRegexMatchSet'),
+    newUpdateRegexMatchSet,
+    UpdateRegexMatchSetResponse (UpdateRegexMatchSetResponse'),
+    newUpdateRegexMatchSetResponse,
+
+    -- ** DeleteLoggingConfiguration
+    DeleteLoggingConfiguration (DeleteLoggingConfiguration'),
+    newDeleteLoggingConfiguration,
+    DeleteLoggingConfigurationResponse (DeleteLoggingConfigurationResponse'),
+    newDeleteLoggingConfigurationResponse,
+
+    -- ** CreateRule
+    CreateRule (CreateRule'),
+    newCreateRule,
+    CreateRuleResponse (CreateRuleResponse'),
+    newCreateRuleResponse,
+
+    -- ** AssociateWebACL
+    AssociateWebACL (AssociateWebACL'),
+    newAssociateWebACL,
+    AssociateWebACLResponse (AssociateWebACLResponse'),
+    newAssociateWebACLResponse,
+
+    -- ** ListLoggingConfigurations
+    ListLoggingConfigurations (ListLoggingConfigurations'),
+    newListLoggingConfigurations,
+    ListLoggingConfigurationsResponse (ListLoggingConfigurationsResponse'),
+    newListLoggingConfigurationsResponse,
+
+    -- ** UpdateIPSet
+    UpdateIPSet (UpdateIPSet'),
+    newUpdateIPSet,
+    UpdateIPSetResponse (UpdateIPSetResponse'),
+    newUpdateIPSetResponse,
+
+    -- ** CreateWebACL
+    CreateWebACL (CreateWebACL'),
+    newCreateWebACL,
+    CreateWebACLResponse (CreateWebACLResponse'),
+    newCreateWebACLResponse,
+
+    -- ** PutPermissionPolicy
+    PutPermissionPolicy (PutPermissionPolicy'),
+    newPutPermissionPolicy,
+    PutPermissionPolicyResponse (PutPermissionPolicyResponse'),
+    newPutPermissionPolicyResponse,
+
+    -- ** DeleteIPSet
+    DeleteIPSet (DeleteIPSet'),
+    newDeleteIPSet,
+    DeleteIPSetResponse (DeleteIPSetResponse'),
+    newDeleteIPSetResponse,
+
+    -- ** GetGeoMatchSet
+    GetGeoMatchSet (GetGeoMatchSet'),
+    newGetGeoMatchSet,
+    GetGeoMatchSetResponse (GetGeoMatchSetResponse'),
+    newGetGeoMatchSetResponse,
+
+    -- ** GetRateBasedRuleManagedKeys
+    GetRateBasedRuleManagedKeys (GetRateBasedRuleManagedKeys'),
+    newGetRateBasedRuleManagedKeys,
+    GetRateBasedRuleManagedKeysResponse (GetRateBasedRuleManagedKeysResponse'),
+    newGetRateBasedRuleManagedKeysResponse,
+
+    -- ** CreateIPSet
+    CreateIPSet (CreateIPSet'),
+    newCreateIPSet,
+    CreateIPSetResponse (CreateIPSetResponse'),
+    newCreateIPSetResponse,
+
+    -- ** ListRules
+    ListRules (ListRules'),
+    newListRules,
+    ListRulesResponse (ListRulesResponse'),
+    newListRulesResponse,
+
+    -- ** ListWebACLs
+    ListWebACLs (ListWebACLs'),
+    newListWebACLs,
+    ListWebACLsResponse (ListWebACLsResponse'),
+    newListWebACLsResponse,
+
+    -- ** CreateByteMatchSet
+    CreateByteMatchSet (CreateByteMatchSet'),
+    newCreateByteMatchSet,
+    CreateByteMatchSetResponse (CreateByteMatchSetResponse'),
+    newCreateByteMatchSetResponse,
+
+    -- ** GetXssMatchSet
+    GetXssMatchSet (GetXssMatchSet'),
+    newGetXssMatchSet,
+    GetXssMatchSetResponse (GetXssMatchSetResponse'),
+    newGetXssMatchSetResponse,
+
+    -- ** UpdateRateBasedRule
+    UpdateRateBasedRule (UpdateRateBasedRule'),
+    newUpdateRateBasedRule,
+    UpdateRateBasedRuleResponse (UpdateRateBasedRuleResponse'),
+    newUpdateRateBasedRuleResponse,
+
+    -- ** DeleteRateBasedRule
+    DeleteRateBasedRule (DeleteRateBasedRule'),
+    newDeleteRateBasedRule,
+    DeleteRateBasedRuleResponse (DeleteRateBasedRuleResponse'),
+    newDeleteRateBasedRuleResponse,
+
+    -- ** ListActivatedRulesInRuleGroup
+    ListActivatedRulesInRuleGroup (ListActivatedRulesInRuleGroup'),
+    newListActivatedRulesInRuleGroup,
+    ListActivatedRulesInRuleGroupResponse (ListActivatedRulesInRuleGroupResponse'),
+    newListActivatedRulesInRuleGroupResponse,
+
+    -- ** ListSubscribedRuleGroups
+    ListSubscribedRuleGroups (ListSubscribedRuleGroups'),
+    newListSubscribedRuleGroups,
+    ListSubscribedRuleGroupsResponse (ListSubscribedRuleGroupsResponse'),
+    newListSubscribedRuleGroupsResponse,
+
+    -- ** CreateSqlInjectionMatchSet
+    CreateSqlInjectionMatchSet (CreateSqlInjectionMatchSet'),
+    newCreateSqlInjectionMatchSet,
+    CreateSqlInjectionMatchSetResponse (CreateSqlInjectionMatchSetResponse'),
+    newCreateSqlInjectionMatchSetResponse,
+
+    -- ** DisassociateWebACL
+    DisassociateWebACL (DisassociateWebACL'),
+    newDisassociateWebACL,
+    DisassociateWebACLResponse (DisassociateWebACLResponse'),
+    newDisassociateWebACLResponse,
 
     -- ** DeleteSqlInjectionMatchSet
-    , module Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
+    DeleteSqlInjectionMatchSet (DeleteSqlInjectionMatchSet'),
+    newDeleteSqlInjectionMatchSet,
+    DeleteSqlInjectionMatchSetResponse (DeleteSqlInjectionMatchSetResponse'),
+    newDeleteSqlInjectionMatchSetResponse,
+
+    -- ** GetRegexPatternSet
+    GetRegexPatternSet (GetRegexPatternSet'),
+    newGetRegexPatternSet,
+    GetRegexPatternSetResponse (GetRegexPatternSetResponse'),
+    newGetRegexPatternSetResponse,
 
     -- ** UpdateSqlInjectionMatchSet
-    , module Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
+    UpdateSqlInjectionMatchSet (UpdateSqlInjectionMatchSet'),
+    newUpdateSqlInjectionMatchSet,
+    UpdateSqlInjectionMatchSetResponse (UpdateSqlInjectionMatchSetResponse'),
+    newUpdateSqlInjectionMatchSetResponse,
+
+    -- ** DeleteRegexPatternSet
+    DeleteRegexPatternSet (DeleteRegexPatternSet'),
+    newDeleteRegexPatternSet,
+    DeleteRegexPatternSetResponse (DeleteRegexPatternSetResponse'),
+    newDeleteRegexPatternSetResponse,
+
+    -- ** CreateSizeConstraintSet
+    CreateSizeConstraintSet (CreateSizeConstraintSet'),
+    newCreateSizeConstraintSet,
+    CreateSizeConstraintSetResponse (CreateSizeConstraintSetResponse'),
+    newCreateSizeConstraintSetResponse,
+
+    -- ** UpdateRegexPatternSet
+    UpdateRegexPatternSet (UpdateRegexPatternSet'),
+    newUpdateRegexPatternSet,
+    UpdateRegexPatternSetResponse (UpdateRegexPatternSetResponse'),
+    newUpdateRegexPatternSetResponse,
+
+    -- ** ListResourcesForWebACL
+    ListResourcesForWebACL (ListResourcesForWebACL'),
+    newListResourcesForWebACL,
+    ListResourcesForWebACLResponse (ListResourcesForWebACLResponse'),
+    newListResourcesForWebACLResponse,
+
+    -- ** GetSampledRequests
+    GetSampledRequests (GetSampledRequests'),
+    newGetSampledRequests,
+    GetSampledRequestsResponse (GetSampledRequestsResponse'),
+    newGetSampledRequestsResponse,
+
+    -- ** GetRateBasedRule
+    GetRateBasedRule (GetRateBasedRule'),
+    newGetRateBasedRule,
+    GetRateBasedRuleResponse (GetRateBasedRuleResponse'),
+    newGetRateBasedRuleResponse,
+
+    -- ** DeleteXssMatchSet
+    DeleteXssMatchSet (DeleteXssMatchSet'),
+    newDeleteXssMatchSet,
+    DeleteXssMatchSetResponse (DeleteXssMatchSetResponse'),
+    newDeleteXssMatchSetResponse,
+
+    -- ** ListRuleGroups
+    ListRuleGroups (ListRuleGroups'),
+    newListRuleGroups,
+    ListRuleGroupsResponse (ListRuleGroupsResponse'),
+    newListRuleGroupsResponse,
+
+    -- ** GetWebACL
+    GetWebACL (GetWebACL'),
+    newGetWebACL,
+    GetWebACLResponse (GetWebACLResponse'),
+    newGetWebACLResponse,
+
+    -- ** GetRule
+    GetRule (GetRule'),
+    newGetRule,
+    GetRuleResponse (GetRuleResponse'),
+    newGetRuleResponse,
+
+    -- ** CreateGeoMatchSet
+    CreateGeoMatchSet (CreateGeoMatchSet'),
+    newCreateGeoMatchSet,
+    CreateGeoMatchSetResponse (CreateGeoMatchSetResponse'),
+    newCreateGeoMatchSetResponse,
+
+    -- ** UpdateXssMatchSet
+    UpdateXssMatchSet (UpdateXssMatchSet'),
+    newUpdateXssMatchSet,
+    UpdateXssMatchSetResponse (UpdateXssMatchSetResponse'),
+    newUpdateXssMatchSetResponse,
+
+    -- ** GetIPSet
+    GetIPSet (GetIPSet'),
+    newGetIPSet,
+    GetIPSetResponse (GetIPSetResponse'),
+    newGetIPSetResponse,
+
+    -- ** CreateXssMatchSet
+    CreateXssMatchSet (CreateXssMatchSet'),
+    newCreateXssMatchSet,
+    CreateXssMatchSetResponse (CreateXssMatchSetResponse'),
+    newCreateXssMatchSetResponse,
+
+    -- ** GetByteMatchSet
+    GetByteMatchSet (GetByteMatchSet'),
+    newGetByteMatchSet,
+    GetByteMatchSetResponse (GetByteMatchSetResponse'),
+    newGetByteMatchSetResponse,
+
+    -- ** UpdateGeoMatchSet
+    UpdateGeoMatchSet (UpdateGeoMatchSet'),
+    newUpdateGeoMatchSet,
+    UpdateGeoMatchSetResponse (UpdateGeoMatchSetResponse'),
+    newUpdateGeoMatchSetResponse,
+
+    -- ** ListGeoMatchSets
+    ListGeoMatchSets (ListGeoMatchSets'),
+    newListGeoMatchSets,
+    ListGeoMatchSetsResponse (ListGeoMatchSetsResponse'),
+    newListGeoMatchSetsResponse,
+
+    -- ** DeleteGeoMatchSet
+    DeleteGeoMatchSet (DeleteGeoMatchSet'),
+    newDeleteGeoMatchSet,
+    DeleteGeoMatchSetResponse (DeleteGeoMatchSetResponse'),
+    newDeleteGeoMatchSetResponse,
+
+    -- ** GetPermissionPolicy
+    GetPermissionPolicy (GetPermissionPolicy'),
+    newGetPermissionPolicy,
+    GetPermissionPolicyResponse (GetPermissionPolicyResponse'),
+    newGetPermissionPolicyResponse,
+
+    -- ** DeleteByteMatchSet
+    DeleteByteMatchSet (DeleteByteMatchSet'),
+    newDeleteByteMatchSet,
+    DeleteByteMatchSetResponse (DeleteByteMatchSetResponse'),
+    newDeleteByteMatchSetResponse,
+
+    -- ** DeletePermissionPolicy
+    DeletePermissionPolicy (DeletePermissionPolicy'),
+    newDeletePermissionPolicy,
+    DeletePermissionPolicyResponse (DeletePermissionPolicyResponse'),
+    newDeletePermissionPolicyResponse,
+
+    -- ** GetRegexMatchSet
+    GetRegexMatchSet (GetRegexMatchSet'),
+    newGetRegexMatchSet,
+    GetRegexMatchSetResponse (GetRegexMatchSetResponse'),
+    newGetRegexMatchSetResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** UpdateByteMatchSet
+    UpdateByteMatchSet (UpdateByteMatchSet'),
+    newUpdateByteMatchSet,
+    UpdateByteMatchSetResponse (UpdateByteMatchSetResponse'),
+    newUpdateByteMatchSetResponse,
+
+    -- ** PutLoggingConfiguration
+    PutLoggingConfiguration (PutLoggingConfiguration'),
+    newPutLoggingConfiguration,
+    PutLoggingConfigurationResponse (PutLoggingConfigurationResponse'),
+    newPutLoggingConfigurationResponse,
+
+    -- ** ListIPSets
+    ListIPSets (ListIPSets'),
+    newListIPSets,
+    ListIPSetsResponse (ListIPSetsResponse'),
+    newListIPSetsResponse,
+
+    -- ** ListByteMatchSets
+    ListByteMatchSets (ListByteMatchSets'),
+    newListByteMatchSets,
+    ListByteMatchSetsResponse (ListByteMatchSetsResponse'),
+    newListByteMatchSetsResponse,
 
     -- * Types
 
     -- ** ChangeAction
-    , ChangeAction (..)
+    ChangeAction (..),
 
     -- ** ChangeTokenStatus
-    , ChangeTokenStatus (..)
+    ChangeTokenStatus (..),
 
     -- ** ComparisonOperator
-    , ComparisonOperator (..)
+    ComparisonOperator (..),
 
     -- ** GeoMatchConstraintType
-    , GeoMatchConstraintType (..)
+    GeoMatchConstraintType (..),
 
     -- ** GeoMatchConstraintValue
-    , GeoMatchConstraintValue (..)
+    GeoMatchConstraintValue (..),
 
     -- ** IPSetDescriptorType
-    , IPSetDescriptorType (..)
+    IPSetDescriptorType (..),
 
     -- ** MatchFieldType
-    , MatchFieldType (..)
+    MatchFieldType (..),
 
     -- ** PositionalConstraint
-    , PositionalConstraint (..)
+    PositionalConstraint (..),
 
     -- ** PredicateType
-    , PredicateType (..)
+    PredicateType (..),
 
     -- ** RateKey
-    , RateKey (..)
+    RateKey (..),
+
+    -- ** ResourceType
+    ResourceType (..),
 
     -- ** TextTransformation
-    , TextTransformation (..)
+    TextTransformation (..),
 
     -- ** WafActionType
-    , WafActionType (..)
+    WafActionType (..),
+
+    -- ** WafOverrideActionType
+    WafOverrideActionType (..),
 
     -- ** WafRuleType
-    , WafRuleType (..)
+    WafRuleType (..),
 
     -- ** ActivatedRule
-    , ActivatedRule
-    , activatedRule
-    , arType
-    , arPriority
-    , arRuleId
-    , arAction
+    ActivatedRule (ActivatedRule'),
+    newActivatedRule,
 
     -- ** ByteMatchSet
-    , ByteMatchSet
-    , byteMatchSet
-    , bmsName
-    , bmsByteMatchSetId
-    , bmsByteMatchTuples
+    ByteMatchSet (ByteMatchSet'),
+    newByteMatchSet,
 
     -- ** ByteMatchSetSummary
-    , ByteMatchSetSummary
-    , byteMatchSetSummary
-    , bmssByteMatchSetId
-    , bmssName
+    ByteMatchSetSummary (ByteMatchSetSummary'),
+    newByteMatchSetSummary,
 
     -- ** ByteMatchSetUpdate
-    , ByteMatchSetUpdate
-    , byteMatchSetUpdate
-    , bmsuAction
-    , bmsuByteMatchTuple
+    ByteMatchSetUpdate (ByteMatchSetUpdate'),
+    newByteMatchSetUpdate,
 
     -- ** ByteMatchTuple
-    , ByteMatchTuple
-    , byteMatchTuple
-    , bmtFieldToMatch
-    , bmtTargetString
-    , bmtTextTransformation
-    , bmtPositionalConstraint
+    ByteMatchTuple (ByteMatchTuple'),
+    newByteMatchTuple,
+
+    -- ** ExcludedRule
+    ExcludedRule (ExcludedRule'),
+    newExcludedRule,
 
     -- ** FieldToMatch
-    , FieldToMatch
-    , fieldToMatch
-    , ftmData
-    , ftmType
+    FieldToMatch (FieldToMatch'),
+    newFieldToMatch,
 
     -- ** GeoMatchConstraint
-    , GeoMatchConstraint
-    , geoMatchConstraint
-    , gmcType
-    , gmcValue
+    GeoMatchConstraint (GeoMatchConstraint'),
+    newGeoMatchConstraint,
 
     -- ** GeoMatchSet
-    , GeoMatchSet
-    , geoMatchSet
-    , gmsName
-    , gmsGeoMatchSetId
-    , gmsGeoMatchConstraints
+    GeoMatchSet (GeoMatchSet'),
+    newGeoMatchSet,
 
     -- ** GeoMatchSetSummary
-    , GeoMatchSetSummary
-    , geoMatchSetSummary
-    , gmssGeoMatchSetId
-    , gmssName
+    GeoMatchSetSummary (GeoMatchSetSummary'),
+    newGeoMatchSetSummary,
 
     -- ** GeoMatchSetUpdate
-    , GeoMatchSetUpdate
-    , geoMatchSetUpdate
-    , gmsuAction
-    , gmsuGeoMatchConstraint
+    GeoMatchSetUpdate (GeoMatchSetUpdate'),
+    newGeoMatchSetUpdate,
 
     -- ** HTTPHeader
-    , HTTPHeader
-    , hTTPHeader
-    , httphValue
-    , httphName
+    HTTPHeader (HTTPHeader'),
+    newHTTPHeader,
 
     -- ** HTTPRequest
-    , HTTPRequest
-    , hTTPRequest
-    , httprHTTPVersion
-    , httprCountry
-    , httprURI
-    , httprHeaders
-    , httprMethod
-    , httprClientIP
+    HTTPRequest (HTTPRequest'),
+    newHTTPRequest,
 
     -- ** IPSet
-    , IPSet
-    , ipSet
-    , isName
-    , isIPSetId
-    , isIPSetDescriptors
+    IPSet (IPSet'),
+    newIPSet,
 
     -- ** IPSetDescriptor
-    , IPSetDescriptor
-    , ipSetDescriptor
-    , isdType
-    , isdValue
+    IPSetDescriptor (IPSetDescriptor'),
+    newIPSetDescriptor,
 
     -- ** IPSetSummary
-    , IPSetSummary
-    , ipSetSummary
-    , issIPSetId
-    , issName
+    IPSetSummary (IPSetSummary'),
+    newIPSetSummary,
 
     -- ** IPSetUpdate
-    , IPSetUpdate
-    , ipSetUpdate
-    , isuAction
-    , isuIPSetDescriptor
+    IPSetUpdate (IPSetUpdate'),
+    newIPSetUpdate,
+
+    -- ** LoggingConfiguration
+    LoggingConfiguration (LoggingConfiguration'),
+    newLoggingConfiguration,
 
     -- ** Predicate
-    , Predicate
-    , predicate
-    , pNegated
-    , pType
-    , pDataId
+    Predicate (Predicate'),
+    newPredicate,
 
     -- ** RateBasedRule
-    , RateBasedRule
-    , rateBasedRule
-    , rbrMetricName
-    , rbrName
-    , rbrRuleId
-    , rbrMatchPredicates
-    , rbrRateKey
-    , rbrRateLimit
+    RateBasedRule (RateBasedRule'),
+    newRateBasedRule,
 
     -- ** RegexMatchSet
-    , RegexMatchSet
-    , regexMatchSet
-    , rmsName
-    , rmsRegexMatchTuples
-    , rmsRegexMatchSetId
+    RegexMatchSet (RegexMatchSet'),
+    newRegexMatchSet,
 
     -- ** RegexMatchSetSummary
-    , RegexMatchSetSummary
-    , regexMatchSetSummary
-    , rmssRegexMatchSetId
-    , rmssName
+    RegexMatchSetSummary (RegexMatchSetSummary'),
+    newRegexMatchSetSummary,
 
     -- ** RegexMatchSetUpdate
-    , RegexMatchSetUpdate
-    , regexMatchSetUpdate
-    , rmsuAction
-    , rmsuRegexMatchTuple
+    RegexMatchSetUpdate (RegexMatchSetUpdate'),
+    newRegexMatchSetUpdate,
 
     -- ** RegexMatchTuple
-    , RegexMatchTuple
-    , regexMatchTuple
-    , rmtFieldToMatch
-    , rmtTextTransformation
-    , rmtRegexPatternSetId
+    RegexMatchTuple (RegexMatchTuple'),
+    newRegexMatchTuple,
 
     -- ** RegexPatternSet
-    , RegexPatternSet
-    , regexPatternSet
-    , rpsName
-    , rpsRegexPatternSetId
-    , rpsRegexPatternStrings
+    RegexPatternSet (RegexPatternSet'),
+    newRegexPatternSet,
 
     -- ** RegexPatternSetSummary
-    , RegexPatternSetSummary
-    , regexPatternSetSummary
-    , rpssRegexPatternSetId
-    , rpssName
+    RegexPatternSetSummary (RegexPatternSetSummary'),
+    newRegexPatternSetSummary,
 
     -- ** RegexPatternSetUpdate
-    , RegexPatternSetUpdate
-    , regexPatternSetUpdate
-    , rpsuAction
-    , rpsuRegexPatternString
+    RegexPatternSetUpdate (RegexPatternSetUpdate'),
+    newRegexPatternSetUpdate,
 
     -- ** Rule
-    , Rule
-    , rule
-    , rMetricName
-    , rName
-    , rRuleId
-    , rPredicates
+    Rule (Rule'),
+    newRule,
+
+    -- ** RuleGroup
+    RuleGroup (RuleGroup'),
+    newRuleGroup,
+
+    -- ** RuleGroupSummary
+    RuleGroupSummary (RuleGroupSummary'),
+    newRuleGroupSummary,
+
+    -- ** RuleGroupUpdate
+    RuleGroupUpdate (RuleGroupUpdate'),
+    newRuleGroupUpdate,
 
     -- ** RuleSummary
-    , RuleSummary
-    , ruleSummary
-    , rsRuleId
-    , rsName
+    RuleSummary (RuleSummary'),
+    newRuleSummary,
 
     -- ** RuleUpdate
-    , RuleUpdate
-    , ruleUpdate
-    , ruAction
-    , ruPredicate
+    RuleUpdate (RuleUpdate'),
+    newRuleUpdate,
 
     -- ** SampledHTTPRequest
-    , SampledHTTPRequest
-    , sampledHTTPRequest
-    , shttprAction
-    , shttprTimestamp
-    , shttprRequest
-    , shttprWeight
+    SampledHTTPRequest (SampledHTTPRequest'),
+    newSampledHTTPRequest,
 
     -- ** SizeConstraint
-    , SizeConstraint
-    , sizeConstraint
-    , scFieldToMatch
-    , scTextTransformation
-    , scComparisonOperator
-    , scSize
+    SizeConstraint (SizeConstraint'),
+    newSizeConstraint,
 
     -- ** SizeConstraintSet
-    , SizeConstraintSet
-    , sizeConstraintSet
-    , scsName
-    , scsSizeConstraintSetId
-    , scsSizeConstraints
+    SizeConstraintSet (SizeConstraintSet'),
+    newSizeConstraintSet,
 
     -- ** SizeConstraintSetSummary
-    , SizeConstraintSetSummary
-    , sizeConstraintSetSummary
-    , scssSizeConstraintSetId
-    , scssName
+    SizeConstraintSetSummary (SizeConstraintSetSummary'),
+    newSizeConstraintSetSummary,
 
     -- ** SizeConstraintSetUpdate
-    , SizeConstraintSetUpdate
-    , sizeConstraintSetUpdate
-    , scsuAction
-    , scsuSizeConstraint
+    SizeConstraintSetUpdate (SizeConstraintSetUpdate'),
+    newSizeConstraintSetUpdate,
 
     -- ** SqlInjectionMatchSet
-    , SqlInjectionMatchSet
-    , sqlInjectionMatchSet
-    , simsName
-    , simsSqlInjectionMatchSetId
-    , simsSqlInjectionMatchTuples
+    SqlInjectionMatchSet (SqlInjectionMatchSet'),
+    newSqlInjectionMatchSet,
 
     -- ** SqlInjectionMatchSetSummary
-    , SqlInjectionMatchSetSummary
-    , sqlInjectionMatchSetSummary
-    , simssSqlInjectionMatchSetId
-    , simssName
+    SqlInjectionMatchSetSummary (SqlInjectionMatchSetSummary'),
+    newSqlInjectionMatchSetSummary,
 
     -- ** SqlInjectionMatchSetUpdate
-    , SqlInjectionMatchSetUpdate
-    , sqlInjectionMatchSetUpdate
-    , simsuAction
-    , simsuSqlInjectionMatchTuple
+    SqlInjectionMatchSetUpdate (SqlInjectionMatchSetUpdate'),
+    newSqlInjectionMatchSetUpdate,
 
     -- ** SqlInjectionMatchTuple
-    , SqlInjectionMatchTuple
-    , sqlInjectionMatchTuple
-    , simtFieldToMatch
-    , simtTextTransformation
+    SqlInjectionMatchTuple (SqlInjectionMatchTuple'),
+    newSqlInjectionMatchTuple,
+
+    -- ** SubscribedRuleGroupSummary
+    SubscribedRuleGroupSummary (SubscribedRuleGroupSummary'),
+    newSubscribedRuleGroupSummary,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+
+    -- ** TagInfoForResource
+    TagInfoForResource (TagInfoForResource'),
+    newTagInfoForResource,
 
     -- ** TimeWindow
-    , TimeWindow
-    , timeWindow
-    , twStartTime
-    , twEndTime
+    TimeWindow (TimeWindow'),
+    newTimeWindow,
 
     -- ** WafAction
-    , WafAction
-    , wafAction
-    , waType
+    WafAction (WafAction'),
+    newWafAction,
+
+    -- ** WafOverrideAction
+    WafOverrideAction (WafOverrideAction'),
+    newWafOverrideAction,
 
     -- ** WebACL
-    , WebACL
-    , webACL
-    , waMetricName
-    , waName
-    , waWebACLId
-    , waDefaultAction
-    , waRules
+    WebACL (WebACL'),
+    newWebACL,
 
     -- ** WebACLSummary
-    , WebACLSummary
-    , webACLSummary
-    , wasWebACLId
-    , wasName
+    WebACLSummary (WebACLSummary'),
+    newWebACLSummary,
 
     -- ** WebACLUpdate
-    , WebACLUpdate
-    , webACLUpdate
-    , wauAction
-    , wauActivatedRule
+    WebACLUpdate (WebACLUpdate'),
+    newWebACLUpdate,
 
-    -- ** XSSMatchSet
-    , XSSMatchSet
-    , xssMatchSet
-    , xmsName
-    , xmsXSSMatchSetId
-    , xmsXSSMatchTuples
+    -- ** XssMatchSet
+    XssMatchSet (XssMatchSet'),
+    newXssMatchSet,
 
-    -- ** XSSMatchSetSummary
-    , XSSMatchSetSummary
-    , xssMatchSetSummary
-    , xmssXSSMatchSetId
-    , xmssName
+    -- ** XssMatchSetSummary
+    XssMatchSetSummary (XssMatchSetSummary'),
+    newXssMatchSetSummary,
 
-    -- ** XSSMatchSetUpdate
-    , XSSMatchSetUpdate
-    , xssMatchSetUpdate
-    , xmsuAction
-    , xmsuXSSMatchTuple
+    -- ** XssMatchSetUpdate
+    XssMatchSetUpdate (XssMatchSetUpdate'),
+    newXssMatchSetUpdate,
 
-    -- ** XSSMatchTuple
-    , XSSMatchTuple
-    , xssMatchTuple
-    , xmtFieldToMatch
-    , xmtTextTransformation
-    ) where
+    -- ** XssMatchTuple
+    XssMatchTuple (XssMatchTuple'),
+    newXssMatchTuple,
+  )
+where
 
 import Network.AWS.WAFRegional.AssociateWebACL
 import Network.AWS.WAFRegional.CreateByteMatchSet
@@ -612,51 +871,69 @@ import Network.AWS.WAFRegional.CreateRateBasedRule
 import Network.AWS.WAFRegional.CreateRegexMatchSet
 import Network.AWS.WAFRegional.CreateRegexPatternSet
 import Network.AWS.WAFRegional.CreateRule
+import Network.AWS.WAFRegional.CreateRuleGroup
 import Network.AWS.WAFRegional.CreateSizeConstraintSet
 import Network.AWS.WAFRegional.CreateSqlInjectionMatchSet
 import Network.AWS.WAFRegional.CreateWebACL
-import Network.AWS.WAFRegional.CreateXSSMatchSet
+import Network.AWS.WAFRegional.CreateWebACLMigrationStack
+import Network.AWS.WAFRegional.CreateXssMatchSet
 import Network.AWS.WAFRegional.DeleteByteMatchSet
 import Network.AWS.WAFRegional.DeleteGeoMatchSet
 import Network.AWS.WAFRegional.DeleteIPSet
+import Network.AWS.WAFRegional.DeleteLoggingConfiguration
+import Network.AWS.WAFRegional.DeletePermissionPolicy
 import Network.AWS.WAFRegional.DeleteRateBasedRule
 import Network.AWS.WAFRegional.DeleteRegexMatchSet
 import Network.AWS.WAFRegional.DeleteRegexPatternSet
 import Network.AWS.WAFRegional.DeleteRule
+import Network.AWS.WAFRegional.DeleteRuleGroup
 import Network.AWS.WAFRegional.DeleteSizeConstraintSet
 import Network.AWS.WAFRegional.DeleteSqlInjectionMatchSet
 import Network.AWS.WAFRegional.DeleteWebACL
-import Network.AWS.WAFRegional.DeleteXSSMatchSet
+import Network.AWS.WAFRegional.DeleteXssMatchSet
 import Network.AWS.WAFRegional.DisassociateWebACL
 import Network.AWS.WAFRegional.GetByteMatchSet
 import Network.AWS.WAFRegional.GetChangeToken
 import Network.AWS.WAFRegional.GetChangeTokenStatus
 import Network.AWS.WAFRegional.GetGeoMatchSet
 import Network.AWS.WAFRegional.GetIPSet
+import Network.AWS.WAFRegional.GetLoggingConfiguration
+import Network.AWS.WAFRegional.GetPermissionPolicy
 import Network.AWS.WAFRegional.GetRateBasedRule
 import Network.AWS.WAFRegional.GetRateBasedRuleManagedKeys
 import Network.AWS.WAFRegional.GetRegexMatchSet
 import Network.AWS.WAFRegional.GetRegexPatternSet
 import Network.AWS.WAFRegional.GetRule
+import Network.AWS.WAFRegional.GetRuleGroup
 import Network.AWS.WAFRegional.GetSampledRequests
 import Network.AWS.WAFRegional.GetSizeConstraintSet
 import Network.AWS.WAFRegional.GetSqlInjectionMatchSet
 import Network.AWS.WAFRegional.GetWebACL
 import Network.AWS.WAFRegional.GetWebACLForResource
-import Network.AWS.WAFRegional.GetXSSMatchSet
+import Network.AWS.WAFRegional.GetXssMatchSet
+import Network.AWS.WAFRegional.Lens
+import Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup
 import Network.AWS.WAFRegional.ListByteMatchSets
 import Network.AWS.WAFRegional.ListGeoMatchSets
 import Network.AWS.WAFRegional.ListIPSets
+import Network.AWS.WAFRegional.ListLoggingConfigurations
 import Network.AWS.WAFRegional.ListRateBasedRules
 import Network.AWS.WAFRegional.ListRegexMatchSets
 import Network.AWS.WAFRegional.ListRegexPatternSets
 import Network.AWS.WAFRegional.ListResourcesForWebACL
+import Network.AWS.WAFRegional.ListRuleGroups
 import Network.AWS.WAFRegional.ListRules
 import Network.AWS.WAFRegional.ListSizeConstraintSets
 import Network.AWS.WAFRegional.ListSqlInjectionMatchSets
+import Network.AWS.WAFRegional.ListSubscribedRuleGroups
+import Network.AWS.WAFRegional.ListTagsForResource
 import Network.AWS.WAFRegional.ListWebACLs
-import Network.AWS.WAFRegional.ListXSSMatchSets
+import Network.AWS.WAFRegional.ListXssMatchSets
+import Network.AWS.WAFRegional.PutLoggingConfiguration
+import Network.AWS.WAFRegional.PutPermissionPolicy
+import Network.AWS.WAFRegional.TagResource
 import Network.AWS.WAFRegional.Types
+import Network.AWS.WAFRegional.UntagResource
 import Network.AWS.WAFRegional.UpdateByteMatchSet
 import Network.AWS.WAFRegional.UpdateGeoMatchSet
 import Network.AWS.WAFRegional.UpdateIPSet
@@ -664,38 +941,36 @@ import Network.AWS.WAFRegional.UpdateRateBasedRule
 import Network.AWS.WAFRegional.UpdateRegexMatchSet
 import Network.AWS.WAFRegional.UpdateRegexPatternSet
 import Network.AWS.WAFRegional.UpdateRule
+import Network.AWS.WAFRegional.UpdateRuleGroup
 import Network.AWS.WAFRegional.UpdateSizeConstraintSet
 import Network.AWS.WAFRegional.UpdateSqlInjectionMatchSet
 import Network.AWS.WAFRegional.UpdateWebACL
-import Network.AWS.WAFRegional.UpdateXSSMatchSet
+import Network.AWS.WAFRegional.UpdateXssMatchSet
 import Network.AWS.WAFRegional.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'WAFRegional'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'WAFRegional'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

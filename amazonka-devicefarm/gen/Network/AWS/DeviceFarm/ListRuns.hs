@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListRuns
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +22,198 @@
 --
 -- Gets information about runs, given an AWS Device Farm project ARN.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListRuns
-    (
-    -- * Creating a Request
-      listRuns
-    , ListRuns
+  ( -- * Creating a Request
+    ListRuns (..),
+    newListRuns,
+
     -- * Request Lenses
-    , lrNextToken
-    , lrArn
+    listRuns_nextToken,
+    listRuns_arn,
 
     -- * Destructuring the Response
-    , listRunsResponse
-    , ListRunsResponse
-    -- * Response Lenses
-    , lrrsRuns
-    , lrrsNextToken
-    , lrrsResponseStatus
-    ) where
+    ListRunsResponse (..),
+    newListRunsResponse,
 
+    -- * Response Lenses
+    listRunsResponse_nextToken,
+    listRunsResponse_runs,
+    listRunsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the list runs operation.
 --
---
---
--- /See:/ 'listRuns' smart constructor.
+-- /See:/ 'newListRuns' smart constructor.
 data ListRuns = ListRuns'
-  { _lrNextToken :: !(Maybe Text)
-  , _lrArn       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the project for which you want to list
+    -- runs.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListRuns' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListRuns' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrArn' - The Amazon Resource Name (ARN) of the project for which you want to list runs.
-listRuns
-    :: Text -- ^ 'lrArn'
-    -> ListRuns
-listRuns pArn_ = ListRuns' {_lrNextToken = Nothing, _lrArn = pArn_}
+-- 'nextToken', 'listRuns_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'arn', 'listRuns_arn' - The Amazon Resource Name (ARN) of the project for which you want to list
+-- runs.
+newListRuns ::
+  -- | 'arn'
+  Prelude.Text ->
+  ListRuns
+newListRuns pArn_ =
+  ListRuns' {nextToken = Prelude.Nothing, arn = pArn_}
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listRuns_nextToken :: Lens.Lens' ListRuns (Prelude.Maybe Prelude.Text)
+listRuns_nextToken = Lens.lens (\ListRuns' {nextToken} -> nextToken) (\s@ListRuns' {} a -> s {nextToken = a} :: ListRuns)
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lrNextToken :: Lens' ListRuns (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+-- | The Amazon Resource Name (ARN) of the project for which you want to list
+-- runs.
+listRuns_arn :: Lens.Lens' ListRuns Prelude.Text
+listRuns_arn = Lens.lens (\ListRuns' {arn} -> arn) (\s@ListRuns' {} a -> s {arn = a} :: ListRuns)
 
--- | The Amazon Resource Name (ARN) of the project for which you want to list runs.
-lrArn :: Lens' ListRuns Text
-lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
+instance Core.AWSPager ListRuns where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRunsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRunsResponse_runs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRuns_nextToken
+          Lens..~ rs
+          Lens.^? listRunsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSPager ListRuns where
-        page rq rs
-          | stop (rs ^. lrrsNextToken) = Nothing
-          | stop (rs ^. lrrsRuns) = Nothing
-          | otherwise =
-            Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
+instance Core.AWSRequest ListRuns where
+  type AWSResponse ListRuns = ListRunsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListRunsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "runs" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListRuns where
-        type Rs ListRuns = ListRunsResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListRunsResponse' <$>
-                   (x .?> "runs" .!@ mempty) <*> (x .?> "nextToken") <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable ListRuns
 
-instance Hashable ListRuns where
+instance Prelude.NFData ListRuns
 
-instance NFData ListRuns where
+instance Core.ToHeaders ListRuns where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DeviceFarm_20150623.ListRuns" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListRuns where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.ListRuns" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ListRuns where
+  toJSON ListRuns' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            Prelude.Just ("arn" Core..= arn)
+          ]
+      )
 
-instance ToJSON ListRuns where
-        toJSON ListRuns'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _lrNextToken,
-                  Just ("arn" .= _lrArn)])
+instance Core.ToPath ListRuns where
+  toPath = Prelude.const "/"
 
-instance ToPath ListRuns where
-        toPath = const "/"
-
-instance ToQuery ListRuns where
-        toQuery = const mempty
+instance Core.ToQuery ListRuns where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a list runs request.
 --
---
---
--- /See:/ 'listRunsResponse' smart constructor.
+-- /See:/ 'newListRunsResponse' smart constructor.
 data ListRunsResponse = ListRunsResponse'
-  { _lrrsRuns           :: !(Maybe [Run])
-  , _lrrsNextToken      :: !(Maybe Text)
-  , _lrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListRunsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsRuns' - Information about the runs.
---
--- * 'lrrsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'lrrsResponseStatus' - -- | The response status code.
-listRunsResponse
-    :: Int -- ^ 'lrrsResponseStatus'
-    -> ListRunsResponse
-listRunsResponse pResponseStatus_ =
-  ListRunsResponse'
-  { _lrrsRuns = Nothing
-  , _lrrsNextToken = Nothing
-  , _lrrsResponseStatus = pResponseStatus_
+  { -- | If the number of items that are returned is significantly large, this is
+    -- an identifier that is also returned. It can be used in a subsequent call
+    -- to this operation to return the next set of items in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the runs.
+    runs :: Prelude.Maybe [Run],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListRunsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listRunsResponse_nextToken' - If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+--
+-- 'runs', 'listRunsResponse_runs' - Information about the runs.
+--
+-- 'httpStatus', 'listRunsResponse_httpStatus' - The response's http status code.
+newListRunsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListRunsResponse
+newListRunsResponse pHttpStatus_ =
+  ListRunsResponse'
+    { nextToken = Prelude.Nothing,
+      runs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+listRunsResponse_nextToken :: Lens.Lens' ListRunsResponse (Prelude.Maybe Prelude.Text)
+listRunsResponse_nextToken = Lens.lens (\ListRunsResponse' {nextToken} -> nextToken) (\s@ListRunsResponse' {} a -> s {nextToken = a} :: ListRunsResponse)
 
 -- | Information about the runs.
-lrrsRuns :: Lens' ListRunsResponse [Run]
-lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce;
+listRunsResponse_runs :: Lens.Lens' ListRunsResponse (Prelude.Maybe [Run])
+listRunsResponse_runs = Lens.lens (\ListRunsResponse' {runs} -> runs) (\s@ListRunsResponse' {} a -> s {runs = a} :: ListRunsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
-lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
+-- | The response's http status code.
+listRunsResponse_httpStatus :: Lens.Lens' ListRunsResponse Prelude.Int
+listRunsResponse_httpStatus = Lens.lens (\ListRunsResponse' {httpStatus} -> httpStatus) (\s@ListRunsResponse' {} a -> s {httpStatus = a} :: ListRunsResponse)
 
--- | -- | The response status code.
-lrrsResponseStatus :: Lens' ListRunsResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\ s a -> s{_lrrsResponseStatus = a});
-
-instance NFData ListRunsResponse where
+instance Prelude.NFData ListRunsResponse

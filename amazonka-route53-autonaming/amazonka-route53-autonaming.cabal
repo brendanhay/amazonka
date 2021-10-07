@@ -1,0 +1,161 @@
+cabal-version:      2.2
+name:               amazonka-route53-autonaming
+version:            1.6.1
+synopsis:           Amazon Cloud Map SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2017-03-14@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53AutoNaming.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Route53AutoNaming" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-route53-autonaming
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.Route53AutoNaming
+    Network.AWS.Route53AutoNaming.CreateHttpNamespace
+    Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
+    Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
+    Network.AWS.Route53AutoNaming.CreateService
+    Network.AWS.Route53AutoNaming.DeleteNamespace
+    Network.AWS.Route53AutoNaming.DeleteService
+    Network.AWS.Route53AutoNaming.DeregisterInstance
+    Network.AWS.Route53AutoNaming.DiscoverInstances
+    Network.AWS.Route53AutoNaming.GetInstance
+    Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
+    Network.AWS.Route53AutoNaming.GetNamespace
+    Network.AWS.Route53AutoNaming.GetOperation
+    Network.AWS.Route53AutoNaming.GetService
+    Network.AWS.Route53AutoNaming.Lens
+    Network.AWS.Route53AutoNaming.ListInstances
+    Network.AWS.Route53AutoNaming.ListNamespaces
+    Network.AWS.Route53AutoNaming.ListOperations
+    Network.AWS.Route53AutoNaming.ListServices
+    Network.AWS.Route53AutoNaming.ListTagsForResource
+    Network.AWS.Route53AutoNaming.RegisterInstance
+    Network.AWS.Route53AutoNaming.TagResource
+    Network.AWS.Route53AutoNaming.Types
+    Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
+    Network.AWS.Route53AutoNaming.Types.DnsConfig
+    Network.AWS.Route53AutoNaming.Types.DnsConfigChange
+    Network.AWS.Route53AutoNaming.Types.DnsProperties
+    Network.AWS.Route53AutoNaming.Types.DnsRecord
+    Network.AWS.Route53AutoNaming.Types.FilterCondition
+    Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
+    Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
+    Network.AWS.Route53AutoNaming.Types.HealthCheckType
+    Network.AWS.Route53AutoNaming.Types.HealthStatus
+    Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
+    Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
+    Network.AWS.Route53AutoNaming.Types.HttpNamespaceChange
+    Network.AWS.Route53AutoNaming.Types.HttpProperties
+    Network.AWS.Route53AutoNaming.Types.Instance
+    Network.AWS.Route53AutoNaming.Types.InstanceSummary
+    Network.AWS.Route53AutoNaming.Types.Namespace
+    Network.AWS.Route53AutoNaming.Types.NamespaceFilter
+    Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
+    Network.AWS.Route53AutoNaming.Types.NamespaceProperties
+    Network.AWS.Route53AutoNaming.Types.NamespaceSummary
+    Network.AWS.Route53AutoNaming.Types.NamespaceType
+    Network.AWS.Route53AutoNaming.Types.Operation
+    Network.AWS.Route53AutoNaming.Types.OperationFilter
+    Network.AWS.Route53AutoNaming.Types.OperationFilterName
+    Network.AWS.Route53AutoNaming.Types.OperationStatus
+    Network.AWS.Route53AutoNaming.Types.OperationSummary
+    Network.AWS.Route53AutoNaming.Types.OperationTargetType
+    Network.AWS.Route53AutoNaming.Types.OperationType
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceChange
+    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+    Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+    Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
+    Network.AWS.Route53AutoNaming.Types.RecordType
+    Network.AWS.Route53AutoNaming.Types.RoutingPolicy
+    Network.AWS.Route53AutoNaming.Types.ServiceChange
+    Network.AWS.Route53AutoNaming.Types.ServiceFilter
+    Network.AWS.Route53AutoNaming.Types.ServiceFilterName
+    Network.AWS.Route53AutoNaming.Types.ServiceInfo
+    Network.AWS.Route53AutoNaming.Types.ServiceSummary
+    Network.AWS.Route53AutoNaming.Types.ServiceType
+    Network.AWS.Route53AutoNaming.Types.ServiceTypeOption
+    Network.AWS.Route53AutoNaming.Types.SOA
+    Network.AWS.Route53AutoNaming.Types.SOAChange
+    Network.AWS.Route53AutoNaming.Types.Tag
+    Network.AWS.Route53AutoNaming.UntagResource
+    Network.AWS.Route53AutoNaming.UpdateHttpNamespace
+    Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+    Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
+    Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
+    Network.AWS.Route53AutoNaming.UpdateService
+    Network.AWS.Route53AutoNaming.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
+
+test-suite amazonka-route53-autonaming-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Route53AutoNaming
+    Test.AWS.Route53AutoNaming
+    Test.AWS.Route53AutoNaming.Internal
+
+  build-depends:
+    , amazonka                     >=1.6.1 && <1.6.2
+    , amazonka-route53-autonaming
+    , amazonka-test                >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

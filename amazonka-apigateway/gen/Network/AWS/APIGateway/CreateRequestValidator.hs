@@ -1,136 +1,162 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateRequestValidator
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 'ReqeustValidator' of a given 'RestApi' .
---
---
+-- Creates a ReqeustValidator of a given RestApi.
 module Network.AWS.APIGateway.CreateRequestValidator
-    (
-    -- * Creating a Request
-      createRequestValidator
-    , CreateRequestValidator
+  ( -- * Creating a Request
+    CreateRequestValidator (..),
+    newCreateRequestValidator,
+
     -- * Request Lenses
-    , crvValidateRequestParameters
-    , crvName
-    , crvValidateRequestBody
-    , crvRestAPIId
+    createRequestValidator_validateRequestBody,
+    createRequestValidator_validateRequestParameters,
+    createRequestValidator_name,
+    createRequestValidator_restApiId,
 
     -- * Destructuring the Response
-    , requestValidator
-    , RequestValidator
+    RequestValidator (..),
+    newRequestValidator,
+
     -- * Response Lenses
-    , rvValidateRequestParameters
-    , rvName
-    , rvValidateRequestBody
-    , rvId
-    ) where
+    requestValidator_validateRequestBody,
+    requestValidator_id,
+    requestValidator_validateRequestParameters,
+    requestValidator_name,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Creates a 'RequestValidator' of a given 'RestApi' .
+-- | Creates a RequestValidator of a given RestApi.
 --
---
---
--- /See:/ 'createRequestValidator' smart constructor.
+-- /See:/ 'newCreateRequestValidator' smart constructor.
 data CreateRequestValidator = CreateRequestValidator'
-  { _crvValidateRequestParameters :: !(Maybe Bool)
-  , _crvName                      :: !(Maybe Text)
-  , _crvValidateRequestBody       :: !(Maybe Bool)
-  , _crvRestAPIId                 :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateRequestValidator' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crvValidateRequestParameters' - A Boolean flag to indicate whether to validate request parameters, @true@ , or not @false@ .
---
--- * 'crvName' - The name of the to-be-created 'RequestValidator' .
---
--- * 'crvValidateRequestBody' - A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
---
--- * 'crvRestAPIId' - The string identifier of the associated 'RestApi' .
-createRequestValidator
-    :: Text -- ^ 'crvRestAPIId'
-    -> CreateRequestValidator
-createRequestValidator pRestAPIId_ =
-  CreateRequestValidator'
-  { _crvValidateRequestParameters = Nothing
-  , _crvName = Nothing
-  , _crvValidateRequestBody = Nothing
-  , _crvRestAPIId = pRestAPIId_
+  { -- | A Boolean flag to indicate whether to validate request body according to
+    -- the configured model schema for the method (@true@) or not (@false@).
+    validateRequestBody :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean flag to indicate whether to validate request parameters,
+    -- @true@, or not @false@.
+    validateRequestParameters :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the to-be-created RequestValidator.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateRequestValidator' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'validateRequestBody', 'createRequestValidator_validateRequestBody' - A Boolean flag to indicate whether to validate request body according to
+-- the configured model schema for the method (@true@) or not (@false@).
+--
+-- 'validateRequestParameters', 'createRequestValidator_validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters,
+-- @true@, or not @false@.
+--
+-- 'name', 'createRequestValidator_name' - The name of the to-be-created RequestValidator.
+--
+-- 'restApiId', 'createRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
+newCreateRequestValidator ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  CreateRequestValidator
+newCreateRequestValidator pRestApiId_ =
+  CreateRequestValidator'
+    { validateRequestBody =
+        Prelude.Nothing,
+      validateRequestParameters = Prelude.Nothing,
+      name = Prelude.Nothing,
+      restApiId = pRestApiId_
+    }
 
--- | A Boolean flag to indicate whether to validate request parameters, @true@ , or not @false@ .
-crvValidateRequestParameters :: Lens' CreateRequestValidator (Maybe Bool)
-crvValidateRequestParameters = lens _crvValidateRequestParameters (\ s a -> s{_crvValidateRequestParameters = a});
+-- | A Boolean flag to indicate whether to validate request body according to
+-- the configured model schema for the method (@true@) or not (@false@).
+createRequestValidator_validateRequestBody :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
+createRequestValidator_validateRequestBody = Lens.lens (\CreateRequestValidator' {validateRequestBody} -> validateRequestBody) (\s@CreateRequestValidator' {} a -> s {validateRequestBody = a} :: CreateRequestValidator)
 
--- | The name of the to-be-created 'RequestValidator' .
-crvName :: Lens' CreateRequestValidator (Maybe Text)
-crvName = lens _crvName (\ s a -> s{_crvName = a});
+-- | A Boolean flag to indicate whether to validate request parameters,
+-- @true@, or not @false@.
+createRequestValidator_validateRequestParameters :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
+createRequestValidator_validateRequestParameters = Lens.lens (\CreateRequestValidator' {validateRequestParameters} -> validateRequestParameters) (\s@CreateRequestValidator' {} a -> s {validateRequestParameters = a} :: CreateRequestValidator)
 
--- | A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (@true@ ) or not (@false@ ).
-crvValidateRequestBody :: Lens' CreateRequestValidator (Maybe Bool)
-crvValidateRequestBody = lens _crvValidateRequestBody (\ s a -> s{_crvValidateRequestBody = a});
+-- | The name of the to-be-created RequestValidator.
+createRequestValidator_name :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Text)
+createRequestValidator_name = Lens.lens (\CreateRequestValidator' {name} -> name) (\s@CreateRequestValidator' {} a -> s {name = a} :: CreateRequestValidator)
 
--- | The string identifier of the associated 'RestApi' .
-crvRestAPIId :: Lens' CreateRequestValidator Text
-crvRestAPIId = lens _crvRestAPIId (\ s a -> s{_crvRestAPIId = a});
+-- | [Required] The string identifier of the associated RestApi.
+createRequestValidator_restApiId :: Lens.Lens' CreateRequestValidator Prelude.Text
+createRequestValidator_restApiId = Lens.lens (\CreateRequestValidator' {restApiId} -> restApiId) (\s@CreateRequestValidator' {} a -> s {restApiId = a} :: CreateRequestValidator)
 
-instance AWSRequest CreateRequestValidator where
-        type Rs CreateRequestValidator = RequestValidator
-        request = postJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Core.AWSRequest CreateRequestValidator where
+  type
+    AWSResponse CreateRequestValidator =
+      RequestValidator
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Hashable CreateRequestValidator where
+instance Prelude.Hashable CreateRequestValidator
 
-instance NFData CreateRequestValidator where
+instance Prelude.NFData CreateRequestValidator
 
-instance ToHeaders CreateRequestValidator where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Core.ToHeaders CreateRequestValidator where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToJSON CreateRequestValidator where
-        toJSON CreateRequestValidator'{..}
-          = object
-              (catMaybes
-                 [("validateRequestParameters" .=) <$>
-                    _crvValidateRequestParameters,
-                  ("name" .=) <$> _crvName,
-                  ("validateRequestBody" .=) <$>
-                    _crvValidateRequestBody])
+instance Core.ToJSON CreateRequestValidator where
+  toJSON CreateRequestValidator' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("validateRequestBody" Core..=)
+              Prelude.<$> validateRequestBody,
+            ("validateRequestParameters" Core..=)
+              Prelude.<$> validateRequestParameters,
+            ("name" Core..=) Prelude.<$> name
+          ]
+      )
 
-instance ToPath CreateRequestValidator where
-        toPath CreateRequestValidator'{..}
-          = mconcat
-              ["/restapis/", toBS _crvRestAPIId,
-               "/requestvalidators"]
+instance Core.ToPath CreateRequestValidator where
+  toPath CreateRequestValidator' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Core.toBS restApiId,
+        "/requestvalidators"
+      ]
 
-instance ToQuery CreateRequestValidator where
-        toQuery = const mempty
+instance Core.ToQuery CreateRequestValidator where
+  toQuery = Prelude.const Prelude.mempty

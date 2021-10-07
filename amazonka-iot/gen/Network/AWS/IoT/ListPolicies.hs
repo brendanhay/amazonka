@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.ListPolicies
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,153 +22,188 @@
 --
 -- Lists your policies.
 --
---
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListPolicies>
+-- action.
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListPolicies
-    (
-    -- * Creating a Request
-      listPolicies
-    , ListPolicies
+  ( -- * Creating a Request
+    ListPolicies (..),
+    newListPolicies,
+
     -- * Request Lenses
-    , lpMarker
-    , lpAscendingOrder
-    , lpPageSize
+    listPolicies_pageSize,
+    listPolicies_ascendingOrder,
+    listPolicies_marker,
 
     -- * Destructuring the Response
-    , listPoliciesResponse
-    , ListPoliciesResponse
-    -- * Response Lenses
-    , lprsNextMarker
-    , lprsPolicies
-    , lprsResponseStatus
-    ) where
+    ListPoliciesResponse (..),
+    newListPoliciesResponse,
 
+    -- * Response Lenses
+    listPoliciesResponse_policies,
+    listPoliciesResponse_nextMarker,
+    listPoliciesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the ListPolicies operation.
 --
---
---
--- /See:/ 'listPolicies' smart constructor.
+-- /See:/ 'newListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { _lpMarker         :: !(Maybe Text)
-  , _lpAscendingOrder :: !(Maybe Bool)
-  , _lpPageSize       :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The result page size.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies the order for results. If true, the results are returned in
+    -- ascending creation order.
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The marker for the next set of results.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListPolicies' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpMarker' - The marker for the next set of results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpAscendingOrder' - Specifies the order for results. If true, the results are returned in ascending creation order.
+-- 'pageSize', 'listPolicies_pageSize' - The result page size.
 --
--- * 'lpPageSize' - The result page size.
-listPolicies
-    :: ListPolicies
-listPolicies =
+-- 'ascendingOrder', 'listPolicies_ascendingOrder' - Specifies the order for results. If true, the results are returned in
+-- ascending creation order.
+--
+-- 'marker', 'listPolicies_marker' - The marker for the next set of results.
+newListPolicies ::
+  ListPolicies
+newListPolicies =
   ListPolicies'
-  {_lpMarker = Nothing, _lpAscendingOrder = Nothing, _lpPageSize = Nothing}
-
-
--- | The marker for the next set of results.
-lpMarker :: Lens' ListPolicies (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
-
--- | Specifies the order for results. If true, the results are returned in ascending creation order.
-lpAscendingOrder :: Lens' ListPolicies (Maybe Bool)
-lpAscendingOrder = lens _lpAscendingOrder (\ s a -> s{_lpAscendingOrder = a});
+    { pageSize = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
 -- | The result page size.
-lpPageSize :: Lens' ListPolicies (Maybe Natural)
-lpPageSize = lens _lpPageSize (\ s a -> s{_lpPageSize = a}) . mapping _Nat;
+listPolicies_pageSize :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
+listPolicies_pageSize = Lens.lens (\ListPolicies' {pageSize} -> pageSize) (\s@ListPolicies' {} a -> s {pageSize = a} :: ListPolicies)
 
-instance AWSPager ListPolicies where
-        page rq rs
-          | stop (rs ^. lprsNextMarker) = Nothing
-          | stop (rs ^. lprsPolicies) = Nothing
-          | otherwise =
-            Just $ rq & lpMarker .~ rs ^. lprsNextMarker
+-- | Specifies the order for results. If true, the results are returned in
+-- ascending creation order.
+listPolicies_ascendingOrder :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Bool)
+listPolicies_ascendingOrder = Lens.lens (\ListPolicies' {ascendingOrder} -> ascendingOrder) (\s@ListPolicies' {} a -> s {ascendingOrder = a} :: ListPolicies)
 
-instance AWSRequest ListPolicies where
-        type Rs ListPolicies = ListPoliciesResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListPoliciesResponse' <$>
-                   (x .?> "nextMarker") <*>
-                     (x .?> "policies" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+-- | The marker for the next set of results.
+listPolicies_marker :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
+listPolicies_marker = Lens.lens (\ListPolicies' {marker} -> marker) (\s@ListPolicies' {} a -> s {marker = a} :: ListPolicies)
 
-instance Hashable ListPolicies where
+instance Core.AWSPager ListPolicies where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listPoliciesResponse_nextMarker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listPoliciesResponse_policies Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listPolicies_marker
+          Lens..~ rs
+          Lens.^? listPoliciesResponse_nextMarker Prelude.. Lens._Just
 
-instance NFData ListPolicies where
+instance Core.AWSRequest ListPolicies where
+  type AWSResponse ListPolicies = ListPoliciesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListPoliciesResponse'
+            Prelude.<$> (x Core..?> "policies" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders ListPolicies where
-        toHeaders = const mempty
+instance Prelude.Hashable ListPolicies
 
-instance ToPath ListPolicies where
-        toPath = const "/policies"
+instance Prelude.NFData ListPolicies
 
-instance ToQuery ListPolicies where
-        toQuery ListPolicies'{..}
-          = mconcat
-              ["marker" =: _lpMarker,
-               "isAscendingOrder" =: _lpAscendingOrder,
-               "pageSize" =: _lpPageSize]
+instance Core.ToHeaders ListPolicies where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ListPolicies where
+  toPath = Prelude.const "/policies"
+
+instance Core.ToQuery ListPolicies where
+  toQuery ListPolicies' {..} =
+    Prelude.mconcat
+      [ "pageSize" Core.=: pageSize,
+        "isAscendingOrder" Core.=: ascendingOrder,
+        "marker" Core.=: marker
+      ]
 
 -- | The output from the ListPolicies operation.
 --
---
---
--- /See:/ 'listPoliciesResponse' smart constructor.
+-- /See:/ 'newListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-  { _lprsNextMarker     :: !(Maybe Text)
-  , _lprsPolicies       :: !(Maybe [Policy])
-  , _lprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextMarker' - The marker for the next set of results, or null if there are no additional results.
---
--- * 'lprsPolicies' - The descriptions of the policies.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listPoliciesResponse
-    :: Int -- ^ 'lprsResponseStatus'
-    -> ListPoliciesResponse
-listPoliciesResponse pResponseStatus_ =
-  ListPoliciesResponse'
-  { _lprsNextMarker = Nothing
-  , _lprsPolicies = Nothing
-  , _lprsResponseStatus = pResponseStatus_
+  { -- | The descriptions of the policies.
+    policies :: Prelude.Maybe [Policy],
+    -- | The marker for the next set of results, or null if there are no
+    -- additional results.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The marker for the next set of results, or null if there are no additional results.
-lprsNextMarker :: Lens' ListPoliciesResponse (Maybe Text)
-lprsNextMarker = lens _lprsNextMarker (\ s a -> s{_lprsNextMarker = a});
+-- |
+-- Create a value of 'ListPoliciesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policies', 'listPoliciesResponse_policies' - The descriptions of the policies.
+--
+-- 'nextMarker', 'listPoliciesResponse_nextMarker' - The marker for the next set of results, or null if there are no
+-- additional results.
+--
+-- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.
+newListPoliciesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListPoliciesResponse
+newListPoliciesResponse pHttpStatus_ =
+  ListPoliciesResponse'
+    { policies = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The descriptions of the policies.
-lprsPolicies :: Lens' ListPoliciesResponse [Policy]
-lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
+listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [Policy])
+listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListPoliciesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+-- | The marker for the next set of results, or null if there are no
+-- additional results.
+listPoliciesResponse_nextMarker :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Text)
+listPoliciesResponse_nextMarker = Lens.lens (\ListPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListPoliciesResponse' {} a -> s {nextMarker = a} :: ListPoliciesResponse)
 
-instance NFData ListPoliciesResponse where
+-- | The response's http status code.
+listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int
+listPoliciesResponse_httpStatus = Lens.lens (\ListPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesResponse' {} a -> s {httpStatus = a} :: ListPoliciesResponse)
+
+instance Prelude.NFData ListPoliciesResponse

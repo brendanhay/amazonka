@@ -1,161 +1,207 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.StartInstances
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an Amazon EBS-backed instance that you've previously stopped.
+-- Starts an Amazon EBS-backed instance that you\'ve previously stopped.
 --
+-- Instances that use Amazon EBS volumes as their root devices can be
+-- quickly stopped and started. When an instance is stopped, the compute
+-- resources are released and you are not billed for instance usage.
+-- However, your root partition Amazon EBS volume remains and continues to
+-- persist your data, and you are charged for Amazon EBS volume usage. You
+-- can restart your instance at any time. Every time you start your
+-- instance, Amazon EC2 charges a one-minute minimum for instance usage,
+-- and thereafter charges per second for instance usage.
 --
--- Instances that use Amazon EBS volumes as their root devices can be quickly stopped and started. When an instance is stopped, the compute resources are released and you are not billed for instance usage. However, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. You can restart your instance at any time. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.
+-- Before stopping an instance, make sure it is in a state from which it
+-- can be restarted. Stopping an instance does not preserve data stored in
+-- RAM.
 --
--- Before stopping an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM.
+-- Performing this operation on an instance that uses an instance store as
+-- its root device returns an error.
 --
--- Performing this operation on an instance that uses an instance store as its root device returns an error.
+-- If you attempt to start a T3 instance with @host@ tenancy and the
+-- @unlimted@ CPU credit option, the request fails. The @unlimited@ CPU
+-- credit option is not supported on Dedicated Hosts. Before you start the
+-- instance, either change its CPU credit option to @standard@, or change
+-- its tenancy to @default@ or @dedicated@.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic Compute Cloud User Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping instances>
+-- in the /Amazon EC2 User Guide/.
 module Network.AWS.EC2.StartInstances
-    (
-    -- * Creating a Request
-      startInstances
-    , StartInstances
+  ( -- * Creating a Request
+    StartInstances (..),
+    newStartInstances,
+
     -- * Request Lenses
-    , sAdditionalInfo
-    , sDryRun
-    , sInstanceIds
+    startInstances_additionalInfo,
+    startInstances_dryRun,
+    startInstances_instanceIds,
 
     -- * Destructuring the Response
-    , startInstancesResponse
-    , StartInstancesResponse
+    StartInstancesResponse (..),
+    newStartInstancesResponse,
+
     -- * Response Lenses
-    , srsStartingInstances
-    , srsResponseStatus
-    ) where
+    startInstancesResponse_startingInstances,
+    startInstancesResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for StartInstances.
---
---
---
--- /See:/ 'startInstances' smart constructor.
+-- | /See:/ 'newStartInstances' smart constructor.
 data StartInstances = StartInstances'
-  { _sAdditionalInfo :: !(Maybe Text)
-  , _sDryRun         :: !(Maybe Bool)
-  , _sInstanceIds    :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Reserved.
+    additionalInfo :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IDs of the instances.
+    instanceIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sAdditionalInfo' - Reserved.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'additionalInfo', 'startInstances_additionalInfo' - Reserved.
 --
--- * 'sInstanceIds' - One or more instance IDs.
-startInstances
-    :: StartInstances
-startInstances =
+-- 'dryRun', 'startInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'instanceIds', 'startInstances_instanceIds' - The IDs of the instances.
+newStartInstances ::
+  StartInstances
+newStartInstances =
   StartInstances'
-  {_sAdditionalInfo = Nothing, _sDryRun = Nothing, _sInstanceIds = mempty}
-
+    { additionalInfo = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
+    }
 
 -- | Reserved.
-sAdditionalInfo :: Lens' StartInstances (Maybe Text)
-sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a});
+startInstances_additionalInfo :: Lens.Lens' StartInstances (Prelude.Maybe Prelude.Text)
+startInstances_additionalInfo = Lens.lens (\StartInstances' {additionalInfo} -> additionalInfo) (\s@StartInstances' {} a -> s {additionalInfo = a} :: StartInstances)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-sDryRun :: Lens' StartInstances (Maybe Bool)
-sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+startInstances_dryRun :: Lens.Lens' StartInstances (Prelude.Maybe Prelude.Bool)
+startInstances_dryRun = Lens.lens (\StartInstances' {dryRun} -> dryRun) (\s@StartInstances' {} a -> s {dryRun = a} :: StartInstances)
 
--- | One or more instance IDs.
-sInstanceIds :: Lens' StartInstances [Text]
-sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a}) . _Coerce;
+-- | The IDs of the instances.
+startInstances_instanceIds :: Lens.Lens' StartInstances [Prelude.Text]
+startInstances_instanceIds = Lens.lens (\StartInstances' {instanceIds} -> instanceIds) (\s@StartInstances' {} a -> s {instanceIds = a} :: StartInstances) Prelude.. Lens._Coerce
 
-instance AWSRequest StartInstances where
-        type Rs StartInstances = StartInstancesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 StartInstancesResponse' <$>
-                   (x .@? "instancesSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest StartInstances where
+  type
+    AWSResponse StartInstances =
+      StartInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          StartInstancesResponse'
+            Prelude.<$> ( x Core..@? "instancesSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartInstances where
+instance Prelude.Hashable StartInstances
 
-instance NFData StartInstances where
+instance Prelude.NFData StartInstances
 
-instance ToHeaders StartInstances where
-        toHeaders = const mempty
+instance Core.ToHeaders StartInstances where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath StartInstances where
-        toPath = const "/"
+instance Core.ToPath StartInstances where
+  toPath = Prelude.const "/"
 
-instance ToQuery StartInstances where
-        toQuery StartInstances'{..}
-          = mconcat
-              ["Action" =: ("StartInstances" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "AdditionalInfo" =: _sAdditionalInfo,
-               "DryRun" =: _sDryRun,
-               toQueryList "InstanceId" _sInstanceIds]
+instance Core.ToQuery StartInstances where
+  toQuery StartInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("StartInstances" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "AdditionalInfo" Core.=: additionalInfo,
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList "InstanceId" instanceIds
+      ]
 
--- | Contains the output of StartInstances.
---
---
---
--- /See:/ 'startInstancesResponse' smart constructor.
+-- | /See:/ 'newStartInstancesResponse' smart constructor.
 data StartInstancesResponse = StartInstancesResponse'
-  { _srsStartingInstances :: !(Maybe [InstanceStateChange])
-  , _srsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the started instances.
+    startingInstances :: Prelude.Maybe [InstanceStateChange],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'StartInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srsStartingInstances' - Information about one or more started instances.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srsResponseStatus' - -- | The response status code.
-startInstancesResponse
-    :: Int -- ^ 'srsResponseStatus'
-    -> StartInstancesResponse
-startInstancesResponse pResponseStatus_ =
+-- 'startingInstances', 'startInstancesResponse_startingInstances' - Information about the started instances.
+--
+-- 'httpStatus', 'startInstancesResponse_httpStatus' - The response's http status code.
+newStartInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartInstancesResponse
+newStartInstancesResponse pHttpStatus_ =
   StartInstancesResponse'
-  {_srsStartingInstances = Nothing, _srsResponseStatus = pResponseStatus_}
+    { startingInstances =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the started instances.
+startInstancesResponse_startingInstances :: Lens.Lens' StartInstancesResponse (Prelude.Maybe [InstanceStateChange])
+startInstancesResponse_startingInstances = Lens.lens (\StartInstancesResponse' {startingInstances} -> startingInstances) (\s@StartInstancesResponse' {} a -> s {startingInstances = a} :: StartInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about one or more started instances.
-srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
+-- | The response's http status code.
+startInstancesResponse_httpStatus :: Lens.Lens' StartInstancesResponse Prelude.Int
+startInstancesResponse_httpStatus = Lens.lens (\StartInstancesResponse' {httpStatus} -> httpStatus) (\s@StartInstancesResponse' {} a -> s {httpStatus = a} :: StartInstancesResponse)
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartInstancesResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a});
-
-instance NFData StartInstancesResponse where
+instance Prelude.NFData StartInstancesResponse

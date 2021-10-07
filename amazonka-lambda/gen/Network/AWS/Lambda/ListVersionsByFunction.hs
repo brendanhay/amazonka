@@ -1,169 +1,257 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.ListVersionsByFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all versions of a function. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- Returns a list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html versions>,
+-- with the version-specific configuration of each. Lambda returns up to 50
+-- versions per call.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Lambda.ListVersionsByFunction
-    (
-    -- * Creating a Request
-      listVersionsByFunction
-    , ListVersionsByFunction
+  ( -- * Creating a Request
+    ListVersionsByFunction (..),
+    newListVersionsByFunction,
+
     -- * Request Lenses
-    , lvbfMarker
-    , lvbfMaxItems
-    , lvbfFunctionName
+    listVersionsByFunction_maxItems,
+    listVersionsByFunction_marker,
+    listVersionsByFunction_functionName,
 
     -- * Destructuring the Response
-    , listVersionsByFunctionResponse
-    , ListVersionsByFunctionResponse
+    ListVersionsByFunctionResponse (..),
+    newListVersionsByFunctionResponse,
+
     -- * Response Lenses
-    , lvbfrsVersions
-    , lvbfrsNextMarker
-    , lvbfrsResponseStatus
-    ) where
+    listVersionsByFunctionResponse_versions,
+    listVersionsByFunctionResponse_nextMarker,
+    listVersionsByFunctionResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- |
---
---
---
--- /See:/ 'listVersionsByFunction' smart constructor.
+-- | /See:/ 'newListVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-  { _lvbfMarker       :: !(Maybe Text)
-  , _lvbfMaxItems     :: !(Maybe Nat)
-  , _lvbfFunctionName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListVersionsByFunction' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvbfMarker' - Optional string. An opaque pagination token returned from a previous @ListVersionsByFunction@ operation. If present, indicates where to continue the listing.
---
--- * 'lvbfMaxItems' - Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.
---
--- * 'lvbfFunctionName' - Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-listVersionsByFunction
-    :: Text -- ^ 'lvbfFunctionName'
-    -> ListVersionsByFunction
-listVersionsByFunction pFunctionName_ =
-  ListVersionsByFunction'
-  { _lvbfMarker = Nothing
-  , _lvbfMaxItems = Nothing
-  , _lvbfFunctionName = pFunctionName_
+  { -- | The maximum number of versions to return. Note that
+    -- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
+    -- even if you set the number higher.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token that\'s returned by a previous request to
+    -- retrieve the next page of results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @MyFunction@.
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+    --
+    -- The length constraint applies only to the full ARN. If you specify only
+    -- the function name, it is limited to 64 characters in length.
+    functionName :: Prelude.Text
   }
-
-
--- | Optional string. An opaque pagination token returned from a previous @ListVersionsByFunction@ operation. If present, indicates where to continue the listing.
-lvbfMarker :: Lens' ListVersionsByFunction (Maybe Text)
-lvbfMarker = lens _lvbfMarker (\ s a -> s{_lvbfMarker = a});
-
--- | Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.
-lvbfMaxItems :: Lens' ListVersionsByFunction (Maybe Natural)
-lvbfMaxItems = lens _lvbfMaxItems (\ s a -> s{_lvbfMaxItems = a}) . mapping _Nat;
-
--- | Function name whose versions to list. You can specify a function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). AWS Lambda also allows you to specify a partial ARN (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-lvbfFunctionName :: Lens' ListVersionsByFunction Text
-lvbfFunctionName = lens _lvbfFunctionName (\ s a -> s{_lvbfFunctionName = a});
-
-instance AWSRequest ListVersionsByFunction where
-        type Rs ListVersionsByFunction =
-             ListVersionsByFunctionResponse
-        request = get lambda
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListVersionsByFunctionResponse' <$>
-                   (x .?> "Versions" .!@ mempty) <*>
-                     (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListVersionsByFunction where
-
-instance NFData ListVersionsByFunction where
-
-instance ToHeaders ListVersionsByFunction where
-        toHeaders = const mempty
-
-instance ToPath ListVersionsByFunction where
-        toPath ListVersionsByFunction'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toBS _lvbfFunctionName,
-               "/versions"]
-
-instance ToQuery ListVersionsByFunction where
-        toQuery ListVersionsByFunction'{..}
-          = mconcat
-              ["Marker" =: _lvbfMarker,
-               "MaxItems" =: _lvbfMaxItems]
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'ListVersionsByFunction' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'listVersionsByFunctionResponse' smart constructor.
+-- 'maxItems', 'listVersionsByFunction_maxItems' - The maximum number of versions to return. Note that
+-- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
+-- even if you set the number higher.
+--
+-- 'marker', 'listVersionsByFunction_marker' - Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+--
+-- 'functionName', 'listVersionsByFunction_functionName' - The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+newListVersionsByFunction ::
+  -- | 'functionName'
+  Prelude.Text ->
+  ListVersionsByFunction
+newListVersionsByFunction pFunctionName_ =
+  ListVersionsByFunction'
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      functionName = pFunctionName_
+    }
+
+-- | The maximum number of versions to return. Note that
+-- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
+-- even if you set the number higher.
+listVersionsByFunction_maxItems :: Lens.Lens' ListVersionsByFunction (Prelude.Maybe Prelude.Natural)
+listVersionsByFunction_maxItems = Lens.lens (\ListVersionsByFunction' {maxItems} -> maxItems) (\s@ListVersionsByFunction' {} a -> s {maxItems = a} :: ListVersionsByFunction)
+
+-- | Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+listVersionsByFunction_marker :: Lens.Lens' ListVersionsByFunction (Prelude.Maybe Prelude.Text)
+listVersionsByFunction_marker = Lens.lens (\ListVersionsByFunction' {marker} -> marker) (\s@ListVersionsByFunction' {} a -> s {marker = a} :: ListVersionsByFunction)
+
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+listVersionsByFunction_functionName :: Lens.Lens' ListVersionsByFunction Prelude.Text
+listVersionsByFunction_functionName = Lens.lens (\ListVersionsByFunction' {functionName} -> functionName) (\s@ListVersionsByFunction' {} a -> s {functionName = a} :: ListVersionsByFunction)
+
+instance Core.AWSPager ListVersionsByFunction where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listVersionsByFunctionResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listVersionsByFunctionResponse_versions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listVersionsByFunction_marker
+          Lens..~ rs
+          Lens.^? listVersionsByFunctionResponse_nextMarker
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest ListVersionsByFunction where
+  type
+    AWSResponse ListVersionsByFunction =
+      ListVersionsByFunctionResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListVersionsByFunctionResponse'
+            Prelude.<$> (x Core..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListVersionsByFunction
+
+instance Prelude.NFData ListVersionsByFunction
+
+instance Core.ToHeaders ListVersionsByFunction where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ListVersionsByFunction where
+  toPath ListVersionsByFunction' {..} =
+    Prelude.mconcat
+      [ "/2015-03-31/functions/",
+        Core.toBS functionName,
+        "/versions"
+      ]
+
+instance Core.ToQuery ListVersionsByFunction where
+  toQuery ListVersionsByFunction' {..} =
+    Prelude.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
+      ]
+
+-- | /See:/ 'newListVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
-  { _lvbfrsVersions       :: !(Maybe [FunctionConfiguration])
-  , _lvbfrsNextMarker     :: !(Maybe Text)
-  , _lvbfrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListVersionsByFunctionResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvbfrsVersions' - A list of Lambda function versions.
---
--- * 'lvbfrsNextMarker' - A string, present if there are more function versions.
---
--- * 'lvbfrsResponseStatus' - -- | The response status code.
-listVersionsByFunctionResponse
-    :: Int -- ^ 'lvbfrsResponseStatus'
-    -> ListVersionsByFunctionResponse
-listVersionsByFunctionResponse pResponseStatus_ =
-  ListVersionsByFunctionResponse'
-  { _lvbfrsVersions = Nothing
-  , _lvbfrsNextMarker = Nothing
-  , _lvbfrsResponseStatus = pResponseStatus_
+  { -- | A list of Lambda function versions.
+    versions :: Prelude.Maybe [FunctionConfiguration],
+    -- | The pagination token that\'s included if more results are available.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListVersionsByFunctionResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'versions', 'listVersionsByFunctionResponse_versions' - A list of Lambda function versions.
+--
+-- 'nextMarker', 'listVersionsByFunctionResponse_nextMarker' - The pagination token that\'s included if more results are available.
+--
+-- 'httpStatus', 'listVersionsByFunctionResponse_httpStatus' - The response's http status code.
+newListVersionsByFunctionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListVersionsByFunctionResponse
+newListVersionsByFunctionResponse pHttpStatus_ =
+  ListVersionsByFunctionResponse'
+    { versions =
+        Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A list of Lambda function versions.
-lvbfrsVersions :: Lens' ListVersionsByFunctionResponse [FunctionConfiguration]
-lvbfrsVersions = lens _lvbfrsVersions (\ s a -> s{_lvbfrsVersions = a}) . _Default . _Coerce;
+listVersionsByFunctionResponse_versions :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe [FunctionConfiguration])
+listVersionsByFunctionResponse_versions = Lens.lens (\ListVersionsByFunctionResponse' {versions} -> versions) (\s@ListVersionsByFunctionResponse' {} a -> s {versions = a} :: ListVersionsByFunctionResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A string, present if there are more function versions.
-lvbfrsNextMarker :: Lens' ListVersionsByFunctionResponse (Maybe Text)
-lvbfrsNextMarker = lens _lvbfrsNextMarker (\ s a -> s{_lvbfrsNextMarker = a});
+-- | The pagination token that\'s included if more results are available.
+listVersionsByFunctionResponse_nextMarker :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe Prelude.Text)
+listVersionsByFunctionResponse_nextMarker = Lens.lens (\ListVersionsByFunctionResponse' {nextMarker} -> nextMarker) (\s@ListVersionsByFunctionResponse' {} a -> s {nextMarker = a} :: ListVersionsByFunctionResponse)
 
--- | -- | The response status code.
-lvbfrsResponseStatus :: Lens' ListVersionsByFunctionResponse Int
-lvbfrsResponseStatus = lens _lvbfrsResponseStatus (\ s a -> s{_lvbfrsResponseStatus = a});
+-- | The response's http status code.
+listVersionsByFunctionResponse_httpStatus :: Lens.Lens' ListVersionsByFunctionResponse Prelude.Int
+listVersionsByFunctionResponse_httpStatus = Lens.lens (\ListVersionsByFunctionResponse' {httpStatus} -> httpStatus) (\s@ListVersionsByFunctionResponse' {} a -> s {httpStatus = a} :: ListVersionsByFunctionResponse)
 
-instance NFData ListVersionsByFunctionResponse where
+instance
+  Prelude.NFData
+    ListVersionsByFunctionResponse

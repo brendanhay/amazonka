@@ -1,179 +1,217 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ListUserImportJobs
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the user import jobs.
---
---
 module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
-    (
-    -- * Creating a Request
-      listUserImportJobs
-    , ListUserImportJobs
+  ( -- * Creating a Request
+    ListUserImportJobs (..),
+    newListUserImportJobs,
+
     -- * Request Lenses
-    , luijPaginationToken
-    , luijUserPoolId
-    , luijMaxResults
+    listUserImportJobs_paginationToken,
+    listUserImportJobs_userPoolId,
+    listUserImportJobs_maxResults,
 
     -- * Destructuring the Response
-    , listUserImportJobsResponse
-    , ListUserImportJobsResponse
+    ListUserImportJobsResponse (..),
+    newListUserImportJobsResponse,
+
     -- * Response Lenses
-    , luijrsPaginationToken
-    , luijrsUserImportJobs
-    , luijrsResponseStatus
-    ) where
+    listUserImportJobsResponse_userImportJobs,
+    listUserImportJobsResponse_paginationToken,
+    listUserImportJobsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to list the user import jobs.
 --
---
---
--- /See:/ 'listUserImportJobs' smart constructor.
+-- /See:/ 'newListUserImportJobs' smart constructor.
 data ListUserImportJobs = ListUserImportJobs'
-  { _luijPaginationToken :: !(Maybe Text)
-  , _luijUserPoolId      :: !Text
-  , _luijMaxResults      :: !Nat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListUserImportJobs' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luijPaginationToken' - An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
---
--- * 'luijUserPoolId' - The user pool ID for the user pool that the users are being imported into.
---
--- * 'luijMaxResults' - The maximum number of import jobs you want the request to return.
-listUserImportJobs
-    :: Text -- ^ 'luijUserPoolId'
-    -> Natural -- ^ 'luijMaxResults'
-    -> ListUserImportJobs
-listUserImportJobs pUserPoolId_ pMaxResults_ =
-  ListUserImportJobs'
-  { _luijPaginationToken = Nothing
-  , _luijUserPoolId = pUserPoolId_
-  , _luijMaxResults = _Nat # pMaxResults_
+  { -- | An identifier that was returned from the previous call to
+    -- @ListUserImportJobs@, which can be used to return the next set of import
+    -- jobs in the list.
+    paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | The user pool ID for the user pool that the users are being imported
+    -- into.
+    userPoolId :: Prelude.Text,
+    -- | The maximum number of import jobs you want the request to return.
+    maxResults :: Prelude.Natural
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListUserImportJobs' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'paginationToken', 'listUserImportJobs_paginationToken' - An identifier that was returned from the previous call to
+-- @ListUserImportJobs@, which can be used to return the next set of import
+-- jobs in the list.
+--
+-- 'userPoolId', 'listUserImportJobs_userPoolId' - The user pool ID for the user pool that the users are being imported
+-- into.
+--
+-- 'maxResults', 'listUserImportJobs_maxResults' - The maximum number of import jobs you want the request to return.
+newListUserImportJobs ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'maxResults'
+  Prelude.Natural ->
+  ListUserImportJobs
+newListUserImportJobs pUserPoolId_ pMaxResults_ =
+  ListUserImportJobs'
+    { paginationToken =
+        Prelude.Nothing,
+      userPoolId = pUserPoolId_,
+      maxResults = pMaxResults_
+    }
 
--- | An identifier that was returned from the previous call to @ListUserImportJobs@ , which can be used to return the next set of import jobs in the list.
-luijPaginationToken :: Lens' ListUserImportJobs (Maybe Text)
-luijPaginationToken = lens _luijPaginationToken (\ s a -> s{_luijPaginationToken = a});
+-- | An identifier that was returned from the previous call to
+-- @ListUserImportJobs@, which can be used to return the next set of import
+-- jobs in the list.
+listUserImportJobs_paginationToken :: Lens.Lens' ListUserImportJobs (Prelude.Maybe Prelude.Text)
+listUserImportJobs_paginationToken = Lens.lens (\ListUserImportJobs' {paginationToken} -> paginationToken) (\s@ListUserImportJobs' {} a -> s {paginationToken = a} :: ListUserImportJobs)
 
--- | The user pool ID for the user pool that the users are being imported into.
-luijUserPoolId :: Lens' ListUserImportJobs Text
-luijUserPoolId = lens _luijUserPoolId (\ s a -> s{_luijUserPoolId = a});
+-- | The user pool ID for the user pool that the users are being imported
+-- into.
+listUserImportJobs_userPoolId :: Lens.Lens' ListUserImportJobs Prelude.Text
+listUserImportJobs_userPoolId = Lens.lens (\ListUserImportJobs' {userPoolId} -> userPoolId) (\s@ListUserImportJobs' {} a -> s {userPoolId = a} :: ListUserImportJobs)
 
 -- | The maximum number of import jobs you want the request to return.
-luijMaxResults :: Lens' ListUserImportJobs Natural
-luijMaxResults = lens _luijMaxResults (\ s a -> s{_luijMaxResults = a}) . _Nat;
+listUserImportJobs_maxResults :: Lens.Lens' ListUserImportJobs Prelude.Natural
+listUserImportJobs_maxResults = Lens.lens (\ListUserImportJobs' {maxResults} -> maxResults) (\s@ListUserImportJobs' {} a -> s {maxResults = a} :: ListUserImportJobs)
 
-instance AWSRequest ListUserImportJobs where
-        type Rs ListUserImportJobs =
-             ListUserImportJobsResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListUserImportJobsResponse' <$>
-                   (x .?> "PaginationToken") <*>
-                     (x .?> "UserImportJobs")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest ListUserImportJobs where
+  type
+    AWSResponse ListUserImportJobs =
+      ListUserImportJobsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListUserImportJobsResponse'
+            Prelude.<$> (x Core..?> "UserImportJobs")
+            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListUserImportJobs where
+instance Prelude.Hashable ListUserImportJobs
 
-instance NFData ListUserImportJobs where
+instance Prelude.NFData ListUserImportJobs
 
-instance ToHeaders ListUserImportJobs where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.ListUserImportJobs"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ListUserImportJobs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.ListUserImportJobs" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ListUserImportJobs where
-        toJSON ListUserImportJobs'{..}
-          = object
-              (catMaybes
-                 [("PaginationToken" .=) <$> _luijPaginationToken,
-                  Just ("UserPoolId" .= _luijUserPoolId),
-                  Just ("MaxResults" .= _luijMaxResults)])
+instance Core.ToJSON ListUserImportJobs where
+  toJSON ListUserImportJobs' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("PaginationToken" Core..=)
+              Prelude.<$> paginationToken,
+            Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("MaxResults" Core..= maxResults)
+          ]
+      )
 
-instance ToPath ListUserImportJobs where
-        toPath = const "/"
+instance Core.ToPath ListUserImportJobs where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListUserImportJobs where
-        toQuery = const mempty
+instance Core.ToQuery ListUserImportJobs where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the response from the server to the request to list the user import jobs.
+-- | Represents the response from the server to the request to list the user
+-- import jobs.
 --
---
---
--- /See:/ 'listUserImportJobsResponse' smart constructor.
+-- /See:/ 'newListUserImportJobsResponse' smart constructor.
 data ListUserImportJobsResponse = ListUserImportJobsResponse'
-  { _luijrsPaginationToken :: !(Maybe Text)
-  , _luijrsUserImportJobs  :: !(Maybe (List1 UserImportJobType))
-  , _luijrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListUserImportJobsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'luijrsPaginationToken' - An identifier that can be used to return the next set of user import jobs in the list.
---
--- * 'luijrsUserImportJobs' - The user import jobs.
---
--- * 'luijrsResponseStatus' - -- | The response status code.
-listUserImportJobsResponse
-    :: Int -- ^ 'luijrsResponseStatus'
-    -> ListUserImportJobsResponse
-listUserImportJobsResponse pResponseStatus_ =
-  ListUserImportJobsResponse'
-  { _luijrsPaginationToken = Nothing
-  , _luijrsUserImportJobs = Nothing
-  , _luijrsResponseStatus = pResponseStatus_
+  { -- | The user import jobs.
+    userImportJobs :: Prelude.Maybe (Prelude.NonEmpty UserImportJobType),
+    -- | An identifier that can be used to return the next set of user import
+    -- jobs in the list.
+    paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | An identifier that can be used to return the next set of user import jobs in the list.
-luijrsPaginationToken :: Lens' ListUserImportJobsResponse (Maybe Text)
-luijrsPaginationToken = lens _luijrsPaginationToken (\ s a -> s{_luijrsPaginationToken = a});
+-- |
+-- Create a value of 'ListUserImportJobsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'userImportJobs', 'listUserImportJobsResponse_userImportJobs' - The user import jobs.
+--
+-- 'paginationToken', 'listUserImportJobsResponse_paginationToken' - An identifier that can be used to return the next set of user import
+-- jobs in the list.
+--
+-- 'httpStatus', 'listUserImportJobsResponse_httpStatus' - The response's http status code.
+newListUserImportJobsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListUserImportJobsResponse
+newListUserImportJobsResponse pHttpStatus_ =
+  ListUserImportJobsResponse'
+    { userImportJobs =
+        Prelude.Nothing,
+      paginationToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The user import jobs.
-luijrsUserImportJobs :: Lens' ListUserImportJobsResponse (Maybe (NonEmpty UserImportJobType))
-luijrsUserImportJobs = lens _luijrsUserImportJobs (\ s a -> s{_luijrsUserImportJobs = a}) . mapping _List1;
+listUserImportJobsResponse_userImportJobs :: Lens.Lens' ListUserImportJobsResponse (Prelude.Maybe (Prelude.NonEmpty UserImportJobType))
+listUserImportJobsResponse_userImportJobs = Lens.lens (\ListUserImportJobsResponse' {userImportJobs} -> userImportJobs) (\s@ListUserImportJobsResponse' {} a -> s {userImportJobs = a} :: ListUserImportJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-luijrsResponseStatus :: Lens' ListUserImportJobsResponse Int
-luijrsResponseStatus = lens _luijrsResponseStatus (\ s a -> s{_luijrsResponseStatus = a});
+-- | An identifier that can be used to return the next set of user import
+-- jobs in the list.
+listUserImportJobsResponse_paginationToken :: Lens.Lens' ListUserImportJobsResponse (Prelude.Maybe Prelude.Text)
+listUserImportJobsResponse_paginationToken = Lens.lens (\ListUserImportJobsResponse' {paginationToken} -> paginationToken) (\s@ListUserImportJobsResponse' {} a -> s {paginationToken = a} :: ListUserImportJobsResponse)
 
-instance NFData ListUserImportJobsResponse where
+-- | The response's http status code.
+listUserImportJobsResponse_httpStatus :: Lens.Lens' ListUserImportJobsResponse Prelude.Int
+listUserImportJobsResponse_httpStatus = Lens.lens (\ListUserImportJobsResponse' {httpStatus} -> httpStatus) (\s@ListUserImportJobsResponse' {} a -> s {httpStatus = a} :: ListUserImportJobsResponse)
+
+instance Prelude.NFData ListUserImportJobsResponse

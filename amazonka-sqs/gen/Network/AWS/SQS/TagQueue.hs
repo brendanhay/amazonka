@@ -1,125 +1,147 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SQS.TagQueue
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-tagging-queues.html Tagging Amazon SQS Queues> in the /Amazon Simple Queue Service Developer Guide/ .
---
+-- Add cost allocation tags to the specified Amazon SQS queue. For an
+-- overview, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
+-- in the /Amazon SQS Developer Guide/.
 --
 -- When you use queue tags, keep the following guidelines in mind:
 --
---     * Adding more than 50 tags to a queue isn't recommended.
+-- -   Adding more than 50 tags to a queue isn\'t recommended.
 --
---     * Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.
+-- -   Tags don\'t have any semantic meaning. Amazon SQS interprets tags as
+--     character strings.
 --
---     * Tags are case-sensitive.
+-- -   Tags are case-sensitive.
 --
---     * A new tag with a key identical to that of an existing tag overwrites the existing tag.
+-- -   A new tag with a key identical to that of an existing tag overwrites
+--     the existing tag.
 --
---     * Tagging API actions are limited to 5 TPS per AWS account. If your application requires a higher throughput, file a <https://console.aws.amazon.com/support/home#/case/create?issueType=technical technical support request> .
+-- For a full list of tag restrictions, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Quotas related to queues>
+-- in the /Amazon SQS Developer Guide/.
 --
---
---
--- For a full list of tag restrictions, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html Limits Related to Queues> in the /Amazon Simple Queue Service Developer Guide/ .
---
+-- Cross-account permissions don\'t apply to this action. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
+-- in the /Amazon SQS Developer Guide/.
 module Network.AWS.SQS.TagQueue
-    (
-    -- * Creating a Request
-      tagQueue
-    , TagQueue
+  ( -- * Creating a Request
+    TagQueue (..),
+    newTagQueue,
+
     -- * Request Lenses
-    , tqQueueURL
-    , tqTags
+    tagQueue_queueUrl,
+    tagQueue_tags,
 
     -- * Destructuring the Response
-    , tagQueueResponse
-    , TagQueueResponse
-    ) where
+    TagQueueResponse (..),
+    newTagQueueResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
-import Network.AWS.SQS.Types.Product
 
--- | /See:/ 'tagQueue' smart constructor.
+-- | /See:/ 'newTagQueue' smart constructor.
 data TagQueue = TagQueue'
-  { _tqQueueURL :: !Text
-  , _tqTags     :: !(Map Text Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The URL of the queue.
+    queueUrl :: Prelude.Text,
+    -- | The list of tags to be added to the specified queue.
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'TagQueue' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagQueue' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tqQueueURL' - The URL of the queue.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tqTags' - The list of tags to be added to the specified queue.
-tagQueue
-    :: Text -- ^ 'tqQueueURL'
-    -> TagQueue
-tagQueue pQueueURL_ = TagQueue' {_tqQueueURL = pQueueURL_, _tqTags = mempty}
-
+-- 'queueUrl', 'tagQueue_queueUrl' - The URL of the queue.
+--
+-- 'tags', 'tagQueue_tags' - The list of tags to be added to the specified queue.
+newTagQueue ::
+  -- | 'queueUrl'
+  Prelude.Text ->
+  TagQueue
+newTagQueue pQueueUrl_ =
+  TagQueue'
+    { queueUrl = pQueueUrl_,
+      tags = Prelude.mempty
+    }
 
 -- | The URL of the queue.
-tqQueueURL :: Lens' TagQueue Text
-tqQueueURL = lens _tqQueueURL (\ s a -> s{_tqQueueURL = a});
+tagQueue_queueUrl :: Lens.Lens' TagQueue Prelude.Text
+tagQueue_queueUrl = Lens.lens (\TagQueue' {queueUrl} -> queueUrl) (\s@TagQueue' {} a -> s {queueUrl = a} :: TagQueue)
 
 -- | The list of tags to be added to the specified queue.
-tqTags :: Lens' TagQueue (HashMap Text Text)
-tqTags = lens _tqTags (\ s a -> s{_tqTags = a}) . _Map;
+tagQueue_tags :: Lens.Lens' TagQueue (Prelude.HashMap Prelude.Text Prelude.Text)
+tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {tags = a} :: TagQueue) Prelude.. Lens._Coerce
 
-instance AWSRequest TagQueue where
-        type Rs TagQueue = TagQueueResponse
-        request = postQuery sqs
-        response = receiveNull TagQueueResponse'
+instance Core.AWSRequest TagQueue where
+  type AWSResponse TagQueue = TagQueueResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull TagQueueResponse'
 
-instance Hashable TagQueue where
+instance Prelude.Hashable TagQueue
 
-instance NFData TagQueue where
+instance Prelude.NFData TagQueue
 
-instance ToHeaders TagQueue where
-        toHeaders = const mempty
+instance Core.ToHeaders TagQueue where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath TagQueue where
-        toPath = const "/"
+instance Core.ToPath TagQueue where
+  toPath = Prelude.const "/"
 
-instance ToQuery TagQueue where
-        toQuery TagQueue'{..}
-          = mconcat
-              ["Action" =: ("TagQueue" :: ByteString),
-               "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _tqQueueURL,
-               toQueryMap "Tags" "Key" "Value" _tqTags]
+instance Core.ToQuery TagQueue where
+  toQuery TagQueue' {..} =
+    Prelude.mconcat
+      [ "Action" Core.=: ("TagQueue" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-11-05" :: Prelude.ByteString),
+        "QueueUrl" Core.=: queueUrl,
+        Core.toQueryMap "Tags" "Key" "Value" tags
+      ]
 
--- | /See:/ 'tagQueueResponse' smart constructor.
-data TagQueueResponse =
-  TagQueueResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newTagQueueResponse' smart constructor.
+data TagQueueResponse = TagQueueResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'TagQueueResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagQueueResponse' with all optional fields omitted.
 --
-tagQueueResponse
-    :: TagQueueResponse
-tagQueueResponse = TagQueueResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newTagQueueResponse ::
+  TagQueueResponse
+newTagQueueResponse = TagQueueResponse'
 
-
-instance NFData TagQueueResponse where
+instance Prelude.NFData TagQueueResponse

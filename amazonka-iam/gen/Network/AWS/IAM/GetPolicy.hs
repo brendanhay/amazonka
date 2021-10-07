@@ -1,132 +1,177 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.GetPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves information about the specified managed policy, including the policy's default version and the total number of IAM users, groups, and roles to which the policy is attached. To retrieve the list of the specific users, groups, and roles that the policy is attached to, use the 'ListEntitiesForPolicy' API. This API returns metadata about the policy. To retrieve the actual policy document for a specific version of the policy, use 'GetPolicyVersion' .
+-- Retrieves information about the specified managed policy, including the
+-- policy\'s default version and the total number of IAM users, groups, and
+-- roles to which the policy is attached. To retrieve the list of the
+-- specific users, groups, and roles that the policy is attached to, use
+-- ListEntitiesForPolicy. This operation returns metadata about the policy.
+-- To retrieve the actual policy document for a specific version of the
+-- policy, use GetPolicyVersion.
 --
+-- This operation retrieves information about managed policies. To retrieve
+-- information about an inline policy that is embedded with an IAM user,
+-- group, or role, use GetUserPolicy, GetGroupPolicy, or GetRolePolicy.
 --
--- This API retrieves information about managed policies. To retrieve information about an inline policy that is embedded with an IAM user, group, or role, use the 'GetUserPolicy' , 'GetGroupPolicy' , or 'GetRolePolicy' API.
---
--- For more information about policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
+-- For more information about policies, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.GetPolicy
-    (
-    -- * Creating a Request
-      getPolicy
-    , GetPolicy
+  ( -- * Creating a Request
+    GetPolicy (..),
+    newGetPolicy,
+
     -- * Request Lenses
-    , gpPolicyARN
+    getPolicy_policyArn,
 
     -- * Destructuring the Response
-    , getPolicyResponse
-    , GetPolicyResponse
+    GetPolicyResponse (..),
+    newGetPolicyResponse,
+
     -- * Response Lenses
-    , gprsPolicy
-    , gprsResponseStatus
-    ) where
+    getPolicyResponse_policy,
+    getPolicyResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getPolicy' smart constructor.
-newtype GetPolicy = GetPolicy'
-  { _gpPolicyARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetPolicy' smart constructor.
+data GetPolicy = GetPolicy'
+  { -- | The Amazon Resource Name (ARN) of the managed policy that you want
+    -- information about.
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /Amazon Web Services General Reference/.
+    policyArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gpPolicyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-getPolicy
-    :: Text -- ^ 'gpPolicyARN'
-    -> GetPolicy
-getPolicy pPolicyARN_ = GetPolicy' {_gpPolicyARN = pPolicyARN_}
-
-
--- | The Amazon Resource Name (ARN) of the managed policy that you want information about. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-gpPolicyARN :: Lens' GetPolicy Text
-gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
-
-instance AWSRequest GetPolicy where
-        type Rs GetPolicy = GetPolicyResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "GetPolicyResult"
-              (\ s h x ->
-                 GetPolicyResponse' <$>
-                   (x .@? "Policy") <*> (pure (fromEnum s)))
-
-instance Hashable GetPolicy where
-
-instance NFData GetPolicy where
-
-instance ToHeaders GetPolicy where
-        toHeaders = const mempty
-
-instance ToPath GetPolicy where
-        toPath = const "/"
-
-instance ToQuery GetPolicy where
-        toQuery GetPolicy'{..}
-          = mconcat
-              ["Action" =: ("GetPolicy" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _gpPolicyARN]
-
--- | Contains the response to a successful 'GetPolicy' request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
+-- 'policyArn', 'getPolicy_policyArn' - The Amazon Resource Name (ARN) of the managed policy that you want
+-- information about.
 --
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+newGetPolicy ::
+  -- | 'policyArn'
+  Prelude.Text ->
+  GetPolicy
+newGetPolicy pPolicyArn_ =
+  GetPolicy' {policyArn = pPolicyArn_}
+
+-- | The Amazon Resource Name (ARN) of the managed policy that you want
+-- information about.
 --
--- /See:/ 'getPolicyResponse' smart constructor.
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+getPolicy_policyArn :: Lens.Lens' GetPolicy Prelude.Text
+getPolicy_policyArn = Lens.lens (\GetPolicy' {policyArn} -> policyArn) (\s@GetPolicy' {} a -> s {policyArn = a} :: GetPolicy)
+
+instance Core.AWSRequest GetPolicy where
+  type AWSResponse GetPolicy = GetPolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetPolicyResult"
+      ( \s h x ->
+          GetPolicyResponse'
+            Prelude.<$> (x Core..@? "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetPolicy
+
+instance Prelude.NFData GetPolicy
+
+instance Core.ToHeaders GetPolicy where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath GetPolicy where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetPolicy where
+  toQuery GetPolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetPolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "PolicyArn" Core.=: policyArn
+      ]
+
+-- | Contains the response to a successful GetPolicy request.
+--
+-- /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicy         :: !(Maybe Policy)
-  , _gprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A structure containing details about the policy.
+    policy :: Prelude.Maybe Policy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gprsPolicy' - A structure containing details about the policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gprsResponseStatus' - -- | The response status code.
-getPolicyResponse
-    :: Int -- ^ 'gprsResponseStatus'
-    -> GetPolicyResponse
-getPolicyResponse pResponseStatus_ =
+-- 'policy', 'getPolicyResponse_policy' - A structure containing details about the policy.
+--
+-- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
+newGetPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetPolicyResponse
+newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-  {_gprsPolicy = Nothing, _gprsResponseStatus = pResponseStatus_}
-
+    { policy = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A structure containing details about the policy.
-gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
-gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
+getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Policy)
+getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a});
+-- | The response's http status code.
+getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
+getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
-instance NFData GetPolicyResponse where
+instance Prelude.NFData GetPolicyResponse

@@ -1,116 +1,147 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector.RegisterCrossAccountAccessRole
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the 'PreviewAgents' action.
---
---
+-- Registers the IAM role that grants Amazon Inspector access to AWS
+-- Services needed to perform security assessments.
 module Network.AWS.Inspector.RegisterCrossAccountAccessRole
-    (
-    -- * Creating a Request
-      registerCrossAccountAccessRole
-    , RegisterCrossAccountAccessRole
+  ( -- * Creating a Request
+    RegisterCrossAccountAccessRole (..),
+    newRegisterCrossAccountAccessRole,
+
     -- * Request Lenses
-    , rcaarRoleARN
+    registerCrossAccountAccessRole_roleArn,
 
     -- * Destructuring the Response
-    , registerCrossAccountAccessRoleResponse
-    , RegisterCrossAccountAccessRoleResponse
-    ) where
+    RegisterCrossAccountAccessRoleResponse (..),
+    newRegisterCrossAccountAccessRoleResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'registerCrossAccountAccessRole' smart constructor.
-newtype RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
-  { _rcaarRoleARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRegisterCrossAccountAccessRole' smart constructor.
+data RegisterCrossAccountAccessRole = RegisterCrossAccountAccessRole'
+  { -- | The ARN of the IAM role that grants Amazon Inspector access to AWS
+    -- Services needed to perform security assessments.
+    roleArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterCrossAccountAccessRole' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterCrossAccountAccessRole' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rcaarRoleARN' - The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the 'PreviewAgents' action.
-registerCrossAccountAccessRole
-    :: Text -- ^ 'rcaarRoleARN'
-    -> RegisterCrossAccountAccessRole
-registerCrossAccountAccessRole pRoleARN_ =
-  RegisterCrossAccountAccessRole' {_rcaarRoleARN = pRoleARN_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'roleArn', 'registerCrossAccountAccessRole_roleArn' - The ARN of the IAM role that grants Amazon Inspector access to AWS
+-- Services needed to perform security assessments.
+newRegisterCrossAccountAccessRole ::
+  -- | 'roleArn'
+  Prelude.Text ->
+  RegisterCrossAccountAccessRole
+newRegisterCrossAccountAccessRole pRoleArn_ =
+  RegisterCrossAccountAccessRole'
+    { roleArn =
+        pRoleArn_
+    }
 
+-- | The ARN of the IAM role that grants Amazon Inspector access to AWS
+-- Services needed to perform security assessments.
+registerCrossAccountAccessRole_roleArn :: Lens.Lens' RegisterCrossAccountAccessRole Prelude.Text
+registerCrossAccountAccessRole_roleArn = Lens.lens (\RegisterCrossAccountAccessRole' {roleArn} -> roleArn) (\s@RegisterCrossAccountAccessRole' {} a -> s {roleArn = a} :: RegisterCrossAccountAccessRole)
 
--- | The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the 'PreviewAgents' action.
-rcaarRoleARN :: Lens' RegisterCrossAccountAccessRole Text
-rcaarRoleARN = lens _rcaarRoleARN (\ s a -> s{_rcaarRoleARN = a});
+instance
+  Core.AWSRequest
+    RegisterCrossAccountAccessRole
+  where
+  type
+    AWSResponse RegisterCrossAccountAccessRole =
+      RegisterCrossAccountAccessRoleResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      RegisterCrossAccountAccessRoleResponse'
 
-instance AWSRequest RegisterCrossAccountAccessRole
-         where
-        type Rs RegisterCrossAccountAccessRole =
-             RegisterCrossAccountAccessRoleResponse
-        request = postJSON inspector
-        response
-          = receiveNull RegisterCrossAccountAccessRoleResponse'
+instance
+  Prelude.Hashable
+    RegisterCrossAccountAccessRole
 
-instance Hashable RegisterCrossAccountAccessRole
-         where
+instance
+  Prelude.NFData
+    RegisterCrossAccountAccessRole
 
-instance NFData RegisterCrossAccountAccessRole where
+instance
+  Core.ToHeaders
+    RegisterCrossAccountAccessRole
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "InspectorService.RegisterCrossAccountAccessRole" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders RegisterCrossAccountAccessRole
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("InspectorService.RegisterCrossAccountAccessRole" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON RegisterCrossAccountAccessRole where
+  toJSON RegisterCrossAccountAccessRole' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("roleArn" Core..= roleArn)]
+      )
 
-instance ToJSON RegisterCrossAccountAccessRole where
-        toJSON RegisterCrossAccountAccessRole'{..}
-          = object
-              (catMaybes [Just ("roleArn" .= _rcaarRoleARN)])
+instance Core.ToPath RegisterCrossAccountAccessRole where
+  toPath = Prelude.const "/"
 
-instance ToPath RegisterCrossAccountAccessRole where
-        toPath = const "/"
+instance Core.ToQuery RegisterCrossAccountAccessRole where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery RegisterCrossAccountAccessRole where
-        toQuery = const mempty
+-- | /See:/ 'newRegisterCrossAccountAccessRoleResponse' smart constructor.
+data RegisterCrossAccountAccessRoleResponse = RegisterCrossAccountAccessRoleResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'registerCrossAccountAccessRoleResponse' smart constructor.
-data RegisterCrossAccountAccessRoleResponse =
+-- |
+-- Create a value of 'RegisterCrossAccountAccessRoleResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRegisterCrossAccountAccessRoleResponse ::
+  RegisterCrossAccountAccessRoleResponse
+newRegisterCrossAccountAccessRoleResponse =
   RegisterCrossAccountAccessRoleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'RegisterCrossAccountAccessRoleResponse' with the minimum fields required to make a request.
---
-registerCrossAccountAccessRoleResponse
-    :: RegisterCrossAccountAccessRoleResponse
-registerCrossAccountAccessRoleResponse = RegisterCrossAccountAccessRoleResponse'
-
-
-instance NFData
-           RegisterCrossAccountAccessRoleResponse
-         where
+instance
+  Prelude.NFData
+    RegisterCrossAccountAccessRoleResponse

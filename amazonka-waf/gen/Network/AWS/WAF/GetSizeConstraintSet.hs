@@ -1,136 +1,213 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAF.GetSizeConstraintSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the 'SizeConstraintSet' specified by @SizeConstraintSetId@ .
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
+-- Returns the SizeConstraintSet specified by @SizeConstraintSetId@.
 module Network.AWS.WAF.GetSizeConstraintSet
-    (
-    -- * Creating a Request
-      getSizeConstraintSet
-    , GetSizeConstraintSet
+  ( -- * Creating a Request
+    GetSizeConstraintSet (..),
+    newGetSizeConstraintSet,
+
     -- * Request Lenses
-    , gscsSizeConstraintSetId
+    getSizeConstraintSet_sizeConstraintSetId,
 
     -- * Destructuring the Response
-    , getSizeConstraintSetResponse
-    , GetSizeConstraintSetResponse
+    GetSizeConstraintSetResponse (..),
+    newGetSizeConstraintSetResponse,
+
     -- * Response Lenses
-    , gscsrsSizeConstraintSet
-    , gscsrsResponseStatus
-    ) where
+    getSizeConstraintSetResponse_sizeConstraintSet,
+    getSizeConstraintSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
-import Network.AWS.WAF.Types.Product
 
--- | /See:/ 'getSizeConstraintSet' smart constructor.
-newtype GetSizeConstraintSet = GetSizeConstraintSet'
-  { _gscsSizeConstraintSetId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetSizeConstraintSet' smart constructor.
+data GetSizeConstraintSet = GetSizeConstraintSet'
+  { -- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to get.
+    -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
+    -- ListSizeConstraintSets.
+    sizeConstraintSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetSizeConstraintSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSizeConstraintSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gscsSizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-getSizeConstraintSet
-    :: Text -- ^ 'gscsSizeConstraintSetId'
-    -> GetSizeConstraintSet
-getSizeConstraintSet pSizeConstraintSetId_ =
-  GetSizeConstraintSet' {_gscsSizeConstraintSetId = pSizeConstraintSetId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'sizeConstraintSetId', 'getSizeConstraintSet_sizeConstraintSetId' - The @SizeConstraintSetId@ of the SizeConstraintSet that you want to get.
+-- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
+-- ListSizeConstraintSets.
+newGetSizeConstraintSet ::
+  -- | 'sizeConstraintSetId'
+  Prelude.Text ->
+  GetSizeConstraintSet
+newGetSizeConstraintSet pSizeConstraintSetId_ =
+  GetSizeConstraintSet'
+    { sizeConstraintSetId =
+        pSizeConstraintSetId_
+    }
 
+-- | The @SizeConstraintSetId@ of the SizeConstraintSet that you want to get.
+-- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
+-- ListSizeConstraintSets.
+getSizeConstraintSet_sizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Prelude.Text
+getSizeConstraintSet_sizeConstraintSetId = Lens.lens (\GetSizeConstraintSet' {sizeConstraintSetId} -> sizeConstraintSetId) (\s@GetSizeConstraintSet' {} a -> s {sizeConstraintSetId = a} :: GetSizeConstraintSet)
 
--- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-gscsSizeConstraintSetId :: Lens' GetSizeConstraintSet Text
-gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\ s a -> s{_gscsSizeConstraintSetId = a});
+instance Core.AWSRequest GetSizeConstraintSet where
+  type
+    AWSResponse GetSizeConstraintSet =
+      GetSizeConstraintSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetSizeConstraintSetResponse'
+            Prelude.<$> (x Core..?> "SizeConstraintSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetSizeConstraintSet where
-        type Rs GetSizeConstraintSet =
-             GetSizeConstraintSetResponse
-        request = postJSON waf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetSizeConstraintSetResponse' <$>
-                   (x .?> "SizeConstraintSet") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetSizeConstraintSet
 
-instance Hashable GetSizeConstraintSet where
+instance Prelude.NFData GetSizeConstraintSet
 
-instance NFData GetSizeConstraintSet where
+instance Core.ToHeaders GetSizeConstraintSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_20150824.GetSizeConstraintSet" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetSizeConstraintSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_20150824.GetSizeConstraintSet" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetSizeConstraintSet where
+  toJSON GetSizeConstraintSet' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("SizeConstraintSetId" Core..= sizeConstraintSetId)
+          ]
+      )
 
-instance ToJSON GetSizeConstraintSet where
-        toJSON GetSizeConstraintSet'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("SizeConstraintSetId" .= _gscsSizeConstraintSetId)])
+instance Core.ToPath GetSizeConstraintSet where
+  toPath = Prelude.const "/"
 
-instance ToPath GetSizeConstraintSet where
-        toPath = const "/"
+instance Core.ToQuery GetSizeConstraintSet where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetSizeConstraintSet where
-        toQuery = const mempty
-
--- | /See:/ 'getSizeConstraintSetResponse' smart constructor.
+-- | /See:/ 'newGetSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
-  { _gscsrsSizeConstraintSet :: !(Maybe SizeConstraintSet)
-  , _gscsrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the SizeConstraintSet that you specified in the
+    -- @GetSizeConstraintSet@ request. For more information, see the following
+    -- topics:
+    --
+    -- -   SizeConstraintSet: Contains @SizeConstraintSetId@,
+    --     @SizeConstraints@, and @Name@
+    --
+    -- -   @SizeConstraints@: Contains an array of SizeConstraint objects. Each
+    --     @SizeConstraint@ object contains FieldToMatch, @TextTransformation@,
+    --     @ComparisonOperator@, and @Size@
+    --
+    -- -   FieldToMatch: Contains @Data@ and @Type@
+    sizeConstraintSet :: Prelude.Maybe SizeConstraintSet,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetSizeConstraintSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSizeConstraintSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gscsrsSizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gscsrsResponseStatus' - -- | The response status code.
-getSizeConstraintSetResponse
-    :: Int -- ^ 'gscsrsResponseStatus'
-    -> GetSizeConstraintSetResponse
-getSizeConstraintSetResponse pResponseStatus_ =
+-- 'sizeConstraintSet', 'getSizeConstraintSetResponse_sizeConstraintSet' - Information about the SizeConstraintSet that you specified in the
+-- @GetSizeConstraintSet@ request. For more information, see the following
+-- topics:
+--
+-- -   SizeConstraintSet: Contains @SizeConstraintSetId@,
+--     @SizeConstraints@, and @Name@
+--
+-- -   @SizeConstraints@: Contains an array of SizeConstraint objects. Each
+--     @SizeConstraint@ object contains FieldToMatch, @TextTransformation@,
+--     @ComparisonOperator@, and @Size@
+--
+-- -   FieldToMatch: Contains @Data@ and @Type@
+--
+-- 'httpStatus', 'getSizeConstraintSetResponse_httpStatus' - The response's http status code.
+newGetSizeConstraintSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetSizeConstraintSetResponse
+newGetSizeConstraintSetResponse pHttpStatus_ =
   GetSizeConstraintSetResponse'
-  {_gscsrsSizeConstraintSet = Nothing, _gscsrsResponseStatus = pResponseStatus_}
+    { sizeConstraintSet =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the SizeConstraintSet that you specified in the
+-- @GetSizeConstraintSet@ request. For more information, see the following
+-- topics:
+--
+-- -   SizeConstraintSet: Contains @SizeConstraintSetId@,
+--     @SizeConstraints@, and @Name@
+--
+-- -   @SizeConstraints@: Contains an array of SizeConstraint objects. Each
+--     @SizeConstraint@ object contains FieldToMatch, @TextTransformation@,
+--     @ComparisonOperator@, and @Size@
+--
+-- -   FieldToMatch: Contains @Data@ and @Type@
+getSizeConstraintSetResponse_sizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Prelude.Maybe SizeConstraintSet)
+getSizeConstraintSetResponse_sizeConstraintSet = Lens.lens (\GetSizeConstraintSetResponse' {sizeConstraintSet} -> sizeConstraintSet) (\s@GetSizeConstraintSetResponse' {} a -> s {sizeConstraintSet = a} :: GetSizeConstraintSetResponse)
 
--- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
-gscsrsSizeConstraintSet :: Lens' GetSizeConstraintSetResponse (Maybe SizeConstraintSet)
-gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\ s a -> s{_gscsrsSizeConstraintSet = a});
+-- | The response's http status code.
+getSizeConstraintSetResponse_httpStatus :: Lens.Lens' GetSizeConstraintSetResponse Prelude.Int
+getSizeConstraintSetResponse_httpStatus = Lens.lens (\GetSizeConstraintSetResponse' {httpStatus} -> httpStatus) (\s@GetSizeConstraintSetResponse' {} a -> s {httpStatus = a} :: GetSizeConstraintSetResponse)
 
--- | -- | The response status code.
-gscsrsResponseStatus :: Lens' GetSizeConstraintSetResponse Int
-gscsrsResponseStatus = lens _gscsrsResponseStatus (\ s a -> s{_gscsrsResponseStatus = a});
-
-instance NFData GetSizeConstraintSetResponse where
+instance Prelude.NFData GetSizeConstraintSetResponse

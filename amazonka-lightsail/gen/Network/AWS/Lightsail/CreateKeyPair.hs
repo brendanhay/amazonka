@@ -1,163 +1,225 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateKeyPair
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates sn SSH key pair.
+-- Creates an SSH key pair.
 --
---
+-- The @create key pair@ operation supports tag-based access control via
+-- request tags. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateKeyPair
-    (
-    -- * Creating a Request
-      createKeyPair
-    , CreateKeyPair
+  ( -- * Creating a Request
+    CreateKeyPair (..),
+    newCreateKeyPair,
+
     -- * Request Lenses
-    , ckpKeyPairName
+    createKeyPair_tags,
+    createKeyPair_keyPairName,
 
     -- * Destructuring the Response
-    , createKeyPairResponse
-    , CreateKeyPairResponse
+    CreateKeyPairResponse (..),
+    newCreateKeyPairResponse,
+
     -- * Response Lenses
-    , ckprsKeyPair
-    , ckprsOperation
-    , ckprsPublicKeyBase64
-    , ckprsPrivateKeyBase64
-    , ckprsResponseStatus
-    ) where
+    createKeyPairResponse_keyPair,
+    createKeyPairResponse_privateKeyBase64,
+    createKeyPairResponse_operation,
+    createKeyPairResponse_publicKeyBase64,
+    createKeyPairResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createKeyPair' smart constructor.
-newtype CreateKeyPair = CreateKeyPair'
-  { _ckpKeyPairName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateKeyPair' smart constructor.
+data CreateKeyPair = CreateKeyPair'
+  { -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name for your new key pair.
+    keyPairName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateKeyPair' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ckpKeyPairName' - The name for your new key pair.
-createKeyPair
-    :: Text -- ^ 'ckpKeyPairName'
-    -> CreateKeyPair
-createKeyPair pKeyPairName_ = CreateKeyPair' {_ckpKeyPairName = pKeyPairName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'createKeyPair_tags' - The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- 'keyPairName', 'createKeyPair_keyPairName' - The name for your new key pair.
+newCreateKeyPair ::
+  -- | 'keyPairName'
+  Prelude.Text ->
+  CreateKeyPair
+newCreateKeyPair pKeyPairName_ =
+  CreateKeyPair'
+    { tags = Prelude.Nothing,
+      keyPairName = pKeyPairName_
+    }
 
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createKeyPair_tags :: Lens.Lens' CreateKeyPair (Prelude.Maybe [Tag])
+createKeyPair_tags = Lens.lens (\CreateKeyPair' {tags} -> tags) (\s@CreateKeyPair' {} a -> s {tags = a} :: CreateKeyPair) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name for your new key pair.
-ckpKeyPairName :: Lens' CreateKeyPair Text
-ckpKeyPairName = lens _ckpKeyPairName (\ s a -> s{_ckpKeyPairName = a});
+createKeyPair_keyPairName :: Lens.Lens' CreateKeyPair Prelude.Text
+createKeyPair_keyPairName = Lens.lens (\CreateKeyPair' {keyPairName} -> keyPairName) (\s@CreateKeyPair' {} a -> s {keyPairName = a} :: CreateKeyPair)
 
-instance AWSRequest CreateKeyPair where
-        type Rs CreateKeyPair = CreateKeyPairResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateKeyPairResponse' <$>
-                   (x .?> "keyPair") <*> (x .?> "operation") <*>
-                     (x .?> "publicKeyBase64")
-                     <*> (x .?> "privateKeyBase64")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateKeyPair where
+  type
+    AWSResponse CreateKeyPair =
+      CreateKeyPairResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateKeyPairResponse'
+            Prelude.<$> (x Core..?> "keyPair")
+            Prelude.<*> (x Core..?> "privateKeyBase64")
+            Prelude.<*> (x Core..?> "operation")
+            Prelude.<*> (x Core..?> "publicKeyBase64")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateKeyPair where
+instance Prelude.Hashable CreateKeyPair
 
-instance NFData CreateKeyPair where
+instance Prelude.NFData CreateKeyPair
 
-instance ToHeaders CreateKeyPair where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.CreateKeyPair" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateKeyPair where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.CreateKeyPair" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateKeyPair where
-        toJSON CreateKeyPair'{..}
-          = object
-              (catMaybes [Just ("keyPairName" .= _ckpKeyPairName)])
+instance Core.ToJSON CreateKeyPair where
+  toJSON CreateKeyPair' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("keyPairName" Core..= keyPairName)
+          ]
+      )
 
-instance ToPath CreateKeyPair where
-        toPath = const "/"
+instance Core.ToPath CreateKeyPair where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateKeyPair where
-        toQuery = const mempty
+instance Core.ToQuery CreateKeyPair where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createKeyPairResponse' smart constructor.
+-- | /See:/ 'newCreateKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
-  { _ckprsKeyPair          :: !(Maybe KeyPair)
-  , _ckprsOperation        :: !(Maybe Operation)
-  , _ckprsPublicKeyBase64  :: !(Maybe Text)
-  , _ckprsPrivateKeyBase64 :: !(Maybe Text)
-  , _ckprsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ckprsKeyPair' - An array of key-value pairs containing information about the new key pair you just created.
---
--- * 'ckprsOperation' - An array of key-value pairs containing information about the results of your create key pair request.
---
--- * 'ckprsPublicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
---
--- * 'ckprsPrivateKeyBase64' - A base64-encoded RSA private key.
---
--- * 'ckprsResponseStatus' - -- | The response status code.
-createKeyPairResponse
-    :: Int -- ^ 'ckprsResponseStatus'
-    -> CreateKeyPairResponse
-createKeyPairResponse pResponseStatus_ =
-  CreateKeyPairResponse'
-  { _ckprsKeyPair = Nothing
-  , _ckprsOperation = Nothing
-  , _ckprsPublicKeyBase64 = Nothing
-  , _ckprsPrivateKeyBase64 = Nothing
-  , _ckprsResponseStatus = pResponseStatus_
+  { -- | An array of key-value pairs containing information about the new key
+    -- pair you just created.
+    keyPair :: Prelude.Maybe KeyPair,
+    -- | A base64-encoded RSA private key.
+    privateKeyBase64 :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
+    -- | A base64-encoded public key of the @ssh-rsa@ type.
+    publicKeyBase64 :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateKeyPairResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'keyPair', 'createKeyPairResponse_keyPair' - An array of key-value pairs containing information about the new key
+-- pair you just created.
+--
+-- 'privateKeyBase64', 'createKeyPairResponse_privateKeyBase64' - A base64-encoded RSA private key.
+--
+-- 'operation', 'createKeyPairResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'publicKeyBase64', 'createKeyPairResponse_publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
+--
+-- 'httpStatus', 'createKeyPairResponse_httpStatus' - The response's http status code.
+newCreateKeyPairResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateKeyPairResponse
+newCreateKeyPairResponse pHttpStatus_ =
+  CreateKeyPairResponse'
+    { keyPair = Prelude.Nothing,
+      privateKeyBase64 = Prelude.Nothing,
+      operation = Prelude.Nothing,
+      publicKeyBase64 = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | An array of key-value pairs containing information about the new key pair you just created.
-ckprsKeyPair :: Lens' CreateKeyPairResponse (Maybe KeyPair)
-ckprsKeyPair = lens _ckprsKeyPair (\ s a -> s{_ckprsKeyPair = a});
-
--- | An array of key-value pairs containing information about the results of your create key pair request.
-ckprsOperation :: Lens' CreateKeyPairResponse (Maybe Operation)
-ckprsOperation = lens _ckprsOperation (\ s a -> s{_ckprsOperation = a});
-
--- | A base64-encoded public key of the @ssh-rsa@ type.
-ckprsPublicKeyBase64 :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsPublicKeyBase64 = lens _ckprsPublicKeyBase64 (\ s a -> s{_ckprsPublicKeyBase64 = a});
+-- | An array of key-value pairs containing information about the new key
+-- pair you just created.
+createKeyPairResponse_keyPair :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe KeyPair)
+createKeyPairResponse_keyPair = Lens.lens (\CreateKeyPairResponse' {keyPair} -> keyPair) (\s@CreateKeyPairResponse' {} a -> s {keyPair = a} :: CreateKeyPairResponse)
 
 -- | A base64-encoded RSA private key.
-ckprsPrivateKeyBase64 :: Lens' CreateKeyPairResponse (Maybe Text)
-ckprsPrivateKeyBase64 = lens _ckprsPrivateKeyBase64 (\ s a -> s{_ckprsPrivateKeyBase64 = a});
+createKeyPairResponse_privateKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Prelude.Text)
+createKeyPairResponse_privateKeyBase64 = Lens.lens (\CreateKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@CreateKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: CreateKeyPairResponse)
 
--- | -- | The response status code.
-ckprsResponseStatus :: Lens' CreateKeyPairResponse Int
-ckprsResponseStatus = lens _ckprsResponseStatus (\ s a -> s{_ckprsResponseStatus = a});
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+createKeyPairResponse_operation :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Operation)
+createKeyPairResponse_operation = Lens.lens (\CreateKeyPairResponse' {operation} -> operation) (\s@CreateKeyPairResponse' {} a -> s {operation = a} :: CreateKeyPairResponse)
 
-instance NFData CreateKeyPairResponse where
+-- | A base64-encoded public key of the @ssh-rsa@ type.
+createKeyPairResponse_publicKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe Prelude.Text)
+createKeyPairResponse_publicKeyBase64 = Lens.lens (\CreateKeyPairResponse' {publicKeyBase64} -> publicKeyBase64) (\s@CreateKeyPairResponse' {} a -> s {publicKeyBase64 = a} :: CreateKeyPairResponse)
+
+-- | The response's http status code.
+createKeyPairResponse_httpStatus :: Lens.Lens' CreateKeyPairResponse Prelude.Int
+createKeyPairResponse_httpStatus = Lens.lens (\CreateKeyPairResponse' {httpStatus} -> httpStatus) (\s@CreateKeyPairResponse' {} a -> s {httpStatus = a} :: CreateKeyPairResponse)
+
+instance Prelude.NFData CreateKeyPairResponse

@@ -1,177 +1,255 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.
+-- Describes your account\'s Reserved Instance listings in the Reserved
+-- Instance Marketplace.
 --
+-- The Reserved Instance Marketplace matches sellers who want to resell
+-- Reserved Instance capacity that they no longer need with buyers who want
+-- to purchase additional capacity. Reserved Instances bought and sold
+-- through the Reserved Instance Marketplace work like any other Reserved
+-- Instances.
 --
--- The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.
+-- As a seller, you choose to list some or all of your Reserved Instances,
+-- and you specify the upfront price to receive for them. Your Reserved
+-- Instances are then listed in the Reserved Instance Marketplace and are
+-- available for purchase.
 --
--- As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.
+-- As a buyer, you specify the configuration of the Reserved Instance to
+-- purchase, and the Marketplace matches what you\'re searching for with
+-- what\'s available. The Marketplace first sells the lowest priced
+-- Reserved Instances to you, and continues to sell available Reserved
+-- Instance listings to you until your demand is met. You are charged based
+-- on the total price of all of the listings that you purchase.
 --
--- As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.
---
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /Amazon Elastic Compute Cloud User Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
+-- in the /Amazon EC2 User Guide/.
 module Network.AWS.EC2.DescribeReservedInstancesListings
-    (
-    -- * Creating a Request
-      describeReservedInstancesListings
-    , DescribeReservedInstancesListings
+  ( -- * Creating a Request
+    DescribeReservedInstancesListings (..),
+    newDescribeReservedInstancesListings,
+
     -- * Request Lenses
-    , drilFilters
-    , drilReservedInstancesId
-    , drilReservedInstancesListingId
+    describeReservedInstancesListings_reservedInstancesId,
+    describeReservedInstancesListings_reservedInstancesListingId,
+    describeReservedInstancesListings_filters,
 
     -- * Destructuring the Response
-    , describeReservedInstancesListingsResponse
-    , DescribeReservedInstancesListingsResponse
-    -- * Response Lenses
-    , drilrsReservedInstancesListings
-    , drilrsResponseStatus
-    ) where
+    DescribeReservedInstancesListingsResponse (..),
+    newDescribeReservedInstancesListingsResponse,
 
+    -- * Response Lenses
+    describeReservedInstancesListingsResponse_reservedInstancesListings,
+    describeReservedInstancesListingsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeReservedInstancesListings.
 --
---
---
--- /See:/ 'describeReservedInstancesListings' smart constructor.
+-- /See:/ 'newDescribeReservedInstancesListings' smart constructor.
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-  { _drilFilters                    :: !(Maybe [Filter])
-  , _drilReservedInstancesId        :: !(Maybe Text)
-  , _drilReservedInstancesListingId :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeReservedInstancesListings' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drilFilters' - One or more filters.     * @reserved-instances-id@ - The ID of the Reserved Instances.     * @reserved-instances-listing-id@ - The ID of the Reserved Instances listing.     * @status@ - The status of the Reserved Instance listing (@pending@ | @active@ | @cancelled@ | @closed@ ).     * @status-message@ - The reason for the status.
---
--- * 'drilReservedInstancesId' - One or more Reserved Instance IDs.
---
--- * 'drilReservedInstancesListingId' - One or more Reserved Instance listing IDs.
-describeReservedInstancesListings
-    :: DescribeReservedInstancesListings
-describeReservedInstancesListings =
-  DescribeReservedInstancesListings'
-  { _drilFilters = Nothing
-  , _drilReservedInstancesId = Nothing
-  , _drilReservedInstancesListingId = Nothing
+  { -- | One or more Reserved Instance IDs.
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
+    -- | One or more Reserved Instance listing IDs.
+    reservedInstancesListingId :: Prelude.Maybe Prelude.Text,
+    -- | One or more filters.
+    --
+    -- -   @reserved-instances-id@ - The ID of the Reserved Instances.
+    --
+    -- -   @reserved-instances-listing-id@ - The ID of the Reserved Instances
+    --     listing.
+    --
+    -- -   @status@ - The status of the Reserved Instance listing (@pending@ |
+    --     @active@ | @cancelled@ | @closed@).
+    --
+    -- -   @status-message@ - The reason for the status.
+    filters :: Prelude.Maybe [Filter]
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | One or more filters.     * @reserved-instances-id@ - The ID of the Reserved Instances.     * @reserved-instances-listing-id@ - The ID of the Reserved Instances listing.     * @status@ - The status of the Reserved Instance listing (@pending@ | @active@ | @cancelled@ | @closed@ ).     * @status-message@ - The reason for the status.
-drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default . _Coerce;
+-- |
+-- Create a value of 'DescribeReservedInstancesListings' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'reservedInstancesId', 'describeReservedInstancesListings_reservedInstancesId' - One or more Reserved Instance IDs.
+--
+-- 'reservedInstancesListingId', 'describeReservedInstancesListings_reservedInstancesListingId' - One or more Reserved Instance listing IDs.
+--
+-- 'filters', 'describeReservedInstancesListings_filters' - One or more filters.
+--
+-- -   @reserved-instances-id@ - The ID of the Reserved Instances.
+--
+-- -   @reserved-instances-listing-id@ - The ID of the Reserved Instances
+--     listing.
+--
+-- -   @status@ - The status of the Reserved Instance listing (@pending@ |
+--     @active@ | @cancelled@ | @closed@).
+--
+-- -   @status-message@ - The reason for the status.
+newDescribeReservedInstancesListings ::
+  DescribeReservedInstancesListings
+newDescribeReservedInstancesListings =
+  DescribeReservedInstancesListings'
+    { reservedInstancesId =
+        Prelude.Nothing,
+      reservedInstancesListingId =
+        Prelude.Nothing,
+      filters = Prelude.Nothing
+    }
 
 -- | One or more Reserved Instance IDs.
-drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReservedInstancesId = a});
+describeReservedInstancesListings_reservedInstancesId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
+describeReservedInstancesListings_reservedInstancesId = Lens.lens (\DescribeReservedInstancesListings' {reservedInstancesId} -> reservedInstancesId) (\s@DescribeReservedInstancesListings' {} a -> s {reservedInstancesId = a} :: DescribeReservedInstancesListings)
 
 -- | One or more Reserved Instance listing IDs.
-drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a});
+describeReservedInstancesListings_reservedInstancesListingId :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe Prelude.Text)
+describeReservedInstancesListings_reservedInstancesListingId = Lens.lens (\DescribeReservedInstancesListings' {reservedInstancesListingId} -> reservedInstancesListingId) (\s@DescribeReservedInstancesListings' {} a -> s {reservedInstancesListingId = a} :: DescribeReservedInstancesListings)
 
-instance AWSRequest DescribeReservedInstancesListings
-         where
-        type Rs DescribeReservedInstancesListings =
-             DescribeReservedInstancesListingsResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeReservedInstancesListingsResponse' <$>
-                   (x .@? "reservedInstancesListingsSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+-- | One or more filters.
+--
+-- -   @reserved-instances-id@ - The ID of the Reserved Instances.
+--
+-- -   @reserved-instances-listing-id@ - The ID of the Reserved Instances
+--     listing.
+--
+-- -   @status@ - The status of the Reserved Instance listing (@pending@ |
+--     @active@ | @cancelled@ | @closed@).
+--
+-- -   @status-message@ - The reason for the status.
+describeReservedInstancesListings_filters :: Lens.Lens' DescribeReservedInstancesListings (Prelude.Maybe [Filter])
+describeReservedInstancesListings_filters = Lens.lens (\DescribeReservedInstancesListings' {filters} -> filters) (\s@DescribeReservedInstancesListings' {} a -> s {filters = a} :: DescribeReservedInstancesListings) Prelude.. Lens.mapping Lens._Coerce
 
-instance Hashable DescribeReservedInstancesListings
-         where
+instance
+  Core.AWSRequest
+    DescribeReservedInstancesListings
+  where
+  type
+    AWSResponse DescribeReservedInstancesListings =
+      DescribeReservedInstancesListingsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeReservedInstancesListingsResponse'
+            Prelude.<$> ( x Core..@? "reservedInstancesListingsSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "item")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeReservedInstancesListings
-         where
+instance
+  Prelude.Hashable
+    DescribeReservedInstancesListings
 
-instance ToHeaders DescribeReservedInstancesListings
-         where
-        toHeaders = const mempty
+instance
+  Prelude.NFData
+    DescribeReservedInstancesListings
 
-instance ToPath DescribeReservedInstancesListings
-         where
-        toPath = const "/"
+instance
+  Core.ToHeaders
+    DescribeReservedInstancesListings
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeReservedInstancesListings
-         where
-        toQuery DescribeReservedInstancesListings'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeReservedInstancesListings" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drilFilters),
-               "ReservedInstancesId" =: _drilReservedInstancesId,
-               "ReservedInstancesListingId" =:
-                 _drilReservedInstancesListingId]
+instance
+  Core.ToPath
+    DescribeReservedInstancesListings
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Core.ToQuery
+    DescribeReservedInstancesListings
+  where
+  toQuery DescribeReservedInstancesListings' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "DescribeReservedInstancesListings" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ReservedInstancesId" Core.=: reservedInstancesId,
+        "ReservedInstancesListingId"
+          Core.=: reservedInstancesListingId,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters)
+      ]
 
 -- | Contains the output of DescribeReservedInstancesListings.
 --
---
---
--- /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
+-- /See:/ 'newDescribeReservedInstancesListingsResponse' smart constructor.
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
-  { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-  , _drilrsResponseStatus            :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeReservedInstancesListingsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drilrsReservedInstancesListings' - Information about the Reserved Instance listing.
---
--- * 'drilrsResponseStatus' - -- | The response status code.
-describeReservedInstancesListingsResponse
-    :: Int -- ^ 'drilrsResponseStatus'
-    -> DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse pResponseStatus_ =
-  DescribeReservedInstancesListingsResponse'
-  { _drilrsReservedInstancesListings = Nothing
-  , _drilrsResponseStatus = pResponseStatus_
+  { -- | Information about the Reserved Instance listing.
+    reservedInstancesListings :: Prelude.Maybe [ReservedInstancesListing],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeReservedInstancesListingsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'reservedInstancesListings', 'describeReservedInstancesListingsResponse_reservedInstancesListings' - Information about the Reserved Instance listing.
+--
+-- 'httpStatus', 'describeReservedInstancesListingsResponse_httpStatus' - The response's http status code.
+newDescribeReservedInstancesListingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeReservedInstancesListingsResponse
+newDescribeReservedInstancesListingsResponse
+  pHttpStatus_ =
+    DescribeReservedInstancesListingsResponse'
+      { reservedInstancesListings =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | Information about the Reserved Instance listing.
-drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
-drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
+describeReservedInstancesListingsResponse_reservedInstancesListings :: Lens.Lens' DescribeReservedInstancesListingsResponse (Prelude.Maybe [ReservedInstancesListing])
+describeReservedInstancesListingsResponse_reservedInstancesListings = Lens.lens (\DescribeReservedInstancesListingsResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@DescribeReservedInstancesListingsResponse' {} a -> s {reservedInstancesListings = a} :: DescribeReservedInstancesListingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-drilrsResponseStatus :: Lens' DescribeReservedInstancesListingsResponse Int
-drilrsResponseStatus = lens _drilrsResponseStatus (\ s a -> s{_drilrsResponseStatus = a});
+-- | The response's http status code.
+describeReservedInstancesListingsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesListingsResponse Prelude.Int
+describeReservedInstancesListingsResponse_httpStatus = Lens.lens (\DescribeReservedInstancesListingsResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedInstancesListingsResponse' {} a -> s {httpStatus = a} :: DescribeReservedInstancesListingsResponse)
 
-instance NFData
-           DescribeReservedInstancesListingsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeReservedInstancesListingsResponse

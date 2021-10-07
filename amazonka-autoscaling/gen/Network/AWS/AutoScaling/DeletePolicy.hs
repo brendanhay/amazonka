@@ -1,113 +1,133 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DeletePolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified Auto Scaling policy.
+-- Deletes the specified scaling policy.
 --
+-- Deleting either a step scaling policy or a simple scaling policy deletes
+-- the underlying alarm action, but does not delete the alarm, even if it
+-- no longer has an associated action.
 --
--- Deleting a policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html Deleting a scaling policy>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.DeletePolicy
-    (
-    -- * Creating a Request
-      deletePolicy
-    , DeletePolicy
+  ( -- * Creating a Request
+    DeletePolicy (..),
+    newDeletePolicy,
+
     -- * Request Lenses
-    , dpAutoScalingGroupName
-    , dpPolicyName
+    deletePolicy_autoScalingGroupName,
+    deletePolicy_policyName,
 
     -- * Destructuring the Response
-    , deletePolicyResponse
-    , DeletePolicyResponse
-    ) where
+    DeletePolicyResponse (..),
+    newDeletePolicyResponse,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deletePolicy' smart constructor.
+-- | /See:/ 'newDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
-  { _dpAutoScalingGroupName :: !(Maybe Text)
-  , _dpPolicyName           :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or Amazon Resource Name (ARN) of the policy.
+    policyName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpAutoScalingGroupName' - The name of the Auto Scaling group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpPolicyName' - The name or Amazon Resource Name (ARN) of the policy.
-deletePolicy
-    :: Text -- ^ 'dpPolicyName'
-    -> DeletePolicy
-deletePolicy pPolicyName_ =
+-- 'autoScalingGroupName', 'deletePolicy_autoScalingGroupName' - The name of the Auto Scaling group.
+--
+-- 'policyName', 'deletePolicy_policyName' - The name or Amazon Resource Name (ARN) of the policy.
+newDeletePolicy ::
+  -- | 'policyName'
+  Prelude.Text ->
+  DeletePolicy
+newDeletePolicy pPolicyName_ =
   DeletePolicy'
-  {_dpAutoScalingGroupName = Nothing, _dpPolicyName = pPolicyName_}
-
+    { autoScalingGroupName =
+        Prelude.Nothing,
+      policyName = pPolicyName_
+    }
 
 -- | The name of the Auto Scaling group.
-dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
-dpAutoScalingGroupName = lens _dpAutoScalingGroupName (\ s a -> s{_dpAutoScalingGroupName = a});
+deletePolicy_autoScalingGroupName :: Lens.Lens' DeletePolicy (Prelude.Maybe Prelude.Text)
+deletePolicy_autoScalingGroupName = Lens.lens (\DeletePolicy' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeletePolicy' {} a -> s {autoScalingGroupName = a} :: DeletePolicy)
 
 -- | The name or Amazon Resource Name (ARN) of the policy.
-dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
+deletePolicy_policyName :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyName = Lens.lens (\DeletePolicy' {policyName} -> policyName) (\s@DeletePolicy' {} a -> s {policyName = a} :: DeletePolicy)
 
-instance AWSRequest DeletePolicy where
-        type Rs DeletePolicy = DeletePolicyResponse
-        request = postQuery autoScaling
-        response = receiveNull DeletePolicyResponse'
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy where
+instance Prelude.Hashable DeletePolicy
 
-instance NFData DeletePolicy where
+instance Prelude.NFData DeletePolicy
 
-instance ToHeaders DeletePolicy where
-        toHeaders = const mempty
+instance Core.ToHeaders DeletePolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeletePolicy where
-        toPath = const "/"
+instance Core.ToPath DeletePolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeletePolicy where
-        toQuery DeletePolicy'{..}
-          = mconcat
-              ["Action" =: ("DeletePolicy" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _dpAutoScalingGroupName,
-               "PolicyName" =: _dpPolicyName]
+instance Core.ToQuery DeletePolicy where
+  toQuery DeletePolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DeletePolicy" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "PolicyName" Core.=: policyName
+      ]
 
--- | /See:/ 'deletePolicyResponse' smart constructor.
-data DeletePolicyResponse =
-  DeletePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePolicyResponse' smart constructor.
+data DeletePolicyResponse = DeletePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
 --
-deletePolicyResponse
-    :: DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePolicyResponse ::
+  DeletePolicyResponse
+newDeletePolicyResponse = DeletePolicyResponse'
 
-
-instance NFData DeletePolicyResponse where
+instance Prelude.NFData DeletePolicyResponse

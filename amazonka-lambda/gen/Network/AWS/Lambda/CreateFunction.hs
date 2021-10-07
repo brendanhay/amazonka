@@ -1,261 +1,555 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.CreateFunction
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Lambda function. The function metadata is created from the request parameters, and the code for the function is provided by a .zip file in the request body. If the function name already exists, the operation will fail. Note that the function name is case-sensitive.
+-- Creates a Lambda function. To create a function, you need a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html deployment package>
+-- and an
+-- <https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role execution role>.
+-- The deployment package is a .zip file archive or container image that
+-- contains your function code. The execution role grants the function
+-- permission to use Amazon Web Services services, such as Amazon
+-- CloudWatch Logs for log streaming and X-Ray for request tracing.
 --
+-- You set the package type to @Image@ if the deployment package is a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>.
+-- For a container image, the code property must include the URI of a
+-- container image in the Amazon ECR registry. You do not need to specify
+-- the handler and runtime properties.
 --
--- If you are using versioning, you can also publish a version of the Lambda function you are creating using the @Publish@ parameter. For more information about versioning, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
+-- You set the package type to @Zip@ if the deployment package is a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip .zip file archive>.
+-- For a .zip file archive, the code property specifies the location of the
+-- .zip file. You must also specify the handler and runtime properties.
 --
--- This operation requires permission for the @lambda:CreateFunction@ action.
+-- When you create a function, Lambda provisions an instance of the
+-- function and its supporting resources. If your function connects to a
+-- VPC, this process can take a minute or so. During this time, you can\'t
+-- invoke or modify the function. The @State@, @StateReason@, and
+-- @StateReasonCode@ fields in the response from GetFunctionConfiguration
+-- indicate when the function is ready to invoke. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html Function States>.
 --
+-- A function has an unpublished version, and can have published versions
+-- and aliases. The unpublished version changes when you update your
+-- function\'s code and configuration. A published version is a snapshot of
+-- your function code and configuration that can\'t be changed. An alias is
+-- a named resource that maps to a version, and can be changed to map to a
+-- different version. Use the @Publish@ parameter to create version @1@ of
+-- your function from its initial configuration.
+--
+-- The other parameters let you configure version-specific and
+-- function-level settings. You can modify version-specific settings later
+-- with UpdateFunctionConfiguration. Function-level settings apply to both
+-- the unpublished and published versions of the function, and include tags
+-- (TagResource) and per-function concurrency limits
+-- (PutFunctionConcurrency).
+--
+-- You can use code signing if your deployment package is a .zip file
+-- archive. To enable code signing for this function, specify the ARN of a
+-- code-signing configuration. When a user attempts to deploy a code
+-- package with UpdateFunctionCode, Lambda checks that the code package has
+-- a valid signature from a trusted publisher. The code-signing
+-- configuration includes set set of signing profiles, which define the
+-- trusted publishers for this function.
+--
+-- If another account or an Amazon Web Services service invokes your
+-- function, use AddPermission to grant permission by creating a
+-- resource-based IAM policy. You can grant permissions at the function
+-- level, on a version, or on an alias.
+--
+-- To invoke your function directly, use Invoke. To invoke your function in
+-- response to events in other Amazon Web Services services, create an
+-- event source mapping (CreateEventSourceMapping), or configure a function
+-- trigger in the other service. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html Invoking Functions>.
 module Network.AWS.Lambda.CreateFunction
-    (
-    -- * Creating a Request
-      createFunction
-    , CreateFunction
+  ( -- * Creating a Request
+    CreateFunction (..),
+    newCreateFunction,
+
     -- * Request Lenses
-    , cfMemorySize
-    , cfKMSKeyARN
-    , cfEnvironment
-    , cfDeadLetterConfig
-    , cfVPCConfig
-    , cfTimeout
-    , cfTracingConfig
-    , cfDescription
-    , cfTags
-    , cfPublish
-    , cfFunctionName
-    , cfRuntime
-    , cfRole
-    , cfHandler
-    , cfCode
+    createFunction_vpcConfig,
+    createFunction_memorySize,
+    createFunction_publish,
+    createFunction_codeSigningConfigArn,
+    createFunction_timeout,
+    createFunction_handler,
+    createFunction_deadLetterConfig,
+    createFunction_imageConfig,
+    createFunction_environment,
+    createFunction_kmsKeyArn,
+    createFunction_runtime,
+    createFunction_tags,
+    createFunction_description,
+    createFunction_tracingConfig,
+    createFunction_layers,
+    createFunction_fileSystemConfigs,
+    createFunction_packageType,
+    createFunction_functionName,
+    createFunction_role,
+    createFunction_code,
 
     -- * Destructuring the Response
-    , functionConfiguration
-    , FunctionConfiguration
-    -- * Response Lenses
-    , fcMemorySize
-    , fcRuntime
-    , fcFunctionARN
-    , fcKMSKeyARN
-    , fcEnvironment
-    , fcDeadLetterConfig
-    , fcRole
-    , fcVPCConfig
-    , fcVersion
-    , fcFunctionName
-    , fcCodeSize
-    , fcHandler
-    , fcTimeout
-    , fcLastModified
-    , fcCodeSha256
-    , fcTracingConfig
-    , fcDescription
-    , fcMasterARN
-    ) where
+    FunctionConfiguration (..),
+    newFunctionConfiguration,
 
+    -- * Response Lenses
+    functionConfiguration_vpcConfig,
+    functionConfiguration_signingProfileVersionArn,
+    functionConfiguration_lastUpdateStatus,
+    functionConfiguration_memorySize,
+    functionConfiguration_masterArn,
+    functionConfiguration_revisionId,
+    functionConfiguration_lastUpdateStatusReasonCode,
+    functionConfiguration_codeSha256,
+    functionConfiguration_stateReason,
+    functionConfiguration_timeout,
+    functionConfiguration_handler,
+    functionConfiguration_deadLetterConfig,
+    functionConfiguration_environment,
+    functionConfiguration_functionName,
+    functionConfiguration_version,
+    functionConfiguration_kmsKeyArn,
+    functionConfiguration_state,
+    functionConfiguration_functionArn,
+    functionConfiguration_runtime,
+    functionConfiguration_role,
+    functionConfiguration_signingJobArn,
+    functionConfiguration_stateReasonCode,
+    functionConfiguration_description,
+    functionConfiguration_imageConfigResponse,
+    functionConfiguration_tracingConfig,
+    functionConfiguration_lastUpdateStatusReason,
+    functionConfiguration_lastModified,
+    functionConfiguration_codeSize,
+    functionConfiguration_layers,
+    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_packageType,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newCreateFunction' smart constructor.
+data CreateFunction = CreateFunction'
+  { -- | For network connectivity to Amazon Web Services resources in a VPC,
+    -- specify a list of security groups and subnets in the VPC. When you
+    -- connect a function to a VPC, it can only access resources and the
+    -- internet through that VPC. For more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
+    vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | The amount of
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+    -- at runtime. Increasing the function memory also increases its CPU
+    -- allocation. The default value is 128 MB. The value can be any multiple
+    -- of 1 MB.
+    memorySize :: Prelude.Maybe Prelude.Natural,
+    -- | Set to true to publish the first version of the function during
+    -- creation.
+    publish :: Prelude.Maybe Prelude.Bool,
+    -- | To enable code signing for this function, specify the ARN of a
+    -- code-signing configuration. A code-signing configuration includes a set
+    -- of signing profiles, which define the trusted publishers for this
+    -- function.
+    codeSigningConfigArn :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time that Lambda allows a function to run before stopping
+    -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+    -- For additional information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+    timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the method within your code that Lambda calls to execute
+    -- your function. The format includes the file name. It can also include
+    -- namespaces and other qualifiers, depending on the runtime. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
+    handler :: Prelude.Maybe Prelude.Text,
+    -- | A dead letter queue configuration that specifies the queue or topic
+    -- where Lambda sends asynchronous events when they fail processing. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
+    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
+    -- | Container image
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
+    -- that override the values in the container image Dockerfile.
+    imageConfig :: Prelude.Maybe ImageConfig,
+    -- | Environment variables that are accessible from function code during
+    -- execution.
+    environment :: Prelude.Maybe Environment,
+    -- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+    -- that\'s used to encrypt your function\'s environment variables. If it\'s
+    -- not provided, Lambda uses a default service key.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the function\'s
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+    runtime :: Prelude.Maybe Runtime,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
+    -- apply to the function.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the function.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+    -- with
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+    tracingConfig :: Prelude.Maybe TracingConfig,
+    -- | A list of
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
+    -- to add to the function\'s execution environment. Specify each layer by
+    -- its ARN, including the version.
+    layers :: Prelude.Maybe [Prelude.Text],
+    -- | Connection settings for an Amazon EFS file system.
+    fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
+    -- | The type of deployment package. Set to @Image@ for container image and
+    -- set @Zip@ for ZIP archive.
+    packageType :: Prelude.Maybe PackageType,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @my-function@.
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:my-function@.
+    --
+    -- The length constraint applies only to the full ARN. If you specify only
+    -- the function name, it is limited to 64 characters in length.
+    functionName :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the function\'s execution role.
+    role' :: Prelude.Text,
+    -- | The code for the function.
+    code :: FunctionCode
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
+-- Create a value of 'CreateFunction' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'createFunction' smart constructor.
-data CreateFunction = CreateFunction'
-  { _cfMemorySize       :: !(Maybe Nat)
-  , _cfKMSKeyARN        :: !(Maybe Text)
-  , _cfEnvironment      :: !(Maybe Environment)
-  , _cfDeadLetterConfig :: !(Maybe DeadLetterConfig)
-  , _cfVPCConfig        :: !(Maybe VPCConfig)
-  , _cfTimeout          :: !(Maybe Nat)
-  , _cfTracingConfig    :: !(Maybe TracingConfig)
-  , _cfDescription      :: !(Maybe Text)
-  , _cfTags             :: !(Maybe (Map Text Text))
-  , _cfPublish          :: !(Maybe Bool)
-  , _cfFunctionName     :: !Text
-  , _cfRuntime          :: !Runtime
-  , _cfRole             :: !Text
-  , _cfHandler          :: !Text
-  , _cfCode             :: !FunctionCode
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
+-- 'vpcConfig', 'createFunction_vpcConfig' - For network connectivity to Amazon Web Services resources in a VPC,
+-- specify a list of security groups and subnets in the VPC. When you
+-- connect a function to a VPC, it can only access resources and the
+-- internet through that VPC. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'memorySize', 'createFunction_memorySize' - The amount of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+-- at runtime. Increasing the function memory also increases its CPU
+-- allocation. The default value is 128 MB. The value can be any multiple
+-- of 1 MB.
 --
--- * 'cfMemorySize' - The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
+-- 'publish', 'createFunction_publish' - Set to true to publish the first version of the function during
+-- creation.
 --
--- * 'cfKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.
+-- 'codeSigningConfigArn', 'createFunction_codeSigningConfigArn' - To enable code signing for this function, specify the ARN of a
+-- code-signing configuration. A code-signing configuration includes a set
+-- of signing profiles, which define the trusted publishers for this
+-- function.
 --
--- * 'cfEnvironment' - Undocumented member.
+-- 'timeout', 'createFunction_timeout' - The amount of time that Lambda allows a function to run before stopping
+-- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 --
--- * 'cfDeadLetterConfig' - The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
+-- 'handler', 'createFunction_handler' - The name of the method within your code that Lambda calls to execute
+-- your function. The format includes the file name. It can also include
+-- namespaces and other qualifiers, depending on the runtime. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
 --
--- * 'cfVPCConfig' - If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
+-- 'deadLetterConfig', 'createFunction_deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic
+-- where Lambda sends asynchronous events when they fail processing. For
+-- more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
 --
--- * 'cfTimeout' - The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
+-- 'imageConfig', 'createFunction_imageConfig' - Container image
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
+-- that override the values in the container image Dockerfile.
 --
--- * 'cfTracingConfig' - The parent object that contains your function's tracing settings.
+-- 'environment', 'createFunction_environment' - Environment variables that are accessible from function code during
+-- execution.
 --
--- * 'cfDescription' - A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.
+-- 'kmsKeyArn', 'createFunction_kmsKeyArn' - The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
 --
--- * 'cfTags' - The list of tags (key-value pairs) assigned to the new function.
+-- 'runtime', 'createFunction_runtime' - The identifier of the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
 --
--- * 'cfPublish' - This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
+-- 'tags', 'createFunction_tags' - A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
+-- apply to the function.
 --
--- * 'cfFunctionName' - The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' . Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- 'description', 'createFunction_description' - A description of the function.
 --
--- * 'cfRuntime' - The runtime environment for the Lambda function you are uploading. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3".
+-- 'tracingConfig', 'createFunction_tracingConfig' - Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
 --
--- * 'cfRole' - The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> .
+-- 'layers', 'createFunction_layers' - A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
+-- to add to the function\'s execution environment. Specify each layer by
+-- its ARN, including the version.
 --
--- * 'cfHandler' - The function within your code that Lambda calls to begin execution. For Node.js, it is the /module-name/ ./export/ value in your function. For Java, it can be @package.class-name::handler@ or @package.class-name@ . For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)> .
+-- 'fileSystemConfigs', 'createFunction_fileSystemConfigs' - Connection settings for an Amazon EFS file system.
 --
--- * 'cfCode' - The code for the Lambda function.
-createFunction
-    :: Text -- ^ 'cfFunctionName'
-    -> Runtime -- ^ 'cfRuntime'
-    -> Text -- ^ 'cfRole'
-    -> Text -- ^ 'cfHandler'
-    -> FunctionCode -- ^ 'cfCode'
-    -> CreateFunction
-createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
+-- 'packageType', 'createFunction_packageType' - The type of deployment package. Set to @Image@ for container image and
+-- set @Zip@ for ZIP archive.
+--
+-- 'functionName', 'createFunction_functionName' - The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @my-function@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+--
+-- -   __Partial ARN__ - @123456789012:function:my-function@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+--
+-- 'role'', 'createFunction_role' - The Amazon Resource Name (ARN) of the function\'s execution role.
+--
+-- 'code', 'createFunction_code' - The code for the function.
+newCreateFunction ::
+  -- | 'functionName'
+  Prelude.Text ->
+  -- | 'role''
+  Prelude.Text ->
+  -- | 'code'
+  FunctionCode ->
+  CreateFunction
+newCreateFunction pFunctionName_ pRole_ pCode_ =
   CreateFunction'
-  { _cfMemorySize = Nothing
-  , _cfKMSKeyARN = Nothing
-  , _cfEnvironment = Nothing
-  , _cfDeadLetterConfig = Nothing
-  , _cfVPCConfig = Nothing
-  , _cfTimeout = Nothing
-  , _cfTracingConfig = Nothing
-  , _cfDescription = Nothing
-  , _cfTags = Nothing
-  , _cfPublish = Nothing
-  , _cfFunctionName = pFunctionName_
-  , _cfRuntime = pRuntime_
-  , _cfRole = pRole_
-  , _cfHandler = pHandler_
-  , _cfCode = pCode_
-  }
+    { vpcConfig = Prelude.Nothing,
+      memorySize = Prelude.Nothing,
+      publish = Prelude.Nothing,
+      codeSigningConfigArn = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      handler = Prelude.Nothing,
+      deadLetterConfig = Prelude.Nothing,
+      imageConfig = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      runtime = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tracingConfig = Prelude.Nothing,
+      layers = Prelude.Nothing,
+      fileSystemConfigs = Prelude.Nothing,
+      packageType = Prelude.Nothing,
+      functionName = pFunctionName_,
+      role' = pRole_,
+      code = pCode_
+    }
 
+-- | For network connectivity to Amazon Web Services resources in a VPC,
+-- specify a list of security groups and subnets in the VPC. When you
+-- connect a function to a VPC, it can only access resources and the
+-- internet through that VPC. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html VPC Settings>.
+createFunction_vpcConfig :: Lens.Lens' CreateFunction (Prelude.Maybe VpcConfig)
+createFunction_vpcConfig = Lens.lens (\CreateFunction' {vpcConfig} -> vpcConfig) (\s@CreateFunction' {} a -> s {vpcConfig = a} :: CreateFunction)
 
--- | The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.
-cfMemorySize :: Lens' CreateFunction (Maybe Natural)
-cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . mapping _Nat;
+-- | The amount of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
+-- at runtime. Increasing the function memory also increases its CPU
+-- allocation. The default value is 128 MB. The value can be any multiple
+-- of 1 MB.
+createFunction_memorySize :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
+createFunction_memorySize = Lens.lens (\CreateFunction' {memorySize} -> memorySize) (\s@CreateFunction' {} a -> s {memorySize = a} :: CreateFunction)
 
--- | The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.
-cfKMSKeyARN :: Lens' CreateFunction (Maybe Text)
-cfKMSKeyARN = lens _cfKMSKeyARN (\ s a -> s{_cfKMSKeyARN = a});
+-- | Set to true to publish the first version of the function during
+-- creation.
+createFunction_publish :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Bool)
+createFunction_publish = Lens.lens (\CreateFunction' {publish} -> publish) (\s@CreateFunction' {} a -> s {publish = a} :: CreateFunction)
 
--- | Undocumented member.
-cfEnvironment :: Lens' CreateFunction (Maybe Environment)
-cfEnvironment = lens _cfEnvironment (\ s a -> s{_cfEnvironment = a});
+-- | To enable code signing for this function, specify the ARN of a
+-- code-signing configuration. A code-signing configuration includes a set
+-- of signing profiles, which define the trusted publishers for this
+-- function.
+createFunction_codeSigningConfigArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_codeSigningConfigArn = Lens.lens (\CreateFunction' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@CreateFunction' {} a -> s {codeSigningConfigArn = a} :: CreateFunction)
 
--- | The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic.
-cfDeadLetterConfig :: Lens' CreateFunction (Maybe DeadLetterConfig)
-cfDeadLetterConfig = lens _cfDeadLetterConfig (\ s a -> s{_cfDeadLetterConfig = a});
+-- | The amount of time that Lambda allows a function to run before stopping
+-- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+-- For additional information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+createFunction_timeout :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
+createFunction_timeout = Lens.lens (\CreateFunction' {timeout} -> timeout) (\s@CreateFunction' {} a -> s {timeout = a} :: CreateFunction)
 
--- | If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.
-cfVPCConfig :: Lens' CreateFunction (Maybe VPCConfig)
-cfVPCConfig = lens _cfVPCConfig (\ s a -> s{_cfVPCConfig = a});
+-- | The name of the method within your code that Lambda calls to execute
+-- your function. The format includes the file name. It can also include
+-- namespaces and other qualifiers, depending on the runtime. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
+createFunction_handler :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_handler = Lens.lens (\CreateFunction' {handler} -> handler) (\s@CreateFunction' {} a -> s {handler = a} :: CreateFunction)
 
--- | The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.
-cfTimeout :: Lens' CreateFunction (Maybe Natural)
-cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . mapping _Nat;
+-- | A dead letter queue configuration that specifies the queue or topic
+-- where Lambda sends asynchronous events when they fail processing. For
+-- more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq Dead Letter Queues>.
+createFunction_deadLetterConfig :: Lens.Lens' CreateFunction (Prelude.Maybe DeadLetterConfig)
+createFunction_deadLetterConfig = Lens.lens (\CreateFunction' {deadLetterConfig} -> deadLetterConfig) (\s@CreateFunction' {} a -> s {deadLetterConfig = a} :: CreateFunction)
 
--- | The parent object that contains your function's tracing settings.
-cfTracingConfig :: Lens' CreateFunction (Maybe TracingConfig)
-cfTracingConfig = lens _cfTracingConfig (\ s a -> s{_cfTracingConfig = a});
+-- | Container image
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings configuration values>
+-- that override the values in the container image Dockerfile.
+createFunction_imageConfig :: Lens.Lens' CreateFunction (Prelude.Maybe ImageConfig)
+createFunction_imageConfig = Lens.lens (\CreateFunction' {imageConfig} -> imageConfig) (\s@CreateFunction' {} a -> s {imageConfig = a} :: CreateFunction)
 
--- | A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.
-cfDescription :: Lens' CreateFunction (Maybe Text)
-cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
+-- | Environment variables that are accessible from function code during
+-- execution.
+createFunction_environment :: Lens.Lens' CreateFunction (Prelude.Maybe Environment)
+createFunction_environment = Lens.lens (\CreateFunction' {environment} -> environment) (\s@CreateFunction' {} a -> s {environment = a} :: CreateFunction)
 
--- | The list of tags (key-value pairs) assigned to the new function.
-cfTags :: Lens' CreateFunction (HashMap Text Text)
-cfTags = lens _cfTags (\ s a -> s{_cfTags = a}) . _Default . _Map;
+-- | The ARN of the Amazon Web Services Key Management Service (KMS) key
+-- that\'s used to encrypt your function\'s environment variables. If it\'s
+-- not provided, Lambda uses a default service key.
+createFunction_kmsKeyArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_kmsKeyArn = Lens.lens (\CreateFunction' {kmsKeyArn} -> kmsKeyArn) (\s@CreateFunction' {} a -> s {kmsKeyArn = a} :: CreateFunction)
 
--- | This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.
-cfPublish :: Lens' CreateFunction (Maybe Bool)
-cfPublish = lens _cfPublish (\ s a -> s{_cfPublish = a});
+-- | The identifier of the function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+createFunction_runtime :: Lens.Lens' CreateFunction (Prelude.Maybe Runtime)
+createFunction_runtime = Lens.lens (\CreateFunction' {runtime} -> runtime) (\s@CreateFunction' {} a -> s {runtime = a} :: CreateFunction)
 
--- | The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the 'ListFunctions' API. Function names are used to specify functions to other AWS Lambda API operations, such as 'Invoke' . Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-cfFunctionName :: Lens' CreateFunction Text
-cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
+-- | A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags> to
+-- apply to the function.
+createFunction_tags :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createFunction_tags = Lens.lens (\CreateFunction' {tags} -> tags) (\s@CreateFunction' {} a -> s {tags = a} :: CreateFunction) Prelude.. Lens.mapping Lens._Coerce
 
--- | The runtime environment for the Lambda function you are uploading. To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3".
-cfRuntime :: Lens' CreateFunction Runtime
-cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
+-- | A description of the function.
+createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_description = Lens.lens (\CreateFunction' {description} -> description) (\s@CreateFunction' {} a -> s {description = a} :: CreateFunction)
 
--- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> .
-cfRole :: Lens' CreateFunction Text
-cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
+-- | Set @Mode@ to @Active@ to sample and trace a subset of incoming requests
+-- with
+-- <https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html X-Ray>.
+createFunction_tracingConfig :: Lens.Lens' CreateFunction (Prelude.Maybe TracingConfig)
+createFunction_tracingConfig = Lens.lens (\CreateFunction' {tracingConfig} -> tracingConfig) (\s@CreateFunction' {} a -> s {tracingConfig = a} :: CreateFunction)
 
--- | The function within your code that Lambda calls to begin execution. For Node.js, it is the /module-name/ ./export/ value in your function. For Java, it can be @package.class-name::handler@ or @package.class-name@ . For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)> .
-cfHandler :: Lens' CreateFunction Text
-cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
+-- | A list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html function layers>
+-- to add to the function\'s execution environment. Specify each layer by
+-- its ARN, including the version.
+createFunction_layers :: Lens.Lens' CreateFunction (Prelude.Maybe [Prelude.Text])
+createFunction_layers = Lens.lens (\CreateFunction' {layers} -> layers) (\s@CreateFunction' {} a -> s {layers = a} :: CreateFunction) Prelude.. Lens.mapping Lens._Coerce
 
--- | The code for the Lambda function.
-cfCode :: Lens' CreateFunction FunctionCode
-cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
+-- | Connection settings for an Amazon EFS file system.
+createFunction_fileSystemConfigs :: Lens.Lens' CreateFunction (Prelude.Maybe [FileSystemConfig])
+createFunction_fileSystemConfigs = Lens.lens (\CreateFunction' {fileSystemConfigs} -> fileSystemConfigs) (\s@CreateFunction' {} a -> s {fileSystemConfigs = a} :: CreateFunction) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest CreateFunction where
-        type Rs CreateFunction = FunctionConfiguration
-        request = postJSON lambda
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+-- | The type of deployment package. Set to @Image@ for container image and
+-- set @Zip@ for ZIP archive.
+createFunction_packageType :: Lens.Lens' CreateFunction (Prelude.Maybe PackageType)
+createFunction_packageType = Lens.lens (\CreateFunction' {packageType} -> packageType) (\s@CreateFunction' {} a -> s {packageType = a} :: CreateFunction)
 
-instance Hashable CreateFunction where
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @my-function@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:my-function@.
+--
+-- -   __Partial ARN__ - @123456789012:function:my-function@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+createFunction_functionName :: Lens.Lens' CreateFunction Prelude.Text
+createFunction_functionName = Lens.lens (\CreateFunction' {functionName} -> functionName) (\s@CreateFunction' {} a -> s {functionName = a} :: CreateFunction)
 
-instance NFData CreateFunction where
+-- | The Amazon Resource Name (ARN) of the function\'s execution role.
+createFunction_role :: Lens.Lens' CreateFunction Prelude.Text
+createFunction_role = Lens.lens (\CreateFunction' {role'} -> role') (\s@CreateFunction' {} a -> s {role' = a} :: CreateFunction)
 
-instance ToHeaders CreateFunction where
-        toHeaders = const mempty
+-- | The code for the function.
+createFunction_code :: Lens.Lens' CreateFunction FunctionCode
+createFunction_code = Lens.lens (\CreateFunction' {code} -> code) (\s@CreateFunction' {} a -> s {code = a} :: CreateFunction)
 
-instance ToJSON CreateFunction where
-        toJSON CreateFunction'{..}
-          = object
-              (catMaybes
-                 [("MemorySize" .=) <$> _cfMemorySize,
-                  ("KMSKeyArn" .=) <$> _cfKMSKeyARN,
-                  ("Environment" .=) <$> _cfEnvironment,
-                  ("DeadLetterConfig" .=) <$> _cfDeadLetterConfig,
-                  ("VpcConfig" .=) <$> _cfVPCConfig,
-                  ("Timeout" .=) <$> _cfTimeout,
-                  ("TracingConfig" .=) <$> _cfTracingConfig,
-                  ("Description" .=) <$> _cfDescription,
-                  ("Tags" .=) <$> _cfTags,
-                  ("Publish" .=) <$> _cfPublish,
-                  Just ("FunctionName" .= _cfFunctionName),
-                  Just ("Runtime" .= _cfRuntime),
-                  Just ("Role" .= _cfRole),
-                  Just ("Handler" .= _cfHandler),
-                  Just ("Code" .= _cfCode)])
+instance Core.AWSRequest CreateFunction where
+  type
+    AWSResponse CreateFunction =
+      FunctionConfiguration
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance ToPath CreateFunction where
-        toPath = const "/2015-03-31/functions"
+instance Prelude.Hashable CreateFunction
 
-instance ToQuery CreateFunction where
-        toQuery = const mempty
+instance Prelude.NFData CreateFunction
+
+instance Core.ToHeaders CreateFunction where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToJSON CreateFunction where
+  toJSON CreateFunction' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("MemorySize" Core..=) Prelude.<$> memorySize,
+            ("Publish" Core..=) Prelude.<$> publish,
+            ("CodeSigningConfigArn" Core..=)
+              Prelude.<$> codeSigningConfigArn,
+            ("Timeout" Core..=) Prelude.<$> timeout,
+            ("Handler" Core..=) Prelude.<$> handler,
+            ("DeadLetterConfig" Core..=)
+              Prelude.<$> deadLetterConfig,
+            ("ImageConfig" Core..=) Prelude.<$> imageConfig,
+            ("Environment" Core..=) Prelude.<$> environment,
+            ("KMSKeyArn" Core..=) Prelude.<$> kmsKeyArn,
+            ("Runtime" Core..=) Prelude.<$> runtime,
+            ("Tags" Core..=) Prelude.<$> tags,
+            ("Description" Core..=) Prelude.<$> description,
+            ("TracingConfig" Core..=) Prelude.<$> tracingConfig,
+            ("Layers" Core..=) Prelude.<$> layers,
+            ("FileSystemConfigs" Core..=)
+              Prelude.<$> fileSystemConfigs,
+            ("PackageType" Core..=) Prelude.<$> packageType,
+            Prelude.Just ("FunctionName" Core..= functionName),
+            Prelude.Just ("Role" Core..= role'),
+            Prelude.Just ("Code" Core..= code)
+          ]
+      )
+
+instance Core.ToPath CreateFunction where
+  toPath = Prelude.const "/2015-03-31/functions"
+
+instance Core.ToQuery CreateFunction where
+  toQuery = Prelude.const Prelude.mempty

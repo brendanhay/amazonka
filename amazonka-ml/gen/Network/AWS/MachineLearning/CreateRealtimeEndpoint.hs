@@ -1,153 +1,187 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateRealtimeEndpoint
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a real-time endpoint for the @MLModel@ . The endpoint contains the URI of the @MLModel@ ; that is, the location to send real-time prediction requests for the specified @MLModel@ .
---
---
+-- Creates a real-time endpoint for the @MLModel@. The endpoint contains
+-- the URI of the @MLModel@; that is, the location to send real-time
+-- prediction requests for the specified @MLModel@.
 module Network.AWS.MachineLearning.CreateRealtimeEndpoint
-    (
-    -- * Creating a Request
-      createRealtimeEndpoint
-    , CreateRealtimeEndpoint
+  ( -- * Creating a Request
+    CreateRealtimeEndpoint (..),
+    newCreateRealtimeEndpoint,
+
     -- * Request Lenses
-    , creMLModelId
+    createRealtimeEndpoint_mLModelId,
 
     -- * Destructuring the Response
-    , createRealtimeEndpointResponse
-    , CreateRealtimeEndpointResponse
+    CreateRealtimeEndpointResponse (..),
+    newCreateRealtimeEndpointResponse,
+
     -- * Response Lenses
-    , crersRealtimeEndpointInfo
-    , crersMLModelId
-    , crersResponseStatus
-    ) where
+    createRealtimeEndpointResponse_realtimeEndpointInfo,
+    createRealtimeEndpointResponse_mLModelId,
+    createRealtimeEndpointResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createRealtimeEndpoint' smart constructor.
-newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
-  { _creMLModelId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateRealtimeEndpoint' smart constructor.
+data CreateRealtimeEndpoint = CreateRealtimeEndpoint'
+  { -- | The ID assigned to the @MLModel@ during creation.
+    mLModelId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateRealtimeEndpoint' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateRealtimeEndpoint' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'creMLModelId' - The ID assigned to the @MLModel@ during creation.
-createRealtimeEndpoint
-    :: Text -- ^ 'creMLModelId'
-    -> CreateRealtimeEndpoint
-createRealtimeEndpoint pMLModelId_ =
-  CreateRealtimeEndpoint' {_creMLModelId = pMLModelId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'mLModelId', 'createRealtimeEndpoint_mLModelId' - The ID assigned to the @MLModel@ during creation.
+newCreateRealtimeEndpoint ::
+  -- | 'mLModelId'
+  Prelude.Text ->
+  CreateRealtimeEndpoint
+newCreateRealtimeEndpoint pMLModelId_ =
+  CreateRealtimeEndpoint' {mLModelId = pMLModelId_}
 
 -- | The ID assigned to the @MLModel@ during creation.
-creMLModelId :: Lens' CreateRealtimeEndpoint Text
-creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
+createRealtimeEndpoint_mLModelId :: Lens.Lens' CreateRealtimeEndpoint Prelude.Text
+createRealtimeEndpoint_mLModelId = Lens.lens (\CreateRealtimeEndpoint' {mLModelId} -> mLModelId) (\s@CreateRealtimeEndpoint' {} a -> s {mLModelId = a} :: CreateRealtimeEndpoint)
 
-instance AWSRequest CreateRealtimeEndpoint where
-        type Rs CreateRealtimeEndpoint =
-             CreateRealtimeEndpointResponse
-        request = postJSON machineLearning
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateRealtimeEndpointResponse' <$>
-                   (x .?> "RealtimeEndpointInfo") <*>
-                     (x .?> "MLModelId")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateRealtimeEndpoint where
+  type
+    AWSResponse CreateRealtimeEndpoint =
+      CreateRealtimeEndpointResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateRealtimeEndpointResponse'
+            Prelude.<$> (x Core..?> "RealtimeEndpointInfo")
+            Prelude.<*> (x Core..?> "MLModelId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateRealtimeEndpoint where
+instance Prelude.Hashable CreateRealtimeEndpoint
 
-instance NFData CreateRealtimeEndpoint where
+instance Prelude.NFData CreateRealtimeEndpoint
 
-instance ToHeaders CreateRealtimeEndpoint where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonML_20141212.CreateRealtimeEndpoint" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateRealtimeEndpoint where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonML_20141212.CreateRealtimeEndpoint" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateRealtimeEndpoint where
-        toJSON CreateRealtimeEndpoint'{..}
-          = object
-              (catMaybes [Just ("MLModelId" .= _creMLModelId)])
+instance Core.ToJSON CreateRealtimeEndpoint where
+  toJSON CreateRealtimeEndpoint' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("MLModelId" Core..= mLModelId)]
+      )
 
-instance ToPath CreateRealtimeEndpoint where
-        toPath = const "/"
+instance Core.ToPath CreateRealtimeEndpoint where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateRealtimeEndpoint where
-        toQuery = const mempty
+instance Core.ToQuery CreateRealtimeEndpoint where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @CreateRealtimeEndpoint@ operation.
 --
+-- The result contains the @MLModelId@ and the endpoint information for the
+-- @MLModel@.
 --
--- The result contains the @MLModelId@ and the endpoint information for the @MLModel@ .
+-- __Note:__ The endpoint information includes the URI of the @MLModel@;
+-- that is, the location to send online prediction requests for the
+-- specified @MLModel@.
 --
---
--- /See:/ 'createRealtimeEndpointResponse' smart constructor.
+-- /See:/ 'newCreateRealtimeEndpointResponse' smart constructor.
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
-  { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
-  , _crersMLModelId            :: !(Maybe Text)
-  , _crersResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateRealtimeEndpointResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crersRealtimeEndpointInfo' - The endpoint information of the @MLModel@
---
--- * 'crersMLModelId' - A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
---
--- * 'crersResponseStatus' - -- | The response status code.
-createRealtimeEndpointResponse
-    :: Int -- ^ 'crersResponseStatus'
-    -> CreateRealtimeEndpointResponse
-createRealtimeEndpointResponse pResponseStatus_ =
-  CreateRealtimeEndpointResponse'
-  { _crersRealtimeEndpointInfo = Nothing
-  , _crersMLModelId = Nothing
-  , _crersResponseStatus = pResponseStatus_
+  { -- | The endpoint information of the @MLModel@
+    realtimeEndpointInfo :: Prelude.Maybe RealtimeEndpointInfo,
+    -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
+    -- should be identical to the value of the @MLModelId@ in the request.
+    mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateRealtimeEndpointResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'realtimeEndpointInfo', 'createRealtimeEndpointResponse_realtimeEndpointInfo' - The endpoint information of the @MLModel@
+--
+-- 'mLModelId', 'createRealtimeEndpointResponse_mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@. This value
+-- should be identical to the value of the @MLModelId@ in the request.
+--
+-- 'httpStatus', 'createRealtimeEndpointResponse_httpStatus' - The response's http status code.
+newCreateRealtimeEndpointResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateRealtimeEndpointResponse
+newCreateRealtimeEndpointResponse pHttpStatus_ =
+  CreateRealtimeEndpointResponse'
+    { realtimeEndpointInfo =
+        Prelude.Nothing,
+      mLModelId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The endpoint information of the @MLModel@
-crersRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
-crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRealtimeEndpointInfo = a});
+createRealtimeEndpointResponse_realtimeEndpointInfo :: Lens.Lens' CreateRealtimeEndpointResponse (Prelude.Maybe RealtimeEndpointInfo)
+createRealtimeEndpointResponse_realtimeEndpointInfo = Lens.lens (\CreateRealtimeEndpointResponse' {realtimeEndpointInfo} -> realtimeEndpointInfo) (\s@CreateRealtimeEndpointResponse' {} a -> s {realtimeEndpointInfo = a} :: CreateRealtimeEndpointResponse)
 
--- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelId@ in the request.
-crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
-crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
+-- | A user-supplied ID that uniquely identifies the @MLModel@. This value
+-- should be identical to the value of the @MLModelId@ in the request.
+createRealtimeEndpointResponse_mLModelId :: Lens.Lens' CreateRealtimeEndpointResponse (Prelude.Maybe Prelude.Text)
+createRealtimeEndpointResponse_mLModelId = Lens.lens (\CreateRealtimeEndpointResponse' {mLModelId} -> mLModelId) (\s@CreateRealtimeEndpointResponse' {} a -> s {mLModelId = a} :: CreateRealtimeEndpointResponse)
 
--- | -- | The response status code.
-crersResponseStatus :: Lens' CreateRealtimeEndpointResponse Int
-crersResponseStatus = lens _crersResponseStatus (\ s a -> s{_crersResponseStatus = a});
+-- | The response's http status code.
+createRealtimeEndpointResponse_httpStatus :: Lens.Lens' CreateRealtimeEndpointResponse Prelude.Int
+createRealtimeEndpointResponse_httpStatus = Lens.lens (\CreateRealtimeEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateRealtimeEndpointResponse' {} a -> s {httpStatus = a} :: CreateRealtimeEndpointResponse)
 
-instance NFData CreateRealtimeEndpointResponse where
+instance
+  Prelude.NFData
+    CreateRealtimeEndpointResponse

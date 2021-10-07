@@ -1,156 +1,194 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECR.DeleteRepository
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing image repository. If a repository contains images, you must use the @force@ option to delete it.
---
---
+-- Deletes a repository. If the repository contains images, you must either
+-- delete all images in the repository or use the @force@ option to delete
+-- the repository.
 module Network.AWS.ECR.DeleteRepository
-    (
-    -- * Creating a Request
-      deleteRepository
-    , DeleteRepository
+  ( -- * Creating a Request
+    DeleteRepository (..),
+    newDeleteRepository,
+
     -- * Request Lenses
-    , dForce
-    , dRegistryId
-    , dRepositoryName
+    deleteRepository_registryId,
+    deleteRepository_force,
+    deleteRepository_repositoryName,
 
     -- * Destructuring the Response
-    , deleteRepositoryResponse
-    , DeleteRepositoryResponse
+    DeleteRepositoryResponse (..),
+    newDeleteRepositoryResponse,
+
     -- * Response Lenses
-    , drsRepository
-    , drsResponseStatus
-    ) where
+    deleteRepositoryResponse_repository,
+    deleteRepositoryResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
-import Network.AWS.ECR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteRepository' smart constructor.
+-- | /See:/ 'newDeleteRepository' smart constructor.
 data DeleteRepository = DeleteRepository'
-  { _dForce          :: !(Maybe Bool)
-  , _dRegistryId     :: !(Maybe Text)
-  , _dRepositoryName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteRepository' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dForce' - If a repository contains images, forces the deletion.
---
--- * 'dRegistryId' - The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
---
--- * 'dRepositoryName' - The name of the repository to delete.
-deleteRepository
-    :: Text -- ^ 'dRepositoryName'
-    -> DeleteRepository
-deleteRepository pRepositoryName_ =
-  DeleteRepository'
-  { _dForce = Nothing
-  , _dRegistryId = Nothing
-  , _dRepositoryName = pRepositoryName_
+  { -- | The Amazon Web Services account ID associated with the registry that
+    -- contains the repository to delete. If you do not specify a registry, the
+    -- default registry is assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | If a repository contains images, forces the deletion.
+    force :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the repository to delete.
+    repositoryName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DeleteRepository' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'registryId', 'deleteRepository_registryId' - The Amazon Web Services account ID associated with the registry that
+-- contains the repository to delete. If you do not specify a registry, the
+-- default registry is assumed.
+--
+-- 'force', 'deleteRepository_force' - If a repository contains images, forces the deletion.
+--
+-- 'repositoryName', 'deleteRepository_repositoryName' - The name of the repository to delete.
+newDeleteRepository ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  DeleteRepository
+newDeleteRepository pRepositoryName_ =
+  DeleteRepository'
+    { registryId = Prelude.Nothing,
+      force = Prelude.Nothing,
+      repositoryName = pRepositoryName_
+    }
+
+-- | The Amazon Web Services account ID associated with the registry that
+-- contains the repository to delete. If you do not specify a registry, the
+-- default registry is assumed.
+deleteRepository_registryId :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Text)
+deleteRepository_registryId = Lens.lens (\DeleteRepository' {registryId} -> registryId) (\s@DeleteRepository' {} a -> s {registryId = a} :: DeleteRepository)
 
 -- | If a repository contains images, forces the deletion.
-dForce :: Lens' DeleteRepository (Maybe Bool)
-dForce = lens _dForce (\ s a -> s{_dForce = a});
-
--- | The AWS account ID associated with the registry that contains the repository to delete. If you do not specify a registry, the default registry is assumed.
-dRegistryId :: Lens' DeleteRepository (Maybe Text)
-dRegistryId = lens _dRegistryId (\ s a -> s{_dRegistryId = a});
+deleteRepository_force :: Lens.Lens' DeleteRepository (Prelude.Maybe Prelude.Bool)
+deleteRepository_force = Lens.lens (\DeleteRepository' {force} -> force) (\s@DeleteRepository' {} a -> s {force = a} :: DeleteRepository)
 
 -- | The name of the repository to delete.
-dRepositoryName :: Lens' DeleteRepository Text
-dRepositoryName = lens _dRepositoryName (\ s a -> s{_dRepositoryName = a});
+deleteRepository_repositoryName :: Lens.Lens' DeleteRepository Prelude.Text
+deleteRepository_repositoryName = Lens.lens (\DeleteRepository' {repositoryName} -> repositoryName) (\s@DeleteRepository' {} a -> s {repositoryName = a} :: DeleteRepository)
 
-instance AWSRequest DeleteRepository where
-        type Rs DeleteRepository = DeleteRepositoryResponse
-        request = postJSON ecr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteRepositoryResponse' <$>
-                   (x .?> "repository") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteRepository where
+  type
+    AWSResponse DeleteRepository =
+      DeleteRepositoryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteRepositoryResponse'
+            Prelude.<$> (x Core..?> "repository")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteRepository where
+instance Prelude.Hashable DeleteRepository
 
-instance NFData DeleteRepository where
+instance Prelude.NFData DeleteRepository
 
-instance ToHeaders DeleteRepository where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerRegistry_V20150921.DeleteRepository"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DeleteRepository where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DeleteRepository" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DeleteRepository where
-        toJSON DeleteRepository'{..}
-          = object
-              (catMaybes
-                 [("force" .=) <$> _dForce,
-                  ("registryId" .=) <$> _dRegistryId,
-                  Just ("repositoryName" .= _dRepositoryName)])
+instance Core.ToJSON DeleteRepository where
+  toJSON DeleteRepository' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("registryId" Core..=) Prelude.<$> registryId,
+            ("force" Core..=) Prelude.<$> force,
+            Prelude.Just
+              ("repositoryName" Core..= repositoryName)
+          ]
+      )
 
-instance ToPath DeleteRepository where
-        toPath = const "/"
+instance Core.ToPath DeleteRepository where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteRepository where
-        toQuery = const mempty
+instance Core.ToQuery DeleteRepository where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteRepositoryResponse' smart constructor.
+-- | /See:/ 'newDeleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-  { _drsRepository     :: !(Maybe Repository)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The repository that was deleted.
+    repository :: Prelude.Maybe Repository,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteRepositoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteRepositoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsRepository' - The repository that was deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteRepositoryResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DeleteRepositoryResponse
-deleteRepositoryResponse pResponseStatus_ =
+-- 'repository', 'deleteRepositoryResponse_repository' - The repository that was deleted.
+--
+-- 'httpStatus', 'deleteRepositoryResponse_httpStatus' - The response's http status code.
+newDeleteRepositoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteRepositoryResponse
+newDeleteRepositoryResponse pHttpStatus_ =
   DeleteRepositoryResponse'
-  {_drsRepository = Nothing, _drsResponseStatus = pResponseStatus_}
-
+    { repository =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The repository that was deleted.
-drsRepository :: Lens' DeleteRepositoryResponse (Maybe Repository)
-drsRepository = lens _drsRepository (\ s a -> s{_drsRepository = a});
+deleteRepositoryResponse_repository :: Lens.Lens' DeleteRepositoryResponse (Prelude.Maybe Repository)
+deleteRepositoryResponse_repository = Lens.lens (\DeleteRepositoryResponse' {repository} -> repository) (\s@DeleteRepositoryResponse' {} a -> s {repository = a} :: DeleteRepositoryResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteRepositoryResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | The response's http status code.
+deleteRepositoryResponse_httpStatus :: Lens.Lens' DeleteRepositoryResponse Prelude.Int
+deleteRepositoryResponse_httpStatus = Lens.lens (\DeleteRepositoryResponse' {httpStatus} -> httpStatus) (\s@DeleteRepositoryResponse' {} a -> s {httpStatus = a} :: DeleteRepositoryResponse)
 
-instance NFData DeleteRepositoryResponse where
+instance Prelude.NFData DeleteRepositoryResponse

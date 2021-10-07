@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.DeleteTrafficPolicy
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,113 +22,146 @@
 --
 -- Deletes a traffic policy.
 --
+-- When you delete a traffic policy, Route 53 sets a flag on the policy to
+-- indicate that it has been deleted. However, Route 53 never fully deletes
+-- the traffic policy. Note the following:
 --
+-- -   Deleted traffic policies aren\'t listed if you run
+--     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html ListTrafficPolicies>.
+--
+-- -   There\'s no way to get a list of deleted policies.
+--
+-- -   If you retain the ID of the policy, you can get information about
+--     the policy, including the traffic policy document, by running
+--     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html GetTrafficPolicy>.
 module Network.AWS.Route53.DeleteTrafficPolicy
-    (
-    -- * Creating a Request
-      deleteTrafficPolicy
-    , DeleteTrafficPolicy
+  ( -- * Creating a Request
+    DeleteTrafficPolicy (..),
+    newDeleteTrafficPolicy,
+
     -- * Request Lenses
-    , dtpId
-    , dtpVersion
+    deleteTrafficPolicy_id,
+    deleteTrafficPolicy_version,
 
     -- * Destructuring the Response
-    , deleteTrafficPolicyResponse
-    , DeleteTrafficPolicyResponse
-    -- * Response Lenses
-    , dtprsResponseStatus
-    ) where
+    DeleteTrafficPolicyResponse (..),
+    newDeleteTrafficPolicyResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    deleteTrafficPolicyResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
 -- | A request to delete a specified traffic policy version.
 --
---
---
--- /See:/ 'deleteTrafficPolicy' smart constructor.
+-- /See:/ 'newDeleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
-  { _dtpId      :: !Text
-  , _dtpVersion :: !Nat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the traffic policy that you want to delete.
+    id :: Prelude.Text,
+    -- | The version number of the traffic policy that you want to delete.
+    version :: Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTrafficPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTrafficPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtpId' - The ID of the traffic policy that you want to delete.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtpVersion' - The version number of the traffic policy that you want to delete.
-deleteTrafficPolicy
-    :: Text -- ^ 'dtpId'
-    -> Natural -- ^ 'dtpVersion'
-    -> DeleteTrafficPolicy
-deleteTrafficPolicy pId_ pVersion_ =
-  DeleteTrafficPolicy' {_dtpId = pId_, _dtpVersion = _Nat # pVersion_}
-
+-- 'id', 'deleteTrafficPolicy_id' - The ID of the traffic policy that you want to delete.
+--
+-- 'version', 'deleteTrafficPolicy_version' - The version number of the traffic policy that you want to delete.
+newDeleteTrafficPolicy ::
+  -- | 'id'
+  Prelude.Text ->
+  -- | 'version'
+  Prelude.Natural ->
+  DeleteTrafficPolicy
+newDeleteTrafficPolicy pId_ pVersion_ =
+  DeleteTrafficPolicy'
+    { id = pId_,
+      version = pVersion_
+    }
 
 -- | The ID of the traffic policy that you want to delete.
-dtpId :: Lens' DeleteTrafficPolicy Text
-dtpId = lens _dtpId (\ s a -> s{_dtpId = a});
+deleteTrafficPolicy_id :: Lens.Lens' DeleteTrafficPolicy Prelude.Text
+deleteTrafficPolicy_id = Lens.lens (\DeleteTrafficPolicy' {id} -> id) (\s@DeleteTrafficPolicy' {} a -> s {id = a} :: DeleteTrafficPolicy)
 
 -- | The version number of the traffic policy that you want to delete.
-dtpVersion :: Lens' DeleteTrafficPolicy Natural
-dtpVersion = lens _dtpVersion (\ s a -> s{_dtpVersion = a}) . _Nat;
+deleteTrafficPolicy_version :: Lens.Lens' DeleteTrafficPolicy Prelude.Natural
+deleteTrafficPolicy_version = Lens.lens (\DeleteTrafficPolicy' {version} -> version) (\s@DeleteTrafficPolicy' {} a -> s {version = a} :: DeleteTrafficPolicy)
 
-instance AWSRequest DeleteTrafficPolicy where
-        type Rs DeleteTrafficPolicy =
-             DeleteTrafficPolicyResponse
-        request = delete route53
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteTrafficPolicyResponse' <$> (pure (fromEnum s)))
+instance Core.AWSRequest DeleteTrafficPolicy where
+  type
+    AWSResponse DeleteTrafficPolicy =
+      DeleteTrafficPolicyResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteTrafficPolicyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteTrafficPolicy where
+instance Prelude.Hashable DeleteTrafficPolicy
 
-instance NFData DeleteTrafficPolicy where
+instance Prelude.NFData DeleteTrafficPolicy
 
-instance ToHeaders DeleteTrafficPolicy where
-        toHeaders = const mempty
+instance Core.ToHeaders DeleteTrafficPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteTrafficPolicy where
-        toPath DeleteTrafficPolicy'{..}
-          = mconcat
-              ["/2013-04-01/trafficpolicy/", toBS _dtpId, "/",
-               toBS _dtpVersion]
+instance Core.ToPath DeleteTrafficPolicy where
+  toPath DeleteTrafficPolicy' {..} =
+    Prelude.mconcat
+      [ "/2013-04-01/trafficpolicy/",
+        Core.toBS id,
+        "/",
+        Core.toBS version
+      ]
 
-instance ToQuery DeleteTrafficPolicy where
-        toQuery = const mempty
+instance Core.ToQuery DeleteTrafficPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | An empty element.
 --
+-- /See:/ 'newDeleteTrafficPolicyResponse' smart constructor.
+data DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteTrafficPolicyResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteTrafficPolicyResponse' smart constructor.
-newtype DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
-  { _dtprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteTrafficPolicyResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtprsResponseStatus' - -- | The response status code.
-deleteTrafficPolicyResponse
-    :: Int -- ^ 'dtprsResponseStatus'
-    -> DeleteTrafficPolicyResponse
-deleteTrafficPolicyResponse pResponseStatus_ =
-  DeleteTrafficPolicyResponse' {_dtprsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteTrafficPolicyResponse_httpStatus' - The response's http status code.
+newDeleteTrafficPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTrafficPolicyResponse
+newDeleteTrafficPolicyResponse pHttpStatus_ =
+  DeleteTrafficPolicyResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteTrafficPolicyResponse_httpStatus :: Lens.Lens' DeleteTrafficPolicyResponse Prelude.Int
+deleteTrafficPolicyResponse_httpStatus = Lens.lens (\DeleteTrafficPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteTrafficPolicyResponse' {} a -> s {httpStatus = a} :: DeleteTrafficPolicyResponse)
 
--- | -- | The response status code.
-dtprsResponseStatus :: Lens' DeleteTrafficPolicyResponse Int
-dtprsResponseStatus = lens _dtprsResponseStatus (\ s a -> s{_dtprsResponseStatus = a});
-
-instance NFData DeleteTrafficPolicyResponse where
+instance Prelude.NFData DeleteTrafficPolicyResponse

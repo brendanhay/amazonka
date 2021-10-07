@@ -1,196 +1,315 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeClusterParameters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on.
+-- Returns a detailed list of parameters contained within the specified
+-- Amazon Redshift parameter group. For each parameter the response
+-- includes information such as parameter name, description, data type,
+-- value, whether the parameter value is modifiable, and so on.
 --
+-- You can specify /source/ filter to retrieve parameters of only specific
+-- type. For example, to retrieve parameters that were modified by a user
+-- action such as from ModifyClusterParameterGroup, you can specify
+-- /source/ equal to /user/.
 --
--- You can specify /source/ filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from 'ModifyClusterParameterGroup' , you can specify /source/ equal to /user/ .
---
--- For more information about parameters and parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
---
+-- For more information about parameters and parameter groups, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterParameters
-    (
-    -- * Creating a Request
-      describeClusterParameters
-    , DescribeClusterParameters
+  ( -- * Creating a Request
+    DescribeClusterParameters (..),
+    newDescribeClusterParameters,
+
     -- * Request Lenses
-    , dcpsMarker
-    , dcpsMaxRecords
-    , dcpsSource
-    , dcpsParameterGroupName
+    describeClusterParameters_source,
+    describeClusterParameters_maxRecords,
+    describeClusterParameters_marker,
+    describeClusterParameters_parameterGroupName,
 
     -- * Destructuring the Response
-    , describeClusterParametersResponse
-    , DescribeClusterParametersResponse
-    -- * Response Lenses
-    , dcprsMarker
-    , dcprsParameters
-    , dcprsResponseStatus
-    ) where
+    DescribeClusterParametersResponse (..),
+    newDescribeClusterParametersResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeClusterParametersResponse_parameters,
+    describeClusterParametersResponse_marker,
+    describeClusterParametersResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeClusterParameters' smart constructor.
+-- /See:/ 'newDescribeClusterParameters' smart constructor.
 data DescribeClusterParameters = DescribeClusterParameters'
-  { _dcpsMarker             :: !(Maybe Text)
-  , _dcpsMaxRecords         :: !(Maybe Int)
-  , _dcpsSource             :: !(Maybe Text)
-  , _dcpsParameterGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeClusterParameters' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpsMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
---
--- * 'dcpsMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
---
--- * 'dcpsSource' - The parameter types to return. Specify @user@ to show parameters that are different form the default. Similarly, specify @engine-default@ to show parameters that are the same as the default parameter group.  Default: All parameter types returned. Valid Values: @user@ | @engine-default@
---
--- * 'dcpsParameterGroupName' - The name of a cluster parameter group for which to return details.
-describeClusterParameters
-    :: Text -- ^ 'dcpsParameterGroupName'
-    -> DescribeClusterParameters
-describeClusterParameters pParameterGroupName_ =
-  DescribeClusterParameters'
-  { _dcpsMarker = Nothing
-  , _dcpsMaxRecords = Nothing
-  , _dcpsSource = Nothing
-  , _dcpsParameterGroupName = pParameterGroupName_
+  { -- | The parameter types to return. Specify @user@ to show parameters that
+    -- are different form the default. Similarly, specify @engine-default@ to
+    -- show parameters that are the same as the default parameter group.
+    --
+    -- Default: All parameter types returned.
+    --
+    -- Valid Values: @user@ | @engine-default@
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned marker value.
+    --
+    -- Default: @100@
+    --
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeClusterParameters
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The name of a cluster parameter group for which to return details.
+    parameterGroupName :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeClusterParameters' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'source', 'describeClusterParameters_source' - The parameter types to return. Specify @user@ to show parameters that
+-- are different form the default. Similarly, specify @engine-default@ to
+-- show parameters that are the same as the default parameter group.
+--
+-- Default: All parameter types returned.
+--
+-- Valid Values: @user@ | @engine-default@
+--
+-- 'maxRecords', 'describeClusterParameters_maxRecords' - The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+--
+-- 'marker', 'describeClusterParameters_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterParameters
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- 'parameterGroupName', 'describeClusterParameters_parameterGroupName' - The name of a cluster parameter group for which to return details.
+newDescribeClusterParameters ::
+  -- | 'parameterGroupName'
+  Prelude.Text ->
+  DescribeClusterParameters
+newDescribeClusterParameters pParameterGroupName_ =
+  DescribeClusterParameters'
+    { source =
+        Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      parameterGroupName = pParameterGroupName_
+    }
 
--- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-dcpsMarker :: Lens' DescribeClusterParameters (Maybe Text)
-dcpsMarker = lens _dcpsMarker (\ s a -> s{_dcpsMarker = a});
+-- | The parameter types to return. Specify @user@ to show parameters that
+-- are different form the default. Similarly, specify @engine-default@ to
+-- show parameters that are the same as the default parameter group.
+--
+-- Default: All parameter types returned.
+--
+-- Valid Values: @user@ | @engine-default@
+describeClusterParameters_source :: Lens.Lens' DescribeClusterParameters (Prelude.Maybe Prelude.Text)
+describeClusterParameters_source = Lens.lens (\DescribeClusterParameters' {source} -> source) (\s@DescribeClusterParameters' {} a -> s {source = a} :: DescribeClusterParameters)
 
--- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
-dcpsMaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
-dcpsMaxRecords = lens _dcpsMaxRecords (\ s a -> s{_dcpsMaxRecords = a});
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+describeClusterParameters_maxRecords :: Lens.Lens' DescribeClusterParameters (Prelude.Maybe Prelude.Int)
+describeClusterParameters_maxRecords = Lens.lens (\DescribeClusterParameters' {maxRecords} -> maxRecords) (\s@DescribeClusterParameters' {} a -> s {maxRecords = a} :: DescribeClusterParameters)
 
--- | The parameter types to return. Specify @user@ to show parameters that are different form the default. Similarly, specify @engine-default@ to show parameters that are the same as the default parameter group.  Default: All parameter types returned. Valid Values: @user@ | @engine-default@
-dcpsSource :: Lens' DescribeClusterParameters (Maybe Text)
-dcpsSource = lens _dcpsSource (\ s a -> s{_dcpsSource = a});
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterParameters
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeClusterParameters_marker :: Lens.Lens' DescribeClusterParameters (Prelude.Maybe Prelude.Text)
+describeClusterParameters_marker = Lens.lens (\DescribeClusterParameters' {marker} -> marker) (\s@DescribeClusterParameters' {} a -> s {marker = a} :: DescribeClusterParameters)
 
 -- | The name of a cluster parameter group for which to return details.
-dcpsParameterGroupName :: Lens' DescribeClusterParameters Text
-dcpsParameterGroupName = lens _dcpsParameterGroupName (\ s a -> s{_dcpsParameterGroupName = a});
+describeClusterParameters_parameterGroupName :: Lens.Lens' DescribeClusterParameters Prelude.Text
+describeClusterParameters_parameterGroupName = Lens.lens (\DescribeClusterParameters' {parameterGroupName} -> parameterGroupName) (\s@DescribeClusterParameters' {} a -> s {parameterGroupName = a} :: DescribeClusterParameters)
 
-instance AWSPager DescribeClusterParameters where
-        page rq rs
-          | stop (rs ^. dcprsMarker) = Nothing
-          | stop (rs ^. dcprsParameters) = Nothing
-          | otherwise =
-            Just $ rq & dcpsMarker .~ rs ^. dcprsMarker
+instance Core.AWSPager DescribeClusterParameters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeClusterParametersResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeClusterParametersResponse_parameters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeClusterParameters_marker
+          Lens..~ rs
+          Lens.^? describeClusterParametersResponse_marker
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeClusterParameters where
-        type Rs DescribeClusterParameters =
-             DescribeClusterParametersResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "DescribeClusterParametersResult"
-              (\ s h x ->
-                 DescribeClusterParametersResponse' <$>
-                   (x .@? "Marker") <*>
-                     (x .@? "Parameters" .!@ mempty >>=
-                        may (parseXMLList "Parameter"))
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeClusterParameters where
+  type
+    AWSResponse DescribeClusterParameters =
+      DescribeClusterParametersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeClusterParametersResult"
+      ( \s h x ->
+          DescribeClusterParametersResponse'
+            Prelude.<$> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "Parameter")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeClusterParameters where
+instance Prelude.Hashable DescribeClusterParameters
 
-instance NFData DescribeClusterParameters where
+instance Prelude.NFData DescribeClusterParameters
 
-instance ToHeaders DescribeClusterParameters where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeClusterParameters where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeClusterParameters where
-        toPath = const "/"
+instance Core.ToPath DescribeClusterParameters where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeClusterParameters where
-        toQuery DescribeClusterParameters'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeClusterParameters" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "Marker" =: _dcpsMarker,
-               "MaxRecords" =: _dcpsMaxRecords,
-               "Source" =: _dcpsSource,
-               "ParameterGroupName" =: _dcpsParameterGroupName]
+instance Core.ToQuery DescribeClusterParameters where
+  toQuery DescribeClusterParameters' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeClusterParameters" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "Source" Core.=: source,
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
+        "ParameterGroupName" Core.=: parameterGroupName
+      ]
 
--- | Contains the output from the 'DescribeClusterParameters' action.
+-- | Contains the output from the DescribeClusterParameters action.
 --
---
---
--- /See:/ 'describeClusterParametersResponse' smart constructor.
+-- /See:/ 'newDescribeClusterParametersResponse' smart constructor.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
-  { _dcprsMarker         :: !(Maybe Text)
-  , _dcprsParameters     :: !(Maybe [Parameter])
-  , _dcprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeClusterParametersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcprsMarker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
---
--- * 'dcprsParameters' - A list of 'Parameter' instances. Each instance lists the parameters of one cluster parameter group.
---
--- * 'dcprsResponseStatus' - -- | The response status code.
-describeClusterParametersResponse
-    :: Int -- ^ 'dcprsResponseStatus'
-    -> DescribeClusterParametersResponse
-describeClusterParametersResponse pResponseStatus_ =
-  DescribeClusterParametersResponse'
-  { _dcprsMarker = Nothing
-  , _dcprsParameters = Nothing
-  , _dcprsResponseStatus = pResponseStatus_
+  { -- | A list of Parameter instances. Each instance lists the parameters of one
+    -- cluster parameter group.
+    parameters :: Prelude.Maybe [Parameter],
+    -- | A value that indicates the starting point for the next set of response
+    -- records in a subsequent request. If a value is returned in a response,
+    -- you can retrieve the next set of records by providing this returned
+    -- marker value in the @Marker@ parameter and retrying the command. If the
+    -- @Marker@ field is empty, all response records have been retrieved for
+    -- the request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeClusterParametersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'parameters', 'describeClusterParametersResponse_parameters' - A list of Parameter instances. Each instance lists the parameters of one
+-- cluster parameter group.
+--
+-- 'marker', 'describeClusterParametersResponse_marker' - A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+--
+-- 'httpStatus', 'describeClusterParametersResponse_httpStatus' - The response's http status code.
+newDescribeClusterParametersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeClusterParametersResponse
+newDescribeClusterParametersResponse pHttpStatus_ =
+  DescribeClusterParametersResponse'
+    { parameters =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
-dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
+-- | A list of Parameter instances. Each instance lists the parameters of one
+-- cluster parameter group.
+describeClusterParametersResponse_parameters :: Lens.Lens' DescribeClusterParametersResponse (Prelude.Maybe [Parameter])
+describeClusterParametersResponse_parameters = Lens.lens (\DescribeClusterParametersResponse' {parameters} -> parameters) (\s@DescribeClusterParametersResponse' {} a -> s {parameters = a} :: DescribeClusterParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of 'Parameter' instances. Each instance lists the parameters of one cluster parameter group.
-dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+describeClusterParametersResponse_marker :: Lens.Lens' DescribeClusterParametersResponse (Prelude.Maybe Prelude.Text)
+describeClusterParametersResponse_marker = Lens.lens (\DescribeClusterParametersResponse' {marker} -> marker) (\s@DescribeClusterParametersResponse' {} a -> s {marker = a} :: DescribeClusterParametersResponse)
 
--- | -- | The response status code.
-dcprsResponseStatus :: Lens' DescribeClusterParametersResponse Int
-dcprsResponseStatus = lens _dcprsResponseStatus (\ s a -> s{_dcprsResponseStatus = a});
+-- | The response's http status code.
+describeClusterParametersResponse_httpStatus :: Lens.Lens' DescribeClusterParametersResponse Prelude.Int
+describeClusterParametersResponse_httpStatus = Lens.lens (\DescribeClusterParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeClusterParametersResponse' {} a -> s {httpStatus = a} :: DescribeClusterParametersResponse)
 
-instance NFData DescribeClusterParametersResponse
-         where
+instance
+  Prelude.NFData
+    DescribeClusterParametersResponse

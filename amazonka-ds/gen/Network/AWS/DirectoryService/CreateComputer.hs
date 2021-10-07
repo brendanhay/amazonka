@@ -1,187 +1,229 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.CreateComputer
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a computer account in the specified directory, and joins the computer to the directory.
---
---
+-- Creates an Active Directory computer object in the specified directory.
 module Network.AWS.DirectoryService.CreateComputer
-    (
-    -- * Creating a Request
-      createComputer
-    , CreateComputer
+  ( -- * Creating a Request
+    CreateComputer (..),
+    newCreateComputer,
+
     -- * Request Lenses
-    , ccComputerAttributes
-    , ccOrganizationalUnitDistinguishedName
-    , ccDirectoryId
-    , ccComputerName
-    , ccPassword
+    createComputer_organizationalUnitDistinguishedName,
+    createComputer_computerAttributes,
+    createComputer_directoryId,
+    createComputer_computerName,
+    createComputer_password,
 
     -- * Destructuring the Response
-    , createComputerResponse
-    , CreateComputerResponse
+    CreateComputerResponse (..),
+    newCreateComputerResponse,
+
     -- * Response Lenses
-    , ccrsComputer
-    , ccrsResponseStatus
-    ) where
+    createComputerResponse_computer,
+    createComputerResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'CreateComputer' operation.
+-- | Contains the inputs for the CreateComputer operation.
 --
---
---
--- /See:/ 'createComputer' smart constructor.
+-- /See:/ 'newCreateComputer' smart constructor.
 data CreateComputer = CreateComputer'
-  { _ccComputerAttributes                  :: !(Maybe [Attribute])
-  , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
-  , _ccDirectoryId                         :: !Text
-  , _ccComputerName                        :: !Text
-  , _ccPassword                            :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateComputer' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccComputerAttributes' - An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
---
--- * 'ccOrganizationalUnitDistinguishedName' - The fully-qualified distinguished name of the organizational unit to place the computer account in.
---
--- * 'ccDirectoryId' - The identifier of the directory in which to create the computer account.
---
--- * 'ccComputerName' - The name of the computer account.
---
--- * 'ccPassword' - A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
-createComputer
-    :: Text -- ^ 'ccDirectoryId'
-    -> Text -- ^ 'ccComputerName'
-    -> Text -- ^ 'ccPassword'
-    -> CreateComputer
-createComputer pDirectoryId_ pComputerName_ pPassword_ =
-  CreateComputer'
-  { _ccComputerAttributes = Nothing
-  , _ccOrganizationalUnitDistinguishedName = Nothing
-  , _ccDirectoryId = pDirectoryId_
-  , _ccComputerName = pComputerName_
-  , _ccPassword = _Sensitive # pPassword_
+  { -- | The fully-qualified distinguished name of the organizational unit to
+    -- place the computer account in.
+    organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text,
+    -- | An array of Attribute objects that contain any LDAP attributes to apply
+    -- to the computer account.
+    computerAttributes :: Prelude.Maybe [Attribute],
+    -- | The identifier of the directory in which to create the computer account.
+    directoryId :: Prelude.Text,
+    -- | The name of the computer account.
+    computerName :: Prelude.Text,
+    -- | A one-time password that is used to join the computer to the directory.
+    -- You should generate a random, strong password to use for this parameter.
+    password :: Core.Sensitive Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateComputer' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'organizationalUnitDistinguishedName', 'createComputer_organizationalUnitDistinguishedName' - The fully-qualified distinguished name of the organizational unit to
+-- place the computer account in.
+--
+-- 'computerAttributes', 'createComputer_computerAttributes' - An array of Attribute objects that contain any LDAP attributes to apply
+-- to the computer account.
+--
+-- 'directoryId', 'createComputer_directoryId' - The identifier of the directory in which to create the computer account.
+--
+-- 'computerName', 'createComputer_computerName' - The name of the computer account.
+--
+-- 'password', 'createComputer_password' - A one-time password that is used to join the computer to the directory.
+-- You should generate a random, strong password to use for this parameter.
+newCreateComputer ::
+  -- | 'directoryId'
+  Prelude.Text ->
+  -- | 'computerName'
+  Prelude.Text ->
+  -- | 'password'
+  Prelude.Text ->
+  CreateComputer
+newCreateComputer
+  pDirectoryId_
+  pComputerName_
+  pPassword_ =
+    CreateComputer'
+      { organizationalUnitDistinguishedName =
+          Prelude.Nothing,
+        computerAttributes = Prelude.Nothing,
+        directoryId = pDirectoryId_,
+        computerName = pComputerName_,
+        password = Core._Sensitive Lens.# pPassword_
+      }
 
--- | An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
-ccComputerAttributes :: Lens' CreateComputer [Attribute]
-ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default . _Coerce;
+-- | The fully-qualified distinguished name of the organizational unit to
+-- place the computer account in.
+createComputer_organizationalUnitDistinguishedName :: Lens.Lens' CreateComputer (Prelude.Maybe Prelude.Text)
+createComputer_organizationalUnitDistinguishedName = Lens.lens (\CreateComputer' {organizationalUnitDistinguishedName} -> organizationalUnitDistinguishedName) (\s@CreateComputer' {} a -> s {organizationalUnitDistinguishedName = a} :: CreateComputer)
 
--- | The fully-qualified distinguished name of the organizational unit to place the computer account in.
-ccOrganizationalUnitDistinguishedName :: Lens' CreateComputer (Maybe Text)
-ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a});
+-- | An array of Attribute objects that contain any LDAP attributes to apply
+-- to the computer account.
+createComputer_computerAttributes :: Lens.Lens' CreateComputer (Prelude.Maybe [Attribute])
+createComputer_computerAttributes = Lens.lens (\CreateComputer' {computerAttributes} -> computerAttributes) (\s@CreateComputer' {} a -> s {computerAttributes = a} :: CreateComputer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the directory in which to create the computer account.
-ccDirectoryId :: Lens' CreateComputer Text
-ccDirectoryId = lens _ccDirectoryId (\ s a -> s{_ccDirectoryId = a});
+createComputer_directoryId :: Lens.Lens' CreateComputer Prelude.Text
+createComputer_directoryId = Lens.lens (\CreateComputer' {directoryId} -> directoryId) (\s@CreateComputer' {} a -> s {directoryId = a} :: CreateComputer)
 
 -- | The name of the computer account.
-ccComputerName :: Lens' CreateComputer Text
-ccComputerName = lens _ccComputerName (\ s a -> s{_ccComputerName = a});
+createComputer_computerName :: Lens.Lens' CreateComputer Prelude.Text
+createComputer_computerName = Lens.lens (\CreateComputer' {computerName} -> computerName) (\s@CreateComputer' {} a -> s {computerName = a} :: CreateComputer)
 
--- | A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
-ccPassword :: Lens' CreateComputer Text
-ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
+-- | A one-time password that is used to join the computer to the directory.
+-- You should generate a random, strong password to use for this parameter.
+createComputer_password :: Lens.Lens' CreateComputer Prelude.Text
+createComputer_password = Lens.lens (\CreateComputer' {password} -> password) (\s@CreateComputer' {} a -> s {password = a} :: CreateComputer) Prelude.. Core._Sensitive
 
-instance AWSRequest CreateComputer where
-        type Rs CreateComputer = CreateComputerResponse
-        request = postJSON directoryService
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateComputerResponse' <$>
-                   (x .?> "Computer") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateComputer where
+  type
+    AWSResponse CreateComputer =
+      CreateComputerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateComputerResponse'
+            Prelude.<$> (x Core..?> "Computer")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateComputer where
+instance Prelude.Hashable CreateComputer
 
-instance NFData CreateComputer where
+instance Prelude.NFData CreateComputer
 
-instance ToHeaders CreateComputer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.CreateComputer" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateComputer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "DirectoryService_20150416.CreateComputer" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateComputer where
-        toJSON CreateComputer'{..}
-          = object
-              (catMaybes
-                 [("ComputerAttributes" .=) <$> _ccComputerAttributes,
-                  ("OrganizationalUnitDistinguishedName" .=) <$>
-                    _ccOrganizationalUnitDistinguishedName,
-                  Just ("DirectoryId" .= _ccDirectoryId),
-                  Just ("ComputerName" .= _ccComputerName),
-                  Just ("Password" .= _ccPassword)])
+instance Core.ToJSON CreateComputer where
+  toJSON CreateComputer' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("OrganizationalUnitDistinguishedName" Core..=)
+              Prelude.<$> organizationalUnitDistinguishedName,
+            ("ComputerAttributes" Core..=)
+              Prelude.<$> computerAttributes,
+            Prelude.Just ("DirectoryId" Core..= directoryId),
+            Prelude.Just ("ComputerName" Core..= computerName),
+            Prelude.Just ("Password" Core..= password)
+          ]
+      )
 
-instance ToPath CreateComputer where
-        toPath = const "/"
+instance Core.ToPath CreateComputer where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateComputer where
-        toQuery = const mempty
+instance Core.ToQuery CreateComputer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the results for the 'CreateComputer' operation.
+-- | Contains the results for the CreateComputer operation.
 --
---
---
--- /See:/ 'createComputerResponse' smart constructor.
+-- /See:/ 'newCreateComputerResponse' smart constructor.
 data CreateComputerResponse = CreateComputerResponse'
-  { _ccrsComputer       :: !(Maybe Computer)
-  , _ccrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A Computer object that represents the computer account.
+    computer :: Prelude.Maybe Computer,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateComputerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateComputerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccrsComputer' - A 'Computer' object that represents the computer account.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccrsResponseStatus' - -- | The response status code.
-createComputerResponse
-    :: Int -- ^ 'ccrsResponseStatus'
-    -> CreateComputerResponse
-createComputerResponse pResponseStatus_ =
+-- 'computer', 'createComputerResponse_computer' - A Computer object that represents the computer account.
+--
+-- 'httpStatus', 'createComputerResponse_httpStatus' - The response's http status code.
+newCreateComputerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateComputerResponse
+newCreateComputerResponse pHttpStatus_ =
   CreateComputerResponse'
-  {_ccrsComputer = Nothing, _ccrsResponseStatus = pResponseStatus_}
+    { computer = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A Computer object that represents the computer account.
+createComputerResponse_computer :: Lens.Lens' CreateComputerResponse (Prelude.Maybe Computer)
+createComputerResponse_computer = Lens.lens (\CreateComputerResponse' {computer} -> computer) (\s@CreateComputerResponse' {} a -> s {computer = a} :: CreateComputerResponse)
 
--- | A 'Computer' object that represents the computer account.
-ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
-ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
+-- | The response's http status code.
+createComputerResponse_httpStatus :: Lens.Lens' CreateComputerResponse Prelude.Int
+createComputerResponse_httpStatus = Lens.lens (\CreateComputerResponse' {httpStatus} -> httpStatus) (\s@CreateComputerResponse' {} a -> s {httpStatus = a} :: CreateComputerResponse)
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateComputerResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a});
-
-instance NFData CreateComputerResponse where
+instance Prelude.NFData CreateComputerResponse

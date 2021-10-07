@@ -1,157 +1,225 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Given an identity (an email address or a domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the @Source@ .
---
+-- Sets an Amazon Simple Notification Service (Amazon SNS) topic to use
+-- when delivering notifications. When you use this operation, you specify
+-- a verified identity, such as an email address or domain. When you send
+-- an email that uses the chosen identity in the Source field, Amazon SES
+-- sends notifications to the topic you specified. You can send bounce,
+-- complaint, or delivery notifications (or any combination of the three)
+-- to the Amazon SNS topic that you specify.
 --
 -- You can execute this operation no more than once per second.
 --
--- For more information about feedback notification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
---
+-- For more information about feedback notification, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 module Network.AWS.SES.SetIdentityNotificationTopic
-    (
-    -- * Creating a Request
-      setIdentityNotificationTopic
-    , SetIdentityNotificationTopic
+  ( -- * Creating a Request
+    SetIdentityNotificationTopic (..),
+    newSetIdentityNotificationTopic,
+
     -- * Request Lenses
-    , sintSNSTopic
-    , sintIdentity
-    , sintNotificationType
+    setIdentityNotificationTopic_snsTopic,
+    setIdentityNotificationTopic_identity,
+    setIdentityNotificationTopic_notificationType,
 
     -- * Destructuring the Response
-    , setIdentityNotificationTopicResponse
-    , SetIdentityNotificationTopicResponse
+    SetIdentityNotificationTopicResponse (..),
+    newSetIdentityNotificationTopicResponse,
+
     -- * Response Lenses
-    , sintrsResponseStatus
-    ) where
+    setIdentityNotificationTopicResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html Amazon SES Developer Guide> .
+-- | Represents a request to specify the Amazon SNS topic to which Amazon SES
+-- will publish bounce, complaint, or delivery notifications for emails
+-- sent with that identity as the Source. For information about Amazon SES
+-- notifications, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'setIdentityNotificationTopic' smart constructor.
+-- /See:/ 'newSetIdentityNotificationTopic' smart constructor.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
-  { _sintSNSTopic         :: !(Maybe Text)
-  , _sintIdentity         :: !Text
-  , _sintNotificationType :: !NotificationType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SetIdentityNotificationTopic' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sintSNSTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
---
--- * 'sintIdentity' - The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
---
--- * 'sintNotificationType' - The type of notifications that will be published to the specified Amazon SNS topic.
-setIdentityNotificationTopic
-    :: Text -- ^ 'sintIdentity'
-    -> NotificationType -- ^ 'sintNotificationType'
-    -> SetIdentityNotificationTopic
-setIdentityNotificationTopic pIdentity_ pNotificationType_ =
-  SetIdentityNotificationTopic'
-  { _sintSNSTopic = Nothing
-  , _sintIdentity = pIdentity_
-  , _sintNotificationType = pNotificationType_
+  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
+    -- is omitted from the request or a null value is passed, @SnsTopic@ is
+    -- cleared and publishing is disabled.
+    snsTopic :: Prelude.Maybe Prelude.Text,
+    -- | The identity (email address or domain) that you want to set the Amazon
+    -- SNS topic for.
+    --
+    -- You can only specify a verified identity for this parameter.
+    --
+    -- You can specify an identity by using its name or by using its Amazon
+    -- Resource Name (ARN). The following examples are all valid identities:
+    -- @sender\@example.com@, @example.com@,
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+    identity :: Prelude.Text,
+    -- | The type of notifications that will be published to the specified Amazon
+    -- SNS topic.
+    notificationType :: NotificationType
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'SetIdentityNotificationTopic' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'snsTopic', 'setIdentityNotificationTopic_snsTopic' - The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
+-- is omitted from the request or a null value is passed, @SnsTopic@ is
+-- cleared and publishing is disabled.
+--
+-- 'identity', 'setIdentityNotificationTopic_identity' - The identity (email address or domain) that you want to set the Amazon
+-- SNS topic for.
+--
+-- You can only specify a verified identity for this parameter.
+--
+-- You can specify an identity by using its name or by using its Amazon
+-- Resource Name (ARN). The following examples are all valid identities:
+-- @sender\@example.com@, @example.com@,
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+--
+-- 'notificationType', 'setIdentityNotificationTopic_notificationType' - The type of notifications that will be published to the specified Amazon
+-- SNS topic.
+newSetIdentityNotificationTopic ::
+  -- | 'identity'
+  Prelude.Text ->
+  -- | 'notificationType'
+  NotificationType ->
+  SetIdentityNotificationTopic
+newSetIdentityNotificationTopic
+  pIdentity_
+  pNotificationType_ =
+    SetIdentityNotificationTopic'
+      { snsTopic =
+          Prelude.Nothing,
+        identity = pIdentity_,
+        notificationType = pNotificationType_
+      }
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, @SnsTopic@ is cleared and publishing is disabled.
-sintSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
-sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a});
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
+-- is omitted from the request or a null value is passed, @SnsTopic@ is
+-- cleared and publishing is disabled.
+setIdentityNotificationTopic_snsTopic :: Lens.Lens' SetIdentityNotificationTopic (Prelude.Maybe Prelude.Text)
+setIdentityNotificationTopic_snsTopic = Lens.lens (\SetIdentityNotificationTopic' {snsTopic} -> snsTopic) (\s@SetIdentityNotificationTopic' {} a -> s {snsTopic = a} :: SetIdentityNotificationTopic)
 
--- | The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
-sintIdentity :: Lens' SetIdentityNotificationTopic Text
-sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a});
+-- | The identity (email address or domain) that you want to set the Amazon
+-- SNS topic for.
+--
+-- You can only specify a verified identity for this parameter.
+--
+-- You can specify an identity by using its name or by using its Amazon
+-- Resource Name (ARN). The following examples are all valid identities:
+-- @sender\@example.com@, @example.com@,
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+setIdentityNotificationTopic_identity :: Lens.Lens' SetIdentityNotificationTopic Prelude.Text
+setIdentityNotificationTopic_identity = Lens.lens (\SetIdentityNotificationTopic' {identity} -> identity) (\s@SetIdentityNotificationTopic' {} a -> s {identity = a} :: SetIdentityNotificationTopic)
 
--- | The type of notifications that will be published to the specified Amazon SNS topic.
-sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
-sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationType = a});
+-- | The type of notifications that will be published to the specified Amazon
+-- SNS topic.
+setIdentityNotificationTopic_notificationType :: Lens.Lens' SetIdentityNotificationTopic NotificationType
+setIdentityNotificationTopic_notificationType = Lens.lens (\SetIdentityNotificationTopic' {notificationType} -> notificationType) (\s@SetIdentityNotificationTopic' {} a -> s {notificationType = a} :: SetIdentityNotificationTopic)
 
-instance AWSRequest SetIdentityNotificationTopic
-         where
-        type Rs SetIdentityNotificationTopic =
-             SetIdentityNotificationTopicResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper
-              "SetIdentityNotificationTopicResult"
-              (\ s h x ->
-                 SetIdentityNotificationTopicResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest SetIdentityNotificationTopic where
+  type
+    AWSResponse SetIdentityNotificationTopic =
+      SetIdentityNotificationTopicResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "SetIdentityNotificationTopicResult"
+      ( \s h x ->
+          SetIdentityNotificationTopicResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable SetIdentityNotificationTopic where
+instance
+  Prelude.Hashable
+    SetIdentityNotificationTopic
 
-instance NFData SetIdentityNotificationTopic where
+instance Prelude.NFData SetIdentityNotificationTopic
 
-instance ToHeaders SetIdentityNotificationTopic where
-        toHeaders = const mempty
+instance Core.ToHeaders SetIdentityNotificationTopic where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath SetIdentityNotificationTopic where
-        toPath = const "/"
+instance Core.ToPath SetIdentityNotificationTopic where
+  toPath = Prelude.const "/"
 
-instance ToQuery SetIdentityNotificationTopic where
-        toQuery SetIdentityNotificationTopic'{..}
-          = mconcat
-              ["Action" =:
-                 ("SetIdentityNotificationTopic" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "SnsTopic" =: _sintSNSTopic,
-               "Identity" =: _sintIdentity,
-               "NotificationType" =: _sintNotificationType]
+instance Core.ToQuery SetIdentityNotificationTopic where
+  toQuery SetIdentityNotificationTopic' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ( "SetIdentityNotificationTopic" ::
+                      Prelude.ByteString
+                  ),
+        "Version"
+          Core.=: ("2010-12-01" :: Prelude.ByteString),
+        "SnsTopic" Core.=: snsTopic,
+        "Identity" Core.=: identity,
+        "NotificationType" Core.=: notificationType
+      ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
-newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
-  { _sintrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newSetIdentityNotificationTopicResponse' smart constructor.
+data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetIdentityNotificationTopicResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetIdentityNotificationTopicResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sintrsResponseStatus' - -- | The response status code.
-setIdentityNotificationTopicResponse
-    :: Int -- ^ 'sintrsResponseStatus'
-    -> SetIdentityNotificationTopicResponse
-setIdentityNotificationTopicResponse pResponseStatus_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'setIdentityNotificationTopicResponse_httpStatus' - The response's http status code.
+newSetIdentityNotificationTopicResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SetIdentityNotificationTopicResponse
+newSetIdentityNotificationTopicResponse pHttpStatus_ =
   SetIdentityNotificationTopicResponse'
-  {_sintrsResponseStatus = pResponseStatus_}
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+setIdentityNotificationTopicResponse_httpStatus :: Lens.Lens' SetIdentityNotificationTopicResponse Prelude.Int
+setIdentityNotificationTopicResponse_httpStatus = Lens.lens (\SetIdentityNotificationTopicResponse' {httpStatus} -> httpStatus) (\s@SetIdentityNotificationTopicResponse' {} a -> s {httpStatus = a} :: SetIdentityNotificationTopicResponse)
 
--- | -- | The response status code.
-sintrsResponseStatus :: Lens' SetIdentityNotificationTopicResponse Int
-sintrsResponseStatus = lens _sintrsResponseStatus (\ s a -> s{_sintrsResponseStatus = a});
-
-instance NFData SetIdentityNotificationTopicResponse
-         where
+instance
+  Prelude.NFData
+    SetIdentityNotificationTopicResponse

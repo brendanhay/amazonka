@@ -1,9 +1,10 @@
 ---
 method: GET
-path: /foo-bucket
-query: ?max-uploads=3&uploads=
 headers:
-  Authorization: AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=6e58e657cbe9bbd48775a6a3d471748505159f4e6cc23affb6aeb784057d7d48
-  Host: s3.amazonaws.com
-  X-Amz-Content-SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-  X-Amz-Date: 20091028T223200Z
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/s3/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
+  Host:                  s3.us-east-1.amazonaws.com
+  Content-Type:          application/x-www-form-urlencoded; charset=utf-8
+  X-Amz-Content-SHA256:  abcdef
+  X-Amz-Date:            20091028T223200Z
+body:
+  ''

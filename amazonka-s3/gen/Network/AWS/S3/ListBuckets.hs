@@ -1,122 +1,136 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.ListBuckets
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all buckets owned by the authenticated sender of the request.
+-- Returns a list of all buckets owned by the authenticated sender of the
+-- request.
 module Network.AWS.S3.ListBuckets
-    (
-    -- * Creating a Request
-      listBuckets
-    , ListBuckets
+  ( -- * Creating a Request
+    ListBuckets (..),
+    newListBuckets,
 
     -- * Destructuring the Response
-    , listBucketsResponse
-    , ListBucketsResponse
+    ListBucketsResponse (..),
+    newListBucketsResponse,
+
     -- * Response Lenses
-    , lbrsBuckets
-    , lbrsOwner
-    , lbrsResponseStatus
-    ) where
+    listBucketsResponse_buckets,
+    listBucketsResponse_owner,
+    listBucketsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'listBuckets' smart constructor.
-data ListBuckets =
-  ListBuckets'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListBuckets' with the minimum fields required to make a request.
---
-listBuckets
-    :: ListBuckets
-listBuckets = ListBuckets'
-
-
-instance AWSRequest ListBuckets where
-        type Rs ListBuckets = ListBucketsResponse
-        request = get s3
-        response
-          = receiveXML
-              (\ s h x ->
-                 ListBucketsResponse' <$>
-                   (x .@? "Buckets" .!@ mempty >>=
-                      may (parseXMLList "Bucket"))
-                     <*> (x .@? "Owner")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListBuckets where
-
-instance NFData ListBuckets where
-
-instance ToHeaders ListBuckets where
-        toHeaders = const mempty
-
-instance ToPath ListBuckets where
-        toPath = const "/"
-
-instance ToQuery ListBuckets where
-        toQuery = const mempty
-
--- | /See:/ 'listBucketsResponse' smart constructor.
-data ListBucketsResponse = ListBucketsResponse'
-  { _lbrsBuckets        :: !(Maybe [Bucket])
-  , _lbrsOwner          :: !(Maybe Owner)
-  , _lbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListBucketsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbrsBuckets' - Undocumented member.
---
--- * 'lbrsOwner' - Undocumented member.
---
--- * 'lbrsResponseStatus' - -- | The response status code.
-listBucketsResponse
-    :: Int -- ^ 'lbrsResponseStatus'
-    -> ListBucketsResponse
-listBucketsResponse pResponseStatus_ =
-  ListBucketsResponse'
-  { _lbrsBuckets = Nothing
-  , _lbrsOwner = Nothing
-  , _lbrsResponseStatus = pResponseStatus_
+-- | /See:/ 'newListBuckets' smart constructor.
+data ListBuckets = ListBuckets'
+  {
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListBuckets' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newListBuckets ::
+  ListBuckets
+newListBuckets = ListBuckets'
 
--- | Undocumented member.
-lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
-lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coerce;
+instance Core.AWSRequest ListBuckets where
+  type AWSResponse ListBuckets = ListBucketsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ListBucketsResponse'
+            Prelude.<$> ( x Core..@? "Buckets" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "Bucket")
+                        )
+            Prelude.<*> (x Core..@? "Owner")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Undocumented member.
-lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
-lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
+instance Prelude.Hashable ListBuckets
 
--- | -- | The response status code.
-lbrsResponseStatus :: Lens' ListBucketsResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a});
+instance Prelude.NFData ListBuckets
 
-instance NFData ListBucketsResponse where
+instance Core.ToHeaders ListBuckets where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath ListBuckets where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListBuckets where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListBucketsResponse' smart constructor.
+data ListBucketsResponse = ListBucketsResponse'
+  { -- | The list of buckets owned by the requestor.
+    buckets :: Prelude.Maybe [Bucket],
+    -- | The owner of the buckets listed.
+    owner :: Prelude.Maybe Owner,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListBucketsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'buckets', 'listBucketsResponse_buckets' - The list of buckets owned by the requestor.
+--
+-- 'owner', 'listBucketsResponse_owner' - The owner of the buckets listed.
+--
+-- 'httpStatus', 'listBucketsResponse_httpStatus' - The response's http status code.
+newListBucketsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListBucketsResponse
+newListBucketsResponse pHttpStatus_ =
+  ListBucketsResponse'
+    { buckets = Prelude.Nothing,
+      owner = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The list of buckets owned by the requestor.
+listBucketsResponse_buckets :: Lens.Lens' ListBucketsResponse (Prelude.Maybe [Bucket])
+listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The owner of the buckets listed.
+listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Prelude.Maybe Owner)
+listBucketsResponse_owner = Lens.lens (\ListBucketsResponse' {owner} -> owner) (\s@ListBucketsResponse' {} a -> s {owner = a} :: ListBucketsResponse)
+
+-- | The response's http status code.
+listBucketsResponse_httpStatus :: Lens.Lens' ListBucketsResponse Prelude.Int
+listBucketsResponse_httpStatus = Lens.lens (\ListBucketsResponse' {httpStatus} -> httpStatus) (\s@ListBucketsResponse' {} a -> s {httpStatus = a} :: ListBucketsResponse)
+
+instance Prelude.NFData ListBucketsResponse

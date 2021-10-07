@@ -1,147 +1,176 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Specifies the health check settings to use when evaluating the health state of your EC2 instances.
+-- Specifies the health check settings to use when evaluating the health
+-- state of your EC2 instances.
 --
---
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer> in the /Classic Load Balancer Guide/ .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html Configure Health Checks for Your Load Balancer>
+-- in the /Classic Load Balancers Guide/.
 module Network.AWS.ELB.ConfigureHealthCheck
-    (
-    -- * Creating a Request
-      configureHealthCheck
-    , ConfigureHealthCheck
+  ( -- * Creating a Request
+    ConfigureHealthCheck (..),
+    newConfigureHealthCheck,
+
     -- * Request Lenses
-    , chcLoadBalancerName
-    , chcHealthCheck
+    configureHealthCheck_loadBalancerName,
+    configureHealthCheck_healthCheck,
 
     -- * Destructuring the Response
-    , configureHealthCheckResponse
-    , ConfigureHealthCheckResponse
-    -- * Response Lenses
-    , chcrsHealthCheck
-    , chcrsResponseStatus
-    ) where
+    ConfigureHealthCheckResponse (..),
+    newConfigureHealthCheckResponse,
 
+    -- * Response Lenses
+    configureHealthCheckResponse_healthCheck,
+    configureHealthCheckResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ConfigureHealthCheck.
 --
---
---
--- /See:/ 'configureHealthCheck' smart constructor.
+-- /See:/ 'newConfigureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
-  { _chcLoadBalancerName :: !Text
-  , _chcHealthCheck      :: !HealthCheck
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the load balancer.
+    loadBalancerName :: Prelude.Text,
+    -- | The configuration information.
+    healthCheck :: HealthCheck
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ConfigureHealthCheck' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ConfigureHealthCheck' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'chcLoadBalancerName' - The name of the load balancer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'chcHealthCheck' - The configuration information.
-configureHealthCheck
-    :: Text -- ^ 'chcLoadBalancerName'
-    -> HealthCheck -- ^ 'chcHealthCheck'
-    -> ConfigureHealthCheck
-configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
-  ConfigureHealthCheck'
-  {_chcLoadBalancerName = pLoadBalancerName_, _chcHealthCheck = pHealthCheck_}
-
+-- 'loadBalancerName', 'configureHealthCheck_loadBalancerName' - The name of the load balancer.
+--
+-- 'healthCheck', 'configureHealthCheck_healthCheck' - The configuration information.
+newConfigureHealthCheck ::
+  -- | 'loadBalancerName'
+  Prelude.Text ->
+  -- | 'healthCheck'
+  HealthCheck ->
+  ConfigureHealthCheck
+newConfigureHealthCheck
+  pLoadBalancerName_
+  pHealthCheck_ =
+    ConfigureHealthCheck'
+      { loadBalancerName =
+          pLoadBalancerName_,
+        healthCheck = pHealthCheck_
+      }
 
 -- | The name of the load balancer.
-chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
-chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a});
+configureHealthCheck_loadBalancerName :: Lens.Lens' ConfigureHealthCheck Prelude.Text
+configureHealthCheck_loadBalancerName = Lens.lens (\ConfigureHealthCheck' {loadBalancerName} -> loadBalancerName) (\s@ConfigureHealthCheck' {} a -> s {loadBalancerName = a} :: ConfigureHealthCheck)
 
 -- | The configuration information.
-chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
+configureHealthCheck_healthCheck :: Lens.Lens' ConfigureHealthCheck HealthCheck
+configureHealthCheck_healthCheck = Lens.lens (\ConfigureHealthCheck' {healthCheck} -> healthCheck) (\s@ConfigureHealthCheck' {} a -> s {healthCheck = a} :: ConfigureHealthCheck)
 
-instance AWSRequest ConfigureHealthCheck where
-        type Rs ConfigureHealthCheck =
-             ConfigureHealthCheckResponse
-        request = postQuery elb
-        response
-          = receiveXMLWrapper "ConfigureHealthCheckResult"
-              (\ s h x ->
-                 ConfigureHealthCheckResponse' <$>
-                   (x .@? "HealthCheck") <*> (pure (fromEnum s)))
+instance Core.AWSRequest ConfigureHealthCheck where
+  type
+    AWSResponse ConfigureHealthCheck =
+      ConfigureHealthCheckResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ConfigureHealthCheckResult"
+      ( \s h x ->
+          ConfigureHealthCheckResponse'
+            Prelude.<$> (x Core..@? "HealthCheck")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ConfigureHealthCheck where
+instance Prelude.Hashable ConfigureHealthCheck
 
-instance NFData ConfigureHealthCheck where
+instance Prelude.NFData ConfigureHealthCheck
 
-instance ToHeaders ConfigureHealthCheck where
-        toHeaders = const mempty
+instance Core.ToHeaders ConfigureHealthCheck where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ConfigureHealthCheck where
-        toPath = const "/"
+instance Core.ToPath ConfigureHealthCheck where
+  toPath = Prelude.const "/"
 
-instance ToQuery ConfigureHealthCheck where
-        toQuery ConfigureHealthCheck'{..}
-          = mconcat
-              ["Action" =: ("ConfigureHealthCheck" :: ByteString),
-               "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _chcLoadBalancerName,
-               "HealthCheck" =: _chcHealthCheck]
+instance Core.ToQuery ConfigureHealthCheck where
+  toQuery ConfigureHealthCheck' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ConfigureHealthCheck" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
+        "HealthCheck" Core.=: healthCheck
+      ]
 
 -- | Contains the output of ConfigureHealthCheck.
 --
---
---
--- /See:/ 'configureHealthCheckResponse' smart constructor.
+-- /See:/ 'newConfigureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-  { _chcrsHealthCheck    :: !(Maybe HealthCheck)
-  , _chcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The updated health check.
+    healthCheck :: Prelude.Maybe HealthCheck,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ConfigureHealthCheckResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'chcrsHealthCheck' - The updated health check.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'chcrsResponseStatus' - -- | The response status code.
-configureHealthCheckResponse
-    :: Int -- ^ 'chcrsResponseStatus'
-    -> ConfigureHealthCheckResponse
-configureHealthCheckResponse pResponseStatus_ =
+-- 'healthCheck', 'configureHealthCheckResponse_healthCheck' - The updated health check.
+--
+-- 'httpStatus', 'configureHealthCheckResponse_httpStatus' - The response's http status code.
+newConfigureHealthCheckResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ConfigureHealthCheckResponse
+newConfigureHealthCheckResponse pHttpStatus_ =
   ConfigureHealthCheckResponse'
-  {_chcrsHealthCheck = Nothing, _chcrsResponseStatus = pResponseStatus_}
-
+    { healthCheck =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The updated health check.
-chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
+configureHealthCheckResponse_healthCheck :: Lens.Lens' ConfigureHealthCheckResponse (Prelude.Maybe HealthCheck)
+configureHealthCheckResponse_healthCheck = Lens.lens (\ConfigureHealthCheckResponse' {healthCheck} -> healthCheck) (\s@ConfigureHealthCheckResponse' {} a -> s {healthCheck = a} :: ConfigureHealthCheckResponse)
 
--- | -- | The response status code.
-chcrsResponseStatus :: Lens' ConfigureHealthCheckResponse Int
-chcrsResponseStatus = lens _chcrsResponseStatus (\ s a -> s{_chcrsResponseStatus = a});
+-- | The response's http status code.
+configureHealthCheckResponse_httpStatus :: Lens.Lens' ConfigureHealthCheckResponse Prelude.Int
+configureHealthCheckResponse_httpStatus = Lens.lens (\ConfigureHealthCheckResponse' {httpStatus} -> httpStatus) (\s@ConfigureHealthCheckResponse' {} a -> s {httpStatus = a} :: ConfigureHealthCheckResponse)
 
-instance NFData ConfigureHealthCheckResponse where
+instance Prelude.NFData ConfigureHealthCheckResponse

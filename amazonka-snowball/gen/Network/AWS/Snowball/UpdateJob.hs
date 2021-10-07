@@ -1,208 +1,295 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Snowball.UpdateJob
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- While a job's @JobState@ value is @New@ , you can update some of the information associated with a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
---
---
+-- While a job\'s @JobState@ value is @New@, you can update some of the
+-- information associated with a job. Once the job changes to a different
+-- job state, usually within 60 minutes of the job being created, this
+-- action is no longer available.
 module Network.AWS.Snowball.UpdateJob
-    (
-    -- * Creating a Request
-      updateJob
-    , UpdateJob
+  ( -- * Creating a Request
+    UpdateJob (..),
+    newUpdateJob,
+
     -- * Request Lenses
-    , ujNotification
-    , ujForwardingAddressId
-    , ujAddressId
-    , ujShippingOption
-    , ujResources
-    , ujDescription
-    , ujRoleARN
-    , ujSnowballCapacityPreference
-    , ujJobId
+    updateJob_roleARN,
+    updateJob_shippingOption,
+    updateJob_onDeviceServiceConfiguration,
+    updateJob_snowballCapacityPreference,
+    updateJob_resources,
+    updateJob_description,
+    updateJob_addressId,
+    updateJob_forwardingAddressId,
+    updateJob_notification,
+    updateJob_jobId,
 
     -- * Destructuring the Response
-    , updateJobResponse
-    , UpdateJobResponse
+    UpdateJobResponse (..),
+    newUpdateJobResponse,
+
     -- * Response Lenses
-    , ujrsResponseStatus
-    ) where
+    updateJobResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
-import Network.AWS.Snowball.Types.Product
 
--- | /See:/ 'updateJob' smart constructor.
+-- | /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujNotification               :: !(Maybe Notification)
-  , _ujForwardingAddressId        :: !(Maybe Text)
-  , _ujAddressId                  :: !(Maybe Text)
-  , _ujShippingOption             :: !(Maybe ShippingOption)
-  , _ujResources                  :: !(Maybe JobResource)
-  , _ujDescription                :: !(Maybe Text)
-  , _ujRoleARN                    :: !(Maybe Text)
-  , _ujSnowballCapacityPreference :: !(Maybe SnowballCapacity)
-  , _ujJobId                      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ujNotification' - The new or updated 'Notification' object.
---
--- * 'ujForwardingAddressId' - The updated ID for the forwarding address for a job. This field is not supported in most regions.
---
--- * 'ujAddressId' - The ID of the updated 'Address' object.
---
--- * 'ujShippingOption' - The updated shipping option value of this job's 'ShippingDetails' object.
---
--- * 'ujResources' - The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
---
--- * 'ujDescription' - The updated description of this job's 'JobMetadata' object.
---
--- * 'ujRoleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
---
--- * 'ujSnowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
---
--- * 'ujJobId' - The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-updateJob
-    :: Text -- ^ 'ujJobId'
-    -> UpdateJob
-updateJob pJobId_ =
-  UpdateJob'
-  { _ujNotification = Nothing
-  , _ujForwardingAddressId = Nothing
-  , _ujAddressId = Nothing
-  , _ujShippingOption = Nothing
-  , _ujResources = Nothing
-  , _ujDescription = Nothing
-  , _ujRoleARN = Nothing
-  , _ujSnowballCapacityPreference = Nothing
-  , _ujJobId = pJobId_
+  { -- | The new role Amazon Resource Name (ARN) that you want to associate with
+    -- this job. To create a role ARN, use the
+    -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
+    -- Identity and Access Management (IAM) API action.
+    roleARN :: Prelude.Maybe Prelude.Text,
+    -- | The updated shipping option value of this job\'s ShippingDetails object.
+    shippingOption :: Prelude.Maybe ShippingOption,
+    -- | Specifies the service or services on the Snow Family device that your
+    -- transferred data will be exported from or imported into. AWS Snow Family
+    -- supports Amazon S3 and NFS (Network File System).
+    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
+    -- | The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
+    -- object. The 50 TB Snowballs are only available in the US regions.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+    snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
+    -- | The updated @JobResource@ object, or the updated JobResource object.
+    resources :: Prelude.Maybe JobResource,
+    -- | The updated description of this job\'s JobMetadata object.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the updated Address object.
+    addressId :: Prelude.Maybe Prelude.Text,
+    -- | The updated ID for the forwarding address for a job. This field is not
+    -- supported in most regions.
+    forwardingAddressId :: Prelude.Maybe Prelude.Text,
+    -- | The new or updated Notification object.
+    notification :: Prelude.Maybe Notification,
+    -- | The job ID of the job that you want to update, for example
+    -- @JID123e4567-e89b-12d3-a456-426655440000@.
+    jobId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | The new or updated 'Notification' object.
-ujNotification :: Lens' UpdateJob (Maybe Notification)
-ujNotification = lens _ujNotification (\ s a -> s{_ujNotification = a});
-
--- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
-ujForwardingAddressId :: Lens' UpdateJob (Maybe Text)
-ujForwardingAddressId = lens _ujForwardingAddressId (\ s a -> s{_ujForwardingAddressId = a});
-
--- | The ID of the updated 'Address' object.
-ujAddressId :: Lens' UpdateJob (Maybe Text)
-ujAddressId = lens _ujAddressId (\ s a -> s{_ujAddressId = a});
-
--- | The updated shipping option value of this job's 'ShippingDetails' object.
-ujShippingOption :: Lens' UpdateJob (Maybe ShippingOption)
-ujShippingOption = lens _ujShippingOption (\ s a -> s{_ujShippingOption = a});
-
--- | The updated 'S3Resource' object (for a single Amazon S3 bucket or key range), or the updated 'JobResource' object (for multiple buckets or key ranges).
-ujResources :: Lens' UpdateJob (Maybe JobResource)
-ujResources = lens _ujResources (\ s a -> s{_ujResources = a});
-
--- | The updated description of this job's 'JobMetadata' object.
-ujDescription :: Lens' UpdateJob (Maybe Text)
-ujDescription = lens _ujDescription (\ s a -> s{_ujDescription = a});
-
--- | The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
-ujRoleARN :: Lens' UpdateJob (Maybe Text)
-ujRoleARN = lens _ujRoleARN (\ s a -> s{_ujRoleARN = a});
-
--- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
-ujSnowballCapacityPreference :: Lens' UpdateJob (Maybe SnowballCapacity)
-ujSnowballCapacityPreference = lens _ujSnowballCapacityPreference (\ s a -> s{_ujSnowballCapacityPreference = a});
-
--- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
-
-instance AWSRequest UpdateJob where
-        type Rs UpdateJob = UpdateJobResponse
-        request = postJSON snowball
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateJobResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UpdateJob where
-
-instance NFData UpdateJob where
-
-instance ToHeaders UpdateJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSIESnowballJobManagementService.UpdateJob" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdateJob where
-        toJSON UpdateJob'{..}
-          = object
-              (catMaybes
-                 [("Notification" .=) <$> _ujNotification,
-                  ("ForwardingAddressId" .=) <$>
-                    _ujForwardingAddressId,
-                  ("AddressId" .=) <$> _ujAddressId,
-                  ("ShippingOption" .=) <$> _ujShippingOption,
-                  ("Resources" .=) <$> _ujResources,
-                  ("Description" .=) <$> _ujDescription,
-                  ("RoleARN" .=) <$> _ujRoleARN,
-                  ("SnowballCapacityPreference" .=) <$>
-                    _ujSnowballCapacityPreference,
-                  Just ("JobId" .= _ujJobId)])
-
-instance ToPath UpdateJob where
-        toPath = const "/"
-
-instance ToQuery UpdateJob where
-        toQuery = const mempty
-
--- | /See:/ 'updateJobResponse' smart constructor.
-newtype UpdateJobResponse = UpdateJobResponse'
-  { _ujrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ujrsResponseStatus' - -- | The response status code.
-updateJobResponse
-    :: Int -- ^ 'ujrsResponseStatus'
-    -> UpdateJobResponse
-updateJobResponse pResponseStatus_ =
-  UpdateJobResponse' {_ujrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'roleARN', 'updateJob_roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with
+-- this job. To create a role ARN, use the
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
+-- Identity and Access Management (IAM) API action.
+--
+-- 'shippingOption', 'updateJob_shippingOption' - The updated shipping option value of this job\'s ShippingDetails object.
+--
+-- 'onDeviceServiceConfiguration', 'updateJob_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+--
+-- 'snowballCapacityPreference', 'updateJob_snowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
+-- object. The 50 TB Snowballs are only available in the US regions.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+--
+-- 'resources', 'updateJob_resources' - The updated @JobResource@ object, or the updated JobResource object.
+--
+-- 'description', 'updateJob_description' - The updated description of this job\'s JobMetadata object.
+--
+-- 'addressId', 'updateJob_addressId' - The ID of the updated Address object.
+--
+-- 'forwardingAddressId', 'updateJob_forwardingAddressId' - The updated ID for the forwarding address for a job. This field is not
+-- supported in most regions.
+--
+-- 'notification', 'updateJob_notification' - The new or updated Notification object.
+--
+-- 'jobId', 'updateJob_jobId' - The job ID of the job that you want to update, for example
+-- @JID123e4567-e89b-12d3-a456-426655440000@.
+newUpdateJob ::
+  -- | 'jobId'
+  Prelude.Text ->
+  UpdateJob
+newUpdateJob pJobId_ =
+  UpdateJob'
+    { roleARN = Prelude.Nothing,
+      shippingOption = Prelude.Nothing,
+      onDeviceServiceConfiguration = Prelude.Nothing,
+      snowballCapacityPreference = Prelude.Nothing,
+      resources = Prelude.Nothing,
+      description = Prelude.Nothing,
+      addressId = Prelude.Nothing,
+      forwardingAddressId = Prelude.Nothing,
+      notification = Prelude.Nothing,
+      jobId = pJobId_
+    }
 
+-- | The new role Amazon Resource Name (ARN) that you want to associate with
+-- this job. To create a role ARN, use the
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
+-- Identity and Access Management (IAM) API action.
+updateJob_roleARN :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
+updateJob_roleARN = Lens.lens (\UpdateJob' {roleARN} -> roleARN) (\s@UpdateJob' {} a -> s {roleARN = a} :: UpdateJob)
 
--- | -- | The response status code.
-ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a});
+-- | The updated shipping option value of this job\'s ShippingDetails object.
+updateJob_shippingOption :: Lens.Lens' UpdateJob (Prelude.Maybe ShippingOption)
+updateJob_shippingOption = Lens.lens (\UpdateJob' {shippingOption} -> shippingOption) (\s@UpdateJob' {} a -> s {shippingOption = a} :: UpdateJob)
 
-instance NFData UpdateJobResponse where
+-- | Specifies the service or services on the Snow Family device that your
+-- transferred data will be exported from or imported into. AWS Snow Family
+-- supports Amazon S3 and NFS (Network File System).
+updateJob_onDeviceServiceConfiguration :: Lens.Lens' UpdateJob (Prelude.Maybe OnDeviceServiceConfiguration)
+updateJob_onDeviceServiceConfiguration = Lens.lens (\UpdateJob' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@UpdateJob' {} a -> s {onDeviceServiceConfiguration = a} :: UpdateJob)
+
+-- | The updated @SnowballCapacityPreference@ of this job\'s JobMetadata
+-- object. The 50 TB Snowballs are only available in the US regions.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+updateJob_snowballCapacityPreference :: Lens.Lens' UpdateJob (Prelude.Maybe SnowballCapacity)
+updateJob_snowballCapacityPreference = Lens.lens (\UpdateJob' {snowballCapacityPreference} -> snowballCapacityPreference) (\s@UpdateJob' {} a -> s {snowballCapacityPreference = a} :: UpdateJob)
+
+-- | The updated @JobResource@ object, or the updated JobResource object.
+updateJob_resources :: Lens.Lens' UpdateJob (Prelude.Maybe JobResource)
+updateJob_resources = Lens.lens (\UpdateJob' {resources} -> resources) (\s@UpdateJob' {} a -> s {resources = a} :: UpdateJob)
+
+-- | The updated description of this job\'s JobMetadata object.
+updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
+updateJob_description = Lens.lens (\UpdateJob' {description} -> description) (\s@UpdateJob' {} a -> s {description = a} :: UpdateJob)
+
+-- | The ID of the updated Address object.
+updateJob_addressId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
+updateJob_addressId = Lens.lens (\UpdateJob' {addressId} -> addressId) (\s@UpdateJob' {} a -> s {addressId = a} :: UpdateJob)
+
+-- | The updated ID for the forwarding address for a job. This field is not
+-- supported in most regions.
+updateJob_forwardingAddressId :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
+updateJob_forwardingAddressId = Lens.lens (\UpdateJob' {forwardingAddressId} -> forwardingAddressId) (\s@UpdateJob' {} a -> s {forwardingAddressId = a} :: UpdateJob)
+
+-- | The new or updated Notification object.
+updateJob_notification :: Lens.Lens' UpdateJob (Prelude.Maybe Notification)
+updateJob_notification = Lens.lens (\UpdateJob' {notification} -> notification) (\s@UpdateJob' {} a -> s {notification = a} :: UpdateJob)
+
+-- | The job ID of the job that you want to update, for example
+-- @JID123e4567-e89b-12d3-a456-426655440000@.
+updateJob_jobId :: Lens.Lens' UpdateJob Prelude.Text
+updateJob_jobId = Lens.lens (\UpdateJob' {jobId} -> jobId) (\s@UpdateJob' {} a -> s {jobId = a} :: UpdateJob)
+
+instance Core.AWSRequest UpdateJob where
+  type AWSResponse UpdateJob = UpdateJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateJobResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateJob
+
+instance Prelude.NFData UpdateJob
+
+instance Core.ToHeaders UpdateJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSIESnowballJobManagementService.UpdateJob" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON UpdateJob where
+  toJSON UpdateJob' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
+            ("ShippingOption" Core..=)
+              Prelude.<$> shippingOption,
+            ("OnDeviceServiceConfiguration" Core..=)
+              Prelude.<$> onDeviceServiceConfiguration,
+            ("SnowballCapacityPreference" Core..=)
+              Prelude.<$> snowballCapacityPreference,
+            ("Resources" Core..=) Prelude.<$> resources,
+            ("Description" Core..=) Prelude.<$> description,
+            ("AddressId" Core..=) Prelude.<$> addressId,
+            ("ForwardingAddressId" Core..=)
+              Prelude.<$> forwardingAddressId,
+            ("Notification" Core..=) Prelude.<$> notification,
+            Prelude.Just ("JobId" Core..= jobId)
+          ]
+      )
+
+instance Core.ToPath UpdateJob where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery UpdateJob where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateJobResponse' smart constructor.
+data UpdateJobResponse = UpdateJobResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateJobResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateJobResponse_httpStatus' - The response's http status code.
+newUpdateJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateJobResponse
+newUpdateJobResponse pHttpStatus_ =
+  UpdateJobResponse' {httpStatus = pHttpStatus_}
+
+-- | The response's http status code.
+updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
+updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
+
+instance Prelude.NFData UpdateJobResponse

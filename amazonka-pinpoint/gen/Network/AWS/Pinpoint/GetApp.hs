@@ -1,126 +1,152 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetApp
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about an app.
+-- Retrieves information about an application.
 module Network.AWS.Pinpoint.GetApp
-    (
-    -- * Creating a Request
-      getApp
-    , GetApp
+  ( -- * Creating a Request
+    GetApp (..),
+    newGetApp,
+
     -- * Request Lenses
-    , gaApplicationId
+    getApp_applicationId,
 
     -- * Destructuring the Response
-    , getAppResponse
-    , GetAppResponse
+    GetAppResponse (..),
+    newGetAppResponse,
+
     -- * Response Lenses
-    , garsResponseStatus
-    , garsApplicationResponse
-    ) where
+    getAppResponse_httpStatus,
+    getAppResponse_applicationResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getApp' smart constructor.
-newtype GetApp = GetApp'
-  { _gaApplicationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetApp' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaApplicationId' - Undocumented member.
-getApp
-    :: Text -- ^ 'gaApplicationId'
-    -> GetApp
-getApp pApplicationId_ = GetApp' {_gaApplicationId = pApplicationId_}
-
-
--- | Undocumented member.
-gaApplicationId :: Lens' GetApp Text
-gaApplicationId = lens _gaApplicationId (\ s a -> s{_gaApplicationId = a});
-
-instance AWSRequest GetApp where
-        type Rs GetApp = GetAppResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetAppResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable GetApp where
-
-instance NFData GetApp where
-
-instance ToHeaders GetApp where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetApp where
-        toPath GetApp'{..}
-          = mconcat ["/v1/apps/", toBS _gaApplicationId]
-
-instance ToQuery GetApp where
-        toQuery = const mempty
-
--- | /See:/ 'getAppResponse' smart constructor.
-data GetAppResponse = GetAppResponse'
-  { _garsResponseStatus      :: !Int
-  , _garsApplicationResponse :: !ApplicationResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garsResponseStatus' - -- | The response status code.
---
--- * 'garsApplicationResponse' - Undocumented member.
-getAppResponse
-    :: Int -- ^ 'garsResponseStatus'
-    -> ApplicationResponse -- ^ 'garsApplicationResponse'
-    -> GetAppResponse
-getAppResponse pResponseStatus_ pApplicationResponse_ =
-  GetAppResponse'
-  { _garsResponseStatus = pResponseStatus_
-  , _garsApplicationResponse = pApplicationResponse_
+-- | /See:/ 'newGetApp' smart constructor.
+data GetApp = GetApp'
+  { -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetApp' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationId', 'getApp_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newGetApp ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  GetApp
+newGetApp pApplicationId_ =
+  GetApp' {applicationId = pApplicationId_}
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetAppResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a});
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getApp_applicationId :: Lens.Lens' GetApp Prelude.Text
+getApp_applicationId = Lens.lens (\GetApp' {applicationId} -> applicationId) (\s@GetApp' {} a -> s {applicationId = a} :: GetApp)
+
+instance Core.AWSRequest GetApp where
+  type AWSResponse GetApp = GetAppResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetAppResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable GetApp
+
+instance Prelude.NFData GetApp
+
+instance Core.ToHeaders GetApp where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath GetApp where
+  toPath GetApp' {..} =
+    Prelude.mconcat
+      ["/v1/apps/", Core.toBS applicationId]
+
+instance Core.ToQuery GetApp where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetAppResponse' smart constructor.
+data GetAppResponse = GetAppResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    applicationResponse :: ApplicationResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetAppResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'getAppResponse_httpStatus' - The response's http status code.
+--
+-- 'applicationResponse', 'getAppResponse_applicationResponse' - Undocumented member.
+newGetAppResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'applicationResponse'
+  ApplicationResponse ->
+  GetAppResponse
+newGetAppResponse pHttpStatus_ pApplicationResponse_ =
+  GetAppResponse'
+    { httpStatus = pHttpStatus_,
+      applicationResponse = pApplicationResponse_
+    }
+
+-- | The response's http status code.
+getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Prelude.Int
+getAppResponse_httpStatus = Lens.lens (\GetAppResponse' {httpStatus} -> httpStatus) (\s@GetAppResponse' {} a -> s {httpStatus = a} :: GetAppResponse)
 
 -- | Undocumented member.
-garsApplicationResponse :: Lens' GetAppResponse ApplicationResponse
-garsApplicationResponse = lens _garsApplicationResponse (\ s a -> s{_garsApplicationResponse = a});
+getAppResponse_applicationResponse :: Lens.Lens' GetAppResponse ApplicationResponse
+getAppResponse_applicationResponse = Lens.lens (\GetAppResponse' {applicationResponse} -> applicationResponse) (\s@GetAppResponse' {} a -> s {applicationResponse = a} :: GetAppResponse)
 
-instance NFData GetAppResponse where
+instance Prelude.NFData GetAppResponse

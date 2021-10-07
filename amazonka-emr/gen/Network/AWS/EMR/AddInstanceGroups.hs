@@ -1,163 +1,203 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.AddInstanceGroups
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more instance groups to a running cluster.
---
---
 module Network.AWS.EMR.AddInstanceGroups
-    (
-    -- * Creating a Request
-      addInstanceGroups
-    , AddInstanceGroups
+  ( -- * Creating a Request
+    AddInstanceGroups (..),
+    newAddInstanceGroups,
+
     -- * Request Lenses
-    , aigInstanceGroups
-    , aigJobFlowId
+    addInstanceGroups_instanceGroups,
+    addInstanceGroups_jobFlowId,
 
     -- * Destructuring the Response
-    , addInstanceGroupsResponse
-    , AddInstanceGroupsResponse
-    -- * Response Lenses
-    , aigrsJobFlowId
-    , aigrsInstanceGroupIds
-    , aigrsResponseStatus
-    ) where
+    AddInstanceGroupsResponse (..),
+    newAddInstanceGroupsResponse,
 
+    -- * Response Lenses
+    addInstanceGroupsResponse_clusterArn,
+    addInstanceGroupsResponse_jobFlowId,
+    addInstanceGroupsResponse_instanceGroupIds,
+    addInstanceGroupsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to an AddInstanceGroups call.
 --
---
---
--- /See:/ 'addInstanceGroups' smart constructor.
+-- /See:/ 'newAddInstanceGroups' smart constructor.
 data AddInstanceGroups = AddInstanceGroups'
-  { _aigInstanceGroups :: ![InstanceGroupConfig]
-  , _aigJobFlowId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Instance groups to add.
+    instanceGroups :: [InstanceGroupConfig],
+    -- | Job flow in which to add the instance groups.
+    jobFlowId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AddInstanceGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddInstanceGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aigInstanceGroups' - Instance groups to add.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aigJobFlowId' - Job flow in which to add the instance groups.
-addInstanceGroups
-    :: Text -- ^ 'aigJobFlowId'
-    -> AddInstanceGroups
-addInstanceGroups pJobFlowId_ =
-  AddInstanceGroups' {_aigInstanceGroups = mempty, _aigJobFlowId = pJobFlowId_}
-
+-- 'instanceGroups', 'addInstanceGroups_instanceGroups' - Instance groups to add.
+--
+-- 'jobFlowId', 'addInstanceGroups_jobFlowId' - Job flow in which to add the instance groups.
+newAddInstanceGroups ::
+  -- | 'jobFlowId'
+  Prelude.Text ->
+  AddInstanceGroups
+newAddInstanceGroups pJobFlowId_ =
+  AddInstanceGroups'
+    { instanceGroups = Prelude.mempty,
+      jobFlowId = pJobFlowId_
+    }
 
 -- | Instance groups to add.
-aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
-aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a}) . _Coerce;
+addInstanceGroups_instanceGroups :: Lens.Lens' AddInstanceGroups [InstanceGroupConfig]
+addInstanceGroups_instanceGroups = Lens.lens (\AddInstanceGroups' {instanceGroups} -> instanceGroups) (\s@AddInstanceGroups' {} a -> s {instanceGroups = a} :: AddInstanceGroups) Prelude.. Lens._Coerce
 
 -- | Job flow in which to add the instance groups.
-aigJobFlowId :: Lens' AddInstanceGroups Text
-aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a});
+addInstanceGroups_jobFlowId :: Lens.Lens' AddInstanceGroups Prelude.Text
+addInstanceGroups_jobFlowId = Lens.lens (\AddInstanceGroups' {jobFlowId} -> jobFlowId) (\s@AddInstanceGroups' {} a -> s {jobFlowId = a} :: AddInstanceGroups)
 
-instance AWSRequest AddInstanceGroups where
-        type Rs AddInstanceGroups = AddInstanceGroupsResponse
-        request = postJSON emr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AddInstanceGroupsResponse' <$>
-                   (x .?> "JobFlowId") <*>
-                     (x .?> "InstanceGroupIds" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest AddInstanceGroups where
+  type
+    AWSResponse AddInstanceGroups =
+      AddInstanceGroupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AddInstanceGroupsResponse'
+            Prelude.<$> (x Core..?> "ClusterArn")
+            Prelude.<*> (x Core..?> "JobFlowId")
+            Prelude.<*> ( x Core..?> "InstanceGroupIds"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AddInstanceGroups where
+instance Prelude.Hashable AddInstanceGroups
 
-instance NFData AddInstanceGroups where
+instance Prelude.NFData AddInstanceGroups
 
-instance ToHeaders AddInstanceGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.AddInstanceGroups" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AddInstanceGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "ElasticMapReduce.AddInstanceGroups" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AddInstanceGroups where
-        toJSON AddInstanceGroups'{..}
-          = object
-              (catMaybes
-                 [Just ("InstanceGroups" .= _aigInstanceGroups),
-                  Just ("JobFlowId" .= _aigJobFlowId)])
+instance Core.ToJSON AddInstanceGroups where
+  toJSON AddInstanceGroups' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("InstanceGroups" Core..= instanceGroups),
+            Prelude.Just ("JobFlowId" Core..= jobFlowId)
+          ]
+      )
 
-instance ToPath AddInstanceGroups where
-        toPath = const "/"
+instance Core.ToPath AddInstanceGroups where
+  toPath = Prelude.const "/"
 
-instance ToQuery AddInstanceGroups where
-        toQuery = const mempty
+instance Core.ToQuery AddInstanceGroups where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Output from an AddInstanceGroups call.
 --
---
---
--- /See:/ 'addInstanceGroupsResponse' smart constructor.
+-- /See:/ 'newAddInstanceGroupsResponse' smart constructor.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
-  { _aigrsJobFlowId        :: !(Maybe Text)
-  , _aigrsInstanceGroupIds :: !(Maybe [Text])
-  , _aigrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AddInstanceGroupsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aigrsJobFlowId' - The job flow ID in which the instance groups are added.
---
--- * 'aigrsInstanceGroupIds' - Instance group IDs of the newly created instance groups.
---
--- * 'aigrsResponseStatus' - -- | The response status code.
-addInstanceGroupsResponse
-    :: Int -- ^ 'aigrsResponseStatus'
-    -> AddInstanceGroupsResponse
-addInstanceGroupsResponse pResponseStatus_ =
-  AddInstanceGroupsResponse'
-  { _aigrsJobFlowId = Nothing
-  , _aigrsInstanceGroupIds = Nothing
-  , _aigrsResponseStatus = pResponseStatus_
+  { -- | The Amazon Resource Name of the cluster.
+    clusterArn :: Prelude.Maybe Prelude.Text,
+    -- | The job flow ID in which the instance groups are added.
+    jobFlowId :: Prelude.Maybe Prelude.Text,
+    -- | Instance group IDs of the newly created instance groups.
+    instanceGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'AddInstanceGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'clusterArn', 'addInstanceGroupsResponse_clusterArn' - The Amazon Resource Name of the cluster.
+--
+-- 'jobFlowId', 'addInstanceGroupsResponse_jobFlowId' - The job flow ID in which the instance groups are added.
+--
+-- 'instanceGroupIds', 'addInstanceGroupsResponse_instanceGroupIds' - Instance group IDs of the newly created instance groups.
+--
+-- 'httpStatus', 'addInstanceGroupsResponse_httpStatus' - The response's http status code.
+newAddInstanceGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddInstanceGroupsResponse
+newAddInstanceGroupsResponse pHttpStatus_ =
+  AddInstanceGroupsResponse'
+    { clusterArn =
+        Prelude.Nothing,
+      jobFlowId = Prelude.Nothing,
+      instanceGroupIds = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The Amazon Resource Name of the cluster.
+addInstanceGroupsResponse_clusterArn :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
+addInstanceGroupsResponse_clusterArn = Lens.lens (\AddInstanceGroupsResponse' {clusterArn} -> clusterArn) (\s@AddInstanceGroupsResponse' {} a -> s {clusterArn = a} :: AddInstanceGroupsResponse)
 
 -- | The job flow ID in which the instance groups are added.
-aigrsJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
-aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a});
+addInstanceGroupsResponse_jobFlowId :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
+addInstanceGroupsResponse_jobFlowId = Lens.lens (\AddInstanceGroupsResponse' {jobFlowId} -> jobFlowId) (\s@AddInstanceGroupsResponse' {} a -> s {jobFlowId = a} :: AddInstanceGroupsResponse)
 
 -- | Instance group IDs of the newly created instance groups.
-aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
-aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
+addInstanceGroupsResponse_instanceGroupIds :: Lens.Lens' AddInstanceGroupsResponse (Prelude.Maybe [Prelude.Text])
+addInstanceGroupsResponse_instanceGroupIds = Lens.lens (\AddInstanceGroupsResponse' {instanceGroupIds} -> instanceGroupIds) (\s@AddInstanceGroupsResponse' {} a -> s {instanceGroupIds = a} :: AddInstanceGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-aigrsResponseStatus :: Lens' AddInstanceGroupsResponse Int
-aigrsResponseStatus = lens _aigrsResponseStatus (\ s a -> s{_aigrsResponseStatus = a});
+-- | The response's http status code.
+addInstanceGroupsResponse_httpStatus :: Lens.Lens' AddInstanceGroupsResponse Prelude.Int
+addInstanceGroupsResponse_httpStatus = Lens.lens (\AddInstanceGroupsResponse' {httpStatus} -> httpStatus) (\s@AddInstanceGroupsResponse' {} a -> s {httpStatus = a} :: AddInstanceGroupsResponse)
 
-instance NFData AddInstanceGroupsResponse where
+instance Prelude.NFData AddInstanceGroupsResponse

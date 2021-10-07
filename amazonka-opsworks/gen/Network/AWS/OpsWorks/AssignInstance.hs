@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.AssignInstance
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,109 +22,136 @@
 --
 -- Assign a registered instance to a layer.
 --
+-- -   You can assign registered on-premises instances to any layer type.
 --
---     * You can assign registered on-premises instances to any layer type.
+-- -   You can assign registered Amazon EC2 instances only to custom
+--     layers.
 --
---     * You can assign registered Amazon EC2 instances only to custom layers.
+-- -   You cannot use this action with instances that were created with AWS
+--     OpsWorks Stacks.
 --
---     * You cannot use this action with instances that were created with AWS OpsWorks Stacks.
---
---
---
--- __Required Permissions__ : To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an AWS Identity and Access
+-- Management (IAM) user must have a Manage permissions level for the stack
+-- or an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.AssignInstance
-    (
-    -- * Creating a Request
-      assignInstance
-    , AssignInstance
+  ( -- * Creating a Request
+    AssignInstance (..),
+    newAssignInstance,
+
     -- * Request Lenses
-    , aiInstanceId
-    , aiLayerIds
+    assignInstance_instanceId,
+    assignInstance_layerIds,
 
     -- * Destructuring the Response
-    , assignInstanceResponse
-    , AssignInstanceResponse
-    ) where
+    AssignInstanceResponse (..),
+    newAssignInstanceResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'assignInstance' smart constructor.
+-- | /See:/ 'newAssignInstance' smart constructor.
 data AssignInstance = AssignInstance'
-  { _aiInstanceId :: !Text
-  , _aiLayerIds   :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The instance ID.
+    instanceId :: Prelude.Text,
+    -- | The layer ID, which must correspond to a custom layer. You cannot assign
+    -- a registered instance to a built-in layer.
+    layerIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssignInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssignInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aiInstanceId' - The instance ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aiLayerIds' - The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
-assignInstance
-    :: Text -- ^ 'aiInstanceId'
-    -> AssignInstance
-assignInstance pInstanceId_ =
-  AssignInstance' {_aiInstanceId = pInstanceId_, _aiLayerIds = mempty}
-
+-- 'instanceId', 'assignInstance_instanceId' - The instance ID.
+--
+-- 'layerIds', 'assignInstance_layerIds' - The layer ID, which must correspond to a custom layer. You cannot assign
+-- a registered instance to a built-in layer.
+newAssignInstance ::
+  -- | 'instanceId'
+  Prelude.Text ->
+  AssignInstance
+newAssignInstance pInstanceId_ =
+  AssignInstance'
+    { instanceId = pInstanceId_,
+      layerIds = Prelude.mempty
+    }
 
 -- | The instance ID.
-aiInstanceId :: Lens' AssignInstance Text
-aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
+assignInstance_instanceId :: Lens.Lens' AssignInstance Prelude.Text
+assignInstance_instanceId = Lens.lens (\AssignInstance' {instanceId} -> instanceId) (\s@AssignInstance' {} a -> s {instanceId = a} :: AssignInstance)
 
--- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
-aiLayerIds :: Lens' AssignInstance [Text]
-aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a}) . _Coerce;
+-- | The layer ID, which must correspond to a custom layer. You cannot assign
+-- a registered instance to a built-in layer.
+assignInstance_layerIds :: Lens.Lens' AssignInstance [Prelude.Text]
+assignInstance_layerIds = Lens.lens (\AssignInstance' {layerIds} -> layerIds) (\s@AssignInstance' {} a -> s {layerIds = a} :: AssignInstance) Prelude.. Lens._Coerce
 
-instance AWSRequest AssignInstance where
-        type Rs AssignInstance = AssignInstanceResponse
-        request = postJSON opsWorks
-        response = receiveNull AssignInstanceResponse'
+instance Core.AWSRequest AssignInstance where
+  type
+    AWSResponse AssignInstance =
+      AssignInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull AssignInstanceResponse'
 
-instance Hashable AssignInstance where
+instance Prelude.Hashable AssignInstance
 
-instance NFData AssignInstance where
+instance Prelude.NFData AssignInstance
 
-instance ToHeaders AssignInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.AssignInstance" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AssignInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.AssignInstance" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AssignInstance where
-        toJSON AssignInstance'{..}
-          = object
-              (catMaybes
-                 [Just ("InstanceId" .= _aiInstanceId),
-                  Just ("LayerIds" .= _aiLayerIds)])
+instance Core.ToJSON AssignInstance where
+  toJSON AssignInstance' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("InstanceId" Core..= instanceId),
+            Prelude.Just ("LayerIds" Core..= layerIds)
+          ]
+      )
 
-instance ToPath AssignInstance where
-        toPath = const "/"
+instance Core.ToPath AssignInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery AssignInstance where
-        toQuery = const mempty
+instance Core.ToQuery AssignInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'assignInstanceResponse' smart constructor.
-data AssignInstanceResponse =
-  AssignInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAssignInstanceResponse' smart constructor.
+data AssignInstanceResponse = AssignInstanceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AssignInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssignInstanceResponse' with all optional fields omitted.
 --
-assignInstanceResponse
-    :: AssignInstanceResponse
-assignInstanceResponse = AssignInstanceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAssignInstanceResponse ::
+  AssignInstanceResponse
+newAssignInstanceResponse = AssignInstanceResponse'
 
-
-instance NFData AssignInstanceResponse where
+instance Prelude.NFData AssignInstanceResponse

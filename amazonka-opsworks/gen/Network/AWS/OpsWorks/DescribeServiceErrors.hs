@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeServiceErrors
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,146 +22,192 @@
 --
 -- Describes AWS OpsWorks Stacks service errors.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information about
+-- user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- This call accepts only one resource-identifying parameter.
---
 module Network.AWS.OpsWorks.DescribeServiceErrors
-    (
-    -- * Creating a Request
-      describeServiceErrors
-    , DescribeServiceErrors
+  ( -- * Creating a Request
+    DescribeServiceErrors (..),
+    newDescribeServiceErrors,
+
     -- * Request Lenses
-    , dseInstanceId
-    , dseStackId
-    , dseServiceErrorIds
+    describeServiceErrors_instanceId,
+    describeServiceErrors_stackId,
+    describeServiceErrors_serviceErrorIds,
 
     -- * Destructuring the Response
-    , describeServiceErrorsResponse
-    , DescribeServiceErrorsResponse
+    DescribeServiceErrorsResponse (..),
+    newDescribeServiceErrorsResponse,
+
     -- * Response Lenses
-    , dsersServiceErrors
-    , dsersResponseStatus
-    ) where
+    describeServiceErrorsResponse_serviceErrors,
+    describeServiceErrorsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeServiceErrors' smart constructor.
+-- | /See:/ 'newDescribeServiceErrors' smart constructor.
 data DescribeServiceErrors = DescribeServiceErrors'
-  { _dseInstanceId      :: !(Maybe Text)
-  , _dseStackId         :: !(Maybe Text)
-  , _dseServiceErrorIds :: !(Maybe [Text])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeServiceErrors' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dseInstanceId' - The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
---
--- * 'dseStackId' - The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
---
--- * 'dseServiceErrorIds' - An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
-describeServiceErrors
-    :: DescribeServiceErrors
-describeServiceErrors =
-  DescribeServiceErrors'
-  { _dseInstanceId = Nothing
-  , _dseStackId = Nothing
-  , _dseServiceErrorIds = Nothing
+  { -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
+    -- returns descriptions of the errors associated with the specified
+    -- instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
+    -- descriptions of the errors associated with the specified stack.
+    stackId :: Prelude.Maybe Prelude.Text,
+    -- | An array of service error IDs. If you use this parameter,
+    -- @DescribeServiceErrors@ returns descriptions of the specified errors.
+    -- Otherwise, it returns a description of every error.
+    serviceErrorIds :: Prelude.Maybe [Prelude.Text]
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeServiceErrors' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceId', 'describeServiceErrors_instanceId' - The instance ID. If you use this parameter, @DescribeServiceErrors@
+-- returns descriptions of the errors associated with the specified
+-- instance.
+--
+-- 'stackId', 'describeServiceErrors_stackId' - The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
+-- descriptions of the errors associated with the specified stack.
+--
+-- 'serviceErrorIds', 'describeServiceErrors_serviceErrorIds' - An array of service error IDs. If you use this parameter,
+-- @DescribeServiceErrors@ returns descriptions of the specified errors.
+-- Otherwise, it returns a description of every error.
+newDescribeServiceErrors ::
+  DescribeServiceErrors
+newDescribeServiceErrors =
+  DescribeServiceErrors'
+    { instanceId =
+        Prelude.Nothing,
+      stackId = Prelude.Nothing,
+      serviceErrorIds = Prelude.Nothing
+    }
 
--- | The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
-dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
-dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
+-- | The instance ID. If you use this parameter, @DescribeServiceErrors@
+-- returns descriptions of the errors associated with the specified
+-- instance.
+describeServiceErrors_instanceId :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe Prelude.Text)
+describeServiceErrors_instanceId = Lens.lens (\DescribeServiceErrors' {instanceId} -> instanceId) (\s@DescribeServiceErrors' {} a -> s {instanceId = a} :: DescribeServiceErrors)
 
--- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
-dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
-dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
+-- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
+-- descriptions of the errors associated with the specified stack.
+describeServiceErrors_stackId :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe Prelude.Text)
+describeServiceErrors_stackId = Lens.lens (\DescribeServiceErrors' {stackId} -> stackId) (\s@DescribeServiceErrors' {} a -> s {stackId = a} :: DescribeServiceErrors)
 
--- | An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
-dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
-dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default . _Coerce;
+-- | An array of service error IDs. If you use this parameter,
+-- @DescribeServiceErrors@ returns descriptions of the specified errors.
+-- Otherwise, it returns a description of every error.
+describeServiceErrors_serviceErrorIds :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe [Prelude.Text])
+describeServiceErrors_serviceErrorIds = Lens.lens (\DescribeServiceErrors' {serviceErrorIds} -> serviceErrorIds) (\s@DescribeServiceErrors' {} a -> s {serviceErrorIds = a} :: DescribeServiceErrors) Prelude.. Lens.mapping Lens._Coerce
 
-instance AWSRequest DescribeServiceErrors where
-        type Rs DescribeServiceErrors =
-             DescribeServiceErrorsResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeServiceErrorsResponse' <$>
-                   (x .?> "ServiceErrors" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest DescribeServiceErrors where
+  type
+    AWSResponse DescribeServiceErrors =
+      DescribeServiceErrorsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeServiceErrorsResponse'
+            Prelude.<$> (x Core..?> "ServiceErrors" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeServiceErrors where
+instance Prelude.Hashable DescribeServiceErrors
 
-instance NFData DescribeServiceErrors where
+instance Prelude.NFData DescribeServiceErrors
 
-instance ToHeaders DescribeServiceErrors where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeServiceErrors" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeServiceErrors where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DescribeServiceErrors" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeServiceErrors where
-        toJSON DescribeServiceErrors'{..}
-          = object
-              (catMaybes
-                 [("InstanceId" .=) <$> _dseInstanceId,
-                  ("StackId" .=) <$> _dseStackId,
-                  ("ServiceErrorIds" .=) <$> _dseServiceErrorIds])
+instance Core.ToJSON DescribeServiceErrors where
+  toJSON DescribeServiceErrors' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("StackId" Core..=) Prelude.<$> stackId,
+            ("ServiceErrorIds" Core..=)
+              Prelude.<$> serviceErrorIds
+          ]
+      )
 
-instance ToPath DescribeServiceErrors where
-        toPath = const "/"
+instance Core.ToPath DescribeServiceErrors where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeServiceErrors where
-        toQuery = const mempty
+instance Core.ToQuery DescribeServiceErrors where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeServiceErrors@ request.
 --
---
---
--- /See:/ 'describeServiceErrorsResponse' smart constructor.
+-- /See:/ 'newDescribeServiceErrorsResponse' smart constructor.
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
-  { _dsersServiceErrors  :: !(Maybe [ServiceError'])
-  , _dsersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of @ServiceError@ objects that describe the specified service
+    -- errors.
+    serviceErrors :: Prelude.Maybe [ServiceError'],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeServiceErrorsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeServiceErrorsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsersServiceErrors' - An array of @ServiceError@ objects that describe the specified service errors.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsersResponseStatus' - -- | The response status code.
-describeServiceErrorsResponse
-    :: Int -- ^ 'dsersResponseStatus'
-    -> DescribeServiceErrorsResponse
-describeServiceErrorsResponse pResponseStatus_ =
+-- 'serviceErrors', 'describeServiceErrorsResponse_serviceErrors' - An array of @ServiceError@ objects that describe the specified service
+-- errors.
+--
+-- 'httpStatus', 'describeServiceErrorsResponse_httpStatus' - The response's http status code.
+newDescribeServiceErrorsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeServiceErrorsResponse
+newDescribeServiceErrorsResponse pHttpStatus_ =
   DescribeServiceErrorsResponse'
-  {_dsersServiceErrors = Nothing, _dsersResponseStatus = pResponseStatus_}
+    { serviceErrors =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of @ServiceError@ objects that describe the specified service
+-- errors.
+describeServiceErrorsResponse_serviceErrors :: Lens.Lens' DescribeServiceErrorsResponse (Prelude.Maybe [ServiceError'])
+describeServiceErrorsResponse_serviceErrors = Lens.lens (\DescribeServiceErrorsResponse' {serviceErrors} -> serviceErrors) (\s@DescribeServiceErrorsResponse' {} a -> s {serviceErrors = a} :: DescribeServiceErrorsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An array of @ServiceError@ objects that describe the specified service errors.
-dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
-dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce;
+-- | The response's http status code.
+describeServiceErrorsResponse_httpStatus :: Lens.Lens' DescribeServiceErrorsResponse Prelude.Int
+describeServiceErrorsResponse_httpStatus = Lens.lens (\DescribeServiceErrorsResponse' {httpStatus} -> httpStatus) (\s@DescribeServiceErrorsResponse' {} a -> s {httpStatus = a} :: DescribeServiceErrorsResponse)
 
--- | -- | The response status code.
-dsersResponseStatus :: Lens' DescribeServiceErrorsResponse Int
-dsersResponseStatus = lens _dsersResponseStatus (\ s a -> s{_dsersResponseStatus = a});
-
-instance NFData DescribeServiceErrorsResponse where
+instance Prelude.NFData DescribeServiceErrorsResponse

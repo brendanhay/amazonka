@@ -1,276 +1,519 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.StorageGateway.Types
-    (
-    -- * Service Configuration
-      storageGateway
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidGatewayRequestException
-    , _ServiceUnavailableError
-    , _InternalServerError
+    _ServiceUnavailableError,
+    _InternalServerError,
+    _InvalidGatewayRequestException,
+
+    -- * ActiveDirectoryStatus
+    ActiveDirectoryStatus (..),
+
+    -- * AvailabilityMonitorTestStatus
+    AvailabilityMonitorTestStatus (..),
+
+    -- * CaseSensitivity
+    CaseSensitivity (..),
+
+    -- * FileShareType
+    FileShareType (..),
+
+    -- * GatewayCapacity
+    GatewayCapacity (..),
+
+    -- * HostEnvironment
+    HostEnvironment (..),
+
+    -- * ObjectACL
+    ObjectACL (..),
+
+    -- * PoolStatus
+    PoolStatus (..),
+
+    -- * RetentionLockType
+    RetentionLockType (..),
+
+    -- * SMBSecurityStrategy
+    SMBSecurityStrategy (..),
+
+    -- * TapeStorageClass
+    TapeStorageClass (..),
+
+    -- * AutomaticTapeCreationPolicyInfo
+    AutomaticTapeCreationPolicyInfo (..),
+    newAutomaticTapeCreationPolicyInfo,
+    automaticTapeCreationPolicyInfo_automaticTapeCreationRules,
+    automaticTapeCreationPolicyInfo_gatewayARN,
+
+    -- * AutomaticTapeCreationRule
+    AutomaticTapeCreationRule (..),
+    newAutomaticTapeCreationRule,
+    automaticTapeCreationRule_worm,
+    automaticTapeCreationRule_tapeBarcodePrefix,
+    automaticTapeCreationRule_poolId,
+    automaticTapeCreationRule_tapeSizeInBytes,
+    automaticTapeCreationRule_minimumNumTapes,
+
+    -- * BandwidthRateLimitInterval
+    BandwidthRateLimitInterval (..),
+    newBandwidthRateLimitInterval,
+    bandwidthRateLimitInterval_averageUploadRateLimitInBitsPerSec,
+    bandwidthRateLimitInterval_averageDownloadRateLimitInBitsPerSec,
+    bandwidthRateLimitInterval_startHourOfDay,
+    bandwidthRateLimitInterval_startMinuteOfHour,
+    bandwidthRateLimitInterval_endHourOfDay,
+    bandwidthRateLimitInterval_endMinuteOfHour,
+    bandwidthRateLimitInterval_daysOfWeek,
+
+    -- * CacheAttributes
+    CacheAttributes (..),
+    newCacheAttributes,
+    cacheAttributes_cacheStaleTimeoutInSeconds,
 
     -- * CachediSCSIVolume
-    , CachediSCSIVolume
-    , cachediSCSIVolume
-    , cscsivVolumeiSCSIAttributes
-    , cscsivVolumeStatus
-    , cscsivSourceSnapshotId
-    , cscsivVolumeARN
-    , cscsivVolumeProgress
-    , cscsivVolumeSizeInBytes
-    , cscsivCreatedDate
-    , cscsivVolumeId
-    , cscsivVolumeType
+    CachediSCSIVolume (..),
+    newCachediSCSIVolume,
+    cachediSCSIVolume_createdDate,
+    cachediSCSIVolume_sourceSnapshotId,
+    cachediSCSIVolume_volumeStatus,
+    cachediSCSIVolume_targetName,
+    cachediSCSIVolume_volumeARN,
+    cachediSCSIVolume_volumeId,
+    cachediSCSIVolume_kmsKey,
+    cachediSCSIVolume_volumeiSCSIAttributes,
+    cachediSCSIVolume_volumeUsedInBytes,
+    cachediSCSIVolume_volumeSizeInBytes,
+    cachediSCSIVolume_volumeType,
+    cachediSCSIVolume_volumeProgress,
+    cachediSCSIVolume_volumeAttachmentStatus,
 
     -- * ChapInfo
-    , ChapInfo
-    , chapInfo
-    , ciTargetARN
-    , ciSecretToAuthenticateInitiator
-    , ciInitiatorName
-    , ciSecretToAuthenticateTarget
+    ChapInfo (..),
+    newChapInfo,
+    chapInfo_initiatorName,
+    chapInfo_targetARN,
+    chapInfo_secretToAuthenticateTarget,
+    chapInfo_secretToAuthenticateInitiator,
 
     -- * DeviceiSCSIAttributes
-    , DeviceiSCSIAttributes
-    , deviceiSCSIAttributes
-    , dscsiaTargetARN
-    , dscsiaChapEnabled
-    , dscsiaNetworkInterfaceId
-    , dscsiaNetworkInterfacePort
+    DeviceiSCSIAttributes (..),
+    newDeviceiSCSIAttributes,
+    deviceiSCSIAttributes_chapEnabled,
+    deviceiSCSIAttributes_targetARN,
+    deviceiSCSIAttributes_networkInterfaceId,
+    deviceiSCSIAttributes_networkInterfacePort,
 
     -- * Disk
-    , Disk
-    , disk
-    , dDiskAllocationResource
-    , dDiskAllocationType
-    , dDiskNode
-    , dDiskPath
-    , dDiskSizeInBytes
-    , dDiskStatus
-    , dDiskId
+    Disk (..),
+    newDisk,
+    disk_diskAllocationResource,
+    disk_diskStatus,
+    disk_diskSizeInBytes,
+    disk_diskAttributeList,
+    disk_diskPath,
+    disk_diskId,
+    disk_diskNode,
+    disk_diskAllocationType,
+
+    -- * EndpointNetworkConfiguration
+    EndpointNetworkConfiguration (..),
+    newEndpointNetworkConfiguration,
+    endpointNetworkConfiguration_ipAddresses,
 
     -- * FileShareInfo
-    , FileShareInfo
-    , fileShareInfo
-    , fsiFileShareStatus
-    , fsiGatewayARN
-    , fsiFileShareId
-    , fsiFileShareARN
+    FileShareInfo (..),
+    newFileShareInfo,
+    fileShareInfo_fileShareId,
+    fileShareInfo_fileShareType,
+    fileShareInfo_fileShareStatus,
+    fileShareInfo_fileShareARN,
+    fileShareInfo_gatewayARN,
+
+    -- * FileSystemAssociationInfo
+    FileSystemAssociationInfo (..),
+    newFileSystemAssociationInfo,
+    fileSystemAssociationInfo_fileSystemAssociationARN,
+    fileSystemAssociationInfo_locationARN,
+    fileSystemAssociationInfo_endpointNetworkConfiguration,
+    fileSystemAssociationInfo_auditDestinationARN,
+    fileSystemAssociationInfo_tags,
+    fileSystemAssociationInfo_fileSystemAssociationStatus,
+    fileSystemAssociationInfo_cacheAttributes,
+    fileSystemAssociationInfo_gatewayARN,
+
+    -- * FileSystemAssociationSummary
+    FileSystemAssociationSummary (..),
+    newFileSystemAssociationSummary,
+    fileSystemAssociationSummary_fileSystemAssociationARN,
+    fileSystemAssociationSummary_fileSystemAssociationId,
+    fileSystemAssociationSummary_fileSystemAssociationStatus,
+    fileSystemAssociationSummary_gatewayARN,
 
     -- * GatewayInfo
-    , GatewayInfo
-    , gatewayInfo
-    , giGatewayARN
-    , giGatewayOperationalState
-    , giGatewayName
-    , giGatewayId
-    , giGatewayType
+    GatewayInfo (..),
+    newGatewayInfo,
+    gatewayInfo_gatewayName,
+    gatewayInfo_gatewayOperationalState,
+    gatewayInfo_gatewayType,
+    gatewayInfo_ec2InstanceRegion,
+    gatewayInfo_ec2InstanceId,
+    gatewayInfo_gatewayARN,
+    gatewayInfo_gatewayId,
 
     -- * NFSFileShareDefaults
-    , NFSFileShareDefaults
-    , nFSFileShareDefaults
-    , nfsfsdFileMode
-    , nfsfsdOwnerId
-    , nfsfsdDirectoryMode
-    , nfsfsdGroupId
+    NFSFileShareDefaults (..),
+    newNFSFileShareDefaults,
+    nFSFileShareDefaults_ownerId,
+    nFSFileShareDefaults_groupId,
+    nFSFileShareDefaults_directoryMode,
+    nFSFileShareDefaults_fileMode,
 
     -- * NFSFileShareInfo
-    , NFSFileShareInfo
-    , nFSFileShareInfo
-    , nfsfsiFileShareStatus
-    , nfsfsiKMSKey
-    , nfsfsiGatewayARN
-    , nfsfsiPath
-    , nfsfsiKMSEncrypted
-    , nfsfsiFileShareId
-    , nfsfsiFileShareARN
-    , nfsfsiDefaultStorageClass
-    , nfsfsiRole
-    , nfsfsiSquash
-    , nfsfsiNFSFileShareDefaults
-    , nfsfsiLocationARN
-    , nfsfsiClientList
-    , nfsfsiReadOnly
+    NFSFileShareInfo (..),
+    newNFSFileShareInfo,
+    nFSFileShareInfo_defaultStorageClass,
+    nFSFileShareInfo_fileShareName,
+    nFSFileShareInfo_readOnly,
+    nFSFileShareInfo_bucketRegion,
+    nFSFileShareInfo_guessMIMETypeEnabled,
+    nFSFileShareInfo_fileShareId,
+    nFSFileShareInfo_kmsEncrypted,
+    nFSFileShareInfo_locationARN,
+    nFSFileShareInfo_vPCEndpointDNSName,
+    nFSFileShareInfo_squash,
+    nFSFileShareInfo_notificationPolicy,
+    nFSFileShareInfo_kmsKey,
+    nFSFileShareInfo_fileShareStatus,
+    nFSFileShareInfo_role,
+    nFSFileShareInfo_tags,
+    nFSFileShareInfo_fileShareARN,
+    nFSFileShareInfo_clientList,
+    nFSFileShareInfo_objectACL,
+    nFSFileShareInfo_cacheAttributes,
+    nFSFileShareInfo_nFSFileShareDefaults,
+    nFSFileShareInfo_gatewayARN,
+    nFSFileShareInfo_requesterPays,
+    nFSFileShareInfo_path,
 
     -- * NetworkInterface
-    , NetworkInterface
-    , networkInterface
-    , niIPv6Address
-    , niMACAddress
-    , niIPv4Address
+    NetworkInterface (..),
+    newNetworkInterface,
+    networkInterface_macAddress,
+    networkInterface_ipv6Address,
+    networkInterface_ipv4Address,
+
+    -- * PoolInfo
+    PoolInfo (..),
+    newPoolInfo,
+    poolInfo_poolARN,
+    poolInfo_poolName,
+    poolInfo_storageClass,
+    poolInfo_retentionLockType,
+    poolInfo_poolStatus,
+    poolInfo_retentionLockTimeInDays,
+
+    -- * SMBFileShareInfo
+    SMBFileShareInfo (..),
+    newSMBFileShareInfo,
+    sMBFileShareInfo_sMBACLEnabled,
+    sMBFileShareInfo_defaultStorageClass,
+    sMBFileShareInfo_accessBasedEnumeration,
+    sMBFileShareInfo_fileShareName,
+    sMBFileShareInfo_caseSensitivity,
+    sMBFileShareInfo_readOnly,
+    sMBFileShareInfo_bucketRegion,
+    sMBFileShareInfo_guessMIMETypeEnabled,
+    sMBFileShareInfo_fileShareId,
+    sMBFileShareInfo_kmsEncrypted,
+    sMBFileShareInfo_locationARN,
+    sMBFileShareInfo_vPCEndpointDNSName,
+    sMBFileShareInfo_authentication,
+    sMBFileShareInfo_validUserList,
+    sMBFileShareInfo_notificationPolicy,
+    sMBFileShareInfo_kmsKey,
+    sMBFileShareInfo_fileShareStatus,
+    sMBFileShareInfo_auditDestinationARN,
+    sMBFileShareInfo_adminUserList,
+    sMBFileShareInfo_role,
+    sMBFileShareInfo_tags,
+    sMBFileShareInfo_fileShareARN,
+    sMBFileShareInfo_objectACL,
+    sMBFileShareInfo_cacheAttributes,
+    sMBFileShareInfo_gatewayARN,
+    sMBFileShareInfo_requesterPays,
+    sMBFileShareInfo_path,
+    sMBFileShareInfo_oplocksEnabled,
+    sMBFileShareInfo_invalidUserList,
 
     -- * StorediSCSIVolume
-    , StorediSCSIVolume
-    , storediSCSIVolume
-    , sscsivVolumeiSCSIAttributes
-    , sscsivVolumeStatus
-    , sscsivSourceSnapshotId
-    , sscsivPreservedExistingData
-    , sscsivVolumeARN
-    , sscsivVolumeProgress
-    , sscsivVolumeSizeInBytes
-    , sscsivCreatedDate
-    , sscsivVolumeId
-    , sscsivVolumeDiskId
-    , sscsivVolumeType
+    StorediSCSIVolume (..),
+    newStorediSCSIVolume,
+    storediSCSIVolume_createdDate,
+    storediSCSIVolume_sourceSnapshotId,
+    storediSCSIVolume_volumeStatus,
+    storediSCSIVolume_targetName,
+    storediSCSIVolume_volumeARN,
+    storediSCSIVolume_volumeId,
+    storediSCSIVolume_kmsKey,
+    storediSCSIVolume_preservedExistingData,
+    storediSCSIVolume_volumeiSCSIAttributes,
+    storediSCSIVolume_volumeUsedInBytes,
+    storediSCSIVolume_volumeSizeInBytes,
+    storediSCSIVolume_volumeDiskId,
+    storediSCSIVolume_volumeType,
+    storediSCSIVolume_volumeProgress,
+    storediSCSIVolume_volumeAttachmentStatus,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
 
     -- * Tape
-    , Tape
-    , tape
-    , tTapeBarcode
-    , tTapeStatus
-    , tTapeARN
-    , tProgress
-    , tTapeSizeInBytes
-    , tVTLDevice
-    , tTapeUsedInBytes
-    , tTapeCreatedDate
+    Tape (..),
+    newTape,
+    tape_poolEntryDate,
+    tape_tapeCreatedDate,
+    tape_tapeStatus,
+    tape_poolId,
+    tape_vTLDevice,
+    tape_tapeARN,
+    tape_kmsKey,
+    tape_worm,
+    tape_tapeBarcode,
+    tape_tapeUsedInBytes,
+    tape_tapeSizeInBytes,
+    tape_retentionStartDate,
+    tape_progress,
 
     -- * TapeArchive
-    , TapeArchive
-    , tapeArchive
-    , taTapeBarcode
-    , taTapeStatus
-    , taTapeARN
-    , taTapeSizeInBytes
-    , taCompletionTime
-    , taTapeUsedInBytes
-    , taTapeCreatedDate
-    , taRetrievedTo
+    TapeArchive (..),
+    newTapeArchive,
+    tapeArchive_poolEntryDate,
+    tapeArchive_tapeCreatedDate,
+    tapeArchive_tapeStatus,
+    tapeArchive_poolId,
+    tapeArchive_completionTime,
+    tapeArchive_retrievedTo,
+    tapeArchive_tapeARN,
+    tapeArchive_kmsKey,
+    tapeArchive_worm,
+    tapeArchive_tapeBarcode,
+    tapeArchive_tapeUsedInBytes,
+    tapeArchive_tapeSizeInBytes,
+    tapeArchive_retentionStartDate,
 
     -- * TapeInfo
-    , TapeInfo
-    , tapeInfo
-    , tiTapeBarcode
-    , tiTapeStatus
-    , tiTapeARN
-    , tiGatewayARN
-    , tiTapeSizeInBytes
+    TapeInfo (..),
+    newTapeInfo,
+    tapeInfo_poolEntryDate,
+    tapeInfo_tapeStatus,
+    tapeInfo_poolId,
+    tapeInfo_tapeARN,
+    tapeInfo_tapeBarcode,
+    tapeInfo_tapeSizeInBytes,
+    tapeInfo_retentionStartDate,
+    tapeInfo_gatewayARN,
 
     -- * TapeRecoveryPointInfo
-    , TapeRecoveryPointInfo
-    , tapeRecoveryPointInfo
-    , trpiTapeStatus
-    , trpiTapeRecoveryPointTime
-    , trpiTapeARN
-    , trpiTapeSizeInBytes
+    TapeRecoveryPointInfo (..),
+    newTapeRecoveryPointInfo,
+    tapeRecoveryPointInfo_tapeStatus,
+    tapeRecoveryPointInfo_tapeARN,
+    tapeRecoveryPointInfo_tapeSizeInBytes,
+    tapeRecoveryPointInfo_tapeRecoveryPointTime,
 
     -- * VTLDevice
-    , VTLDevice
-    , vTLDevice
-    , vtldDeviceiSCSIAttributes
-    , vtldVTLDeviceVendor
-    , vtldVTLDeviceARN
-    , vtldVTLDeviceType
-    , vtldVTLDeviceProductIdentifier
+    VTLDevice (..),
+    newVTLDevice,
+    vTLDevice_vTLDeviceProductIdentifier,
+    vTLDevice_vTLDeviceVendor,
+    vTLDevice_deviceiSCSIAttributes,
+    vTLDevice_vTLDeviceType,
+    vTLDevice_vTLDeviceARN,
 
     -- * VolumeInfo
-    , VolumeInfo
-    , volumeInfo
-    , viGatewayARN
-    , viVolumeARN
-    , viVolumeSizeInBytes
-    , viVolumeId
-    , viGatewayId
-    , viVolumeType
+    VolumeInfo (..),
+    newVolumeInfo,
+    volumeInfo_volumeARN,
+    volumeInfo_volumeId,
+    volumeInfo_volumeSizeInBytes,
+    volumeInfo_volumeType,
+    volumeInfo_gatewayARN,
+    volumeInfo_gatewayId,
+    volumeInfo_volumeAttachmentStatus,
 
     -- * VolumeRecoveryPointInfo
-    , VolumeRecoveryPointInfo
-    , volumeRecoveryPointInfo
-    , vrpiVolumeRecoveryPointTime
-    , vrpiVolumeARN
-    , vrpiVolumeSizeInBytes
-    , vrpiVolumeUsageInBytes
+    VolumeRecoveryPointInfo (..),
+    newVolumeRecoveryPointInfo,
+    volumeRecoveryPointInfo_volumeARN,
+    volumeRecoveryPointInfo_volumeUsageInBytes,
+    volumeRecoveryPointInfo_volumeSizeInBytes,
+    volumeRecoveryPointInfo_volumeRecoveryPointTime,
 
     -- * VolumeiSCSIAttributes
-    , VolumeiSCSIAttributes
-    , volumeiSCSIAttributes
-    , vscsiaLunNumber
-    , vscsiaTargetARN
-    , vscsiaChapEnabled
-    , vscsiaNetworkInterfaceId
-    , vscsiaNetworkInterfacePort
-    ) where
+    VolumeiSCSIAttributes (..),
+    newVolumeiSCSIAttributes,
+    volumeiSCSIAttributes_chapEnabled,
+    volumeiSCSIAttributes_targetARN,
+    volumeiSCSIAttributes_lunNumber,
+    volumeiSCSIAttributes_networkInterfaceId,
+    volumeiSCSIAttributes_networkInterfacePort,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
-import Network.AWS.StorageGateway.Types.Product
-import Network.AWS.StorageGateway.Types.Sum
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
+import Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
+import Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
+import Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
+import Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus
+import Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval
+import Network.AWS.StorageGateway.Types.CacheAttributes
+import Network.AWS.StorageGateway.Types.CachediSCSIVolume
+import Network.AWS.StorageGateway.Types.CaseSensitivity
+import Network.AWS.StorageGateway.Types.ChapInfo
+import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
+import Network.AWS.StorageGateway.Types.Disk
+import Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
+import Network.AWS.StorageGateway.Types.FileShareInfo
+import Network.AWS.StorageGateway.Types.FileShareType
+import Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+import Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
+import Network.AWS.StorageGateway.Types.GatewayCapacity
+import Network.AWS.StorageGateway.Types.GatewayInfo
+import Network.AWS.StorageGateway.Types.HostEnvironment
+import Network.AWS.StorageGateway.Types.NFSFileShareDefaults
+import Network.AWS.StorageGateway.Types.NFSFileShareInfo
+import Network.AWS.StorageGateway.Types.NetworkInterface
+import Network.AWS.StorageGateway.Types.ObjectACL
+import Network.AWS.StorageGateway.Types.PoolInfo
+import Network.AWS.StorageGateway.Types.PoolStatus
+import Network.AWS.StorageGateway.Types.RetentionLockType
+import Network.AWS.StorageGateway.Types.SMBFileShareInfo
+import Network.AWS.StorageGateway.Types.SMBSecurityStrategy
+import Network.AWS.StorageGateway.Types.StorediSCSIVolume
+import Network.AWS.StorageGateway.Types.Tag
+import Network.AWS.StorageGateway.Types.Tape
+import Network.AWS.StorageGateway.Types.TapeArchive
+import Network.AWS.StorageGateway.Types.TapeInfo
+import Network.AWS.StorageGateway.Types.TapeRecoveryPointInfo
+import Network.AWS.StorageGateway.Types.TapeStorageClass
+import Network.AWS.StorageGateway.Types.VTLDevice
+import Network.AWS.StorageGateway.Types.VolumeInfo
+import Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo
+import Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
 
 -- | API version @2013-06-30@ of the Amazon Storage Gateway SDK configuration.
-storageGateway :: Service
-storageGateway =
-  Service
-  { _svcAbbrev = "StorageGateway"
-  , _svcSigner = v4
-  , _svcPrefix = "storagegateway"
-  , _svcVersion = "2013-06-30"
-  , _svcEndpoint = defaultEndpoint storageGateway
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "StorageGateway"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "StorageGateway",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "storagegateway",
+      Core._serviceSigningName = "storagegateway",
+      Core._serviceVersion = "2013-06-30",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "StorageGateway",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
---
---
-_InvalidGatewayRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidGatewayRequestException =
-  _MatchServiceError storageGateway "InvalidGatewayRequestException"
-
-
--- | An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.
---
---
-_ServiceUnavailableError :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An internal server error has occurred because the service is
+-- unavailable. For more information, see the error and message fields.
+_ServiceUnavailableError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableError =
-  _MatchServiceError storageGateway "ServiceUnavailableError"
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableError"
 
+-- | An internal server error has occurred during the request. For more
+-- information, see the error and message fields.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
 
--- | An internal server error has occurred during the request. For more information, see the error and message fields.
---
---
-_InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerError = _MatchServiceError storageGateway "InternalServerError"
-
+-- | An exception occurred because an invalid gateway request was issued to
+-- the service. For more information, see the error and message fields.
+_InvalidGatewayRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidGatewayRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidGatewayRequestException"

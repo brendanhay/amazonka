@@ -1,154 +1,227 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.SetPermission
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Specifies a user's permissions. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html Security and Permissions> .
+-- Specifies a user\'s permissions. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html Security and Permissions>.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.SetPermission
-    (
-    -- * Creating a Request
-      setPermission
-    , SetPermission
+  ( -- * Creating a Request
+    SetPermission (..),
+    newSetPermission,
+
     -- * Request Lenses
-    , spAllowSudo
-    , spLevel
-    , spAllowSSH
-    , spStackId
-    , spIAMUserARN
+    setPermission_allowSudo,
+    setPermission_allowSsh,
+    setPermission_level,
+    setPermission_stackId,
+    setPermission_iamUserArn,
 
     -- * Destructuring the Response
-    , setPermissionResponse
-    , SetPermissionResponse
-    ) where
+    SetPermissionResponse (..),
+    newSetPermissionResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'setPermission' smart constructor.
+-- | /See:/ 'newSetPermission' smart constructor.
 data SetPermission = SetPermission'
-  { _spAllowSudo  :: !(Maybe Bool)
-  , _spLevel      :: !(Maybe Text)
-  , _spAllowSSH   :: !(Maybe Bool)
-  , _spStackId    :: !Text
-  , _spIAMUserARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'SetPermission' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spAllowSudo' - The user is allowed to use __sudo__ to elevate privileges.
---
--- * 'spLevel' - The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
--- * 'spAllowSSH' - The user is allowed to use SSH to communicate with the instance.
---
--- * 'spStackId' - The stack ID.
---
--- * 'spIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
-setPermission
-    :: Text -- ^ 'spStackId'
-    -> Text -- ^ 'spIAMUserARN'
-    -> SetPermission
-setPermission pStackId_ pIAMUserARN_ =
-  SetPermission'
-  { _spAllowSudo = Nothing
-  , _spLevel = Nothing
-  , _spAllowSSH = Nothing
-  , _spStackId = pStackId_
-  , _spIAMUserARN = pIAMUserARN_
+  { -- | The user is allowed to use __sudo__ to elevate privileges.
+    allowSudo :: Prelude.Maybe Prelude.Bool,
+    -- | The user is allowed to use SSH to communicate with the instance.
+    allowSsh :: Prelude.Maybe Prelude.Bool,
+    -- | The user\'s permission level, which must be set to one of the following
+    -- strings. You cannot set your own permissions level.
+    --
+    -- -   @deny@
+    --
+    -- -   @show@
+    --
+    -- -   @deploy@
+    --
+    -- -   @manage@
+    --
+    -- -   @iam_only@
+    --
+    -- For more information about the permissions associated with these levels,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+    level :: Prelude.Maybe Prelude.Text,
+    -- | The stack ID.
+    stackId :: Prelude.Text,
+    -- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
+    iamUserArn :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'SetPermission' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'allowSudo', 'setPermission_allowSudo' - The user is allowed to use __sudo__ to elevate privileges.
+--
+-- 'allowSsh', 'setPermission_allowSsh' - The user is allowed to use SSH to communicate with the instance.
+--
+-- 'level', 'setPermission_level' - The user\'s permission level, which must be set to one of the following
+-- strings. You cannot set your own permissions level.
+--
+-- -   @deny@
+--
+-- -   @show@
+--
+-- -   @deploy@
+--
+-- -   @manage@
+--
+-- -   @iam_only@
+--
+-- For more information about the permissions associated with these levels,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- 'stackId', 'setPermission_stackId' - The stack ID.
+--
+-- 'iamUserArn', 'setPermission_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN.
+newSetPermission ::
+  -- | 'stackId'
+  Prelude.Text ->
+  -- | 'iamUserArn'
+  Prelude.Text ->
+  SetPermission
+newSetPermission pStackId_ pIamUserArn_ =
+  SetPermission'
+    { allowSudo = Prelude.Nothing,
+      allowSsh = Prelude.Nothing,
+      level = Prelude.Nothing,
+      stackId = pStackId_,
+      iamUserArn = pIamUserArn_
+    }
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
-spAllowSudo :: Lens' SetPermission (Maybe Bool)
-spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
-
--- | The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
-spLevel :: Lens' SetPermission (Maybe Text)
-spLevel = lens _spLevel (\ s a -> s{_spLevel = a});
+setPermission_allowSudo :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
+setPermission_allowSudo = Lens.lens (\SetPermission' {allowSudo} -> allowSudo) (\s@SetPermission' {} a -> s {allowSudo = a} :: SetPermission)
 
 -- | The user is allowed to use SSH to communicate with the instance.
-spAllowSSH :: Lens' SetPermission (Maybe Bool)
-spAllowSSH = lens _spAllowSSH (\ s a -> s{_spAllowSSH = a});
+setPermission_allowSsh :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Bool)
+setPermission_allowSsh = Lens.lens (\SetPermission' {allowSsh} -> allowSsh) (\s@SetPermission' {} a -> s {allowSsh = a} :: SetPermission)
+
+-- | The user\'s permission level, which must be set to one of the following
+-- strings. You cannot set your own permissions level.
+--
+-- -   @deny@
+--
+-- -   @show@
+--
+-- -   @deploy@
+--
+-- -   @manage@
+--
+-- -   @iam_only@
+--
+-- For more information about the permissions associated with these levels,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+setPermission_level :: Lens.Lens' SetPermission (Prelude.Maybe Prelude.Text)
+setPermission_level = Lens.lens (\SetPermission' {level} -> level) (\s@SetPermission' {} a -> s {level = a} :: SetPermission)
 
 -- | The stack ID.
-spStackId :: Lens' SetPermission Text
-spStackId = lens _spStackId (\ s a -> s{_spStackId = a});
+setPermission_stackId :: Lens.Lens' SetPermission Prelude.Text
+setPermission_stackId = Lens.lens (\SetPermission' {stackId} -> stackId) (\s@SetPermission' {} a -> s {stackId = a} :: SetPermission)
 
--- | The user's IAM ARN. This can also be a federated user's ARN.
-spIAMUserARN :: Lens' SetPermission Text
-spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
+-- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
+setPermission_iamUserArn :: Lens.Lens' SetPermission Prelude.Text
+setPermission_iamUserArn = Lens.lens (\SetPermission' {iamUserArn} -> iamUserArn) (\s@SetPermission' {} a -> s {iamUserArn = a} :: SetPermission)
 
-instance AWSRequest SetPermission where
-        type Rs SetPermission = SetPermissionResponse
-        request = postJSON opsWorks
-        response = receiveNull SetPermissionResponse'
+instance Core.AWSRequest SetPermission where
+  type
+    AWSResponse SetPermission =
+      SetPermissionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull SetPermissionResponse'
 
-instance Hashable SetPermission where
+instance Prelude.Hashable SetPermission
 
-instance NFData SetPermission where
+instance Prelude.NFData SetPermission
 
-instance ToHeaders SetPermission where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.SetPermission" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders SetPermission where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.SetPermission" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON SetPermission where
-        toJSON SetPermission'{..}
-          = object
-              (catMaybes
-                 [("AllowSudo" .=) <$> _spAllowSudo,
-                  ("Level" .=) <$> _spLevel,
-                  ("AllowSsh" .=) <$> _spAllowSSH,
-                  Just ("StackId" .= _spStackId),
-                  Just ("IamUserArn" .= _spIAMUserARN)])
+instance Core.ToJSON SetPermission where
+  toJSON SetPermission' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("AllowSudo" Core..=) Prelude.<$> allowSudo,
+            ("AllowSsh" Core..=) Prelude.<$> allowSsh,
+            ("Level" Core..=) Prelude.<$> level,
+            Prelude.Just ("StackId" Core..= stackId),
+            Prelude.Just ("IamUserArn" Core..= iamUserArn)
+          ]
+      )
 
-instance ToPath SetPermission where
-        toPath = const "/"
+instance Core.ToPath SetPermission where
+  toPath = Prelude.const "/"
 
-instance ToQuery SetPermission where
-        toQuery = const mempty
+instance Core.ToQuery SetPermission where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'setPermissionResponse' smart constructor.
-data SetPermissionResponse =
-  SetPermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSetPermissionResponse' smart constructor.
+data SetPermissionResponse = SetPermissionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'SetPermissionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetPermissionResponse' with all optional fields omitted.
 --
-setPermissionResponse
-    :: SetPermissionResponse
-setPermissionResponse = SetPermissionResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newSetPermissionResponse ::
+  SetPermissionResponse
+newSetPermissionResponse = SetPermissionResponse'
 
-
-instance NFData SetPermissionResponse where
+instance Prelude.NFData SetPermissionResponse

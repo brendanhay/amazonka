@@ -1,0 +1,135 @@
+cabal-version:      2.2
+name:               amazonka-mq
+version:            1.6.1
+synopsis:           Amazon MQ SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2017-11-27@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.MQ.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.MQ" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-mq
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.MQ
+    Network.AWS.MQ.CreateBroker
+    Network.AWS.MQ.CreateConfiguration
+    Network.AWS.MQ.CreateTags
+    Network.AWS.MQ.CreateUser
+    Network.AWS.MQ.DeleteBroker
+    Network.AWS.MQ.DeleteTags
+    Network.AWS.MQ.DeleteUser
+    Network.AWS.MQ.DescribeBroker
+    Network.AWS.MQ.DescribeBrokerEngineTypes
+    Network.AWS.MQ.DescribeBrokerInstanceOptions
+    Network.AWS.MQ.DescribeConfiguration
+    Network.AWS.MQ.DescribeConfigurationRevision
+    Network.AWS.MQ.DescribeUser
+    Network.AWS.MQ.Lens
+    Network.AWS.MQ.ListBrokers
+    Network.AWS.MQ.ListConfigurationRevisions
+    Network.AWS.MQ.ListConfigurations
+    Network.AWS.MQ.ListTags
+    Network.AWS.MQ.ListUsers
+    Network.AWS.MQ.RebootBroker
+    Network.AWS.MQ.Types
+    Network.AWS.MQ.Types.AuthenticationStrategy
+    Network.AWS.MQ.Types.AvailabilityZone
+    Network.AWS.MQ.Types.BrokerEngineType
+    Network.AWS.MQ.Types.BrokerInstance
+    Network.AWS.MQ.Types.BrokerInstanceOption
+    Network.AWS.MQ.Types.BrokerState
+    Network.AWS.MQ.Types.BrokerStorageType
+    Network.AWS.MQ.Types.BrokerSummary
+    Network.AWS.MQ.Types.ChangeType
+    Network.AWS.MQ.Types.Configuration
+    Network.AWS.MQ.Types.ConfigurationId
+    Network.AWS.MQ.Types.ConfigurationRevision
+    Network.AWS.MQ.Types.Configurations
+    Network.AWS.MQ.Types.DayOfWeek
+    Network.AWS.MQ.Types.DeploymentMode
+    Network.AWS.MQ.Types.EncryptionOptions
+    Network.AWS.MQ.Types.EngineType
+    Network.AWS.MQ.Types.EngineVersion
+    Network.AWS.MQ.Types.LdapServerMetadataInput
+    Network.AWS.MQ.Types.LdapServerMetadataOutput
+    Network.AWS.MQ.Types.Logs
+    Network.AWS.MQ.Types.LogsSummary
+    Network.AWS.MQ.Types.PendingLogs
+    Network.AWS.MQ.Types.SanitizationWarning
+    Network.AWS.MQ.Types.SanitizationWarningReason
+    Network.AWS.MQ.Types.User
+    Network.AWS.MQ.Types.UserPendingChanges
+    Network.AWS.MQ.Types.UserSummary
+    Network.AWS.MQ.Types.WeeklyStartTime
+    Network.AWS.MQ.UpdateBroker
+    Network.AWS.MQ.UpdateConfiguration
+    Network.AWS.MQ.UpdateUser
+    Network.AWS.MQ.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
+
+test-suite amazonka-mq-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.MQ
+    Test.AWS.MQ
+    Test.AWS.MQ.Internal
+
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-mq
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

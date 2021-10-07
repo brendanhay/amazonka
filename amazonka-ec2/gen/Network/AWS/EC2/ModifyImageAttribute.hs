@@ -1,202 +1,259 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time. You can use the @Attribute@ parameter to specify the attribute or one of the following parameters: @Description@ , @LaunchPermission@ , or @ProductCode@ .
+-- Modifies the specified attribute of the specified AMI. You can specify
+-- only one attribute at a time. You can use the @Attribute@ parameter to
+-- specify the attribute or one of the following parameters: @Description@
+-- or @LaunchPermission@.
 --
+-- Images with an Amazon Web Services Marketplace product code cannot be
+-- made public.
 --
--- AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product code cannot be made public.
---
--- To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance and create an AMI from the instance.
---
+-- To enable the SriovNetSupport enhanced networking attribute of an image,
+-- enable SriovNetSupport on an instance and create an AMI from the
+-- instance.
 module Network.AWS.EC2.ModifyImageAttribute
-    (
-    -- * Creating a Request
-      modifyImageAttribute
-    , ModifyImageAttribute
+  ( -- * Creating a Request
+    ModifyImageAttribute (..),
+    newModifyImageAttribute,
+
     -- * Request Lenses
-    , miaAttribute
-    , miaUserIds
-    , miaUserGroups
-    , miaValue
-    , miaLaunchPermission
-    , miaOperationType
-    , miaProductCodes
-    , miaDescription
-    , miaDryRun
-    , miaImageId
+    modifyImageAttribute_dryRun,
+    modifyImageAttribute_productCodes,
+    modifyImageAttribute_userIds,
+    modifyImageAttribute_attribute,
+    modifyImageAttribute_description,
+    modifyImageAttribute_launchPermission,
+    modifyImageAttribute_value,
+    modifyImageAttribute_operationType,
+    modifyImageAttribute_userGroups,
+    modifyImageAttribute_imageId,
 
     -- * Destructuring the Response
-    , modifyImageAttributeResponse
-    , ModifyImageAttributeResponse
-    ) where
+    ModifyImageAttributeResponse (..),
+    newModifyImageAttributeResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ModifyImageAttribute.
 --
---
---
--- /See:/ 'modifyImageAttribute' smart constructor.
+-- /See:/ 'newModifyImageAttribute' smart constructor.
 data ModifyImageAttribute = ModifyImageAttribute'
-  { _miaAttribute        :: !(Maybe Text)
-  , _miaUserIds          :: !(Maybe [Text])
-  , _miaUserGroups       :: !(Maybe [Text])
-  , _miaValue            :: !(Maybe Text)
-  , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
-  , _miaOperationType    :: !(Maybe OperationType)
-  , _miaProductCodes     :: !(Maybe [Text])
-  , _miaDescription      :: !(Maybe AttributeValue)
-  , _miaDryRun           :: !(Maybe Bool)
-  , _miaImageId          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ModifyImageAttribute' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miaAttribute' - The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
---
--- * 'miaUserIds' - One or more AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
---
--- * 'miaUserGroups' - One or more user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
---
--- * 'miaValue' - The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
---
--- * 'miaLaunchPermission' - A new launch permission for the AMI.
---
--- * 'miaOperationType' - The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
---
--- * 'miaProductCodes' - One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.
---
--- * 'miaDescription' - A new description for the AMI.
---
--- * 'miaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'miaImageId' - The ID of the AMI.
-modifyImageAttribute
-    :: Text -- ^ 'miaImageId'
-    -> ModifyImageAttribute
-modifyImageAttribute pImageId_ =
-  ModifyImageAttribute'
-  { _miaAttribute = Nothing
-  , _miaUserIds = Nothing
-  , _miaUserGroups = Nothing
-  , _miaValue = Nothing
-  , _miaLaunchPermission = Nothing
-  , _miaOperationType = Nothing
-  , _miaProductCodes = Nothing
-  , _miaDescription = Nothing
-  , _miaDryRun = Nothing
-  , _miaImageId = pImageId_
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Not supported.
+    productCodes :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Web Services account IDs. This parameter can be used only
+    -- when the @Attribute@ parameter is @launchPermission@.
+    userIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the attribute to modify. The valid values are @description@
+    -- and @launchPermission@.
+    attribute :: Prelude.Maybe Prelude.Text,
+    -- | A new description for the AMI.
+    description :: Prelude.Maybe AttributeValue,
+    -- | A new launch permission for the AMI.
+    launchPermission :: Prelude.Maybe LaunchPermissionModifications,
+    -- | The value of the attribute being modified. This parameter can be used
+    -- only when the @Attribute@ parameter is @description@.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The operation type. This parameter can be used only when the @Attribute@
+    -- parameter is @launchPermission@.
+    operationType :: Prelude.Maybe OperationType,
+    -- | The user groups. This parameter can be used only when the @Attribute@
+    -- parameter is @launchPermission@.
+    userGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the AMI.
+    imageId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ModifyImageAttribute' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dryRun', 'modifyImageAttribute_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'productCodes', 'modifyImageAttribute_productCodes' - Not supported.
+--
+-- 'userIds', 'modifyImageAttribute_userIds' - The Amazon Web Services account IDs. This parameter can be used only
+-- when the @Attribute@ parameter is @launchPermission@.
+--
+-- 'attribute', 'modifyImageAttribute_attribute' - The name of the attribute to modify. The valid values are @description@
+-- and @launchPermission@.
+--
+-- 'description', 'modifyImageAttribute_description' - A new description for the AMI.
+--
+-- 'launchPermission', 'modifyImageAttribute_launchPermission' - A new launch permission for the AMI.
+--
+-- 'value', 'modifyImageAttribute_value' - The value of the attribute being modified. This parameter can be used
+-- only when the @Attribute@ parameter is @description@.
+--
+-- 'operationType', 'modifyImageAttribute_operationType' - The operation type. This parameter can be used only when the @Attribute@
+-- parameter is @launchPermission@.
+--
+-- 'userGroups', 'modifyImageAttribute_userGroups' - The user groups. This parameter can be used only when the @Attribute@
+-- parameter is @launchPermission@.
+--
+-- 'imageId', 'modifyImageAttribute_imageId' - The ID of the AMI.
+newModifyImageAttribute ::
+  -- | 'imageId'
+  Prelude.Text ->
+  ModifyImageAttribute
+newModifyImageAttribute pImageId_ =
+  ModifyImageAttribute'
+    { dryRun = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
+      userIds = Prelude.Nothing,
+      attribute = Prelude.Nothing,
+      description = Prelude.Nothing,
+      launchPermission = Prelude.Nothing,
+      value = Prelude.Nothing,
+      operationType = Prelude.Nothing,
+      userGroups = Prelude.Nothing,
+      imageId = pImageId_
+    }
 
--- | The name of the attribute to modify. The valid values are @description@ , @launchPermission@ , and @productCodes@ .
-miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
-miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyImageAttribute_dryRun :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Bool)
+modifyImageAttribute_dryRun = Lens.lens (\ModifyImageAttribute' {dryRun} -> dryRun) (\s@ModifyImageAttribute' {} a -> s {dryRun = a} :: ModifyImageAttribute)
 
--- | One or more AWS account IDs. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
-miaUserIds :: Lens' ModifyImageAttribute [Text]
-miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default . _Coerce;
+-- | Not supported.
+modifyImageAttribute_productCodes :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_productCodes = Lens.lens (\ModifyImageAttribute' {productCodes} -> productCodes) (\s@ModifyImageAttribute' {} a -> s {productCodes = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
--- | One or more user groups. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
-miaUserGroups :: Lens' ModifyImageAttribute [Text]
-miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default . _Coerce;
+-- | The Amazon Web Services account IDs. This parameter can be used only
+-- when the @Attribute@ parameter is @launchPermission@.
+modifyImageAttribute_userIds :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_userIds = Lens.lens (\ModifyImageAttribute' {userIds} -> userIds) (\s@ModifyImageAttribute' {} a -> s {userIds = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
--- | The value of the attribute being modified. This parameter can be used only when the @Attribute@ parameter is @description@ or @productCodes@ .
-miaValue :: Lens' ModifyImageAttribute (Maybe Text)
-miaValue = lens _miaValue (\ s a -> s{_miaValue = a});
-
--- | A new launch permission for the AMI.
-miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
-miaLaunchPermission = lens _miaLaunchPermission (\ s a -> s{_miaLaunchPermission = a});
-
--- | The operation type. This parameter can be used only when the @Attribute@ parameter is @launchPermission@ .
-miaOperationType :: Lens' ModifyImageAttribute (Maybe OperationType)
-miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
-
--- | One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.
-miaProductCodes :: Lens' ModifyImageAttribute [Text]
-miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default . _Coerce;
+-- | The name of the attribute to modify. The valid values are @description@
+-- and @launchPermission@.
+modifyImageAttribute_attribute :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
+modifyImageAttribute_attribute = Lens.lens (\ModifyImageAttribute' {attribute} -> attribute) (\s@ModifyImageAttribute' {} a -> s {attribute = a} :: ModifyImageAttribute)
 
 -- | A new description for the AMI.
-miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
-miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
+modifyImageAttribute_description :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe AttributeValue)
+modifyImageAttribute_description = Lens.lens (\ModifyImageAttribute' {description} -> description) (\s@ModifyImageAttribute' {} a -> s {description = a} :: ModifyImageAttribute)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
-miaDryRun = lens _miaDryRun (\ s a -> s{_miaDryRun = a});
+-- | A new launch permission for the AMI.
+modifyImageAttribute_launchPermission :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe LaunchPermissionModifications)
+modifyImageAttribute_launchPermission = Lens.lens (\ModifyImageAttribute' {launchPermission} -> launchPermission) (\s@ModifyImageAttribute' {} a -> s {launchPermission = a} :: ModifyImageAttribute)
+
+-- | The value of the attribute being modified. This parameter can be used
+-- only when the @Attribute@ parameter is @description@.
+modifyImageAttribute_value :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
+modifyImageAttribute_value = Lens.lens (\ModifyImageAttribute' {value} -> value) (\s@ModifyImageAttribute' {} a -> s {value = a} :: ModifyImageAttribute)
+
+-- | The operation type. This parameter can be used only when the @Attribute@
+-- parameter is @launchPermission@.
+modifyImageAttribute_operationType :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe OperationType)
+modifyImageAttribute_operationType = Lens.lens (\ModifyImageAttribute' {operationType} -> operationType) (\s@ModifyImageAttribute' {} a -> s {operationType = a} :: ModifyImageAttribute)
+
+-- | The user groups. This parameter can be used only when the @Attribute@
+-- parameter is @launchPermission@.
+modifyImageAttribute_userGroups :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [Prelude.Text])
+modifyImageAttribute_userGroups = Lens.lens (\ModifyImageAttribute' {userGroups} -> userGroups) (\s@ModifyImageAttribute' {} a -> s {userGroups = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AMI.
-miaImageId :: Lens' ModifyImageAttribute Text
-miaImageId = lens _miaImageId (\ s a -> s{_miaImageId = a});
+modifyImageAttribute_imageId :: Lens.Lens' ModifyImageAttribute Prelude.Text
+modifyImageAttribute_imageId = Lens.lens (\ModifyImageAttribute' {imageId} -> imageId) (\s@ModifyImageAttribute' {} a -> s {imageId = a} :: ModifyImageAttribute)
 
-instance AWSRequest ModifyImageAttribute where
-        type Rs ModifyImageAttribute =
-             ModifyImageAttributeResponse
-        request = postQuery ec2
-        response = receiveNull ModifyImageAttributeResponse'
+instance Core.AWSRequest ModifyImageAttribute where
+  type
+    AWSResponse ModifyImageAttribute =
+      ModifyImageAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull ModifyImageAttributeResponse'
 
-instance Hashable ModifyImageAttribute where
+instance Prelude.Hashable ModifyImageAttribute
 
-instance NFData ModifyImageAttribute where
+instance Prelude.NFData ModifyImageAttribute
 
-instance ToHeaders ModifyImageAttribute where
-        toHeaders = const mempty
+instance Core.ToHeaders ModifyImageAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyImageAttribute where
-        toPath = const "/"
+instance Core.ToPath ModifyImageAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyImageAttribute where
-        toQuery ModifyImageAttribute'{..}
-          = mconcat
-              ["Action" =: ("ModifyImageAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "Attribute" =: _miaAttribute,
-               toQuery (toQueryList "UserId" <$> _miaUserIds),
-               toQuery (toQueryList "UserGroup" <$> _miaUserGroups),
-               "Value" =: _miaValue,
-               "LaunchPermission" =: _miaLaunchPermission,
-               "OperationType" =: _miaOperationType,
-               toQuery
-                 (toQueryList "ProductCode" <$> _miaProductCodes),
-               "Description" =: _miaDescription,
-               "DryRun" =: _miaDryRun, "ImageId" =: _miaImageId]
+instance Core.ToQuery ModifyImageAttribute where
+  toQuery ModifyImageAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ModifyImageAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "ProductCode"
+              Prelude.<$> productCodes
+          ),
+        Core.toQuery
+          (Core.toQueryList "UserId" Prelude.<$> userIds),
+        "Attribute" Core.=: attribute,
+        "Description" Core.=: description,
+        "LaunchPermission" Core.=: launchPermission,
+        "Value" Core.=: value,
+        "OperationType" Core.=: operationType,
+        Core.toQuery
+          ( Core.toQueryList "UserGroup"
+              Prelude.<$> userGroups
+          ),
+        "ImageId" Core.=: imageId
+      ]
 
--- | /See:/ 'modifyImageAttributeResponse' smart constructor.
-data ModifyImageAttributeResponse =
-  ModifyImageAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newModifyImageAttributeResponse' smart constructor.
+data ModifyImageAttributeResponse = ModifyImageAttributeResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyImageAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyImageAttributeResponse' with all optional fields omitted.
 --
-modifyImageAttributeResponse
-    :: ModifyImageAttributeResponse
-modifyImageAttributeResponse = ModifyImageAttributeResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newModifyImageAttributeResponse ::
+  ModifyImageAttributeResponse
+newModifyImageAttributeResponse =
+  ModifyImageAttributeResponse'
 
-
-instance NFData ModifyImageAttributeResponse where
+instance Prelude.NFData ModifyImageAttributeResponse

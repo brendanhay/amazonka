@@ -1,160 +1,211 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.ResendContactReachabilityEmail
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For operations that require confirmation that the email address for the registrant contact is valid, such as registering a new domain, this operation resends the confirmation email to the current email address for the registrant contact.
---
---
+-- For operations that require confirmation that the email address for the
+-- registrant contact is valid, such as registering a new domain, this
+-- operation resends the confirmation email to the current email address
+-- for the registrant contact.
 module Network.AWS.Route53Domains.ResendContactReachabilityEmail
-    (
-    -- * Creating a Request
-      resendContactReachabilityEmail
-    , ResendContactReachabilityEmail
+  ( -- * Creating a Request
+    ResendContactReachabilityEmail (..),
+    newResendContactReachabilityEmail,
+
     -- * Request Lenses
-    , rcreDomainName
+    resendContactReachabilityEmail_domainName,
 
     -- * Destructuring the Response
-    , resendContactReachabilityEmailResponse
-    , ResendContactReachabilityEmailResponse
+    ResendContactReachabilityEmailResponse (..),
+    newResendContactReachabilityEmailResponse,
+
     -- * Response Lenses
-    , rcrersDomainName
-    , rcrersEmailAddress
-    , rcrersIsAlreadyVerified
-    , rcrersResponseStatus
-    ) where
+    resendContactReachabilityEmailResponse_isAlreadyVerified,
+    resendContactReachabilityEmailResponse_domainName,
+    resendContactReachabilityEmailResponse_emailAddress,
+    resendContactReachabilityEmailResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
--- | /See:/ 'resendContactReachabilityEmail' smart constructor.
-newtype ResendContactReachabilityEmail = ResendContactReachabilityEmail'
-  { _rcreDomainName :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResendContactReachabilityEmail' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcreDomainName' - The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.
-resendContactReachabilityEmail
-    :: ResendContactReachabilityEmail
-resendContactReachabilityEmail =
-  ResendContactReachabilityEmail' {_rcreDomainName = Nothing}
-
-
--- | The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.
-rcreDomainName :: Lens' ResendContactReachabilityEmail (Maybe Text)
-rcreDomainName = lens _rcreDomainName (\ s a -> s{_rcreDomainName = a});
-
-instance AWSRequest ResendContactReachabilityEmail
-         where
-        type Rs ResendContactReachabilityEmail =
-             ResendContactReachabilityEmailResponse
-        request = postJSON route53Domains
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ResendContactReachabilityEmailResponse' <$>
-                   (x .?> "domainName") <*> (x .?> "emailAddress") <*>
-                     (x .?> "isAlreadyVerified")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ResendContactReachabilityEmail
-         where
-
-instance NFData ResendContactReachabilityEmail where
-
-instance ToHeaders ResendContactReachabilityEmail
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.ResendContactReachabilityEmail"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ResendContactReachabilityEmail where
-        toJSON ResendContactReachabilityEmail'{..}
-          = object
-              (catMaybes [("domainName" .=) <$> _rcreDomainName])
-
-instance ToPath ResendContactReachabilityEmail where
-        toPath = const "/"
-
-instance ToQuery ResendContactReachabilityEmail where
-        toQuery = const mempty
-
--- | /See:/ 'resendContactReachabilityEmailResponse' smart constructor.
-data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
-  { _rcrersDomainName        :: !(Maybe Text)
-  , _rcrersEmailAddress      :: !(Maybe Text)
-  , _rcrersIsAlreadyVerified :: !(Maybe Bool)
-  , _rcrersResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResendContactReachabilityEmailResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcrersDomainName' - The domain name for which you requested a confirmation email.
---
--- * 'rcrersEmailAddress' - The email address for the registrant contact at the time that we sent the verification email.
---
--- * 'rcrersIsAlreadyVerified' - @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
---
--- * 'rcrersResponseStatus' - -- | The response status code.
-resendContactReachabilityEmailResponse
-    :: Int -- ^ 'rcrersResponseStatus'
-    -> ResendContactReachabilityEmailResponse
-resendContactReachabilityEmailResponse pResponseStatus_ =
-  ResendContactReachabilityEmailResponse'
-  { _rcrersDomainName = Nothing
-  , _rcrersEmailAddress = Nothing
-  , _rcrersIsAlreadyVerified = Nothing
-  , _rcrersResponseStatus = pResponseStatus_
+-- | /See:/ 'newResendContactReachabilityEmail' smart constructor.
+data ResendContactReachabilityEmail = ResendContactReachabilityEmail'
+  { -- | The name of the domain for which you want Route 53 to resend a
+    -- confirmation email to the registrant contact.
+    domainName :: Prelude.Maybe Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ResendContactReachabilityEmail' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'resendContactReachabilityEmail_domainName' - The name of the domain for which you want Route 53 to resend a
+-- confirmation email to the registrant contact.
+newResendContactReachabilityEmail ::
+  ResendContactReachabilityEmail
+newResendContactReachabilityEmail =
+  ResendContactReachabilityEmail'
+    { domainName =
+        Prelude.Nothing
+    }
+
+-- | The name of the domain for which you want Route 53 to resend a
+-- confirmation email to the registrant contact.
+resendContactReachabilityEmail_domainName :: Lens.Lens' ResendContactReachabilityEmail (Prelude.Maybe Prelude.Text)
+resendContactReachabilityEmail_domainName = Lens.lens (\ResendContactReachabilityEmail' {domainName} -> domainName) (\s@ResendContactReachabilityEmail' {} a -> s {domainName = a} :: ResendContactReachabilityEmail)
+
+instance
+  Core.AWSRequest
+    ResendContactReachabilityEmail
+  where
+  type
+    AWSResponse ResendContactReachabilityEmail =
+      ResendContactReachabilityEmailResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ResendContactReachabilityEmailResponse'
+            Prelude.<$> (x Core..?> "isAlreadyVerified")
+            Prelude.<*> (x Core..?> "domainName")
+            Prelude.<*> (x Core..?> "emailAddress")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    ResendContactReachabilityEmail
+
+instance
+  Prelude.NFData
+    ResendContactReachabilityEmail
+
+instance
+  Core.ToHeaders
+    ResendContactReachabilityEmail
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Route53Domains_v20140515.ResendContactReachabilityEmail" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ResendContactReachabilityEmail where
+  toJSON ResendContactReachabilityEmail' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("domainName" Core..=) Prelude.<$> domainName]
+      )
+
+instance Core.ToPath ResendContactReachabilityEmail where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ResendContactReachabilityEmail where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newResendContactReachabilityEmailResponse' smart constructor.
+data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
+  { -- | @True@ if the email address for the registrant contact has already been
+    -- verified, and @false@ otherwise. If the email address has already been
+    -- verified, we don\'t send another confirmation email.
+    isAlreadyVerified :: Prelude.Maybe Prelude.Bool,
+    -- | The domain name for which you requested a confirmation email.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The email address for the registrant contact at the time that we sent
+    -- the verification email.
+    emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ResendContactReachabilityEmailResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'isAlreadyVerified', 'resendContactReachabilityEmailResponse_isAlreadyVerified' - @True@ if the email address for the registrant contact has already been
+-- verified, and @false@ otherwise. If the email address has already been
+-- verified, we don\'t send another confirmation email.
+--
+-- 'domainName', 'resendContactReachabilityEmailResponse_domainName' - The domain name for which you requested a confirmation email.
+--
+-- 'emailAddress', 'resendContactReachabilityEmailResponse_emailAddress' - The email address for the registrant contact at the time that we sent
+-- the verification email.
+--
+-- 'httpStatus', 'resendContactReachabilityEmailResponse_httpStatus' - The response's http status code.
+newResendContactReachabilityEmailResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ResendContactReachabilityEmailResponse
+newResendContactReachabilityEmailResponse
+  pHttpStatus_ =
+    ResendContactReachabilityEmailResponse'
+      { isAlreadyVerified =
+          Prelude.Nothing,
+        domainName = Prelude.Nothing,
+        emailAddress = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | @True@ if the email address for the registrant contact has already been
+-- verified, and @false@ otherwise. If the email address has already been
+-- verified, we don\'t send another confirmation email.
+resendContactReachabilityEmailResponse_isAlreadyVerified :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Bool)
+resendContactReachabilityEmailResponse_isAlreadyVerified = Lens.lens (\ResendContactReachabilityEmailResponse' {isAlreadyVerified} -> isAlreadyVerified) (\s@ResendContactReachabilityEmailResponse' {} a -> s {isAlreadyVerified = a} :: ResendContactReachabilityEmailResponse)
 
 -- | The domain name for which you requested a confirmation email.
-rcrersDomainName :: Lens' ResendContactReachabilityEmailResponse (Maybe Text)
-rcrersDomainName = lens _rcrersDomainName (\ s a -> s{_rcrersDomainName = a});
+resendContactReachabilityEmailResponse_domainName :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Text)
+resendContactReachabilityEmailResponse_domainName = Lens.lens (\ResendContactReachabilityEmailResponse' {domainName} -> domainName) (\s@ResendContactReachabilityEmailResponse' {} a -> s {domainName = a} :: ResendContactReachabilityEmailResponse)
 
--- | The email address for the registrant contact at the time that we sent the verification email.
-rcrersEmailAddress :: Lens' ResendContactReachabilityEmailResponse (Maybe Text)
-rcrersEmailAddress = lens _rcrersEmailAddress (\ s a -> s{_rcrersEmailAddress = a});
+-- | The email address for the registrant contact at the time that we sent
+-- the verification email.
+resendContactReachabilityEmailResponse_emailAddress :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Text)
+resendContactReachabilityEmailResponse_emailAddress = Lens.lens (\ResendContactReachabilityEmailResponse' {emailAddress} -> emailAddress) (\s@ResendContactReachabilityEmailResponse' {} a -> s {emailAddress = a} :: ResendContactReachabilityEmailResponse)
 
--- | @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
-rcrersIsAlreadyVerified :: Lens' ResendContactReachabilityEmailResponse (Maybe Bool)
-rcrersIsAlreadyVerified = lens _rcrersIsAlreadyVerified (\ s a -> s{_rcrersIsAlreadyVerified = a});
+-- | The response's http status code.
+resendContactReachabilityEmailResponse_httpStatus :: Lens.Lens' ResendContactReachabilityEmailResponse Prelude.Int
+resendContactReachabilityEmailResponse_httpStatus = Lens.lens (\ResendContactReachabilityEmailResponse' {httpStatus} -> httpStatus) (\s@ResendContactReachabilityEmailResponse' {} a -> s {httpStatus = a} :: ResendContactReachabilityEmailResponse)
 
--- | -- | The response status code.
-rcrersResponseStatus :: Lens' ResendContactReachabilityEmailResponse Int
-rcrersResponseStatus = lens _rcrersResponseStatus (\ s a -> s{_rcrersResponseStatus = a});
-
-instance NFData
-           ResendContactReachabilityEmailResponse
-         where
+instance
+  Prelude.NFData
+    ResendContactReachabilityEmailResponse

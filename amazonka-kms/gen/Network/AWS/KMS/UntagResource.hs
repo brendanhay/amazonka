@@ -1,119 +1,214 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KMS.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified tag or tags from the specified customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.
+-- Deletes tags from a
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed key>.
+-- To delete a tag, specify the tag key and the KMS key.
 --
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
 --
--- To remove a tag, you specify the tag key for each tag to remove. You do not specify the tag value. To overwrite the tag value for an existing tag, use 'TagResource' .
+-- When it succeeds, the @UntagResource@ operation doesn\'t return any
+-- output. Also, if the specified tag key isn\'t found on the KMS key, it
+-- doesn\'t throw an exception or return a response. To confirm that the
+-- operation worked, use the ListResourceTags operation.
 --
+-- For information about using tags in KMS, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging keys>.
+-- For general information about tags, including the format and syntax, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
+--
+-- The KMS key that you use for this operation must be in a compatible key
+-- state. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
+--
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
+--
+-- __Required permissions__:
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:UntagResource>
+-- (key policy)
+--
+-- __Related operations__
+--
+-- -   CreateKey
+--
+-- -   ListResourceTags
+--
+-- -   ReplicateKey
+--
+-- -   TagResource
 module Network.AWS.KMS.UntagResource
-    (
-    -- * Creating a Request
-      untagResource
-    , UntagResource
+  ( -- * Creating a Request
+    UntagResource (..),
+    newUntagResource,
+
     -- * Request Lenses
-    , urKeyId
-    , urTagKeys
+    untagResource_keyId,
+    untagResource_tagKeys,
 
     -- * Destructuring the Response
-    , untagResourceResponse
-    , UntagResourceResponse
-    ) where
+    UntagResourceResponse (..),
+    newUntagResourceResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'untagResource' smart constructor.
+-- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urKeyId   :: !Text
-  , _urTagKeys :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Identifies the KMS key from which you are removing tags.
+    --
+    -- Specify the key ID or key ARN of the KMS key.
+    --
+    -- For example:
+    --
+    -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Key ARN:
+    --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
+    keyId :: Prelude.Text,
+    -- | One or more tag keys. Specify only the tag keys, not the tag values.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urKeyId' - A unique identifier for the CMK from which you are removing tags. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urTagKeys' - One or more tag keys. Specify only the tag keys, not the tag values.
-untagResource
-    :: Text -- ^ 'urKeyId'
-    -> UntagResource
-untagResource pKeyId_ = UntagResource' {_urKeyId = pKeyId_, _urTagKeys = mempty}
+-- 'keyId', 'untagResource_keyId' - Identifies the KMS key from which you are removing tags.
+--
+-- Specify the key ID or key ARN of the KMS key.
+--
+-- For example:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
+--
+-- 'tagKeys', 'untagResource_tagKeys' - One or more tag keys. Specify only the tag keys, not the tag values.
+newUntagResource ::
+  -- | 'keyId'
+  Prelude.Text ->
+  UntagResource
+newUntagResource pKeyId_ =
+  UntagResource'
+    { keyId = pKeyId_,
+      tagKeys = Prelude.mempty
+    }
 
-
--- | A unique identifier for the CMK from which you are removing tags. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-urKeyId :: Lens' UntagResource Text
-urKeyId = lens _urKeyId (\ s a -> s{_urKeyId = a});
+-- | Identifies the KMS key from which you are removing tags.
+--
+-- Specify the key ID or key ARN of the KMS key.
+--
+-- For example:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
+untagResource_keyId :: Lens.Lens' UntagResource Prelude.Text
+untagResource_keyId = Lens.lens (\UntagResource' {keyId} -> keyId) (\s@UntagResource' {} a -> s {keyId = a} :: UntagResource)
 
 -- | One or more tag keys. Specify only the tag keys, not the tag values.
-urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
+untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 
-instance AWSRequest UntagResource where
-        type Rs UntagResource = UntagResourceResponse
-        request = postJSON kms
-        response = receiveNull UntagResourceResponse'
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull UntagResourceResponse'
 
-instance Hashable UntagResource where
+instance Prelude.Hashable UntagResource
 
-instance NFData UntagResource where
+instance Prelude.NFData UntagResource
 
-instance ToHeaders UntagResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("TrentService.UntagResource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UntagResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("TrentService.UntagResource" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UntagResource where
-        toJSON UntagResource'{..}
-          = object
-              (catMaybes
-                 [Just ("KeyId" .= _urKeyId),
-                  Just ("TagKeys" .= _urTagKeys)])
+instance Core.ToJSON UntagResource where
+  toJSON UntagResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("KeyId" Core..= keyId),
+            Prelude.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance ToPath UntagResource where
-        toPath = const "/"
+instance Core.ToPath UntagResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery UntagResource where
-        toQuery = const mempty
+instance Core.ToQuery UntagResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'untagResourceResponse' smart constructor.
-data UntagResourceResponse =
-  UntagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUntagResourceResponse' smart constructor.
+data UntagResourceResponse = UntagResourceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResourceResponse' with all optional fields omitted.
 --
-untagResourceResponse
-    :: UntagResourceResponse
-untagResourceResponse = UntagResourceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUntagResourceResponse ::
+  UntagResourceResponse
+newUntagResourceResponse = UntagResourceResponse'
 
-
-instance NFData UntagResourceResponse where
+instance Prelude.NFData UntagResourceResponse

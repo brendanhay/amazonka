@@ -1,108 +1,124 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.UntagResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name).
---
---
+-- Removes <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>
+-- from a function.
 module Network.AWS.Lambda.UntagResource
-    (
-    -- * Creating a Request
-      untagResource
-    , UntagResource
+  ( -- * Creating a Request
+    UntagResource (..),
+    newUntagResource,
+
     -- * Request Lenses
-    , urResource
-    , urTagKeys
+    untagResource_resource,
+    untagResource_tagKeys,
 
     -- * Destructuring the Response
-    , untagResourceResponse
-    , UntagResourceResponse
-    ) where
+    UntagResourceResponse (..),
+    newUntagResourceResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'untagResource' smart constructor.
+-- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResource :: !Text
-  , _urTagKeys  :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The function\'s Amazon Resource Name (ARN).
+    resource :: Prelude.Text,
+    -- | A list of tag keys to remove from the function.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urResource' - The ARN (Amazon Resource Name) of the function.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urTagKeys' - The list of tag keys to be deleted from the function.
-untagResource
-    :: Text -- ^ 'urResource'
-    -> UntagResource
-untagResource pResource_ =
-  UntagResource' {_urResource = pResource_, _urTagKeys = mempty}
-
-
--- | The ARN (Amazon Resource Name) of the function.
-urResource :: Lens' UntagResource Text
-urResource = lens _urResource (\ s a -> s{_urResource = a});
-
--- | The list of tag keys to be deleted from the function.
-urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\ s a -> s{_urTagKeys = a}) . _Coerce;
-
-instance AWSRequest UntagResource where
-        type Rs UntagResource = UntagResourceResponse
-        request = delete lambda
-        response = receiveNull UntagResourceResponse'
-
-instance Hashable UntagResource where
-
-instance NFData UntagResource where
-
-instance ToHeaders UntagResource where
-        toHeaders = const mempty
-
-instance ToPath UntagResource where
-        toPath UntagResource'{..}
-          = mconcat ["/2017-03-31/tags/", toBS _urResource]
-
-instance ToQuery UntagResource where
-        toQuery UntagResource'{..}
-          = mconcat
-              ["tagKeys" =: toQueryList "member" _urTagKeys]
-
--- | /See:/ 'untagResourceResponse' smart constructor.
-data UntagResourceResponse =
-  UntagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- 'resource', 'untagResource_resource' - The function\'s Amazon Resource Name (ARN).
 --
-untagResourceResponse
-    :: UntagResourceResponse
-untagResourceResponse = UntagResourceResponse'
+-- 'tagKeys', 'untagResource_tagKeys' - A list of tag keys to remove from the function.
+newUntagResource ::
+  -- | 'resource'
+  Prelude.Text ->
+  UntagResource
+newUntagResource pResource_ =
+  UntagResource'
+    { resource = pResource_,
+      tagKeys = Prelude.mempty
+    }
 
+-- | The function\'s Amazon Resource Name (ARN).
+untagResource_resource :: Lens.Lens' UntagResource Prelude.Text
+untagResource_resource = Lens.lens (\UntagResource' {resource} -> resource) (\s@UntagResource' {} a -> s {resource = a} :: UntagResource)
 
-instance NFData UntagResourceResponse where
+-- | A list of tag keys to remove from the function.
+untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull UntagResourceResponse'
+
+instance Prelude.Hashable UntagResource
+
+instance Prelude.NFData UntagResource
+
+instance Core.ToHeaders UntagResource where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath UntagResource where
+  toPath UntagResource' {..} =
+    Prelude.mconcat
+      ["/2017-03-31/tags/", Core.toBS resource]
+
+instance Core.ToQuery UntagResource where
+  toQuery UntagResource' {..} =
+    Prelude.mconcat
+      ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
+
+-- | /See:/ 'newUntagResourceResponse' smart constructor.
+data UntagResourceResponse = UntagResourceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'UntagResourceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUntagResourceResponse ::
+  UntagResourceResponse
+newUntagResourceResponse = UntagResourceResponse'
+
+instance Prelude.NFData UntagResourceResponse

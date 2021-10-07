@@ -1,133 +1,159 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Athena.GetNamedQuery
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a single query.
---
---
+-- Returns information about a single query. Requires that you have access
+-- to the workgroup in which the query was saved.
 module Network.AWS.Athena.GetNamedQuery
-    (
-    -- * Creating a Request
-      getNamedQuery
-    , GetNamedQuery
+  ( -- * Creating a Request
+    GetNamedQuery (..),
+    newGetNamedQuery,
+
     -- * Request Lenses
-    , gnqNamedQueryId
+    getNamedQuery_namedQueryId,
 
     -- * Destructuring the Response
-    , getNamedQueryResponse
-    , GetNamedQueryResponse
+    GetNamedQueryResponse (..),
+    newGetNamedQueryResponse,
+
     -- * Response Lenses
-    , gnqrsNamedQuery
-    , gnqrsResponseStatus
-    ) where
+    getNamedQueryResponse_namedQuery,
+    getNamedQueryResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Athena.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getNamedQuery' smart constructor.
-newtype GetNamedQuery = GetNamedQuery'
-  { _gnqNamedQueryId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetNamedQuery' smart constructor.
+data GetNamedQuery = GetNamedQuery'
+  { -- | The unique ID of the query. Use ListNamedQueries to get query IDs.
+    namedQueryId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetNamedQuery' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetNamedQuery' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gnqNamedQueryId' - The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
-getNamedQuery
-    :: Text -- ^ 'gnqNamedQueryId'
-    -> GetNamedQuery
-getNamedQuery pNamedQueryId_ =
-  GetNamedQuery' {_gnqNamedQueryId = pNamedQueryId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'namedQueryId', 'getNamedQuery_namedQueryId' - The unique ID of the query. Use ListNamedQueries to get query IDs.
+newGetNamedQuery ::
+  -- | 'namedQueryId'
+  Prelude.Text ->
+  GetNamedQuery
+newGetNamedQuery pNamedQueryId_ =
+  GetNamedQuery' {namedQueryId = pNamedQueryId_}
 
+-- | The unique ID of the query. Use ListNamedQueries to get query IDs.
+getNamedQuery_namedQueryId :: Lens.Lens' GetNamedQuery Prelude.Text
+getNamedQuery_namedQueryId = Lens.lens (\GetNamedQuery' {namedQueryId} -> namedQueryId) (\s@GetNamedQuery' {} a -> s {namedQueryId = a} :: GetNamedQuery)
 
--- | The unique ID of the query. Use 'ListNamedQueries' to get query IDs.
-gnqNamedQueryId :: Lens' GetNamedQuery Text
-gnqNamedQueryId = lens _gnqNamedQueryId (\ s a -> s{_gnqNamedQueryId = a});
+instance Core.AWSRequest GetNamedQuery where
+  type
+    AWSResponse GetNamedQuery =
+      GetNamedQueryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetNamedQueryResponse'
+            Prelude.<$> (x Core..?> "NamedQuery")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetNamedQuery where
-        type Rs GetNamedQuery = GetNamedQueryResponse
-        request = postJSON athena
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetNamedQueryResponse' <$>
-                   (x .?> "NamedQuery") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetNamedQuery
 
-instance Hashable GetNamedQuery where
+instance Prelude.NFData GetNamedQuery
 
-instance NFData GetNamedQuery where
+instance Core.ToHeaders GetNamedQuery where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AmazonAthena.GetNamedQuery" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetNamedQuery where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonAthena.GetNamedQuery" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetNamedQuery where
+  toJSON GetNamedQuery' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("NamedQueryId" Core..= namedQueryId)]
+      )
 
-instance ToJSON GetNamedQuery where
-        toJSON GetNamedQuery'{..}
-          = object
-              (catMaybes
-                 [Just ("NamedQueryId" .= _gnqNamedQueryId)])
+instance Core.ToPath GetNamedQuery where
+  toPath = Prelude.const "/"
 
-instance ToPath GetNamedQuery where
-        toPath = const "/"
+instance Core.ToQuery GetNamedQuery where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetNamedQuery where
-        toQuery = const mempty
-
--- | /See:/ 'getNamedQueryResponse' smart constructor.
+-- | /See:/ 'newGetNamedQueryResponse' smart constructor.
 data GetNamedQueryResponse = GetNamedQueryResponse'
-  { _gnqrsNamedQuery     :: !(Maybe NamedQuery)
-  , _gnqrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the query.
+    namedQuery :: Prelude.Maybe NamedQuery,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetNamedQueryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetNamedQueryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gnqrsNamedQuery' - Information about the query.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gnqrsResponseStatus' - -- | The response status code.
-getNamedQueryResponse
-    :: Int -- ^ 'gnqrsResponseStatus'
-    -> GetNamedQueryResponse
-getNamedQueryResponse pResponseStatus_ =
+-- 'namedQuery', 'getNamedQueryResponse_namedQuery' - Information about the query.
+--
+-- 'httpStatus', 'getNamedQueryResponse_httpStatus' - The response's http status code.
+newGetNamedQueryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetNamedQueryResponse
+newGetNamedQueryResponse pHttpStatus_ =
   GetNamedQueryResponse'
-  {_gnqrsNamedQuery = Nothing, _gnqrsResponseStatus = pResponseStatus_}
-
+    { namedQuery =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the query.
-gnqrsNamedQuery :: Lens' GetNamedQueryResponse (Maybe NamedQuery)
-gnqrsNamedQuery = lens _gnqrsNamedQuery (\ s a -> s{_gnqrsNamedQuery = a});
+getNamedQueryResponse_namedQuery :: Lens.Lens' GetNamedQueryResponse (Prelude.Maybe NamedQuery)
+getNamedQueryResponse_namedQuery = Lens.lens (\GetNamedQueryResponse' {namedQuery} -> namedQuery) (\s@GetNamedQueryResponse' {} a -> s {namedQuery = a} :: GetNamedQueryResponse)
 
--- | -- | The response status code.
-gnqrsResponseStatus :: Lens' GetNamedQueryResponse Int
-gnqrsResponseStatus = lens _gnqrsResponseStatus (\ s a -> s{_gnqrsResponseStatus = a});
+-- | The response's http status code.
+getNamedQueryResponse_httpStatus :: Lens.Lens' GetNamedQueryResponse Prelude.Int
+getNamedQueryResponse_httpStatus = Lens.lens (\GetNamedQueryResponse' {httpStatus} -> httpStatus) (\s@GetNamedQueryResponse' {} a -> s {httpStatus = a} :: GetNamedQueryResponse)
 
-instance NFData GetNamedQueryResponse where
+instance Prelude.NFData GetNamedQueryResponse

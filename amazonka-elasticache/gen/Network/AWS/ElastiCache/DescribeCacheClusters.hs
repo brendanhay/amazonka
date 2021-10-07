@@ -1,208 +1,307 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cache cluster if a cluster identifier is supplied.
+-- Returns information about all provisioned clusters if no cluster
+-- identifier is specified, or about a specific cache cluster if a cluster
+-- identifier is supplied.
 --
+-- By default, abbreviated information about the clusters is returned. You
+-- can use the optional /ShowCacheNodeInfo/ flag to retrieve detailed
+-- information about the cache nodes associated with the clusters. These
+-- details include the DNS address and port for the cache node endpoint.
 --
--- By default, abbreviated information about the clusters is returned. You can use the optional /ShowCacheNodeInfo/ flag to retrieve detailed information about the cache nodes associated with the clusters. These details include the DNS address and port for the cache node endpoint.
+-- If the cluster is in the /creating/ state, only cluster-level
+-- information is displayed until all of the nodes are successfully
+-- provisioned.
 --
--- If the cluster is in the /creating/ state, only cluster-level information is displayed until all of the nodes are successfully provisioned.
+-- If the cluster is in the /deleting/ state, only cluster-level
+-- information is displayed.
 --
--- If the cluster is in the /deleting/ state, only cluster-level information is displayed.
+-- If cache nodes are currently being added to the cluster, node endpoint
+-- information and creation time for the additional nodes are not displayed
+-- until they are completely provisioned. When the cluster state is
+-- /available/, the cluster is ready for use.
 --
--- If cache nodes are currently being added to the cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cluster state is /available/ , the cluster is ready for use.
---
--- If cache nodes are currently being removed from the cluster, no endpoint information for the removed nodes is displayed.
---
+-- If cache nodes are currently being removed from the cluster, no endpoint
+-- information for the removed nodes is displayed.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheClusters
-    (
-    -- * Creating a Request
-      describeCacheClusters
-    , DescribeCacheClusters
+  ( -- * Creating a Request
+    DescribeCacheClusters (..),
+    newDescribeCacheClusters,
+
     -- * Request Lenses
-    , dShowCacheClustersNotInReplicationGroups
-    , dCacheClusterId
-    , dMarker
-    , dMaxRecords
-    , dShowCacheNodeInfo
+    describeCacheClusters_showCacheNodeInfo,
+    describeCacheClusters_cacheClusterId,
+    describeCacheClusters_showCacheClustersNotInReplicationGroups,
+    describeCacheClusters_maxRecords,
+    describeCacheClusters_marker,
 
     -- * Destructuring the Response
-    , describeCacheClustersResponse
-    , DescribeCacheClustersResponse
-    -- * Response Lenses
-    , drsCacheClusters
-    , drsMarker
-    , drsResponseStatus
-    ) where
+    DescribeCacheClustersResponse (..),
+    newDescribeCacheClustersResponse,
 
+    -- * Response Lenses
+    describeCacheClustersResponse_cacheClusters,
+    describeCacheClustersResponse_marker,
+    describeCacheClustersResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeCacheClusters@ operation.
 --
---
---
--- /See:/ 'describeCacheClusters' smart constructor.
+-- /See:/ 'newDescribeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-  { _dShowCacheClustersNotInReplicationGroups :: !(Maybe Bool)
-  , _dCacheClusterId                          :: !(Maybe Text)
-  , _dMarker                                  :: !(Maybe Text)
-  , _dMaxRecords                              :: !(Maybe Int)
-  , _dShowCacheNodeInfo                       :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCacheClusters' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dShowCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
---
--- * 'dCacheClusterId' - The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
---
--- * 'dMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
---
--- * 'dShowCacheNodeInfo' - An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
-describeCacheClusters
-    :: DescribeCacheClusters
-describeCacheClusters =
-  DescribeCacheClusters'
-  { _dShowCacheClustersNotInReplicationGroups = Nothing
-  , _dCacheClusterId = Nothing
-  , _dMarker = Nothing
-  , _dMaxRecords = Nothing
-  , _dShowCacheNodeInfo = Nothing
+  { -- | An optional flag that can be included in the @DescribeCacheCluster@
+    -- request to retrieve information about the individual cache nodes.
+    showCacheNodeInfo :: Prelude.Maybe Prelude.Bool,
+    -- | The user-supplied cluster identifier. If this parameter is specified,
+    -- only information about that specific cluster is returned. This parameter
+    -- isn\'t case sensitive.
+    cacheClusterId :: Prelude.Maybe Prelude.Text,
+    -- | An optional flag that can be included in the @DescribeCacheCluster@
+    -- request to show only nodes (API\/CLI: clusters) that are not members of
+    -- a replication group. In practice, this mean Memcached and single node
+    -- Redis clusters.
+    showCacheClustersNotInReplicationGroups :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a marker is
+    -- included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: minimum 20; maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeCacheClusters' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'showCacheNodeInfo', 'describeCacheClusters_showCacheNodeInfo' - An optional flag that can be included in the @DescribeCacheCluster@
+-- request to retrieve information about the individual cache nodes.
+--
+-- 'cacheClusterId', 'describeCacheClusters_cacheClusterId' - The user-supplied cluster identifier. If this parameter is specified,
+-- only information about that specific cluster is returned. This parameter
+-- isn\'t case sensitive.
+--
+-- 'showCacheClustersNotInReplicationGroups', 'describeCacheClusters_showCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@
+-- request to show only nodes (API\/CLI: clusters) that are not members of
+-- a replication group. In practice, this mean Memcached and single node
+-- Redis clusters.
+--
+-- 'maxRecords', 'describeCacheClusters_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeCacheClusters_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+newDescribeCacheClusters ::
+  DescribeCacheClusters
+newDescribeCacheClusters =
+  DescribeCacheClusters'
+    { showCacheNodeInfo =
+        Prelude.Nothing,
+      cacheClusterId = Prelude.Nothing,
+      showCacheClustersNotInReplicationGroups =
+        Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
--- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
-dShowCacheClustersNotInReplicationGroups :: Lens' DescribeCacheClusters (Maybe Bool)
-dShowCacheClustersNotInReplicationGroups = lens _dShowCacheClustersNotInReplicationGroups (\ s a -> s{_dShowCacheClustersNotInReplicationGroups = a});
+-- | An optional flag that can be included in the @DescribeCacheCluster@
+-- request to retrieve information about the individual cache nodes.
+describeCacheClusters_showCacheNodeInfo :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Bool)
+describeCacheClusters_showCacheNodeInfo = Lens.lens (\DescribeCacheClusters' {showCacheNodeInfo} -> showCacheNodeInfo) (\s@DescribeCacheClusters' {} a -> s {showCacheNodeInfo = a} :: DescribeCacheClusters)
 
--- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
-dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
-dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
+-- | The user-supplied cluster identifier. If this parameter is specified,
+-- only information about that specific cluster is returned. This parameter
+-- isn\'t case sensitive.
+describeCacheClusters_cacheClusterId :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Text)
+describeCacheClusters_cacheClusterId = Lens.lens (\DescribeCacheClusters' {cacheClusterId} -> cacheClusterId) (\s@DescribeCacheClusters' {} a -> s {cacheClusterId = a} :: DescribeCacheClusters)
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dMarker :: Lens' DescribeCacheClusters (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+-- | An optional flag that can be included in the @DescribeCacheCluster@
+-- request to show only nodes (API\/CLI: clusters) that are not members of
+-- a replication group. In practice, this mean Memcached and single node
+-- Redis clusters.
+describeCacheClusters_showCacheClustersNotInReplicationGroups :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Bool)
+describeCacheClusters_showCacheClustersNotInReplicationGroups = Lens.lens (\DescribeCacheClusters' {showCacheClustersNotInReplicationGroups} -> showCacheClustersNotInReplicationGroups) (\s@DescribeCacheClusters' {} a -> s {showCacheClustersNotInReplicationGroups = a} :: DescribeCacheClusters)
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-dMaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20; maximum 100.
+describeCacheClusters_maxRecords :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Int)
+describeCacheClusters_maxRecords = Lens.lens (\DescribeCacheClusters' {maxRecords} -> maxRecords) (\s@DescribeCacheClusters' {} a -> s {maxRecords = a} :: DescribeCacheClusters)
 
--- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
-dShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
-dShowCacheNodeInfo = lens _dShowCacheNodeInfo (\ s a -> s{_dShowCacheNodeInfo = a});
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCacheClusters_marker :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Text)
+describeCacheClusters_marker = Lens.lens (\DescribeCacheClusters' {marker} -> marker) (\s@DescribeCacheClusters' {} a -> s {marker = a} :: DescribeCacheClusters)
 
-instance AWSPager DescribeCacheClusters where
-        page rq rs
-          | stop (rs ^. drsMarker) = Nothing
-          | stop (rs ^. drsCacheClusters) = Nothing
-          | otherwise = Just $ rq & dMarker .~ rs ^. drsMarker
+instance Core.AWSPager DescribeCacheClusters where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeCacheClustersResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeCacheClustersResponse_cacheClusters
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeCacheClusters_marker
+          Lens..~ rs
+          Lens.^? describeCacheClustersResponse_marker
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeCacheClusters where
-        type Rs DescribeCacheClusters =
-             DescribeCacheClustersResponse
-        request = postQuery elastiCache
-        response
-          = receiveXMLWrapper "DescribeCacheClustersResult"
-              (\ s h x ->
-                 DescribeCacheClustersResponse' <$>
-                   (x .@? "CacheClusters" .!@ mempty >>=
-                      may (parseXMLList "CacheCluster"))
-                     <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeCacheClusters where
+  type
+    AWSResponse DescribeCacheClusters =
+      DescribeCacheClustersResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeCacheClustersResult"
+      ( \s h x ->
+          DescribeCacheClustersResponse'
+            Prelude.<$> ( x Core..@? "CacheClusters" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "CacheCluster")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeCacheClusters where
+instance Prelude.Hashable DescribeCacheClusters
 
-instance NFData DescribeCacheClusters where
+instance Prelude.NFData DescribeCacheClusters
 
-instance ToHeaders DescribeCacheClusters where
-        toHeaders = const mempty
+instance Core.ToHeaders DescribeCacheClusters where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeCacheClusters where
-        toPath = const "/"
+instance Core.ToPath DescribeCacheClusters where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeCacheClusters where
-        toQuery DescribeCacheClusters'{..}
-          = mconcat
-              ["Action" =: ("DescribeCacheClusters" :: ByteString),
-               "Version" =: ("2015-02-02" :: ByteString),
-               "ShowCacheClustersNotInReplicationGroups" =:
-                 _dShowCacheClustersNotInReplicationGroups,
-               "CacheClusterId" =: _dCacheClusterId,
-               "Marker" =: _dMarker, "MaxRecords" =: _dMaxRecords,
-               "ShowCacheNodeInfo" =: _dShowCacheNodeInfo]
+instance Core.ToQuery DescribeCacheClusters where
+  toQuery DescribeCacheClusters' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeCacheClusters" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "ShowCacheNodeInfo" Core.=: showCacheNodeInfo,
+        "CacheClusterId" Core.=: cacheClusterId,
+        "ShowCacheClustersNotInReplicationGroups"
+          Core.=: showCacheClustersNotInReplicationGroups,
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
+      ]
 
 -- | Represents the output of a @DescribeCacheClusters@ operation.
 --
---
---
--- /See:/ 'describeCacheClustersResponse' smart constructor.
+-- /See:/ 'newDescribeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-  { _drsCacheClusters  :: !(Maybe [CacheCluster])
-  , _drsMarker         :: !(Maybe Text)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCacheClustersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsCacheClusters' - A list of clusters. Each item in the list contains detailed information about one cluster.
---
--- * 'drsMarker' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeCacheClustersResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeCacheClustersResponse
-describeCacheClustersResponse pResponseStatus_ =
-  DescribeCacheClustersResponse'
-  { _drsCacheClusters = Nothing
-  , _drsMarker = Nothing
-  , _drsResponseStatus = pResponseStatus_
+  { -- | A list of clusters. Each item in the list contains detailed information
+    -- about one cluster.
+    cacheClusters :: Prelude.Maybe [CacheCluster],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeCacheClustersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'cacheClusters', 'describeCacheClustersResponse_cacheClusters' - A list of clusters. Each item in the list contains detailed information
+-- about one cluster.
+--
+-- 'marker', 'describeCacheClustersResponse_marker' - Provides an identifier to allow retrieval of paginated results.
+--
+-- 'httpStatus', 'describeCacheClustersResponse_httpStatus' - The response's http status code.
+newDescribeCacheClustersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeCacheClustersResponse
+newDescribeCacheClustersResponse pHttpStatus_ =
+  DescribeCacheClustersResponse'
+    { cacheClusters =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | A list of clusters. Each item in the list contains detailed information about one cluster.
-drsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
-drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . _Default . _Coerce;
+-- | A list of clusters. Each item in the list contains detailed information
+-- about one cluster.
+describeCacheClustersResponse_cacheClusters :: Lens.Lens' DescribeCacheClustersResponse (Prelude.Maybe [CacheCluster])
+describeCacheClustersResponse_cacheClusters = Lens.lens (\DescribeCacheClustersResponse' {cacheClusters} -> cacheClusters) (\s@DescribeCacheClustersResponse' {} a -> s {cacheClusters = a} :: DescribeCacheClustersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
-drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
+describeCacheClustersResponse_marker :: Lens.Lens' DescribeCacheClustersResponse (Prelude.Maybe Prelude.Text)
+describeCacheClustersResponse_marker = Lens.lens (\DescribeCacheClustersResponse' {marker} -> marker) (\s@DescribeCacheClustersResponse' {} a -> s {marker = a} :: DescribeCacheClustersResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeCacheClustersResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | The response's http status code.
+describeCacheClustersResponse_httpStatus :: Lens.Lens' DescribeCacheClustersResponse Prelude.Int
+describeCacheClustersResponse_httpStatus = Lens.lens (\DescribeCacheClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheClustersResponse' {} a -> s {httpStatus = a} :: DescribeCacheClustersResponse)
 
-instance NFData DescribeCacheClustersResponse where
+instance Prelude.NFData DescribeCacheClustersResponse

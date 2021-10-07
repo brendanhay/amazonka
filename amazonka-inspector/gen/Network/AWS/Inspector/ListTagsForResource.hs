@@ -1,135 +1,163 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector.ListTagsForResource
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all tags associated with an assessment template.
---
---
 module Network.AWS.Inspector.ListTagsForResource
-    (
-    -- * Creating a Request
-      listTagsForResource
-    , ListTagsForResource
+  ( -- * Creating a Request
+    ListTagsForResource (..),
+    newListTagsForResource,
+
     -- * Request Lenses
-    , ltfrResourceARN
+    listTagsForResource_resourceArn,
 
     -- * Destructuring the Response
-    , listTagsForResourceResponse
-    , ListTagsForResourceResponse
+    ListTagsForResourceResponse (..),
+    newListTagsForResourceResponse,
+
     -- * Response Lenses
-    , ltfrrsResponseStatus
-    , ltfrrsTags
-    ) where
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listTagsForResource' smart constructor.
-newtype ListTagsForResource = ListTagsForResource'
-  { _ltfrResourceARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newListTagsForResource' smart constructor.
+data ListTagsForResource = ListTagsForResource'
+  { -- | The ARN that specifies the assessment template whose tags you want to
+    -- list.
+    resourceArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsForResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltfrResourceARN' - The ARN that specifies the assessment template whose tags you want to list.
-listTagsForResource
-    :: Text -- ^ 'ltfrResourceARN'
-    -> ListTagsForResource
-listTagsForResource pResourceARN_ =
-  ListTagsForResource' {_ltfrResourceARN = pResourceARN_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The ARN that specifies the assessment template whose tags you want to
+-- list.
+newListTagsForResource ::
+  -- | 'resourceArn'
+  Prelude.Text ->
+  ListTagsForResource
+newListTagsForResource pResourceArn_ =
+  ListTagsForResource' {resourceArn = pResourceArn_}
 
+-- | The ARN that specifies the assessment template whose tags you want to
+-- list.
+listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
+listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
--- | The ARN that specifies the assessment template whose tags you want to list.
-ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\ s a -> s{_ltfrResourceARN = a});
+instance Core.AWSRequest ListTagsForResource where
+  type
+    AWSResponse ListTagsForResource =
+      ListTagsForResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTagsForResourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+      )
 
-instance AWSRequest ListTagsForResource where
-        type Rs ListTagsForResource =
-             ListTagsForResourceResponse
-        request = postJSON inspector
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListTagsForResourceResponse' <$>
-                   (pure (fromEnum s)) <*> (x .?> "tags" .!@ mempty))
+instance Prelude.Hashable ListTagsForResource
 
-instance Hashable ListTagsForResource where
+instance Prelude.NFData ListTagsForResource
 
-instance NFData ListTagsForResource where
+instance Core.ToHeaders ListTagsForResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "InspectorService.ListTagsForResource" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders ListTagsForResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("InspectorService.ListTagsForResource" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON ListTagsForResource where
+  toJSON ListTagsForResource' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("resourceArn" Core..= resourceArn)]
+      )
 
-instance ToJSON ListTagsForResource where
-        toJSON ListTagsForResource'{..}
-          = object
-              (catMaybes
-                 [Just ("resourceArn" .= _ltfrResourceARN)])
+instance Core.ToPath ListTagsForResource where
+  toPath = Prelude.const "/"
 
-instance ToPath ListTagsForResource where
-        toPath = const "/"
+instance Core.ToQuery ListTagsForResource where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ListTagsForResource where
-        toQuery = const mempty
-
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsResponseStatus :: !Int
-  , _ltfrrsTags           :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A collection of key and value pairs.
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltfrrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltfrrsTags' - A collection of key and value pairs.
-listTagsForResourceResponse
-    :: Int -- ^ 'ltfrrsResponseStatus'
-    -> ListTagsForResourceResponse
-listTagsForResourceResponse pResponseStatus_ =
+-- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
+--
+-- 'tags', 'listTagsForResourceResponse_tags' - A collection of key and value pairs.
+newListTagsForResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListTagsForResourceResponse
+newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-  {_ltfrrsResponseStatus = pResponseStatus_, _ltfrrsTags = mempty}
+    { httpStatus =
+        pHttpStatus_,
+      tags = Prelude.mempty
+    }
 
-
--- | -- | The response status code.
-ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\ s a -> s{_ltfrrsResponseStatus = a});
+-- | The response's http status code.
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
+listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
 -- | A collection of key and value pairs.
-ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTags = lens _ltfrrsTags (\ s a -> s{_ltfrrsTags = a}) . _Coerce;
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse [Tag]
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens._Coerce
 
-instance NFData ListTagsForResourceResponse where
+instance Prelude.NFData ListTagsForResourceResponse

@@ -1,195 +1,280 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAF.UpdateIPSet
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Inserts or deletes 'IPSetDescriptor' objects in an @IPSet@ . For each @IPSetDescriptor@ object, you specify the following values:
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
---     * Whether to insert or delete the object from the array. If you want to change an @IPSetDescriptor@ object, you delete the existing object and add a new one.
+-- Inserts or deletes IPSetDescriptor objects in an @IPSet@. For each
+-- @IPSetDescriptor@ object, you specify the following values:
 --
---     * The IP address version, @IPv4@ or @IPv6@ .
+-- -   Whether to insert or delete the object from the array. If you want
+--     to change an @IPSetDescriptor@ object, you delete the existing
+--     object and add a new one.
 --
---     * The IP address in CIDR notation, for example, @192.0.2.0/24@ (for the range of IP addresses from @192.0.2.0@ to @192.0.2.255@ ) or @192.0.2.44/32@ (for the individual IP address @192.0.2.44@ ).
+-- -   The IP address version, @IPv4@ or @IPv6@.
 --
+-- -   The IP address in CIDR notation, for example, @192.0.2.0\/24@ (for
+--     the range of IP addresses from @192.0.2.0@ to @192.0.2.255@) or
+--     @192.0.2.44\/32@ (for the individual IP address @192.0.2.44@).
 --
---
--- AWS WAF supports /8, /16, /24, and /32 IP address ranges for IPv4, and /24, /32, /48, /56, /64 and /128 for IPv6. For more information about CIDR notation, see the Wikipedia entry <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing> .
+-- AWS WAF supports IPv4 address ranges: \/8 and any range between \/16
+-- through \/32. AWS WAF supports IPv6 address ranges: \/24, \/32, \/48,
+-- \/56, \/64, and \/128. For more information about CIDR notation, see the
+-- Wikipedia entry
+-- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.
 --
 -- IPv6 addresses can be represented using any of the following formats:
 --
---     * 1111:0000:0000:0000:0000:0000:0000:0111/128
+-- -   1111:0000:0000:0000:0000:0000:0000:0111\/128
 --
---     * 1111:0:0:0:0:0:0:0111/128
+-- -   1111:0:0:0:0:0:0:0111\/128
 --
---     * 1111::0111/128
+-- -   1111::0111\/128
 --
---     * 1111::111/128
+-- -   1111::111\/128
 --
+-- You use an @IPSet@ to specify which web requests you want to allow or
+-- block based on the IP addresses that the requests originated from. For
+-- example, if you\'re receiving a lot of requests from one or a small
+-- number of IP addresses and you want to block the requests, you can
+-- create an @IPSet@ that specifies those IP addresses, and then configure
+-- AWS WAF to block the requests.
 --
+-- To create and configure an @IPSet@, perform the following steps:
 --
--- You use an @IPSet@ to specify which web requests you want to allow or block based on the IP addresses that the requests originated from. For example, if you're receiving a lot of requests from one or a small number of IP addresses and you want to block the requests, you can create an @IPSet@ that specifies those IP addresses, and then configure AWS WAF to block the requests.
+-- 1.  Submit a CreateIPSet request.
 --
--- To create and configure an @IPSet@ , perform the following steps:
+-- 2.  Use GetChangeToken to get the change token that you provide in the
+--     @ChangeToken@ parameter of an UpdateIPSet request.
 --
---     * Submit a 'CreateIPSet' request.
+-- 3.  Submit an @UpdateIPSet@ request to specify the IP addresses that you
+--     want AWS WAF to watch for.
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateIPSet' request.
+-- When you update an @IPSet@, you specify the IP addresses that you want
+-- to add and\/or the IP addresses that you want to delete. If you want to
+-- change an IP address, you delete the existing IP address and add the new
+-- one.
 --
---     * Submit an @UpdateIPSet@ request to specify the IP addresses that you want AWS WAF to watch for.
+-- You can insert a maximum of 1000 addresses in a single request.
 --
---
---
--- When you update an @IPSet@ , you specify the IP addresses that you want to add and/or the IP addresses that you want to delete. If you want to change an IP address, you delete the existing IP address and add the new one.
---
--- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <http://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
---
+-- For more information about how to use the AWS WAF API to allow or block
+-- HTTP requests, see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide>.
 module Network.AWS.WAF.UpdateIPSet
-    (
-    -- * Creating a Request
-      updateIPSet
-    , UpdateIPSet
+  ( -- * Creating a Request
+    UpdateIPSet (..),
+    newUpdateIPSet,
+
     -- * Request Lenses
-    , uisIPSetId
-    , uisChangeToken
-    , uisUpdates
+    updateIPSet_iPSetId,
+    updateIPSet_changeToken,
+    updateIPSet_updates,
 
     -- * Destructuring the Response
-    , updateIPSetResponse
-    , UpdateIPSetResponse
+    UpdateIPSetResponse (..),
+    newUpdateIPSetResponse,
+
     -- * Response Lenses
-    , uisrsChangeToken
-    , uisrsResponseStatus
-    ) where
+    updateIPSetResponse_changeToken,
+    updateIPSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
-import Network.AWS.WAF.Types.Product
 
--- | /See:/ 'updateIPSet' smart constructor.
+-- | /See:/ 'newUpdateIPSet' smart constructor.
 data UpdateIPSet = UpdateIPSet'
-  { _uisIPSetId     :: !Text
-  , _uisChangeToken :: !Text
-  , _uisUpdates     :: !(List1 IPSetUpdate)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateIPSet' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uisIPSetId' - The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
---
--- * 'uisChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
---
--- * 'uisUpdates' - An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@
-updateIPSet
-    :: Text -- ^ 'uisIPSetId'
-    -> Text -- ^ 'uisChangeToken'
-    -> NonEmpty IPSetUpdate -- ^ 'uisUpdates'
-    -> UpdateIPSet
-updateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
-  UpdateIPSet'
-  { _uisIPSetId = pIPSetId_
-  , _uisChangeToken = pChangeToken_
-  , _uisUpdates = _List1 # pUpdates_
+  { -- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
+    -- returned by CreateIPSet and by ListIPSets.
+    iPSetId :: Prelude.Text,
+    -- | The value returned by the most recent call to GetChangeToken.
+    changeToken :: Prelude.Text,
+    -- | An array of @IPSetUpdate@ objects that you want to insert into or delete
+    -- from an IPSet. For more information, see the applicable data types:
+    --
+    -- -   IPSetUpdate: Contains @Action@ and @IPSetDescriptor@
+    --
+    -- -   IPSetDescriptor: Contains @Type@ and @Value@
+    --
+    -- You can insert a maximum of 1000 addresses in a single request.
+    updates :: Prelude.NonEmpty IPSetUpdate
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateIPSet' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'iPSetId', 'updateIPSet_iPSetId' - The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
+-- returned by CreateIPSet and by ListIPSets.
+--
+-- 'changeToken', 'updateIPSet_changeToken' - The value returned by the most recent call to GetChangeToken.
+--
+-- 'updates', 'updateIPSet_updates' - An array of @IPSetUpdate@ objects that you want to insert into or delete
+-- from an IPSet. For more information, see the applicable data types:
+--
+-- -   IPSetUpdate: Contains @Action@ and @IPSetDescriptor@
+--
+-- -   IPSetDescriptor: Contains @Type@ and @Value@
+--
+-- You can insert a maximum of 1000 addresses in a single request.
+newUpdateIPSet ::
+  -- | 'iPSetId'
+  Prelude.Text ->
+  -- | 'changeToken'
+  Prelude.Text ->
+  -- | 'updates'
+  Prelude.NonEmpty IPSetUpdate ->
+  UpdateIPSet
+newUpdateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
+  UpdateIPSet'
+    { iPSetId = pIPSetId_,
+      changeToken = pChangeToken_,
+      updates = Lens._Coerce Lens.# pUpdates_
+    }
 
--- | The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
-uisIPSetId :: Lens' UpdateIPSet Text
-uisIPSetId = lens _uisIPSetId (\ s a -> s{_uisIPSetId = a});
+-- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
+-- returned by CreateIPSet and by ListIPSets.
+updateIPSet_iPSetId :: Lens.Lens' UpdateIPSet Prelude.Text
+updateIPSet_iPSetId = Lens.lens (\UpdateIPSet' {iPSetId} -> iPSetId) (\s@UpdateIPSet' {} a -> s {iPSetId = a} :: UpdateIPSet)
 
--- | The value returned by the most recent call to 'GetChangeToken' .
-uisChangeToken :: Lens' UpdateIPSet Text
-uisChangeToken = lens _uisChangeToken (\ s a -> s{_uisChangeToken = a});
+-- | The value returned by the most recent call to GetChangeToken.
+updateIPSet_changeToken :: Lens.Lens' UpdateIPSet Prelude.Text
+updateIPSet_changeToken = Lens.lens (\UpdateIPSet' {changeToken} -> changeToken) (\s@UpdateIPSet' {} a -> s {changeToken = a} :: UpdateIPSet)
 
--- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@      * 'IPSetDescriptor' : Contains @Type@ and @Value@
-uisUpdates :: Lens' UpdateIPSet (NonEmpty IPSetUpdate)
-uisUpdates = lens _uisUpdates (\ s a -> s{_uisUpdates = a}) . _List1;
+-- | An array of @IPSetUpdate@ objects that you want to insert into or delete
+-- from an IPSet. For more information, see the applicable data types:
+--
+-- -   IPSetUpdate: Contains @Action@ and @IPSetDescriptor@
+--
+-- -   IPSetDescriptor: Contains @Type@ and @Value@
+--
+-- You can insert a maximum of 1000 addresses in a single request.
+updateIPSet_updates :: Lens.Lens' UpdateIPSet (Prelude.NonEmpty IPSetUpdate)
+updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Prelude.. Lens._Coerce
 
-instance AWSRequest UpdateIPSet where
-        type Rs UpdateIPSet = UpdateIPSetResponse
-        request = postJSON waf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateIPSetResponse' <$>
-                   (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+instance Core.AWSRequest UpdateIPSet where
+  type AWSResponse UpdateIPSet = UpdateIPSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateIPSetResponse'
+            Prelude.<$> (x Core..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateIPSet where
+instance Prelude.Hashable UpdateIPSet
 
-instance NFData UpdateIPSet where
+instance Prelude.NFData UpdateIPSet
 
-instance ToHeaders UpdateIPSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_20150824.UpdateIPSet" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders UpdateIPSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSWAF_20150824.UpdateIPSet" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON UpdateIPSet where
-        toJSON UpdateIPSet'{..}
-          = object
-              (catMaybes
-                 [Just ("IPSetId" .= _uisIPSetId),
-                  Just ("ChangeToken" .= _uisChangeToken),
-                  Just ("Updates" .= _uisUpdates)])
+instance Core.ToJSON UpdateIPSet where
+  toJSON UpdateIPSet' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("IPSetId" Core..= iPSetId),
+            Prelude.Just ("ChangeToken" Core..= changeToken),
+            Prelude.Just ("Updates" Core..= updates)
+          ]
+      )
 
-instance ToPath UpdateIPSet where
-        toPath = const "/"
+instance Core.ToPath UpdateIPSet where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateIPSet where
-        toQuery = const mempty
+instance Core.ToQuery UpdateIPSet where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateIPSetResponse' smart constructor.
+-- | /See:/ 'newUpdateIPSetResponse' smart constructor.
 data UpdateIPSetResponse = UpdateIPSetResponse'
-  { _uisrsChangeToken    :: !(Maybe Text)
-  , _uisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
+    -- can also use this value to query the status of the request. For more
+    -- information, see GetChangeTokenStatus.
+    changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateIPSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateIPSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uisrsChangeToken' - The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uisrsResponseStatus' - -- | The response status code.
-updateIPSetResponse
-    :: Int -- ^ 'uisrsResponseStatus'
-    -> UpdateIPSetResponse
-updateIPSetResponse pResponseStatus_ =
+-- 'changeToken', 'updateIPSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
+-- can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+--
+-- 'httpStatus', 'updateIPSetResponse_httpStatus' - The response's http status code.
+newUpdateIPSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateIPSetResponse
+newUpdateIPSetResponse pHttpStatus_ =
   UpdateIPSetResponse'
-  {_uisrsChangeToken = Nothing, _uisrsResponseStatus = pResponseStatus_}
+    { changeToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You
+-- can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+updateIPSetResponse_changeToken :: Lens.Lens' UpdateIPSetResponse (Prelude.Maybe Prelude.Text)
+updateIPSetResponse_changeToken = Lens.lens (\UpdateIPSetResponse' {changeToken} -> changeToken) (\s@UpdateIPSetResponse' {} a -> s {changeToken = a} :: UpdateIPSetResponse)
 
--- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-uisrsChangeToken :: Lens' UpdateIPSetResponse (Maybe Text)
-uisrsChangeToken = lens _uisrsChangeToken (\ s a -> s{_uisrsChangeToken = a});
+-- | The response's http status code.
+updateIPSetResponse_httpStatus :: Lens.Lens' UpdateIPSetResponse Prelude.Int
+updateIPSetResponse_httpStatus = Lens.lens (\UpdateIPSetResponse' {httpStatus} -> httpStatus) (\s@UpdateIPSetResponse' {} a -> s {httpStatus = a} :: UpdateIPSetResponse)
 
--- | -- | The response status code.
-uisrsResponseStatus :: Lens' UpdateIPSetResponse Int
-uisrsResponseStatus = lens _uisrsResponseStatus (\ s a -> s{_uisrsResponseStatus = a});
-
-instance NFData UpdateIPSetResponse where
+instance Prelude.NFData UpdateIPSetResponse

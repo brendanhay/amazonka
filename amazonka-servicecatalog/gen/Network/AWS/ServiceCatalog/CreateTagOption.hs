@@ -1,144 +1,173 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateTagOption
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new TagOption.
---
---
+-- Creates a TagOption.
 module Network.AWS.ServiceCatalog.CreateTagOption
-    (
-    -- * Creating a Request
-      createTagOption
-    , CreateTagOption
+  ( -- * Creating a Request
+    CreateTagOption (..),
+    newCreateTagOption,
+
     -- * Request Lenses
-    , ctoKey
-    , ctoValue
+    createTagOption_key,
+    createTagOption_value,
 
     -- * Destructuring the Response
-    , createTagOptionResponse
-    , CreateTagOptionResponse
+    CreateTagOptionResponse (..),
+    newCreateTagOptionResponse,
+
     -- * Response Lenses
-    , ctorsTagOptionDetail
-    , ctorsResponseStatus
-    ) where
+    createTagOptionResponse_tagOptionDetail,
+    createTagOptionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'createTagOption' smart constructor.
+-- | /See:/ 'newCreateTagOption' smart constructor.
 data CreateTagOption = CreateTagOption'
-  { _ctoKey   :: !Text
-  , _ctoValue :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The TagOption key.
+    key :: Prelude.Text,
+    -- | The TagOption value.
+    value :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTagOption' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTagOption' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctoKey' - The TagOption key.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctoValue' - The TagOption value.
-createTagOption
-    :: Text -- ^ 'ctoKey'
-    -> Text -- ^ 'ctoValue'
-    -> CreateTagOption
-createTagOption pKey_ pValue_ =
-  CreateTagOption' {_ctoKey = pKey_, _ctoValue = pValue_}
-
+-- 'key', 'createTagOption_key' - The TagOption key.
+--
+-- 'value', 'createTagOption_value' - The TagOption value.
+newCreateTagOption ::
+  -- | 'key'
+  Prelude.Text ->
+  -- | 'value'
+  Prelude.Text ->
+  CreateTagOption
+newCreateTagOption pKey_ pValue_ =
+  CreateTagOption' {key = pKey_, value = pValue_}
 
 -- | The TagOption key.
-ctoKey :: Lens' CreateTagOption Text
-ctoKey = lens _ctoKey (\ s a -> s{_ctoKey = a});
+createTagOption_key :: Lens.Lens' CreateTagOption Prelude.Text
+createTagOption_key = Lens.lens (\CreateTagOption' {key} -> key) (\s@CreateTagOption' {} a -> s {key = a} :: CreateTagOption)
 
 -- | The TagOption value.
-ctoValue :: Lens' CreateTagOption Text
-ctoValue = lens _ctoValue (\ s a -> s{_ctoValue = a});
+createTagOption_value :: Lens.Lens' CreateTagOption Prelude.Text
+createTagOption_value = Lens.lens (\CreateTagOption' {value} -> value) (\s@CreateTagOption' {} a -> s {value = a} :: CreateTagOption)
 
-instance AWSRequest CreateTagOption where
-        type Rs CreateTagOption = CreateTagOptionResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateTagOptionResponse' <$>
-                   (x .?> "TagOptionDetail") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateTagOption where
+  type
+    AWSResponse CreateTagOption =
+      CreateTagOptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateTagOptionResponse'
+            Prelude.<$> (x Core..?> "TagOptionDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateTagOption where
+instance Prelude.Hashable CreateTagOption
 
-instance NFData CreateTagOption where
+instance Prelude.NFData CreateTagOption
 
-instance ToHeaders CreateTagOption where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.CreateTagOption" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateTagOption where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWS242ServiceCatalogService.CreateTagOption" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateTagOption where
-        toJSON CreateTagOption'{..}
-          = object
-              (catMaybes
-                 [Just ("Key" .= _ctoKey),
-                  Just ("Value" .= _ctoValue)])
+instance Core.ToJSON CreateTagOption where
+  toJSON CreateTagOption' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
+          ]
+      )
 
-instance ToPath CreateTagOption where
-        toPath = const "/"
+instance Core.ToPath CreateTagOption where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateTagOption where
-        toQuery = const mempty
+instance Core.ToQuery CreateTagOption where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createTagOptionResponse' smart constructor.
+-- | /See:/ 'newCreateTagOptionResponse' smart constructor.
 data CreateTagOptionResponse = CreateTagOptionResponse'
-  { _ctorsTagOptionDetail :: !(Maybe TagOptionDetail)
-  , _ctorsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the TagOption.
+    tagOptionDetail :: Prelude.Maybe TagOptionDetail,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTagOptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTagOptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctorsTagOptionDetail' - The resulting detailed TagOption information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctorsResponseStatus' - -- | The response status code.
-createTagOptionResponse
-    :: Int -- ^ 'ctorsResponseStatus'
-    -> CreateTagOptionResponse
-createTagOptionResponse pResponseStatus_ =
+-- 'tagOptionDetail', 'createTagOptionResponse_tagOptionDetail' - Information about the TagOption.
+--
+-- 'httpStatus', 'createTagOptionResponse_httpStatus' - The response's http status code.
+newCreateTagOptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateTagOptionResponse
+newCreateTagOptionResponse pHttpStatus_ =
   CreateTagOptionResponse'
-  {_ctorsTagOptionDetail = Nothing, _ctorsResponseStatus = pResponseStatus_}
+    { tagOptionDetail =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the TagOption.
+createTagOptionResponse_tagOptionDetail :: Lens.Lens' CreateTagOptionResponse (Prelude.Maybe TagOptionDetail)
+createTagOptionResponse_tagOptionDetail = Lens.lens (\CreateTagOptionResponse' {tagOptionDetail} -> tagOptionDetail) (\s@CreateTagOptionResponse' {} a -> s {tagOptionDetail = a} :: CreateTagOptionResponse)
 
--- | The resulting detailed TagOption information.
-ctorsTagOptionDetail :: Lens' CreateTagOptionResponse (Maybe TagOptionDetail)
-ctorsTagOptionDetail = lens _ctorsTagOptionDetail (\ s a -> s{_ctorsTagOptionDetail = a});
+-- | The response's http status code.
+createTagOptionResponse_httpStatus :: Lens.Lens' CreateTagOptionResponse Prelude.Int
+createTagOptionResponse_httpStatus = Lens.lens (\CreateTagOptionResponse' {httpStatus} -> httpStatus) (\s@CreateTagOptionResponse' {} a -> s {httpStatus = a} :: CreateTagOptionResponse)
 
--- | -- | The response status code.
-ctorsResponseStatus :: Lens' CreateTagOptionResponse Int
-ctorsResponseStatus = lens _ctorsResponseStatus (\ s a -> s{_ctorsResponseStatus = a});
-
-instance NFData CreateTagOptionResponse where
+instance Prelude.NFData CreateTagOptionResponse

@@ -1,132 +1,162 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a domain.
---
---
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolDomain
-    (
-    -- * Creating a Request
-      describeUserPoolDomain
-    , DescribeUserPoolDomain
+  ( -- * Creating a Request
+    DescribeUserPoolDomain (..),
+    newDescribeUserPoolDomain,
+
     -- * Request Lenses
-    , dDomain
+    describeUserPoolDomain_domain,
 
     -- * Destructuring the Response
-    , describeUserPoolDomainResponse
-    , DescribeUserPoolDomainResponse
+    DescribeUserPoolDomainResponse (..),
+    newDescribeUserPoolDomainResponse,
+
     -- * Response Lenses
-    , drsDomainDescription
-    , drsResponseStatus
-    ) where
+    describeUserPoolDomainResponse_domainDescription,
+    describeUserPoolDomainResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeUserPoolDomain' smart constructor.
-newtype DescribeUserPoolDomain = DescribeUserPoolDomain'
-  { _dDomain :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeUserPoolDomain' smart constructor.
+data DescribeUserPoolDomain = DescribeUserPoolDomain'
+  { -- | The domain string.
+    domain :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeUserPoolDomain' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeUserPoolDomain' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dDomain' - The domain string.
-describeUserPoolDomain
-    :: Text -- ^ 'dDomain'
-    -> DescribeUserPoolDomain
-describeUserPoolDomain pDomain_ = DescribeUserPoolDomain' {_dDomain = pDomain_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domain', 'describeUserPoolDomain_domain' - The domain string.
+newDescribeUserPoolDomain ::
+  -- | 'domain'
+  Prelude.Text ->
+  DescribeUserPoolDomain
+newDescribeUserPoolDomain pDomain_ =
+  DescribeUserPoolDomain' {domain = pDomain_}
 
 -- | The domain string.
-dDomain :: Lens' DescribeUserPoolDomain Text
-dDomain = lens _dDomain (\ s a -> s{_dDomain = a});
+describeUserPoolDomain_domain :: Lens.Lens' DescribeUserPoolDomain Prelude.Text
+describeUserPoolDomain_domain = Lens.lens (\DescribeUserPoolDomain' {domain} -> domain) (\s@DescribeUserPoolDomain' {} a -> s {domain = a} :: DescribeUserPoolDomain)
 
-instance AWSRequest DescribeUserPoolDomain where
-        type Rs DescribeUserPoolDomain =
-             DescribeUserPoolDomainResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeUserPoolDomainResponse' <$>
-                   (x .?> "DomainDescription") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeUserPoolDomain where
+  type
+    AWSResponse DescribeUserPoolDomain =
+      DescribeUserPoolDomainResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeUserPoolDomainResponse'
+            Prelude.<$> (x Core..?> "DomainDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeUserPoolDomain where
+instance Prelude.Hashable DescribeUserPoolDomain
 
-instance NFData DescribeUserPoolDomain where
+instance Prelude.NFData DescribeUserPoolDomain
 
-instance ToHeaders DescribeUserPoolDomain where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.DescribeUserPoolDomain"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeUserPoolDomain where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolDomain" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeUserPoolDomain where
-        toJSON DescribeUserPoolDomain'{..}
-          = object (catMaybes [Just ("Domain" .= _dDomain)])
+instance Core.ToJSON DescribeUserPoolDomain where
+  toJSON DescribeUserPoolDomain' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Domain" Core..= domain)]
+      )
 
-instance ToPath DescribeUserPoolDomain where
-        toPath = const "/"
+instance Core.ToPath DescribeUserPoolDomain where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeUserPoolDomain where
-        toQuery = const mempty
+instance Core.ToQuery DescribeUserPoolDomain where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeUserPoolDomainResponse' smart constructor.
+-- | /See:/ 'newDescribeUserPoolDomainResponse' smart constructor.
 data DescribeUserPoolDomainResponse = DescribeUserPoolDomainResponse'
-  { _drsDomainDescription :: !(Maybe DomainDescriptionType)
-  , _drsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A domain description object containing information about the domain.
+    domainDescription :: Prelude.Maybe DomainDescriptionType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeUserPoolDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeUserPoolDomainResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsDomainDescription' - A domain description object containing information about the domain.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeUserPoolDomainResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeUserPoolDomainResponse
-describeUserPoolDomainResponse pResponseStatus_ =
+-- 'domainDescription', 'describeUserPoolDomainResponse_domainDescription' - A domain description object containing information about the domain.
+--
+-- 'httpStatus', 'describeUserPoolDomainResponse_httpStatus' - The response's http status code.
+newDescribeUserPoolDomainResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeUserPoolDomainResponse
+newDescribeUserPoolDomainResponse pHttpStatus_ =
   DescribeUserPoolDomainResponse'
-  {_drsDomainDescription = Nothing, _drsResponseStatus = pResponseStatus_}
-
+    { domainDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A domain description object containing information about the domain.
-drsDomainDescription :: Lens' DescribeUserPoolDomainResponse (Maybe DomainDescriptionType)
-drsDomainDescription = lens _drsDomainDescription (\ s a -> s{_drsDomainDescription = a});
+describeUserPoolDomainResponse_domainDescription :: Lens.Lens' DescribeUserPoolDomainResponse (Prelude.Maybe DomainDescriptionType)
+describeUserPoolDomainResponse_domainDescription = Lens.lens (\DescribeUserPoolDomainResponse' {domainDescription} -> domainDescription) (\s@DescribeUserPoolDomainResponse' {} a -> s {domainDescription = a} :: DescribeUserPoolDomainResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeUserPoolDomainResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a});
+-- | The response's http status code.
+describeUserPoolDomainResponse_httpStatus :: Lens.Lens' DescribeUserPoolDomainResponse Prelude.Int
+describeUserPoolDomainResponse_httpStatus = Lens.lens (\DescribeUserPoolDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeUserPoolDomainResponse' {} a -> s {httpStatus = a} :: DescribeUserPoolDomainResponse)
 
-instance NFData DescribeUserPoolDomainResponse where
+instance
+  Prelude.NFData
+    DescribeUserPoolDomainResponse

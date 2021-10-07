@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,92 +22,111 @@
 --
 -- Deletes a user profile.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have an
+-- attached policy that explicitly grants permissions. For more information
+-- about user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DeleteUserProfile
-    (
-    -- * Creating a Request
-      deleteUserProfile
-    , DeleteUserProfile
+  ( -- * Creating a Request
+    DeleteUserProfile (..),
+    newDeleteUserProfile,
+
     -- * Request Lenses
-    , dupIAMUserARN
+    deleteUserProfile_iamUserArn,
 
     -- * Destructuring the Response
-    , deleteUserProfileResponse
-    , DeleteUserProfileResponse
-    ) where
+    DeleteUserProfileResponse (..),
+    newDeleteUserProfileResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteUserProfile' smart constructor.
-newtype DeleteUserProfile = DeleteUserProfile'
-  { _dupIAMUserARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteUserProfile' smart constructor.
+data DeleteUserProfile = DeleteUserProfile'
+  { -- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
+    iamUserArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteUserProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dupIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
-deleteUserProfile
-    :: Text -- ^ 'dupIAMUserARN'
-    -> DeleteUserProfile
-deleteUserProfile pIAMUserARN_ =
-  DeleteUserProfile' {_dupIAMUserARN = pIAMUserARN_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'iamUserArn', 'deleteUserProfile_iamUserArn' - The user\'s IAM ARN. This can also be a federated user\'s ARN.
+newDeleteUserProfile ::
+  -- | 'iamUserArn'
+  Prelude.Text ->
+  DeleteUserProfile
+newDeleteUserProfile pIamUserArn_ =
+  DeleteUserProfile' {iamUserArn = pIamUserArn_}
 
+-- | The user\'s IAM ARN. This can also be a federated user\'s ARN.
+deleteUserProfile_iamUserArn :: Lens.Lens' DeleteUserProfile Prelude.Text
+deleteUserProfile_iamUserArn = Lens.lens (\DeleteUserProfile' {iamUserArn} -> iamUserArn) (\s@DeleteUserProfile' {} a -> s {iamUserArn = a} :: DeleteUserProfile)
 
--- | The user's IAM ARN. This can also be a federated user's ARN.
-dupIAMUserARN :: Lens' DeleteUserProfile Text
-dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
+instance Core.AWSRequest DeleteUserProfile where
+  type
+    AWSResponse DeleteUserProfile =
+      DeleteUserProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeleteUserProfileResponse'
 
-instance AWSRequest DeleteUserProfile where
-        type Rs DeleteUserProfile = DeleteUserProfileResponse
-        request = postJSON opsWorks
-        response = receiveNull DeleteUserProfileResponse'
+instance Prelude.Hashable DeleteUserProfile
 
-instance Hashable DeleteUserProfile where
+instance Prelude.NFData DeleteUserProfile
 
-instance NFData DeleteUserProfile where
+instance Core.ToHeaders DeleteUserProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "OpsWorks_20130218.DeleteUserProfile" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteUserProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DeleteUserProfile" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteUserProfile where
+  toJSON DeleteUserProfile' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("IamUserArn" Core..= iamUserArn)]
+      )
 
-instance ToJSON DeleteUserProfile where
-        toJSON DeleteUserProfile'{..}
-          = object
-              (catMaybes [Just ("IamUserArn" .= _dupIAMUserARN)])
+instance Core.ToPath DeleteUserProfile where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteUserProfile where
-        toPath = const "/"
+instance Core.ToQuery DeleteUserProfile where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteUserProfile where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteUserProfileResponse' smart constructor.
+data DeleteUserProfileResponse = DeleteUserProfileResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteUserProfileResponse' smart constructor.
-data DeleteUserProfileResponse =
+-- |
+-- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteUserProfileResponse ::
+  DeleteUserProfileResponse
+newDeleteUserProfileResponse =
   DeleteUserProfileResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
---
-deleteUserProfileResponse
-    :: DeleteUserProfileResponse
-deleteUserProfileResponse = DeleteUserProfileResponse'
-
-
-instance NFData DeleteUserProfileResponse where
+instance Prelude.NFData DeleteUserProfileResponse

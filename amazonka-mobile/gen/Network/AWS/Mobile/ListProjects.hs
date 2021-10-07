@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Mobile.ListProjects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,135 +22,179 @@
 --
 -- Lists projects in AWS Mobile Hub.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Mobile.ListProjects
-    (
-    -- * Creating a Request
-      listProjects
-    , ListProjects
+  ( -- * Creating a Request
+    ListProjects (..),
+    newListProjects,
+
     -- * Request Lenses
-    , lpNextToken
-    , lpMaxResults
+    listProjects_nextToken,
+    listProjects_maxResults,
 
     -- * Destructuring the Response
-    , listProjectsResponse
-    , ListProjectsResponse
-    -- * Response Lenses
-    , lprsNextToken
-    , lprsProjects
-    , lprsResponseStatus
-    ) where
+    ListProjectsResponse (..),
+    newListProjectsResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
+    listProjectsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Mobile.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure used to request projects list in AWS Mobile Hub.
 --
---
---
--- /See:/ 'listProjects' smart constructor.
+-- /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { _lpNextToken  :: !(Maybe Text)
-  , _lpMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Pagination token. Set to null to start listing projects from start. If
+    -- non-null pagination token is returned in a result, then pass its value
+    -- in here in another request to list more projects.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListProjects' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpNextToken' - Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpMaxResults' - Maximum number of records to list in a single response.
-listProjects
-    :: ListProjects
-listProjects = ListProjects' {_lpNextToken = Nothing, _lpMaxResults = Nothing}
+-- 'nextToken', 'listProjects_nextToken' - Pagination token. Set to null to start listing projects from start. If
+-- non-null pagination token is returned in a result, then pass its value
+-- in here in another request to list more projects.
+--
+-- 'maxResults', 'listProjects_maxResults' - Maximum number of records to list in a single response.
+newListProjects ::
+  ListProjects
+newListProjects =
+  ListProjects'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
-
--- | Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects.
-lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+-- | Pagination token. Set to null to start listing projects from start. If
+-- non-null pagination token is returned in a result, then pass its value
+-- in here in another request to list more projects.
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | Maximum number of records to list in a single response.
-lpMaxResults :: Lens' ListProjects (Maybe Int)
-lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a});
+listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Int)
+listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
-instance AWSRequest ListProjects where
-        type Rs ListProjects = ListProjectsResponse
-        request = get mobile
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListProjectsResponse' <$>
-                   (x .?> "nextToken") <*> (x .?> "projects" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Core.AWSPager ListProjects where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listProjectsResponse_projects Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listProjects_nextToken
+          Lens..~ rs
+          Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
 
-instance Hashable ListProjects where
+instance Core.AWSRequest ListProjects where
+  type AWSResponse ListProjects = ListProjectsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListProjectsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "projects" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListProjects where
+instance Prelude.Hashable ListProjects
 
-instance ToHeaders ListProjects where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListProjects
 
-instance ToPath ListProjects where
-        toPath = const "/projects"
+instance Core.ToHeaders ListProjects where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToQuery ListProjects where
-        toQuery ListProjects'{..}
-          = mconcat
-              ["nextToken" =: _lpNextToken,
-               "maxResults" =: _lpMaxResults]
+instance Core.ToPath ListProjects where
+  toPath = Prelude.const "/projects"
+
+instance Core.ToQuery ListProjects where
+  toQuery ListProjects' {..} =
+    Prelude.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
+      ]
 
 -- | Result structure used for requests to list projects in AWS Mobile Hub.
 --
---
---
--- /See:/ 'listProjectsResponse' smart constructor.
+-- /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { _lprsNextToken      :: !(Maybe Text)
-  , _lprsProjects       :: !(Maybe [ProjectSummary])
-  , _lprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextToken' - Undocumented member.
---
--- * 'lprsProjects' - Undocumented member.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listProjectsResponse
-    :: Int -- ^ 'lprsResponseStatus'
-    -> ListProjectsResponse
-listProjectsResponse pResponseStatus_ =
-  ListProjectsResponse'
-  { _lprsNextToken = Nothing
-  , _lprsProjects = Nothing
-  , _lprsResponseStatus = pResponseStatus_
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    projects :: Prelude.Maybe [ProjectSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListProjectsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listProjectsResponse_nextToken' - Undocumented member.
+--
+-- 'projects', 'listProjectsResponse_projects' - Undocumented member.
+--
+-- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
+newListProjectsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListProjectsResponse
+newListProjectsResponse pHttpStatus_ =
+  ListProjectsResponse'
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
+listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
+listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
 -- | Undocumented member.
-lprsProjects :: Lens' ListProjectsResponse [ProjectSummary]
-lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe [ProjectSummary])
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListProjectsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+-- | The response's http status code.
+listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
+listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
-instance NFData ListProjectsResponse where
+instance Prelude.NFData ListProjectsResponse

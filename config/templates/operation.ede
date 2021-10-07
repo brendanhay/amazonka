@@ -1,0 +1,54 @@
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE DeriveGeneric         #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns        #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE RecordWildCards       #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE StrictData            #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+{% include "_include/license.ede" %}
+--
+-- {{ documentation }}
+{% if pager %}
+--
+-- This operation returns paginated results.
+{% endif %}
+module {{ moduleName }}
+    (
+    -- * Creating a Request
+      {{ input.name }} (..)
+    , {{ input.constructor.name }} 
+  {% for lens in input.lenses %}
+    {% if lens.first %}
+    -- * Request Lenses
+    {% endif %}
+    , {{ lens.value.name }}
+  {% endfor %}
+
+    -- * Destructuring the Response
+    , {{ output.name }} (..)
+    , {{ output.constructor.name }} 
+  {% for lens in output.lenses %}
+    {% if lens.first %}
+    -- * Response Lenses
+    {% endif %}
+    , {{ lens.value.name }}
+  {% endfor %}
+    ) where
+
+{% for import in moduleImports %}
+import {{ import.value }}
+{% endfor %}
+
+{% include "_include/product.ede" with shape = input %}
+{% if !output.shared %}
+
+{% include "_include/product.ede" with shape = output %}
+{% endif %}

@@ -1,0 +1,252 @@
+cabal-version:      2.2
+name:               amazonka-sesv2
+version:            1.6.1
+synopsis:           Amazon Simple Email Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2019-09-27@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.SESv2.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.SESv2" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-sesv2
+
+library
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Network.AWS.SESv2
+    Network.AWS.SESv2.CreateConfigurationSet
+    Network.AWS.SESv2.CreateConfigurationSetEventDestination
+    Network.AWS.SESv2.CreateContact
+    Network.AWS.SESv2.CreateContactList
+    Network.AWS.SESv2.CreateCustomVerificationEmailTemplate
+    Network.AWS.SESv2.CreateDedicatedIpPool
+    Network.AWS.SESv2.CreateDeliverabilityTestReport
+    Network.AWS.SESv2.CreateEmailIdentity
+    Network.AWS.SESv2.CreateEmailIdentityPolicy
+    Network.AWS.SESv2.CreateEmailTemplate
+    Network.AWS.SESv2.CreateImportJob
+    Network.AWS.SESv2.DeleteConfigurationSet
+    Network.AWS.SESv2.DeleteConfigurationSetEventDestination
+    Network.AWS.SESv2.DeleteContact
+    Network.AWS.SESv2.DeleteContactList
+    Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate
+    Network.AWS.SESv2.DeleteDedicatedIpPool
+    Network.AWS.SESv2.DeleteEmailIdentity
+    Network.AWS.SESv2.DeleteEmailIdentityPolicy
+    Network.AWS.SESv2.DeleteEmailTemplate
+    Network.AWS.SESv2.DeleteSuppressedDestination
+    Network.AWS.SESv2.GetAccount
+    Network.AWS.SESv2.GetBlacklistReports
+    Network.AWS.SESv2.GetConfigurationSet
+    Network.AWS.SESv2.GetConfigurationSetEventDestinations
+    Network.AWS.SESv2.GetContact
+    Network.AWS.SESv2.GetContactList
+    Network.AWS.SESv2.GetCustomVerificationEmailTemplate
+    Network.AWS.SESv2.GetDedicatedIp
+    Network.AWS.SESv2.GetDedicatedIps
+    Network.AWS.SESv2.GetDeliverabilityDashboardOptions
+    Network.AWS.SESv2.GetDeliverabilityTestReport
+    Network.AWS.SESv2.GetDomainDeliverabilityCampaign
+    Network.AWS.SESv2.GetDomainStatisticsReport
+    Network.AWS.SESv2.GetEmailIdentity
+    Network.AWS.SESv2.GetEmailIdentityPolicies
+    Network.AWS.SESv2.GetEmailTemplate
+    Network.AWS.SESv2.GetImportJob
+    Network.AWS.SESv2.GetSuppressedDestination
+    Network.AWS.SESv2.Lens
+    Network.AWS.SESv2.ListConfigurationSets
+    Network.AWS.SESv2.ListContactLists
+    Network.AWS.SESv2.ListContacts
+    Network.AWS.SESv2.ListCustomVerificationEmailTemplates
+    Network.AWS.SESv2.ListDedicatedIpPools
+    Network.AWS.SESv2.ListDeliverabilityTestReports
+    Network.AWS.SESv2.ListDomainDeliverabilityCampaigns
+    Network.AWS.SESv2.ListEmailIdentities
+    Network.AWS.SESv2.ListEmailTemplates
+    Network.AWS.SESv2.ListImportJobs
+    Network.AWS.SESv2.ListSuppressedDestinations
+    Network.AWS.SESv2.ListTagsForResource
+    Network.AWS.SESv2.PutAccountDedicatedIpWarmupAttributes
+    Network.AWS.SESv2.PutAccountDetails
+    Network.AWS.SESv2.PutAccountSendingAttributes
+    Network.AWS.SESv2.PutAccountSuppressionAttributes
+    Network.AWS.SESv2.PutConfigurationSetDeliveryOptions
+    Network.AWS.SESv2.PutConfigurationSetReputationOptions
+    Network.AWS.SESv2.PutConfigurationSetSendingOptions
+    Network.AWS.SESv2.PutConfigurationSetSuppressionOptions
+    Network.AWS.SESv2.PutConfigurationSetTrackingOptions
+    Network.AWS.SESv2.PutDedicatedIpInPool
+    Network.AWS.SESv2.PutDedicatedIpWarmupAttributes
+    Network.AWS.SESv2.PutDeliverabilityDashboardOption
+    Network.AWS.SESv2.PutEmailIdentityConfigurationSetAttributes
+    Network.AWS.SESv2.PutEmailIdentityDkimAttributes
+    Network.AWS.SESv2.PutEmailIdentityDkimSigningAttributes
+    Network.AWS.SESv2.PutEmailIdentityFeedbackAttributes
+    Network.AWS.SESv2.PutEmailIdentityMailFromAttributes
+    Network.AWS.SESv2.PutSuppressedDestination
+    Network.AWS.SESv2.SendBulkEmail
+    Network.AWS.SESv2.SendCustomVerificationEmail
+    Network.AWS.SESv2.SendEmail
+    Network.AWS.SESv2.TagResource
+    Network.AWS.SESv2.TestRenderEmailTemplate
+    Network.AWS.SESv2.Types
+    Network.AWS.SESv2.Types.AccountDetails
+    Network.AWS.SESv2.Types.BehaviorOnMxFailure
+    Network.AWS.SESv2.Types.BlacklistEntry
+    Network.AWS.SESv2.Types.Body
+    Network.AWS.SESv2.Types.BulkEmailContent
+    Network.AWS.SESv2.Types.BulkEmailEntry
+    Network.AWS.SESv2.Types.BulkEmailEntryResult
+    Network.AWS.SESv2.Types.BulkEmailStatus
+    Network.AWS.SESv2.Types.CloudWatchDestination
+    Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration
+    Network.AWS.SESv2.Types.Contact
+    Network.AWS.SESv2.Types.ContactLanguage
+    Network.AWS.SESv2.Types.ContactList
+    Network.AWS.SESv2.Types.ContactListDestination
+    Network.AWS.SESv2.Types.ContactListImportAction
+    Network.AWS.SESv2.Types.Content
+    Network.AWS.SESv2.Types.CustomVerificationEmailTemplateMetadata
+    Network.AWS.SESv2.Types.DailyVolume
+    Network.AWS.SESv2.Types.DataFormat
+    Network.AWS.SESv2.Types.DedicatedIp
+    Network.AWS.SESv2.Types.DeliverabilityDashboardAccountStatus
+    Network.AWS.SESv2.Types.DeliverabilityTestReport
+    Network.AWS.SESv2.Types.DeliverabilityTestStatus
+    Network.AWS.SESv2.Types.DeliveryOptions
+    Network.AWS.SESv2.Types.Destination
+    Network.AWS.SESv2.Types.DimensionValueSource
+    Network.AWS.SESv2.Types.DkimAttributes
+    Network.AWS.SESv2.Types.DkimSigningAttributes
+    Network.AWS.SESv2.Types.DkimSigningAttributesOrigin
+    Network.AWS.SESv2.Types.DkimStatus
+    Network.AWS.SESv2.Types.DomainDeliverabilityCampaign
+    Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption
+    Network.AWS.SESv2.Types.DomainIspPlacement
+    Network.AWS.SESv2.Types.EmailContent
+    Network.AWS.SESv2.Types.EmailTemplateContent
+    Network.AWS.SESv2.Types.EmailTemplateMetadata
+    Network.AWS.SESv2.Types.EventDestination
+    Network.AWS.SESv2.Types.EventDestinationDefinition
+    Network.AWS.SESv2.Types.EventType
+    Network.AWS.SESv2.Types.FailureInfo
+    Network.AWS.SESv2.Types.IdentityInfo
+    Network.AWS.SESv2.Types.IdentityType
+    Network.AWS.SESv2.Types.ImportDataSource
+    Network.AWS.SESv2.Types.ImportDestination
+    Network.AWS.SESv2.Types.ImportDestinationType
+    Network.AWS.SESv2.Types.ImportJobSummary
+    Network.AWS.SESv2.Types.InboxPlacementTrackingOption
+    Network.AWS.SESv2.Types.IspPlacement
+    Network.AWS.SESv2.Types.JobStatus
+    Network.AWS.SESv2.Types.KinesisFirehoseDestination
+    Network.AWS.SESv2.Types.ListContactsFilter
+    Network.AWS.SESv2.Types.ListManagementOptions
+    Network.AWS.SESv2.Types.MailFromAttributes
+    Network.AWS.SESv2.Types.MailFromDomainStatus
+    Network.AWS.SESv2.Types.MailType
+    Network.AWS.SESv2.Types.Message
+    Network.AWS.SESv2.Types.MessageTag
+    Network.AWS.SESv2.Types.OverallVolume
+    Network.AWS.SESv2.Types.PinpointDestination
+    Network.AWS.SESv2.Types.PlacementStatistics
+    Network.AWS.SESv2.Types.RawMessage
+    Network.AWS.SESv2.Types.ReplacementEmailContent
+    Network.AWS.SESv2.Types.ReplacementTemplate
+    Network.AWS.SESv2.Types.ReputationOptions
+    Network.AWS.SESv2.Types.ReviewDetails
+    Network.AWS.SESv2.Types.ReviewStatus
+    Network.AWS.SESv2.Types.SendingOptions
+    Network.AWS.SESv2.Types.SendQuota
+    Network.AWS.SESv2.Types.SnsDestination
+    Network.AWS.SESv2.Types.SubscriptionStatus
+    Network.AWS.SESv2.Types.SuppressedDestination
+    Network.AWS.SESv2.Types.SuppressedDestinationAttributes
+    Network.AWS.SESv2.Types.SuppressedDestinationSummary
+    Network.AWS.SESv2.Types.SuppressionAttributes
+    Network.AWS.SESv2.Types.SuppressionListDestination
+    Network.AWS.SESv2.Types.SuppressionListImportAction
+    Network.AWS.SESv2.Types.SuppressionListReason
+    Network.AWS.SESv2.Types.SuppressionOptions
+    Network.AWS.SESv2.Types.Tag
+    Network.AWS.SESv2.Types.Template
+    Network.AWS.SESv2.Types.TlsPolicy
+    Network.AWS.SESv2.Types.Topic
+    Network.AWS.SESv2.Types.TopicFilter
+    Network.AWS.SESv2.Types.TopicPreference
+    Network.AWS.SESv2.Types.TrackingOptions
+    Network.AWS.SESv2.Types.VolumeStatistics
+    Network.AWS.SESv2.Types.WarmupStatus
+    Network.AWS.SESv2.UntagResource
+    Network.AWS.SESv2.UpdateConfigurationSetEventDestination
+    Network.AWS.SESv2.UpdateContact
+    Network.AWS.SESv2.UpdateContactList
+    Network.AWS.SESv2.UpdateCustomVerificationEmailTemplate
+    Network.AWS.SESv2.UpdateEmailIdentityPolicy
+    Network.AWS.SESv2.UpdateEmailTemplate
+    Network.AWS.SESv2.Waiters
+
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
+
+test-suite amazonka-sesv2-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.SESv2
+    Test.AWS.SESv2
+    Test.AWS.SESv2.Internal
+
+  build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka-sesv2
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

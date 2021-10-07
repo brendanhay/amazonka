@@ -1,173 +1,295 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListProjects
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of build project names, with each build project name representing a single build project.
---
---
+-- Gets a list of build project names, with each build project name
+-- representing a single build project.
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListProjects
-    (
-    -- * Creating a Request
-      listProjects
-    , ListProjects
+  ( -- * Creating a Request
+    ListProjects (..),
+    newListProjects,
+
     -- * Request Lenses
-    , lpSortOrder
-    , lpNextToken
-    , lpSortBy
+    listProjects_nextToken,
+    listProjects_sortOrder,
+    listProjects_sortBy,
 
     -- * Destructuring the Response
-    , listProjectsResponse
-    , ListProjectsResponse
+    ListProjectsResponse (..),
+    newListProjectsResponse,
+
     -- * Response Lenses
-    , lprsNextToken
-    , lprsProjects
-    , lprsResponseStatus
-    ) where
+    listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
+    listProjectsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listProjects' smart constructor.
+-- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { _lpSortOrder :: !(Maybe SortOrderType)
-  , _lpNextToken :: !(Maybe Text)
-  , _lpSortBy    :: !(Maybe ProjectSortByType)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpSortOrder' - The order in which to list build projects. Valid values include:     * @ASCENDING@ : List the build project names in ascending order.     * @DESCENDING@ : List the build project names in descending order. Use @sortBy@ to specify the criterion to be used to list build project names.
---
--- * 'lpNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
---
--- * 'lpSortBy' - The criterion to be used to list build project names. Valid values include:     * @CREATED_TIME@ : List the build project names based on when each build project was created.     * @LAST_MODIFIED_TIME@ : List the build project names based on when information about each build project was last changed.     * @NAME@ : List the build project names based on each build project's name. Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
-listProjects
-    :: ListProjects
-listProjects =
-  ListProjects'
-  {_lpSortOrder = Nothing, _lpNextToken = Nothing, _lpSortBy = Nothing}
-
-
--- | The order in which to list build projects. Valid values include:     * @ASCENDING@ : List the build project names in ascending order.     * @DESCENDING@ : List the build project names in descending order. Use @sortBy@ to specify the criterion to be used to list build project names.
-lpSortOrder :: Lens' ListProjects (Maybe SortOrderType)
-lpSortOrder = lens _lpSortOrder (\ s a -> s{_lpSortOrder = a});
-
--- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
-
--- | The criterion to be used to list build project names. Valid values include:     * @CREATED_TIME@ : List the build project names based on when each build project was created.     * @LAST_MODIFIED_TIME@ : List the build project names based on when information about each build project was last changed.     * @NAME@ : List the build project names based on each build project's name. Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
-lpSortBy :: Lens' ListProjects (Maybe ProjectSortByType)
-lpSortBy = lens _lpSortBy (\ s a -> s{_lpSortBy = a});
-
-instance AWSPager ListProjects where
-        page rq rs
-          | stop (rs ^. lprsNextToken) = Nothing
-          | stop (rs ^. lprsProjects) = Nothing
-          | otherwise =
-            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
-
-instance AWSRequest ListProjects where
-        type Rs ListProjects = ListProjectsResponse
-        request = postJSON codeBuild
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListProjectsResponse' <$>
-                   (x .?> "nextToken") <*> (x .?> "projects") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable ListProjects where
-
-instance NFData ListProjects where
-
-instance ToHeaders ListProjects where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeBuild_20161006.ListProjects" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListProjects where
-        toJSON ListProjects'{..}
-          = object
-              (catMaybes
-                 [("sortOrder" .=) <$> _lpSortOrder,
-                  ("nextToken" .=) <$> _lpNextToken,
-                  ("sortBy" .=) <$> _lpSortBy])
-
-instance ToPath ListProjects where
-        toPath = const "/"
-
-instance ToQuery ListProjects where
-        toQuery = const mempty
-
--- | /See:/ 'listProjectsResponse' smart constructor.
-data ListProjectsResponse = ListProjectsResponse'
-  { _lprsNextToken      :: !(Maybe Text)
-  , _lprsProjects       :: !(Maybe (List1 Text))
-  , _lprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
---
--- * 'lprsProjects' - The list of build project names, with each build project name representing a single build project.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listProjectsResponse
-    :: Int -- ^ 'lprsResponseStatus'
-    -> ListProjectsResponse
-listProjectsResponse pResponseStatus_ =
-  ListProjectsResponse'
-  { _lprsNextToken = Nothing
-  , _lprsProjects = Nothing
-  , _lprsResponseStatus = pResponseStatus_
+  { -- | During a previous call, if there are more than 100 items in the list,
+    -- only the first 100 items are returned, along with a unique string called
+    -- a /nextToken/. To get the next batch of items in the list, call this
+    -- operation again, adding the next token to the call. To get all of the
+    -- items in the list, keep calling this operation with each subsequent next
+    -- token that is returned, until no more next tokens are returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order in which to list build projects. Valid values include:
+    --
+    -- -   @ASCENDING@: List in ascending order.
+    --
+    -- -   @DESCENDING@: List in descending order.
+    --
+    -- Use @sortBy@ to specify the criterion to be used to list build project
+    -- names.
+    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | The criterion to be used to list build project names. Valid values
+    -- include:
+    --
+    -- -   @CREATED_TIME@: List based on when each build project was created.
+    --
+    -- -   @LAST_MODIFIED_TIME@: List based on when information about each
+    --     build project was last changed.
+    --
+    -- -   @NAME@: List based on each build project\'s name.
+    --
+    -- Use @sortOrder@ to specify in what order to list the build project names
+    -- based on the preceding criteria.
+    sortBy :: Prelude.Maybe ProjectSortByType
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListProjects' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listProjects_nextToken' - During a previous call, if there are more than 100 items in the list,
+-- only the first 100 items are returned, along with a unique string called
+-- a /nextToken/. To get the next batch of items in the list, call this
+-- operation again, adding the next token to the call. To get all of the
+-- items in the list, keep calling this operation with each subsequent next
+-- token that is returned, until no more next tokens are returned.
+--
+-- 'sortOrder', 'listProjects_sortOrder' - The order in which to list build projects. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project
+-- names.
+--
+-- 'sortBy', 'listProjects_sortBy' - The criterion to be used to list build project names. Valid values
+-- include:
+--
+-- -   @CREATED_TIME@: List based on when each build project was created.
+--
+-- -   @LAST_MODIFIED_TIME@: List based on when information about each
+--     build project was last changed.
+--
+-- -   @NAME@: List based on each build project\'s name.
+--
+-- Use @sortOrder@ to specify in what order to list the build project names
+-- based on the preceding criteria.
+newListProjects ::
+  ListProjects
+newListProjects =
+  ListProjects'
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      sortBy = Prelude.Nothing
+    }
 
--- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
+-- | During a previous call, if there are more than 100 items in the list,
+-- only the first 100 items are returned, along with a unique string called
+-- a /nextToken/. To get the next batch of items in the list, call this
+-- operation again, adding the next token to the call. To get all of the
+-- items in the list, keep calling this operation with each subsequent next
+-- token that is returned, until no more next tokens are returned.
+listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
--- | The list of build project names, with each build project name representing a single build project.
-lprsProjects :: Lens' ListProjectsResponse (Maybe (NonEmpty Text))
-lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . mapping _List1;
+-- | The order in which to list build projects. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project
+-- names.
+listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe SortOrderType)
+listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListProjectsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a});
+-- | The criterion to be used to list build project names. Valid values
+-- include:
+--
+-- -   @CREATED_TIME@: List based on when each build project was created.
+--
+-- -   @LAST_MODIFIED_TIME@: List based on when information about each
+--     build project was last changed.
+--
+-- -   @NAME@: List based on each build project\'s name.
+--
+-- Use @sortOrder@ to specify in what order to list the build project names
+-- based on the preceding criteria.
+listProjects_sortBy :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortByType)
+listProjects_sortBy = Lens.lens (\ListProjects' {sortBy} -> sortBy) (\s@ListProjects' {} a -> s {sortBy = a} :: ListProjects)
 
-instance NFData ListProjectsResponse where
+instance Core.AWSPager ListProjects where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listProjectsResponse_projects Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listProjects_nextToken
+          Lens..~ rs
+          Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
+
+instance Core.AWSRequest ListProjects where
+  type AWSResponse ListProjects = ListProjectsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListProjectsResponse'
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "projects")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListProjects
+
+instance Prelude.NFData ListProjects
+
+instance Core.ToHeaders ListProjects where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeBuild_20161006.ListProjects" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON ListProjects where
+  toJSON ListProjects' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("sortBy" Core..=) Prelude.<$> sortBy
+          ]
+      )
+
+instance Core.ToPath ListProjects where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery ListProjects where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListProjectsResponse' smart constructor.
+data ListProjectsResponse = ListProjectsResponse'
+  { -- | If there are more than 100 items in the list, only the first 100 items
+    -- are returned, along with a unique string called a /nextToken/. To get
+    -- the next batch of items in the list, call this operation again, adding
+    -- the next token to the call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of build project names, with each build project name
+    -- representing a single build project.
+    projects :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListProjectsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listProjectsResponse_nextToken' - If there are more than 100 items in the list, only the first 100 items
+-- are returned, along with a unique string called a /nextToken/. To get
+-- the next batch of items in the list, call this operation again, adding
+-- the next token to the call.
+--
+-- 'projects', 'listProjectsResponse_projects' - The list of build project names, with each build project name
+-- representing a single build project.
+--
+-- 'httpStatus', 'listProjectsResponse_httpStatus' - The response's http status code.
+newListProjectsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListProjectsResponse
+newListProjectsResponse pHttpStatus_ =
+  ListProjectsResponse'
+    { nextToken = Prelude.Nothing,
+      projects = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If there are more than 100 items in the list, only the first 100 items
+-- are returned, along with a unique string called a /nextToken/. To get
+-- the next batch of items in the list, call this operation again, adding
+-- the next token to the call.
+listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
+listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
+
+-- | The list of build project names, with each build project name
+-- representing a single build project.
+listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The response's http status code.
+listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
+listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
+
+instance Prelude.NFData ListProjectsResponse

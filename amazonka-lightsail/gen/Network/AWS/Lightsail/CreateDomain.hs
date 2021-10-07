@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDomain
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,112 +22,181 @@
 --
 -- Creates a domain resource for the specified domain (e.g., example.com).
 --
---
+-- The @create domain@ operation supports tag-based access control via
+-- request tags. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.CreateDomain
-    (
-    -- * Creating a Request
-      createDomain
-    , CreateDomain
+  ( -- * Creating a Request
+    CreateDomain (..),
+    newCreateDomain,
+
     -- * Request Lenses
-    , cdDomainName
+    createDomain_tags,
+    createDomain_domainName,
 
     -- * Destructuring the Response
-    , createDomainResponse
-    , CreateDomainResponse
+    CreateDomainResponse (..),
+    newCreateDomainResponse,
+
     -- * Response Lenses
-    , cdrsOperation
-    , cdrsResponseStatus
-    ) where
+    createDomainResponse_operation,
+    createDomainResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createDomain' smart constructor.
-newtype CreateDomain = CreateDomain'
-  { _cdDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateDomain' smart constructor.
+data CreateDomain = CreateDomain'
+  { -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The domain name to manage (e.g., @example.com@).
+    --
+    -- You cannot register a new domain name using Lightsail. You must register
+    -- a domain name using Amazon Route 53 or another domain name registrar. If
+    -- you have already registered your domain, you can enter its name in this
+    -- parameter to manage the DNS records for that domain using Lightsail.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDomain' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdDomainName' - The domain name to manage (e.g., @example.com@ ).
-createDomain
-    :: Text -- ^ 'cdDomainName'
-    -> CreateDomain
-createDomain pDomainName_ = CreateDomain' {_cdDomainName = pDomainName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'createDomain_tags' - The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- 'domainName', 'createDomain_domainName' - The domain name to manage (e.g., @example.com@).
+--
+-- You cannot register a new domain name using Lightsail. You must register
+-- a domain name using Amazon Route 53 or another domain name registrar. If
+-- you have already registered your domain, you can enter its name in this
+-- parameter to manage the DNS records for that domain using Lightsail.
+newCreateDomain ::
+  -- | 'domainName'
+  Prelude.Text ->
+  CreateDomain
+newCreateDomain pDomainName_ =
+  CreateDomain'
+    { tags = Prelude.Nothing,
+      domainName = pDomainName_
+    }
 
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens._Coerce
 
--- | The domain name to manage (e.g., @example.com@ ).
-cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
+-- | The domain name to manage (e.g., @example.com@).
+--
+-- You cannot register a new domain name using Lightsail. You must register
+-- a domain name using Amazon Route 53 or another domain name registrar. If
+-- you have already registered your domain, you can enter its name in this
+-- parameter to manage the DNS records for that domain using Lightsail.
+createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
+createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) (\s@CreateDomain' {} a -> s {domainName = a} :: CreateDomain)
 
-instance AWSRequest CreateDomain where
-        type Rs CreateDomain = CreateDomainResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDomainResponse' <$>
-                   (x .?> "operation") <*> (pure (fromEnum s)))
+instance Core.AWSRequest CreateDomain where
+  type AWSResponse CreateDomain = CreateDomainResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDomainResponse'
+            Prelude.<$> (x Core..?> "operation")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateDomain where
+instance Prelude.Hashable CreateDomain
 
-instance NFData CreateDomain where
+instance Prelude.NFData CreateDomain
 
-instance ToHeaders CreateDomain where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.CreateDomain" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders CreateDomain where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.CreateDomain" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON CreateDomain where
-        toJSON CreateDomain'{..}
-          = object
-              (catMaybes [Just ("domainName" .= _cdDomainName)])
+instance Core.ToJSON CreateDomain where
+  toJSON CreateDomain' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("domainName" Core..= domainName)
+          ]
+      )
 
-instance ToPath CreateDomain where
-        toPath = const "/"
+instance Core.ToPath CreateDomain where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateDomain where
-        toQuery = const mempty
+instance Core.ToQuery CreateDomain where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createDomainResponse' smart constructor.
+-- | /See:/ 'newCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { _cdrsOperation      :: !(Maybe Operation)
-  , _cdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDomainResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdrsOperation' - An array of key-value pairs containing information about the domain resource you created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDomainResponse
-    :: Int -- ^ 'cdrsResponseStatus'
-    -> CreateDomainResponse
-createDomainResponse pResponseStatus_ =
+-- 'operation', 'createDomainResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.
+newCreateDomainResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDomainResponse
+newCreateDomainResponse pHttpStatus_ =
   CreateDomainResponse'
-  {_cdrsOperation = Nothing, _cdrsResponseStatus = pResponseStatus_}
+    { operation = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+createDomainResponse_operation :: Lens.Lens' CreateDomainResponse (Prelude.Maybe Operation)
+createDomainResponse_operation = Lens.lens (\CreateDomainResponse' {operation} -> operation) (\s@CreateDomainResponse' {} a -> s {operation = a} :: CreateDomainResponse)
 
--- | An array of key-value pairs containing information about the domain resource you created.
-cdrsOperation :: Lens' CreateDomainResponse (Maybe Operation)
-cdrsOperation = lens _cdrsOperation (\ s a -> s{_cdrsOperation = a});
+-- | The response's http status code.
+createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Prelude.Int
+createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus} -> httpStatus) (\s@CreateDomainResponse' {} a -> s {httpStatus = a} :: CreateDomainResponse)
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDomainResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
-
-instance NFData CreateDomainResponse where
+instance Prelude.NFData CreateDomainResponse

@@ -1,149 +1,202 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked @DestinationUser@ ) signs in, they must create a new user account. See <API_AdminLinkProviderForUser.html AdminLinkProviderForUser> .
+-- Disables the user from signing in with the specified external (SAML or
+-- social) identity provider. If the user to disable is a Cognito User
+-- Pools native username + password user, they are not permitted to use
+-- their password to sign-in. If the user to disable is a linked external
+-- IdP user, any link between that user and an existing user is removed.
+-- The next time the external user (no longer attached to the previously
+-- linked @DestinationUser@) signs in, they must create a new user account.
+-- See
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html AdminLinkProviderForUser>.
 --
+-- This action is enabled only for admin access and requires developer
+-- credentials.
 --
--- This action is enabled only for admin access and requires developer credentials.
+-- The @ProviderName@ must match the value specified when creating an IdP
+-- for the pool.
 --
--- The @ProviderName@ must match the value specified when creating an IdP for the pool.
+-- To disable a native username + password user, the @ProviderName@ value
+-- must be @Cognito@ and the @ProviderAttributeName@ must be
+-- @Cognito_Subject@, with the @ProviderAttributeValue@ being the name that
+-- is used in the user pool for the user.
 --
--- To disable a native username + password user, the @ProviderName@ value must be @Cognito@ and the @ProviderAttributeName@ must be @Cognito_Subject@ , with the @ProviderAttributeValue@ being the name that is used in the user pool for the user.
+-- The @ProviderAttributeName@ must always be @Cognito_Subject@ for social
+-- identity providers. The @ProviderAttributeValue@ must always be the
+-- exact subject that was used when the user was originally linked as a
+-- source user.
 --
--- The @ProviderAttributeName@ must always be @Cognito_Subject@ for social identity providers. The @ProviderAttributeValue@ must always be the exact subject that was used when the user was originally linked as a source user.
---
--- For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the @ProviderAttributeName@ and @ProviderAttributeValue@ must be the same values that were used for the @SourceUser@ when the identities were originally linked in the <API_AdminLinkProviderForUser.html AdminLinkProviderForUser> call. (If the linking was done with @ProviderAttributeName@ set to @Cognito_Subject@ , the same applies here). However, if the user has already signed in, the @ProviderAttributeName@ must be @Cognito_Subject@ and @ProviderAttributeValue@ must be the subject of the SAML assertion.
---
+-- For de-linking a SAML identity, there are two scenarios. If the linked
+-- identity has not yet been used to sign-in, the @ProviderAttributeName@
+-- and @ProviderAttributeValue@ must be the same values that were used for
+-- the @SourceUser@ when the identities were originally linked using
+-- @ AdminLinkProviderForUser@ call. (If the linking was done with
+-- @ProviderAttributeName@ set to @Cognito_Subject@, the same applies
+-- here). However, if the user has already signed in, the
+-- @ProviderAttributeName@ must be @Cognito_Subject@ and
+-- @ProviderAttributeValue@ must be the subject of the SAML assertion.
 module Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
-    (
-    -- * Creating a Request
-      adminDisableProviderForUser
-    , AdminDisableProviderForUser
+  ( -- * Creating a Request
+    AdminDisableProviderForUser (..),
+    newAdminDisableProviderForUser,
+
     -- * Request Lenses
-    , adpfuUserPoolId
-    , adpfuUser
+    adminDisableProviderForUser_userPoolId,
+    adminDisableProviderForUser_user,
 
     -- * Destructuring the Response
-    , adminDisableProviderForUserResponse
-    , AdminDisableProviderForUserResponse
+    AdminDisableProviderForUserResponse (..),
+    newAdminDisableProviderForUserResponse,
+
     -- * Response Lenses
-    , adpfursResponseStatus
-    ) where
+    adminDisableProviderForUserResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'adminDisableProviderForUser' smart constructor.
+-- | /See:/ 'newAdminDisableProviderForUser' smart constructor.
 data AdminDisableProviderForUser = AdminDisableProviderForUser'
-  { _adpfuUserPoolId :: !Text
-  , _adpfuUser       :: !ProviderUserIdentifierType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Prelude.Text,
+    -- | The user to be disabled.
+    user :: ProviderUserIdentifierType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AdminDisableProviderForUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminDisableProviderForUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'adpfuUserPoolId' - The user pool ID for the user pool.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'adpfuUser' - The user to be disabled.
-adminDisableProviderForUser
-    :: Text -- ^ 'adpfuUserPoolId'
-    -> ProviderUserIdentifierType -- ^ 'adpfuUser'
-    -> AdminDisableProviderForUser
-adminDisableProviderForUser pUserPoolId_ pUser_ =
+-- 'userPoolId', 'adminDisableProviderForUser_userPoolId' - The user pool ID for the user pool.
+--
+-- 'user', 'adminDisableProviderForUser_user' - The user to be disabled.
+newAdminDisableProviderForUser ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'user'
+  ProviderUserIdentifierType ->
+  AdminDisableProviderForUser
+newAdminDisableProviderForUser pUserPoolId_ pUser_ =
   AdminDisableProviderForUser'
-  {_adpfuUserPoolId = pUserPoolId_, _adpfuUser = pUser_}
-
+    { userPoolId =
+        pUserPoolId_,
+      user = pUser_
+    }
 
 -- | The user pool ID for the user pool.
-adpfuUserPoolId :: Lens' AdminDisableProviderForUser Text
-adpfuUserPoolId = lens _adpfuUserPoolId (\ s a -> s{_adpfuUserPoolId = a});
+adminDisableProviderForUser_userPoolId :: Lens.Lens' AdminDisableProviderForUser Prelude.Text
+adminDisableProviderForUser_userPoolId = Lens.lens (\AdminDisableProviderForUser' {userPoolId} -> userPoolId) (\s@AdminDisableProviderForUser' {} a -> s {userPoolId = a} :: AdminDisableProviderForUser)
 
 -- | The user to be disabled.
-adpfuUser :: Lens' AdminDisableProviderForUser ProviderUserIdentifierType
-adpfuUser = lens _adpfuUser (\ s a -> s{_adpfuUser = a});
+adminDisableProviderForUser_user :: Lens.Lens' AdminDisableProviderForUser ProviderUserIdentifierType
+adminDisableProviderForUser_user = Lens.lens (\AdminDisableProviderForUser' {user} -> user) (\s@AdminDisableProviderForUser' {} a -> s {user = a} :: AdminDisableProviderForUser)
 
-instance AWSRequest AdminDisableProviderForUser where
-        type Rs AdminDisableProviderForUser =
-             AdminDisableProviderForUserResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AdminDisableProviderForUserResponse' <$>
-                   (pure (fromEnum s)))
+instance Core.AWSRequest AdminDisableProviderForUser where
+  type
+    AWSResponse AdminDisableProviderForUser =
+      AdminDisableProviderForUserResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AdminDisableProviderForUserResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AdminDisableProviderForUser where
+instance Prelude.Hashable AdminDisableProviderForUser
 
-instance NFData AdminDisableProviderForUser where
+instance Prelude.NFData AdminDisableProviderForUser
 
-instance ToHeaders AdminDisableProviderForUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminDisableProviderForUser"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders AdminDisableProviderForUser where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON AdminDisableProviderForUser where
-        toJSON AdminDisableProviderForUser'{..}
-          = object
-              (catMaybes
-                 [Just ("UserPoolId" .= _adpfuUserPoolId),
-                  Just ("User" .= _adpfuUser)])
+instance Core.ToJSON AdminDisableProviderForUser where
+  toJSON AdminDisableProviderForUser' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Core..= userPoolId),
+            Prelude.Just ("User" Core..= user)
+          ]
+      )
 
-instance ToPath AdminDisableProviderForUser where
-        toPath = const "/"
+instance Core.ToPath AdminDisableProviderForUser where
+  toPath = Prelude.const "/"
 
-instance ToQuery AdminDisableProviderForUser where
-        toQuery = const mempty
+instance Core.ToQuery AdminDisableProviderForUser where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'adminDisableProviderForUserResponse' smart constructor.
-newtype AdminDisableProviderForUserResponse = AdminDisableProviderForUserResponse'
-  { _adpfursResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAdminDisableProviderForUserResponse' smart constructor.
+data AdminDisableProviderForUserResponse = AdminDisableProviderForUserResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'AdminDisableProviderForUserResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminDisableProviderForUserResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'adpfursResponseStatus' - -- | The response status code.
-adminDisableProviderForUserResponse
-    :: Int -- ^ 'adpfursResponseStatus'
-    -> AdminDisableProviderForUserResponse
-adminDisableProviderForUserResponse pResponseStatus_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'adminDisableProviderForUserResponse_httpStatus' - The response's http status code.
+newAdminDisableProviderForUserResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AdminDisableProviderForUserResponse
+newAdminDisableProviderForUserResponse pHttpStatus_ =
   AdminDisableProviderForUserResponse'
-  {_adpfursResponseStatus = pResponseStatus_}
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+adminDisableProviderForUserResponse_httpStatus :: Lens.Lens' AdminDisableProviderForUserResponse Prelude.Int
+adminDisableProviderForUserResponse_httpStatus = Lens.lens (\AdminDisableProviderForUserResponse' {httpStatus} -> httpStatus) (\s@AdminDisableProviderForUserResponse' {} a -> s {httpStatus = a} :: AdminDisableProviderForUserResponse)
 
--- | -- | The response status code.
-adpfursResponseStatus :: Lens' AdminDisableProviderForUserResponse Int
-adpfursResponseStatus = lens _adpfursResponseStatus (\ s a -> s{_adpfursResponseStatus = a});
-
-instance NFData AdminDisableProviderForUserResponse
-         where
+instance
+  Prelude.NFData
+    AdminDisableProviderForUserResponse

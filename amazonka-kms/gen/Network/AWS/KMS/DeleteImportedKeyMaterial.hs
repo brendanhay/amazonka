@@ -1,115 +1,198 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KMS.DeleteImportedKeyMaterial
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes key material that you previously imported. This operation makes the specified customer master key (CMK) unusable. For more information about importing key material into AWS KMS, see <http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . You cannot perform this operation on a CMK in a different AWS account.
+-- Deletes key material that you previously imported. This operation makes
+-- the specified KMS key unusable. For more information about importing key
+-- material into KMS, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
+-- in the /Key Management Service Developer Guide/.
 --
+-- When the specified KMS key is in the @PendingDeletion@ state, this
+-- operation does not change the KMS key\'s state. Otherwise, it changes
+-- the KMS key\'s state to @PendingImport@.
 --
--- When the specified CMK is in the @PendingDeletion@ state, this operation does not change the CMK's state. Otherwise, it changes the CMK's state to @PendingImport@ .
+-- After you delete key material, you can use ImportKeyMaterial to reimport
+-- the same key material into the KMS key.
 --
--- After you delete key material, you can use 'ImportKeyMaterial' to reimport the same key material into the CMK.
+-- The KMS key that you use for this operation must be in a compatible key
+-- state. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
+--
+-- __Required permissions__:
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DeleteImportedKeyMaterial>
+-- (key policy)
+--
+-- __Related operations:__
+--
+-- -   GetParametersForImport
+--
+-- -   ImportKeyMaterial
 module Network.AWS.KMS.DeleteImportedKeyMaterial
-    (
-    -- * Creating a Request
-      deleteImportedKeyMaterial
-    , DeleteImportedKeyMaterial
+  ( -- * Creating a Request
+    DeleteImportedKeyMaterial (..),
+    newDeleteImportedKeyMaterial,
+
     -- * Request Lenses
-    , dikmKeyId
+    deleteImportedKeyMaterial_keyId,
 
     -- * Destructuring the Response
-    , deleteImportedKeyMaterialResponse
-    , DeleteImportedKeyMaterialResponse
-    ) where
+    DeleteImportedKeyMaterialResponse (..),
+    newDeleteImportedKeyMaterialResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteImportedKeyMaterial' smart constructor.
-newtype DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
-  { _dikmKeyId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteImportedKeyMaterial' smart constructor.
+data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
+  { -- | Identifies the KMS key from which you are deleting imported key
+    -- material. The @Origin@ of the KMS key must be @EXTERNAL@.
+    --
+    -- Specify the key ID or key ARN of the KMS key.
+    --
+    -- For example:
+    --
+    -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Key ARN:
+    --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
+    keyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteImportedKeyMaterial' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteImportedKeyMaterial' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dikmKeyId' - The identifier of the CMK whose key material to delete. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-deleteImportedKeyMaterial
-    :: Text -- ^ 'dikmKeyId'
-    -> DeleteImportedKeyMaterial
-deleteImportedKeyMaterial pKeyId_ =
-  DeleteImportedKeyMaterial' {_dikmKeyId = pKeyId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'keyId', 'deleteImportedKeyMaterial_keyId' - Identifies the KMS key from which you are deleting imported key
+-- material. The @Origin@ of the KMS key must be @EXTERNAL@.
+--
+-- Specify the key ID or key ARN of the KMS key.
+--
+-- For example:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
+newDeleteImportedKeyMaterial ::
+  -- | 'keyId'
+  Prelude.Text ->
+  DeleteImportedKeyMaterial
+newDeleteImportedKeyMaterial pKeyId_ =
+  DeleteImportedKeyMaterial' {keyId = pKeyId_}
 
+-- | Identifies the KMS key from which you are deleting imported key
+-- material. The @Origin@ of the KMS key must be @EXTERNAL@.
+--
+-- Specify the key ID or key ARN of the KMS key.
+--
+-- For example:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
+deleteImportedKeyMaterial_keyId :: Lens.Lens' DeleteImportedKeyMaterial Prelude.Text
+deleteImportedKeyMaterial_keyId = Lens.lens (\DeleteImportedKeyMaterial' {keyId} -> keyId) (\s@DeleteImportedKeyMaterial' {} a -> s {keyId = a} :: DeleteImportedKeyMaterial)
 
--- | The identifier of the CMK whose key material to delete. The CMK's @Origin@ must be @EXTERNAL@ . Specify the key ID or the Amazon Resource Name (ARN) of the CMK. For example:     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@      * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@  To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-dikmKeyId :: Lens' DeleteImportedKeyMaterial Text
-dikmKeyId = lens _dikmKeyId (\ s a -> s{_dikmKeyId = a});
+instance Core.AWSRequest DeleteImportedKeyMaterial where
+  type
+    AWSResponse DeleteImportedKeyMaterial =
+      DeleteImportedKeyMaterialResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      DeleteImportedKeyMaterialResponse'
 
-instance AWSRequest DeleteImportedKeyMaterial where
-        type Rs DeleteImportedKeyMaterial =
-             DeleteImportedKeyMaterialResponse
-        request = postJSON kms
-        response
-          = receiveNull DeleteImportedKeyMaterialResponse'
+instance Prelude.Hashable DeleteImportedKeyMaterial
 
-instance Hashable DeleteImportedKeyMaterial where
+instance Prelude.NFData DeleteImportedKeyMaterial
 
-instance NFData DeleteImportedKeyMaterial where
+instance Core.ToHeaders DeleteImportedKeyMaterial where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "TrentService.DeleteImportedKeyMaterial" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders DeleteImportedKeyMaterial where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("TrentService.DeleteImportedKeyMaterial" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON DeleteImportedKeyMaterial where
+  toJSON DeleteImportedKeyMaterial' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("KeyId" Core..= keyId)]
+      )
 
-instance ToJSON DeleteImportedKeyMaterial where
-        toJSON DeleteImportedKeyMaterial'{..}
-          = object (catMaybes [Just ("KeyId" .= _dikmKeyId)])
+instance Core.ToPath DeleteImportedKeyMaterial where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteImportedKeyMaterial where
-        toPath = const "/"
+instance Core.ToQuery DeleteImportedKeyMaterial where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteImportedKeyMaterial where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteImportedKeyMaterialResponse' smart constructor.
+data DeleteImportedKeyMaterialResponse = DeleteImportedKeyMaterialResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'deleteImportedKeyMaterialResponse' smart constructor.
-data DeleteImportedKeyMaterialResponse =
+-- |
+-- Create a value of 'DeleteImportedKeyMaterialResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteImportedKeyMaterialResponse ::
+  DeleteImportedKeyMaterialResponse
+newDeleteImportedKeyMaterialResponse =
   DeleteImportedKeyMaterialResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteImportedKeyMaterialResponse' with the minimum fields required to make a request.
---
-deleteImportedKeyMaterialResponse
-    :: DeleteImportedKeyMaterialResponse
-deleteImportedKeyMaterialResponse = DeleteImportedKeyMaterialResponse'
-
-
-instance NFData DeleteImportedKeyMaterialResponse
-         where
+instance
+  Prelude.NFData
+    DeleteImportedKeyMaterialResponse

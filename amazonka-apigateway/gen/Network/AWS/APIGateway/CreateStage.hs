@@ -1,185 +1,269 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.CreateStage
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new 'Stage' resource that references a pre-existing 'Deployment' for the API.
---
---
+-- Creates a new Stage resource that references a pre-existing Deployment
+-- for the API.
 module Network.AWS.APIGateway.CreateStage
-    (
-    -- * Creating a Request
-      createStage
-    , CreateStage
+  ( -- * Creating a Request
+    CreateStage (..),
+    newCreateStage,
+
     -- * Request Lenses
-    , csVariables
-    , csDocumentationVersion
-    , csCacheClusterSize
-    , csCacheClusterEnabled
-    , csDescription
-    , csRestAPIId
-    , csStageName
-    , csDeploymentId
+    createStage_tracingEnabled,
+    createStage_cacheClusterEnabled,
+    createStage_documentationVersion,
+    createStage_variables,
+    createStage_tags,
+    createStage_description,
+    createStage_cacheClusterSize,
+    createStage_canarySettings,
+    createStage_restApiId,
+    createStage_stageName,
+    createStage_deploymentId,
 
     -- * Destructuring the Response
-    , stage
-    , Stage
+    Stage (..),
+    newStage,
+
     -- * Response Lenses
-    , sDeploymentId
-    , sVariables
-    , sDocumentationVersion
-    , sClientCertificateId
-    , sCreatedDate
-    , sCacheClusterStatus
-    , sMethodSettings
-    , sLastUpdatedDate
-    , sCacheClusterSize
-    , sCacheClusterEnabled
-    , sStageName
-    , sDescription
-    ) where
+    stage_createdDate,
+    stage_deploymentId,
+    stage_tracingEnabled,
+    stage_lastUpdatedDate,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_webAclArn,
+    stage_documentationVersion,
+    stage_accessLogSettings,
+    stage_variables,
+    stage_clientCertificateId,
+    stage_tags,
+    stage_description,
+    stage_cacheClusterSize,
+    stage_canarySettings,
+    stage_cacheClusterStatus,
+    stage_methodSettings,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Requests Amazon API Gateway to create a 'Stage' resource.
+-- | Requests API Gateway to create a Stage resource.
 --
---
---
--- /See:/ 'createStage' smart constructor.
+-- /See:/ 'newCreateStage' smart constructor.
 data CreateStage = CreateStage'
-  { _csVariables            :: !(Maybe (Map Text Text))
-  , _csDocumentationVersion :: !(Maybe Text)
-  , _csCacheClusterSize     :: !(Maybe CacheClusterSize)
-  , _csCacheClusterEnabled  :: !(Maybe Bool)
-  , _csDescription          :: !(Maybe Text)
-  , _csRestAPIId            :: !Text
-  , _csStageName            :: !Text
-  , _csDeploymentId         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateStage' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csVariables' - A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
---
--- * 'csDocumentationVersion' - The version of the associated API documentation.
---
--- * 'csCacheClusterSize' - The stage's cache cluster size.
---
--- * 'csCacheClusterEnabled' - Whether cache clustering is enabled for the stage.
---
--- * 'csDescription' - The description of the 'Stage' resource.
---
--- * 'csRestAPIId' - The string identifier of the associated 'RestApi' .
---
--- * 'csStageName' - The name for the 'Stage' resource.
---
--- * 'csDeploymentId' - The identifier of the 'Deployment' resource for the 'Stage' resource.
-createStage
-    :: Text -- ^ 'csRestAPIId'
-    -> Text -- ^ 'csStageName'
-    -> Text -- ^ 'csDeploymentId'
-    -> CreateStage
-createStage pRestAPIId_ pStageName_ pDeploymentId_ =
-  CreateStage'
-  { _csVariables = Nothing
-  , _csDocumentationVersion = Nothing
-  , _csCacheClusterSize = Nothing
-  , _csCacheClusterEnabled = Nothing
-  , _csDescription = Nothing
-  , _csRestAPIId = pRestAPIId_
-  , _csStageName = pStageName_
-  , _csDeploymentId = pDeploymentId_
+  { -- | Specifies whether active tracing with X-ray is enabled for the Stage.
+    tracingEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether cache clustering is enabled for the stage.
+    cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The version of the associated API documentation.
+    documentationVersion :: Prelude.Maybe Prelude.Text,
+    -- | A map that defines the stage variables for the new Stage resource.
+    -- Variable names can have alphanumeric and underscore characters, and the
+    -- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
+    variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The key-value map of strings. The valid character set is
+    -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+    -- start with @aws:@. The tag value can be up to 256 characters.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The description of the Stage resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The stage\'s cache cluster size.
+    cacheClusterSize :: Prelude.Maybe CacheClusterSize,
+    -- | The canary deployment settings of this stage.
+    canarySettings :: Prelude.Maybe CanarySettings,
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The name for the Stage resource. Stage names can only contain
+    -- alphanumeric characters, hyphens, and underscores. Maximum length is 128
+    -- characters.
+    stageName :: Prelude.Text,
+    -- | [Required] The identifier of the Deployment resource for the Stage
+    -- resource.
+    deploymentId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateStage' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tracingEnabled', 'createStage_tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the Stage.
+--
+-- 'cacheClusterEnabled', 'createStage_cacheClusterEnabled' - Whether cache clustering is enabled for the stage.
+--
+-- 'documentationVersion', 'createStage_documentationVersion' - The version of the associated API documentation.
+--
+-- 'variables', 'createStage_variables' - A map that defines the stage variables for the new Stage resource.
+-- Variable names can have alphanumeric and underscore characters, and the
+-- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
+--
+-- 'tags', 'createStage_tags' - The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
+--
+-- 'description', 'createStage_description' - The description of the Stage resource.
+--
+-- 'cacheClusterSize', 'createStage_cacheClusterSize' - The stage\'s cache cluster size.
+--
+-- 'canarySettings', 'createStage_canarySettings' - The canary deployment settings of this stage.
+--
+-- 'restApiId', 'createStage_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'stageName', 'createStage_stageName' - [Required] The name for the Stage resource. Stage names can only contain
+-- alphanumeric characters, hyphens, and underscores. Maximum length is 128
+-- characters.
+--
+-- 'deploymentId', 'createStage_deploymentId' - [Required] The identifier of the Deployment resource for the Stage
+-- resource.
+newCreateStage ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'stageName'
+  Prelude.Text ->
+  -- | 'deploymentId'
+  Prelude.Text ->
+  CreateStage
+newCreateStage pRestApiId_ pStageName_ pDeploymentId_ =
+  CreateStage'
+    { tracingEnabled = Prelude.Nothing,
+      cacheClusterEnabled = Prelude.Nothing,
+      documentationVersion = Prelude.Nothing,
+      variables = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      cacheClusterSize = Prelude.Nothing,
+      canarySettings = Prelude.Nothing,
+      restApiId = pRestApiId_,
+      stageName = pStageName_,
+      deploymentId = pDeploymentId_
+    }
 
--- | A map that defines the stage variables for the new 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
-csVariables :: Lens' CreateStage (HashMap Text Text)
-csVariables = lens _csVariables (\ s a -> s{_csVariables = a}) . _Default . _Map;
-
--- | The version of the associated API documentation.
-csDocumentationVersion :: Lens' CreateStage (Maybe Text)
-csDocumentationVersion = lens _csDocumentationVersion (\ s a -> s{_csDocumentationVersion = a});
-
--- | The stage's cache cluster size.
-csCacheClusterSize :: Lens' CreateStage (Maybe CacheClusterSize)
-csCacheClusterSize = lens _csCacheClusterSize (\ s a -> s{_csCacheClusterSize = a});
+-- | Specifies whether active tracing with X-ray is enabled for the Stage.
+createStage_tracingEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
+createStage_tracingEnabled = Lens.lens (\CreateStage' {tracingEnabled} -> tracingEnabled) (\s@CreateStage' {} a -> s {tracingEnabled = a} :: CreateStage)
 
 -- | Whether cache clustering is enabled for the stage.
-csCacheClusterEnabled :: Lens' CreateStage (Maybe Bool)
-csCacheClusterEnabled = lens _csCacheClusterEnabled (\ s a -> s{_csCacheClusterEnabled = a});
+createStage_cacheClusterEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
+createStage_cacheClusterEnabled = Lens.lens (\CreateStage' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateStage' {} a -> s {cacheClusterEnabled = a} :: CreateStage)
 
--- | The description of the 'Stage' resource.
-csDescription :: Lens' CreateStage (Maybe Text)
-csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
+-- | The version of the associated API documentation.
+createStage_documentationVersion :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
+createStage_documentationVersion = Lens.lens (\CreateStage' {documentationVersion} -> documentationVersion) (\s@CreateStage' {} a -> s {documentationVersion = a} :: CreateStage)
 
--- | The string identifier of the associated 'RestApi' .
-csRestAPIId :: Lens' CreateStage Text
-csRestAPIId = lens _csRestAPIId (\ s a -> s{_csRestAPIId = a});
+-- | A map that defines the stage variables for the new Stage resource.
+-- Variable names can have alphanumeric and underscore characters, and the
+-- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
+createStage_variables :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStage_variables = Lens.lens (\CreateStage' {variables} -> variables) (\s@CreateStage' {} a -> s {variables = a} :: CreateStage) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name for the 'Stage' resource.
-csStageName :: Lens' CreateStage Text
-csStageName = lens _csStageName (\ s a -> s{_csStageName = a});
+-- | The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
+createStage_tags :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStage_tags = Lens.lens (\CreateStage' {tags} -> tags) (\s@CreateStage' {} a -> s {tags = a} :: CreateStage) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identifier of the 'Deployment' resource for the 'Stage' resource.
-csDeploymentId :: Lens' CreateStage Text
-csDeploymentId = lens _csDeploymentId (\ s a -> s{_csDeploymentId = a});
+-- | The description of the Stage resource.
+createStage_description :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
+createStage_description = Lens.lens (\CreateStage' {description} -> description) (\s@CreateStage' {} a -> s {description = a} :: CreateStage)
 
-instance AWSRequest CreateStage where
-        type Rs CreateStage = Stage
-        request = postJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+-- | The stage\'s cache cluster size.
+createStage_cacheClusterSize :: Lens.Lens' CreateStage (Prelude.Maybe CacheClusterSize)
+createStage_cacheClusterSize = Lens.lens (\CreateStage' {cacheClusterSize} -> cacheClusterSize) (\s@CreateStage' {} a -> s {cacheClusterSize = a} :: CreateStage)
 
-instance Hashable CreateStage where
+-- | The canary deployment settings of this stage.
+createStage_canarySettings :: Lens.Lens' CreateStage (Prelude.Maybe CanarySettings)
+createStage_canarySettings = Lens.lens (\CreateStage' {canarySettings} -> canarySettings) (\s@CreateStage' {} a -> s {canarySettings = a} :: CreateStage)
 
-instance NFData CreateStage where
+-- | [Required] The string identifier of the associated RestApi.
+createStage_restApiId :: Lens.Lens' CreateStage Prelude.Text
+createStage_restApiId = Lens.lens (\CreateStage' {restApiId} -> restApiId) (\s@CreateStage' {} a -> s {restApiId = a} :: CreateStage)
 
-instance ToHeaders CreateStage where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+-- | [Required] The name for the Stage resource. Stage names can only contain
+-- alphanumeric characters, hyphens, and underscores. Maximum length is 128
+-- characters.
+createStage_stageName :: Lens.Lens' CreateStage Prelude.Text
+createStage_stageName = Lens.lens (\CreateStage' {stageName} -> stageName) (\s@CreateStage' {} a -> s {stageName = a} :: CreateStage)
 
-instance ToJSON CreateStage where
-        toJSON CreateStage'{..}
-          = object
-              (catMaybes
-                 [("variables" .=) <$> _csVariables,
-                  ("documentationVersion" .=) <$>
-                    _csDocumentationVersion,
-                  ("cacheClusterSize" .=) <$> _csCacheClusterSize,
-                  ("cacheClusterEnabled" .=) <$>
-                    _csCacheClusterEnabled,
-                  ("description" .=) <$> _csDescription,
-                  Just ("stageName" .= _csStageName),
-                  Just ("deploymentId" .= _csDeploymentId)])
+-- | [Required] The identifier of the Deployment resource for the Stage
+-- resource.
+createStage_deploymentId :: Lens.Lens' CreateStage Prelude.Text
+createStage_deploymentId = Lens.lens (\CreateStage' {deploymentId} -> deploymentId) (\s@CreateStage' {} a -> s {deploymentId = a} :: CreateStage)
 
-instance ToPath CreateStage where
-        toPath CreateStage'{..}
-          = mconcat
-              ["/restapis/", toBS _csRestAPIId, "/stages"]
+instance Core.AWSRequest CreateStage where
+  type AWSResponse CreateStage = Stage
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Core.eitherParseJSON x)
 
-instance ToQuery CreateStage where
-        toQuery = const mempty
+instance Prelude.Hashable CreateStage
+
+instance Prelude.NFData CreateStage
+
+instance Core.ToHeaders CreateStage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Core.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
+
+instance Core.ToJSON CreateStage where
+  toJSON CreateStage' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("tracingEnabled" Core..=)
+              Prelude.<$> tracingEnabled,
+            ("cacheClusterEnabled" Core..=)
+              Prelude.<$> cacheClusterEnabled,
+            ("documentationVersion" Core..=)
+              Prelude.<$> documentationVersion,
+            ("variables" Core..=) Prelude.<$> variables,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("description" Core..=) Prelude.<$> description,
+            ("cacheClusterSize" Core..=)
+              Prelude.<$> cacheClusterSize,
+            ("canarySettings" Core..=)
+              Prelude.<$> canarySettings,
+            Prelude.Just ("stageName" Core..= stageName),
+            Prelude.Just ("deploymentId" Core..= deploymentId)
+          ]
+      )
+
+instance Core.ToPath CreateStage where
+  toPath CreateStage' {..} =
+    Prelude.mconcat
+      ["/restapis/", Core.toBS restApiId, "/stages"]
+
+instance Core.ToQuery CreateStage where
+  toQuery = Prelude.const Prelude.mempty

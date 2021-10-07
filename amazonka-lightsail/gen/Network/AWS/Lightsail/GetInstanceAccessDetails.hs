@@ -1,146 +1,186 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetInstanceAccessDetails
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns temporary SSH keys you can use to connect to a specific virtual private server, or /instance/ .
+-- Returns temporary SSH keys you can use to connect to a specific virtual
+-- private server, or /instance/.
 --
---
+-- The @get instance access details@ operation supports tag-based access
+-- control via resource tags applied to the resource identified by
+-- @instance name@. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags Amazon Lightsail Developer Guide>.
 module Network.AWS.Lightsail.GetInstanceAccessDetails
-    (
-    -- * Creating a Request
-      getInstanceAccessDetails
-    , GetInstanceAccessDetails
+  ( -- * Creating a Request
+    GetInstanceAccessDetails (..),
+    newGetInstanceAccessDetails,
+
     -- * Request Lenses
-    , giadProtocol
-    , giadInstanceName
+    getInstanceAccessDetails_protocol,
+    getInstanceAccessDetails_instanceName,
 
     -- * Destructuring the Response
-    , getInstanceAccessDetailsResponse
-    , GetInstanceAccessDetailsResponse
+    GetInstanceAccessDetailsResponse (..),
+    newGetInstanceAccessDetailsResponse,
+
     -- * Response Lenses
-    , giadrsAccessDetails
-    , giadrsResponseStatus
-    ) where
+    getInstanceAccessDetailsResponse_accessDetails,
+    getInstanceAccessDetailsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getInstanceAccessDetails' smart constructor.
+-- | /See:/ 'newGetInstanceAccessDetails' smart constructor.
 data GetInstanceAccessDetails = GetInstanceAccessDetails'
-  { _giadProtocol     :: !(Maybe InstanceAccessProtocol)
-  , _giadInstanceName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The protocol to use to connect to your instance. Defaults to @ssh@.
+    protocol :: Prelude.Maybe InstanceAccessProtocol,
+    -- | The name of the instance to access.
+    instanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstanceAccessDetails' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstanceAccessDetails' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giadProtocol' - The protocol to use to connect to your instance. Defaults to @ssh@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'giadInstanceName' - The name of the instance to access.
-getInstanceAccessDetails
-    :: Text -- ^ 'giadInstanceName'
-    -> GetInstanceAccessDetails
-getInstanceAccessDetails pInstanceName_ =
+-- 'protocol', 'getInstanceAccessDetails_protocol' - The protocol to use to connect to your instance. Defaults to @ssh@.
+--
+-- 'instanceName', 'getInstanceAccessDetails_instanceName' - The name of the instance to access.
+newGetInstanceAccessDetails ::
+  -- | 'instanceName'
+  Prelude.Text ->
+  GetInstanceAccessDetails
+newGetInstanceAccessDetails pInstanceName_ =
   GetInstanceAccessDetails'
-  {_giadProtocol = Nothing, _giadInstanceName = pInstanceName_}
+    { protocol =
+        Prelude.Nothing,
+      instanceName = pInstanceName_
+    }
 
-
--- | The protocol to use to connect to your instance. Defaults to @ssh@ .
-giadProtocol :: Lens' GetInstanceAccessDetails (Maybe InstanceAccessProtocol)
-giadProtocol = lens _giadProtocol (\ s a -> s{_giadProtocol = a});
+-- | The protocol to use to connect to your instance. Defaults to @ssh@.
+getInstanceAccessDetails_protocol :: Lens.Lens' GetInstanceAccessDetails (Prelude.Maybe InstanceAccessProtocol)
+getInstanceAccessDetails_protocol = Lens.lens (\GetInstanceAccessDetails' {protocol} -> protocol) (\s@GetInstanceAccessDetails' {} a -> s {protocol = a} :: GetInstanceAccessDetails)
 
 -- | The name of the instance to access.
-giadInstanceName :: Lens' GetInstanceAccessDetails Text
-giadInstanceName = lens _giadInstanceName (\ s a -> s{_giadInstanceName = a});
+getInstanceAccessDetails_instanceName :: Lens.Lens' GetInstanceAccessDetails Prelude.Text
+getInstanceAccessDetails_instanceName = Lens.lens (\GetInstanceAccessDetails' {instanceName} -> instanceName) (\s@GetInstanceAccessDetails' {} a -> s {instanceName = a} :: GetInstanceAccessDetails)
 
-instance AWSRequest GetInstanceAccessDetails where
-        type Rs GetInstanceAccessDetails =
-             GetInstanceAccessDetailsResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetInstanceAccessDetailsResponse' <$>
-                   (x .?> "accessDetails") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetInstanceAccessDetails where
+  type
+    AWSResponse GetInstanceAccessDetails =
+      GetInstanceAccessDetailsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInstanceAccessDetailsResponse'
+            Prelude.<$> (x Core..?> "accessDetails")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetInstanceAccessDetails where
+instance Prelude.Hashable GetInstanceAccessDetails
 
-instance NFData GetInstanceAccessDetails where
+instance Prelude.NFData GetInstanceAccessDetails
 
-instance ToHeaders GetInstanceAccessDetails where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetInstanceAccessDetails" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetInstanceAccessDetails where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "Lightsail_20161128.GetInstanceAccessDetails" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetInstanceAccessDetails where
-        toJSON GetInstanceAccessDetails'{..}
-          = object
-              (catMaybes
-                 [("protocol" .=) <$> _giadProtocol,
-                  Just ("instanceName" .= _giadInstanceName)])
+instance Core.ToJSON GetInstanceAccessDetails where
+  toJSON GetInstanceAccessDetails' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("protocol" Core..=) Prelude.<$> protocol,
+            Prelude.Just ("instanceName" Core..= instanceName)
+          ]
+      )
 
-instance ToPath GetInstanceAccessDetails where
-        toPath = const "/"
+instance Core.ToPath GetInstanceAccessDetails where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetInstanceAccessDetails where
-        toQuery = const mempty
+instance Core.ToQuery GetInstanceAccessDetails where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getInstanceAccessDetailsResponse' smart constructor.
+-- | /See:/ 'newGetInstanceAccessDetailsResponse' smart constructor.
 data GetInstanceAccessDetailsResponse = GetInstanceAccessDetailsResponse'
-  { _giadrsAccessDetails  :: !(Maybe InstanceAccessDetails)
-  , _giadrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of key-value pairs containing information about a get instance
+    -- access request.
+    accessDetails :: Prelude.Maybe InstanceAccessDetails,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetInstanceAccessDetailsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInstanceAccessDetailsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'giadrsAccessDetails' - An array of key-value pairs containing information about a get instance access request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'giadrsResponseStatus' - -- | The response status code.
-getInstanceAccessDetailsResponse
-    :: Int -- ^ 'giadrsResponseStatus'
-    -> GetInstanceAccessDetailsResponse
-getInstanceAccessDetailsResponse pResponseStatus_ =
+-- 'accessDetails', 'getInstanceAccessDetailsResponse_accessDetails' - An array of key-value pairs containing information about a get instance
+-- access request.
+--
+-- 'httpStatus', 'getInstanceAccessDetailsResponse_httpStatus' - The response's http status code.
+newGetInstanceAccessDetailsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetInstanceAccessDetailsResponse
+newGetInstanceAccessDetailsResponse pHttpStatus_ =
   GetInstanceAccessDetailsResponse'
-  {_giadrsAccessDetails = Nothing, _giadrsResponseStatus = pResponseStatus_}
+    { accessDetails =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of key-value pairs containing information about a get instance
+-- access request.
+getInstanceAccessDetailsResponse_accessDetails :: Lens.Lens' GetInstanceAccessDetailsResponse (Prelude.Maybe InstanceAccessDetails)
+getInstanceAccessDetailsResponse_accessDetails = Lens.lens (\GetInstanceAccessDetailsResponse' {accessDetails} -> accessDetails) (\s@GetInstanceAccessDetailsResponse' {} a -> s {accessDetails = a} :: GetInstanceAccessDetailsResponse)
 
--- | An array of key-value pairs containing information about a get instance access request.
-giadrsAccessDetails :: Lens' GetInstanceAccessDetailsResponse (Maybe InstanceAccessDetails)
-giadrsAccessDetails = lens _giadrsAccessDetails (\ s a -> s{_giadrsAccessDetails = a});
+-- | The response's http status code.
+getInstanceAccessDetailsResponse_httpStatus :: Lens.Lens' GetInstanceAccessDetailsResponse Prelude.Int
+getInstanceAccessDetailsResponse_httpStatus = Lens.lens (\GetInstanceAccessDetailsResponse' {httpStatus} -> httpStatus) (\s@GetInstanceAccessDetailsResponse' {} a -> s {httpStatus = a} :: GetInstanceAccessDetailsResponse)
 
--- | -- | The response status code.
-giadrsResponseStatus :: Lens' GetInstanceAccessDetailsResponse Int
-giadrsResponseStatus = lens _giadrsResponseStatus (\ s a -> s{_giadrsResponseStatus = a});
-
-instance NFData GetInstanceAccessDetailsResponse
-         where
+instance
+  Prelude.NFData
+    GetInstanceAccessDetailsResponse

@@ -1,147 +1,212 @@
-name:                  amazonka-storagegateway
-version:               1.5.0
-synopsis:              Amazon Storage Gateway SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+cabal-version:      2.2
+name:               amazonka-storagegateway
+version:            1.6.1
+synopsis:           Amazon Storage Gateway SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.StorageGateway" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  Derived from API version @2013-06-30@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.StorageGateway.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.StorageGateway" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-storagegateway
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-storagegateway
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.StorageGateway
+    Network.AWS.StorageGateway.ActivateGateway
+    Network.AWS.StorageGateway.AddCache
+    Network.AWS.StorageGateway.AddTagsToResource
+    Network.AWS.StorageGateway.AddUploadBuffer
+    Network.AWS.StorageGateway.AddWorkingStorage
+    Network.AWS.StorageGateway.AssignTapePool
+    Network.AWS.StorageGateway.AssociateFileSystem
+    Network.AWS.StorageGateway.AttachVolume
+    Network.AWS.StorageGateway.CancelArchival
+    Network.AWS.StorageGateway.CancelRetrieval
+    Network.AWS.StorageGateway.CreateCachediSCSIVolume
+    Network.AWS.StorageGateway.CreateNFSFileShare
+    Network.AWS.StorageGateway.CreateSMBFileShare
+    Network.AWS.StorageGateway.CreateSnapshot
+    Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
+    Network.AWS.StorageGateway.CreateStorediSCSIVolume
+    Network.AWS.StorageGateway.CreateTapePool
+    Network.AWS.StorageGateway.CreateTapes
+    Network.AWS.StorageGateway.CreateTapeWithBarcode
+    Network.AWS.StorageGateway.DeleteAutomaticTapeCreationPolicy
+    Network.AWS.StorageGateway.DeleteBandwidthRateLimit
+    Network.AWS.StorageGateway.DeleteChapCredentials
+    Network.AWS.StorageGateway.DeleteFileShare
+    Network.AWS.StorageGateway.DeleteGateway
+    Network.AWS.StorageGateway.DeleteSnapshotSchedule
+    Network.AWS.StorageGateway.DeleteTape
+    Network.AWS.StorageGateway.DeleteTapeArchive
+    Network.AWS.StorageGateway.DeleteTapePool
+    Network.AWS.StorageGateway.DeleteVolume
+    Network.AWS.StorageGateway.DescribeAvailabilityMonitorTest
+    Network.AWS.StorageGateway.DescribeBandwidthRateLimit
+    Network.AWS.StorageGateway.DescribeBandwidthRateLimitSchedule
+    Network.AWS.StorageGateway.DescribeCache
+    Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
+    Network.AWS.StorageGateway.DescribeChapCredentials
+    Network.AWS.StorageGateway.DescribeFileSystemAssociations
+    Network.AWS.StorageGateway.DescribeGatewayInformation
+    Network.AWS.StorageGateway.DescribeMaintenanceStartTime
+    Network.AWS.StorageGateway.DescribeNFSFileShares
+    Network.AWS.StorageGateway.DescribeSMBFileShares
+    Network.AWS.StorageGateway.DescribeSMBSettings
+    Network.AWS.StorageGateway.DescribeSnapshotSchedule
+    Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
+    Network.AWS.StorageGateway.DescribeTapeArchives
+    Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
+    Network.AWS.StorageGateway.DescribeTapes
+    Network.AWS.StorageGateway.DescribeUploadBuffer
+    Network.AWS.StorageGateway.DescribeVTLDevices
+    Network.AWS.StorageGateway.DescribeWorkingStorage
+    Network.AWS.StorageGateway.DetachVolume
+    Network.AWS.StorageGateway.DisableGateway
+    Network.AWS.StorageGateway.DisassociateFileSystem
+    Network.AWS.StorageGateway.JoinDomain
+    Network.AWS.StorageGateway.Lens
+    Network.AWS.StorageGateway.ListAutomaticTapeCreationPolicies
+    Network.AWS.StorageGateway.ListFileShares
+    Network.AWS.StorageGateway.ListFileSystemAssociations
+    Network.AWS.StorageGateway.ListGateways
+    Network.AWS.StorageGateway.ListLocalDisks
+    Network.AWS.StorageGateway.ListTagsForResource
+    Network.AWS.StorageGateway.ListTapePools
+    Network.AWS.StorageGateway.ListTapes
+    Network.AWS.StorageGateway.ListVolumeInitiators
+    Network.AWS.StorageGateway.ListVolumeRecoveryPoints
+    Network.AWS.StorageGateway.ListVolumes
+    Network.AWS.StorageGateway.NotifyWhenUploaded
+    Network.AWS.StorageGateway.RefreshCache
+    Network.AWS.StorageGateway.RemoveTagsFromResource
+    Network.AWS.StorageGateway.ResetCache
+    Network.AWS.StorageGateway.RetrieveTapeArchive
+    Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
+    Network.AWS.StorageGateway.SetLocalConsolePassword
+    Network.AWS.StorageGateway.SetSMBGuestPassword
+    Network.AWS.StorageGateway.ShutdownGateway
+    Network.AWS.StorageGateway.StartAvailabilityMonitorTest
+    Network.AWS.StorageGateway.StartGateway
+    Network.AWS.StorageGateway.Types
+    Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
+    Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
+    Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
+    Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus
+    Network.AWS.StorageGateway.Types.BandwidthRateLimitInterval
+    Network.AWS.StorageGateway.Types.CacheAttributes
+    Network.AWS.StorageGateway.Types.CachediSCSIVolume
+    Network.AWS.StorageGateway.Types.CaseSensitivity
+    Network.AWS.StorageGateway.Types.ChapInfo
+    Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
+    Network.AWS.StorageGateway.Types.Disk
+    Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
+    Network.AWS.StorageGateway.Types.FileShareInfo
+    Network.AWS.StorageGateway.Types.FileShareType
+    Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+    Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
+    Network.AWS.StorageGateway.Types.GatewayCapacity
+    Network.AWS.StorageGateway.Types.GatewayInfo
+    Network.AWS.StorageGateway.Types.HostEnvironment
+    Network.AWS.StorageGateway.Types.NetworkInterface
+    Network.AWS.StorageGateway.Types.NFSFileShareDefaults
+    Network.AWS.StorageGateway.Types.NFSFileShareInfo
+    Network.AWS.StorageGateway.Types.ObjectACL
+    Network.AWS.StorageGateway.Types.PoolInfo
+    Network.AWS.StorageGateway.Types.PoolStatus
+    Network.AWS.StorageGateway.Types.RetentionLockType
+    Network.AWS.StorageGateway.Types.SMBFileShareInfo
+    Network.AWS.StorageGateway.Types.SMBSecurityStrategy
+    Network.AWS.StorageGateway.Types.StorediSCSIVolume
+    Network.AWS.StorageGateway.Types.Tag
+    Network.AWS.StorageGateway.Types.Tape
+    Network.AWS.StorageGateway.Types.TapeArchive
+    Network.AWS.StorageGateway.Types.TapeInfo
+    Network.AWS.StorageGateway.Types.TapeRecoveryPointInfo
+    Network.AWS.StorageGateway.Types.TapeStorageClass
+    Network.AWS.StorageGateway.Types.VolumeInfo
+    Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
+    Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo
+    Network.AWS.StorageGateway.Types.VTLDevice
+    Network.AWS.StorageGateway.UpdateAutomaticTapeCreationPolicy
+    Network.AWS.StorageGateway.UpdateBandwidthRateLimit
+    Network.AWS.StorageGateway.UpdateBandwidthRateLimitSchedule
+    Network.AWS.StorageGateway.UpdateChapCredentials
+    Network.AWS.StorageGateway.UpdateFileSystemAssociation
+    Network.AWS.StorageGateway.UpdateGatewayInformation
+    Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
+    Network.AWS.StorageGateway.UpdateMaintenanceStartTime
+    Network.AWS.StorageGateway.UpdateNFSFileShare
+    Network.AWS.StorageGateway.UpdateSMBFileShare
+    Network.AWS.StorageGateway.UpdateSMBFileShareVisibility
+    Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
+    Network.AWS.StorageGateway.UpdateSnapshotSchedule
+    Network.AWS.StorageGateway.UpdateVTLDeviceType
+    Network.AWS.StorageGateway.Waiters
 
-    exposed-modules:
-          Network.AWS.StorageGateway
-        , Network.AWS.StorageGateway.ActivateGateway
-        , Network.AWS.StorageGateway.AddCache
-        , Network.AWS.StorageGateway.AddTagsToResource
-        , Network.AWS.StorageGateway.AddUploadBuffer
-        , Network.AWS.StorageGateway.AddWorkingStorage
-        , Network.AWS.StorageGateway.CancelArchival
-        , Network.AWS.StorageGateway.CancelRetrieval
-        , Network.AWS.StorageGateway.CreateCachediSCSIVolume
-        , Network.AWS.StorageGateway.CreateNFSFileShare
-        , Network.AWS.StorageGateway.CreateSnapshot
-        , Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
-        , Network.AWS.StorageGateway.CreateStorediSCSIVolume
-        , Network.AWS.StorageGateway.CreateTapeWithBarcode
-        , Network.AWS.StorageGateway.CreateTapes
-        , Network.AWS.StorageGateway.DeleteBandwidthRateLimit
-        , Network.AWS.StorageGateway.DeleteChapCredentials
-        , Network.AWS.StorageGateway.DeleteFileShare
-        , Network.AWS.StorageGateway.DeleteGateway
-        , Network.AWS.StorageGateway.DeleteSnapshotSchedule
-        , Network.AWS.StorageGateway.DeleteTape
-        , Network.AWS.StorageGateway.DeleteTapeArchive
-        , Network.AWS.StorageGateway.DeleteVolume
-        , Network.AWS.StorageGateway.DescribeBandwidthRateLimit
-        , Network.AWS.StorageGateway.DescribeCache
-        , Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
-        , Network.AWS.StorageGateway.DescribeChapCredentials
-        , Network.AWS.StorageGateway.DescribeGatewayInformation
-        , Network.AWS.StorageGateway.DescribeMaintenanceStartTime
-        , Network.AWS.StorageGateway.DescribeNFSFileShares
-        , Network.AWS.StorageGateway.DescribeSnapshotSchedule
-        , Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
-        , Network.AWS.StorageGateway.DescribeTapeArchives
-        , Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-        , Network.AWS.StorageGateway.DescribeTapes
-        , Network.AWS.StorageGateway.DescribeUploadBuffer
-        , Network.AWS.StorageGateway.DescribeVTLDevices
-        , Network.AWS.StorageGateway.DescribeWorkingStorage
-        , Network.AWS.StorageGateway.DisableGateway
-        , Network.AWS.StorageGateway.ListFileShares
-        , Network.AWS.StorageGateway.ListGateways
-        , Network.AWS.StorageGateway.ListLocalDisks
-        , Network.AWS.StorageGateway.ListTagsForResource
-        , Network.AWS.StorageGateway.ListTapes
-        , Network.AWS.StorageGateway.ListVolumeInitiators
-        , Network.AWS.StorageGateway.ListVolumeRecoveryPoints
-        , Network.AWS.StorageGateway.ListVolumes
-        , Network.AWS.StorageGateway.RefreshCache
-        , Network.AWS.StorageGateway.RemoveTagsFromResource
-        , Network.AWS.StorageGateway.ResetCache
-        , Network.AWS.StorageGateway.RetrieveTapeArchive
-        , Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
-        , Network.AWS.StorageGateway.SetLocalConsolePassword
-        , Network.AWS.StorageGateway.ShutdownGateway
-        , Network.AWS.StorageGateway.StartGateway
-        , Network.AWS.StorageGateway.Types
-        , Network.AWS.StorageGateway.UpdateBandwidthRateLimit
-        , Network.AWS.StorageGateway.UpdateChapCredentials
-        , Network.AWS.StorageGateway.UpdateGatewayInformation
-        , Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-        , Network.AWS.StorageGateway.UpdateMaintenanceStartTime
-        , Network.AWS.StorageGateway.UpdateNFSFileShare
-        , Network.AWS.StorageGateway.UpdateSnapshotSchedule
-        , Network.AWS.StorageGateway.UpdateVTLDeviceType
-        , Network.AWS.StorageGateway.Waiters
-
-    other-modules:
-          Network.AWS.StorageGateway.Types.Product
-        , Network.AWS.StorageGateway.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS
+  build-depends:
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.12  && <5
 
 test-suite amazonka-storagegateway-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.StorageGateway
+    Test.AWS.StorageGateway
+    Test.AWS.StorageGateway.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.StorageGateway
-        , Test.AWS.Gen.StorageGateway
-        , Test.AWS.StorageGateway.Internal
-
-    build-depends:
-          amazonka-core == 1.5.0.*
-        , amazonka-test == 1.5.0.*
-        , amazonka-storagegateway
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+    , amazonka                 >=1.6.1 && <1.6.2
+    , amazonka-storagegateway
+    , amazonka-test            >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

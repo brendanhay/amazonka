@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentConfig
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,99 +22,124 @@
 --
 -- Deletes a deployment configuration.
 --
---
+-- A deployment configuration cannot be deleted if it is currently in use.
+-- Predefined configurations cannot be deleted.
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
-    (
-    -- * Creating a Request
-      deleteDeploymentConfig
-    , DeleteDeploymentConfig
+  ( -- * Creating a Request
+    DeleteDeploymentConfig (..),
+    newDeleteDeploymentConfig,
+
     -- * Request Lenses
-    , ddcDeploymentConfigName
+    deleteDeploymentConfig_deploymentConfigName,
 
     -- * Destructuring the Response
-    , deleteDeploymentConfigResponse
-    , DeleteDeploymentConfigResponse
-    ) where
+    DeleteDeploymentConfigResponse (..),
+    newDeleteDeploymentConfigResponse,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a DeleteDeploymentConfig operation.
+-- | Represents the input of a @DeleteDeploymentConfig@ operation.
 --
+-- /See:/ 'newDeleteDeploymentConfig' smart constructor.
+data DeleteDeploymentConfig = DeleteDeploymentConfig'
+  { -- | The name of a deployment configuration associated with the IAM user or
+    -- AWS account.
+    deploymentConfigName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteDeploymentConfig' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteDeploymentConfig' smart constructor.
-newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
-  { _ddcDeploymentConfigName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteDeploymentConfig' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'deploymentConfigName', 'deleteDeploymentConfig_deploymentConfigName' - The name of a deployment configuration associated with the IAM user or
+-- AWS account.
+newDeleteDeploymentConfig ::
+  -- | 'deploymentConfigName'
+  Prelude.Text ->
+  DeleteDeploymentConfig
+newDeleteDeploymentConfig pDeploymentConfigName_ =
+  DeleteDeploymentConfig'
+    { deploymentConfigName =
+        pDeploymentConfigName_
+    }
+
+-- | The name of a deployment configuration associated with the IAM user or
+-- AWS account.
+deleteDeploymentConfig_deploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Prelude.Text
+deleteDeploymentConfig_deploymentConfigName = Lens.lens (\DeleteDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@DeleteDeploymentConfig' {} a -> s {deploymentConfigName = a} :: DeleteDeploymentConfig)
+
+instance Core.AWSRequest DeleteDeploymentConfig where
+  type
+    AWSResponse DeleteDeploymentConfig =
+      DeleteDeploymentConfigResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      DeleteDeploymentConfigResponse'
+
+instance Prelude.Hashable DeleteDeploymentConfig
+
+instance Prelude.NFData DeleteDeploymentConfig
+
+instance Core.ToHeaders DeleteDeploymentConfig where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "CodeDeploy_20141006.DeleteDeploymentConfig" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteDeploymentConfig where
+  toJSON DeleteDeploymentConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "deploymentConfigName"
+                  Core..= deploymentConfigName
+              )
+          ]
+      )
+
+instance Core.ToPath DeleteDeploymentConfig where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteDeploymentConfig where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteDeploymentConfigResponse' smart constructor.
+data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteDeploymentConfigResponse' with all optional fields omitted.
 --
--- * 'ddcDeploymentConfigName' - The name of a deployment configuration associated with the applicable IAM user or AWS account.
-deleteDeploymentConfig
-    :: Text -- ^ 'ddcDeploymentConfigName'
-    -> DeleteDeploymentConfig
-deleteDeploymentConfig pDeploymentConfigName_ =
-  DeleteDeploymentConfig' {_ddcDeploymentConfigName = pDeploymentConfigName_}
-
-
--- | The name of a deployment configuration associated with the applicable IAM user or AWS account.
-ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
-ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
-
-instance AWSRequest DeleteDeploymentConfig where
-        type Rs DeleteDeploymentConfig =
-             DeleteDeploymentConfigResponse
-        request = postJSON codeDeploy
-        response
-          = receiveNull DeleteDeploymentConfigResponse'
-
-instance Hashable DeleteDeploymentConfig where
-
-instance NFData DeleteDeploymentConfig where
-
-instance ToHeaders DeleteDeploymentConfig where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.DeleteDeploymentConfig" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeleteDeploymentConfig where
-        toJSON DeleteDeploymentConfig'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("deploymentConfigName" .=
-                       _ddcDeploymentConfigName)])
-
-instance ToPath DeleteDeploymentConfig where
-        toPath = const "/"
-
-instance ToQuery DeleteDeploymentConfig where
-        toQuery = const mempty
-
--- | /See:/ 'deleteDeploymentConfigResponse' smart constructor.
-data DeleteDeploymentConfigResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteDeploymentConfigResponse ::
+  DeleteDeploymentConfigResponse
+newDeleteDeploymentConfigResponse =
   DeleteDeploymentConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteDeploymentConfigResponse' with the minimum fields required to make a request.
---
-deleteDeploymentConfigResponse
-    :: DeleteDeploymentConfigResponse
-deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
-
-
-instance NFData DeleteDeploymentConfigResponse where
+instance
+  Prelude.NFData
+    DeleteDeploymentConfigResponse

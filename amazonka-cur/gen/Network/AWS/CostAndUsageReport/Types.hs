@@ -1,121 +1,178 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CostAndUsageReport.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.CostAndUsageReport.Types
-    (
-    -- * Service Configuration
-      costAndUsageReport
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _ValidationException
-    , _InternalErrorException
-    , _DuplicateReportNameException
-    , _ReportLimitReachedException
+    _DuplicateReportNameException,
+    _InternalErrorException,
+    _ReportLimitReachedException,
+    _ValidationException,
 
     -- * AWSRegion
-    , AWSRegion (..)
+    AWSRegion (..),
 
     -- * AdditionalArtifact
-    , AdditionalArtifact (..)
+    AdditionalArtifact (..),
 
     -- * CompressionFormat
-    , CompressionFormat (..)
+    CompressionFormat (..),
 
     -- * ReportFormat
-    , ReportFormat (..)
+    ReportFormat (..),
+
+    -- * ReportVersioning
+    ReportVersioning (..),
 
     -- * SchemaElement
-    , SchemaElement (..)
+    SchemaElement (..),
 
     -- * TimeUnit
-    , TimeUnit (..)
+    TimeUnit (..),
 
     -- * ReportDefinition
-    , ReportDefinition
-    , reportDefinition
-    , rdAdditionalArtifacts
-    , rdReportName
-    , rdTimeUnit
-    , rdFormat
-    , rdCompression
-    , rdAdditionalSchemaElements
-    , rdS3Bucket
-    , rdS3Prefix
-    , rdS3Region
-    ) where
+    ReportDefinition (..),
+    newReportDefinition,
+    reportDefinition_reportVersioning,
+    reportDefinition_additionalArtifacts,
+    reportDefinition_billingViewArn,
+    reportDefinition_refreshClosedReports,
+    reportDefinition_reportName,
+    reportDefinition_timeUnit,
+    reportDefinition_format,
+    reportDefinition_compression,
+    reportDefinition_additionalSchemaElements,
+    reportDefinition_s3Bucket,
+    reportDefinition_s3Prefix,
+    reportDefinition_s3Region,
+  )
+where
 
-import Network.AWS.CostAndUsageReport.Types.Product
-import Network.AWS.CostAndUsageReport.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Core as Core
+import Network.AWS.CostAndUsageReport.Types.AWSRegion
+import Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
+import Network.AWS.CostAndUsageReport.Types.CompressionFormat
+import Network.AWS.CostAndUsageReport.Types.ReportDefinition
+import Network.AWS.CostAndUsageReport.Types.ReportFormat
+import Network.AWS.CostAndUsageReport.Types.ReportVersioning
+import Network.AWS.CostAndUsageReport.Types.SchemaElement
+import Network.AWS.CostAndUsageReport.Types.TimeUnit
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-01-06@ of the Amazon Cost and Usage Report Service SDK configuration.
-costAndUsageReport :: Service
-costAndUsageReport =
-  Service
-  { _svcAbbrev = "CostAndUsageReport"
-  , _svcSigner = v4
-  , _svcPrefix = "cur"
-  , _svcVersion = "2017-01-06"
-  , _svcEndpoint = defaultEndpoint costAndUsageReport
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseJSONError "CostAndUsageReport"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev =
+        "CostAndUsageReport",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "cur",
+      Core._serviceSigningName = "cur",
+      Core._serviceVersion = "2017-01-06",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "CostAndUsageReport",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | This exception is thrown when providing an invalid input. eg. Put a report preference with an invalid report name, or Delete a report preference with an empty report name.
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException =
-  _MatchServiceError costAndUsageReport "ValidationException"
-
-
--- | This exception is thrown on a known dependency failure.
-_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalErrorException =
-  _MatchServiceError costAndUsageReport "InternalErrorException"
-
-
--- | This exception is thrown when putting a report preference with a name that already exists.
-_DuplicateReportNameException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | A report with the specified name already exists in the account. Specify
+-- a different report name.
+_DuplicateReportNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateReportNameException =
-  _MatchServiceError costAndUsageReport "DuplicateReportNameException"
+  Core._MatchServiceError
+    defaultService
+    "DuplicateReportNameException"
 
+-- | An error on the server occurred during the processing of your request.
+-- Try again later.
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalErrorException"
 
--- | This exception is thrown when the number of report preference reaches max limit. The max number is 5.
-_ReportLimitReachedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | This account already has five reports defined. To define a new report,
+-- you must delete an existing report.
+_ReportLimitReachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReportLimitReachedException =
-  _MatchServiceError costAndUsageReport "ReportLimitReachedException"
+  Core._MatchServiceError
+    defaultService
+    "ReportLimitReachedException"
 
+-- | The input fails to satisfy the constraints specified by an AWS service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"

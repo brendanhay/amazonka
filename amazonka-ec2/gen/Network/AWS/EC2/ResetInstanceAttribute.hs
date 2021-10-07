@@ -1,132 +1,174 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets an attribute of an instance to its default value. To reset the @kernel@ or @ramdisk@ , the instance must be in a stopped state. To reset the @sourceDestCheck@ , the instance can be either running or stopped.
+-- Resets an attribute of an instance to its default value. To reset the
+-- @kernel@ or @ramdisk@, the instance must be in a stopped state. To reset
+-- the @sourceDestCheck@, the instance can be either running or stopped.
 --
---
--- The @sourceDestCheck@ attribute controls whether source/destination checking is enabled. The default value is @true@ , which means checking is enabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
---
+-- The @sourceDestCheck@ attribute controls whether source\/destination
+-- checking is enabled. The default value is @true@, which means checking
+-- is enabled. This value must be @false@ for a NAT instance to perform
+-- NAT. For more information, see
+-- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
+-- in the /Amazon VPC User Guide/.
 module Network.AWS.EC2.ResetInstanceAttribute
-    (
-    -- * Creating a Request
-      resetInstanceAttribute
-    , ResetInstanceAttribute
+  ( -- * Creating a Request
+    ResetInstanceAttribute (..),
+    newResetInstanceAttribute,
+
     -- * Request Lenses
-    , riaDryRun
-    , riaAttribute
-    , riaInstanceId
+    resetInstanceAttribute_dryRun,
+    resetInstanceAttribute_attribute,
+    resetInstanceAttribute_instanceId,
 
     -- * Destructuring the Response
-    , resetInstanceAttributeResponse
-    , ResetInstanceAttributeResponse
-    ) where
+    ResetInstanceAttributeResponse (..),
+    newResetInstanceAttributeResponse,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for ResetInstanceAttribute.
---
---
---
--- /See:/ 'resetInstanceAttribute' smart constructor.
+-- | /See:/ 'newResetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
-  { _riaDryRun     :: !(Maybe Bool)
-  , _riaAttribute  :: !InstanceAttributeName
-  , _riaInstanceId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'riaAttribute' - The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
---
--- * 'riaInstanceId' - The ID of the instance.
-resetInstanceAttribute
-    :: InstanceAttributeName -- ^ 'riaAttribute'
-    -> Text -- ^ 'riaInstanceId'
-    -> ResetInstanceAttribute
-resetInstanceAttribute pAttribute_ pInstanceId_ =
-  ResetInstanceAttribute'
-  { _riaDryRun = Nothing
-  , _riaAttribute = pAttribute_
-  , _riaInstanceId = pInstanceId_
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The attribute to reset.
+    --
+    -- You can only reset the following attributes: @kernel@ | @ramdisk@ |
+    -- @sourceDestCheck@. To change an instance attribute, use
+    -- ModifyInstanceAttribute.
+    attribute :: InstanceAttributeName,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ResetInstanceAttribute' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dryRun', 'resetInstanceAttribute_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'attribute', 'resetInstanceAttribute_attribute' - The attribute to reset.
+--
+-- You can only reset the following attributes: @kernel@ | @ramdisk@ |
+-- @sourceDestCheck@. To change an instance attribute, use
+-- ModifyInstanceAttribute.
+--
+-- 'instanceId', 'resetInstanceAttribute_instanceId' - The ID of the instance.
+newResetInstanceAttribute ::
+  -- | 'attribute'
+  InstanceAttributeName ->
+  -- | 'instanceId'
+  Prelude.Text ->
+  ResetInstanceAttribute
+newResetInstanceAttribute pAttribute_ pInstanceId_ =
+  ResetInstanceAttribute'
+    { dryRun = Prelude.Nothing,
+      attribute = pAttribute_,
+      instanceId = pInstanceId_
+    }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
-riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+resetInstanceAttribute_dryRun :: Lens.Lens' ResetInstanceAttribute (Prelude.Maybe Prelude.Bool)
+resetInstanceAttribute_dryRun = Lens.lens (\ResetInstanceAttribute' {dryRun} -> dryRun) (\s@ResetInstanceAttribute' {} a -> s {dryRun = a} :: ResetInstanceAttribute)
 
--- | The attribute to reset. /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
-riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
-riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
+-- | The attribute to reset.
+--
+-- You can only reset the following attributes: @kernel@ | @ramdisk@ |
+-- @sourceDestCheck@. To change an instance attribute, use
+-- ModifyInstanceAttribute.
+resetInstanceAttribute_attribute :: Lens.Lens' ResetInstanceAttribute InstanceAttributeName
+resetInstanceAttribute_attribute = Lens.lens (\ResetInstanceAttribute' {attribute} -> attribute) (\s@ResetInstanceAttribute' {} a -> s {attribute = a} :: ResetInstanceAttribute)
 
 -- | The ID of the instance.
-riaInstanceId :: Lens' ResetInstanceAttribute Text
-riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
+resetInstanceAttribute_instanceId :: Lens.Lens' ResetInstanceAttribute Prelude.Text
+resetInstanceAttribute_instanceId = Lens.lens (\ResetInstanceAttribute' {instanceId} -> instanceId) (\s@ResetInstanceAttribute' {} a -> s {instanceId = a} :: ResetInstanceAttribute)
 
-instance AWSRequest ResetInstanceAttribute where
-        type Rs ResetInstanceAttribute =
-             ResetInstanceAttributeResponse
-        request = postQuery ec2
-        response
-          = receiveNull ResetInstanceAttributeResponse'
+instance Core.AWSRequest ResetInstanceAttribute where
+  type
+    AWSResponse ResetInstanceAttribute =
+      ResetInstanceAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      ResetInstanceAttributeResponse'
 
-instance Hashable ResetInstanceAttribute where
+instance Prelude.Hashable ResetInstanceAttribute
 
-instance NFData ResetInstanceAttribute where
+instance Prelude.NFData ResetInstanceAttribute
 
-instance ToHeaders ResetInstanceAttribute where
-        toHeaders = const mempty
+instance Core.ToHeaders ResetInstanceAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ResetInstanceAttribute where
-        toPath = const "/"
+instance Core.ToPath ResetInstanceAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery ResetInstanceAttribute where
-        toQuery ResetInstanceAttribute'{..}
-          = mconcat
-              ["Action" =:
-                 ("ResetInstanceAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _riaDryRun, "Attribute" =: _riaAttribute,
-               "InstanceId" =: _riaInstanceId]
+instance Core.ToQuery ResetInstanceAttribute where
+  toQuery ResetInstanceAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("ResetInstanceAttribute" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "InstanceId" Core.=: instanceId
+      ]
 
--- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
-data ResetInstanceAttributeResponse =
-  ResetInstanceAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newResetInstanceAttributeResponse' smart constructor.
+data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'ResetInstanceAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ResetInstanceAttributeResponse' with all optional fields omitted.
 --
-resetInstanceAttributeResponse
-    :: ResetInstanceAttributeResponse
-resetInstanceAttributeResponse = ResetInstanceAttributeResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newResetInstanceAttributeResponse ::
+  ResetInstanceAttributeResponse
+newResetInstanceAttributeResponse =
+  ResetInstanceAttributeResponse'
 
-
-instance NFData ResetInstanceAttributeResponse where
+instance
+  Prelude.NFData
+    ResetInstanceAttributeResponse

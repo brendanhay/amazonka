@@ -1,158 +1,199 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateSegment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use to update a segment.
+-- Creates a new segment for an application or updates the configuration,
+-- dimension, and other settings for an existing segment that\'s associated
+-- with an application.
 module Network.AWS.Pinpoint.UpdateSegment
-    (
-    -- * Creating a Request
-      updateSegment
-    , UpdateSegment
+  ( -- * Creating a Request
+    UpdateSegment (..),
+    newUpdateSegment,
+
     -- * Request Lenses
-    , usSegmentId
-    , usApplicationId
-    , usWriteSegmentRequest
+    updateSegment_segmentId,
+    updateSegment_applicationId,
+    updateSegment_writeSegmentRequest,
 
     -- * Destructuring the Response
-    , updateSegmentResponse
-    , UpdateSegmentResponse
+    UpdateSegmentResponse (..),
+    newUpdateSegmentResponse,
+
     -- * Response Lenses
-    , usrsResponseStatus
-    , usrsSegmentResponse
-    ) where
+    updateSegmentResponse_httpStatus,
+    updateSegmentResponse_segmentResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateSegment' smart constructor.
+-- | /See:/ 'newUpdateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
-  { _usSegmentId           :: !Text
-  , _usApplicationId       :: !Text
-  , _usWriteSegmentRequest :: !WriteSegmentRequest
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateSegment' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usSegmentId' - Undocumented member.
---
--- * 'usApplicationId' - Undocumented member.
---
--- * 'usWriteSegmentRequest' - Undocumented member.
-updateSegment
-    :: Text -- ^ 'usSegmentId'
-    -> Text -- ^ 'usApplicationId'
-    -> WriteSegmentRequest -- ^ 'usWriteSegmentRequest'
-    -> UpdateSegment
-updateSegment pSegmentId_ pApplicationId_ pWriteSegmentRequest_ =
-  UpdateSegment'
-  { _usSegmentId = pSegmentId_
-  , _usApplicationId = pApplicationId_
-  , _usWriteSegmentRequest = pWriteSegmentRequest_
+  { -- | The unique identifier for the segment.
+    segmentId :: Prelude.Text,
+    -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text,
+    writeSegmentRequest :: WriteSegmentRequest
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateSegment' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'segmentId', 'updateSegment_segmentId' - The unique identifier for the segment.
+--
+-- 'applicationId', 'updateSegment_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- 'writeSegmentRequest', 'updateSegment_writeSegmentRequest' - Undocumented member.
+newUpdateSegment ::
+  -- | 'segmentId'
+  Prelude.Text ->
+  -- | 'applicationId'
+  Prelude.Text ->
+  -- | 'writeSegmentRequest'
+  WriteSegmentRequest ->
+  UpdateSegment
+newUpdateSegment
+  pSegmentId_
+  pApplicationId_
+  pWriteSegmentRequest_ =
+    UpdateSegment'
+      { segmentId = pSegmentId_,
+        applicationId = pApplicationId_,
+        writeSegmentRequest = pWriteSegmentRequest_
+      }
+
+-- | The unique identifier for the segment.
+updateSegment_segmentId :: Lens.Lens' UpdateSegment Prelude.Text
+updateSegment_segmentId = Lens.lens (\UpdateSegment' {segmentId} -> segmentId) (\s@UpdateSegment' {} a -> s {segmentId = a} :: UpdateSegment)
+
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+updateSegment_applicationId :: Lens.Lens' UpdateSegment Prelude.Text
+updateSegment_applicationId = Lens.lens (\UpdateSegment' {applicationId} -> applicationId) (\s@UpdateSegment' {} a -> s {applicationId = a} :: UpdateSegment)
 
 -- | Undocumented member.
-usSegmentId :: Lens' UpdateSegment Text
-usSegmentId = lens _usSegmentId (\ s a -> s{_usSegmentId = a});
+updateSegment_writeSegmentRequest :: Lens.Lens' UpdateSegment WriteSegmentRequest
+updateSegment_writeSegmentRequest = Lens.lens (\UpdateSegment' {writeSegmentRequest} -> writeSegmentRequest) (\s@UpdateSegment' {} a -> s {writeSegmentRequest = a} :: UpdateSegment)
 
--- | Undocumented member.
-usApplicationId :: Lens' UpdateSegment Text
-usApplicationId = lens _usApplicationId (\ s a -> s{_usApplicationId = a});
+instance Core.AWSRequest UpdateSegment where
+  type
+    AWSResponse UpdateSegment =
+      UpdateSegmentResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateSegmentResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Core.eitherParseJSON x)
+      )
 
--- | Undocumented member.
-usWriteSegmentRequest :: Lens' UpdateSegment WriteSegmentRequest
-usWriteSegmentRequest = lens _usWriteSegmentRequest (\ s a -> s{_usWriteSegmentRequest = a});
+instance Prelude.Hashable UpdateSegment
 
-instance AWSRequest UpdateSegment where
-        type Rs UpdateSegment = UpdateSegmentResponse
-        request = putJSON pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateSegmentResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+instance Prelude.NFData UpdateSegment
 
-instance Hashable UpdateSegment where
+instance Core.ToHeaders UpdateSegment where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance NFData UpdateSegment where
+instance Core.ToJSON UpdateSegment where
+  toJSON UpdateSegment' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("WriteSegmentRequest" Core..= writeSegmentRequest)
+          ]
+      )
 
-instance ToHeaders UpdateSegment where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToPath UpdateSegment where
+  toPath UpdateSegment' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Core.toBS applicationId,
+        "/segments/",
+        Core.toBS segmentId
+      ]
 
-instance ToJSON UpdateSegment where
-        toJSON UpdateSegment'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("WriteSegmentRequest" .= _usWriteSegmentRequest)])
+instance Core.ToQuery UpdateSegment where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToPath UpdateSegment where
-        toPath UpdateSegment'{..}
-          = mconcat
-              ["/v1/apps/", toBS _usApplicationId, "/segments/",
-               toBS _usSegmentId]
-
-instance ToQuery UpdateSegment where
-        toQuery = const mempty
-
--- | /See:/ 'updateSegmentResponse' smart constructor.
+-- | /See:/ 'newUpdateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
-  { _usrsResponseStatus  :: !Int
-  , _usrsSegmentResponse :: !SegmentResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateSegmentResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usrsResponseStatus' - -- | The response status code.
---
--- * 'usrsSegmentResponse' - Undocumented member.
-updateSegmentResponse
-    :: Int -- ^ 'usrsResponseStatus'
-    -> SegmentResponse -- ^ 'usrsSegmentResponse'
-    -> UpdateSegmentResponse
-updateSegmentResponse pResponseStatus_ pSegmentResponse_ =
-  UpdateSegmentResponse'
-  { _usrsResponseStatus = pResponseStatus_
-  , _usrsSegmentResponse = pSegmentResponse_
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    segmentResponse :: SegmentResponse
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateSegmentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateSegmentResponse_httpStatus' - The response's http status code.
+--
+-- 'segmentResponse', 'updateSegmentResponse_segmentResponse' - Undocumented member.
+newUpdateSegmentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'segmentResponse'
+  SegmentResponse ->
+  UpdateSegmentResponse
+newUpdateSegmentResponse
+  pHttpStatus_
+  pSegmentResponse_ =
+    UpdateSegmentResponse'
+      { httpStatus = pHttpStatus_,
+        segmentResponse = pSegmentResponse_
+      }
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateSegmentResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a});
+-- | The response's http status code.
+updateSegmentResponse_httpStatus :: Lens.Lens' UpdateSegmentResponse Prelude.Int
+updateSegmentResponse_httpStatus = Lens.lens (\UpdateSegmentResponse' {httpStatus} -> httpStatus) (\s@UpdateSegmentResponse' {} a -> s {httpStatus = a} :: UpdateSegmentResponse)
 
 -- | Undocumented member.
-usrsSegmentResponse :: Lens' UpdateSegmentResponse SegmentResponse
-usrsSegmentResponse = lens _usrsSegmentResponse (\ s a -> s{_usrsSegmentResponse = a});
+updateSegmentResponse_segmentResponse :: Lens.Lens' UpdateSegmentResponse SegmentResponse
+updateSegmentResponse_segmentResponse = Lens.lens (\UpdateSegmentResponse' {segmentResponse} -> segmentResponse) (\s@UpdateSegmentResponse' {} a -> s {segmentResponse = a} :: UpdateSegmentResponse)
 
-instance NFData UpdateSegmentResponse where
+instance Prelude.NFData UpdateSegmentResponse

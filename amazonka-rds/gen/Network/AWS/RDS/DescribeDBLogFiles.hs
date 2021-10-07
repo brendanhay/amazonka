@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,202 +22,283 @@
 --
 -- Returns a list of DB log files for the DB instance.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBLogFiles
-    (
-    -- * Creating a Request
-      describeDBLogFiles
-    , DescribeDBLogFiles
+  ( -- * Creating a Request
+    DescribeDBLogFiles (..),
+    newDescribeDBLogFiles,
+
     -- * Request Lenses
-    , ddlfFilenameContains
-    , ddlfFilters
-    , ddlfFileSize
-    , ddlfFileLastWritten
-    , ddlfMarker
-    , ddlfMaxRecords
-    , ddlfDBInstanceIdentifier
+    describeDBLogFiles_fileSize,
+    describeDBLogFiles_filenameContains,
+    describeDBLogFiles_fileLastWritten,
+    describeDBLogFiles_filters,
+    describeDBLogFiles_maxRecords,
+    describeDBLogFiles_marker,
+    describeDBLogFiles_dbInstanceIdentifier,
 
     -- * Destructuring the Response
-    , describeDBLogFilesResponse
-    , DescribeDBLogFilesResponse
-    -- * Response Lenses
-    , ddlfrsDescribeDBLogFiles
-    , ddlfrsMarker
-    , ddlfrsResponseStatus
-    ) where
+    DescribeDBLogFilesResponse (..),
+    newDescribeDBLogFilesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+    -- * Response Lenses
+    describeDBLogFilesResponse_describeDBLogFiles,
+    describeDBLogFilesResponse_marker,
+    describeDBLogFilesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeDBLogFiles' smart constructor.
+-- /See:/ 'newDescribeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
-  { _ddlfFilenameContains     :: !(Maybe Text)
-  , _ddlfFilters              :: !(Maybe [Filter])
-  , _ddlfFileSize             :: !(Maybe Integer)
-  , _ddlfFileLastWritten      :: !(Maybe Integer)
-  , _ddlfMarker               :: !(Maybe Text)
-  , _ddlfMaxRecords           :: !(Maybe Int)
-  , _ddlfDBInstanceIdentifier :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Filters the available log files for files larger than the specified
+    -- size.
+    fileSize :: Prelude.Maybe Prelude.Integer,
+    -- | Filters the available log files for log file names that contain the
+    -- specified string.
+    filenameContains :: Prelude.Maybe Prelude.Text,
+    -- | Filters the available log files for files written since the specified
+    -- date, in POSIX timestamp format with milliseconds.
+    fileLastWritten :: Prelude.Maybe Prelude.Integer,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxRecords value, a pagination token
+    -- called a marker is included in the response so you can retrieve the
+    -- remaining results.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The pagination token provided in the previous request. If this parameter
+    -- is specified the response includes only records beyond the marker, up to
+    -- MaxRecords.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The customer-assigned name of the DB instance that contains the log
+    -- files you want to list.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing DBInstance.
+    dbInstanceIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDBLogFiles' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDBLogFiles' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddlfFilenameContains' - Filters the available log files for log file names that contain the specified string.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddlfFilters' - This parameter is not currently supported.
+-- 'fileSize', 'describeDBLogFiles_fileSize' - Filters the available log files for files larger than the specified
+-- size.
 --
--- * 'ddlfFileSize' - Filters the available log files for files larger than the specified size.
+-- 'filenameContains', 'describeDBLogFiles_filenameContains' - Filters the available log files for log file names that contain the
+-- specified string.
 --
--- * 'ddlfFileLastWritten' - Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
+-- 'fileLastWritten', 'describeDBLogFiles_fileLastWritten' - Filters the available log files for files written since the specified
+-- date, in POSIX timestamp format with milliseconds.
 --
--- * 'ddlfMarker' - The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
+-- 'filters', 'describeDBLogFiles_filters' - This parameter isn\'t currently supported.
 --
--- * 'ddlfMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+-- 'maxRecords', 'describeDBLogFiles_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a pagination token
+-- called a marker is included in the response so you can retrieve the
+-- remaining results.
 --
--- * 'ddlfDBInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must match the identifier of an existing DBInstance.
-describeDBLogFiles
-    :: Text -- ^ 'ddlfDBInstanceIdentifier'
-    -> DescribeDBLogFiles
-describeDBLogFiles pDBInstanceIdentifier_ =
+-- 'marker', 'describeDBLogFiles_marker' - The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- MaxRecords.
+--
+-- 'dbInstanceIdentifier', 'describeDBLogFiles_dbInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log
+-- files you want to list.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBInstance.
+newDescribeDBLogFiles ::
+  -- | 'dbInstanceIdentifier'
+  Prelude.Text ->
+  DescribeDBLogFiles
+newDescribeDBLogFiles pDBInstanceIdentifier_ =
   DescribeDBLogFiles'
-  { _ddlfFilenameContains = Nothing
-  , _ddlfFilters = Nothing
-  , _ddlfFileSize = Nothing
-  , _ddlfFileLastWritten = Nothing
-  , _ddlfMarker = Nothing
-  , _ddlfMaxRecords = Nothing
-  , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
-  }
+    { fileSize = Prelude.Nothing,
+      filenameContains = Prelude.Nothing,
+      fileLastWritten = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_
+    }
 
+-- | Filters the available log files for files larger than the specified
+-- size.
+describeDBLogFiles_fileSize :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
+describeDBLogFiles_fileSize = Lens.lens (\DescribeDBLogFiles' {fileSize} -> fileSize) (\s@DescribeDBLogFiles' {} a -> s {fileSize = a} :: DescribeDBLogFiles)
 
--- | Filters the available log files for log file names that contain the specified string.
-ddlfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfFilenameContains = lens _ddlfFilenameContains (\ s a -> s{_ddlfFilenameContains = a});
+-- | Filters the available log files for log file names that contain the
+-- specified string.
+describeDBLogFiles_filenameContains :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
+describeDBLogFiles_filenameContains = Lens.lens (\DescribeDBLogFiles' {filenameContains} -> filenameContains) (\s@DescribeDBLogFiles' {} a -> s {filenameContains = a} :: DescribeDBLogFiles)
 
--- | This parameter is not currently supported.
-ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
-ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coerce;
+-- | Filters the available log files for files written since the specified
+-- date, in POSIX timestamp format with milliseconds.
+describeDBLogFiles_fileLastWritten :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
+describeDBLogFiles_fileLastWritten = Lens.lens (\DescribeDBLogFiles' {fileLastWritten} -> fileLastWritten) (\s@DescribeDBLogFiles' {} a -> s {fileLastWritten = a} :: DescribeDBLogFiles)
 
--- | Filters the available log files for files larger than the specified size.
-ddlfFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddlfFileSize = lens _ddlfFileSize (\ s a -> s{_ddlfFileSize = a});
+-- | This parameter isn\'t currently supported.
+describeDBLogFiles_filters :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe [Filter])
+describeDBLogFiles_filters = Lens.lens (\DescribeDBLogFiles' {filters} -> filters) (\s@DescribeDBLogFiles' {} a -> s {filters = a} :: DescribeDBLogFiles) Prelude.. Lens.mapping Lens._Coerce
 
--- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
-ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a pagination token
+-- called a marker is included in the response so you can retrieve the
+-- remaining results.
+describeDBLogFiles_maxRecords :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Int)
+describeDBLogFiles_maxRecords = Lens.lens (\DescribeDBLogFiles' {maxRecords} -> maxRecords) (\s@DescribeDBLogFiles' {} a -> s {maxRecords = a} :: DescribeDBLogFiles)
 
--- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
-ddlfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
+-- | The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- MaxRecords.
+describeDBLogFiles_marker :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
+describeDBLogFiles_marker = Lens.lens (\DescribeDBLogFiles' {marker} -> marker) (\s@DescribeDBLogFiles' {} a -> s {marker = a} :: DescribeDBLogFiles)
 
--- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-ddlfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
-ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a});
-
--- | The customer-assigned name of the DB instance that contains the log files you want to list. Constraints:     * Must match the identifier of an existing DBInstance.
-ddlfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
-ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a});
-
-instance AWSPager DescribeDBLogFiles where
-        page rq rs
-          | stop (rs ^. ddlfrsMarker) = Nothing
-          | stop (rs ^. ddlfrsDescribeDBLogFiles) = Nothing
-          | otherwise =
-            Just $ rq & ddlfMarker .~ rs ^. ddlfrsMarker
-
-instance AWSRequest DescribeDBLogFiles where
-        type Rs DescribeDBLogFiles =
-             DescribeDBLogFilesResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "DescribeDBLogFilesResult"
-              (\ s h x ->
-                 DescribeDBLogFilesResponse' <$>
-                   (x .@? "DescribeDBLogFiles" .!@ mempty >>=
-                      may (parseXMLList "DescribeDBLogFilesDetails"))
-                     <*> (x .@? "Marker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeDBLogFiles where
-
-instance NFData DescribeDBLogFiles where
-
-instance ToHeaders DescribeDBLogFiles where
-        toHeaders = const mempty
-
-instance ToPath DescribeDBLogFiles where
-        toPath = const "/"
-
-instance ToQuery DescribeDBLogFiles where
-        toQuery DescribeDBLogFiles'{..}
-          = mconcat
-              ["Action" =: ("DescribeDBLogFiles" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "FilenameContains" =: _ddlfFilenameContains,
-               "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddlfFilters),
-               "FileSize" =: _ddlfFileSize,
-               "FileLastWritten" =: _ddlfFileLastWritten,
-               "Marker" =: _ddlfMarker,
-               "MaxRecords" =: _ddlfMaxRecords,
-               "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
-
--- | The response from a call to 'DescribeDBLogFiles' .
+-- | The customer-assigned name of the DB instance that contains the log
+-- files you want to list.
 --
+-- Constraints:
 --
+-- -   Must match the identifier of an existing DBInstance.
+describeDBLogFiles_dbInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Prelude.Text
+describeDBLogFiles_dbInstanceIdentifier = Lens.lens (\DescribeDBLogFiles' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeDBLogFiles' {} a -> s {dbInstanceIdentifier = a} :: DescribeDBLogFiles)
+
+instance Core.AWSPager DescribeDBLogFiles where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeDBLogFilesResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeDBLogFilesResponse_describeDBLogFiles
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeDBLogFiles_marker
+          Lens..~ rs
+          Lens.^? describeDBLogFilesResponse_marker
+            Prelude.. Lens._Just
+
+instance Core.AWSRequest DescribeDBLogFiles where
+  type
+    AWSResponse DescribeDBLogFiles =
+      DescribeDBLogFilesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeDBLogFilesResult"
+      ( \s h x ->
+          DescribeDBLogFilesResponse'
+            Prelude.<$> ( x Core..@? "DescribeDBLogFiles"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Core.parseXMLList "DescribeDBLogFilesDetails")
+                        )
+            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeDBLogFiles
+
+instance Prelude.NFData DescribeDBLogFiles
+
+instance Core.ToHeaders DescribeDBLogFiles where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeDBLogFiles where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeDBLogFiles where
+  toQuery DescribeDBLogFiles' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("DescribeDBLogFiles" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "FileSize" Core.=: fileSize,
+        "FilenameContains" Core.=: filenameContains,
+        "FileLastWritten" Core.=: fileLastWritten,
+        "Filters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Prelude.<$> filters),
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
+      ]
+
+-- | The response from a call to @DescribeDBLogFiles@.
 --
--- /See:/ 'describeDBLogFilesResponse' smart constructor.
+-- /See:/ 'newDescribeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
-  { _ddlfrsDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
-  , _ddlfrsMarker             :: !(Maybe Text)
-  , _ddlfrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeDBLogFilesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddlfrsDescribeDBLogFiles' - The DB log files returned.
---
--- * 'ddlfrsMarker' - A pagination token that can be used in a subsequent DescribeDBLogFiles request.
---
--- * 'ddlfrsResponseStatus' - -- | The response status code.
-describeDBLogFilesResponse
-    :: Int -- ^ 'ddlfrsResponseStatus'
-    -> DescribeDBLogFilesResponse
-describeDBLogFilesResponse pResponseStatus_ =
-  DescribeDBLogFilesResponse'
-  { _ddlfrsDescribeDBLogFiles = Nothing
-  , _ddlfrsMarker = Nothing
-  , _ddlfrsResponseStatus = pResponseStatus_
+  { -- | The DB log files returned.
+    describeDBLogFiles :: Prelude.Maybe [DescribeDBLogFilesDetails],
+    -- | A pagination token that can be used in a later DescribeDBLogFiles
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeDBLogFilesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'describeDBLogFiles', 'describeDBLogFilesResponse_describeDBLogFiles' - The DB log files returned.
+--
+-- 'marker', 'describeDBLogFilesResponse_marker' - A pagination token that can be used in a later DescribeDBLogFiles
+-- request.
+--
+-- 'httpStatus', 'describeDBLogFilesResponse_httpStatus' - The response's http status code.
+newDescribeDBLogFilesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDBLogFilesResponse
+newDescribeDBLogFilesResponse pHttpStatus_ =
+  DescribeDBLogFilesResponse'
+    { describeDBLogFiles =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The DB log files returned.
-ddlfrsDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
-ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDescribeDBLogFiles = a}) . _Default . _Coerce;
+describeDBLogFilesResponse_describeDBLogFiles :: Lens.Lens' DescribeDBLogFilesResponse (Prelude.Maybe [DescribeDBLogFilesDetails])
+describeDBLogFilesResponse_describeDBLogFiles = Lens.lens (\DescribeDBLogFilesResponse' {describeDBLogFiles} -> describeDBLogFiles) (\s@DescribeDBLogFilesResponse' {} a -> s {describeDBLogFiles = a} :: DescribeDBLogFilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A pagination token that can be used in a subsequent DescribeDBLogFiles request.
-ddlfrsMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
-ddlfrsMarker = lens _ddlfrsMarker (\ s a -> s{_ddlfrsMarker = a});
+-- | A pagination token that can be used in a later DescribeDBLogFiles
+-- request.
+describeDBLogFilesResponse_marker :: Lens.Lens' DescribeDBLogFilesResponse (Prelude.Maybe Prelude.Text)
+describeDBLogFilesResponse_marker = Lens.lens (\DescribeDBLogFilesResponse' {marker} -> marker) (\s@DescribeDBLogFilesResponse' {} a -> s {marker = a} :: DescribeDBLogFilesResponse)
 
--- | -- | The response status code.
-ddlfrsResponseStatus :: Lens' DescribeDBLogFilesResponse Int
-ddlfrsResponseStatus = lens _ddlfrsResponseStatus (\ s a -> s{_ddlfrsResponseStatus = a});
+-- | The response's http status code.
+describeDBLogFilesResponse_httpStatus :: Lens.Lens' DescribeDBLogFilesResponse Prelude.Int
+describeDBLogFilesResponse_httpStatus = Lens.lens (\DescribeDBLogFilesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBLogFilesResponse' {} a -> s {httpStatus = a} :: DescribeDBLogFilesResponse)
 
-instance NFData DescribeDBLogFilesResponse where
+instance Prelude.NFData DescribeDBLogFilesResponse

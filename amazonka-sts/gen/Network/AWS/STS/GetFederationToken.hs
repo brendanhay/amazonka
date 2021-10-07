@@ -1,200 +1,780 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.STS.GetFederationToken
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for a federated user. A typical use is in a proxy application that gets temporary security credentials on behalf of distributed applications inside a corporate network. Because you must call the @GetFederationToken@ action using the long-term security credentials of an IAM user, this call is appropriate in contexts where those credentials can be safely stored, usually in a server-based application. For a comparison of @GetFederationToken@ with the other APIs that produce temporary credentials, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials> and <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS APIs> in the /IAM User Guide/ .
+-- Returns a set of temporary security credentials (consisting of an access
+-- key ID, a secret access key, and a security token) for a federated user.
+-- A typical use is in a proxy application that gets temporary security
+-- credentials on behalf of distributed applications inside a corporate
+-- network. You must call the @GetFederationToken@ operation using the
+-- long-term security credentials of an IAM user. As a result, this call is
+-- appropriate in contexts where those credentials can be safely stored,
+-- usually in a server-based application. For a comparison of
+-- @GetFederationToken@ with the other API operations that produce
+-- temporary credentials, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
+-- and
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
+-- in the /IAM User Guide/.
 --
+-- You can create a mobile-based or browser-based app that can authenticate
+-- users using a web identity provider like Login with Amazon, Facebook,
+-- Google, or an OpenID Connect-compatible identity provider. In this case,
+-- we recommend that you use
+-- <http://aws.amazon.com/cognito/ Amazon Cognito> or
+-- @AssumeRoleWithWebIdentity@. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider>
+-- in the /IAM User Guide/.
 --
--- The @GetFederationToken@ action must be called by using the long-term AWS security credentials of an IAM user. You can also call @GetFederationToken@ using the security credentials of an AWS root account, but we do not recommended it. Instead, we recommend that you create an IAM user for the purpose of the proxy application and then attach a policy to the IAM user that limits federated users to only the actions and resources that they need access to. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html IAM Best Practices> in the /IAM User Guide/ .
+-- You can also call @GetFederationToken@ using the security credentials of
+-- an Amazon Web Services account root user, but we do not recommend it.
+-- Instead, we recommend that you create an IAM user for the purpose of the
+-- proxy application. Then attach a policy to the IAM user that limits
+-- federated users to only the actions and resources that they need to
+-- access. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html IAM Best Practices>
+-- in the /IAM User Guide/.
 --
--- The temporary security credentials that are obtained by using the long-term credentials of an IAM user are valid for the specified duration, from 900 seconds (15 minutes) up to a maximium of 129600 seconds (36 hours). The default is 43200 seconds (12 hours). Temporary credentials that are obtained by using AWS root account credentials have a maximum duration of 3600 seconds (1 hour).
+-- __Session duration__
 --
--- The temporary security credentials created by @GetFederationToken@ can be used to make API calls to any AWS service with the following exceptions:
---
---     * You cannot use these credentials to call any IAM APIs.
---
---     * You cannot call any STS APIs except @GetCallerIdentity@ .
---
---
+-- The temporary credentials are valid for the specified duration, from 900
+-- seconds (15 minutes) up to a maximum of 129,600 seconds (36 hours). The
+-- default session duration is 43,200 seconds (12 hours). Temporary
+-- credentials that are obtained by using Amazon Web Services account root
+-- user credentials have a maximum duration of 3,600 seconds (1 hour).
 --
 -- __Permissions__
 --
--- The permissions for the temporary security credentials returned by @GetFederationToken@ are determined by a combination of the following:
+-- You can use the temporary credentials created by @GetFederationToken@ in
+-- any Amazon Web Services service except the following:
 --
---     * The policy or policies that are attached to the IAM user whose credentials are used to call @GetFederationToken@ .
+-- -   You cannot call any IAM operations using the CLI or the Amazon Web
+--     Services API.
 --
---     * The policy that is passed as a parameter in the call.
+-- -   You cannot call any STS operations except @GetCallerIdentity@.
 --
+-- You must pass an inline or managed
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+-- to this operation. You can pass a single JSON policy document to use as
+-- an inline session policy. You can also specify up to 10 managed policies
+-- to use as managed session policies. The plaintext that you use for both
+-- inline and managed session policies can\'t exceed 2,048 characters.
 --
+-- Though the session policy parameters are optional, if you do not pass a
+-- policy, then the resulting federated user session has no permissions.
+-- When you pass session policies, the session permissions are the
+-- intersection of the IAM user policies and the session policies that you
+-- pass. This gives you a way to further restrict the permissions for a
+-- federated user. You cannot use session policies to grant more
+-- permissions than those that are defined in the permissions policy of the
+-- IAM user. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/. For information about using
+-- @GetFederationToken@ to create temporary security credentials, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken GetFederationToken—Federation Through a Custom Identity Broker>.
 --
--- The passed policy is attached to the temporary security credentials that result from the @GetFederationToken@ API call--that is, to the /federated user/ . When the federated user makes an AWS request, AWS evaluates the policy attached to the federated user in combination with the policy or policies attached to the IAM user whose credentials were used to call @GetFederationToken@ . AWS allows the federated user's request only when both the federated user /__and__ / the IAM user are explicitly allowed to perform the requested action. The passed policy cannot grant more permissions than those that are defined in the IAM user policy.
+-- You can use the credentials to access a resource that has a
+-- resource-based policy. If that policy specifically references the
+-- federated user session in the @Principal@ element of the policy, the
+-- session has the permissions allowed by the policy. These permissions are
+-- granted in addition to the permissions granted by the session policies.
 --
--- A typical use case is that the permissions of the IAM user whose credentials are used to call @GetFederationToken@ are designed to allow access to all the actions and resources that any federated user will need. Then, for individual users, you pass a policy to the operation that scopes down the permissions to a level that's appropriate to that individual user, using a policy that allows only a subset of permissions that are granted to the IAM user.
+-- __Tags__
 --
--- If you do not pass a policy, the resulting temporary security credentials have no effective permissions. The only exception is when the temporary security credentials are used to access a resource that has a resource-based policy that specifically allows the federated user to access the resource.
+-- (Optional) You can pass tag key-value pairs to your session. These are
+-- called session tags. For more information about session tags, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Passing Session Tags in STS>
+-- in the /IAM User Guide/.
 --
--- For more information about how permissions work, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html Permissions for GetFederationToken> . For information about using @GetFederationToken@ to create temporary security credentials, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken GetFederationToken—Federation Through a Custom Identity Broker> .
+-- You can create a mobile-based or browser-based app that can authenticate
+-- users using a web identity provider like Login with Amazon, Facebook,
+-- Google, or an OpenID Connect-compatible identity provider. In this case,
+-- we recommend that you use
+-- <http://aws.amazon.com/cognito/ Amazon Cognito> or
+-- @AssumeRoleWithWebIdentity@. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity Federation Through a Web-based Identity Provider>
+-- in the /IAM User Guide/.
 --
+-- You can also call @GetFederationToken@ using the security credentials of
+-- an Amazon Web Services account root user, but we do not recommend it.
+-- Instead, we recommend that you create an IAM user for the purpose of the
+-- proxy application. Then attach a policy to the IAM user that limits
+-- federated users to only the actions and resources that they need to
+-- access. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html IAM Best Practices>
+-- in the /IAM User Guide/.
+--
+-- __Session duration__
+--
+-- The temporary credentials are valid for the specified duration, from 900
+-- seconds (15 minutes) up to a maximum of 129,600 seconds (36 hours). The
+-- default session duration is 43,200 seconds (12 hours). Temporary
+-- credentials that are obtained by using Amazon Web Services account root
+-- user credentials have a maximum duration of 3,600 seconds (1 hour).
+--
+-- __Permissions__
+--
+-- You can use the temporary credentials created by @GetFederationToken@ in
+-- any Amazon Web Services service except the following:
+--
+-- -   You cannot call any IAM operations using the CLI or the Amazon Web
+--     Services API.
+--
+-- -   You cannot call any STS operations except @GetCallerIdentity@.
+--
+-- You must pass an inline or managed
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+-- to this operation. You can pass a single JSON policy document to use as
+-- an inline session policy. You can also specify up to 10 managed policies
+-- to use as managed session policies. The plain text that you use for both
+-- inline and managed session policies can\'t exceed 2,048 characters.
+--
+-- Though the session policy parameters are optional, if you do not pass a
+-- policy, then the resulting federated user session has no permissions.
+-- When you pass session policies, the session permissions are the
+-- intersection of the IAM user policies and the session policies that you
+-- pass. This gives you a way to further restrict the permissions for a
+-- federated user. You cannot use session policies to grant more
+-- permissions than those that are defined in the permissions policy of the
+-- IAM user. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/. For information about using
+-- @GetFederationToken@ to create temporary security credentials, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken GetFederationToken—Federation Through a Custom Identity Broker>.
+--
+-- You can use the credentials to access a resource that has a
+-- resource-based policy. If that policy specifically references the
+-- federated user session in the @Principal@ element of the policy, the
+-- session has the permissions allowed by the policy. These permissions are
+-- granted in addition to the permissions granted by the session policies.
+--
+-- __Tags__
+--
+-- (Optional) You can pass tag key-value pairs to your session. These are
+-- called session tags. For more information about session tags, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Passing Session Tags in STS>
+-- in the /IAM User Guide/.
+--
+-- An administrator must grant you the permissions necessary to pass
+-- session tags. The administrator can also create granular permissions to
+-- allow you to pass only specific session tags. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html Tutorial: Using Tags for Attribute-Based Access Control>
+-- in the /IAM User Guide/.
+--
+-- Tag key–value pairs are not case sensitive, but case is preserved. This
+-- means that you cannot have separate @Department@ and @department@ tag
+-- keys. Assume that the user that you are federating has the
+-- @Department@=@Marketing@ tag and you pass the @department@=@engineering@
+-- session tag. @Department@ and @department@ are not saved as separate
+-- tags, and the session tag passed in the request takes precedence over
+-- the user tag.
 module Network.AWS.STS.GetFederationToken
-    (
-    -- * Creating a Request
-      getFederationToken
-    , GetFederationToken
+  ( -- * Creating a Request
+    GetFederationToken (..),
+    newGetFederationToken,
+
     -- * Request Lenses
-    , gftDurationSeconds
-    , gftPolicy
-    , gftName
+    getFederationToken_tags,
+    getFederationToken_policyArns,
+    getFederationToken_policy,
+    getFederationToken_durationSeconds,
+    getFederationToken_name,
 
     -- * Destructuring the Response
-    , getFederationTokenResponse
-    , GetFederationTokenResponse
+    GetFederationTokenResponse (..),
+    newGetFederationTokenResponse,
+
     -- * Response Lenses
-    , gftrsPackedPolicySize
-    , gftrsCredentials
-    , gftrsFederatedUser
-    , gftrsResponseStatus
-    ) where
+    getFederationTokenResponse_credentials,
+    getFederationTokenResponse_federatedUser,
+    getFederationTokenResponse_packedPolicySize,
+    getFederationTokenResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
-import Network.AWS.STS.Types.Product
 
--- | /See:/ 'getFederationToken' smart constructor.
+-- | /See:/ 'newGetFederationToken' smart constructor.
 data GetFederationToken = GetFederationToken'
-  { _gftDurationSeconds :: !(Maybe Nat)
-  , _gftPolicy          :: !(Maybe Text)
-  , _gftName            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetFederationToken' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gftDurationSeconds' - The duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials are restricted to a maximum of 3600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using AWS account (root) credentials defaults to one hour.
---
--- * 'gftPolicy' - An IAM policy in JSON format that is passed with the @GetFederationToken@ call and evaluated along with the policy or policies that are attached to the IAM user whose credentials are used to call @GetFederationToken@ . The passed policy is used to scope down the permissions that are available to the IAM user, by allowing only a subset of the permissions that are granted to the IAM user. The passed policy cannot grant more permissions than those granted to the IAM user. The final permissions for the federated user are the most restrictive set based on the intersection of the passed policy and the IAM user policy. If you do not pass a policy, the resulting temporary security credentials have no effective permissions. The only exception is when the temporary security credentials are used to access a resource that has a resource-based policy that specifically allows the federated user to access the resource. The format for this parameter, as described by its regex pattern, is a string of characters up to 2048 characters in length. The characters can be any ASCII character from the space character to the end of the valid character list (\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters. For more information about how permissions work, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html Permissions for GetFederationToken> .
---
--- * 'gftName' - The name of the federated user. The name is used as an identifier for the temporary security credentials (such as @Bob@ ). For example, you can reference the federated user name in a resource-based policy, such as in an Amazon S3 bucket policy. The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
-getFederationToken
-    :: Text -- ^ 'gftName'
-    -> GetFederationToken
-getFederationToken pName_ =
-  GetFederationToken'
-  {_gftDurationSeconds = Nothing, _gftPolicy = Nothing, _gftName = pName_}
-
-
--- | The duration, in seconds, that the session should last. Acceptable durations for federation sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions obtained using AWS account (root) credentials are restricted to a maximum of 3600 seconds (one hour). If the specified duration is longer than one hour, the session obtained by using AWS account (root) credentials defaults to one hour.
-gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
-gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = a}) . mapping _Nat;
-
--- | An IAM policy in JSON format that is passed with the @GetFederationToken@ call and evaluated along with the policy or policies that are attached to the IAM user whose credentials are used to call @GetFederationToken@ . The passed policy is used to scope down the permissions that are available to the IAM user, by allowing only a subset of the permissions that are granted to the IAM user. The passed policy cannot grant more permissions than those granted to the IAM user. The final permissions for the federated user are the most restrictive set based on the intersection of the passed policy and the IAM user policy. If you do not pass a policy, the resulting temporary security credentials have no effective permissions. The only exception is when the temporary security credentials are used to access a resource that has a resource-based policy that specifically allows the federated user to access the resource. The format for this parameter, as described by its regex pattern, is a string of characters up to 2048 characters in length. The characters can be any ASCII character from the space character to the end of the valid character list (\u0020-\u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters. For more information about how permissions work, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html Permissions for GetFederationToken> .
-gftPolicy :: Lens' GetFederationToken (Maybe Text)
-gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
-
--- | The name of the federated user. The name is used as an identifier for the temporary security credentials (such as @Bob@ ). For example, you can reference the federated user name in a resource-based policy, such as in an Amazon S3 bucket policy. The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
-gftName :: Lens' GetFederationToken Text
-gftName = lens _gftName (\ s a -> s{_gftName = a});
-
-instance AWSRequest GetFederationToken where
-        type Rs GetFederationToken =
-             GetFederationTokenResponse
-        request = postQuery sts
-        response
-          = receiveXMLWrapper "GetFederationTokenResult"
-              (\ s h x ->
-                 GetFederationTokenResponse' <$>
-                   (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
-                     <*> (x .@? "FederatedUser")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetFederationToken where
-
-instance NFData GetFederationToken where
-
-instance ToHeaders GetFederationToken where
-        toHeaders = const mempty
-
-instance ToPath GetFederationToken where
-        toPath = const "/"
-
-instance ToQuery GetFederationToken where
-        toQuery GetFederationToken'{..}
-          = mconcat
-              ["Action" =: ("GetFederationToken" :: ByteString),
-               "Version" =: ("2011-06-15" :: ByteString),
-               "DurationSeconds" =: _gftDurationSeconds,
-               "Policy" =: _gftPolicy, "Name" =: _gftName]
-
--- | Contains the response to a successful 'GetFederationToken' request, including temporary AWS credentials that can be used to make AWS requests.
---
---
---
--- /See:/ 'getFederationTokenResponse' smart constructor.
-data GetFederationTokenResponse = GetFederationTokenResponse'
-  { _gftrsPackedPolicySize :: !(Maybe Nat)
-  , _gftrsCredentials      :: !(Maybe AuthEnv)
-  , _gftrsFederatedUser    :: !(Maybe FederatedUser)
-  , _gftrsResponseStatus   :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetFederationTokenResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gftrsPackedPolicySize' - A percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value.
---
--- * 'gftrsCredentials' - The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
---
--- * 'gftrsFederatedUser' - Identifiers for the federated user associated with the credentials (such as @arn:aws:sts::123456789012:federated-user/Bob@ or @123456789012:Bob@ ). You can use the federated user's ARN in your resource-based policies, such as an Amazon S3 bucket policy.
---
--- * 'gftrsResponseStatus' - -- | The response status code.
-getFederationTokenResponse
-    :: Int -- ^ 'gftrsResponseStatus'
-    -> GetFederationTokenResponse
-getFederationTokenResponse pResponseStatus_ =
-  GetFederationTokenResponse'
-  { _gftrsPackedPolicySize = Nothing
-  , _gftrsCredentials = Nothing
-  , _gftrsFederatedUser = Nothing
-  , _gftrsResponseStatus = pResponseStatus_
+  { -- | A list of session tags. Each session tag consists of a key name and an
+    -- associated value. For more information about session tags, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Passing Session Tags in STS>
+    -- in the /IAM User Guide/.
+    --
+    -- This parameter is optional. You can pass up to 50 session tags. The
+    -- plaintext session tag keys can’t exceed 128 characters and the values
+    -- can’t exceed 256 characters. For these and additional limits, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
+    -- in the /IAM User Guide/.
+    --
+    -- An Amazon Web Services conversion compresses the passed session policies
+    -- and session tags into a packed binary format that has a separate limit.
+    -- Your request can fail for this limit even if your plaintext meets the
+    -- other requirements. The @PackedPolicySize@ response element indicates by
+    -- percentage how close the policies and tags for your request are to the
+    -- upper size limit.
+    --
+    -- You can pass a session tag with the same key as a tag that is already
+    -- attached to the user you are federating. When you do, session tags
+    -- override a user tag with the same key.
+    --
+    -- Tag key–value pairs are not case sensitive, but case is preserved. This
+    -- means that you cannot have separate @Department@ and @department@ tag
+    -- keys. Assume that the role has the @Department@=@Marketing@ tag and you
+    -- pass the @department@=@engineering@ session tag. @Department@ and
+    -- @department@ are not saved as separate tags, and the session tag passed
+    -- in the request takes precedence over the role tag.
+    tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
+    -- want to use as a managed session policy. The policies must exist in the
+    -- same account as the IAM user that is requesting federated access.
+    --
+    -- You must pass an inline or managed
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+    -- to this operation. You can pass a single JSON policy document to use as
+    -- an inline session policy. You can also specify up to 10 managed policies
+    -- to use as managed session policies. The plaintext that you use for both
+    -- inline and managed session policies can\'t exceed 2,048 characters. You
+    -- can provide up to 10 managed policy ARNs. For more information about
+    -- ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+    -- in the Amazon Web Services General Reference.
+    --
+    -- This parameter is optional. However, if you do not pass any session
+    -- policies, then the resulting federated user session has no permissions.
+    --
+    -- When you pass session policies, the session permissions are the
+    -- intersection of the IAM user policies and the session policies that you
+    -- pass. This gives you a way to further restrict the permissions for a
+    -- federated user. You cannot use session policies to grant more
+    -- permissions than those that are defined in the permissions policy of the
+    -- IAM user. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+    -- in the /IAM User Guide/.
+    --
+    -- The resulting credentials can be used to access a resource that has a
+    -- resource-based policy. If that policy specifically references the
+    -- federated user session in the @Principal@ element of the policy, the
+    -- session has the permissions allowed by the policy. These permissions are
+    -- granted in addition to the permissions that are granted by the session
+    -- policies.
+    --
+    -- An Amazon Web Services conversion compresses the passed session policies
+    -- and session tags into a packed binary format that has a separate limit.
+    -- Your request can fail for this limit even if your plaintext meets the
+    -- other requirements. The @PackedPolicySize@ response element indicates by
+    -- percentage how close the policies and tags for your request are to the
+    -- upper size limit.
+    policyArns :: Prelude.Maybe [PolicyDescriptorType],
+    -- | An IAM policy in JSON format that you want to use as an inline session
+    -- policy.
+    --
+    -- You must pass an inline or managed
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+    -- to this operation. You can pass a single JSON policy document to use as
+    -- an inline session policy. You can also specify up to 10 managed policies
+    -- to use as managed session policies.
+    --
+    -- This parameter is optional. However, if you do not pass any session
+    -- policies, then the resulting federated user session has no permissions.
+    --
+    -- When you pass session policies, the session permissions are the
+    -- intersection of the IAM user policies and the session policies that you
+    -- pass. This gives you a way to further restrict the permissions for a
+    -- federated user. You cannot use session policies to grant more
+    -- permissions than those that are defined in the permissions policy of the
+    -- IAM user. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+    -- in the /IAM User Guide/.
+    --
+    -- The resulting credentials can be used to access a resource that has a
+    -- resource-based policy. If that policy specifically references the
+    -- federated user session in the @Principal@ element of the policy, the
+    -- session has the permissions allowed by the policy. These permissions are
+    -- granted in addition to the permissions that are granted by the session
+    -- policies.
+    --
+    -- The plaintext that you use for both inline and managed session policies
+    -- can\'t exceed 2,048 characters. The JSON policy characters can be any
+    -- ASCII character from the space character to the end of the valid
+    -- character list (\\u0020 through \\u00FF). It can also include the tab
+    -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
+    --
+    -- An Amazon Web Services conversion compresses the passed session policies
+    -- and session tags into a packed binary format that has a separate limit.
+    -- Your request can fail for this limit even if your plaintext meets the
+    -- other requirements. The @PackedPolicySize@ response element indicates by
+    -- percentage how close the policies and tags for your request are to the
+    -- upper size limit.
+    policy :: Prelude.Maybe Prelude.Text,
+    -- | The duration, in seconds, that the session should last. Acceptable
+    -- durations for federation sessions range from 900 seconds (15 minutes) to
+    -- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
+    -- default. Sessions obtained using Amazon Web Services account root user
+    -- credentials are restricted to a maximum of 3,600 seconds (one hour). If
+    -- the specified duration is longer than one hour, the session obtained by
+    -- using root user credentials defaults to one hour.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the federated user. The name is used as an identifier for
+    -- the temporary security credentials (such as @Bob@). For example, you can
+    -- reference the federated user name in a resource-based policy, such as in
+    -- an Amazon S3 bucket policy.
+    --
+    -- The regex used to validate this parameter is a string of characters
+    -- consisting of upper- and lower-case alphanumeric characters with no
+    -- spaces. You can also include underscores or any of the following
+    -- characters: =,.\@-
+    name :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetFederationToken' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'getFederationToken_tags' - A list of session tags. Each session tag consists of a key name and an
+-- associated value. For more information about session tags, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Passing Session Tags in STS>
+-- in the /IAM User Guide/.
+--
+-- This parameter is optional. You can pass up to 50 session tags. The
+-- plaintext session tag keys can’t exceed 128 characters and the values
+-- can’t exceed 256 characters. For these and additional limits, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
+-- in the /IAM User Guide/.
+--
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
+-- percentage how close the policies and tags for your request are to the
+-- upper size limit.
+--
+-- You can pass a session tag with the same key as a tag that is already
+-- attached to the user you are federating. When you do, session tags
+-- override a user tag with the same key.
+--
+-- Tag key–value pairs are not case sensitive, but case is preserved. This
+-- means that you cannot have separate @Department@ and @department@ tag
+-- keys. Assume that the role has the @Department@=@Marketing@ tag and you
+-- pass the @department@=@engineering@ session tag. @Department@ and
+-- @department@ are not saved as separate tags, and the session tag passed
+-- in the request takes precedence over the role tag.
+--
+-- 'policyArns', 'getFederationToken_policyArns' - The Amazon Resource Names (ARNs) of the IAM managed policies that you
+-- want to use as a managed session policy. The policies must exist in the
+-- same account as the IAM user that is requesting federated access.
+--
+-- You must pass an inline or managed
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+-- to this operation. You can pass a single JSON policy document to use as
+-- an inline session policy. You can also specify up to 10 managed policies
+-- to use as managed session policies. The plaintext that you use for both
+-- inline and managed session policies can\'t exceed 2,048 characters. You
+-- can provide up to 10 managed policy ARNs. For more information about
+-- ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the Amazon Web Services General Reference.
+--
+-- This parameter is optional. However, if you do not pass any session
+-- policies, then the resulting federated user session has no permissions.
+--
+-- When you pass session policies, the session permissions are the
+-- intersection of the IAM user policies and the session policies that you
+-- pass. This gives you a way to further restrict the permissions for a
+-- federated user. You cannot use session policies to grant more
+-- permissions than those that are defined in the permissions policy of the
+-- IAM user. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+--
+-- The resulting credentials can be used to access a resource that has a
+-- resource-based policy. If that policy specifically references the
+-- federated user session in the @Principal@ element of the policy, the
+-- session has the permissions allowed by the policy. These permissions are
+-- granted in addition to the permissions that are granted by the session
+-- policies.
+--
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
+-- percentage how close the policies and tags for your request are to the
+-- upper size limit.
+--
+-- 'policy', 'getFederationToken_policy' - An IAM policy in JSON format that you want to use as an inline session
+-- policy.
+--
+-- You must pass an inline or managed
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+-- to this operation. You can pass a single JSON policy document to use as
+-- an inline session policy. You can also specify up to 10 managed policies
+-- to use as managed session policies.
+--
+-- This parameter is optional. However, if you do not pass any session
+-- policies, then the resulting federated user session has no permissions.
+--
+-- When you pass session policies, the session permissions are the
+-- intersection of the IAM user policies and the session policies that you
+-- pass. This gives you a way to further restrict the permissions for a
+-- federated user. You cannot use session policies to grant more
+-- permissions than those that are defined in the permissions policy of the
+-- IAM user. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+--
+-- The resulting credentials can be used to access a resource that has a
+-- resource-based policy. If that policy specifically references the
+-- federated user session in the @Principal@ element of the policy, the
+-- session has the permissions allowed by the policy. These permissions are
+-- granted in addition to the permissions that are granted by the session
+-- policies.
+--
+-- The plaintext that you use for both inline and managed session policies
+-- can\'t exceed 2,048 characters. The JSON policy characters can be any
+-- ASCII character from the space character to the end of the valid
+-- character list (\\u0020 through \\u00FF). It can also include the tab
+-- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
+--
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
+-- percentage how close the policies and tags for your request are to the
+-- upper size limit.
+--
+-- 'durationSeconds', 'getFederationToken_durationSeconds' - The duration, in seconds, that the session should last. Acceptable
+-- durations for federation sessions range from 900 seconds (15 minutes) to
+-- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
+-- default. Sessions obtained using Amazon Web Services account root user
+-- credentials are restricted to a maximum of 3,600 seconds (one hour). If
+-- the specified duration is longer than one hour, the session obtained by
+-- using root user credentials defaults to one hour.
+--
+-- 'name', 'getFederationToken_name' - The name of the federated user. The name is used as an identifier for
+-- the temporary security credentials (such as @Bob@). For example, you can
+-- reference the federated user name in a resource-based policy, such as in
+-- an Amazon S3 bucket policy.
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@-
+newGetFederationToken ::
+  -- | 'name'
+  Prelude.Text ->
+  GetFederationToken
+newGetFederationToken pName_ =
+  GetFederationToken'
+    { tags = Prelude.Nothing,
+      policyArns = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      durationSeconds = Prelude.Nothing,
+      name = pName_
+    }
 
--- | A percentage value indicating the size of the policy in packed form. The service rejects policies for which the packed size is greater than 100 percent of the allowed value.
-gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
-gftrsPackedPolicySize = lens _gftrsPackedPolicySize (\ s a -> s{_gftrsPackedPolicySize = a}) . mapping _Nat;
+-- | A list of session tags. Each session tag consists of a key name and an
+-- associated value. For more information about session tags, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Passing Session Tags in STS>
+-- in the /IAM User Guide/.
+--
+-- This parameter is optional. You can pass up to 50 session tags. The
+-- plaintext session tag keys can’t exceed 128 characters and the values
+-- can’t exceed 256 characters. For these and additional limits, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
+-- in the /IAM User Guide/.
+--
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
+-- percentage how close the policies and tags for your request are to the
+-- upper size limit.
+--
+-- You can pass a session tag with the same key as a tag that is already
+-- attached to the user you are federating. When you do, session tags
+-- override a user tag with the same key.
+--
+-- Tag key–value pairs are not case sensitive, but case is preserved. This
+-- means that you cannot have separate @Department@ and @department@ tag
+-- keys. Assume that the role has the @Department@=@Marketing@ tag and you
+-- pass the @department@=@engineering@ session tag. @Department@ and
+-- @department@ are not saved as separate tags, and the session tag passed
+-- in the request takes precedence over the role tag.
+getFederationToken_tags :: Lens.Lens' GetFederationToken (Prelude.Maybe [Tag])
+getFederationToken_tags = Lens.lens (\GetFederationToken' {tags} -> tags) (\s@GetFederationToken' {} a -> s {tags = a} :: GetFederationToken) Prelude.. Lens.mapping Lens._Coerce
 
--- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token. __Note:__ The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.
-gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe AuthEnv)
-gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
+-- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
+-- want to use as a managed session policy. The policies must exist in the
+-- same account as the IAM user that is requesting federated access.
+--
+-- You must pass an inline or managed
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+-- to this operation. You can pass a single JSON policy document to use as
+-- an inline session policy. You can also specify up to 10 managed policies
+-- to use as managed session policies. The plaintext that you use for both
+-- inline and managed session policies can\'t exceed 2,048 characters. You
+-- can provide up to 10 managed policy ARNs. For more information about
+-- ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the Amazon Web Services General Reference.
+--
+-- This parameter is optional. However, if you do not pass any session
+-- policies, then the resulting federated user session has no permissions.
+--
+-- When you pass session policies, the session permissions are the
+-- intersection of the IAM user policies and the session policies that you
+-- pass. This gives you a way to further restrict the permissions for a
+-- federated user. You cannot use session policies to grant more
+-- permissions than those that are defined in the permissions policy of the
+-- IAM user. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+--
+-- The resulting credentials can be used to access a resource that has a
+-- resource-based policy. If that policy specifically references the
+-- federated user session in the @Principal@ element of the policy, the
+-- session has the permissions allowed by the policy. These permissions are
+-- granted in addition to the permissions that are granted by the session
+-- policies.
+--
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
+-- percentage how close the policies and tags for your request are to the
+-- upper size limit.
+getFederationToken_policyArns :: Lens.Lens' GetFederationToken (Prelude.Maybe [PolicyDescriptorType])
+getFederationToken_policyArns = Lens.lens (\GetFederationToken' {policyArns} -> policyArns) (\s@GetFederationToken' {} a -> s {policyArns = a} :: GetFederationToken) Prelude.. Lens.mapping Lens._Coerce
 
--- | Identifiers for the federated user associated with the credentials (such as @arn:aws:sts::123456789012:federated-user/Bob@ or @123456789012:Bob@ ). You can use the federated user's ARN in your resource-based policies, such as an Amazon S3 bucket policy.
-gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
-gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a});
+-- | An IAM policy in JSON format that you want to use as an inline session
+-- policy.
+--
+-- You must pass an inline or managed
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policy>
+-- to this operation. You can pass a single JSON policy document to use as
+-- an inline session policy. You can also specify up to 10 managed policies
+-- to use as managed session policies.
+--
+-- This parameter is optional. However, if you do not pass any session
+-- policies, then the resulting federated user session has no permissions.
+--
+-- When you pass session policies, the session permissions are the
+-- intersection of the IAM user policies and the session policies that you
+-- pass. This gives you a way to further restrict the permissions for a
+-- federated user. You cannot use session policies to grant more
+-- permissions than those that are defined in the permissions policy of the
+-- IAM user. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
+-- in the /IAM User Guide/.
+--
+-- The resulting credentials can be used to access a resource that has a
+-- resource-based policy. If that policy specifically references the
+-- federated user session in the @Principal@ element of the policy, the
+-- session has the permissions allowed by the policy. These permissions are
+-- granted in addition to the permissions that are granted by the session
+-- policies.
+--
+-- The plaintext that you use for both inline and managed session policies
+-- can\'t exceed 2,048 characters. The JSON policy characters can be any
+-- ASCII character from the space character to the end of the valid
+-- character list (\\u0020 through \\u00FF). It can also include the tab
+-- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
+--
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
+-- percentage how close the policies and tags for your request are to the
+-- upper size limit.
+getFederationToken_policy :: Lens.Lens' GetFederationToken (Prelude.Maybe Prelude.Text)
+getFederationToken_policy = Lens.lens (\GetFederationToken' {policy} -> policy) (\s@GetFederationToken' {} a -> s {policy = a} :: GetFederationToken)
 
--- | -- | The response status code.
-gftrsResponseStatus :: Lens' GetFederationTokenResponse Int
-gftrsResponseStatus = lens _gftrsResponseStatus (\ s a -> s{_gftrsResponseStatus = a});
+-- | The duration, in seconds, that the session should last. Acceptable
+-- durations for federation sessions range from 900 seconds (15 minutes) to
+-- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
+-- default. Sessions obtained using Amazon Web Services account root user
+-- credentials are restricted to a maximum of 3,600 seconds (one hour). If
+-- the specified duration is longer than one hour, the session obtained by
+-- using root user credentials defaults to one hour.
+getFederationToken_durationSeconds :: Lens.Lens' GetFederationToken (Prelude.Maybe Prelude.Natural)
+getFederationToken_durationSeconds = Lens.lens (\GetFederationToken' {durationSeconds} -> durationSeconds) (\s@GetFederationToken' {} a -> s {durationSeconds = a} :: GetFederationToken)
 
-instance NFData GetFederationTokenResponse where
+-- | The name of the federated user. The name is used as an identifier for
+-- the temporary security credentials (such as @Bob@). For example, you can
+-- reference the federated user name in a resource-based policy, such as in
+-- an Amazon S3 bucket policy.
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@-
+getFederationToken_name :: Lens.Lens' GetFederationToken Prelude.Text
+getFederationToken_name = Lens.lens (\GetFederationToken' {name} -> name) (\s@GetFederationToken' {} a -> s {name = a} :: GetFederationToken)
+
+instance Core.AWSRequest GetFederationToken where
+  type
+    AWSResponse GetFederationToken =
+      GetFederationTokenResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetFederationTokenResult"
+      ( \s h x ->
+          GetFederationTokenResponse'
+            Prelude.<$> (x Core..@? "Credentials")
+            Prelude.<*> (x Core..@? "FederatedUser")
+            Prelude.<*> (x Core..@? "PackedPolicySize")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetFederationToken
+
+instance Prelude.NFData GetFederationToken
+
+instance Core.ToHeaders GetFederationToken where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath GetFederationToken where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetFederationToken where
+  toQuery GetFederationToken' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Core.=: ("GetFederationToken" :: Prelude.ByteString),
+        "Version"
+          Core.=: ("2011-06-15" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "PolicyArns"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> policyArns),
+        "Policy" Core.=: policy,
+        "DurationSeconds" Core.=: durationSeconds,
+        "Name" Core.=: name
+      ]
+
+-- | Contains the response to a successful GetFederationToken request,
+-- including temporary Amazon Web Services credentials that can be used to
+-- make Amazon Web Services requests.
+--
+-- /See:/ 'newGetFederationTokenResponse' smart constructor.
+data GetFederationTokenResponse = GetFederationTokenResponse'
+  { -- | The temporary security credentials, which include an access key ID, a
+    -- secret access key, and a security (or session) token.
+    --
+    -- The size of the security token that STS API operations return is not
+    -- fixed. We strongly recommend that you make no assumptions about the
+    -- maximum size.
+    credentials :: Prelude.Maybe Core.AuthEnv,
+    -- | Identifiers for the federated user associated with the credentials (such
+    -- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
+    -- @123456789012:Bob@). You can use the federated user\'s ARN in your
+    -- resource-based policies, such as an Amazon S3 bucket policy.
+    federatedUser :: Prelude.Maybe FederatedUser,
+    -- | A percentage value that indicates the packed size of the session
+    -- policies and session tags combined passed in the request. The request
+    -- fails if the packed size is greater than 100 percent, which means the
+    -- policies and tags exceeded the allowed space.
+    packedPolicySize :: Prelude.Maybe Prelude.Natural,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetFederationTokenResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'credentials', 'getFederationTokenResponse_credentials' - The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- The size of the security token that STS API operations return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size.
+--
+-- 'federatedUser', 'getFederationTokenResponse_federatedUser' - Identifiers for the federated user associated with the credentials (such
+-- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
+-- @123456789012:Bob@). You can use the federated user\'s ARN in your
+-- resource-based policies, such as an Amazon S3 bucket policy.
+--
+-- 'packedPolicySize', 'getFederationTokenResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+--
+-- 'httpStatus', 'getFederationTokenResponse_httpStatus' - The response's http status code.
+newGetFederationTokenResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetFederationTokenResponse
+newGetFederationTokenResponse pHttpStatus_ =
+  GetFederationTokenResponse'
+    { credentials =
+        Prelude.Nothing,
+      federatedUser = Prelude.Nothing,
+      packedPolicySize = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- The size of the security token that STS API operations return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size.
+getFederationTokenResponse_credentials :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Core.AuthEnv)
+getFederationTokenResponse_credentials = Lens.lens (\GetFederationTokenResponse' {credentials} -> credentials) (\s@GetFederationTokenResponse' {} a -> s {credentials = a} :: GetFederationTokenResponse)
+
+-- | Identifiers for the federated user associated with the credentials (such
+-- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
+-- @123456789012:Bob@). You can use the federated user\'s ARN in your
+-- resource-based policies, such as an Amazon S3 bucket policy.
+getFederationTokenResponse_federatedUser :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe FederatedUser)
+getFederationTokenResponse_federatedUser = Lens.lens (\GetFederationTokenResponse' {federatedUser} -> federatedUser) (\s@GetFederationTokenResponse' {} a -> s {federatedUser = a} :: GetFederationTokenResponse)
+
+-- | A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+getFederationTokenResponse_packedPolicySize :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Prelude.Natural)
+getFederationTokenResponse_packedPolicySize = Lens.lens (\GetFederationTokenResponse' {packedPolicySize} -> packedPolicySize) (\s@GetFederationTokenResponse' {} a -> s {packedPolicySize = a} :: GetFederationTokenResponse)
+
+-- | The response's http status code.
+getFederationTokenResponse_httpStatus :: Lens.Lens' GetFederationTokenResponse Prelude.Int
+getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' {httpStatus} -> httpStatus) (\s@GetFederationTokenResponse' {} a -> s {httpStatus = a} :: GetFederationTokenResponse)
+
+instance Prelude.NFData GetFederationTokenResponse

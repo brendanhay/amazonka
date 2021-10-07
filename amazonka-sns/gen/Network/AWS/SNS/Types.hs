@@ -1,182 +1,432 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.Types
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.SNS.Types
-    (
-    -- * Service Configuration
-      sns
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _EndpointDisabledException
-    , _AuthorizationErrorException
-    , _InvalidParameterException
-    , _SubscriptionLimitExceededException
-    , _PlatformApplicationDisabledException
-    , _InternalErrorException
-    , _ThrottledException
-    , _InvalidParameterValueException
-    , _NotFoundException
-    , _TopicLimitExceededException
+    _KMSThrottlingException,
+    _KMSInvalidStateException,
+    _NotFoundException,
+    _KMSNotFoundException,
+    _UserErrorException,
+    _ThrottledException,
+    _TagLimitExceededException,
+    _OptedOutException,
+    _InternalErrorException,
+    _KMSOptInRequired,
+    _ConcurrentAccessException,
+    _TopicLimitExceededException,
+    _TagPolicyException,
+    _PlatformApplicationDisabledException,
+    _SubscriptionLimitExceededException,
+    _StaleTagException,
+    _InvalidParameterException,
+    _AuthorizationErrorException,
+    _EndpointDisabledException,
+    _InvalidParameterValueException,
+    _ValidationException,
+    _KMSAccessDeniedException,
+    _FilterPolicyLimitExceededException,
+    _VerificationException,
+    _ResourceNotFoundException,
+    _InvalidSecurityException,
+    _KMSDisabledException,
+
+    -- * LanguageCodeString
+    LanguageCodeString (..),
+
+    -- * NumberCapability
+    NumberCapability (..),
+
+    -- * RouteType
+    RouteType (..),
+
+    -- * SMSSandboxPhoneNumberVerificationStatus
+    SMSSandboxPhoneNumberVerificationStatus (..),
 
     -- * Endpoint
-    , Endpoint
-    , endpoint
-    , eAttributes
-    , eEndpointARN
+    Endpoint (..),
+    newEndpoint,
+    endpoint_attributes,
+    endpoint_endpointArn,
 
     -- * MessageAttributeValue
-    , MessageAttributeValue
-    , messageAttributeValue
-    , mavBinaryValue
-    , mavStringValue
-    , mavDataType
+    MessageAttributeValue (..),
+    newMessageAttributeValue,
+    messageAttributeValue_stringValue,
+    messageAttributeValue_binaryValue,
+    messageAttributeValue_dataType,
+
+    -- * PhoneNumberInformation
+    PhoneNumberInformation (..),
+    newPhoneNumberInformation,
+    phoneNumberInformation_phoneNumber,
+    phoneNumberInformation_status,
+    phoneNumberInformation_routeType,
+    phoneNumberInformation_createdAt,
+    phoneNumberInformation_numberCapabilities,
+    phoneNumberInformation_iso2CountryCode,
 
     -- * PlatformApplication
-    , PlatformApplication
-    , platformApplication
-    , paPlatformApplicationARN
-    , paAttributes
+    PlatformApplication (..),
+    newPlatformApplication,
+    platformApplication_platformApplicationArn,
+    platformApplication_attributes,
+
+    -- * SMSSandboxPhoneNumber
+    SMSSandboxPhoneNumber (..),
+    newSMSSandboxPhoneNumber,
+    sMSSandboxPhoneNumber_phoneNumber,
+    sMSSandboxPhoneNumber_status,
 
     -- * Subscription
-    , Subscription
-    , subscription
-    , sProtocol
-    , sOwner
-    , sTopicARN
-    , sEndpoint
-    , sSubscriptionARN
+    Subscription (..),
+    newSubscription,
+    subscription_topicArn,
+    subscription_owner,
+    subscription_protocol,
+    subscription_subscriptionArn,
+    subscription_endpoint,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
 
     -- * Topic
-    , Topic
-    , topic
-    , tTopicARN
-    ) where
+    Topic (..),
+    newTopic,
+    topic_topicArn,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
-import Network.AWS.SNS.Types.Product
-import Network.AWS.SNS.Types.Sum
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.SNS.Types.Endpoint
+import Network.AWS.SNS.Types.LanguageCodeString
+import Network.AWS.SNS.Types.MessageAttributeValue
+import Network.AWS.SNS.Types.NumberCapability
+import Network.AWS.SNS.Types.PhoneNumberInformation
+import Network.AWS.SNS.Types.PlatformApplication
+import Network.AWS.SNS.Types.RouteType
+import Network.AWS.SNS.Types.SMSSandboxPhoneNumber
+import Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
+import Network.AWS.SNS.Types.Subscription
+import Network.AWS.SNS.Types.Tag
+import Network.AWS.SNS.Types.Topic
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-03-31@ of the Amazon Simple Notification Service SDK configuration.
-sns :: Service
-sns =
-  Service
-  { _svcAbbrev = "SNS"
-  , _svcSigner = v4
-  , _svcPrefix = "sns"
-  , _svcVersion = "2010-03-31"
-  , _svcEndpoint = defaultEndpoint sns
-  , _svcTimeout = Just 70
-  , _svcCheck = statusSuccess
-  , _svcError = parseXMLError "SNS"
-  , _svcRetry = retry
-  }
+defaultService :: Core.Service
+defaultService =
+  Core.Service
+    { Core._serviceAbbrev = "SNS",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "sns",
+      Core._serviceSigningName = "sns",
+      Core._serviceVersion = "2010-03-31",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Prelude.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseXMLError "SNS",
+      Core._serviceRetry = retry
+    }
   where
     retry =
-      Exponential
-      { _retryBase = 5.0e-2
-      , _retryGrowth = 2
-      , _retryAttempts = 5
-      , _retryCheck = check
-      }
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
+        }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Core.hasCode "ThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "ThrottlingException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | The request was denied due to request throttling. For more information
+-- about throttling, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
+-- in the /Key Management Service Developer Guide./
+_KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "KMSThrottling"
+    Prelude.. Core.hasStatus 400
 
--- | Exception error indicating endpoint disabled.
---
---
-_EndpointDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_EndpointDisabledException =
-  _MatchServiceError sns "EndpointDisabled" . hasStatus 400
-
-
--- | Indicates that the user has been denied access to the requested resource.
---
---
-_AuthorizationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_AuthorizationErrorException =
-  _MatchServiceError sns "AuthorizationError" . hasStatus 403
-
-
--- | Indicates that a request parameter does not comply with the associated constraints.
---
---
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
-  _MatchServiceError sns "InvalidParameter" . hasStatus 400
-
-
--- | Indicates that the customer already owns the maximum allowed number of subscriptions.
---
---
-_SubscriptionLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_SubscriptionLimitExceededException =
-  _MatchServiceError sns "SubscriptionLimitExceeded" . hasStatus 403
-
-
--- | Exception error indicating platform application disabled.
---
---
-_PlatformApplicationDisabledException :: AsError a => Getting (First ServiceError) a ServiceError
-_PlatformApplicationDisabledException =
-  _MatchServiceError sns "PlatformApplicationDisabled" . hasStatus 400
-
-
--- | Indicates an internal service error.
---
---
-_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalErrorException = _MatchServiceError sns "InternalError" . hasStatus 500
-
-
--- | Indicates that the rate at which requests have been submitted for this action exceeds the limit for your account.
---
---
-_ThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
-_ThrottledException = _MatchServiceError sns "Throttled" . hasStatus 429
-
-
--- | Indicates that a request parameter does not comply with the associated constraints.
---
---
-_InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValueException =
-  _MatchServiceError sns "ParameterValueInvalid" . hasStatus 400
-
+-- | The request was rejected because the state of the specified resource
+-- isn\'t valid for this request. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
+-- in the /Key Management Service Developer Guide/.
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateException =
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidState"
+    Prelude.. Core.hasStatus 400
 
 -- | Indicates that the requested resource does not exist.
---
---
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _MatchServiceError sns "NotFound" . hasStatus 404
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError defaultService "NotFound"
+    Prelude.. Core.hasStatus 404
 
+-- | The request was rejected because the specified entity or resource can\'t
+-- be found.
+_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "KMSNotFound"
+    Prelude.. Core.hasStatus 400
 
--- | Indicates that the customer already owns the maximum allowed number of topics.
---
---
-_TopicLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+_UserErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserErrorException =
+  Core._MatchServiceError defaultService "UserError"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the rate at which requests have been submitted for this
+-- action exceeds the limit for your account.
+_ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottledException =
+  Core._MatchServiceError defaultService "Throttled"
+    Prelude.. Core.hasStatus 429
+
+-- | Can\'t add more than 50 tags to a topic.
+_TagLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TagLimitExceeded"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the specified phone number opted out of receiving SMS
+-- messages from your account. You can\'t send SMS messages to phone
+-- numbers that opt out.
+_OptedOutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OptedOutException =
+  Core._MatchServiceError defaultService "OptedOut"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates an internal service error.
+_InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalError"
+    Prelude.. Core.hasStatus 500
+
+-- | The Amazon Web Services access key ID needs a subscription for the
+-- service.
+_KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSOptInRequired =
+  Core._MatchServiceError
+    defaultService
+    "KMSOptInRequired"
+    Prelude.. Core.hasStatus 403
+
+-- | Can\'t perform multiple operations on a tag simultaneously. Perform the
+-- operations sequentially.
+_ConcurrentAccessException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentAccessException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentAccess"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- topics.
+_TopicLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TopicLimitExceededException =
-  _MatchServiceError sns "TopicLimitExceeded" . hasStatus 403
+  Core._MatchServiceError
+    defaultService
+    "TopicLimitExceeded"
+    Prelude.. Core.hasStatus 403
 
+-- | The request doesn\'t comply with the IAM tag policy. Correct your
+-- request and then retry it.
+_TagPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagPolicyException =
+  Core._MatchServiceError defaultService "TagPolicy"
+    Prelude.. Core.hasStatus 400
+
+-- | Exception error indicating platform application disabled.
+_PlatformApplicationDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PlatformApplicationDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "PlatformApplicationDisabled"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- subscriptions.
+_SubscriptionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubscriptionLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "SubscriptionLimitExceeded"
+    Prelude.. Core.hasStatus 403
+
+-- | A tag has been added to a resource with the same ARN as a deleted
+-- resource. Wait a short while and then retry the operation.
+_StaleTagException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StaleTagException =
+  Core._MatchServiceError defaultService "StaleTag"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameter"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the user has been denied access to the requested
+-- resource.
+_AuthorizationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorizationErrorException =
+  Core._MatchServiceError
+    defaultService
+    "AuthorizationError"
+    Prelude.. Core.hasStatus 403
+
+-- | Exception error indicating endpoint disabled.
+_EndpointDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "EndpointDisabled"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "ParameterValueInvalid"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that a parameter in the request is invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | The ciphertext references a key that doesn\'t exist or that you don\'t
+-- have access to.
+_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSAccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "KMSAccessDenied"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the number of filter polices in your account exceeds the
+-- limit. To add more filter polices, submit an SNS Limit Increase case in
+-- the Amazon Web Services Support Center.
+_FilterPolicyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FilterPolicyLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "FilterPolicyLimitExceeded"
+    Prelude.. Core.hasStatus 403
+
+-- | Indicates that the one-time password (OTP) used for verification is
+-- invalid.
+_VerificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VerificationException =
+  Core._MatchServiceError
+    defaultService
+    "VerificationException"
+
+-- | Can’t perform the action on the specified resource. Make sure that the
+-- resource exists.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFound"
+    Prelude.. Core.hasStatus 404
+
+-- | The credential signature isn\'t valid. You must use an HTTPS endpoint
+-- and sign your request using Signature Version 4.
+_InvalidSecurityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSecurity"
+    Prelude.. Core.hasStatus 403
+
+-- | The request was rejected because the specified customer master key (CMK)
+-- isn\'t enabled.
+_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "KMSDisabled"
+    Prelude.. Core.hasStatus 400

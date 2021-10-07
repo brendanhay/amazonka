@@ -1,179 +1,208 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.ConfirmDevice
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Confirms tracking of the device. This API call is the call that begins device tracking.
---
---
+-- Confirms tracking of the device. This API call is the call that begins
+-- device tracking.
 module Network.AWS.CognitoIdentityProvider.ConfirmDevice
-    (
-    -- * Creating a Request
-      confirmDevice
-    , ConfirmDevice
+  ( -- * Creating a Request
+    ConfirmDevice (..),
+    newConfirmDevice,
+
     -- * Request Lenses
-    , cdDeviceSecretVerifierConfig
-    , cdDeviceName
-    , cdAccessToken
-    , cdDeviceKey
+    confirmDevice_deviceSecretVerifierConfig,
+    confirmDevice_deviceName,
+    confirmDevice_accessToken,
+    confirmDevice_deviceKey,
 
     -- * Destructuring the Response
-    , confirmDeviceResponse
-    , ConfirmDeviceResponse
+    ConfirmDeviceResponse (..),
+    newConfirmDeviceResponse,
+
     -- * Response Lenses
-    , cdrsUserConfirmationNecessary
-    , cdrsResponseStatus
-    ) where
+    confirmDeviceResponse_userConfirmationNecessary,
+    confirmDeviceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Confirms the device request.
 --
---
---
--- /See:/ 'confirmDevice' smart constructor.
+-- /See:/ 'newConfirmDevice' smart constructor.
 data ConfirmDevice = ConfirmDevice'
-  { _cdDeviceSecretVerifierConfig :: !(Maybe DeviceSecretVerifierConfigType)
-  , _cdDeviceName                 :: !(Maybe Text)
-  , _cdAccessToken                :: !(Sensitive Text)
-  , _cdDeviceKey                  :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ConfirmDevice' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdDeviceSecretVerifierConfig' - The configuration of the device secret verifier.
---
--- * 'cdDeviceName' - The device name.
---
--- * 'cdAccessToken' - The access token.
---
--- * 'cdDeviceKey' - The device key.
-confirmDevice
-    :: Text -- ^ 'cdAccessToken'
-    -> Text -- ^ 'cdDeviceKey'
-    -> ConfirmDevice
-confirmDevice pAccessToken_ pDeviceKey_ =
-  ConfirmDevice'
-  { _cdDeviceSecretVerifierConfig = Nothing
-  , _cdDeviceName = Nothing
-  , _cdAccessToken = _Sensitive # pAccessToken_
-  , _cdDeviceKey = pDeviceKey_
+  { -- | The configuration of the device secret verifier.
+    deviceSecretVerifierConfig :: Prelude.Maybe DeviceSecretVerifierConfigType,
+    -- | The device name.
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The access token.
+    accessToken :: Core.Sensitive Prelude.Text,
+    -- | The device key.
+    deviceKey :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ConfirmDevice' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'deviceSecretVerifierConfig', 'confirmDevice_deviceSecretVerifierConfig' - The configuration of the device secret verifier.
+--
+-- 'deviceName', 'confirmDevice_deviceName' - The device name.
+--
+-- 'accessToken', 'confirmDevice_accessToken' - The access token.
+--
+-- 'deviceKey', 'confirmDevice_deviceKey' - The device key.
+newConfirmDevice ::
+  -- | 'accessToken'
+  Prelude.Text ->
+  -- | 'deviceKey'
+  Prelude.Text ->
+  ConfirmDevice
+newConfirmDevice pAccessToken_ pDeviceKey_ =
+  ConfirmDevice'
+    { deviceSecretVerifierConfig =
+        Prelude.Nothing,
+      deviceName = Prelude.Nothing,
+      accessToken = Core._Sensitive Lens.# pAccessToken_,
+      deviceKey = pDeviceKey_
+    }
 
 -- | The configuration of the device secret verifier.
-cdDeviceSecretVerifierConfig :: Lens' ConfirmDevice (Maybe DeviceSecretVerifierConfigType)
-cdDeviceSecretVerifierConfig = lens _cdDeviceSecretVerifierConfig (\ s a -> s{_cdDeviceSecretVerifierConfig = a});
+confirmDevice_deviceSecretVerifierConfig :: Lens.Lens' ConfirmDevice (Prelude.Maybe DeviceSecretVerifierConfigType)
+confirmDevice_deviceSecretVerifierConfig = Lens.lens (\ConfirmDevice' {deviceSecretVerifierConfig} -> deviceSecretVerifierConfig) (\s@ConfirmDevice' {} a -> s {deviceSecretVerifierConfig = a} :: ConfirmDevice)
 
 -- | The device name.
-cdDeviceName :: Lens' ConfirmDevice (Maybe Text)
-cdDeviceName = lens _cdDeviceName (\ s a -> s{_cdDeviceName = a});
+confirmDevice_deviceName :: Lens.Lens' ConfirmDevice (Prelude.Maybe Prelude.Text)
+confirmDevice_deviceName = Lens.lens (\ConfirmDevice' {deviceName} -> deviceName) (\s@ConfirmDevice' {} a -> s {deviceName = a} :: ConfirmDevice)
 
 -- | The access token.
-cdAccessToken :: Lens' ConfirmDevice Text
-cdAccessToken = lens _cdAccessToken (\ s a -> s{_cdAccessToken = a}) . _Sensitive;
+confirmDevice_accessToken :: Lens.Lens' ConfirmDevice Prelude.Text
+confirmDevice_accessToken = Lens.lens (\ConfirmDevice' {accessToken} -> accessToken) (\s@ConfirmDevice' {} a -> s {accessToken = a} :: ConfirmDevice) Prelude.. Core._Sensitive
 
 -- | The device key.
-cdDeviceKey :: Lens' ConfirmDevice Text
-cdDeviceKey = lens _cdDeviceKey (\ s a -> s{_cdDeviceKey = a});
+confirmDevice_deviceKey :: Lens.Lens' ConfirmDevice Prelude.Text
+confirmDevice_deviceKey = Lens.lens (\ConfirmDevice' {deviceKey} -> deviceKey) (\s@ConfirmDevice' {} a -> s {deviceKey = a} :: ConfirmDevice)
 
-instance AWSRequest ConfirmDevice where
-        type Rs ConfirmDevice = ConfirmDeviceResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ConfirmDeviceResponse' <$>
-                   (x .?> "UserConfirmationNecessary") <*>
-                     (pure (fromEnum s)))
+instance Core.AWSRequest ConfirmDevice where
+  type
+    AWSResponse ConfirmDevice =
+      ConfirmDeviceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ConfirmDeviceResponse'
+            Prelude.<$> (x Core..?> "UserConfirmationNecessary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ConfirmDevice where
+instance Prelude.Hashable ConfirmDevice
 
-instance NFData ConfirmDevice where
+instance Prelude.NFData ConfirmDevice
 
-instance ToHeaders ConfirmDevice where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.ConfirmDevice" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders ConfirmDevice where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.ConfirmDevice" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON ConfirmDevice where
-        toJSON ConfirmDevice'{..}
-          = object
-              (catMaybes
-                 [("DeviceSecretVerifierConfig" .=) <$>
-                    _cdDeviceSecretVerifierConfig,
-                  ("DeviceName" .=) <$> _cdDeviceName,
-                  Just ("AccessToken" .= _cdAccessToken),
-                  Just ("DeviceKey" .= _cdDeviceKey)])
+instance Core.ToJSON ConfirmDevice where
+  toJSON ConfirmDevice' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("DeviceSecretVerifierConfig" Core..=)
+              Prelude.<$> deviceSecretVerifierConfig,
+            ("DeviceName" Core..=) Prelude.<$> deviceName,
+            Prelude.Just ("AccessToken" Core..= accessToken),
+            Prelude.Just ("DeviceKey" Core..= deviceKey)
+          ]
+      )
 
-instance ToPath ConfirmDevice where
-        toPath = const "/"
+instance Core.ToPath ConfirmDevice where
+  toPath = Prelude.const "/"
 
-instance ToQuery ConfirmDevice where
-        toQuery = const mempty
+instance Core.ToQuery ConfirmDevice where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Confirms the device response.
 --
---
---
--- /See:/ 'confirmDeviceResponse' smart constructor.
+-- /See:/ 'newConfirmDeviceResponse' smart constructor.
 data ConfirmDeviceResponse = ConfirmDeviceResponse'
-  { _cdrsUserConfirmationNecessary :: !(Maybe Bool)
-  , _cdrsResponseStatus            :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ConfirmDeviceResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsUserConfirmationNecessary' - Indicates whether the user confirmation is necessary to confirm the device response.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-confirmDeviceResponse
-    :: Int -- ^ 'cdrsResponseStatus'
-    -> ConfirmDeviceResponse
-confirmDeviceResponse pResponseStatus_ =
-  ConfirmDeviceResponse'
-  { _cdrsUserConfirmationNecessary = Nothing
-  , _cdrsResponseStatus = pResponseStatus_
+  { -- | Indicates whether the user confirmation is necessary to confirm the
+    -- device response.
+    userConfirmationNecessary :: Prelude.Maybe Prelude.Bool,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'ConfirmDeviceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'userConfirmationNecessary', 'confirmDeviceResponse_userConfirmationNecessary' - Indicates whether the user confirmation is necessary to confirm the
+-- device response.
+--
+-- 'httpStatus', 'confirmDeviceResponse_httpStatus' - The response's http status code.
+newConfirmDeviceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ConfirmDeviceResponse
+newConfirmDeviceResponse pHttpStatus_ =
+  ConfirmDeviceResponse'
+    { userConfirmationNecessary =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
--- | Indicates whether the user confirmation is necessary to confirm the device response.
-cdrsUserConfirmationNecessary :: Lens' ConfirmDeviceResponse (Maybe Bool)
-cdrsUserConfirmationNecessary = lens _cdrsUserConfirmationNecessary (\ s a -> s{_cdrsUserConfirmationNecessary = a});
+-- | Indicates whether the user confirmation is necessary to confirm the
+-- device response.
+confirmDeviceResponse_userConfirmationNecessary :: Lens.Lens' ConfirmDeviceResponse (Prelude.Maybe Prelude.Bool)
+confirmDeviceResponse_userConfirmationNecessary = Lens.lens (\ConfirmDeviceResponse' {userConfirmationNecessary} -> userConfirmationNecessary) (\s@ConfirmDeviceResponse' {} a -> s {userConfirmationNecessary = a} :: ConfirmDeviceResponse)
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' ConfirmDeviceResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a});
+-- | The response's http status code.
+confirmDeviceResponse_httpStatus :: Lens.Lens' ConfirmDeviceResponse Prelude.Int
+confirmDeviceResponse_httpStatus = Lens.lens (\ConfirmDeviceResponse' {httpStatus} -> httpStatus) (\s@ConfirmDeviceResponse' {} a -> s {httpStatus = a} :: ConfirmDeviceResponse)
 
-instance NFData ConfirmDeviceResponse where
+instance Prelude.NFData ConfirmDeviceResponse

@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetGroup
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,127 +22,154 @@
 --
 -- Gets a group.
 --
---
--- Requires developer credentials.
---
+-- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.GetGroup
-    (
-    -- * Creating a Request
-      getGroup
-    , GetGroup
+  ( -- * Creating a Request
+    GetGroup (..),
+    newGetGroup,
+
     -- * Request Lenses
-    , ggGroupName
-    , ggUserPoolId
+    getGroup_groupName,
+    getGroup_userPoolId,
 
     -- * Destructuring the Response
-    , getGroupResponse
-    , GetGroupResponse
+    GetGroupResponse (..),
+    newGetGroupResponse,
+
     -- * Response Lenses
-    , ggrsGroup
-    , ggrsResponseStatus
-    ) where
+    getGroupResponse_group,
+    getGroupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getGroup' smart constructor.
+-- | /See:/ 'newGetGroup' smart constructor.
 data GetGroup = GetGroup'
-  { _ggGroupName  :: !Text
-  , _ggUserPoolId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the group.
+    groupName :: Prelude.Text,
+    -- | The user pool ID for the user pool.
+    userPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggGroupName' - The name of the group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ggUserPoolId' - The user pool ID for the user pool.
-getGroup
-    :: Text -- ^ 'ggGroupName'
-    -> Text -- ^ 'ggUserPoolId'
-    -> GetGroup
-getGroup pGroupName_ pUserPoolId_ =
-  GetGroup' {_ggGroupName = pGroupName_, _ggUserPoolId = pUserPoolId_}
-
+-- 'groupName', 'getGroup_groupName' - The name of the group.
+--
+-- 'userPoolId', 'getGroup_userPoolId' - The user pool ID for the user pool.
+newGetGroup ::
+  -- | 'groupName'
+  Prelude.Text ->
+  -- | 'userPoolId'
+  Prelude.Text ->
+  GetGroup
+newGetGroup pGroupName_ pUserPoolId_ =
+  GetGroup'
+    { groupName = pGroupName_,
+      userPoolId = pUserPoolId_
+    }
 
 -- | The name of the group.
-ggGroupName :: Lens' GetGroup Text
-ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
+getGroup_groupName :: Lens.Lens' GetGroup Prelude.Text
+getGroup_groupName = Lens.lens (\GetGroup' {groupName} -> groupName) (\s@GetGroup' {} a -> s {groupName = a} :: GetGroup)
 
 -- | The user pool ID for the user pool.
-ggUserPoolId :: Lens' GetGroup Text
-ggUserPoolId = lens _ggUserPoolId (\ s a -> s{_ggUserPoolId = a});
+getGroup_userPoolId :: Lens.Lens' GetGroup Prelude.Text
+getGroup_userPoolId = Lens.lens (\GetGroup' {userPoolId} -> userPoolId) (\s@GetGroup' {} a -> s {userPoolId = a} :: GetGroup)
 
-instance AWSRequest GetGroup where
-        type Rs GetGroup = GetGroupResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetGroupResponse' <$>
-                   (x .?> "Group") <*> (pure (fromEnum s)))
+instance Core.AWSRequest GetGroup where
+  type AWSResponse GetGroup = GetGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetGroupResponse'
+            Prelude.<$> (x Core..?> "Group")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetGroup where
+instance Prelude.Hashable GetGroup
 
-instance NFData GetGroup where
+instance Prelude.NFData GetGroup
 
-instance ToHeaders GetGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.GetGroup" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders GetGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSCognitoIdentityProviderService.GetGroup" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON GetGroup where
-        toJSON GetGroup'{..}
-          = object
-              (catMaybes
-                 [Just ("GroupName" .= _ggGroupName),
-                  Just ("UserPoolId" .= _ggUserPoolId)])
+instance Core.ToJSON GetGroup where
+  toJSON GetGroup' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GroupName" Core..= groupName),
+            Prelude.Just ("UserPoolId" Core..= userPoolId)
+          ]
+      )
 
-instance ToPath GetGroup where
-        toPath = const "/"
+instance Core.ToPath GetGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetGroup where
-        toQuery = const mempty
+instance Core.ToQuery GetGroup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getGroupResponse' smart constructor.
+-- | /See:/ 'newGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { _ggrsGroup          :: !(Maybe GroupType)
-  , _ggrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The group object for the group.
+    group' :: Prelude.Maybe GroupType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggrsGroup' - The group object for the group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ggrsResponseStatus' - -- | The response status code.
-getGroupResponse
-    :: Int -- ^ 'ggrsResponseStatus'
-    -> GetGroupResponse
-getGroupResponse pResponseStatus_ =
+-- 'group'', 'getGroupResponse_group' - The group object for the group.
+--
+-- 'httpStatus', 'getGroupResponse_httpStatus' - The response's http status code.
+newGetGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetGroupResponse
+newGetGroupResponse pHttpStatus_ =
   GetGroupResponse'
-  {_ggrsGroup = Nothing, _ggrsResponseStatus = pResponseStatus_}
-
+    { group' = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The group object for the group.
-ggrsGroup :: Lens' GetGroupResponse (Maybe GroupType)
-ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
+getGroupResponse_group :: Lens.Lens' GetGroupResponse (Prelude.Maybe GroupType)
+getGroupResponse_group = Lens.lens (\GetGroupResponse' {group'} -> group') (\s@GetGroupResponse' {} a -> s {group' = a} :: GetGroupResponse)
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetGroupResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a});
+-- | The response's http status code.
+getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Prelude.Int
+getGroupResponse_httpStatus = Lens.lens (\GetGroupResponse' {httpStatus} -> httpStatus) (\s@GetGroupResponse' {} a -> s {httpStatus = a} :: GetGroupResponse)
 
-instance NFData GetGroupResponse where
+instance Prelude.NFData GetGroupResponse

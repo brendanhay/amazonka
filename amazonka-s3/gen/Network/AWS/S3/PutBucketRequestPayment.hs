@@ -1,127 +1,200 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+-- Sets the request payment configuration for a bucket. By default, the
+-- bucket owner pays for downloads from the bucket. This configuration
+-- parameter enables the bucket owner (only) to specify that the person
+-- requesting the download will be charged for the download. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets>.
+--
+-- The following operations are related to @PutBucketRequestPayment@:
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html GetBucketRequestPayment>
 module Network.AWS.S3.PutBucketRequestPayment
-    (
-    -- * Creating a Request
-      putBucketRequestPayment
-    , PutBucketRequestPayment
+  ( -- * Creating a Request
+    PutBucketRequestPayment (..),
+    newPutBucketRequestPayment,
+
     -- * Request Lenses
-    , pbrpContentMD5
-    , pbrpBucket
-    , pbrpRequestPaymentConfiguration
+    putBucketRequestPayment_expectedBucketOwner,
+    putBucketRequestPayment_contentMD5,
+    putBucketRequestPayment_bucket,
+    putBucketRequestPayment_requestPaymentConfiguration,
 
     -- * Destructuring the Response
-    , putBucketRequestPaymentResponse
-    , PutBucketRequestPaymentResponse
-    ) where
+    PutBucketRequestPaymentResponse (..),
+    newPutBucketRequestPaymentResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'putBucketRequestPayment' smart constructor.
+-- | /See:/ 'newPutBucketRequestPayment' smart constructor.
 data PutBucketRequestPayment = PutBucketRequestPayment'
-  { _pbrpContentMD5                  :: !(Maybe Text)
-  , _pbrpBucket                      :: !BucketName
-  , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutBucketRequestPayment' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbrpContentMD5' - Undocumented member.
---
--- * 'pbrpBucket' - Undocumented member.
---
--- * 'pbrpRequestPaymentConfiguration' - Undocumented member.
-putBucketRequestPayment
-    :: BucketName -- ^ 'pbrpBucket'
-    -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
-    -> PutBucketRequestPayment
-putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
-  PutBucketRequestPayment'
-  { _pbrpContentMD5 = Nothing
-  , _pbrpBucket = pBucket_
-  , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+    -- header as a message integrity check to verify that the request body was
+    -- not corrupted in transit. For more information, see
+    -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
+    --
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
+    contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The bucket name.
+    bucket :: BucketName,
+    -- | Container for Payer.
+    requestPaymentConfiguration :: RequestPaymentConfiguration
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Undocumented member.
-pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
-pbrpContentMD5 = lens _pbrpContentMD5 (\ s a -> s{_pbrpContentMD5 = a});
-
--- | Undocumented member.
-pbrpBucket :: Lens' PutBucketRequestPayment BucketName
-pbrpBucket = lens _pbrpBucket (\ s a -> s{_pbrpBucket = a});
-
--- | Undocumented member.
-pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
-pbrpRequestPaymentConfiguration = lens _pbrpRequestPaymentConfiguration (\ s a -> s{_pbrpRequestPaymentConfiguration = a});
-
-instance AWSRequest PutBucketRequestPayment where
-        type Rs PutBucketRequestPayment =
-             PutBucketRequestPaymentResponse
-        request = putXML s3
-        response
-          = receiveNull PutBucketRequestPaymentResponse'
-
-instance Hashable PutBucketRequestPayment where
-
-instance NFData PutBucketRequestPayment where
-
-instance ToElement PutBucketRequestPayment where
-        toElement
-          = mkElement
-              "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
-              .
-              _pbrpRequestPaymentConfiguration
-
-instance ToHeaders PutBucketRequestPayment where
-        toHeaders PutBucketRequestPayment'{..}
-          = mconcat ["Content-MD5" =# _pbrpContentMD5]
-
-instance ToPath PutBucketRequestPayment where
-        toPath PutBucketRequestPayment'{..}
-          = mconcat ["/", toBS _pbrpBucket]
-
-instance ToQuery PutBucketRequestPayment where
-        toQuery = const (mconcat ["requestPayment"])
-
--- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
-data PutBucketRequestPaymentResponse =
-  PutBucketRequestPaymentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutBucketRequestPaymentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutBucketRequestPayment' with all optional fields omitted.
 --
-putBucketRequestPaymentResponse
-    :: PutBucketRequestPaymentResponse
-putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'expectedBucketOwner', 'putBucketRequestPayment_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+--
+-- 'contentMD5', 'putBucketRequestPayment_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this
+-- header as a message integrity check to verify that the request body was
+-- not corrupted in transit. For more information, see
+-- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
+--
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
+--
+-- 'bucket', 'putBucketRequestPayment_bucket' - The bucket name.
+--
+-- 'requestPaymentConfiguration', 'putBucketRequestPayment_requestPaymentConfiguration' - Container for Payer.
+newPutBucketRequestPayment ::
+  -- | 'bucket'
+  BucketName ->
+  -- | 'requestPaymentConfiguration'
+  RequestPaymentConfiguration ->
+  PutBucketRequestPayment
+newPutBucketRequestPayment
+  pBucket_
+  pRequestPaymentConfiguration_ =
+    PutBucketRequestPayment'
+      { expectedBucketOwner =
+          Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
+        bucket = pBucket_,
+        requestPaymentConfiguration =
+          pRequestPaymentConfiguration_
+      }
 
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketRequestPayment_expectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
+putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPayment' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketRequestPayment' {} a -> s {expectedBucketOwner = a} :: PutBucketRequestPayment)
 
-instance NFData PutBucketRequestPaymentResponse where
+-- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+-- header as a message integrity check to verify that the request body was
+-- not corrupted in transit. For more information, see
+-- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
+--
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
+putBucketRequestPayment_contentMD5 :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
+putBucketRequestPayment_contentMD5 = Lens.lens (\PutBucketRequestPayment' {contentMD5} -> contentMD5) (\s@PutBucketRequestPayment' {} a -> s {contentMD5 = a} :: PutBucketRequestPayment)
+
+-- | The bucket name.
+putBucketRequestPayment_bucket :: Lens.Lens' PutBucketRequestPayment BucketName
+putBucketRequestPayment_bucket = Lens.lens (\PutBucketRequestPayment' {bucket} -> bucket) (\s@PutBucketRequestPayment' {} a -> s {bucket = a} :: PutBucketRequestPayment)
+
+-- | Container for Payer.
+putBucketRequestPayment_requestPaymentConfiguration :: Lens.Lens' PutBucketRequestPayment RequestPaymentConfiguration
+putBucketRequestPayment_requestPaymentConfiguration = Lens.lens (\PutBucketRequestPayment' {requestPaymentConfiguration} -> requestPaymentConfiguration) (\s@PutBucketRequestPayment' {} a -> s {requestPaymentConfiguration = a} :: PutBucketRequestPayment)
+
+instance Core.AWSRequest PutBucketRequestPayment where
+  type
+    AWSResponse PutBucketRequestPayment =
+      PutBucketRequestPaymentResponse
+  request = Request.putXML defaultService
+  response =
+    Response.receiveNull
+      PutBucketRequestPaymentResponse'
+
+instance Prelude.Hashable PutBucketRequestPayment
+
+instance Prelude.NFData PutBucketRequestPayment
+
+instance Core.ToElement PutBucketRequestPayment where
+  toElement PutBucketRequestPayment' {..} =
+    Core.mkElement
+      "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
+      requestPaymentConfiguration
+
+instance Core.ToHeaders PutBucketRequestPayment where
+  toHeaders PutBucketRequestPayment' {..} =
+    Prelude.mconcat
+      [ "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
+      ]
+
+instance Core.ToPath PutBucketRequestPayment where
+  toPath PutBucketRequestPayment' {..} =
+    Prelude.mconcat ["/", Core.toBS bucket]
+
+instance Core.ToQuery PutBucketRequestPayment where
+  toQuery =
+    Prelude.const (Prelude.mconcat ["requestPayment"])
+
+-- | /See:/ 'newPutBucketRequestPaymentResponse' smart constructor.
+data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutBucketRequestPaymentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newPutBucketRequestPaymentResponse ::
+  PutBucketRequestPaymentResponse
+newPutBucketRequestPaymentResponse =
+  PutBucketRequestPaymentResponse'
+
+instance
+  Prelude.NFData
+    PutBucketRequestPaymentResponse

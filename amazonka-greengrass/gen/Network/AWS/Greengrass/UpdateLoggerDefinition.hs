@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateLoggerDefinition
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,112 +22,142 @@
 --
 -- Updates a logger definition.
 module Network.AWS.Greengrass.UpdateLoggerDefinition
-    (
-    -- * Creating a Request
-      updateLoggerDefinition
-    , UpdateLoggerDefinition
+  ( -- * Creating a Request
+    UpdateLoggerDefinition (..),
+    newUpdateLoggerDefinition,
+
     -- * Request Lenses
-    , uldName
-    , uldLoggerDefinitionId
+    updateLoggerDefinition_name,
+    updateLoggerDefinition_loggerDefinitionId,
 
     -- * Destructuring the Response
-    , updateLoggerDefinitionResponse
-    , UpdateLoggerDefinitionResponse
+    UpdateLoggerDefinitionResponse (..),
+    newUpdateLoggerDefinitionResponse,
+
     -- * Response Lenses
-    , uldrsResponseStatus
-    ) where
+    updateLoggerDefinitionResponse_httpStatus,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateLoggerDefinition' smart constructor.
+-- | /See:/ 'newUpdateLoggerDefinition' smart constructor.
 data UpdateLoggerDefinition = UpdateLoggerDefinition'
-  { _uldName               :: !(Maybe Text)
-  , _uldLoggerDefinitionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the logger definition.
+    loggerDefinitionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateLoggerDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateLoggerDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uldName' - name of the definition
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uldLoggerDefinitionId' - logger definition Id
-updateLoggerDefinition
-    :: Text -- ^ 'uldLoggerDefinitionId'
-    -> UpdateLoggerDefinition
-updateLoggerDefinition pLoggerDefinitionId_ =
+-- 'name', 'updateLoggerDefinition_name' - The name of the definition.
+--
+-- 'loggerDefinitionId', 'updateLoggerDefinition_loggerDefinitionId' - The ID of the logger definition.
+newUpdateLoggerDefinition ::
+  -- | 'loggerDefinitionId'
+  Prelude.Text ->
+  UpdateLoggerDefinition
+newUpdateLoggerDefinition pLoggerDefinitionId_ =
   UpdateLoggerDefinition'
-  {_uldName = Nothing, _uldLoggerDefinitionId = pLoggerDefinitionId_}
+    { name = Prelude.Nothing,
+      loggerDefinitionId = pLoggerDefinitionId_
+    }
 
+-- | The name of the definition.
+updateLoggerDefinition_name :: Lens.Lens' UpdateLoggerDefinition (Prelude.Maybe Prelude.Text)
+updateLoggerDefinition_name = Lens.lens (\UpdateLoggerDefinition' {name} -> name) (\s@UpdateLoggerDefinition' {} a -> s {name = a} :: UpdateLoggerDefinition)
 
--- | name of the definition
-uldName :: Lens' UpdateLoggerDefinition (Maybe Text)
-uldName = lens _uldName (\ s a -> s{_uldName = a});
+-- | The ID of the logger definition.
+updateLoggerDefinition_loggerDefinitionId :: Lens.Lens' UpdateLoggerDefinition Prelude.Text
+updateLoggerDefinition_loggerDefinitionId = Lens.lens (\UpdateLoggerDefinition' {loggerDefinitionId} -> loggerDefinitionId) (\s@UpdateLoggerDefinition' {} a -> s {loggerDefinitionId = a} :: UpdateLoggerDefinition)
 
--- | logger definition Id
-uldLoggerDefinitionId :: Lens' UpdateLoggerDefinition Text
-uldLoggerDefinitionId = lens _uldLoggerDefinitionId (\ s a -> s{_uldLoggerDefinitionId = a});
+instance Core.AWSRequest UpdateLoggerDefinition where
+  type
+    AWSResponse UpdateLoggerDefinition =
+      UpdateLoggerDefinitionResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateLoggerDefinitionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdateLoggerDefinition where
-        type Rs UpdateLoggerDefinition =
-             UpdateLoggerDefinitionResponse
-        request = putJSON greengrass
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateLoggerDefinitionResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.Hashable UpdateLoggerDefinition
 
-instance Hashable UpdateLoggerDefinition where
+instance Prelude.NFData UpdateLoggerDefinition
 
-instance NFData UpdateLoggerDefinition where
+instance Core.ToHeaders UpdateLoggerDefinition where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders UpdateLoggerDefinition where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON UpdateLoggerDefinition where
+  toJSON UpdateLoggerDefinition' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )
 
-instance ToJSON UpdateLoggerDefinition where
-        toJSON UpdateLoggerDefinition'{..}
-          = object (catMaybes [("Name" .=) <$> _uldName])
+instance Core.ToPath UpdateLoggerDefinition where
+  toPath UpdateLoggerDefinition' {..} =
+    Prelude.mconcat
+      [ "/greengrass/definition/loggers/",
+        Core.toBS loggerDefinitionId
+      ]
 
-instance ToPath UpdateLoggerDefinition where
-        toPath UpdateLoggerDefinition'{..}
-          = mconcat
-              ["/greengrass/definition/loggers/",
-               toBS _uldLoggerDefinitionId]
+instance Core.ToQuery UpdateLoggerDefinition where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateLoggerDefinition where
-        toQuery = const mempty
+-- | /See:/ 'newUpdateLoggerDefinitionResponse' smart constructor.
+data UpdateLoggerDefinitionResponse = UpdateLoggerDefinitionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
--- | /See:/ 'updateLoggerDefinitionResponse' smart constructor.
-newtype UpdateLoggerDefinitionResponse = UpdateLoggerDefinitionResponse'
-  { _uldrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateLoggerDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateLoggerDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uldrsResponseStatus' - -- | The response status code.
-updateLoggerDefinitionResponse
-    :: Int -- ^ 'uldrsResponseStatus'
-    -> UpdateLoggerDefinitionResponse
-updateLoggerDefinitionResponse pResponseStatus_ =
-  UpdateLoggerDefinitionResponse' {_uldrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateLoggerDefinitionResponse_httpStatus' - The response's http status code.
+newUpdateLoggerDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateLoggerDefinitionResponse
+newUpdateLoggerDefinitionResponse pHttpStatus_ =
+  UpdateLoggerDefinitionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateLoggerDefinitionResponse_httpStatus :: Lens.Lens' UpdateLoggerDefinitionResponse Prelude.Int
+updateLoggerDefinitionResponse_httpStatus = Lens.lens (\UpdateLoggerDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateLoggerDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateLoggerDefinitionResponse)
 
--- | -- | The response status code.
-uldrsResponseStatus :: Lens' UpdateLoggerDefinitionResponse Int
-uldrsResponseStatus = lens _uldrsResponseStatus (\ s a -> s{_uldrsResponseStatus = a});
-
-instance NFData UpdateLoggerDefinitionResponse where
+instance
+  Prelude.NFData
+    UpdateLoggerDefinitionResponse

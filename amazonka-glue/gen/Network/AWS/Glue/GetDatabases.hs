@@ -1,163 +1,247 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetDatabases
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves all Databases defined in a given Data Catalog.
+-- Retrieves all databases defined in a given Data Catalog.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Glue.GetDatabases
-    (
-    -- * Creating a Request
-      getDatabases
-    , GetDatabases
+  ( -- * Creating a Request
+    GetDatabases (..),
+    newGetDatabases,
+
     -- * Request Lenses
-    , gdCatalogId
-    , gdNextToken
-    , gdMaxResults
+    getDatabases_nextToken,
+    getDatabases_maxResults,
+    getDatabases_catalogId,
+    getDatabases_resourceShareType,
 
     -- * Destructuring the Response
-    , getDatabasesResponse
-    , GetDatabasesResponse
+    GetDatabasesResponse (..),
+    newGetDatabasesResponse,
+
     -- * Response Lenses
-    , gdsrsNextToken
-    , gdsrsResponseStatus
-    , gdsrsDatabaseList
-    ) where
+    getDatabasesResponse_nextToken,
+    getDatabasesResponse_httpStatus,
+    getDatabasesResponse_databaseList,
+  )
+where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDatabases' smart constructor.
+-- | /See:/ 'newGetDatabases' smart constructor.
 data GetDatabases = GetDatabases'
-  { _gdCatalogId  :: !(Maybe Text)
-  , _gdNextToken  :: !(Maybe Text)
-  , _gdMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of databases to return in one response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog from which to retrieve @Databases@. If none
+    -- is provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to specify that you want to list the databases shared with
+    -- your account. The allowable values are @FOREIGN@ or @ALL@.
+    --
+    -- -   If set to @FOREIGN@, will list the databases shared with your
+    --     account.
+    --
+    -- -   If set to @ALL@, will list the databases shared with your account,
+    --     as well as the databases in yor local account.
+    resourceShareType :: Prelude.Maybe ResourceShareType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetDatabases' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDatabases' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdCatalogId' - The ID of the Data Catalog from which to retrieve @Databases@ . If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdNextToken' - A continuation token, if this is a continuation call.
+-- 'nextToken', 'getDatabases_nextToken' - A continuation token, if this is a continuation call.
 --
--- * 'gdMaxResults' - The maximum number of databases to return in one response.
-getDatabases
-    :: GetDatabases
-getDatabases =
+-- 'maxResults', 'getDatabases_maxResults' - The maximum number of databases to return in one response.
+--
+-- 'catalogId', 'getDatabases_catalogId' - The ID of the Data Catalog from which to retrieve @Databases@. If none
+-- is provided, the Amazon Web Services account ID is used by default.
+--
+-- 'resourceShareType', 'getDatabases_resourceShareType' - Allows you to specify that you want to list the databases shared with
+-- your account. The allowable values are @FOREIGN@ or @ALL@.
+--
+-- -   If set to @FOREIGN@, will list the databases shared with your
+--     account.
+--
+-- -   If set to @ALL@, will list the databases shared with your account,
+--     as well as the databases in yor local account.
+newGetDatabases ::
+  GetDatabases
+newGetDatabases =
   GetDatabases'
-  {_gdCatalogId = Nothing, _gdNextToken = Nothing, _gdMaxResults = Nothing}
-
-
--- | The ID of the Data Catalog from which to retrieve @Databases@ . If none is supplied, the AWS account ID is used by default.
-gdCatalogId :: Lens' GetDatabases (Maybe Text)
-gdCatalogId = lens _gdCatalogId (\ s a -> s{_gdCatalogId = a});
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      resourceShareType = Prelude.Nothing
+    }
 
 -- | A continuation token, if this is a continuation call.
-gdNextToken :: Lens' GetDatabases (Maybe Text)
-gdNextToken = lens _gdNextToken (\ s a -> s{_gdNextToken = a});
+getDatabases_nextToken :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
+getDatabases_nextToken = Lens.lens (\GetDatabases' {nextToken} -> nextToken) (\s@GetDatabases' {} a -> s {nextToken = a} :: GetDatabases)
 
 -- | The maximum number of databases to return in one response.
-gdMaxResults :: Lens' GetDatabases (Maybe Natural)
-gdMaxResults = lens _gdMaxResults (\ s a -> s{_gdMaxResults = a}) . mapping _Nat;
+getDatabases_maxResults :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Natural)
+getDatabases_maxResults = Lens.lens (\GetDatabases' {maxResults} -> maxResults) (\s@GetDatabases' {} a -> s {maxResults = a} :: GetDatabases)
 
-instance AWSRequest GetDatabases where
-        type Rs GetDatabases = GetDatabasesResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDatabasesResponse' <$>
-                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .?> "DatabaseList" .!@ mempty))
+-- | The ID of the Data Catalog from which to retrieve @Databases@. If none
+-- is provided, the Amazon Web Services account ID is used by default.
+getDatabases_catalogId :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
+getDatabases_catalogId = Lens.lens (\GetDatabases' {catalogId} -> catalogId) (\s@GetDatabases' {} a -> s {catalogId = a} :: GetDatabases)
 
-instance Hashable GetDatabases where
+-- | Allows you to specify that you want to list the databases shared with
+-- your account. The allowable values are @FOREIGN@ or @ALL@.
+--
+-- -   If set to @FOREIGN@, will list the databases shared with your
+--     account.
+--
+-- -   If set to @ALL@, will list the databases shared with your account,
+--     as well as the databases in yor local account.
+getDatabases_resourceShareType :: Lens.Lens' GetDatabases (Prelude.Maybe ResourceShareType)
+getDatabases_resourceShareType = Lens.lens (\GetDatabases' {resourceShareType} -> resourceShareType) (\s@GetDatabases' {} a -> s {resourceShareType = a} :: GetDatabases)
 
-instance NFData GetDatabases where
+instance Core.AWSPager GetDatabases where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getDatabasesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. getDatabasesResponse_databaseList) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getDatabases_nextToken
+          Lens..~ rs
+          Lens.^? getDatabasesResponse_nextToken Prelude.. Lens._Just
 
-instance ToHeaders GetDatabases where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetDatabases" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.AWSRequest GetDatabases where
+  type AWSResponse GetDatabases = GetDatabasesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDatabasesResponse'
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
+      )
 
-instance ToJSON GetDatabases where
-        toJSON GetDatabases'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _gdCatalogId,
-                  ("NextToken" .=) <$> _gdNextToken,
-                  ("MaxResults" .=) <$> _gdMaxResults])
+instance Prelude.Hashable GetDatabases
 
-instance ToPath GetDatabases where
-        toPath = const "/"
+instance Prelude.NFData GetDatabases
 
-instance ToQuery GetDatabases where
-        toQuery = const mempty
+instance Core.ToHeaders GetDatabases where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AWSGlue.GetDatabases" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
--- | /See:/ 'getDatabasesResponse' smart constructor.
+instance Core.ToJSON GetDatabases where
+  toJSON GetDatabases' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("ResourceShareType" Core..=)
+              Prelude.<$> resourceShareType
+          ]
+      )
+
+instance Core.ToPath GetDatabases where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery GetDatabases where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetDatabasesResponse' smart constructor.
 data GetDatabasesResponse = GetDatabasesResponse'
-  { _gdsrsNextToken      :: !(Maybe Text)
-  , _gdsrsResponseStatus :: !Int
-  , _gdsrsDatabaseList   :: ![Database]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDatabasesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdsrsNextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
---
--- * 'gdsrsResponseStatus' - -- | The response status code.
---
--- * 'gdsrsDatabaseList' - A list of @Database@ objects from the specified catalog.
-getDatabasesResponse
-    :: Int -- ^ 'gdsrsResponseStatus'
-    -> GetDatabasesResponse
-getDatabasesResponse pResponseStatus_ =
-  GetDatabasesResponse'
-  { _gdsrsNextToken = Nothing
-  , _gdsrsResponseStatus = pResponseStatus_
-  , _gdsrsDatabaseList = mempty
+  { -- | A continuation token for paginating the returned list of tokens,
+    -- returned if the current segment of the list is not the last.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of @Database@ objects from the specified catalog.
+    databaseList :: [Database]
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'GetDatabasesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'getDatabasesResponse_nextToken' - A continuation token for paginating the returned list of tokens,
+-- returned if the current segment of the list is not the last.
+--
+-- 'httpStatus', 'getDatabasesResponse_httpStatus' - The response's http status code.
+--
+-- 'databaseList', 'getDatabasesResponse_databaseList' - A list of @Database@ objects from the specified catalog.
+newGetDatabasesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDatabasesResponse
+newGetDatabasesResponse pHttpStatus_ =
+  GetDatabasesResponse'
+    { nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      databaseList = Prelude.mempty
+    }
 
--- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
-gdsrsNextToken :: Lens' GetDatabasesResponse (Maybe Text)
-gdsrsNextToken = lens _gdsrsNextToken (\ s a -> s{_gdsrsNextToken = a});
+-- | A continuation token for paginating the returned list of tokens,
+-- returned if the current segment of the list is not the last.
+getDatabasesResponse_nextToken :: Lens.Lens' GetDatabasesResponse (Prelude.Maybe Prelude.Text)
+getDatabasesResponse_nextToken = Lens.lens (\GetDatabasesResponse' {nextToken} -> nextToken) (\s@GetDatabasesResponse' {} a -> s {nextToken = a} :: GetDatabasesResponse)
 
--- | -- | The response status code.
-gdsrsResponseStatus :: Lens' GetDatabasesResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a});
+-- | The response's http status code.
+getDatabasesResponse_httpStatus :: Lens.Lens' GetDatabasesResponse Prelude.Int
+getDatabasesResponse_httpStatus = Lens.lens (\GetDatabasesResponse' {httpStatus} -> httpStatus) (\s@GetDatabasesResponse' {} a -> s {httpStatus = a} :: GetDatabasesResponse)
 
 -- | A list of @Database@ objects from the specified catalog.
-gdsrsDatabaseList :: Lens' GetDatabasesResponse [Database]
-gdsrsDatabaseList = lens _gdsrsDatabaseList (\ s a -> s{_gdsrsDatabaseList = a}) . _Coerce;
+getDatabasesResponse_databaseList :: Lens.Lens' GetDatabasesResponse [Database]
+getDatabasesResponse_databaseList = Lens.lens (\GetDatabasesResponse' {databaseList} -> databaseList) (\s@GetDatabasesResponse' {} a -> s {databaseList = a} :: GetDatabasesResponse) Prelude.. Lens._Coerce
 
-instance NFData GetDatabasesResponse where
+instance Prelude.NFData GetDatabasesResponse

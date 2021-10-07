@@ -1,0 +1,88 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.XRay.Types.FaultRootCauseEntity
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.XRay.Types.FaultRootCauseEntity where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.XRay.Types.RootCauseException
+
+-- | A collection of segments and corresponding subsegments associated to a
+-- trace summary fault error.
+--
+-- /See:/ 'newFaultRootCauseEntity' smart constructor.
+data FaultRootCauseEntity = FaultRootCauseEntity'
+  { -- | A flag that denotes a remote subsegment.
+    remote :: Prelude.Maybe Prelude.Bool,
+    -- | The types and messages of the exceptions.
+    exceptions :: Prelude.Maybe [RootCauseException],
+    -- | The name of the entity.
+    name :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'FaultRootCauseEntity' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'remote', 'faultRootCauseEntity_remote' - A flag that denotes a remote subsegment.
+--
+-- 'exceptions', 'faultRootCauseEntity_exceptions' - The types and messages of the exceptions.
+--
+-- 'name', 'faultRootCauseEntity_name' - The name of the entity.
+newFaultRootCauseEntity ::
+  FaultRootCauseEntity
+newFaultRootCauseEntity =
+  FaultRootCauseEntity'
+    { remote = Prelude.Nothing,
+      exceptions = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
+
+-- | A flag that denotes a remote subsegment.
+faultRootCauseEntity_remote :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Bool)
+faultRootCauseEntity_remote = Lens.lens (\FaultRootCauseEntity' {remote} -> remote) (\s@FaultRootCauseEntity' {} a -> s {remote = a} :: FaultRootCauseEntity)
+
+-- | The types and messages of the exceptions.
+faultRootCauseEntity_exceptions :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe [RootCauseException])
+faultRootCauseEntity_exceptions = Lens.lens (\FaultRootCauseEntity' {exceptions} -> exceptions) (\s@FaultRootCauseEntity' {} a -> s {exceptions = a} :: FaultRootCauseEntity) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the entity.
+faultRootCauseEntity_name :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Text)
+faultRootCauseEntity_name = Lens.lens (\FaultRootCauseEntity' {name} -> name) (\s@FaultRootCauseEntity' {} a -> s {name = a} :: FaultRootCauseEntity)
+
+instance Core.FromJSON FaultRootCauseEntity where
+  parseJSON =
+    Core.withObject
+      "FaultRootCauseEntity"
+      ( \x ->
+          FaultRootCauseEntity'
+            Prelude.<$> (x Core..:? "Remote")
+            Prelude.<*> (x Core..:? "Exceptions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
+      )
+
+instance Prelude.Hashable FaultRootCauseEntity
+
+instance Prelude.NFData FaultRootCauseEntity

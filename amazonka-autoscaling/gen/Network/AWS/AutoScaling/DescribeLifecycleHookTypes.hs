@@ -1,18 +1,20 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHookTypes
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,103 +22,125 @@
 --
 -- Describes the available types of lifecycle hooks.
 --
+-- The following hook types are supported:
 --
+-- -   @autoscaling:EC2_INSTANCE_LAUNCHING@
+--
+-- -   @autoscaling:EC2_INSTANCE_TERMINATING@
 module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
-    (
-    -- * Creating a Request
-      describeLifecycleHookTypes
-    , DescribeLifecycleHookTypes
+  ( -- * Creating a Request
+    DescribeLifecycleHookTypes (..),
+    newDescribeLifecycleHookTypes,
 
     -- * Destructuring the Response
-    , describeLifecycleHookTypesResponse
-    , DescribeLifecycleHookTypesResponse
+    DescribeLifecycleHookTypesResponse (..),
+    newDescribeLifecycleHookTypesResponse,
+
     -- * Response Lenses
-    , dlhtrsLifecycleHookTypes
-    , dlhtrsResponseStatus
-    ) where
+    describeLifecycleHookTypesResponse_lifecycleHookTypes,
+    describeLifecycleHookTypesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeLifecycleHookTypes' smart constructor.
-data DescribeLifecycleHookTypes =
-  DescribeLifecycleHookTypes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeLifecycleHookTypes' with the minimum fields required to make a request.
---
-describeLifecycleHookTypes
-    :: DescribeLifecycleHookTypes
-describeLifecycleHookTypes = DescribeLifecycleHookTypes'
-
-
-instance AWSRequest DescribeLifecycleHookTypes where
-        type Rs DescribeLifecycleHookTypes =
-             DescribeLifecycleHookTypesResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper
-              "DescribeLifecycleHookTypesResult"
-              (\ s h x ->
-                 DescribeLifecycleHookTypesResponse' <$>
-                   (x .@? "LifecycleHookTypes" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeLifecycleHookTypes where
-
-instance NFData DescribeLifecycleHookTypes where
-
-instance ToHeaders DescribeLifecycleHookTypes where
-        toHeaders = const mempty
-
-instance ToPath DescribeLifecycleHookTypes where
-        toPath = const "/"
-
-instance ToQuery DescribeLifecycleHookTypes where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =:
-                    ("DescribeLifecycleHookTypes" :: ByteString),
-                  "Version" =: ("2011-01-01" :: ByteString)])
-
--- | /See:/ 'describeLifecycleHookTypesResponse' smart constructor.
-data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
-  { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
-  , _dlhtrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeLifecycleHookTypesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlhtrsLifecycleHookTypes' - The lifecycle hook types.
---
--- * 'dlhtrsResponseStatus' - -- | The response status code.
-describeLifecycleHookTypesResponse
-    :: Int -- ^ 'dlhtrsResponseStatus'
-    -> DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse pResponseStatus_ =
-  DescribeLifecycleHookTypesResponse'
-  { _dlhtrsLifecycleHookTypes = Nothing
-  , _dlhtrsResponseStatus = pResponseStatus_
+-- | /See:/ 'newDescribeLifecycleHookTypes' smart constructor.
+data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes'
+  {
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeLifecycleHookTypes' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeLifecycleHookTypes ::
+  DescribeLifecycleHookTypes
+newDescribeLifecycleHookTypes =
+  DescribeLifecycleHookTypes'
+
+instance Core.AWSRequest DescribeLifecycleHookTypes where
+  type
+    AWSResponse DescribeLifecycleHookTypes =
+      DescribeLifecycleHookTypesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeLifecycleHookTypesResult"
+      ( \s h x ->
+          DescribeLifecycleHookTypesResponse'
+            Prelude.<$> ( x Core..@? "LifecycleHookTypes"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeLifecycleHookTypes
+
+instance Prelude.NFData DescribeLifecycleHookTypes
+
+instance Core.ToHeaders DescribeLifecycleHookTypes where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Core.ToPath DescribeLifecycleHookTypes where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeLifecycleHookTypes where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Core.=: ("DescribeLifecycleHookTypes" :: Prelude.ByteString),
+            "Version"
+              Core.=: ("2011-01-01" :: Prelude.ByteString)
+          ]
+      )
+
+-- | /See:/ 'newDescribeLifecycleHookTypesResponse' smart constructor.
+data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
+  { -- | The lifecycle hook types.
+    lifecycleHookTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeLifecycleHookTypesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'lifecycleHookTypes', 'describeLifecycleHookTypesResponse_lifecycleHookTypes' - The lifecycle hook types.
+--
+-- 'httpStatus', 'describeLifecycleHookTypesResponse_httpStatus' - The response's http status code.
+newDescribeLifecycleHookTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeLifecycleHookTypesResponse
+newDescribeLifecycleHookTypesResponse pHttpStatus_ =
+  DescribeLifecycleHookTypesResponse'
+    { lifecycleHookTypes =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The lifecycle hook types.
-dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
-dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
+describeLifecycleHookTypesResponse_lifecycleHookTypes :: Lens.Lens' DescribeLifecycleHookTypesResponse (Prelude.Maybe [Prelude.Text])
+describeLifecycleHookTypesResponse_lifecycleHookTypes = Lens.lens (\DescribeLifecycleHookTypesResponse' {lifecycleHookTypes} -> lifecycleHookTypes) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {lifecycleHookTypes = a} :: DescribeLifecycleHookTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | -- | The response status code.
-dlhtrsResponseStatus :: Lens' DescribeLifecycleHookTypesResponse Int
-dlhtrsResponseStatus = lens _dlhtrsResponseStatus (\ s a -> s{_dlhtrsResponseStatus = a});
+-- | The response's http status code.
+describeLifecycleHookTypesResponse_httpStatus :: Lens.Lens' DescribeLifecycleHookTypesResponse Prelude.Int
+describeLifecycleHookTypesResponse_httpStatus = Lens.lens (\DescribeLifecycleHookTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {httpStatus = a} :: DescribeLifecycleHookTypesResponse)
 
-instance NFData DescribeLifecycleHookTypesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeLifecycleHookTypesResponse

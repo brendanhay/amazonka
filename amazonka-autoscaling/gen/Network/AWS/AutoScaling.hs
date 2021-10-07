@@ -1,45 +1,61 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.AutoScaling
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Auto Scaling__
+-- Derived from API version @2011-01-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the Amazon CloudWatch and Elastic Load Balancing services.
+-- Amazon EC2 Auto Scaling
 --
+-- Amazon EC2 Auto Scaling is designed to automatically launch or terminate
+-- EC2 instances based on user-defined scaling policies, scheduled actions,
+-- and health checks.
+--
+-- For more information about Amazon EC2 Auto Scaling, see the
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html Amazon EC2 Auto Scaling User Guide>.
+-- For information about granting IAM users required permissions for calls
+-- to Amazon EC2 Auto Scaling, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html Granting IAM users required permissions for Amazon EC2 Auto Scaling resources>
+-- in the /Amazon EC2 Auto Scaling API Reference/.
 module Network.AWS.AutoScaling
-    (
-    -- * Service Configuration
-      autoScaling
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** AlreadyExistsFault
-    , _AlreadyExistsFault
-
-    -- ** LimitExceededFault
-    , _LimitExceededFault
+    -- ** InstanceRefreshInProgressFault
+    _InstanceRefreshInProgressFault,
 
     -- ** ResourceInUseFault
-    , _ResourceInUseFault
+    _ResourceInUseFault,
 
-    -- ** InvalidNextToken
-    , _InvalidNextToken
+    -- ** AlreadyExistsFault
+    _AlreadyExistsFault,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
 
     -- ** ScalingActivityInProgressFault
-    , _ScalingActivityInProgressFault
+    _ScalingActivityInProgressFault,
 
     -- ** ResourceContentionFault
-    , _ResourceContentionFault
+    _ResourceContentionFault,
+
+    -- ** ActiveInstanceRefreshNotFoundFault
+    _ActiveInstanceRefreshNotFoundFault,
+
+    -- ** ServiceLinkedRoleFailure
+    _ServiceLinkedRoleFailure,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
 
     -- * Waiters
     -- $waiters
@@ -47,466 +63,639 @@ module Network.AWS.AutoScaling
     -- * Operations
     -- $operations
 
-    -- ** DescribeMetricCollectionTypes
-    , module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
-
-    -- ** DescribeLoadBalancers
-    , module Network.AWS.AutoScaling.DescribeLoadBalancers
-
-    -- ** PutNotificationConfiguration
-    , module Network.AWS.AutoScaling.PutNotificationConfiguration
-
-    -- ** DescribeTags (Paginated)
-    , module Network.AWS.AutoScaling.DescribeTags
-
-    -- ** DeleteNotificationConfiguration
-    , module Network.AWS.AutoScaling.DeleteNotificationConfiguration
-
-    -- ** PutScalingPolicy
-    , module Network.AWS.AutoScaling.PutScalingPolicy
-
-    -- ** AttachLoadBalancerTargetGroups
-    , module Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
-
-    -- ** DeleteLaunchConfiguration
-    , module Network.AWS.AutoScaling.DeleteLaunchConfiguration
-
-    -- ** EnterStandby
-    , module Network.AWS.AutoScaling.EnterStandby
+    -- ** ExecutePolicy
+    ExecutePolicy (ExecutePolicy'),
+    newExecutePolicy,
+    ExecutePolicyResponse (ExecutePolicyResponse'),
+    newExecutePolicyResponse,
 
     -- ** SuspendProcesses
-    , module Network.AWS.AutoScaling.SuspendProcesses
+    SuspendProcesses (SuspendProcesses'),
+    newSuspendProcesses,
+    SuspendProcessesResponse (SuspendProcessesResponse'),
+    newSuspendProcessesResponse,
 
-    -- ** SetInstanceHealth
-    , module Network.AWS.AutoScaling.SetInstanceHealth
+    -- ** DescribeInstanceRefreshes
+    DescribeInstanceRefreshes (DescribeInstanceRefreshes'),
+    newDescribeInstanceRefreshes,
+    DescribeInstanceRefreshesResponse (DescribeInstanceRefreshesResponse'),
+    newDescribeInstanceRefreshesResponse,
 
-    -- ** ExitStandby
-    , module Network.AWS.AutoScaling.ExitStandby
-
-    -- ** DescribeTerminationPolicyTypes
-    , module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
-
-    -- ** DescribeAutoScalingInstances (Paginated)
-    , module Network.AWS.AutoScaling.DescribeAutoScalingInstances
-
-    -- ** RecordLifecycleActionHeartbeat
-    , module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
-
-    -- ** DisableMetricsCollection
-    , module Network.AWS.AutoScaling.DisableMetricsCollection
-
-    -- ** DetachInstances
-    , module Network.AWS.AutoScaling.DetachInstances
-
-    -- ** EnableMetricsCollection
-    , module Network.AWS.AutoScaling.EnableMetricsCollection
-
-    -- ** DescribeScalingProcessTypes
-    , module Network.AWS.AutoScaling.DescribeScalingProcessTypes
-
-    -- ** DeleteTags
-    , module Network.AWS.AutoScaling.DeleteTags
-
-    -- ** DetachLoadBalancerTargetGroups
-    , module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
-
-    -- ** DescribeLifecycleHooks
-    , module Network.AWS.AutoScaling.DescribeLifecycleHooks
-
-    -- ** DescribeAutoScalingGroups (Paginated)
-    , module Network.AWS.AutoScaling.DescribeAutoScalingGroups
-
-    -- ** DeleteScheduledAction
-    , module Network.AWS.AutoScaling.DeleteScheduledAction
-
-    -- ** SetDesiredCapacity
-    , module Network.AWS.AutoScaling.SetDesiredCapacity
-
-    -- ** DetachLoadBalancers
-    , module Network.AWS.AutoScaling.DetachLoadBalancers
-
-    -- ** DescribeAutoScalingNotificationTypes
-    , module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
-
-    -- ** DescribeScheduledActions (Paginated)
-    , module Network.AWS.AutoScaling.DescribeScheduledActions
-
-    -- ** CreateOrUpdateTags
-    , module Network.AWS.AutoScaling.CreateOrUpdateTags
-
-    -- ** CompleteLifecycleAction
-    , module Network.AWS.AutoScaling.CompleteLifecycleAction
-
-    -- ** DeletePolicy
-    , module Network.AWS.AutoScaling.DeletePolicy
-
-    -- ** AttachInstances
-    , module Network.AWS.AutoScaling.AttachInstances
-
-    -- ** UpdateAutoScalingGroup
-    , module Network.AWS.AutoScaling.UpdateAutoScalingGroup
-
-    -- ** DeleteAutoScalingGroup
-    , module Network.AWS.AutoScaling.DeleteAutoScalingGroup
-
-    -- ** PutLifecycleHook
-    , module Network.AWS.AutoScaling.PutLifecycleHook
+    -- ** EnterStandby
+    EnterStandby (EnterStandby'),
+    newEnterStandby,
+    EnterStandbyResponse (EnterStandbyResponse'),
+    newEnterStandbyResponse,
 
     -- ** DeleteLifecycleHook
-    , module Network.AWS.AutoScaling.DeleteLifecycleHook
+    DeleteLifecycleHook (DeleteLifecycleHook'),
+    newDeleteLifecycleHook,
+    DeleteLifecycleHookResponse (DeleteLifecycleHookResponse'),
+    newDeleteLifecycleHookResponse,
+
+    -- ** AttachLoadBalancerTargetGroups
+    AttachLoadBalancerTargetGroups (AttachLoadBalancerTargetGroups'),
+    newAttachLoadBalancerTargetGroups,
+    AttachLoadBalancerTargetGroupsResponse (AttachLoadBalancerTargetGroupsResponse'),
+    newAttachLoadBalancerTargetGroupsResponse,
+
+    -- ** StartInstanceRefresh
+    StartInstanceRefresh (StartInstanceRefresh'),
+    newStartInstanceRefresh,
+    StartInstanceRefreshResponse (StartInstanceRefreshResponse'),
+    newStartInstanceRefreshResponse,
 
     -- ** ResumeProcesses
-    , module Network.AWS.AutoScaling.ResumeProcesses
+    ResumeProcesses (ResumeProcesses'),
+    newResumeProcesses,
+    ResumeProcessesResponse (ResumeProcessesResponse'),
+    newResumeProcessesResponse,
 
-    -- ** ExecutePolicy
-    , module Network.AWS.AutoScaling.ExecutePolicy
+    -- ** PutNotificationConfiguration
+    PutNotificationConfiguration (PutNotificationConfiguration'),
+    newPutNotificationConfiguration,
+    PutNotificationConfigurationResponse (PutNotificationConfigurationResponse'),
+    newPutNotificationConfigurationResponse,
 
-    -- ** DescribeAccountLimits
-    , module Network.AWS.AutoScaling.DescribeAccountLimits
+    -- ** DescribeTags (Paginated)
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
 
-    -- ** AttachLoadBalancers
-    , module Network.AWS.AutoScaling.AttachLoadBalancers
+    -- ** DeleteWarmPool
+    DeleteWarmPool (DeleteWarmPool'),
+    newDeleteWarmPool,
+    DeleteWarmPoolResponse (DeleteWarmPoolResponse'),
+    newDeleteWarmPoolResponse,
 
-    -- ** TerminateInstanceInAutoScalingGroup
-    , module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
+    -- ** PutScalingPolicy
+    PutScalingPolicy (PutScalingPolicy'),
+    newPutScalingPolicy,
+    PutScalingPolicyResponse (PutScalingPolicyResponse'),
+    newPutScalingPolicyResponse,
 
-    -- ** DescribeLoadBalancerTargetGroups
-    , module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
+    -- ** CreateOrUpdateTags
+    CreateOrUpdateTags (CreateOrUpdateTags'),
+    newCreateOrUpdateTags,
+    CreateOrUpdateTagsResponse (CreateOrUpdateTagsResponse'),
+    newCreateOrUpdateTagsResponse,
 
-    -- ** PutScheduledUpdateGroupAction
-    , module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
-
-    -- ** SetInstanceProtection
-    , module Network.AWS.AutoScaling.SetInstanceProtection
-
-    -- ** DescribePolicies (Paginated)
-    , module Network.AWS.AutoScaling.DescribePolicies
-
-    -- ** DescribeLaunchConfigurations (Paginated)
-    , module Network.AWS.AutoScaling.DescribeLaunchConfigurations
-
-    -- ** DescribeScalingActivities (Paginated)
-    , module Network.AWS.AutoScaling.DescribeScalingActivities
-
-    -- ** DescribeNotificationConfigurations (Paginated)
-    , module Network.AWS.AutoScaling.DescribeNotificationConfigurations
-
-    -- ** DescribeLifecycleHookTypes
-    , module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
-
-    -- ** DescribeAdjustmentTypes
-    , module Network.AWS.AutoScaling.DescribeAdjustmentTypes
-
-    -- ** CreateAutoScalingGroup
-    , module Network.AWS.AutoScaling.CreateAutoScalingGroup
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
 
     -- ** CreateLaunchConfiguration
-    , module Network.AWS.AutoScaling.CreateLaunchConfiguration
+    CreateLaunchConfiguration (CreateLaunchConfiguration'),
+    newCreateLaunchConfiguration,
+    CreateLaunchConfigurationResponse (CreateLaunchConfigurationResponse'),
+    newCreateLaunchConfigurationResponse,
+
+    -- ** DescribeAutoScalingNotificationTypes
+    DescribeAutoScalingNotificationTypes (DescribeAutoScalingNotificationTypes'),
+    newDescribeAutoScalingNotificationTypes,
+    DescribeAutoScalingNotificationTypesResponse (DescribeAutoScalingNotificationTypesResponse'),
+    newDescribeAutoScalingNotificationTypesResponse,
+
+    -- ** DescribeScheduledActions (Paginated)
+    DescribeScheduledActions (DescribeScheduledActions'),
+    newDescribeScheduledActions,
+    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
+    newDescribeScheduledActionsResponse,
+
+    -- ** DescribeAdjustmentTypes
+    DescribeAdjustmentTypes (DescribeAdjustmentTypes'),
+    newDescribeAdjustmentTypes,
+    DescribeAdjustmentTypesResponse (DescribeAdjustmentTypesResponse'),
+    newDescribeAdjustmentTypesResponse,
+
+    -- ** DetachLoadBalancers
+    DetachLoadBalancers (DetachLoadBalancers'),
+    newDetachLoadBalancers,
+    DetachLoadBalancersResponse (DetachLoadBalancersResponse'),
+    newDetachLoadBalancersResponse,
+
+    -- ** DeleteScheduledAction
+    DeleteScheduledAction (DeleteScheduledAction'),
+    newDeleteScheduledAction,
+    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
+    newDeleteScheduledActionResponse,
+
+    -- ** DescribeScalingActivities (Paginated)
+    DescribeScalingActivities (DescribeScalingActivities'),
+    newDescribeScalingActivities,
+    DescribeScalingActivitiesResponse (DescribeScalingActivitiesResponse'),
+    newDescribeScalingActivitiesResponse,
+
+    -- ** DescribeLifecycleHooks
+    DescribeLifecycleHooks (DescribeLifecycleHooks'),
+    newDescribeLifecycleHooks,
+    DescribeLifecycleHooksResponse (DescribeLifecycleHooksResponse'),
+    newDescribeLifecycleHooksResponse,
+
+    -- ** PutScheduledUpdateGroupAction
+    PutScheduledUpdateGroupAction (PutScheduledUpdateGroupAction'),
+    newPutScheduledUpdateGroupAction,
+    PutScheduledUpdateGroupActionResponse (PutScheduledUpdateGroupActionResponse'),
+    newPutScheduledUpdateGroupActionResponse,
+
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** DetachLoadBalancerTargetGroups
+    DetachLoadBalancerTargetGroups (DetachLoadBalancerTargetGroups'),
+    newDetachLoadBalancerTargetGroups,
+    DetachLoadBalancerTargetGroupsResponse (DetachLoadBalancerTargetGroupsResponse'),
+    newDetachLoadBalancerTargetGroupsResponse,
+
+    -- ** DescribeWarmPool
+    DescribeWarmPool (DescribeWarmPool'),
+    newDescribeWarmPool,
+    DescribeWarmPoolResponse (DescribeWarmPoolResponse'),
+    newDescribeWarmPoolResponse,
+
+    -- ** SetInstanceProtection
+    SetInstanceProtection (SetInstanceProtection'),
+    newSetInstanceProtection,
+    SetInstanceProtectionResponse (SetInstanceProtectionResponse'),
+    newSetInstanceProtectionResponse,
+
+    -- ** DetachInstances
+    DetachInstances (DetachInstances'),
+    newDetachInstances,
+    DetachInstancesResponse (DetachInstancesResponse'),
+    newDetachInstancesResponse,
+
+    -- ** TerminateInstanceInAutoScalingGroup
+    TerminateInstanceInAutoScalingGroup (TerminateInstanceInAutoScalingGroup'),
+    newTerminateInstanceInAutoScalingGroup,
+    TerminateInstanceInAutoScalingGroupResponse (TerminateInstanceInAutoScalingGroupResponse'),
+    newTerminateInstanceInAutoScalingGroupResponse,
+
+    -- ** AttachLoadBalancers
+    AttachLoadBalancers (AttachLoadBalancers'),
+    newAttachLoadBalancers,
+    AttachLoadBalancersResponse (AttachLoadBalancersResponse'),
+    newAttachLoadBalancersResponse,
+
+    -- ** DescribeAccountLimits
+    DescribeAccountLimits (DescribeAccountLimits'),
+    newDescribeAccountLimits,
+    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
+    newDescribeAccountLimitsResponse,
+
+    -- ** DescribeTerminationPolicyTypes
+    DescribeTerminationPolicyTypes (DescribeTerminationPolicyTypes'),
+    newDescribeTerminationPolicyTypes,
+    DescribeTerminationPolicyTypesResponse (DescribeTerminationPolicyTypesResponse'),
+    newDescribeTerminationPolicyTypesResponse,
+
+    -- ** SetInstanceHealth
+    SetInstanceHealth (SetInstanceHealth'),
+    newSetInstanceHealth,
+    SetInstanceHealthResponse (SetInstanceHealthResponse'),
+    newSetInstanceHealthResponse,
+
+    -- ** ExitStandby
+    ExitStandby (ExitStandby'),
+    newExitStandby,
+    ExitStandbyResponse (ExitStandbyResponse'),
+    newExitStandbyResponse,
+
+    -- ** GetPredictiveScalingForecast
+    GetPredictiveScalingForecast (GetPredictiveScalingForecast'),
+    newGetPredictiveScalingForecast,
+    GetPredictiveScalingForecastResponse (GetPredictiveScalingForecastResponse'),
+    newGetPredictiveScalingForecastResponse,
+
+    -- ** PutWarmPool
+    PutWarmPool (PutWarmPool'),
+    newPutWarmPool,
+    PutWarmPoolResponse (PutWarmPoolResponse'),
+    newPutWarmPoolResponse,
+
+    -- ** DeleteNotificationConfiguration
+    DeleteNotificationConfiguration (DeleteNotificationConfiguration'),
+    newDeleteNotificationConfiguration,
+    DeleteNotificationConfigurationResponse (DeleteNotificationConfigurationResponse'),
+    newDeleteNotificationConfigurationResponse,
+
+    -- ** PutLifecycleHook
+    PutLifecycleHook (PutLifecycleHook'),
+    newPutLifecycleHook,
+    PutLifecycleHookResponse (PutLifecycleHookResponse'),
+    newPutLifecycleHookResponse,
+
+    -- ** BatchPutScheduledUpdateGroupAction
+    BatchPutScheduledUpdateGroupAction (BatchPutScheduledUpdateGroupAction'),
+    newBatchPutScheduledUpdateGroupAction,
+    BatchPutScheduledUpdateGroupActionResponse (BatchPutScheduledUpdateGroupActionResponse'),
+    newBatchPutScheduledUpdateGroupActionResponse,
+
+    -- ** DescribeMetricCollectionTypes
+    DescribeMetricCollectionTypes (DescribeMetricCollectionTypes'),
+    newDescribeMetricCollectionTypes,
+    DescribeMetricCollectionTypesResponse (DescribeMetricCollectionTypesResponse'),
+    newDescribeMetricCollectionTypesResponse,
+
+    -- ** DeleteLaunchConfiguration
+    DeleteLaunchConfiguration (DeleteLaunchConfiguration'),
+    newDeleteLaunchConfiguration,
+    DeleteLaunchConfigurationResponse (DeleteLaunchConfigurationResponse'),
+    newDeleteLaunchConfigurationResponse,
+
+    -- ** UpdateAutoScalingGroup
+    UpdateAutoScalingGroup (UpdateAutoScalingGroup'),
+    newUpdateAutoScalingGroup,
+    UpdateAutoScalingGroupResponse (UpdateAutoScalingGroupResponse'),
+    newUpdateAutoScalingGroupResponse,
+
+    -- ** DeleteAutoScalingGroup
+    DeleteAutoScalingGroup (DeleteAutoScalingGroup'),
+    newDeleteAutoScalingGroup,
+    DeleteAutoScalingGroupResponse (DeleteAutoScalingGroupResponse'),
+    newDeleteAutoScalingGroupResponse,
+
+    -- ** DescribeLoadBalancers (Paginated)
+    DescribeLoadBalancers (DescribeLoadBalancers'),
+    newDescribeLoadBalancers,
+    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
+    newDescribeLoadBalancersResponse,
+
+    -- ** CreateAutoScalingGroup
+    CreateAutoScalingGroup (CreateAutoScalingGroup'),
+    newCreateAutoScalingGroup,
+    CreateAutoScalingGroupResponse (CreateAutoScalingGroupResponse'),
+    newCreateAutoScalingGroupResponse,
+
+    -- ** AttachInstances
+    AttachInstances (AttachInstances'),
+    newAttachInstances,
+    AttachInstancesResponse (AttachInstancesResponse'),
+    newAttachInstancesResponse,
+
+    -- ** CompleteLifecycleAction
+    CompleteLifecycleAction (CompleteLifecycleAction'),
+    newCompleteLifecycleAction,
+    CompleteLifecycleActionResponse (CompleteLifecycleActionResponse'),
+    newCompleteLifecycleActionResponse,
+
+    -- ** SetDesiredCapacity
+    SetDesiredCapacity (SetDesiredCapacity'),
+    newSetDesiredCapacity,
+    SetDesiredCapacityResponse (SetDesiredCapacityResponse'),
+    newSetDesiredCapacityResponse,
+
+    -- ** DescribeLifecycleHookTypes
+    DescribeLifecycleHookTypes (DescribeLifecycleHookTypes'),
+    newDescribeLifecycleHookTypes,
+    DescribeLifecycleHookTypesResponse (DescribeLifecycleHookTypesResponse'),
+    newDescribeLifecycleHookTypesResponse,
+
+    -- ** DescribeNotificationConfigurations (Paginated)
+    DescribeNotificationConfigurations (DescribeNotificationConfigurations'),
+    newDescribeNotificationConfigurations,
+    DescribeNotificationConfigurationsResponse (DescribeNotificationConfigurationsResponse'),
+    newDescribeNotificationConfigurationsResponse,
+
+    -- ** DescribePolicies (Paginated)
+    DescribePolicies (DescribePolicies'),
+    newDescribePolicies,
+    DescribePoliciesResponse (DescribePoliciesResponse'),
+    newDescribePoliciesResponse,
+
+    -- ** DescribeLaunchConfigurations (Paginated)
+    DescribeLaunchConfigurations (DescribeLaunchConfigurations'),
+    newDescribeLaunchConfigurations,
+    DescribeLaunchConfigurationsResponse (DescribeLaunchConfigurationsResponse'),
+    newDescribeLaunchConfigurationsResponse,
+
+    -- ** DescribeAutoScalingGroups (Paginated)
+    DescribeAutoScalingGroups (DescribeAutoScalingGroups'),
+    newDescribeAutoScalingGroups,
+    DescribeAutoScalingGroupsResponse (DescribeAutoScalingGroupsResponse'),
+    newDescribeAutoScalingGroupsResponse,
+
+    -- ** EnableMetricsCollection
+    EnableMetricsCollection (EnableMetricsCollection'),
+    newEnableMetricsCollection,
+    EnableMetricsCollectionResponse (EnableMetricsCollectionResponse'),
+    newEnableMetricsCollectionResponse,
+
+    -- ** DescribeScalingProcessTypes
+    DescribeScalingProcessTypes (DescribeScalingProcessTypes'),
+    newDescribeScalingProcessTypes,
+    DescribeScalingProcessTypesResponse (DescribeScalingProcessTypesResponse'),
+    newDescribeScalingProcessTypesResponse,
+
+    -- ** RecordLifecycleActionHeartbeat
+    RecordLifecycleActionHeartbeat (RecordLifecycleActionHeartbeat'),
+    newRecordLifecycleActionHeartbeat,
+    RecordLifecycleActionHeartbeatResponse (RecordLifecycleActionHeartbeatResponse'),
+    newRecordLifecycleActionHeartbeatResponse,
+
+    -- ** DisableMetricsCollection
+    DisableMetricsCollection (DisableMetricsCollection'),
+    newDisableMetricsCollection,
+    DisableMetricsCollectionResponse (DisableMetricsCollectionResponse'),
+    newDisableMetricsCollectionResponse,
+
+    -- ** DescribeAutoScalingInstances (Paginated)
+    DescribeAutoScalingInstances (DescribeAutoScalingInstances'),
+    newDescribeAutoScalingInstances,
+    DescribeAutoScalingInstancesResponse (DescribeAutoScalingInstancesResponse'),
+    newDescribeAutoScalingInstancesResponse,
+
+    -- ** CancelInstanceRefresh
+    CancelInstanceRefresh (CancelInstanceRefresh'),
+    newCancelInstanceRefresh,
+    CancelInstanceRefreshResponse (CancelInstanceRefreshResponse'),
+    newCancelInstanceRefreshResponse,
+
+    -- ** BatchDeleteScheduledAction
+    BatchDeleteScheduledAction (BatchDeleteScheduledAction'),
+    newBatchDeleteScheduledAction,
+    BatchDeleteScheduledActionResponse (BatchDeleteScheduledActionResponse'),
+    newBatchDeleteScheduledActionResponse,
+
+    -- ** DescribeLoadBalancerTargetGroups (Paginated)
+    DescribeLoadBalancerTargetGroups (DescribeLoadBalancerTargetGroups'),
+    newDescribeLoadBalancerTargetGroups,
+    DescribeLoadBalancerTargetGroupsResponse (DescribeLoadBalancerTargetGroupsResponse'),
+    newDescribeLoadBalancerTargetGroupsResponse,
 
     -- * Types
 
+    -- ** InstanceMetadataEndpointState
+    InstanceMetadataEndpointState (..),
+
+    -- ** InstanceMetadataHttpTokensState
+    InstanceMetadataHttpTokensState (..),
+
+    -- ** InstanceRefreshStatus
+    InstanceRefreshStatus (..),
+
     -- ** LifecycleState
-    , LifecycleState (..)
+    LifecycleState (..),
 
     -- ** MetricStatistic
-    , MetricStatistic (..)
+    MetricStatistic (..),
 
     -- ** MetricType
-    , MetricType (..)
+    MetricType (..),
+
+    -- ** PredefinedLoadMetricType
+    PredefinedLoadMetricType (..),
+
+    -- ** PredefinedMetricPairType
+    PredefinedMetricPairType (..),
+
+    -- ** PredefinedScalingMetricType
+    PredefinedScalingMetricType (..),
+
+    -- ** PredictiveScalingMaxCapacityBreachBehavior
+    PredictiveScalingMaxCapacityBreachBehavior (..),
+
+    -- ** PredictiveScalingMode
+    PredictiveScalingMode (..),
+
+    -- ** RefreshStrategy
+    RefreshStrategy (..),
 
     -- ** ScalingActivityStatusCode
-    , ScalingActivityStatusCode (..)
+    ScalingActivityStatusCode (..),
+
+    -- ** WarmPoolState
+    WarmPoolState (..),
+
+    -- ** WarmPoolStatus
+    WarmPoolStatus (..),
 
     -- ** Activity
-    , Activity
-    , activity
-    , aProgress
-    , aStatusMessage
-    , aEndTime
-    , aDetails
-    , aDescription
-    , aActivityId
-    , aAutoScalingGroupName
-    , aCause
-    , aStartTime
-    , aStatusCode
+    Activity (Activity'),
+    newActivity,
 
     -- ** AdjustmentType
-    , AdjustmentType
-    , adjustmentType
-    , atAdjustmentType
+    AdjustmentType (AdjustmentType'),
+    newAdjustmentType,
 
     -- ** Alarm
-    , Alarm
-    , alarm
-    , aAlarmName
-    , aAlarmARN
+    Alarm (Alarm'),
+    newAlarm,
 
     -- ** AutoScalingGroup
-    , AutoScalingGroup
-    , autoScalingGroup
-    , asgStatus
-    , asgTerminationPolicies
-    , asgHealthCheckGracePeriod
-    , asgNewInstancesProtectedFromScaleIn
-    , asgVPCZoneIdentifier
-    , asgTargetGroupARNs
-    , asgEnabledMetrics
-    , asgLaunchConfigurationName
-    , asgInstances
-    , asgAutoScalingGroupARN
-    , asgPlacementGroup
-    , asgSuspendedProcesses
-    , asgLoadBalancerNames
-    , asgTags
-    , asgAutoScalingGroupName
-    , asgMinSize
-    , asgMaxSize
-    , asgDesiredCapacity
-    , asgDefaultCooldown
-    , asgAvailabilityZones
-    , asgHealthCheckType
-    , asgCreatedTime
+    AutoScalingGroup (AutoScalingGroup'),
+    newAutoScalingGroup,
 
     -- ** AutoScalingInstanceDetails
-    , AutoScalingInstanceDetails
-    , autoScalingInstanceDetails
-    , asidLaunchConfigurationName
-    , asidInstanceId
-    , asidAutoScalingGroupName
-    , asidAvailabilityZone
-    , asidLifecycleState
-    , asidHealthStatus
-    , asidProtectedFromScaleIn
+    AutoScalingInstanceDetails (AutoScalingInstanceDetails'),
+    newAutoScalingInstanceDetails,
 
     -- ** BlockDeviceMapping
-    , BlockDeviceMapping
-    , blockDeviceMapping
-    , bdmVirtualName
-    , bdmNoDevice
-    , bdmEBS
-    , bdmDeviceName
+    BlockDeviceMapping (BlockDeviceMapping'),
+    newBlockDeviceMapping,
+
+    -- ** CapacityForecast
+    CapacityForecast (CapacityForecast'),
+    newCapacityForecast,
 
     -- ** CustomizedMetricSpecification
-    , CustomizedMetricSpecification
-    , customizedMetricSpecification
-    , cmsDimensions
-    , cmsUnit
-    , cmsMetricName
-    , cmsNamespace
-    , cmsStatistic
+    CustomizedMetricSpecification (CustomizedMetricSpecification'),
+    newCustomizedMetricSpecification,
 
-    -- ** EBS
-    , EBS
-    , ebs
-    , ebsDeleteOnTermination
-    , ebsVolumeSize
-    , ebsIOPS
-    , ebsEncrypted
-    , ebsVolumeType
-    , ebsSnapshotId
+    -- ** DesiredConfiguration
+    DesiredConfiguration (DesiredConfiguration'),
+    newDesiredConfiguration,
+
+    -- ** Ebs
+    Ebs (Ebs'),
+    newEbs,
 
     -- ** EnabledMetric
-    , EnabledMetric
-    , enabledMetric
-    , emGranularity
-    , emMetric
+    EnabledMetric (EnabledMetric'),
+    newEnabledMetric,
+
+    -- ** FailedScheduledUpdateGroupActionRequest
+    FailedScheduledUpdateGroupActionRequest (FailedScheduledUpdateGroupActionRequest'),
+    newFailedScheduledUpdateGroupActionRequest,
 
     -- ** Filter
-    , Filter
-    , filter'
-    , fValues
-    , fName
+    Filter (Filter'),
+    newFilter,
 
     -- ** Instance
-    , Instance
-    , instance'
-    , iLaunchConfigurationName
-    , iInstanceId
-    , iAvailabilityZone
-    , iLifecycleState
-    , iHealthStatus
-    , iProtectedFromScaleIn
+    Instance (Instance'),
+    newInstance,
+
+    -- ** InstanceMetadataOptions
+    InstanceMetadataOptions (InstanceMetadataOptions'),
+    newInstanceMetadataOptions,
 
     -- ** InstanceMonitoring
-    , InstanceMonitoring
-    , instanceMonitoring
-    , imEnabled
+    InstanceMonitoring (InstanceMonitoring'),
+    newInstanceMonitoring,
+
+    -- ** InstanceRefresh
+    InstanceRefresh (InstanceRefresh'),
+    newInstanceRefresh,
+
+    -- ** InstanceRefreshLivePoolProgress
+    InstanceRefreshLivePoolProgress (InstanceRefreshLivePoolProgress'),
+    newInstanceRefreshLivePoolProgress,
+
+    -- ** InstanceRefreshProgressDetails
+    InstanceRefreshProgressDetails (InstanceRefreshProgressDetails'),
+    newInstanceRefreshProgressDetails,
+
+    -- ** InstanceRefreshWarmPoolProgress
+    InstanceRefreshWarmPoolProgress (InstanceRefreshWarmPoolProgress'),
+    newInstanceRefreshWarmPoolProgress,
+
+    -- ** InstancesDistribution
+    InstancesDistribution (InstancesDistribution'),
+    newInstancesDistribution,
 
     -- ** LaunchConfiguration
-    , LaunchConfiguration
-    , launchConfiguration
-    , lcAssociatePublicIPAddress
-    , lcSecurityGroups
-    , lcSpotPrice
-    , lcInstanceMonitoring
-    , lcKeyName
-    , lcClassicLinkVPCSecurityGroups
-    , lcRAMDiskId
-    , lcKernelId
-    , lcEBSOptimized
-    , lcUserData
-    , lcClassicLinkVPCId
-    , lcIAMInstanceProfile
-    , lcLaunchConfigurationARN
-    , lcPlacementTenancy
-    , lcBlockDeviceMappings
-    , lcLaunchConfigurationName
-    , lcImageId
-    , lcInstanceType
-    , lcCreatedTime
+    LaunchConfiguration (LaunchConfiguration'),
+    newLaunchConfiguration,
+
+    -- ** LaunchTemplate
+    LaunchTemplate (LaunchTemplate'),
+    newLaunchTemplate,
+
+    -- ** LaunchTemplateOverrides
+    LaunchTemplateOverrides (LaunchTemplateOverrides'),
+    newLaunchTemplateOverrides,
+
+    -- ** LaunchTemplateSpecification
+    LaunchTemplateSpecification (LaunchTemplateSpecification'),
+    newLaunchTemplateSpecification,
 
     -- ** LifecycleHook
-    , LifecycleHook
-    , lifecycleHook
-    , lhDefaultResult
-    , lhLifecycleHookName
-    , lhHeartbeatTimeout
-    , lhAutoScalingGroupName
-    , lhNotificationMetadata
-    , lhGlobalTimeout
-    , lhNotificationTargetARN
-    , lhLifecycleTransition
-    , lhRoleARN
+    LifecycleHook (LifecycleHook'),
+    newLifecycleHook,
 
     -- ** LifecycleHookSpecification
-    , LifecycleHookSpecification
-    , lifecycleHookSpecification
-    , lhsDefaultResult
-    , lhsHeartbeatTimeout
-    , lhsNotificationMetadata
-    , lhsNotificationTargetARN
-    , lhsLifecycleTransition
-    , lhsRoleARN
-    , lhsLifecycleHookName
+    LifecycleHookSpecification (LifecycleHookSpecification'),
+    newLifecycleHookSpecification,
 
     -- ** LoadBalancerState
-    , LoadBalancerState
-    , loadBalancerState
-    , lbsState
-    , lbsLoadBalancerName
+    LoadBalancerState (LoadBalancerState'),
+    newLoadBalancerState,
 
     -- ** LoadBalancerTargetGroupState
-    , LoadBalancerTargetGroupState
-    , loadBalancerTargetGroupState
-    , lbtgsState
-    , lbtgsLoadBalancerTargetGroupARN
+    LoadBalancerTargetGroupState (LoadBalancerTargetGroupState'),
+    newLoadBalancerTargetGroupState,
+
+    -- ** LoadForecast
+    LoadForecast (LoadForecast'),
+    newLoadForecast,
 
     -- ** MetricCollectionType
-    , MetricCollectionType
-    , metricCollectionType
-    , mctMetric
+    MetricCollectionType (MetricCollectionType'),
+    newMetricCollectionType,
 
     -- ** MetricDimension
-    , MetricDimension
-    , metricDimension
-    , mdName
-    , mdValue
+    MetricDimension (MetricDimension'),
+    newMetricDimension,
 
     -- ** MetricGranularityType
-    , MetricGranularityType
-    , metricGranularityType
-    , mgtGranularity
+    MetricGranularityType (MetricGranularityType'),
+    newMetricGranularityType,
+
+    -- ** MixedInstancesPolicy
+    MixedInstancesPolicy (MixedInstancesPolicy'),
+    newMixedInstancesPolicy,
 
     -- ** NotificationConfiguration
-    , NotificationConfiguration
-    , notificationConfiguration
-    , ncTopicARN
-    , ncAutoScalingGroupName
-    , ncNotificationType
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
 
     -- ** PredefinedMetricSpecification
-    , PredefinedMetricSpecification
-    , predefinedMetricSpecification
-    , pmsResourceLabel
-    , pmsPredefinedMetricType
+    PredefinedMetricSpecification (PredefinedMetricSpecification'),
+    newPredefinedMetricSpecification,
+
+    -- ** PredictiveScalingConfiguration
+    PredictiveScalingConfiguration (PredictiveScalingConfiguration'),
+    newPredictiveScalingConfiguration,
+
+    -- ** PredictiveScalingMetricSpecification
+    PredictiveScalingMetricSpecification (PredictiveScalingMetricSpecification'),
+    newPredictiveScalingMetricSpecification,
+
+    -- ** PredictiveScalingPredefinedLoadMetric
+    PredictiveScalingPredefinedLoadMetric (PredictiveScalingPredefinedLoadMetric'),
+    newPredictiveScalingPredefinedLoadMetric,
+
+    -- ** PredictiveScalingPredefinedMetricPair
+    PredictiveScalingPredefinedMetricPair (PredictiveScalingPredefinedMetricPair'),
+    newPredictiveScalingPredefinedMetricPair,
+
+    -- ** PredictiveScalingPredefinedScalingMetric
+    PredictiveScalingPredefinedScalingMetric (PredictiveScalingPredefinedScalingMetric'),
+    newPredictiveScalingPredefinedScalingMetric,
 
     -- ** ProcessType
-    , ProcessType
-    , processType
-    , ptProcessName
+    ProcessType (ProcessType'),
+    newProcessType,
+
+    -- ** RefreshPreferences
+    RefreshPreferences (RefreshPreferences'),
+    newRefreshPreferences,
 
     -- ** ScalingPolicy
-    , ScalingPolicy
-    , scalingPolicy
-    , sMinAdjustmentStep
-    , sEstimatedInstanceWarmup
-    , sPolicyName
-    , sPolicyType
-    , sStepAdjustments
-    , sTargetTrackingConfiguration
-    , sAdjustmentType
-    , sAutoScalingGroupName
-    , sScalingAdjustment
-    , sCooldown
-    , sPolicyARN
-    , sAlarms
-    , sMetricAggregationType
-    , sMinAdjustmentMagnitude
+    ScalingPolicy (ScalingPolicy'),
+    newScalingPolicy,
 
     -- ** ScalingProcessQuery
-    , ScalingProcessQuery
-    , scalingProcessQuery
-    , spqScalingProcesses
-    , spqAutoScalingGroupName
+    ScalingProcessQuery (ScalingProcessQuery'),
+    newScalingProcessQuery,
 
     -- ** ScheduledUpdateGroupAction
-    , ScheduledUpdateGroupAction
-    , scheduledUpdateGroupAction
-    , sugaScheduledActionARN
-    , sugaStartTime
-    , sugaTime
-    , sugaScheduledActionName
-    , sugaMaxSize
-    , sugaRecurrence
-    , sugaDesiredCapacity
-    , sugaMinSize
-    , sugaAutoScalingGroupName
-    , sugaEndTime
+    ScheduledUpdateGroupAction (ScheduledUpdateGroupAction'),
+    newScheduledUpdateGroupAction,
+
+    -- ** ScheduledUpdateGroupActionRequest
+    ScheduledUpdateGroupActionRequest (ScheduledUpdateGroupActionRequest'),
+    newScheduledUpdateGroupActionRequest,
 
     -- ** StepAdjustment
-    , StepAdjustment
-    , stepAdjustment
-    , saMetricIntervalLowerBound
-    , saMetricIntervalUpperBound
-    , saScalingAdjustment
+    StepAdjustment (StepAdjustment'),
+    newStepAdjustment,
 
     -- ** SuspendedProcess
-    , SuspendedProcess
-    , suspendedProcess
-    , spProcessName
-    , spSuspensionReason
+    SuspendedProcess (SuspendedProcess'),
+    newSuspendedProcess,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagResourceId
-    , tagResourceType
-    , tagPropagateAtLaunch
-    , tagValue
+    Tag (Tag'),
+    newTag,
 
     -- ** TagDescription
-    , TagDescription
-    , tagDescription
-    , tdResourceId
-    , tdResourceType
-    , tdKey
-    , tdPropagateAtLaunch
-    , tdValue
+    TagDescription (TagDescription'),
+    newTagDescription,
 
     -- ** TargetTrackingConfiguration
-    , TargetTrackingConfiguration
-    , targetTrackingConfiguration
-    , ttcPredefinedMetricSpecification
-    , ttcCustomizedMetricSpecification
-    , ttcDisableScaleIn
-    , ttcTargetValue
-    ) where
+    TargetTrackingConfiguration (TargetTrackingConfiguration'),
+    newTargetTrackingConfiguration,
+
+    -- ** WarmPoolConfiguration
+    WarmPoolConfiguration (WarmPoolConfiguration'),
+    newWarmPoolConfiguration,
+  )
+where
 
 import Network.AWS.AutoScaling.AttachInstances
-import Network.AWS.AutoScaling.AttachLoadBalancers
 import Network.AWS.AutoScaling.AttachLoadBalancerTargetGroups
+import Network.AWS.AutoScaling.AttachLoadBalancers
+import Network.AWS.AutoScaling.BatchDeleteScheduledAction
+import Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
+import Network.AWS.AutoScaling.CancelInstanceRefresh
 import Network.AWS.AutoScaling.CompleteLifecycleAction
 import Network.AWS.AutoScaling.CreateAutoScalingGroup
 import Network.AWS.AutoScaling.CreateLaunchConfiguration
@@ -518,16 +707,18 @@ import Network.AWS.AutoScaling.DeleteNotificationConfiguration
 import Network.AWS.AutoScaling.DeletePolicy
 import Network.AWS.AutoScaling.DeleteScheduledAction
 import Network.AWS.AutoScaling.DeleteTags
+import Network.AWS.AutoScaling.DeleteWarmPool
 import Network.AWS.AutoScaling.DescribeAccountLimits
 import Network.AWS.AutoScaling.DescribeAdjustmentTypes
 import Network.AWS.AutoScaling.DescribeAutoScalingGroups
 import Network.AWS.AutoScaling.DescribeAutoScalingInstances
 import Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
+import Network.AWS.AutoScaling.DescribeInstanceRefreshes
 import Network.AWS.AutoScaling.DescribeLaunchConfigurations
-import Network.AWS.AutoScaling.DescribeLifecycleHooks
 import Network.AWS.AutoScaling.DescribeLifecycleHookTypes
-import Network.AWS.AutoScaling.DescribeLoadBalancers
+import Network.AWS.AutoScaling.DescribeLifecycleHooks
 import Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
+import Network.AWS.AutoScaling.DescribeLoadBalancers
 import Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 import Network.AWS.AutoScaling.DescribeNotificationConfigurations
 import Network.AWS.AutoScaling.DescribePolicies
@@ -536,55 +727,57 @@ import Network.AWS.AutoScaling.DescribeScalingProcessTypes
 import Network.AWS.AutoScaling.DescribeScheduledActions
 import Network.AWS.AutoScaling.DescribeTags
 import Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
+import Network.AWS.AutoScaling.DescribeWarmPool
 import Network.AWS.AutoScaling.DetachInstances
-import Network.AWS.AutoScaling.DetachLoadBalancers
 import Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
+import Network.AWS.AutoScaling.DetachLoadBalancers
 import Network.AWS.AutoScaling.DisableMetricsCollection
 import Network.AWS.AutoScaling.EnableMetricsCollection
 import Network.AWS.AutoScaling.EnterStandby
 import Network.AWS.AutoScaling.ExecutePolicy
 import Network.AWS.AutoScaling.ExitStandby
+import Network.AWS.AutoScaling.GetPredictiveScalingForecast
+import Network.AWS.AutoScaling.Lens
 import Network.AWS.AutoScaling.PutLifecycleHook
 import Network.AWS.AutoScaling.PutNotificationConfiguration
 import Network.AWS.AutoScaling.PutScalingPolicy
 import Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
+import Network.AWS.AutoScaling.PutWarmPool
 import Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 import Network.AWS.AutoScaling.ResumeProcesses
 import Network.AWS.AutoScaling.SetDesiredCapacity
 import Network.AWS.AutoScaling.SetInstanceHealth
 import Network.AWS.AutoScaling.SetInstanceProtection
+import Network.AWS.AutoScaling.StartInstanceRefresh
 import Network.AWS.AutoScaling.SuspendProcesses
 import Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 import Network.AWS.AutoScaling.Types
 import Network.AWS.AutoScaling.UpdateAutoScalingGroup
 import Network.AWS.AutoScaling.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'AutoScaling'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'AutoScaling'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

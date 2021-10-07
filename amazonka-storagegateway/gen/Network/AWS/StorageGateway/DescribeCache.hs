@@ -1,196 +1,258 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeCache
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the cache of a gateway. This operation is only supported in the cached volume,tape and file gateway architectures.
+-- Returns information about the cache of a gateway. This operation is only
+-- supported in the cached volume, tape, and file gateway types.
 --
---
--- The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.
---
+-- The response includes disk IDs that are configured as cache, and it
+-- includes the amount of cache allocated and used.
 module Network.AWS.StorageGateway.DescribeCache
-    (
-    -- * Creating a Request
-      describeCache
-    , DescribeCache
+  ( -- * Creating a Request
+    DescribeCache (..),
+    newDescribeCache,
+
     -- * Request Lenses
-    , dcGatewayARN
+    describeCache_gatewayARN,
 
     -- * Destructuring the Response
-    , describeCacheResponse
-    , DescribeCacheResponse
+    DescribeCacheResponse (..),
+    newDescribeCacheResponse,
+
     -- * Response Lenses
-    , dcrsGatewayARN
-    , dcrsDiskIds
-    , dcrsCacheUsedPercentage
-    , dcrsCacheHitPercentage
-    , dcrsCacheMissPercentage
-    , dcrsCacheAllocatedInBytes
-    , dcrsCacheDirtyPercentage
-    , dcrsResponseStatus
-    ) where
+    describeCacheResponse_cacheHitPercentage,
+    describeCacheResponse_cacheDirtyPercentage,
+    describeCacheResponse_cacheAllocatedInBytes,
+    describeCacheResponse_cacheMissPercentage,
+    describeCacheResponse_cacheUsedPercentage,
+    describeCacheResponse_diskIds,
+    describeCacheResponse_gatewayARN,
+    describeCacheResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
--- | /See:/ 'describeCache' smart constructor.
-newtype DescribeCache = DescribeCache'
-  { _dcGatewayARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCache' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcGatewayARN' - Undocumented member.
-describeCache
-    :: Text -- ^ 'dcGatewayARN'
-    -> DescribeCache
-describeCache pGatewayARN_ = DescribeCache' {_dcGatewayARN = pGatewayARN_}
-
-
--- | Undocumented member.
-dcGatewayARN :: Lens' DescribeCache Text
-dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
-
-instance AWSRequest DescribeCache where
-        type Rs DescribeCache = DescribeCacheResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeCacheResponse' <$>
-                   (x .?> "GatewayARN") <*> (x .?> "DiskIds" .!@ mempty)
-                     <*> (x .?> "CacheUsedPercentage")
-                     <*> (x .?> "CacheHitPercentage")
-                     <*> (x .?> "CacheMissPercentage")
-                     <*> (x .?> "CacheAllocatedInBytes")
-                     <*> (x .?> "CacheDirtyPercentage")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeCache where
-
-instance NFData DescribeCache where
-
-instance ToHeaders DescribeCache where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.DescribeCache" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeCache where
-        toJSON DescribeCache'{..}
-          = object
-              (catMaybes [Just ("GatewayARN" .= _dcGatewayARN)])
-
-instance ToPath DescribeCache where
-        toPath = const "/"
-
-instance ToQuery DescribeCache where
-        toQuery = const mempty
-
--- | /See:/ 'describeCacheResponse' smart constructor.
-data DescribeCacheResponse = DescribeCacheResponse'
-  { _dcrsGatewayARN            :: !(Maybe Text)
-  , _dcrsDiskIds               :: !(Maybe [Text])
-  , _dcrsCacheUsedPercentage   :: !(Maybe Double)
-  , _dcrsCacheHitPercentage    :: !(Maybe Double)
-  , _dcrsCacheMissPercentage   :: !(Maybe Double)
-  , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
-  , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
-  , _dcrsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeCacheResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsGatewayARN' - Undocumented member.
---
--- * 'dcrsDiskIds' - Undocumented member.
---
--- * 'dcrsCacheUsedPercentage' - Undocumented member.
---
--- * 'dcrsCacheHitPercentage' - Undocumented member.
---
--- * 'dcrsCacheMissPercentage' - Undocumented member.
---
--- * 'dcrsCacheAllocatedInBytes' - Undocumented member.
---
--- * 'dcrsCacheDirtyPercentage' - Undocumented member.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeCacheResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> DescribeCacheResponse
-describeCacheResponse pResponseStatus_ =
-  DescribeCacheResponse'
-  { _dcrsGatewayARN = Nothing
-  , _dcrsDiskIds = Nothing
-  , _dcrsCacheUsedPercentage = Nothing
-  , _dcrsCacheHitPercentage = Nothing
-  , _dcrsCacheMissPercentage = Nothing
-  , _dcrsCacheAllocatedInBytes = Nothing
-  , _dcrsCacheDirtyPercentage = Nothing
-  , _dcrsResponseStatus = pResponseStatus_
+-- | /See:/ 'newDescribeCache' smart constructor.
+data DescribeCache = DescribeCache'
+  { gatewayARN :: Prelude.Text
   }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Undocumented member.
-dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a});
-
--- | Undocumented member.
-dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default . _Coerce;
-
--- | Undocumented member.
-dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\ s a -> s{_dcrsCacheUsedPercentage = a});
-
--- | Undocumented member.
-dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\ s a -> s{_dcrsCacheHitPercentage = a});
-
--- | Undocumented member.
-dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\ s a -> s{_dcrsCacheMissPercentage = a});
+-- |
+-- Create a value of 'DescribeCache' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'gatewayARN', 'describeCache_gatewayARN' - Undocumented member.
+newDescribeCache ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  DescribeCache
+newDescribeCache pGatewayARN_ =
+  DescribeCache' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCacheAllocatedInBytes = a});
+describeCache_gatewayARN :: Lens.Lens' DescribeCache Prelude.Text
+describeCache_gatewayARN = Lens.lens (\DescribeCache' {gatewayARN} -> gatewayARN) (\s@DescribeCache' {} a -> s {gatewayARN = a} :: DescribeCache)
+
+instance Core.AWSRequest DescribeCache where
+  type
+    AWSResponse DescribeCache =
+      DescribeCacheResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeCacheResponse'
+            Prelude.<$> (x Core..?> "CacheHitPercentage")
+            Prelude.<*> (x Core..?> "CacheDirtyPercentage")
+            Prelude.<*> (x Core..?> "CacheAllocatedInBytes")
+            Prelude.<*> (x Core..?> "CacheMissPercentage")
+            Prelude.<*> (x Core..?> "CacheUsedPercentage")
+            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeCache
+
+instance Prelude.NFData DescribeCache
+
+instance Core.ToHeaders DescribeCache where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "StorageGateway_20130630.DescribeCache" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DescribeCache where
+  toJSON DescribeCache' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Core..= gatewayARN)]
+      )
+
+instance Core.ToPath DescribeCache where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DescribeCache where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeCacheResponse' smart constructor.
+data DescribeCacheResponse = DescribeCacheResponse'
+  { -- | Percent of application read operations from the file shares that are
+    -- served from cache. The sample is taken at the end of the reporting
+    -- period.
+    cacheHitPercentage :: Prelude.Maybe Prelude.Double,
+    -- | The file share\'s contribution to the overall percentage of the
+    -- gateway\'s cache that has not been persisted to Amazon Web Services. The
+    -- sample is taken at the end of the reporting period.
+    cacheDirtyPercentage :: Prelude.Maybe Prelude.Double,
+    -- | The amount of cache in bytes allocated to a gateway.
+    cacheAllocatedInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | Percent of application read operations from the file shares that are not
+    -- served from cache. The sample is taken at the end of the reporting
+    -- period.
+    cacheMissPercentage :: Prelude.Maybe Prelude.Double,
+    -- | Percent use of the gateway\'s cache storage. This metric applies only to
+    -- the gateway-cached volume setup. The sample is taken at the end of the
+    -- reporting period.
+    cacheUsedPercentage :: Prelude.Maybe Prelude.Double,
+    -- | An array of strings that identify disks that are to be configured as
+    -- working storage. Each string has a minimum length of 1 and maximum
+    -- length of 300. You can get the disk IDs from the ListLocalDisks API.
+    diskIds :: Prelude.Maybe [Prelude.Text],
+    gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeCacheResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'cacheHitPercentage', 'describeCacheResponse_cacheHitPercentage' - Percent of application read operations from the file shares that are
+-- served from cache. The sample is taken at the end of the reporting
+-- period.
+--
+-- 'cacheDirtyPercentage', 'describeCacheResponse_cacheDirtyPercentage' - The file share\'s contribution to the overall percentage of the
+-- gateway\'s cache that has not been persisted to Amazon Web Services. The
+-- sample is taken at the end of the reporting period.
+--
+-- 'cacheAllocatedInBytes', 'describeCacheResponse_cacheAllocatedInBytes' - The amount of cache in bytes allocated to a gateway.
+--
+-- 'cacheMissPercentage', 'describeCacheResponse_cacheMissPercentage' - Percent of application read operations from the file shares that are not
+-- served from cache. The sample is taken at the end of the reporting
+-- period.
+--
+-- 'cacheUsedPercentage', 'describeCacheResponse_cacheUsedPercentage' - Percent use of the gateway\'s cache storage. This metric applies only to
+-- the gateway-cached volume setup. The sample is taken at the end of the
+-- reporting period.
+--
+-- 'diskIds', 'describeCacheResponse_diskIds' - An array of strings that identify disks that are to be configured as
+-- working storage. Each string has a minimum length of 1 and maximum
+-- length of 300. You can get the disk IDs from the ListLocalDisks API.
+--
+-- 'gatewayARN', 'describeCacheResponse_gatewayARN' - Undocumented member.
+--
+-- 'httpStatus', 'describeCacheResponse_httpStatus' - The response's http status code.
+newDescribeCacheResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeCacheResponse
+newDescribeCacheResponse pHttpStatus_ =
+  DescribeCacheResponse'
+    { cacheHitPercentage =
+        Prelude.Nothing,
+      cacheDirtyPercentage = Prelude.Nothing,
+      cacheAllocatedInBytes = Prelude.Nothing,
+      cacheMissPercentage = Prelude.Nothing,
+      cacheUsedPercentage = Prelude.Nothing,
+      diskIds = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Percent of application read operations from the file shares that are
+-- served from cache. The sample is taken at the end of the reporting
+-- period.
+describeCacheResponse_cacheHitPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
+describeCacheResponse_cacheHitPercentage = Lens.lens (\DescribeCacheResponse' {cacheHitPercentage} -> cacheHitPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheHitPercentage = a} :: DescribeCacheResponse)
+
+-- | The file share\'s contribution to the overall percentage of the
+-- gateway\'s cache that has not been persisted to Amazon Web Services. The
+-- sample is taken at the end of the reporting period.
+describeCacheResponse_cacheDirtyPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
+describeCacheResponse_cacheDirtyPercentage = Lens.lens (\DescribeCacheResponse' {cacheDirtyPercentage} -> cacheDirtyPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheDirtyPercentage = a} :: DescribeCacheResponse)
+
+-- | The amount of cache in bytes allocated to a gateway.
+describeCacheResponse_cacheAllocatedInBytes :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Integer)
+describeCacheResponse_cacheAllocatedInBytes = Lens.lens (\DescribeCacheResponse' {cacheAllocatedInBytes} -> cacheAllocatedInBytes) (\s@DescribeCacheResponse' {} a -> s {cacheAllocatedInBytes = a} :: DescribeCacheResponse)
+
+-- | Percent of application read operations from the file shares that are not
+-- served from cache. The sample is taken at the end of the reporting
+-- period.
+describeCacheResponse_cacheMissPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
+describeCacheResponse_cacheMissPercentage = Lens.lens (\DescribeCacheResponse' {cacheMissPercentage} -> cacheMissPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheMissPercentage = a} :: DescribeCacheResponse)
+
+-- | Percent use of the gateway\'s cache storage. This metric applies only to
+-- the gateway-cached volume setup. The sample is taken at the end of the
+-- reporting period.
+describeCacheResponse_cacheUsedPercentage :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Double)
+describeCacheResponse_cacheUsedPercentage = Lens.lens (\DescribeCacheResponse' {cacheUsedPercentage} -> cacheUsedPercentage) (\s@DescribeCacheResponse' {} a -> s {cacheUsedPercentage = a} :: DescribeCacheResponse)
+
+-- | An array of strings that identify disks that are to be configured as
+-- working storage. Each string has a minimum length of 1 and maximum
+-- length of 300. You can get the disk IDs from the ListLocalDisks API.
+describeCacheResponse_diskIds :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe [Prelude.Text])
+describeCacheResponse_diskIds = Lens.lens (\DescribeCacheResponse' {diskIds} -> diskIds) (\s@DescribeCacheResponse' {} a -> s {diskIds = a} :: DescribeCacheResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
+describeCacheResponse_gatewayARN :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe Prelude.Text)
+describeCacheResponse_gatewayARN = Lens.lens (\DescribeCacheResponse' {gatewayARN} -> gatewayARN) (\s@DescribeCacheResponse' {} a -> s {gatewayARN = a} :: DescribeCacheResponse)
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeCacheResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a});
+-- | The response's http status code.
+describeCacheResponse_httpStatus :: Lens.Lens' DescribeCacheResponse Prelude.Int
+describeCacheResponse_httpStatus = Lens.lens (\DescribeCacheResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheResponse' {} a -> s {httpStatus = a} :: DescribeCacheResponse)
 
-instance NFData DescribeCacheResponse where
+instance Prelude.NFData DescribeCacheResponse

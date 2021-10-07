@@ -7,3 +7,7 @@ config and annex specifications.
 This ensures the Continuous Integration process is the single source of truth
 for generated code changes, and keeps pull requests readable and focused on
 actual generator code/logic changes.
+
+Generate all models:
+
+    $ ./scripts/generate

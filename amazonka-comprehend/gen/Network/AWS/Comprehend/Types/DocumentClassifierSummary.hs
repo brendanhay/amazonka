@@ -1,0 +1,111 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Comprehend.Types.DocumentClassifierSummary
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Comprehend.Types.DocumentClassifierSummary where
+
+import Network.AWS.Comprehend.Types.ModelStatus
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Describes information about a document classifier and its versions.
+--
+-- /See:/ 'newDocumentClassifierSummary' smart constructor.
+data DocumentClassifierSummary = DocumentClassifierSummary'
+  { -- | The time that the latest document classifier version was submitted for
+    -- processing.
+    latestVersionCreatedAt :: Prelude.Maybe Core.POSIX,
+    -- | The name that you assigned the document classifier.
+    documentClassifierName :: Prelude.Maybe Prelude.Text,
+    -- | The version name you assigned to the latest document classifier version.
+    latestVersionName :: Prelude.Maybe Prelude.Text,
+    -- | The number of versions you created.
+    numberOfVersions :: Prelude.Maybe Prelude.Int,
+    -- | Provides the status of the latest document classifier version.
+    latestVersionStatus :: Prelude.Maybe ModelStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DocumentClassifierSummary' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'latestVersionCreatedAt', 'documentClassifierSummary_latestVersionCreatedAt' - The time that the latest document classifier version was submitted for
+-- processing.
+--
+-- 'documentClassifierName', 'documentClassifierSummary_documentClassifierName' - The name that you assigned the document classifier.
+--
+-- 'latestVersionName', 'documentClassifierSummary_latestVersionName' - The version name you assigned to the latest document classifier version.
+--
+-- 'numberOfVersions', 'documentClassifierSummary_numberOfVersions' - The number of versions you created.
+--
+-- 'latestVersionStatus', 'documentClassifierSummary_latestVersionStatus' - Provides the status of the latest document classifier version.
+newDocumentClassifierSummary ::
+  DocumentClassifierSummary
+newDocumentClassifierSummary =
+  DocumentClassifierSummary'
+    { latestVersionCreatedAt =
+        Prelude.Nothing,
+      documentClassifierName = Prelude.Nothing,
+      latestVersionName = Prelude.Nothing,
+      numberOfVersions = Prelude.Nothing,
+      latestVersionStatus = Prelude.Nothing
+    }
+
+-- | The time that the latest document classifier version was submitted for
+-- processing.
+documentClassifierSummary_latestVersionCreatedAt :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.UTCTime)
+documentClassifierSummary_latestVersionCreatedAt = Lens.lens (\DocumentClassifierSummary' {latestVersionCreatedAt} -> latestVersionCreatedAt) (\s@DocumentClassifierSummary' {} a -> s {latestVersionCreatedAt = a} :: DocumentClassifierSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The name that you assigned the document classifier.
+documentClassifierSummary_documentClassifierName :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Text)
+documentClassifierSummary_documentClassifierName = Lens.lens (\DocumentClassifierSummary' {documentClassifierName} -> documentClassifierName) (\s@DocumentClassifierSummary' {} a -> s {documentClassifierName = a} :: DocumentClassifierSummary)
+
+-- | The version name you assigned to the latest document classifier version.
+documentClassifierSummary_latestVersionName :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Text)
+documentClassifierSummary_latestVersionName = Lens.lens (\DocumentClassifierSummary' {latestVersionName} -> latestVersionName) (\s@DocumentClassifierSummary' {} a -> s {latestVersionName = a} :: DocumentClassifierSummary)
+
+-- | The number of versions you created.
+documentClassifierSummary_numberOfVersions :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe Prelude.Int)
+documentClassifierSummary_numberOfVersions = Lens.lens (\DocumentClassifierSummary' {numberOfVersions} -> numberOfVersions) (\s@DocumentClassifierSummary' {} a -> s {numberOfVersions = a} :: DocumentClassifierSummary)
+
+-- | Provides the status of the latest document classifier version.
+documentClassifierSummary_latestVersionStatus :: Lens.Lens' DocumentClassifierSummary (Prelude.Maybe ModelStatus)
+documentClassifierSummary_latestVersionStatus = Lens.lens (\DocumentClassifierSummary' {latestVersionStatus} -> latestVersionStatus) (\s@DocumentClassifierSummary' {} a -> s {latestVersionStatus = a} :: DocumentClassifierSummary)
+
+instance Core.FromJSON DocumentClassifierSummary where
+  parseJSON =
+    Core.withObject
+      "DocumentClassifierSummary"
+      ( \x ->
+          DocumentClassifierSummary'
+            Prelude.<$> (x Core..:? "LatestVersionCreatedAt")
+            Prelude.<*> (x Core..:? "DocumentClassifierName")
+            Prelude.<*> (x Core..:? "LatestVersionName")
+            Prelude.<*> (x Core..:? "NumberOfVersions")
+            Prelude.<*> (x Core..:? "LatestVersionStatus")
+      )
+
+instance Prelude.Hashable DocumentClassifierSummary
+
+instance Prelude.NFData DocumentClassifierSummary

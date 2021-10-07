@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-kinesis-video",
+    "typeOverrides": {
+        "Status": {
+            "renamedTo": "StreamStatus"
+        }
+    }
+}

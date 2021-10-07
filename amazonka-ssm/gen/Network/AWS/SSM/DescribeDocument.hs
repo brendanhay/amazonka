@@ -1,142 +1,194 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeDocument
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified Systems Manager document.
---
---
+-- Describes the specified Amazon Web Services Systems Manager document
+-- (SSM document).
 module Network.AWS.SSM.DescribeDocument
-    (
-    -- * Creating a Request
-      describeDocument
-    , DescribeDocument
+  ( -- * Creating a Request
+    DescribeDocument (..),
+    newDescribeDocument,
+
     -- * Request Lenses
-    , ddDocumentVersion
-    , ddName
+    describeDocument_versionName,
+    describeDocument_documentVersion,
+    describeDocument_name,
 
     -- * Destructuring the Response
-    , describeDocumentResponse
-    , DescribeDocumentResponse
+    DescribeDocumentResponse (..),
+    newDescribeDocumentResponse,
+
     -- * Response Lenses
-    , desrsDocument
-    , desrsResponseStatus
-    ) where
+    describeDocumentResponse_document,
+    describeDocumentResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'describeDocument' smart constructor.
+-- | /See:/ 'newDescribeDocument' smart constructor.
 data DescribeDocument = DescribeDocument'
-  { _ddDocumentVersion :: !(Maybe Text)
-  , _ddName            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An optional field specifying the version of the artifact associated with
+    -- the document. For example, \"Release 12, Update 6\". This value is
+    -- unique across all versions of a document, and can\'t be changed.
+    versionName :: Prelude.Maybe Prelude.Text,
+    -- | The document version for which you want information. Can be a specific
+    -- version or the default version.
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the SSM document.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDocument' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDocumentVersion' - The document version for which you want information. Can be a specific version or the default version.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddName' - The name of the Systems Manager document.
-describeDocument
-    :: Text -- ^ 'ddName'
-    -> DescribeDocument
-describeDocument pName_ =
-  DescribeDocument' {_ddDocumentVersion = Nothing, _ddName = pName_}
+-- 'versionName', 'describeDocument_versionName' - An optional field specifying the version of the artifact associated with
+-- the document. For example, \"Release 12, Update 6\". This value is
+-- unique across all versions of a document, and can\'t be changed.
+--
+-- 'documentVersion', 'describeDocument_documentVersion' - The document version for which you want information. Can be a specific
+-- version or the default version.
+--
+-- 'name', 'describeDocument_name' - The name of the SSM document.
+newDescribeDocument ::
+  -- | 'name'
+  Prelude.Text ->
+  DescribeDocument
+newDescribeDocument pName_ =
+  DescribeDocument'
+    { versionName = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      name = pName_
+    }
 
+-- | An optional field specifying the version of the artifact associated with
+-- the document. For example, \"Release 12, Update 6\". This value is
+-- unique across all versions of a document, and can\'t be changed.
+describeDocument_versionName :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
+describeDocument_versionName = Lens.lens (\DescribeDocument' {versionName} -> versionName) (\s@DescribeDocument' {} a -> s {versionName = a} :: DescribeDocument)
 
--- | The document version for which you want information. Can be a specific version or the default version.
-ddDocumentVersion :: Lens' DescribeDocument (Maybe Text)
-ddDocumentVersion = lens _ddDocumentVersion (\ s a -> s{_ddDocumentVersion = a});
+-- | The document version for which you want information. Can be a specific
+-- version or the default version.
+describeDocument_documentVersion :: Lens.Lens' DescribeDocument (Prelude.Maybe Prelude.Text)
+describeDocument_documentVersion = Lens.lens (\DescribeDocument' {documentVersion} -> documentVersion) (\s@DescribeDocument' {} a -> s {documentVersion = a} :: DescribeDocument)
 
--- | The name of the Systems Manager document.
-ddName :: Lens' DescribeDocument Text
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+-- | The name of the SSM document.
+describeDocument_name :: Lens.Lens' DescribeDocument Prelude.Text
+describeDocument_name = Lens.lens (\DescribeDocument' {name} -> name) (\s@DescribeDocument' {} a -> s {name = a} :: DescribeDocument)
 
-instance AWSRequest DescribeDocument where
-        type Rs DescribeDocument = DescribeDocumentResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeDocumentResponse' <$>
-                   (x .?> "Document") <*> (pure (fromEnum s)))
+instance Core.AWSRequest DescribeDocument where
+  type
+    AWSResponse DescribeDocument =
+      DescribeDocumentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDocumentResponse'
+            Prelude.<$> (x Core..?> "Document")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeDocument where
+instance Prelude.Hashable DescribeDocument
 
-instance NFData DescribeDocument where
+instance Prelude.NFData DescribeDocument
 
-instance ToHeaders DescribeDocument where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.DescribeDocument" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToHeaders DescribeDocument where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ("AmazonSSM.DescribeDocument" :: Prelude.ByteString),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToJSON DescribeDocument where
-        toJSON DescribeDocument'{..}
-          = object
-              (catMaybes
-                 [("DocumentVersion" .=) <$> _ddDocumentVersion,
-                  Just ("Name" .= _ddName)])
+instance Core.ToJSON DescribeDocument where
+  toJSON DescribeDocument' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ ("VersionName" Core..=) Prelude.<$> versionName,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion,
+            Prelude.Just ("Name" Core..= name)
+          ]
+      )
 
-instance ToPath DescribeDocument where
-        toPath = const "/"
+instance Core.ToPath DescribeDocument where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeDocument where
-        toQuery = const mempty
+instance Core.ToQuery DescribeDocument where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeDocumentResponse' smart constructor.
+-- | /See:/ 'newDescribeDocumentResponse' smart constructor.
 data DescribeDocumentResponse = DescribeDocumentResponse'
-  { _desrsDocument       :: !(Maybe DocumentDescription)
-  , _desrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the SSM document.
+    document :: Prelude.Maybe DocumentDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDocumentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsDocument' - Information about the Systems Manager document.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeDocumentResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeDocumentResponse
-describeDocumentResponse pResponseStatus_ =
+-- 'document', 'describeDocumentResponse_document' - Information about the SSM document.
+--
+-- 'httpStatus', 'describeDocumentResponse_httpStatus' - The response's http status code.
+newDescribeDocumentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeDocumentResponse
+newDescribeDocumentResponse pHttpStatus_ =
   DescribeDocumentResponse'
-  {_desrsDocument = Nothing, _desrsResponseStatus = pResponseStatus_}
+    { document =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the SSM document.
+describeDocumentResponse_document :: Lens.Lens' DescribeDocumentResponse (Prelude.Maybe DocumentDescription)
+describeDocumentResponse_document = Lens.lens (\DescribeDocumentResponse' {document} -> document) (\s@DescribeDocumentResponse' {} a -> s {document = a} :: DescribeDocumentResponse)
 
--- | Information about the Systems Manager document.
-desrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-desrsDocument = lens _desrsDocument (\ s a -> s{_desrsDocument = a});
+-- | The response's http status code.
+describeDocumentResponse_httpStatus :: Lens.Lens' DescribeDocumentResponse Prelude.Int
+describeDocumentResponse_httpStatus = Lens.lens (\DescribeDocumentResponse' {httpStatus} -> httpStatus) (\s@DescribeDocumentResponse' {} a -> s {httpStatus = a} :: DescribeDocumentResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeDocumentResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a});
-
-instance NFData DescribeDocumentResponse where
+instance Prelude.NFData DescribeDocumentResponse

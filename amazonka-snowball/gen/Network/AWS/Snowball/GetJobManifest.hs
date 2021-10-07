@@ -1,137 +1,184 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Snowball.GetJobManifest
--- Copyright   : (c) 2013-2017 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a link to an Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value. You can access the manifest file for up to 60 minutes after this request has been made. To access the manifest file after 60 minutes have passed, you'll have to make another call to the @GetJobManifest@ action.
+-- Returns a link to an Amazon S3 presigned URL for the manifest file
+-- associated with the specified @JobId@ value. You can access the manifest
+-- file for up to 60 minutes after this request has been made. To access
+-- the manifest file after 60 minutes have passed, you\'ll have to make
+-- another call to the @GetJobManifest@ action.
 --
+-- The manifest is an encrypted file that you can download after your job
+-- enters the @WithCustomer@ status. The manifest is decrypted by using the
+-- @UnlockCode@ code value, when you pass both values to the Snow device
+-- through the Snowball client when the client is started for the first
+-- time.
 --
--- The manifest is an encrypted file that you can download after your job enters the @WithCustomer@ status. The manifest is decrypted by using the @UnlockCode@ code value, when you pass both values to the Snowball through the Snowball client when the client is started for the first time.
+-- As a best practice, we recommend that you don\'t save a copy of an
+-- @UnlockCode@ value in the same location as the manifest file for that
+-- job. Saving these separately helps prevent unauthorized parties from
+-- gaining access to the Snow device associated with that job.
 --
--- As a best practice, we recommend that you don't save a copy of an @UnlockCode@ value in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
---
--- The credentials of a given job, including its manifest file and unlock code, expire 90 days after the job is created.
---
+-- The credentials of a given job, including its manifest file and unlock
+-- code, expire 360 days after the job is created.
 module Network.AWS.Snowball.GetJobManifest
-    (
-    -- * Creating a Request
-      getJobManifest
-    , GetJobManifest
+  ( -- * Creating a Request
+    GetJobManifest (..),
+    newGetJobManifest,
+
     -- * Request Lenses
-    , gjmJobId
+    getJobManifest_jobId,
 
     -- * Destructuring the Response
-    , getJobManifestResponse
-    , GetJobManifestResponse
+    GetJobManifestResponse (..),
+    newGetJobManifestResponse,
+
     -- * Response Lenses
-    , gjmrsManifestURI
-    , gjmrsResponseStatus
-    ) where
+    getJobManifestResponse_manifestURI,
+    getJobManifestResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
-import Network.AWS.Snowball.Types.Product
 
--- | /See:/ 'getJobManifest' smart constructor.
-newtype GetJobManifest = GetJobManifest'
-  { _gjmJobId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetJobManifest' smart constructor.
+data GetJobManifest = GetJobManifest'
+  { -- | The ID for a job that you want to get the manifest file for, for example
+    -- @JID123e4567-e89b-12d3-a456-426655440000@.
+    jobId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetJobManifest' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetJobManifest' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gjmJobId' - The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-getJobManifest
-    :: Text -- ^ 'gjmJobId'
-    -> GetJobManifest
-getJobManifest pJobId_ = GetJobManifest' {_gjmJobId = pJobId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'jobId', 'getJobManifest_jobId' - The ID for a job that you want to get the manifest file for, for example
+-- @JID123e4567-e89b-12d3-a456-426655440000@.
+newGetJobManifest ::
+  -- | 'jobId'
+  Prelude.Text ->
+  GetJobManifest
+newGetJobManifest pJobId_ =
+  GetJobManifest' {jobId = pJobId_}
 
+-- | The ID for a job that you want to get the manifest file for, for example
+-- @JID123e4567-e89b-12d3-a456-426655440000@.
+getJobManifest_jobId :: Lens.Lens' GetJobManifest Prelude.Text
+getJobManifest_jobId = Lens.lens (\GetJobManifest' {jobId} -> jobId) (\s@GetJobManifest' {} a -> s {jobId = a} :: GetJobManifest)
 
--- | The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-gjmJobId :: Lens' GetJobManifest Text
-gjmJobId = lens _gjmJobId (\ s a -> s{_gjmJobId = a});
+instance Core.AWSRequest GetJobManifest where
+  type
+    AWSResponse GetJobManifest =
+      GetJobManifestResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetJobManifestResponse'
+            Prelude.<$> (x Core..?> "ManifestURI")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetJobManifest where
-        type Rs GetJobManifest = GetJobManifestResponse
-        request = postJSON snowball
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetJobManifestResponse' <$>
-                   (x .?> "ManifestURI") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetJobManifest
 
-instance Hashable GetJobManifest where
+instance Prelude.NFData GetJobManifest
 
-instance NFData GetJobManifest where
+instance Core.ToHeaders GetJobManifest where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "AWSIESnowballJobManagementService.GetJobManifest" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
 
-instance ToHeaders GetJobManifest where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSIESnowballJobManagementService.GetJobManifest"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Core.ToJSON GetJobManifest where
+  toJSON GetJobManifest' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("JobId" Core..= jobId)]
+      )
 
-instance ToJSON GetJobManifest where
-        toJSON GetJobManifest'{..}
-          = object (catMaybes [Just ("JobId" .= _gjmJobId)])
+instance Core.ToPath GetJobManifest where
+  toPath = Prelude.const "/"
 
-instance ToPath GetJobManifest where
-        toPath = const "/"
+instance Core.ToQuery GetJobManifest where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetJobManifest where
-        toQuery = const mempty
-
--- | /See:/ 'getJobManifestResponse' smart constructor.
+-- | /See:/ 'newGetJobManifestResponse' smart constructor.
 data GetJobManifestResponse = GetJobManifestResponse'
-  { _gjmrsManifestURI    :: !(Maybe Text)
-  , _gjmrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon S3 presigned URL for the manifest file associated with the
+    -- specified @JobId@ value.
+    manifestURI :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
-
--- | Creates a value of 'GetJobManifestResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetJobManifestResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gjmrsManifestURI' - The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gjmrsResponseStatus' - -- | The response status code.
-getJobManifestResponse
-    :: Int -- ^ 'gjmrsResponseStatus'
-    -> GetJobManifestResponse
-getJobManifestResponse pResponseStatus_ =
+-- 'manifestURI', 'getJobManifestResponse_manifestURI' - The Amazon S3 presigned URL for the manifest file associated with the
+-- specified @JobId@ value.
+--
+-- 'httpStatus', 'getJobManifestResponse_httpStatus' - The response's http status code.
+newGetJobManifestResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetJobManifestResponse
+newGetJobManifestResponse pHttpStatus_ =
   GetJobManifestResponse'
-  {_gjmrsManifestURI = Nothing, _gjmrsResponseStatus = pResponseStatus_}
+    { manifestURI =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The Amazon S3 presigned URL for the manifest file associated with the
+-- specified @JobId@ value.
+getJobManifestResponse_manifestURI :: Lens.Lens' GetJobManifestResponse (Prelude.Maybe Prelude.Text)
+getJobManifestResponse_manifestURI = Lens.lens (\GetJobManifestResponse' {manifestURI} -> manifestURI) (\s@GetJobManifestResponse' {} a -> s {manifestURI = a} :: GetJobManifestResponse)
 
--- | The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
-gjmrsManifestURI :: Lens' GetJobManifestResponse (Maybe Text)
-gjmrsManifestURI = lens _gjmrsManifestURI (\ s a -> s{_gjmrsManifestURI = a});
+-- | The response's http status code.
+getJobManifestResponse_httpStatus :: Lens.Lens' GetJobManifestResponse Prelude.Int
+getJobManifestResponse_httpStatus = Lens.lens (\GetJobManifestResponse' {httpStatus} -> httpStatus) (\s@GetJobManifestResponse' {} a -> s {httpStatus = a} :: GetJobManifestResponse)
 
--- | -- | The response status code.
-gjmrsResponseStatus :: Lens' GetJobManifestResponse Int
-gjmrsResponseStatus = lens _gjmrsResponseStatus (\ s a -> s{_gjmrsResponseStatus = a});
-
-instance NFData GetJobManifestResponse where
+instance Prelude.NFData GetJobManifestResponse

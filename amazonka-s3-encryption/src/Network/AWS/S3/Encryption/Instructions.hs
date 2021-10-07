@@ -11,7 +11,6 @@ import Control.Arrow ((&&&))
 import Control.Lens ((%~))
 import qualified Control.Lens as Lens
 import qualified Data.Aeson.Types as Aeson
-import Data.Coerce (coerce)
 import qualified Network.AWS as AWS
 import Network.AWS.Core
 import Network.AWS.Prelude

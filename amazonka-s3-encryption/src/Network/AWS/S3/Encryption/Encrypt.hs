@@ -9,7 +9,6 @@ module Network.AWS.S3.Encryption.Encrypt where
 
 import Control.Lens ((%~), (<>~), (^.))
 import qualified Control.Lens as Lens
-import Data.Coerce (coerce)
 import qualified Network.AWS as AWS
 import Network.AWS.Core
 import Network.AWS.Prelude

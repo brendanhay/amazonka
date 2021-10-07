@@ -1,11 +1,6 @@
 {
     "libraryName": "amazonka-autoscaling",
     "typeOverrides": {
-        "Activity": {
-            "optionalFields": [
-                "AutoScalingGroupName"
-            ]
-        },
         "AutoScalingGroup": {
             "optionalFields": [
                 "LaunchConfigurationName"

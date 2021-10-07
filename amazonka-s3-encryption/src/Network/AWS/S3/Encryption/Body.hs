@@ -11,7 +11,6 @@ module Network.AWS.S3.Encryption.Body where
 import Conduit ((.|))
 import qualified Conduit
 import qualified Data.ByteString as BS
-import qualified Data.ByteString.Lazy as LBS
 import Network.AWS.Core
 import Network.AWS.Prelude
 

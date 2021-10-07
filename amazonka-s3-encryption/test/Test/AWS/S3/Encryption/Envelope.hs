@@ -16,7 +16,6 @@ module Test.AWS.S3.Encryption.Envelope
 import           Control.Monad.Trans.Resource
 import           Crypto.Cipher.AES
 import           Crypto.Cipher.Types
-import           Crypto.Data.Padding
 import           Crypto.Error
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
@@ -24,16 +23,13 @@ import           Data.Conduit
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
 import           Network.AWS.Core
-import           Network.AWS.Prelude
-import           Network.AWS.S3.Encryption.Body
 import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Types
 import           Test.AWS.Prelude
 import qualified Test.QuickCheck.Monadic as QC
 import qualified Test.QuickCheck.Unicode as Unicode
-import           Test.Tasty
 import           Test.Tasty.HUnit
-import           Test.Tasty.QuickCheck (Arbitrary, Gen, Property, testProperty, arbitrary)
+import           Test.Tasty.QuickCheck (Arbitrary, Property, testProperty, arbitrary)
 
 
 envelopeTests :: [TestTree]
@@ -92,11 +88,11 @@ testEncryptDecrypt bs = do
 
     (encBody ^. chunkedLength) `mod` fromIntegral aesBlockSize  @?= 0
 
-    encRes <- runResourceT (_chunkedBody encBody $$ CL.consume)
+    encRes <- runResourceT . runConduit $ _chunkedBody encBody .| CL.consume
 
     let rsb = bodyDecrypt e $ ResponseBody $ CL.sourceList encRes
 
-    decRes <- runResourceT (_streamBody rsb $$ CL.consume)
+    decRes <- runResourceT . runConduit $ _streamBody rsb .| CL.consume
 
     mconcat bs @?= mconcat decRes
 

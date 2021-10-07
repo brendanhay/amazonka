@@ -7,13 +7,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Envelope where
 
-import qualified Data.ByteString as BS
 import Conduit ((.|))
 import qualified Conduit
 import qualified Control.Exception as Exception
 import Control.Lens ((+~), (?~), (^.))
-import qualified Crypto.Cipher.AES as AES
 import Crypto.Cipher.AES (AES256)
+import qualified Crypto.Cipher.AES as AES
 import Crypto.Cipher.Types (BlockCipher, Cipher, IV)
 import qualified Crypto.Cipher.Types as Cipher
 import qualified Crypto.Data.Padding as Padding
@@ -24,6 +23,7 @@ import Crypto.Random (getRandomBytes)
 import qualified Data.Aeson as Aeson
 import Data.ByteArray (ByteArray)
 import qualified Data.ByteArray as ByteArray
+import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
 import qualified Network.AWS as AWS
@@ -238,16 +238,18 @@ aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RequestBody -> RequestBody
 bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
-    Chunked $ toChunked rqBody
-        -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
+  Chunked $
+    toChunked rqBody
+      -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
       & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
       & chunkedLength +~ padding -- extend length for any required AES padding
   where
     encryptChunks = aesCbc iv0 nextChunk lastChunk
 
-    nextChunk iv b = let iv' = fromMaybe iv . Cipher.makeIV $ BS.drop (BS.length b - aesBlockSize) r
-                         r = Cipher.cbcEncrypt aes iv b
-                      in (iv', r)
+    nextChunk iv b =
+      let iv' = fromMaybe iv . Cipher.makeIV $ BS.drop (BS.length b - aesBlockSize) r
+          r = Cipher.cbcEncrypt aes iv b
+       in (iv', r)
 
     lastChunk iv = Cipher.cbcEncrypt aes iv . Padding.pad (Padding.PKCS7 aesBlockSize)
 
@@ -256,35 +258,40 @@ bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
 
 bodyDecrypt :: Envelope -> ResponseBody -> ResponseBody
 bodyDecrypt (getCipher -> (aes, iv0)) rsBody =
-    rsBody `fuseStream` decryptChunks
+  rsBody `fuseStream` decryptChunks
   where
     decryptChunks = aesCbc iv0 nextChunk lastChunk
 
-    nextChunk iv b = let iv' = fromMaybe iv . Cipher.makeIV $ BS.drop (BS.length b - aesBlockSize) b
-                         r = Cipher.cbcDecrypt aes iv b
-                      in (iv', r)
+    nextChunk iv b =
+      let iv' = fromMaybe iv . Cipher.makeIV $ BS.drop (BS.length b - aesBlockSize) b
+          r = Cipher.cbcDecrypt aes iv b
+       in (iv', r)
 
-    lastChunk iv b = let r = Cipher.cbcDecrypt aes iv b
-                      in fromMaybe r (Padding.unpad (Padding.PKCS7 aesBlockSize) r)
+    lastChunk iv b =
+      let r = Cipher.cbcDecrypt aes iv b
+       in fromMaybe r (Padding.unpad (Padding.PKCS7 aesBlockSize) r)
 
-aesCbc :: Monad m
-       => IV AES256
-       -> (IV AES256 -> ByteString -> (IV AES256, ByteString))
-       -> (IV AES256 -> ByteString -> ByteString)
-       -> Conduit.ConduitT ByteString ByteString m ()
+aesCbc ::
+  Monad m =>
+  IV AES256 ->
+  (IV AES256 -> ByteString -> (IV AES256, ByteString)) ->
+  (IV AES256 -> ByteString -> ByteString) ->
+  Conduit.ConduitT ByteString ByteString m ()
 aesCbc iv0 nextChunk lastChunk = Conduit.chunksOfCE aesBlockSize .| goChunk iv0 Nothing
   where
     goChunk iv carryChunk =
-       do cs <- Conduit.await
-          case cs
-            of Nothing -> case carryChunk
-                            of Nothing -> return ()
-                               Just b  -> Conduit.yield $ lastChunk iv b
-               Just c  -> case carryChunk
-                            of Nothing -> goChunk iv (Just c)
-                               Just b  -> do let (iv', b') = nextChunk iv b
-                                             Conduit.yield b'
-                                             goChunk iv' (Just c)
+      do
+        cs <- Conduit.await
+        case cs of
+          Nothing -> case carryChunk of
+            Nothing -> return ()
+            Just b -> Conduit.yield $ lastChunk iv b
+          Just c -> case carryChunk of
+            Nothing -> goChunk iv (Just c)
+            Just b -> do
+              let (iv', b') = nextChunk iv b
+              Conduit.yield b'
+              goChunk iv' (Just c)
 
 rsaEncrypt :: KeyPair -> ByteString -> IO ByteString
 rsaEncrypt k =

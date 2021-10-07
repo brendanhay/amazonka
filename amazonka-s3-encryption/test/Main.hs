@@ -7,13 +7,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Main (main) where
 
-import Test.Tasty
 import Test.AWS.S3.Encryption.Envelope
+import Test.Tasty
 
 main :: IO ()
-main = defaultMain $ testGroup "S3-encryption"
-    [ testGroup "envelope" envelopeTests
-    ]
+main =
+  defaultMain $
+    testGroup
+      "S3-encryption"
+      [ testGroup "envelope" envelopeTests
+      ]

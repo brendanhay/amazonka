@@ -5,7 +5,6 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
 module Network.AWS.S3.Encryption.Body where
 
 import Conduit ((.|))
@@ -37,5 +36,6 @@ enforceChunks ::
   a ->
   Conduit.ConduitT () ByteString (Conduit.ResourceT IO) () ->
   ChunkedBody
-enforceChunks size c = ChunkedBody defaultChunkSize (fromIntegral size) $
-  c .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)
+enforceChunks size c =
+  ChunkedBody defaultChunkSize (fromIntegral size) $
+    c .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)

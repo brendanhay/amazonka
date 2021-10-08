@@ -60,6 +60,9 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#654](https://github.com/brendanhay/amazonka/pull/654)
 - amazonka-rds now supports the `DestinationRegion` pseudo-parameter for cross-region requests
 [\#661](https://github.com/brendanhay/amazonka/pull/661)
+- Fixed S3 envelope encryption
+[\#669](https://github.com/brendanhay/amazonka/pull/669)
+
 
 ### Other Changes
 

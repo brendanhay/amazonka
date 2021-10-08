@@ -7,9 +7,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Body where
 
+import Conduit ((.|))
 import qualified Conduit
 import qualified Data.ByteString as BS
-import qualified Data.ByteString.Lazy as LBS
 import Network.AWS.Core
 import Network.AWS.Prelude
 
@@ -34,19 +34,8 @@ instance ToChunkedBody RequestBody where
 enforceChunks ::
   Integral a =>
   a ->
-  Conduit.ConduitM () ByteString (Conduit.ResourceT IO) () ->
+  Conduit.ConduitT () ByteString (Conduit.ResourceT IO) () ->
   ChunkedBody
-enforceChunks size =
-  ChunkedBody defaultChunkSize (fromIntegral size) . flip Conduit.fuse loop
-  where
-    loop =
-      Conduit.awaitForever yield
-        Conduit..| Conduit.takeCE chunk
-        Conduit..| Conduit.mapC LBS.toStrict
-
-    yield input = do
-      Conduit.leftover input
-      bytes <- Conduit.sinkLazy
-      Conduit.yield bytes
-
-    chunk = fromIntegral defaultChunkSize
+enforceChunks size c =
+  ChunkedBody defaultChunkSize (fromIntegral size) $
+    c .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)

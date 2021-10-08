@@ -16,8 +16,8 @@ import Control.Lens
 import Control.Monad.Except
 import Data.Aeson
 import Data.List (find, partition)
-import qualified Data.Text as Text
 import Data.Text (Text)
+import qualified Data.Text as Text
 import Gen.AST.Data.Field
 import Gen.Types
 
@@ -157,12 +157,12 @@ requestInsts m oname h r fs = do
           -- 3. Unknown.
           (ns, e, _) ->
             Left $
-            "String determining root ToElement instance: "
-              ++ Text.unpack (memberId n)
-                    ++ ", namespace: "
-                    ++ show ns
-                    ++ ", locationName: "
-                    ++ show e
+              "String determining root ToElement instance: "
+                ++ Text.unpack (memberId n)
+                ++ ", namespace: "
+                ++ show ns
+                ++ ", locationName: "
+                ++ show e
       where
         nonEmptyXML = notXML True
         anyXML = notXML False
@@ -246,12 +246,12 @@ uriFields oname h l f fs = traverse go (h ^. l)
       where
         match x = memberId v == name x
         missing =
-            "Missing field corresponding to URI variable "
-                ++ Text.unpack (memberId v)
-                ++ " in field names "
-                ++ show ids
-                ++ "\nfor operation "
-                ++ Text.unpack (memberId oname)
+          "Missing field corresponding to URI variable "
+            ++ Text.unpack (memberId v)
+            ++ " in field names "
+            ++ show ids
+            ++ "\nfor operation "
+            ++ Text.unpack (memberId oname)
 
     ids :: [Text]
     ids = foldMap ((: []) . name) fs

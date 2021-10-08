@@ -1,3 +1,5 @@
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-unused-top-binds #-}
 
@@ -13,33 +15,32 @@
 
 module Main (main) where
 
-import Control.Error
 import Control.Lens (Lens', (^.))
 import qualified Control.Lens as Lens
 import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
-import Data.String
 import qualified Data.Text as Text
-import qualified Filesystem as FS
-import Filesystem.Path.CurrentOS
 import qualified Gen.AST as AST
-import Gen.Formatting
 import Gen.IO
-import qualified Gen.JSON as JS
+import qualified Gen.JSON as JSON
 import qualified Gen.Tree as Tree
-import Gen.Types hiding (info)
+import Gen.Types hiding (info, serivce, config, retry)
 import Options.Applicative
+import System.FilePath ((</>))
+import qualified System.FilePath as FilePath
+import qualified UnliftIO
+import qualified UnliftIO.Directory as UnliftIO
 
 data Options = Options
-  { _optionOutput :: Path,
-    _optionAnnexes :: Path,
-    _optionServices :: Path,
-    _optionTemplates :: Path,
-    _optionAssets :: Path,
-    _optionRetry :: Path,
+  { _optionOutput :: FilePath,
+    _optionAnnexes :: FilePath,
+    _optionServices :: FilePath,
+    _optionTemplates :: FilePath,
+    _optionAssets :: FilePath,
+    _optionRetry :: FilePath,
     _optionVersions :: Versions,
-    _optionModels :: [Path]
+    _optionModels :: [FilePath]
   }
   deriving (Show)
 
@@ -48,73 +49,63 @@ $(Lens.makeLenses ''Options)
 parser :: Parser Options
 parser =
   Options
-    <$> option
-      isPath
+    <$> strOption
       ( long "out"
           <> metavar "OUT-PATH"
           <> help "Directory to place the generated library."
       )
-    <*> option
-      isPath
+    <*> strOption
       ( long "annexes"
           <> metavar "PATH"
           <> help "Directory containing botocore model annexes."
           <> value "config/annexes"
       )
-    <*> option
-      isPath
+    <*> strOption
       ( long "services"
           <> metavar "PATH"
           <> help "Directory containing service configuration."
           <> value "config/services"
       )
-    <*> option
-      isPath
+    <*> strOption
       ( long "templates"
           <> metavar "PATH"
           <> help "Directory containing ED-E templates."
           <> value "config/templates"
       )
-    <*> option
-      isPath
+    <*> strOption
       ( long "assets"
           <> metavar "PATH"
           <> help "Directory containing static files for generated libraries."
           <> value "config/assets"
       )
-    <*> option
-      isPath
+    <*> strOption
       ( long "retry"
           <> metavar "PATH"
           <> help "Path to the file containing retry definitions."
       )
     <*> ( Versions
             <$> option
-              version
+              versionReader
               ( long "library-version"
                   <> metavar "VERSION"
                   <> help "Version of the library to generate."
               )
             <*> option
-              version
+              versionReader
               ( long "client-version"
                   <> metavar "VERSION"
                   <> help "Client library version dependecy for examples."
               )
         )
     <*> some
-      ( argument
-          isPath
+      ( strArgument
           ( metavar "MODEL-PATH"
               <> help "Directory for a service's botocore models."
           )
       )
 
-isPath :: ReadM Path
-isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromString)
-
-version :: ReadM (Version v)
-version = eitherReader (Right . Version . Text.pack)
+versionReader :: ReadM (Version v)
+versionReader = eitherReader (Right . Version . Text.pack)
 
 options :: ParserInfo Options
 options = info (helper <*> parser) fullDesc
@@ -131,11 +122,11 @@ validate o = flip execStateT o $ do
     ]
   mapM canon (o ^. optionModels) >>= Lens.assign optionModels
   where
-    check :: (MonadIO m, MonadState s m) => Lens' s Path -> m ()
+    check :: (MonadIO m, MonadState s m) => Lens' s FilePath -> m ()
     check l = gets (Lens.view l) >>= canon >>= Lens.assign l
 
-    canon :: MonadIO m => Path -> m Path
-    canon = liftIO . FS.canonicalizePath
+    canon :: MonadIO m => FilePath -> m FilePath
+    canon = UnliftIO.canonicalizePath
 
 main :: IO ()
 main = do
@@ -143,83 +134,98 @@ main = do
     customExecParser (prefs showHelpOnError) options
       >>= validate
 
-  let i = length _optionModels
+  title "Initialising..." <* done
 
-  run $ do
-    title "Initialising..." <* done
+  let total = show (length _optionModels)
+      load = readTemplate _optionTemplates
 
-    let load = readTemplate _optionTemplates
+  templates <- flip evalStateT mempty $ do
+    title ("Loading templates from " ++ _optionTemplates)
 
-    tmpl <- flip evalStateT mempty $ do
-      lift (title ("Loading templates from " % path) _optionTemplates)
+    cabalTemplate <- load "cabal.ede"
+    tocTemplate <- load "toc.ede"
+    waitersTemplate <- load "waiters.ede"
+    readmeTemplate <- load "readme.ede"
+    operationTemplate <- load "operation.ede"
+    typesTemplate <- load "types.ede"
+    lensTemplate <- load "lens.ede"
+    sumTemplate <- load "sum.ede"
+    productTemplate <- load "product.ede"
+    testMainTemplate <- load "test/main.ede"
+    testNamespaceTemplate <- load "test/namespace.ede"
+    testInternalTemplate <- load "test/internal.ede"
+    fixturesTemplate <- load "test/fixtures.ede"
+    fixtureRequestTemplate <- load "test/fixtures/request.ede"
+    blankTemplate <- load "blank.ede"
 
-      cabalTemplate <- load "cabal.ede"
-      tocTemplate <- load "toc.ede"
-      waitersTemplate <- load "waiters.ede"
-      readmeTemplate <- load "readme.ede"
-      operationTemplate <- load "operation.ede"
-      typesTemplate <- load "types.ede"
-      lensTemplate <- load "lens.ede"
-      sumTemplate <- load "sum.ede"
-      productTemplate <- load "product.ede"
-      testMainTemplate <- load "test/main.ede"
-      testNamespaceTemplate <- load "test/namespace.ede"
-      testInternalTemplate <- load "test/internal.ede"
-      fixturesTemplate <- load "test/fixtures.ede"
-      fixtureRequestTemplate <- load "test/fixtures/request.ede"
-      blankTemplate <- load "blank.ede"
+    lift done
 
-      lift done
+    pure Templates {..}
 
-      pure Templates {..}
+  let hoistEither = either UnliftIO.throwString pure
 
-    r <- JS.required _optionRetry
+  retry <- JSON.required _optionRetry
 
-    forM_ (zip [1 ..] _optionModels) $ \(j, f) -> do
-      title
-        ("[" % int % "/" % int % "] model:" % path)
-        (j :: Int)
-        (i :: Int)
-        (filename f)
+  forM_ (zip [1 ..] _optionModels) $ \(index, path) -> do
+    title $
+      "[" ++ show (index :: Int)
+        ++ "/"
+        ++ total
+        ++ "] model:"
+        ++ FilePath.takeFileName path
 
-      m <- listDir f >>= hoistEither . loadModel f
+    model@Model {..} <-
+      UnliftIO.listDirectory path
+        >>= hoistEither . loadModel path
 
-      say
-        ("Using version " % dateDash % " out of [" % intercalated ", " dateDash % "]")
-        (m ^. modelVersion)
-        (m ^. modelVersions)
+    say $
+      "Using version "
+        ++ show _modelVersion
+        ++ " out of "
+        ++ show _modelVersions
 
-      cfg <-
-        JS.required (_optionServices </> (m ^. configFile))
-          >>= hoistEither . JS.parse
+    config@Config {..} <-
+      JSON.required (_optionServices </> configFile model)
+        >>= hoistEither . JSON.parse
 
-      api <-
-        sequence
-          [ JS.optional (_optionAnnexes </> (m ^. annexFile)),
-            JS.required (m ^. serviceFile),
-            JS.optional (m ^. waitersFile),
-            JS.optional (m ^. pagersFile),
-            pure r
-          ]
-          >>= hoistEither . JS.parse . JS.merge
+    service <-
+      sequence
+        [ JSON.optional (_optionAnnexes </> annexFile model),
+          JSON.required (serviceFile model),
+          JSON.optional (waitersFile model),
+          JSON.optional (pagersFile model),
+          pure retry
+        ]
+        >>= hoistEither . JSON.parse . JSON.merge
 
-      say
-        ("Successfully parsed '" % stext % "' API definition")
-        (api ^. serviceFullName)
+    say $
+      "Successfully parsed '"
+        ++ Text.unpack (service ^. serviceFullName)
+        ++ "' API definition"
 
-      lib <- hoistEither (AST.rewrite _optionVersions cfg api)
+    library <- hoistEither (AST.rewrite _optionVersions config service)
 
-      dir <-
-        hoistEither (Tree.populate _optionOutput tmpl lib)
-          >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
+    say $
+      "Successfully synthesised '"
+        ++ Text.unpack (library ^. libraryName)
+        ++ "' Haskell package"
 
-      say
-        ("Successfully rendered " % stext % "-" % semver % " package")
-        (lib ^. libraryName)
-        (lib ^. libraryVersion)
+    directoryTree <-
+      hoistEither (Tree.populate _optionOutput templates library)
+        >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
-      copyDir _optionAssets (Tree.root dir)
+    say $
+      "Successfully rendered "
+        ++ Text.unpack _libraryName
+        ++ "-"
+        ++ Text.unpack (semver (library ^. libraryVersion))
+        ++ " package"
 
-      done
+    copyDir _optionAssets (Tree.root directoryTree)
 
-    title ("Successfully processed " % int % " models.") i
+    done
+
+  title $
+    "Successfully processed "
+      ++ total
+      ++ " models."

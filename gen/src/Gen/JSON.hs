@@ -10,7 +10,6 @@
 
 module Gen.JSON where
 
-import Data.String (fromString)
 import Control.Error
 import Control.Monad.Except
 import Data.Aeson hiding (decode)
@@ -20,6 +19,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict as Map
 import Data.List
+import Data.String (fromString)
 import qualified Data.Text.Lazy as LText
 import Gen.IO
 import Gen.Types
@@ -43,8 +43,8 @@ optional path = do
 
 objectErr :: ToJSON a => String -> a -> Either String Object
 objectErr n x =
-    note ("Failed to extract JSON object from value " ++ n) $
-      EDE.fromValue (toJSON x)
+  note ("Failed to extract JSON object from value " ++ n) $
+    EDE.fromValue (toJSON x)
 
 decode :: ByteString -> Either String Object
 decode = eitherDecode' . LBS.fromStrict

@@ -15,7 +15,6 @@ module Gen.Tree
   )
 where
 
-import System.FilePath ((<.>), (</>))
 import Control.Lens (each, (^.), (^..))
 import Control.Monad
 import Data.Aeson hiding (json)
@@ -26,11 +25,12 @@ import Data.Monoid hiding (Sum)
 import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
-import qualified System.FilePath as FilePath
 import Gen.Import
 import qualified Gen.JSON as JS
 import Gen.Types
 import System.Directory.Tree hiding (file)
+import System.FilePath ((<.>), (</>))
+import qualified System.FilePath as FilePath
 import Text.EDE hiding (failure, render)
 import Prelude hiding (mod)
 

@@ -73,9 +73,8 @@ operationData cfg m o = do
     struct (a :< Struct s) = Right (a, s)
     struct _s =
       Left $
-        format
-          ("Unexpected non-struct shape for operation " % iprimary)
-          xn
+        "Unexpected non-struct shape for operation "
+          ++ Text.unpack (memberId xn)
 
     p = m ^. protocol
     h = o ^. opHttp
@@ -119,19 +118,18 @@ errorData ::
 errorData m s i = Fun <$> mk
   where
     mk =
-      Fun' p h
+      Fun' p help
         <$> pp None (errorS p)
         <*> pp Print (errorD m p status code)
         <*> pure mempty
 
-    h =
+    help =
       flip fromMaybe (i ^. infoDocumentation)
         . fromString
-        . LText.unpack
-        $ format ("Prism for " % iprimary % "' errors.") n
+        $ "Prism for " ++ Text.unpack (memberId n) ++ "' errors."
 
-    status = i ^? infoString . _Just . errStatus
-    code = fromMaybe (memberId n) (i ^. infoString . _Just . errCode)
+    status = i ^? infoError . _Just . errStatus
+    code = fromMaybe (memberId n) (i ^. infoError . _Just . errCode)
 
     p = Text.cons '_' (typeId n)
     n = s ^. annId
@@ -258,9 +256,9 @@ prodData m s st = (,fields) <$> mk
     mkHelp :: Help
     mkHelp =
       Help $
-        sformat
-          ("Create a value of '" % itype % "' with all optional fields omitted.")
-          n
+        "Create a value of '"
+          <> typeId n
+          <> "' with all optional fields omitted."
 
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
     addParamComments :: [Field] -> Rendered -> Rendered
@@ -311,16 +309,18 @@ serviceData ::
   Retry ->
   Either String Fun
 serviceData m r =
-  Fun' (m ^. serviceConfig) (Help h)
+  Fun' (m ^. serviceConfig) help
     <$> pp None (serviceS m)
     <*> pp Print (serviceD m r)
     <*> pure mempty
   where
-    h =
-      sformat
-        ("API version @" % stext % "@ of the " % stext % " configuration.")
-        (m ^. apiVersion)
-        (m ^. serviceFullName)
+    help =
+      Help $
+        "API version @"
+          <> (m ^. apiVersion)
+          <> "@ of the "
+          <> (m ^. serviceFullName)
+          <> " configuration."
 
 waiterData ::
   HasMetadata a Identity =>
@@ -330,40 +330,36 @@ waiterData ::
   Waiter Id ->
   Either String WData
 waiterData m os n w = do
-  o <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
+  o <- note (missingErr key (Map.map _opName os)) $ Map.lookup key os
   wf <- waiterFields m o w
   c <-
-    Fun' (smartCtorId n) (Help h)
+    Fun' (smartCtorId n) help
       <$> pp None (waiterS n wf)
       <*> pp Print (waiterD n wf)
       <*> pure mempty
 
   return $! WData (typeId n) (_opName o) c
   where
-    missingErr =
-      format
-        ( "Missing operation " % iprimary
-            % " when rendering waiter "
-            % ", possible matches: "
-            % partial
-        )
+    missingErr i xs =
+      "Missing operation " ++ Text.unpack (memberId i)
+        ++ " when rendering waiter "
+        ++ ", possible matches: "
+        ++ partial i xs
 
-    h =
-      sformat
-        ( "Polls 'Network.AWS." % stext % "." % itype
-            % "' every "
-            % int
-            % " seconds until a "
-            % "successful state is reached. An error is returned after "
-            % int
-            % " failed checks."
-        )
-        (m ^. serviceAbbrev)
-        k
-        (_waitDelay w)
-        (_waitAttempts w)
+    help =
+      Help $
+        "Polls 'Network.AWS."
+          <> (m ^. serviceAbbrev)
+          <> "."
+          <> typeId key
+          <> "' every "
+          <> fromString (show (_waitDelay w))
+          <> " seconds until a "
+          <> "successful state is reached. An error is returned after "
+          <> fromString (show (_waitAttempts w))
+          <> " failed checks."
 
-    k = _waitOperation w
+    key = _waitOperation w
 
 waiterFields ::
   HasMetadata a Identity =>
@@ -436,7 +432,7 @@ notation m = go
         note (missingErr n (identifier a) (Map.keys (st ^. members)))
           . List.find ((n ==) . _fieldId)
           $ mkFields m a st
-      _ -> throwString (descendErr n)
+      _ -> Left (descendErr n)
 
     shape :: Key Field -> Shape Solved
     shape =
@@ -451,11 +447,17 @@ notation m = go
       _ :< Map x -> x ^. mapValue . refAnn
       x -> x
 
-    missingErr =
-      format ("Unable to find " % iprimary % " in members of " % iprimary % " " % shown)
+    missingErr a b xs =
+      "Unable to find "
+        ++ Text.unpack (memberId a)
+        ++ " in members of "
+        ++ Text.unpack (memberId b)
+        ++ " "
+        ++ show xs
 
-    descendErr =
-      format ("Unable to descend into nested reference " % iprimary)
+    descendErr n =
+      "Unable to descend into nested reference "
+        ++ Text.unpack (memberId n)
 
 data PP
   = Print

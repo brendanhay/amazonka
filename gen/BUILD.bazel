@@ -11,7 +11,6 @@ haskell_library(
     name = "lib",
     srcs = glob(["src/**/*.hs"]),
     ghcopts = GHC_OPTS + [
-        "-v",
         "-XBinaryLiterals",
         "-XConstraintKinds",
         "-XDataKinds",
@@ -68,6 +67,7 @@ haskell_library(
         "@stackage//:directory-tree",
         "@stackage//:ede",
         "@stackage//:errors",
+        "@stackage//:filepath",
         "@stackage//:free",
         "@stackage//:hashable",
         "@stackage//:haskell-src-exts",
@@ -75,11 +75,10 @@ haskell_library(
         "@stackage//:mtl",
         "@stackage//:pandoc",
         "@stackage//:scientific",
-        "@stackage//:filepath",
-        "@stackage//:unliftio",
         "@stackage//:text",
         "@stackage//:time",
         "@stackage//:transformers",
+        "@stackage//:unliftio",
         "@stackage//:unordered-containers",
     ],
 )
@@ -95,10 +94,11 @@ haskell_binary(
     deps = [
         ":lib",
         "@stackage//:base",
-        "@stackage//:errors",
+        "@stackage//:filepath",
         "@stackage//:lens",
         "@stackage//:mtl",
         "@stackage//:optparse-applicative",
         "@stackage//:text",
+        "@stackage//:unliftio",
     ],
 )

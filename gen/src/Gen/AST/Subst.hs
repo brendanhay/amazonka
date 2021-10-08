@@ -15,7 +15,6 @@ module Gen.AST.Subst
   )
 where
 
-import qualified Data.Text as Text
 import Control.Comonad.Cofree
 import Control.Error
 import Control.Lens hiding ((:<))
@@ -23,6 +22,7 @@ import Control.Monad.Except
 import Control.Monad.State
 import qualified Data.HashMap.Strict as Map
 import Data.List (find)
+import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
 import Gen.AST.Override
 import Gen.Types
@@ -170,9 +170,9 @@ rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
 safe :: Show a => Id -> Map Id a -> Either String a
 safe n ss =
   note
-    ("Missing shape " ++ Text.unpack (memberId n)
-            ++ ", possible matches: "
-            ++ partial n ss
+    ( "Missing shape " ++ Text.unpack (memberId n)
+        ++ ", possible matches: "
+        ++ partial n ss
     )
     (Map.lookup n ss)
 
@@ -181,10 +181,10 @@ verify ::
   Id ->
   String ->
   m ()
-verify n err = do
+verify n msg = do
   p <- uses memo (Map.member n)
   when p . throwError $
-    err ++ " for " ++ Text.unpack (memberId n)
+    msg ++ " for " ++ Text.unpack (memberId n)
 
 infixl 7 .!
 

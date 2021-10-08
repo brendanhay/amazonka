@@ -29,7 +29,6 @@ import Data.Maybe
 import Data.Text (Text)
 import qualified Data.Text as Text
 import Gen.AST.Cofree
-import Gen.Formatting
 import Gen.Text
 import Gen.Types
 
@@ -43,9 +42,9 @@ data Env = Env
 
 makeLenses ''Env
 
-type MemoP = StateT Env (Either Error)
+type MemoP = StateT Env (Either String)
 
-prefixes :: Map Id (Shape Related) -> Either Error (Map Id (Shape Prefixed))
+prefixes :: Map Id (Shape Related) -> Either String (Map Id (Shape Prefixed))
 prefixes ss = evalStateT (traverse assignPrefix ss) env
   where
     env = Env mempty mempty (smartCtors ss)
@@ -91,18 +90,17 @@ assignPrefix = annotate Prefixed memo go
       MemoP Text
     unique r seen n [] ks = do
       s <- use seen
-      let hs = acronymPrefixes r n
-          f x = sformat ("\n" % soriginal % " => " % shown) x (Map.lookup x s)
+
+      let line x =
+            "\n" ++ Text.unpack (CI.original x)
+              ++ " => "
+              ++ show (Map.lookup x s)
+
       throwError $
-        format
-          ( "Error prefixing: " % stext
-              % ", fields: "
-              % shown
-              % scomma
-          )
-          n
-          (Set.toList ks)
-          (map f hs)
+        "Error prefixing: " ++ Text.unpack n
+          ++ ", fields: "
+          ++ show (Set.toList ks)
+          ++ concatMap line (acronymPrefixes r n)
     unique r seen n (h : hs) ks = do
       m <- uses seen (Map.lookup h)
       -- Find if this particular naming heuristic is used already, and if

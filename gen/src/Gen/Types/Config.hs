@@ -12,18 +12,17 @@
 
 module Gen.Types.Config where
 
-import Data.String (fromString)
-import qualified Data.Text as Text
 import Control.Error
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.List (sort, sortOn, (\\))
 import Data.Ord
+import Data.String (fromString)
 import Data.Text (Text)
+import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Builder as Build
 import Data.Time
-import qualified System.FilePath as FilePath
 import GHC.Generics (Generic)
 import GHC.TypeLits
 import Gen.TH
@@ -35,6 +34,7 @@ import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
+import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 
 data Replace = Replace
@@ -87,7 +87,7 @@ defaultOverride =
       _renamedFields = mempty
     }
 
-newtype Version (v :: Symbol) = Version { semver :: Text }
+newtype Version (v :: Symbol) = Version {semver :: Text}
   deriving (Eq, Show)
 
 instance ToJSON (Version v) where
@@ -239,14 +239,14 @@ data Model = Model
 
 makeLenses ''Model
 
-configFile, annexFile :: Getter Model FilePath
-configFile = to (flip FilePath.addExtension "json" . Text.unpack . _modelName)
+configFile, annexFile :: Model  -> FilePath
+configFile = flip FilePath.addExtension "json" . Text.unpack . _modelName
 annexFile = configFile
 
-serviceFile, waitersFile, pagersFile :: Getter Model FilePath
-serviceFile = to (flip FilePath.combine "service-2.json" . _modelPath)
-waitersFile = to (flip FilePath.combine "waiters-2.json" . _modelPath)
-pagersFile = to (flip FilePath.combine "paginators-1.json" . _modelPath)
+serviceFile, waitersFile, pagersFile :: Model -> FilePath
+serviceFile = flip FilePath.combine "service-2.json" . _modelPath
+waitersFile = flip FilePath.combine "waiters-2.json" . _modelPath
+pagersFile = flip FilePath.combine "paginators-1.json" . _modelPath
 
 loadModel :: FilePath -> [FilePath] -> Either String Model
 loadModel p xs =

@@ -11,7 +11,6 @@ haskell_library(
     name = "lib",
     srcs = glob(["src/**/*.hs"]),
     ghcopts = GHC_OPTS + [
-        "-v",
         "-XBinaryLiterals",
         "-XConstraintKinds",
         "-XDataKinds",
@@ -95,10 +94,11 @@ haskell_binary(
     deps = [
         ":lib",
         "@stackage//:base",
-        "@stackage//:errors",
         "@stackage//:lens",
         "@stackage//:mtl",
         "@stackage//:optparse-applicative",
         "@stackage//:text",
+        "@stackage//:unliftio",
+        "@stackage//:filepath",
     ],
 )

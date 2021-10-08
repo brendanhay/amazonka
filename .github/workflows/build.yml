@@ -16,8 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-#          - { os: ubuntu-latest, ghc: ghc884  }
-#          - { os: ubuntu-latest, ghc: ghc8107 }
+          - { os: ubuntu-latest, ghc: ghc884  }
+          - { os: ubuntu-latest, ghc: ghc8107 }
           - { os: macos-latest,  ghc: ghc8107 }
 
     runs-on: ${{ matrix.os }}

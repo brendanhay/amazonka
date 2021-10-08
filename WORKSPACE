@@ -23,7 +23,7 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_rules_nixpkgs",
-    #    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
+    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
     strip_prefix = "rules_nixpkgs-{version}",
     url = "https://github.com/tweag/rules_nixpkgs/archive/{version}.tar.gz",
     version = "81f61c4b5afcf50665b7073f7fce4c1755b4b9a3",
@@ -213,20 +213,29 @@ rules_haskell_dependencies()
 rules_haskell_worker_dependencies()
 
 # haskell_register_ghc_nixpkgs(
-#     name = "ghc884",
-#     attribute_path = "haskell.compiler.ghc884",
+#     name = "ghc865",
+#     attribute_path = "ghc865Packages.ghc",
+#     exec_constraints = ["@//tools/constraints:ghc865"],
 #     repository = "@nixpkgs",
-#     version = "8.8.4",
-#     exec_constraints = ["@//tools/constraints:ghc884"],
-#     target_constraints = ["@//tools/constraints:ghc884"],
+#     target_constraints = ["@//tools/constraints:ghc865"],
+#     version = "8.6.5",
 # )
 
 haskell_register_ghc_nixpkgs(
-    #    name = "ghc8107",
-    attribute_path = "haskell.compiler.ghc8107",
-    # exec_constraints = ["@//tools/constraints:ghc8107"],
+    name = "ghc884",
+    attribute_path = "haskell.compiler.ghc884",
+    exec_constraints = ["@//tools/constraints:ghc884"],
     repository = "@nixpkgs",
-    # target_constraints = ["@//tools/constraints:ghc8107"],
+    target_constraints = ["@//tools/constraints:ghc884"],
+    version = "8.8.4",
+)
+
+haskell_register_ghc_nixpkgs(
+    name = "ghc8107",
+    attribute_path = "haskell.compiler.ghc8107",
+    exec_constraints = ["@//tools/constraints:ghc8107"],
+    repository = "@nixpkgs",
+    target_constraints = ["@//tools/constraints:ghc8107"],
     version = "8.10.7",
 )
 
@@ -261,6 +270,7 @@ stack_snapshot(
         "ede",
         "ede-0.3.2.0",  # keep
         "errors",  # keep
+        "filepath",  # keep
         "free",  # keep
         "groom",
         "hashable",  # keep
@@ -281,8 +291,6 @@ stack_snapshot(
         "resourcet",
         "retry",
         "scientific",  # keep
-        "unliftio", # keep
-        "filepath", # keep
         "tagged",
         "tasty",
         "tasty-hunit",
@@ -293,6 +301,7 @@ stack_snapshot(
         "time",  # keep
         "transformers",  # keep
         "unexceptionalio",  # keep
+        "unliftio",  # keep
         "unliftio-core",
         "unordered-containers",  # keep
         "xml-conduit",

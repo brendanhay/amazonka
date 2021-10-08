@@ -1,5 +1,5 @@
 {
-    "nixpkgs": {
+    "nixpkgs-latest": {
         "branch": "master",
         "builtin": true,
         "description": "Nix Packages collection",

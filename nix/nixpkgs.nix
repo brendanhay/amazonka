@@ -9,6 +9,8 @@ system ? builtins.currentSystem
 , sources ? import ./sources.nix { }
 }:
 
-import sources.nixpkgs {
+let
+
+in import sources.nixpkgs-latest {
   inherit system config overlays;
 }

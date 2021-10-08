@@ -7,7 +7,6 @@ optimization: 1
 
 -- Local packages - without amazonka-examples.
 packages:
-   gen/
    test/
    amazonka/
    amazonka-*/

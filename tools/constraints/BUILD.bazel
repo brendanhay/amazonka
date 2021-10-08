@@ -1,6 +1,12 @@
 constraint_setting(name = "ghc_version")
 
 constraint_value(
+    name = "ghc865",
+    constraint_setting = ":ghc_version",
+    visibility = ["//visibility:public"],
+)
+
+constraint_value(
     name = "ghc884",
     constraint_setting = ":ghc_version",
     visibility = ["//visibility:public"],

@@ -12,6 +12,7 @@ in import sources.nixpkgs-latest {
       inherit sources;
 
       haskell = prev.lib.recursiveUpdate prev.haskell {
+        compiler.ghc865 = nixpkgs-2009.haskell.compiler.ghc865;
         packages.ghc865 = nixpkgs-2009.haskell.packages.ghc865;
       };
     })

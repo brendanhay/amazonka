@@ -203,11 +203,11 @@ cc_library(
 # Haskell setup
 #
 
+load("@rules_haskell//haskell:cabal.bzl", "stack_snapshot")
 load("@rules_haskell//haskell:nixpkgs.bzl", "haskell_register_ghc_nixpkgs")
 load("@rules_haskell//haskell:repositories.bzl", "rules_haskell_dependencies")
 load("@rules_haskell//tools:repositories.bzl", "rules_haskell_worker_dependencies")
 load("@io_tweag_gazelle_cabal//:defs.bzl", "gazelle_cabal_dependencies")
-load("//tools:haskell.bzl", "stack_snapshots")
 
 rules_haskell_dependencies()
 
@@ -240,11 +240,9 @@ haskell_register_ghc_nixpkgs(
 
 gazelle_cabal_dependencies()
 
-# Custom variant of `stack_snapshot` that defines an external repository
-# containing aliases for each package, with select() used to choose from
-# the requisite snapshot for the configured GHC version.
-stack_snapshots(
+stack_snapshot(
     name = "stackage",
+    snapshot = "lts-18.10",
     extra_deps = {
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
@@ -312,11 +310,7 @@ stack_snapshots(
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },
-    snapshots = {
-        "//tools/ghc:865": "lts-16.31",
-        "//tools/ghc:884": "lts-18.10",
-        "//tools/ghc:8107": "lts-18.10",
-    },
+    stack_snapshot_json = "//:stackage-snapshot.json",
     tools = [
         "@nixpkgs_alex//:bin/alex",
         "@nixpkgs_happy//:bin/happy",

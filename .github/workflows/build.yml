@@ -16,6 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - { os: ubuntu-latest, ghc: 865  }
           - { os: ubuntu-latest, ghc: 884  }
           - { os: ubuntu-latest, ghc: 8107 }
           - { os: macos-latest,  ghc: 8107 }
@@ -60,7 +61,7 @@ jobs:
       - name: bazel build //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build //... -//gen'
+            'bazel build -- //... -gen/...'
 
       - name: bazel build //gen
         if: ${{ matrix.ghc == '8107' }}

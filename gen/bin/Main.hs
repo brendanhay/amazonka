@@ -25,7 +25,7 @@ import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
 import qualified Gen.Tree as Tree
-import Gen.Types hiding (info, service, config, retry)
+import Gen.Types hiding (config, info, retry, service)
 import Options.Applicative
 import System.FilePath ((</>))
 import qualified System.FilePath as FilePath

@@ -218,7 +218,7 @@ register_toolchains("//tools/ghc:toolchain")
 
 haskell_register_ghc_nixpkgs(
     name = "ghc865",
-    attribute_path = "ghc865",
+    attribute_path = "haskell.compiler.ghc865",
     repository = "@nixpkgs",
     version = "8.6.5",
 )
@@ -243,20 +243,11 @@ gazelle_cabal_dependencies()
 
 stack_snapshot(
     name = "stackage",
-    snapshot = "lts-18.10",
-    stack_snapshot_json = "//:stackage-snapshot.json",
-    tools = [
-        "@nixpkgs_alex//:bin/alex",
-        "@nixpkgs_happy//:bin/happy",
-    ],
-extra_deps = {
+    extra_deps = {
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
     },
-setup_deps = {
-        "xml-conduit": ["@stackage//:cabal-doctest"],
-    },
-packages = [
+    packages = [
         "QuickCheck",
         "aeson",  # keep
         "attoparsec",  # keep
@@ -314,5 +305,14 @@ packages = [
         "xml-conduit",
         "xml-types",
         "yaml",
-    ]
+    ],
+    setup_deps = {
+        "xml-conduit": ["@stackage//:cabal-doctest"],
+    },
+    snapshot = "lts-18.10",
+    stack_snapshot_json = "//:stackage-snapshot.json",
+    tools = [
+        "@nixpkgs_alex//:bin/alex",
+        "@nixpkgs_happy//:bin/happy",
+    ],
 )

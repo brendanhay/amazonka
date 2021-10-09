@@ -1,14 +1,19 @@
-{
-# The build system where packages will be _built_.
-system ? builtins.currentSystem
-  # Additional nixpkgs.config overrides.
-, config ? { }
-  # Additional nixpkgs.overlays.
-, overlays ? [ ]
-  # Source repositories.
-, sources ? import ./sources.nix { }
-}:
+{ system ? builtins.currentSystem, config ? {}, overlays ? [], sources ? import ./sources.nix { } }:
 
-import sources.nixpkgs-latest {
-  inherit system config overlays;
+let
+
+  nixpkgs-2009 = import sources.nixpkgs-2009 { inherit system; };
+
+in import sources.nixpkgs-latest {
+  inherit system config;
+
+  overlays = [
+    (final: prev: {
+      inherit sources;
+
+      haskell = prev.lib.recursiveUpdate prev.haskell {
+        packages.ghc865 = nixpkgs-2009.haskell.packages.ghc865;
+      };
+    })
+  ] ++ overlays;
 }

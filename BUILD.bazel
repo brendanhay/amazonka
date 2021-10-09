@@ -19,6 +19,7 @@ buildifier(
 load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary")
 
 # gazelle:cabal_extra_libraries z=@zlib.dev//:zlib
+# gazelle:cabal_haskell_package_repo stackage
 gazelle(
     name = "gazelle",
     data = ["@io_tweag_gazelle_cabal//cabalscan"],

@@ -1,4 +1,5 @@
-{ system ? builtins.currentSystem, config ? {}, overlays ? [], sources ? import ./sources.nix { } }:
+{ system ? builtins.currentSystem, config ? { }, overlays ? [ ]
+, sources ? import ./sources.nix { } }:
 
 let
 

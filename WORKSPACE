@@ -204,9 +204,10 @@ cc_library(
 #
 
 load("@rules_haskell//haskell:nixpkgs.bzl", "haskell_register_ghc_nixpkgs")
-load("@rules_haskell//haskell:cabal.bzl", "stack_snapshot")
 load("@rules_haskell//haskell:repositories.bzl", "rules_haskell_dependencies")
 load("@rules_haskell//tools:repositories.bzl", "rules_haskell_worker_dependencies")
+load("@io_tweag_gazelle_cabal//:defs.bzl", "gazelle_cabal_dependencies")
+load("//tools:haskell.bzl", "stack_snapshots")
 
 rules_haskell_dependencies()
 
@@ -237,11 +238,12 @@ haskell_register_ghc_nixpkgs(
     version = "8.10.7",
 )
 
-load("@io_tweag_gazelle_cabal//:defs.bzl", "gazelle_cabal_dependencies")
-
 gazelle_cabal_dependencies()
 
-stack_snapshot(
+# Custom variant of `stack_snapshot` that defines an external repository
+# containing aliases for each package, with select() used to choose from
+# the requisite snapshot for the configured GHC version.
+stack_snapshots(
     name = "stackage",
     extra_deps = {
         "zlib": ["@zlib.dev//:zlib"],
@@ -249,59 +251,60 @@ stack_snapshot(
     },
     packages = [
         "QuickCheck",
-        "aeson",  # keep
-        "attoparsec",  # keep
+        "aeson",
+        "attoparsec",
         "base",
         "bifunctors",
-        "bytestring",  # keep
-        "case-insensitive",  # keep
-        "comonad",  # keep
+        "bytestring",
+        "cabal-doctest",
+        "case-insensitive",
+        "comonad",
         "conduit",
         "conduit-extra",
-        "containers",  # keep
+        "containers",
         "cryptonite",
         "data-ordlist",
         "deepseq",
-        "deriving-compat",  # keep
+        "deriving-compat",
         "directory",
-        "directory-tree",  # keep
+        "directory-tree",
         "ede",
-        "ede-0.3.2.0",  # keep
-        "errors",  # keep
-        "filepath",  # keep
-        "free",  # keep
+        "ede-0.3.2.0",
+        "errors",
+        "filepath",
+        "free",
         "groom",
-        "hashable",  # keep
-        "haskell-src-exts",  # keep
+        "hashable",
+        "haskell-src-exts",
         "http-client",
         "http-conduit",
         "http-types",
         "ini",
-        "lens",  # keep
+        "lens",
         "memory",
-        "mtl",  # keep
-        "optparse-applicative",  # keep
-        "pandoc",  # keep
-        "path",  # keep
-        "path-io",  # keep
+        "mtl",
+        "optparse-applicative",
+        "pandoc",
+        "path",
+        "path-io",
         "process",
         "quickcheck-unicode",
         "resourcet",
         "retry",
-        "scientific",  # keep
+        "scientific",
         "tagged",
         "tasty",
         "tasty-hunit",
         "tasty-quickcheck",
         "template-haskell",
         "temporary",
-        "text",  # keep
-        "time",  # keep
-        "transformers",  # keep
-        "unexceptionalio",  # keep
-        "unliftio",  # keep
+        "text",
+        "time",
+        "transformers",
+        "unexceptionalio",
+        "unliftio",
         "unliftio-core",
-        "unordered-containers",  # keep
+        "unordered-containers",
         "xml-conduit",
         "xml-types",
         "yaml",
@@ -309,8 +312,11 @@ stack_snapshot(
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },
-    snapshot = "lts-18.10",
-    stack_snapshot_json = "//:stackage-snapshot.json",
+    snapshots = {
+        "//tools/ghc:865": "lts-16.31",
+        "//tools/ghc:884": "lts-18.10",
+        "//tools/ghc:8107": "lts-18.10",
+    },
     tools = [
         "@nixpkgs_alex//:bin/alex",
         "@nixpkgs_happy//:bin/happy",

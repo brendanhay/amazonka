@@ -1,23 +1,23 @@
 startup --host_jvm_args=-Djdk.tls.client.protocols=TLSv1.2
 
 # Bazel caching - can be disabled by passing the flag --noremote_accept_cached.
-common --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
+build --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
 
 # Don't push build results to the remote cache - CI is source of truth.
-common --remote_upload_local_results=false
+build --remote_upload_local_results=false
 
 # Push build results to the local disk cache despite
 # --remote_upload_local_results being set.
-common --incompatible_remote_results_ignore_disk=true
+build --incompatible_remote_results_ignore_disk=true
 
 # Enable the disk cache in addition to the http cache.
-common --disk_cache=~/.cache/bazel/amazonka/disk
+build --disk_cache=~/.cache/bazel/amazonka/disk
 
 # Push all results to the repository cache.
-common --repository_cache=~/.cache/bazel/amazonka/repo
+build --repository_cache=~/.cache/bazel/amazonka/repo
 
 # Prevent silently matching empty file globs.
-common --incompatible_disallow_empty_glob
+build --incompatible_disallow_empty_glob
 
 # Persistent worker mode.
 build --define use_worker=True
@@ -25,7 +25,6 @@ build --worker_sandboxing
 
 # Increase logging verbosity.
 build --verbose_failures
-build --worker_verbose
 
 # Toolchain configuration.
 build --host_platform=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host

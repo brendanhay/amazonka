@@ -61,7 +61,7 @@ jobs:
       - name: bazel build //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build //... -//gen'
+            'bazel build -- //... -gen/...'
 
       - name: bazel build //gen
         if: ${{ matrix.ghc == '8107' }}

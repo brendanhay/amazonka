@@ -1,7 +1,7 @@
 startup --host_jvm_args=-Djdk.tls.client.protocols=TLSv1.2
 
 # Bazel caching - can be disabled by passing the flag --noremote_accept_cached.
-build --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
+build --remote_http_cache=https://storage.googleapis.com/tlon-opensource-cache
 
 # Don't push build results to the remote cache - CI is source of truth.
 build --remote_upload_local_results=false

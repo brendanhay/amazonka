@@ -212,30 +212,28 @@ rules_haskell_dependencies()
 
 rules_haskell_worker_dependencies()
 
-# haskell_register_ghc_nixpkgs(
-#     name = "ghc865",
-#     attribute_path = "ghc865Packages.ghc",
-#     exec_constraints = ["@//tools/constraints:ghc865"],
-#     repository = "@nixpkgs",
-#     target_constraints = ["@//tools/constraints:ghc865"],
-#     version = "8.6.5",
-# )
+# Register custom toolchain prior to rules_haskell toolchains, as Bazel
+# takes precedence into account when determining the # toolchain to use.
+register_toolchains("//tools/ghc:toolchain")
+
+haskell_register_ghc_nixpkgs(
+    name = "ghc865",
+    attribute_path = "ghc865",
+    repository = "@nixpkgs",
+    version = "8.6.5",
+)
 
 haskell_register_ghc_nixpkgs(
     name = "ghc884",
     attribute_path = "haskell.compiler.ghc884",
-    exec_constraints = ["@//tools/constraints:ghc884"],
     repository = "@nixpkgs",
-    target_constraints = ["@//tools/constraints:ghc884"],
     version = "8.8.4",
 )
 
 haskell_register_ghc_nixpkgs(
     name = "ghc8107",
     attribute_path = "haskell.compiler.ghc8107",
-    exec_constraints = ["@//tools/constraints:ghc8107"],
     repository = "@nixpkgs",
-    target_constraints = ["@//tools/constraints:ghc8107"],
     version = "8.10.7",
 )
 
@@ -245,11 +243,20 @@ gazelle_cabal_dependencies()
 
 stack_snapshot(
     name = "stackage",
-    extra_deps = {
+    snapshot = "lts-18.10",
+    stack_snapshot_json = "//:stackage-snapshot.json",
+    tools = [
+        "@nixpkgs_alex//:bin/alex",
+        "@nixpkgs_happy//:bin/happy",
+    ],
+extra_deps = {
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
     },
-    packages = [
+setup_deps = {
+        "xml-conduit": ["@stackage//:cabal-doctest"],
+    },
+packages = [
         "QuickCheck",
         "aeson",  # keep
         "attoparsec",  # keep
@@ -307,14 +314,5 @@ stack_snapshot(
         "xml-conduit",
         "xml-types",
         "yaml",
-    ],
-    setup_deps = {
-        "xml-conduit": ["@stackage//:cabal-doctest"],
-    },
-    snapshot = "lts-18.10",
-    stack_snapshot_json = "//:stackage-snapshot.json",
-    tools = [
-        "@nixpkgs_alex//:bin/alex",
-        "@nixpkgs_happy//:bin/happy",
-    ],
+    ]
 )

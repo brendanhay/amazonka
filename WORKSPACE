@@ -218,7 +218,7 @@ register_toolchains("//tools/ghc:toolchain")
 
 haskell_register_ghc_nixpkgs(
     name = "ghc865",
-    attribute_path = "ghc865",
+    attribute_path = "haskell.compiler.ghc865",
     repository = "@nixpkgs",
     version = "8.6.5",
 )

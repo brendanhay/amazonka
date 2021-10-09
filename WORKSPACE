@@ -251,60 +251,60 @@ stack_snapshots(
     },
     packages = [
         "QuickCheck",
-        "aeson",
-        "attoparsec",
+        "aeson",  # keep
+        "attoparsec",  # keep
         "base",
         "bifunctors",
-        "bytestring",
-        "cabal-doctest",
-        "case-insensitive",
-        "comonad",
+        "bytestring",  # keep
+        "cabal-doctest",  # keep
+        "case-insensitive",  # keep
+        "comonad",  # keep
         "conduit",
         "conduit-extra",
-        "containers",
+        "containers",  # keep
         "cryptonite",
         "data-ordlist",
         "deepseq",
-        "deriving-compat",
+        "deriving-compat",  # keep
         "directory",
-        "directory-tree",
+        "directory-tree",  # keep
         "ede",
-        "ede-0.3.2.0",
-        "errors",
-        "filepath",
-        "free",
+        "ede-0.3.2.0",  # keep
+        "errors",  # keep
+        "filepath",  # keep
+        "free",  # keep
         "groom",
-        "hashable",
-        "haskell-src-exts",
+        "hashable",  # keep
+        "haskell-src-exts",  # keep
         "http-client",
         "http-conduit",
         "http-types",
         "ini",
-        "lens",
+        "lens",  # keep
         "memory",
-        "mtl",
-        "optparse-applicative",
-        "pandoc",
-        "path",
-        "path-io",
+        "mtl",  # keep
+        "optparse-applicative",  # keep
+        "pandoc",  # keep
+        "path",  # keep
+        "path-io",  # keep
         "process",
         "quickcheck-unicode",
         "resourcet",
         "retry",
-        "scientific",
+        "scientific",  # keep
         "tagged",
         "tasty",
         "tasty-hunit",
         "tasty-quickcheck",
         "template-haskell",
         "temporary",
-        "text",
-        "time",
-        "transformers",
-        "unexceptionalio",
-        "unliftio",
+        "text",  # keep
+        "time",  # keep
+        "transformers",  # keep
+        "unexceptionalio",  # keep
+        "unliftio",  # keep
         "unliftio-core",
-        "unordered-containers",
+        "unordered-containers",  # keep
         "xml-conduit",
         "xml-types",
         "yaml",

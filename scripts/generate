@@ -91,6 +91,6 @@ done
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 
 # Generate BUILD files for every package.
-./scripts/gazelle
+./scripts/update-gazelle
 
 say "Done."

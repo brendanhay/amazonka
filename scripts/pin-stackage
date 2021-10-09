@@ -5,5 +5,4 @@
 # Update the materialised //:stackage-snapshot.json from the `stack_snapshot`
 # defined in WORKSPACE.
 
-bazel run @stackage-lts-18.10-unpinned//:pin
-bazel run @stackage-lts-16.31-unpinned//:pin
+bazel run @stackage-unpinned//:pin

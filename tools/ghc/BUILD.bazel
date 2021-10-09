@@ -4,17 +4,9 @@ string_flag(
     name = "version",
     build_setting_default = "8107",
     values = [
-        "865",
         "884",
         "8107",
     ],
-)
-
-config_setting(
-    name = "865",
-    flag_values = {
-        ":version": "865",
-    },
 )
 
 config_setting(
@@ -31,12 +23,9 @@ config_setting(
     },
 )
 
-# Select a WORKSPACE haskell_register_ghc_nixpkgs toolchain of the form:
-# `@{name}_ghc_nixpkgs_haskell_toolchain//:toolchain-impl`.
 toolchain(
     name = "toolchain",
     toolchain = select({
-        "//tools/ghc:865": "@ghc865_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
         "//tools/ghc:884": "@ghc884_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
         "//tools/ghc:8107": "@ghc8107_ghc_nixpkgs_haskell_toolchain//:toolchain-impl",
     }),

@@ -16,6 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - { os: ubuntu-latest, ghc: 865  }
           - { os: ubuntu-latest, ghc: 884  }
           - { os: ubuntu-latest, ghc: 8107 }
           - { os: macos-latest,  ghc: 8107 }

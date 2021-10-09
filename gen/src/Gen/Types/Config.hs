@@ -239,7 +239,7 @@ data Model = Model
 
 makeLenses ''Model
 
-configFile, annexFile :: Model  -> FilePath
+configFile, annexFile :: Model -> FilePath
 configFile = flip FilePath.addExtension "json" . Text.unpack . _modelName
 annexFile = configFile
 

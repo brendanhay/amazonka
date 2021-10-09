@@ -14,9 +14,7 @@ let
     exec ${pkgs.bazel_4}/bin/bazel --bazelrc="${bazelrc}" "$@"
   '';
 
-  haskellPackages = pkgs.haskellPackages.override {
-    ghc = pkgs.haskell.compiler."ghc${ghcVersion}";
-  };
+  haskellPackages = pkgs.haskell.packages."ghc${ghcVersion}";
 
   ghc = haskellPackages.ghcWithPackages (self: [
     # Ensure zlib and friends are locatable in the shell.

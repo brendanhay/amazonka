@@ -19,7 +19,7 @@ permissions:
 jobs:
   generate:
     runs-on:
-      - unbuntu-latest
+      - ubuntu-latest
 
     steps:
       - name: Checkout

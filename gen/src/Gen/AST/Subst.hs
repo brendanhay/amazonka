@@ -23,7 +23,6 @@ import Control.Monad.State
 import qualified Data.HashMap.Strict as Map
 import Data.List (find)
 import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LText
 import Gen.AST.Override
 import Gen.Types
 

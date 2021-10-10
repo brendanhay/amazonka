@@ -13,7 +13,6 @@ module Gen.AST.Data.Instance where
 import Control.Applicative
 import Control.Error
 import Control.Lens
-import Control.Monad.Except
 import Data.Aeson
 import Data.List (find, partition)
 import Data.Text (Text)

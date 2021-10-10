@@ -24,7 +24,6 @@ import Data.Maybe (mapMaybe)
 import Data.Monoid hiding (Sum)
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LText
 import Gen.Import
 import qualified Gen.JSON as JS
 import Gen.Types

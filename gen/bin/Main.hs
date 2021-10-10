@@ -21,6 +21,8 @@ import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
 import qualified Data.Text as Text
+import qualified Data.List as List
+import qualified Data.Time as Time
 import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
@@ -139,7 +141,7 @@ main = do
   let total = show (length _optionModels)
       load = readTemplate _optionTemplates
 
-  templates <- flip evalStateT mempty $ do
+  templates <- do
     title ("Loading templates from " ++ _optionTemplates)
 
     cabalTemplate <- load "cabal.ede"
@@ -158,11 +160,10 @@ main = do
     fixtureRequestTemplate <- load "test/fixtures/request.ede"
     blankTemplate <- load "blank.ede"
 
-    lift done
-
-    pure Templates {..}
+    Templates {..} <$ done
 
   let hoistEither = either UnliftIO.throwString pure
+      formatTime = Time.formatTime Time.defaultTimeLocale "%Y-%m-%d"
 
   retry <- JSON.required _optionRetry
 
@@ -179,10 +180,11 @@ main = do
         >>= hoistEither . loadModel path
 
     say $
-      "Using version "
-        ++ show _modelVersion
-        ++ " out of "
-        ++ show _modelVersions
+      "Selected version "
+        ++ formatTime _modelVersion
+        ++ " from ["
+        ++ List.intercalate ", " (map formatTime _modelVersions)
+        ++ "]"
 
     config@Config {..} <-
       JSON.required (_optionServices </> configFile model)
@@ -199,14 +201,14 @@ main = do
         >>= hoistEither . JSON.parse . JSON.merge
 
     say $
-      "Successfully parsed '"
+      "Parsed '"
         ++ Text.unpack (service ^. serviceFullName)
         ++ "' API definition"
 
     library <- hoistEither (AST.rewrite _optionVersions config service)
 
     say $
-      "Successfully synthesised '"
+      "Synthesised '"
         ++ Text.unpack (library ^. libraryName)
         ++ "' Haskell package"
 
@@ -215,17 +217,18 @@ main = do
         >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
     say $
-      "Successfully rendered "
+      "Rendered "
         ++ Text.unpack _libraryName
         ++ "-"
         ++ Text.unpack (semver (library ^. libraryVersion))
-        ++ " package"
+        ++ " package in "
+        ++ Tree.root directoryTree
 
     copyDir _optionAssets (Tree.root directoryTree)
 
     done
 
   title $
-    "Successfully processed "
+    "Processed "
       ++ total
       ++ " models."

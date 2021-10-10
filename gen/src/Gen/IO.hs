@@ -10,15 +10,10 @@
 
 module Gen.IO where
 
-import qualified Control.Monad.State.Strict as State
-import qualified Data.HashMap.Strict as HashMap
-import Data.HashMap.Strict (HashMap)
 import Control.Monad.Except
-import Control.Monad.State
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import Data.String (fromString)
-import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.IO as LText
 import System.FilePath ((</>))
@@ -83,29 +78,9 @@ readTemplate ::
   MonadIO m =>
   FilePath ->
   FilePath ->
-  StateT (HashMap String Template) m Template
-readTemplate dir name = do
-  let path = dir </> name
-
-  readBSFile path
-    >>= EDE.parseWith EDE.defaultSyntax (resolver dir) (fromString path)
+  m Template
+readTemplate dir name =
+  liftIO $
+   readBSFile (dir </> name)
+    >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
     >>= EDE.result (UnliftIO.throwString . show) pure
-  where
-    resolver dir' syntax key _delta = do
-      let path
-            | Text.null key = ""
-            | otherwise = dir' </> Text.unpack key
-          root = FilePath.takeDirectory path
-
-      State.gets (HashMap.lookup path) >>= \case
-        Just include ->
-          EDE.success include
-        --
-        Nothing -> do
-          content <- readBSFile path
-          result <- EDE.parseWith syntax (resolver root) key content
-          include <- EDE.result (UnliftIO.throwString . show) pure result
-
-          State.modify' (HashMap.insert path include)
-
-          EDE.success include

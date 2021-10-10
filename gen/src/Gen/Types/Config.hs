@@ -12,16 +12,16 @@
 
 module Gen.Types.Config where
 
+import System.FilePath ((</>))
 import Control.Error
 import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.List (sort, sortOn, (\\))
+import Data.List ((\\))
+import qualified Data.List as List
 import Data.Ord
 import Data.String (fromString)
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LText
-import qualified Data.Text.Lazy.Builder as Build
 import Data.Time
 import GHC.Generics (Generic)
 import GHC.TypeLits
@@ -172,13 +172,13 @@ instance ToJSON Library where
             "libraryVersion" .= (l ^. libraryVersion),
             "clientVersion" .= (l ^. clientVersion),
             "serviceInstance" .= (l ^. instance'),
-            "typeModules" .= sort (l ^. typeModules),
-            "operationModules" .= sort (l ^. operationModules),
-            "exposedModules" .= sort (l ^. exposedModules),
-            "otherModules" .= sort (l ^. otherModules),
-            "extraDependencies" .= sort (l ^. extraDependencies),
+            "typeModules" .= List.sort (l ^. typeModules),
+            "operationModules" .= List.sort (l ^. operationModules),
+            "exposedModules" .= List.sort (l ^. exposedModules),
+            "otherModules" .= List.sort (l ^. otherModules),
+            "extraDependencies" .= List.sort (l ^. extraDependencies),
             "operations" .= (l ^.. operations . each),
-            "shapes" .= sort (l ^.. shapes . each),
+            "shapes" .= List.sort (l ^.. shapes . each),
             "waiters" .= (l ^.. waiters . each)
           ]
 
@@ -249,17 +249,23 @@ waitersFile = flip FilePath.combine "waiters-2.json" . _modelPath
 pagersFile = flip FilePath.combine "paginators-1.json" . _modelPath
 
 loadModel :: FilePath -> [FilePath] -> Either String Model
-loadModel p xs =
-  uncurry (Model n (map fst vs))
-    <$> headErr ("No valid model versions found in " ++ show xs) vs
-  where
-    vs = sortOn Down (mapMaybe parse xs)
-    n = fromString (FilePath.takeFileName p)
+loadModel path xs = do
+  version <- headErr ("No valid model versions found in " ++ show xs) sortedVersions
 
-    parse d =
-      (,d)
+  pure Model
+    { _modelName = fromString (FilePath.takeFileName path),
+      _modelVersions = map fst sortedVersions,
+      _modelVersion = fst version,
+      _modelPath = path </> snd version
+    }
+  where
+    sortedVersions =
+      List.sortOn Down (mapMaybe parseVersion xs)
+
+    parseVersion date =
+      (,date)
         <$> parseTimeM
           True
           defaultTimeLocale
           (iso8601DateFormat Nothing)
-          (FilePath.takeFileName d)
+          (FilePath.takeFileName date)

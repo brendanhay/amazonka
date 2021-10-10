@@ -99,6 +99,7 @@ haskell_binary(
         "@stackage//:mtl",
         "@stackage//:optparse-applicative",
         "@stackage//:text",
+        "@stackage//:time",
         "@stackage//:unliftio",
     ],
 )

@@ -11,19 +11,16 @@
 module Gen.IO where
 
 import Control.Monad.Except
-import Control.Monad.State
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import Data.String (fromString)
-import Data.Text (Text)
-import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.IO as LText
-import Gen.Types
 import System.FilePath ((</>))
 import qualified System.FilePath as FilePath
 import System.IO
 import qualified Text.EDE as EDE
+import Text.EDE (Template)
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 
@@ -81,18 +78,9 @@ readTemplate ::
   MonadIO m =>
   FilePath ->
   FilePath ->
-  StateT (Map Text (EDE.Result EDE.Template)) m EDE.Template
-readTemplate dir name = do
-  lift (readBSFile template)
-    >>= EDE.parseWith EDE.defaultSyntax (load dir) (fromString template)
+  m Template
+readTemplate dir name =
+  liftIO $
+   readBSFile (dir </> name)
+    >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
     >>= EDE.result (UnliftIO.throwString . show) pure
-  where
-    template = dir </> name
-
-    load root o key _ =
-      lift (readBSFile path)
-        >>= EDE.parseWith o (load (FilePath.takeDirectory path)) key
-      where
-        path
-          | Text.null key = mempty
-          | otherwise = root </> Text.unpack key

@@ -14,15 +14,11 @@ import Control.Error
 import Control.Monad.Except
 import Data.Aeson hiding (decode)
 import Data.Aeson.Types
-import Data.Bifunctor
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict as Map
 import Data.List
-import Data.String (fromString)
-import qualified Data.Text.Lazy as LText
 import Gen.IO
-import Gen.Types
 import qualified Text.EDE as EDE
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO

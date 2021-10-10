@@ -16,9 +16,8 @@ permissions:
   pull-requests: write
 
 
-
 jobs:
-  build:
+  generate:
     runs-on:
       - unbuntu-latest
 

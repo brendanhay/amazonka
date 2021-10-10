@@ -11,7 +11,7 @@ on:
     branches: null
 
 jobs:
-  generate:
+  build:
     strategy:
       fail-fast: false
       matrix:

@@ -5,6 +5,7 @@ env:
   cache-version: 1
   pr-name: Regenerate all services using latest definitions
   pr-branch: auto-regenerated
+  pr-base: develop
 
 on:
   push: null
@@ -66,8 +67,9 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Generate new service configurations
-          branch: ${{ env.pr-branch }}
           title: ${{ env.pr-name }}
+          base: ${{ env.pr-base }}
+          branch: ${{ env.pr-branch }}
           token: ${{ secrets.PAT }}
 
       - name: Generate Haskell packages
@@ -77,7 +79,8 @@ jobs:
       - uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Generate new service packages
-          branch: ${{ env.pr-branch }}
           title: ${{ env.pr-name }}
+          base: ${{ env.pr-base }}
+          branch: ${{ env.pr-branch }}
           token: ${{ secrets.PAT }}
 

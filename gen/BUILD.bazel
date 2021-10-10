@@ -1,16 +1,6 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_binary", "haskell_library")
 
-GHC_OPTS = [
-    "-Wall",
-    "-Wunused-packages",
-    "-fwarn-incomplete-uni-patterns",
-    "-fwarn-incomplete-record-updates",
-]
-
-haskell_library(
-    name = "lib",
-    srcs = glob(["src/**/*.hs"]),
-    ghcopts = GHC_OPTS + [
+GHC_EXTENSIONS = [
         "-XBinaryLiterals",
         "-XConstraintKinds",
         "-XDataKinds",
@@ -19,6 +9,7 @@ haskell_library(
         "-XDeriveFunctor",
         "-XDeriveGeneric",
         "-XDeriveTraversable",
+        "-XDerivingStrategies",
         "-XDerivingVia",
         "-XDoAndIfThenElse",
         "-XDuplicateRecordFields",
@@ -54,6 +45,19 @@ haskell_library(
         "-XTypeOperators",
         "-XTypeSynonymInstances",
         "-XViewPatterns",
+    ]
+
+GHC_OPTS = [
+    "-Wall",
+    "-Wunused-packages",
+    "-fwarn-incomplete-uni-patterns",
+    "-fwarn-incomplete-record-updates",
+] + GHC_EXTENSIONS
+
+haskell_library(
+    name = "lib",
+    srcs = glob(["src/**/*.hs"]),
+    ghcopts = GHC_OPTS + [
     ],
     deps = [
         "@stackage//:aeson",
@@ -85,7 +89,7 @@ haskell_library(
 
 haskell_binary(
     name = "gen",
-    srcs = glob(["bin/Main.hs"]),
+    srcs = ["bin/amazonka-gen.hs"],
     ghcopts = GHC_OPTS + [
         "-threaded",
         "-rtsopts",
@@ -101,5 +105,29 @@ haskell_binary(
         "@stackage//:text",
         "@stackage//:time",
         "@stackage//:unliftio",
+    ],
+)
+
+haskell_binary(
+    name = "gen-configs",
+    srcs = [
+        "bin/amazonka-gen-configs.hs",
+        "bin/WordFrequency.hs"
+    ],
+    ghcopts = GHC_OPTS + [
+        "-threaded",
+        "-rtsopts",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@stackage//:base",
+        "@stackage//:filepath",
+        "@stackage//:hashable",
+        "@stackage//:bytestring",
+        "@stackage//:optparse-applicative",
+        "@stackage//:unliftio",
+        "@stackage//:aeson",
+        "@stackage//:text",
+        "@stackage//:containers",
     ],
 )

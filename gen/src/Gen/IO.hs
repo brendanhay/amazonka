@@ -10,20 +10,22 @@
 
 module Gen.IO where
 
+import qualified Control.Monad.State.Strict as State
+import qualified Data.HashMap.Strict as HashMap
+import Data.HashMap.Strict (HashMap)
 import Control.Monad.Except
 import Control.Monad.State
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import Data.String (fromString)
-import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.IO as LText
-import Gen.Types
 import System.FilePath ((</>))
 import qualified System.FilePath as FilePath
 import System.IO
 import qualified Text.EDE as EDE
+import Text.EDE (Template)
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 
@@ -81,18 +83,29 @@ readTemplate ::
   MonadIO m =>
   FilePath ->
   FilePath ->
-  StateT (Map Text (EDE.Result EDE.Template)) m EDE.Template
+  StateT (HashMap String Template) m Template
 readTemplate dir name = do
-  lift (readBSFile template)
-    >>= EDE.parseWith EDE.defaultSyntax (load dir) (fromString template)
+  let path = dir </> name
+
+  readBSFile path
+    >>= EDE.parseWith EDE.defaultSyntax (resolver dir) (fromString path)
     >>= EDE.result (UnliftIO.throwString . show) pure
   where
-    template = dir </> name
+    resolver dir' syntax key _delta = do
+      let path
+            | Text.null key = ""
+            | otherwise = dir' </> Text.unpack key
+          root = FilePath.takeDirectory path
 
-    load root o key _ =
-      lift (readBSFile path)
-        >>= EDE.parseWith o (load (FilePath.takeDirectory path)) key
-      where
-        path
-          | Text.null key = mempty
-          | otherwise = root </> Text.unpack key
+      State.gets (HashMap.lookup path) >>= \case
+        Just include ->
+          EDE.success include
+        --
+        Nothing -> do
+          content <- readBSFile path
+          result <- EDE.parseWith syntax (resolver root) key content
+          include <- EDE.result (UnliftIO.throwString . show) pure result
+
+          State.modify' (HashMap.insert path include)
+
+          EDE.success include

@@ -2,7 +2,7 @@ name: build
 
 env:
   # Bump this number to invalidate the github actions cache.
-  cache-version: 1
+  cache-version: 2
 
 on:
   push:
@@ -41,7 +41,7 @@ jobs:
         uses: actions/cache@v2
         with:
           key: cache-${{ runner.os }}-${{ env.cache-version }}
-          path: ~/.cache/bazel/amazonka
+          path: ~/.cache/bazel
 
       - name: Setup writable remote bazel cache
         if: ${{ github.repository == 'brendanhay/amazonka' }}

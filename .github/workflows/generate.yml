@@ -65,10 +65,10 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: ${{ env.pr-name }}
-          branch: ${{ env.pr-branch }}
           commit-message: Generate new service configurations
+          branch: ${{ env.pr-branch }}
+          title: ${{ env.pr-name }}
+          token: ${{ secrets.PAT }}
 
       - name: Generate Haskell packages
         run: |
@@ -76,7 +76,8 @@ jobs:
 
       - uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: ${{ env.pr-name }}
-          branch: ${{ env.pr-branch }}
           commit-message: Generate new service packages
+          branch: ${{ env.pr-branch }}
+          title: ${{ env.pr-name }}
+          token: ${{ secrets.PAT }}
+

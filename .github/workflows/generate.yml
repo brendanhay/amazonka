@@ -16,11 +16,10 @@ permissions:
   pull-requests: write
 
 
-
 jobs:
-  build:
+  generate:
     runs-on:
-      - unbuntu-latest
+      - ubuntu-latest
 
     steps:
       - name: Checkout
@@ -41,7 +40,10 @@ jobs:
         uses: actions/cache@v2
         with:
           key: cache-${{ runner.os }}-${{ env.cache-version }}
-          path: ~/.cache/bazel
+          restore-keys: |
+            cache-${{ runner.os }}-
+          path: |
+            ~/.cache/bazel
 
       - name: Setup writable remote bazel cache
         if: ${{ github.repository == 'brendanhay/amazonka' }}

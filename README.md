@@ -3,8 +3,8 @@
 [![MPL2][license-badge]][license]
 [![Build][build-badge]][build]
 [![Hackage][hackage-badge]][hackage]
-[![Nix][nix-badge]][nix]
 [![Cachix][cachix-badge]][cachix]
+
 
 [license]: https://opensource.org/licenses/MPL-2.0
 [license-badge]: https://img.shields.io/badge/license-MPL%202.0-blue.svg
@@ -17,7 +17,12 @@
 [cachix]: https://amazonka.cachix.org
 [cachix-badge]: https://img.shields.io/badge/cachix-amazonka-purple.svg
 
+
+
 * [Description](#description)
+* [Getting Started](#getting-=started)
+
+
 * [Documentation](#documentation)
 * [Organisation](#organisation)
 * [Change Log](#change-log)
@@ -28,7 +33,7 @@
 
 ## Description
 
-A comprehensive Amazon Web Services SDK for Haskell supporting all of the
+A comprehensive Amazon Web Services SDK for Haskell supporting a subset of the
 publicly available services.
 
 Parts of the code contained in this repository are auto-generated and

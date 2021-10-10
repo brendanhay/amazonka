@@ -12,54 +12,8 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-# Obtain the botocore repository.
-bazel build @botocore//...
+bazel build @botocore//... //gen:gen-configs
 
-botocore="$(bazel info output_base)/external/botocore"
-config="config"
-services="$config/services"
-
-available=()
-configured=()
-unconfigured=0
-
-# Config a message to stderr.
-say() {
-  echo >&2 "$@"
-}
-
-# Write an example service configuration and annex to <name>.json.
-write_config() {
-  local -r name="$1"
-  local -r service="$config/services/$name.json"
-  local -r annex="$config/annexes/$name.json"
-
-  say "Missing $name"
-
-  jq -n --arg name "$name" '{ libraryName: $name }' >"$service"
-  echo '{}' >"$annex"
-}
-
-for path in "${botocore}"/*/; do
-  model="${path%/}"
-  model="${model##*/}"
-  available+=("$model")
-done
-
-for path in "${services}"/*.json; do
-  model="${path##*/}"
-  model="${model%%.*}"
-  configured+=("$model")
-done
-
-for name in $(comm -13 <(printf "%s\n" "${configured[@]}" | sort) <(printf "%s\n" "${available[@]}" | sort)); do
-  unconfigured=$((unconfigured + 1))
-  write_config "$name"
-done
-
-say "\
-Wrote examples to config/services and config/annexes.
-Found ${#available[@]} service definitions in $botocore.
-Found ${#configured[@]} existing service configurations in $services.
-Wrote $unconfigured service and annex configurations.
-Done."
+./bazel-bin/gen/gen-configs "$(bazel info output_base)/external/botocore" \
+  --configs ./config \
+  --word-frequencies ./config/word-frequencies

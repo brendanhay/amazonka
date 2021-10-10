@@ -1,0 +1,80 @@
+name: generate
+
+env:
+  # Bump this number to invalidate the github actions cache.
+  cache-version: 1
+  pr-name: Regenerate all services using latest definitions
+  pr-branch: auto-regenerated
+
+on:
+  push: null
+  # schedule:
+  #   - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+
+
+jobs:
+  build:
+    runs-on:
+      - unbuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup nix
+        uses: cachix/install-nix-action@v12
+        with:
+          nix_path: nixpkgs=./nix/nixpkgs.nix
+
+      - name: Setup nix cache
+        uses: cachix/cachix-action@v8
+        with:
+          name: amazonka
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Setup local bazel cache
+        uses: actions/cache@v2
+        with:
+          key: cache-${{ runner.os }}-${{ env.cache-version }}
+          path: ~/.cache/bazel
+
+      - name: Setup writable remote bazel cache
+        if: ${{ github.repository == 'brendanhay/amazonka' }}
+        env:
+          SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        run: |
+          printf '%s\n' >/tmp/credentials.json \
+            "$SERVICE_ACCOUNT"
+
+          printf '%s\n' >>.bazelrc.local \
+            "common --google_credentials=/tmp/credentials.json" \
+            "common --remote_upload_local_results=true" \
+            "common --curses=no" \
+            "common --color=no"
+
+      - name: Generate service configurations
+        run: |
+          nix-shell --run './scripts/generate-configs'
+
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ env.pr-name }}
+          branch: ${{ env.pr-branch }}
+          commit-message: Generate new service configurations
+
+      - name: Generate Haskell packages
+        run: |
+          nix-shell --run './scripts/generate'
+
+      - uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ env.pr-name }}
+          branch: ${{ env.pr-branch }}
+          commit-message: Generate new service packages

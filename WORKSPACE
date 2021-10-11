@@ -301,6 +301,7 @@ stack_snapshot(
         "errors",  # keep
         "filepath",  # keep
         "free",  # keep
+        "ghc-prim",
         "groom",
         "hashable",  # keep
         "haskell-src-exts",  # keep

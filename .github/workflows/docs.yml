@@ -13,6 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Free space
+        if: ${{ matrix.os != 'macos-latest' }}
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+
       - name: Setup nix
         uses: cachix/install-nix-action@v12
         with:

@@ -36,9 +36,9 @@ jobs:
       - name: Setup local bazel cache
         uses: actions/cache@v2
         with:
-          key: cache-${{ matrix.os }}-${{ matrix.ghc }}
+          key: cache-${{ runner.os }}-${{ matrix.ghc }}
           restore-keys: |
-            cache-${{ matrix.os }}
+            cache-${{ runner.os }}
           path: |
             ~/.cache/bazel
 

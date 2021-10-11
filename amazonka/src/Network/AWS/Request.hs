@@ -32,6 +32,7 @@ module Network.AWS.Request
     contentMD5Header,
     expectHeader,
     glacierVersionHeader,
+    s3vhost,
 
     -- ** Lenses
     clientRequestHeaders,
@@ -40,12 +41,14 @@ module Network.AWS.Request
   )
 where
 
+import qualified Data.ByteString.Char8 as B8
 import Network.AWS.Core
-import Network.AWS.Lens ((.~))
+import Network.AWS.Lens ((%~), (.~))
 import Network.AWS.Prelude
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
 import qualified Network.HTTP.Types as HTTP
+import Text.Regex.Posix
 
 type ToRequest a = (ToPath a, ToQuery a, ToHeaders a)
 
@@ -162,3 +165,30 @@ expectHeader rq =
 glacierVersionHeader :: ByteString -> Request a -> Request a
 glacierVersionHeader version rq =
   rq {_requestHeaders = hdr "x-amz-glacier-version" version (_requestHeaders rq)}
+
+-- Rewrite a request to use virtual-hosted-style buckets where
+-- possible.  A request to endpoint "s3.region.amazonaws.com" with
+-- path "/foo/bar" means "object bar in bucket foo". Rewrite it to
+-- endpoint "foo.s3.region.amazonaws.com" and path "/bar".
+--
+-- See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
+s3vhost :: Request a -> Request a
+s3vhost rq = case _requestPath rq of
+  Raw [] -> rq -- Impossible?
+  Raw (bucketName : p) ->
+    let path = Raw p
+        bucketNameLen = B8.length bucketName
+
+        -- Inspired by:
+        -- https://github.com/boto/botocore/blob/04d1fae43b657952e49b21d16daa86378ddb4253/botocore/utils.py#L1067
+        rewritePossible
+          | '.' `B8.elem` bucketName = False
+          | bucketNameLen < 3 || bucketNameLen > 63 = False
+          | not $ bucketName =~ ("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$" :: ByteString) = False
+          | otherwise = True
+     in if rewritePossible
+          then
+            rq
+              & requestService . serviceEndpoint . endpointHost %~ ((bucketName <> ".") <>)
+              & requestPath .~ path
+          else rq

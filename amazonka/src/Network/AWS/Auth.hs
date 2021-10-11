@@ -63,7 +63,6 @@ module Network.AWS.Auth
   )
 where
 
-import Control.Applicative (empty)
 import Control.Concurrent (ThreadId)
 import qualified Control.Concurrent as Concurrent
 import qualified Control.Exception as Exception

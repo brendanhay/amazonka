@@ -15,7 +15,7 @@ import qualified Data.Function as Function
 import qualified Data.List as List
 import qualified Network.AWS.Bytes as Bytes
 import qualified Network.AWS.Crypto as Crypto
-import Network.AWS.Data
+import Network.AWS.Data hiding (Path)
 import Network.AWS.Lens ((%~), (<>~), (^.))
 import Network.AWS.Prelude
 import Network.AWS.Request

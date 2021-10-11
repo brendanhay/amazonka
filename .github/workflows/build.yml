@@ -50,6 +50,7 @@ jobs:
 
           printf '%s\n' >>.bazelrc.local \
             "common --google_credentials=/tmp/credentials.json" \
+            "common --remote_timeout=10s" \
             "common --remote_upload_local_results=true" \
             "common --curses=no" \
             "common --color=no"

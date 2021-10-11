@@ -81,6 +81,31 @@ versioned_http_archive(
     version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
 )
 
+versioned_http_archive(
+    name = "build_stack_rules_hugo",
+    patch_args = ["-p1"],
+    patches = ["//third_party/rules_hugo:hugo_site_serve.patch"],
+    sha256 = "a8f0ac7ba4b71f88e33899df25c222d79e42d18c561d677f91a16aa71bfdf05f",
+    strip_prefix = "rules_hugo-{version}",
+    url = "https://github.com/stackb/rules_hugo/archive/{version}.tar.gz",
+    version = "2927451ff7fff708292eb7eb68ca278457c5dd78",
+)
+
+versioned_http_archive(
+    name = "hugo_theme_learn",
+    build_file_content = """
+filegroup(
+    name = "files",
+    srcs = glob(["**/*"]),
+    visibility = ["//visibility:public"],
+)
+""",
+    sha256 = "902bf754260400fb09d3282cd615b79e62072c6ea034d38505ab30ea20aec7c6",
+    strip_prefix = "hugo-theme-learn-{version}",
+    url = "https://github.com/matcornic/hugo-theme-learn/archive/{version}.tar.gz",
+    version = "d198cbe65f064575df1ab02415980d6e44363bf9",
+)
+
 #
 # Botocore service definitions
 #
@@ -174,6 +199,12 @@ nixpkgs_package(
     repository = "@nixpkgs",
 )
 
+nixpkgs_package(
+    name = "nixpkgs_hugo",
+    attribute_path = "hugo",
+    repository = "@nixpkgs",
+)
+
 #
 # System/C dependencies
 #
@@ -242,7 +273,6 @@ gazelle_cabal_dependencies()
 
 stack_snapshot(
     name = "stackage",
-    snapshot = "lts-18.10",
     extra_deps = {
         "zlib": ["@zlib.dev//:zlib"],
         "digest": ["@zlib.dev//:zlib"],
@@ -310,6 +340,7 @@ stack_snapshot(
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },
+    snapshot = "lts-18.10",
     stack_snapshot_json = "//:stackage-snapshot.json",
     tools = [
         "@nixpkgs_alex//:bin/alex",

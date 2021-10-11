@@ -37,7 +37,7 @@ module Network.AWS.S3.Internal
     , getWebsiteEndpoint
     ) where
 
-import Network.AWS.Lens (IndexedTraversal', Iso', Prism', Traversal', iso, prism, traversed, _1, _2)
+import Network.AWS.Lens (IndexedTraversal', iso, prism, traversed, _1, _2)
 import Network.AWS.Core
 import Network.AWS.Prelude
 import qualified Data.Text as Text
@@ -125,11 +125,11 @@ instance NFData   LocationConstraint
 
 instance FromText LocationConstraint where
     fromText text =
-      fmap LocationConstraint $
+      LocationConstraint <$>
         case Text.toLower text of
             ""   -> pure NorthVirginia
             "eu" -> pure Ireland
-            other -> Left ("Failure parsing LocationConstraint from " ++ show other)
+            other -> pure $ Region' other
 
 instance FromXML LocationConstraint where
     parseXML = \case

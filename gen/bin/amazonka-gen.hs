@@ -10,8 +10,8 @@ import qualified Control.Lens as Lens
 import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
-import qualified Data.Text as Text
 import qualified Data.List as List
+import qualified Data.Text as Text
 import qualified Data.Time as Time
 import qualified Gen.AST as AST
 import Gen.IO

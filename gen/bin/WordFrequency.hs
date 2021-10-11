@@ -6,13 +6,13 @@ module WordFrequency
   )
 where
 
-import qualified Data.Hashable as Hashable
-import Data.IntMap (IntMap)
-import qualified Data.IntMap as IntMap
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.Foldable as Foldable
+import qualified Data.Hashable as Hashable
+import Data.IntMap (IntMap)
+import qualified Data.IntMap as IntMap
 import qualified Data.Maybe as Maybe
 import Prelude hiding (lines, lookup, words)
 

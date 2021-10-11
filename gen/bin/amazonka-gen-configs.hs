@@ -1,26 +1,26 @@
 module Main (main) where
 
-import qualified Data.Maybe as Maybe
-import qualified Data.Text.Encoding as Text.Encoding
-import qualified Data.Text as Text
-import Data.Text (Text)
-import qualified Data.Char as Char
-import qualified Data.ByteString as ByteString
-import qualified Data.ByteString.Lazy as ByteString.Lazy
-import qualified Data.ByteString.Char8 as ByteString.Char8
-import qualified Data.Aeson as Aeson
-import Data.Aeson ((.=))
-import qualified Data.Set as Set
 import qualified Control.Monad as Monad
-import System.FilePath ((</>), (<.>))
+import Data.Aeson ((.=))
+import qualified Data.Aeson as Aeson
+import qualified Data.ByteString as ByteString
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.Char as Char
+import qualified Data.Maybe as Maybe
+import qualified Data.Set as Set
+import Data.Text (Text)
+import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text.Encoding
+import Options.Applicative ((<**>))
+import qualified Options.Applicative as Options
+import System.FilePath ((<.>), (</>))
+import qualified System.FilePath as FilePath
+import qualified System.IO as IO
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 import qualified WordFrequency
-import qualified Options.Applicative as Options
-import Options.Applicative ((<**>))
 import Prelude hiding (words)
-import qualified System.IO as IO
-import qualified System.FilePath as FilePath
 
 data Options = Options
   { botocoreDir :: FilePath,
@@ -31,33 +31,32 @@ data Options = Options
 parser :: Options.Parser Options
 parser =
   Options
-      <$> Options.strArgument
-          ( Options.metavar "BOTOCORE-PATH"
+    <$> Options.strArgument
+      ( Options.metavar "BOTOCORE-PATH"
           <> Options.help "The directory containing botocore service sub-directories."
-          )
-
-      <*> Options.strOption
-          ( Options.long "configs"
+      )
+    <*> Options.strOption
+      ( Options.long "configs"
           <> Options.metavar "PATH"
           <> Options.help "The parent config directory."
           <> Options.value "config"
           <> Options.showDefaultWith id
-          )
-     <*> Options.strOption
-       ( Options.long "word-frequencies"
-      <> Options.metavar "PATH"
-      <> Options.help "An ordered list of words according to frequency."
-      <> Options.value "config/word-frequencies"
-      <> Options.showDefaultWith id
+      )
+    <*> Options.strOption
+      ( Options.long "word-frequencies"
+          <> Options.metavar "PATH"
+          <> Options.help "An ordered list of words according to frequency."
+          <> Options.value "config/word-frequencies"
+          <> Options.showDefaultWith id
       )
 
 main :: IO ()
 main = do
-  Options{botocoreDir, configDir, wordFrequencies} <-
+  Options {botocoreDir, configDir, wordFrequencies} <-
     Options.execParser (Options.info (parser <**> Options.helper) Options.idm)
 
   let serviceDir = configDir </> "services"
-      annexDir  = configDir </> "annexes"
+      annexDir = configDir </> "annexes"
 
   frequencies <-
     fmap WordFrequency.newTable (ByteString.readFile wordFrequencies) >>= \case
@@ -71,16 +70,16 @@ main = do
 
   Monad.forM_ missing $ \name -> do
     let serviceFile = serviceDir </> name <.> "json"
-        annexFile  = annexDir </> name <.> "json"
+        annexFile = annexDir </> name <.> "json"
 
     serviceExists <- UnliftIO.doesFileExist serviceFile
 
     Monad.unless serviceExists $ do
       ByteString.Lazy.writeFile serviceFile
-       . Aeson.encode
-       $ Aeson.object
-       [ "libraryName" .= mappend "amazonka-" name
-       ]
+        . Aeson.encode
+        $ Aeson.object
+          [ "libraryName" .= mappend "amazonka-" name
+          ]
 
       say $ "Wrote " ++ serviceFile
 
@@ -97,26 +96,28 @@ main = do
       ByteString.Lazy.writeFile annexFile
         . Aeson.encode
         $ Aeson.object
-        [ "metadata" .= Aeson.object [ "serviceAbbreviation" .= abbrev ]
-        ]
+          [ "metadata" .= Aeson.object ["serviceAbbreviation" .= abbrev]
+          ]
 
       say $ "Wrote " ++ annexFile
 
   say $
-     "Found "
-        ++ show (Set.size available)
-        ++ " service definitions in " ++ botocoreDir
+    "Found "
+      ++ show (Set.size available)
+      ++ " service definitions in "
+      ++ botocoreDir
 
   say $
-     "Found "
-        ++ show (Set.size configured)
-        ++ " service configurations in " ++ serviceDir
+    "Found "
+      ++ show (Set.size configured)
+      ++ " service configurations in "
+      ++ serviceDir
 
   say $
-     "Wrote "
-        ++ show (Set.size missing)
-        ++ " service and annex configurations to "
-        ++ configDir
+    "Wrote "
+      ++ show (Set.size missing)
+      ++ " service and annex configurations to "
+      ++ configDir
 
   say "Done."
 
@@ -142,4 +143,3 @@ mapHead f text =
   Maybe.fromMaybe text $ do
     (c, cs) <- Text.uncons text
     pure (Text.cons (f c) cs)
-

@@ -19,8 +19,8 @@ import qualified Data.Text.Lazy.IO as LText
 import System.FilePath ((</>))
 import qualified System.FilePath as FilePath
 import System.IO
-import qualified Text.EDE as EDE
 import Text.EDE (Template)
+import qualified Text.EDE as EDE
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
 
@@ -81,6 +81,6 @@ readTemplate ::
   m Template
 readTemplate dir name =
   liftIO $
-   readBSFile (dir </> name)
-    >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
-    >>= EDE.result (UnliftIO.throwString . show) pure
+    readBSFile (dir </> name)
+      >>= EDE.parseWith EDE.defaultSyntax (EDE.includeFile dir) (fromString name)
+      >>= EDE.result (UnliftIO.throwString . show) pure

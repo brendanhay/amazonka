@@ -12,7 +12,6 @@
 
 module Gen.Types.Config where
 
-import System.FilePath ((</>))
 import Control.Error
 import Control.Lens hiding ((.=))
 import Data.Aeson
@@ -34,6 +33,7 @@ import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
+import System.FilePath ((</>))
 import qualified System.FilePath as FilePath
 import Text.EDE (Template)
 
@@ -252,12 +252,13 @@ loadModel :: FilePath -> [FilePath] -> Either String Model
 loadModel path xs = do
   version <- headErr ("No valid model versions found in " ++ show xs) sortedVersions
 
-  pure Model
-    { _modelName = fromString (FilePath.takeFileName path),
-      _modelVersions = map fst sortedVersions,
-      _modelVersion = fst version,
-      _modelPath = path </> snd version
-    }
+  pure
+    Model
+      { _modelName = fromString (FilePath.takeFileName path),
+        _modelVersions = map fst sortedVersions,
+        _modelVersion = fst version,
+        _modelPath = path </> snd version
+      }
   where
     sortedVersions =
       List.sortOn Down (mapMaybe parseVersion xs)

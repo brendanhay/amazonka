@@ -8,15 +8,18 @@ on:
 
 jobs:
   generate:
-    runs-on:
-      - ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - { os: ubuntu-latest, ghc: 8107  }
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Free space
-        if: ${{ matrix.os != 'macos-latest' }}
         run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
       - name: Setup nix
@@ -33,7 +36,9 @@ jobs:
       - name: Setup local bazel cache
         uses: actions/cache@v2
         with:
-          key: cache-${{ runner.os }}
+          key: cache-${{ matrix.os }}-${{ matrix.ghc }}
+          restore-keys: |
+            cache-${{ matrix.os }}
           path: |
             ~/.cache/bazel
 
@@ -42,17 +47,18 @@ jobs:
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
+          cp .bazelrc.{ci,local}
+
           printf '%s\n' >/tmp/credentials.json \
             "$SERVICE_ACCOUNT"
 
-          printf '%s\n' >>.bazelrc.local \
-            "common --google_credentials=/tmp/credentials.json" \
-            "common --remote_upload_local_results=true" \
-            "common --curses=no" \
-            "common --color=no"
-
       - name: Generate service configurations
-        run: nix-shell --run './scripts/generate-configs'
+        run: |
+          nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
+            './scripts/generate-configs'
 
       - name: Generate Haskell packages
-        run: nix-shell --run './scripts/generate'
+        run: |
+          nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
+            './scripts/generate'
+

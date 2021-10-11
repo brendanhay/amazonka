@@ -36,7 +36,9 @@ jobs:
       - name: Setup local bazel cache
         uses: actions/cache@v2
         with:
-          key: cache-${{ runner.os }}
+          key: cache-${{ matrix.os }}-${{ matrix.ghc }}
+          restore-keys: |
+            cache-${{ matrix.os }}
           path: |
             ~/.cache/bazel
 
@@ -45,20 +47,15 @@ jobs:
         env:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
+          cp .bazelrc.{ci,local}
+
           printf '%s\n' >/tmp/credentials.json \
             "$SERVICE_ACCOUNT"
-
-          printf '%s\n' >>.bazelrc.local \
-            "common --google_credentials=/tmp/credentials.json" \
-            "common --remote_timeout=10s" \
-            "common --remote_upload_local_results=true" \
-            "common --curses=no" \
-            "common --color=no"
 
       - name: bazel build //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build -- //... -docs/... -gen/...'
+            'bazel build $(bazel query 'kind("haskell_library", //...)')'
 
       - name: bazel build //gen
         if: ${{ matrix.ghc == '8107' }}

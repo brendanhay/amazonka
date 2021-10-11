@@ -1,23 +1,17 @@
-name: generate
+name: docs
 
 on:
-  push: null
-  # workflow_dispatch: null
-  # schedule:
-  #   - cron: '0 0 * * *'
+  push:
+    branches: null
 
 jobs:
-  generate:
+  docs:
     runs-on:
       - ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Free space
-        if: ${{ matrix.os != 'macos-latest' }}
-        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
       - name: Setup nix
         uses: cachix/install-nix-action@v12
@@ -51,8 +45,11 @@ jobs:
             "common --curses=no" \
             "common --color=no"
 
-      - name: Generate service configurations
-        run: nix-shell --run './scripts/generate-configs'
+      - name: bazel build //docs
+        run: nix-shell --run 'bazel build //docs'
 
-      - name: Generate Haskell packages
-        run: nix-shell --run './scripts/generate'
+      - name: Push to GitHub pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: bazel-bin/docs/docs

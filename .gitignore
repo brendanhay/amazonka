@@ -47,3 +47,6 @@ cabal.project.local*
 # Bazel
 .bazelrc.local
 /bazel-*
+
+# Direnv
+.envrc.local

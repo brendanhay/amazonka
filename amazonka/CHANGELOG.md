@@ -62,7 +62,7 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#661](https://github.com/brendanhay/amazonka/pull/661)
 - Fixed S3 envelope encryption
 [\#669](https://github.com/brendanhay/amazonka/pull/669)
-- Fixed S3 to use vhost endpoints, and parse `LocationConstraint`s properly.
+- Fixed S3 to use vhost endpoints, parse `LocationConstraint`s properly, and ensure `Content-MD5` header correctly set.
 [\#673](https://github.com/brendanhay/amazonka/pull/673)
 
 

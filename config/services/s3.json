@@ -7,8 +7,8 @@
     "operationPlugins": {
         "DeleteObjects": ["Request.contentMD5Header", "Request.s3vhost"],
         "GetBucketLocation": [],
-        "PutBucketCORS": ["Request.contentMD5Header", "Request.s3vhost"],
-        "PutBucketLifecycle": ["Request.contentMD5Header", "Request.s3vhost"],
+        "PutBucketCors": ["Request.contentMD5Header", "Request.s3vhost"],
+        "PutBucketLifecycleConfiguration": ["Request.contentMD5Header", "Request.s3vhost"],
         "PutBucketPolicy": ["Request.contentMD5Header", "Request.s3vhost"],
         "PutBucketTagging": ["Request.contentMD5Header", "Request.s3vhost"],
         "PutObject": ["Request.expectHeader", "Request.s3vhost"],

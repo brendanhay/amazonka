@@ -1,13 +1,13 @@
 name: documentation
 
 on:
-  workflow_dispatch: null
+  # workflow_dispatch: null
   push:
     branches: null
-    paths:
-      - 'WORKSPACE'
-      - 'docs'
-      - '**.nix'
+    # paths:
+    #   - 'WORKSPACE'
+    #   - 'docs'
+    #   - '**.nix'
   pull_request:
     branches: develop
     paths:

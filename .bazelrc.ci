@@ -1,6 +1,3 @@
-common --curses=no
-common --color=no
-
 build --google_credentials=/tmp/credentials.json
 build --remote_timeout=10s
 build --remote_upload_local_results=true

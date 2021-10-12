@@ -7,11 +7,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Envelope where
 
+import Conduit ((.|))
 import qualified Conduit
 import qualified Control.Exception as Exception
 import Control.Lens ((+~), (?~), (^.))
+import Crypto.Cipher.AES (AES256)
 import qualified Crypto.Cipher.AES as AES
-import Crypto.Cipher.Types (BlockCipher, Cipher)
+import Crypto.Cipher.Types (BlockCipher, Cipher, IV)
 import qualified Crypto.Cipher.Types as Cipher
 import qualified Crypto.Data.Padding as Padding
 import qualified Crypto.Error
@@ -21,6 +23,7 @@ import Crypto.Random (getRandomBytes)
 import qualified Data.Aeson as Aeson
 import Data.ByteArray (ByteArray)
 import qualified Data.ByteArray as ByteArray
+import qualified Data.ByteString as BS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
 import qualified Network.AWS as AWS
@@ -234,22 +237,60 @@ aesKeySize = 32
 aesBlockSize = 16
 
 bodyEncrypt :: Envelope -> RequestBody -> RequestBody
-bodyEncrypt (getCipher -> (aes, iv)) x =
-  Chunked $ y `fuseChunks` Conduit.awaitForever (Conduit.yield . go)
+bodyEncrypt (getCipher -> (aes, iv0)) rqBody =
+  Chunked $
+    toChunked rqBody
+      -- Realign body chunks for upload (AWS enforces chunk limits on all but last)
+      & (`fuseChunks` (encryptChunks .| Conduit.chunksOfCE (fromIntegral defaultChunkSize)))
+      & chunkedLength +~ padding -- extend length for any required AES padding
   where
-    go = Cipher.cbcEncrypt aes iv . Padding.pad (Padding.PKCS7 aesBlockSize)
-    y = toChunked x & chunkedLength +~ padding
+    encryptChunks = aesCbc iv0 nextChunk lastChunk
 
-    padding = n - (contentLength x `mod` n)
+    nextChunk iv b =
+      let iv' = fromMaybe iv . Cipher.makeIV $ BS.drop (BS.length b - aesBlockSize) r
+          r = Cipher.cbcEncrypt aes iv b
+       in (iv', r)
+
+    lastChunk iv = Cipher.cbcEncrypt aes iv . Padding.pad (Padding.PKCS7 aesBlockSize)
+
+    padding = n - (contentLength rqBody `mod` n)
     n = fromIntegral aesBlockSize
 
 bodyDecrypt :: Envelope -> ResponseBody -> ResponseBody
-bodyDecrypt (getCipher -> (aes, iv)) x =
-  x `fuseStream` Conduit.awaitForever (Conduit.yield . go)
+bodyDecrypt (getCipher -> (aes, iv0)) rsBody =
+  rsBody `fuseStream` decryptChunks
   where
-    go b =
+    decryptChunks = aesCbc iv0 nextChunk lastChunk
+
+    nextChunk iv b =
+      let iv' = fromMaybe iv . Cipher.makeIV $ BS.drop (BS.length b - aesBlockSize) b
+          r = Cipher.cbcDecrypt aes iv b
+       in (iv', r)
+
+    lastChunk iv b =
       let r = Cipher.cbcDecrypt aes iv b
        in fromMaybe r (Padding.unpad (Padding.PKCS7 aesBlockSize) r)
+
+aesCbc ::
+  Monad m =>
+  IV AES256 ->
+  (IV AES256 -> ByteString -> (IV AES256, ByteString)) ->
+  (IV AES256 -> ByteString -> ByteString) ->
+  Conduit.ConduitT ByteString ByteString m ()
+aesCbc iv0 onNextChunk onLastChunk =
+  Conduit.chunksOfCE aesBlockSize .| goChunk iv0 Nothing
+  where
+    goChunk iv carry =
+      do
+        carry' <- Conduit.await
+        case carry' of
+          Nothing -> maybe (pure ()) (Conduit.yield . onLastChunk iv) carry
+          Just _ -> case carry of
+            Nothing -> goChunk iv carry'
+            Just chunk -> do
+              let (iv', encrypted) = onNextChunk iv chunk
+              Conduit.yield encrypted
+              goChunk iv' carry'
 
 rsaEncrypt :: KeyPair -> ByteString -> IO ByteString
 rsaEncrypt k =

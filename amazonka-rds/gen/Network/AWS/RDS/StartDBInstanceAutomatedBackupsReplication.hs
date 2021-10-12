@@ -33,6 +33,7 @@ module Network.AWS.RDS.StartDBInstanceAutomatedBackupsReplication
 
     -- * Request Lenses
     startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod,
+    startDBInstanceAutomatedBackupsReplication_destinationRegion,
     startDBInstanceAutomatedBackupsReplication_kmsKeyId,
     startDBInstanceAutomatedBackupsReplication_preSignedUrl,
     startDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn,
@@ -58,6 +59,12 @@ import qualified Network.AWS.Response as Response
 data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackupsReplication'
   { -- | The retention period for the replicated automated backups.
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
+    -- replicate from region @SRC@ to region @DST@, send a request to region
+    -- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
+    -- @DestinationRegion@ set to region @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier for encryption of the
     -- replicated automated backups. The KMS key ID is the Amazon Resource Name
     -- (ARN) for the KMS encryption key in the destination Amazon Web Services
@@ -89,6 +96,12 @@ data StartDBInstanceAutomatedBackupsReplication = StartDBInstanceAutomatedBackup
 --
 -- 'backupRetentionPeriod', 'startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod' - The retention period for the replicated automated backups.
 --
+-- 'destinationRegion', 'startDBInstanceAutomatedBackupsReplication_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
+-- replicate from region @SRC@ to region @DST@, send a request to region
+-- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
+-- @DestinationRegion@ set to region @DST@.
+--
 -- 'kmsKeyId', 'startDBInstanceAutomatedBackupsReplication_kmsKeyId' - The Amazon Web Services KMS key identifier for encryption of the
 -- replicated automated backups. The KMS key ID is the Amazon Resource Name
 -- (ARN) for the KMS encryption key in the destination Amazon Web Services
@@ -115,6 +128,8 @@ newStartDBInstanceAutomatedBackupsReplication
     StartDBInstanceAutomatedBackupsReplication'
       { backupRetentionPeriod =
           Prelude.Nothing,
+        destinationRegion =
+          Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         preSignedUrl = Prelude.Nothing,
         sourceDBInstanceArn =
@@ -124,6 +139,14 @@ newStartDBInstanceAutomatedBackupsReplication
 -- | The retention period for the replicated automated backups.
 startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Int)
 startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {backupRetentionPeriod = a} :: StartDBInstanceAutomatedBackupsReplication)
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @StartDBInstanceAutomatedBackupsReplication@ request. To
+-- replicate from region @SRC@ to region @DST@, send a request to region
+-- @DST@. In that request, pass a @PreSignedUrl@ for region @SRC@ with
+-- @DestinationRegion@ set to region @DST@.
+startDBInstanceAutomatedBackupsReplication_destinationRegion :: Lens.Lens' StartDBInstanceAutomatedBackupsReplication (Prelude.Maybe Prelude.Text)
+startDBInstanceAutomatedBackupsReplication_destinationRegion = Lens.lens (\StartDBInstanceAutomatedBackupsReplication' {destinationRegion} -> destinationRegion) (\s@StartDBInstanceAutomatedBackupsReplication' {} a -> s {destinationRegion = a} :: StartDBInstanceAutomatedBackupsReplication)
 
 -- | The Amazon Web Services KMS key identifier for encryption of the
 -- replicated automated backups. The KMS key ID is the Amazon Resource Name
@@ -202,6 +225,7 @@ instance
             Core.=: ("2014-10-31" :: Prelude.ByteString),
           "BackupRetentionPeriod"
             Core.=: backupRetentionPeriod,
+          "DestinationRegion" Core.=: destinationRegion,
           "KmsKeyId" Core.=: kmsKeyId,
           "PreSignedUrl" Core.=: preSignedUrl,
           "SourceDBInstanceArn" Core.=: sourceDBInstanceArn

@@ -7,6 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Path
   ( -- * Path Types
+    Path(..),
     RawPath,
     EscapedPath,
 

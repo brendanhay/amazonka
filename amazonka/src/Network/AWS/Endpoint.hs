@@ -13,7 +13,6 @@ module Network.AWS.Endpoint
 where
 
 import qualified Data.CaseInsensitive as CI
-import qualified Data.HashSet as HashSet
 import Network.AWS.Data.ByteString
 import Network.AWS.Lens ((%~), (.~))
 import Network.AWS.Prelude
@@ -55,10 +54,6 @@ defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
         | china -> region "sts.cn-north-1.amazonaws.com.cn"
         | govcloud -> region ("sts." <> reg <> ".amazonaws.com")
         | otherwise -> global "sts.amazonaws.com"
-      "s3"
-        | virginia -> global "s3.amazonaws.com"
-        | china -> region ("s3." <> reg <> ".amazonaws.com.cn")
-        | s3 -> region ("s3-" <> reg <> ".amazonaws.com")
       "rds"
         | virginia -> global "rds.amazonaws.com"
       "route53"
@@ -86,8 +81,6 @@ defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
     china = r == Beijing
     govcloud = r == GovCloudEast || r == GovCloudWest
 
-    s3 = r `HashSet.member` except
-
     region h =
       Endpoint
         { _endpointHost = h,
@@ -105,17 +98,3 @@ defaultEndpoint (_serviceEndpointPrefix -> p) r = go (CI.mk p)
         }
 
     reg = toBS r
-
-    except =
-      HashSet.fromList
-        [ GovCloudEast,
-          GovCloudWest,
-          Ireland,
-          NorthCalifornia,
-          NorthVirginia,
-          Oregon,
-          SaoPaulo,
-          Singapore,
-          Sydney,
-          Tokyo
-        ]

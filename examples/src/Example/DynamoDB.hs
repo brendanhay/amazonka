@@ -1,0 +1,88 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeApplications #-}
+
+-- |
+-- Module      : Example.DynamoDB
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : provisional
+-- Portability : non-portable (GHC extensions)
+--
+-- The examples in this module illustrate the use of 'setEndpoint' to allow
+-- for <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html local development>
+-- using DynamoDB. If you plan on developing against remote AWS DynamoDB, then
+-- you can omit the 'setEndpoint' and 'reconfigure' steps below.
+module Example.DynamoDB where
+
+import Control.Lens
+import Control.Monad.IO.Class
+import Data.Conduit
+import qualified Data.Conduit.List as CL
+import Data.Generics.Product
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text as Text
+import qualified Data.Text.IO as Text
+import Network.AWS
+import Network.AWS.DynamoDB as DynamoDB
+import System.IO
+
+printTables ::
+  -- | Region to operate in.
+  Region ->
+  -- | Whether to use HTTPS (ie. SSL).
+  Bool ->
+  -- | The hostname to connect to.
+  ByteString ->
+  -- | The port number to connect to.
+  Int ->
+  IO ()
+printTables region secure host port = do
+  -- Specify a custom DynamoDB endpoint to communicate with:
+  let dynamo = setEndpoint secure host port DynamoDB.defaultService
+
+  lgr <- newLogger Debug stdout
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . configure dynamo . within region
+
+  runResourceT $ do
+    say $ "Listing all tables in region " <> toText region
+    runConduit $
+      paginate env newListTables
+      .| CL.concatMap (view (field @"tableNames" . _Just))
+      .| CL.mapM_ (say . mappend "Table: ")
+
+insertItem ::
+  -- | Region to operate in.
+  Region ->
+  -- | Whether to use HTTPS (ie. SSL).
+  Bool ->
+  -- | The hostname to connect to.
+  ByteString ->
+  -- | The port number to connect to.
+  Int ->
+  -- | The table to insert the item into.
+  Text ->
+  -- | The attribute name-value pairs that constitute an item.
+  HashMap Text AttributeValue ->
+  IO PutItemResponse
+insertItem region secure host port table item = do
+  -- Specify a custom DynamoDB endpoint to communicate with:
+  let dynamo = setEndpoint secure host port DynamoDB.defaultService
+
+  lgr <- newLogger Debug stdout
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . within region . configure dynamo
+
+  runResourceT $ do
+    say $
+      "Inserting item into table '"
+        <> table
+        <> "' with attribute names: "
+        <> Text.intercalate ", " (Map.keys item)
+    -- Insert the new item into the specified table:
+    send env $ newPutItem table & field @"item" .~ item
+
+say :: MonadIO m => Text -> m ()
+say = liftIO . Text.putStrLn

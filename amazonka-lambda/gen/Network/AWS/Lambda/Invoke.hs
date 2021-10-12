@@ -267,7 +267,7 @@ instance Core.AWSRequest Invoke where
     Response.receiveBytes
       ( \s h x ->
           InvokeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Core..#? "X-Amz-Log-Result")
             Prelude.<*> (h Core..#? "X-Amz-Executed-Version")
             Prelude.<*> (h Core..#? "X-Amz-Function-Error")

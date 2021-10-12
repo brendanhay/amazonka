@@ -46,7 +46,7 @@ data ObjectVersion = ObjectVersion'
     -- | Date and time the object was last modified.
     lastModified :: Prelude.Maybe Core.ISO8601,
     -- | Size in bytes of the object.
-    size :: Prelude.Maybe Prelude.Int
+    size :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,7 +118,7 @@ objectVersion_lastModified :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.UT
 objectVersion_lastModified = Lens.lens (\ObjectVersion' {lastModified} -> lastModified) (\s@ObjectVersion' {} a -> s {lastModified = a} :: ObjectVersion) Prelude.. Lens.mapping Core._Time
 
 -- | Size in bytes of the object.
-objectVersion_size :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.Int)
+objectVersion_size :: Lens.Lens' ObjectVersion (Prelude.Maybe Prelude.Integer)
 objectVersion_size = Lens.lens (\ObjectVersion' {size} -> size) (\s@ObjectVersion' {} a -> s {size = a} :: ObjectVersion)
 
 instance Core.FromXML ObjectVersion where

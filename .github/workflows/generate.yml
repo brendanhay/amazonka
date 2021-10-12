@@ -1,10 +1,9 @@
 name: generate
 
 on:
-  push: null
-  # workflow_dispatch: null
-  # schedule:
-  #   - cron: '0 0 * * *'
+  workflow_dispatch: null
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   generate:

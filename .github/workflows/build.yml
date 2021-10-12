@@ -3,6 +3,9 @@ name: build
 on:
   push:
     branches: null
+    paths-ignore:
+      - '**.md'
+      - 'scripts'
   pull_request:
     branches: null
 

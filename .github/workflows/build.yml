@@ -5,7 +5,7 @@ on:
     branches: null
     paths-ignore:
       - '**.md'
-      - 'scripts'
+      - 'scripts/**'
   pull_request:
     branches: null
 
@@ -22,32 +22,20 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Free space
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
+      - if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |-
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Setup nix
-        uses: cachix/install-nix-action@v12
+      - uses: cachix/install-nix-action@v12
         with:
           nix_path: nixpkgs=./nix/nixpkgs.nix
 
-      - name: Setup nix cache
-        uses: cachix/cachix-action@v8
+      - uses: cachix/cachix-action@v8
         with:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-      - name: Setup local bazel cache
-        uses: actions/cache@v2
-        with:
-          key: cache-${{ runner.os }}-${{ matrix.ghc }}
-          restore-keys: |
-            cache-${{ runner.os }}
-          path: |
-            ~/.cache/bazel/amazonka
 
       - name: Setup writable remote bazel cache
         if: ${{ github.repository == 'brendanhay/amazonka' }}
@@ -55,23 +43,36 @@ jobs:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         run: |
           cp .bazelrc.{ci,local}
+          printf '%s\n' "$SERVICE_ACCOUNT" >/tmp/credentials.json
 
-          printf '%s\n' >/tmp/credentials.json \
-            "$SERVICE_ACCOUNT"
+      - name: bazel build //gen
+        run: |
+          nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
+            'bazel build --execution_log_binary_file=gen.log //gen'
+
+      - if: ${{ github.repository == 'brendanhay/amazonka' && matrix.ghc == '8107' }}
+        name: Upload //gen execution log
+        uses: google-github-actions/upload-cloud-storage@v0.2.0
+        with:
+          credentials: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          destination: tlon-opensource-cache/log/build-gen-${{ runner.os }}-${{ env.GITHUB_ACTION }}
+          path: gen.log
 
       - name: bazel build //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build //... --build_tag_filters=ci'
+            'bazel build --execution_log_binary_file=all.log //... --build_tag_filters=ci'
 
-      - name: bazel build //gen
-        if: ${{ matrix.ghc == '8107' }}
+      - if: ${{ github.repository == 'brendanhay/amazonka' && matrix.ghc == '8107' }}
+        name: Upload //... execution log
+        uses: google-github-actions/upload-cloud-storage@v0.2.0
+        with:
+          credentials: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          destination: tlon-opensource-cache/log/build-all-${{ runner.os }}-${{ env.GITHUB_ACTION }}
+          path: all.log
+
+      - if: ${{ matrix.ghc == '8107' }}
+        name: bazel test //...
         run: |
           nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazel build //gen'
-
-      - name: bazel test //...
-        if: ${{ matrix.ghc == '8107' }}
-        run: |
-          nix-shell --argstr ghcVersion '${{ matrix.ghc }}' --run \
-            'bazeltest build //... --build_tag_filters=ci'
+            'bazel test //... --build_tag_filters=ci'

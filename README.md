@@ -4,15 +4,15 @@
 [![Hackage][hackage-badge]][hackage]
 [![Cachix][cachix-badge]][cachix]
 [![Build][build-badge]][actions]
-[![Generate][generate-badge]][actions]
-[![Documentation][documentation-badge]][actions]
+[![Gen][gen-badge]][actions]
+[![Docs][docs-badge]][actions]
 
 [license]: https://opensource.org/licenses/MPL-2.0
 [actions]: https://github.com/brendanhay/amazonka/actions
 [license-badge]: https://img.shields.io/badge/license-MPL%202.0-blue.svg
 [build-badge]: https://github.com/brendanhay/amazonka/workflows/build/badge.svg
-[generate-badge]: https://github.com/brendanhay/amazonka/workflows/generate/badge.svg
-[documentation-badge]: https://github.com/brendanhay/amazonka/workflows/documentation/badge.svg
+[gen-badge]: https://github.com/brendanhay/amazonka/workflows/gen/badge.svg
+[docs-badge]: https://github.com/brendanhay/amazonka/workflows/docs/badge.svg
 [hackage]: http://hackage.haskell.org/package/amazonka
 [hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
 [cachix]: https://amazonka.cachix.org

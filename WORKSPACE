@@ -36,7 +36,7 @@ versioned_http_archive(
     url = "https://github.com/tweag/rules_haskell/archive/{version}.tar.gz",
     version = "ea0e70ace2432a490d4ab4c4e54617612466e584",
     patches = ["//:third_party/rules_haskell/haddock_index_root.patch"],
-    patch_args = ["-p1"],
+    patch_args = ["-p1"]
 )
 
 versioned_http_archive(
@@ -91,6 +91,21 @@ versioned_http_archive(
     strip_prefix = "rules_hugo-{version}",
     url = "https://github.com/stackb/rules_hugo/archive/{version}.tar.gz",
     version = "2927451ff7fff708292eb7eb68ca278457c5dd78",
+)
+
+versioned_http_archive(
+    name = "hugo_theme_kube",
+    build_file_content = """
+filegroup(
+    name = "files",
+    srcs = glob(["**/*"]),
+    visibility = ["//visibility:public"],
+)
+""",
+    # sha256 = "3a56884d70d0e81e4617e452562ddaa5f839c7268dd9e033c2eb877fe01bf7cf",
+    strip_prefix = "kube-{version}",
+    url = "https://github.com/jeblister/kube/archive/{version}.tar.gz",
+    version = "fbc55901c8b4d7efb362c06c8550ddda1acd5dbd",
 )
 
 versioned_http_archive(

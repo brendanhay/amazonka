@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.Presign</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-comment">--</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- This module contains functions for presigning requests using 'MonadIO' and</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- not one of the AWS specific transformers.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- It is intended for use directly with &quot;Network.AWS.Auth&quot; when only presigning</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- and no other AWS actions are required.</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Presign</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-15"></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.html"><span class="hs-identifier">Network.AWS.Data</span></a></span><span>
+</span><span id="line-17"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Lens.html"><span class="hs-identifier">Network.AWS.Lens</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-operator">(%~)</span></span><span class="hs-special">)</span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html"><span class="hs-identifier">Network.AWS.Prelude</span></a></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Request.html"><span class="hs-identifier">Network.AWS.Request</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Request.html#clientRequestURL"><span class="hs-identifier">clientRequestURL</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Types.html"><span class="hs-identifier">Network.AWS.Types</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
+</span><span id="line-22"></span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- | Presign an URL that is valid from the specified time until the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- number of seconds expiry has elapsed.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- /See:/ 'presign', 'presignWith'</span><span>
+</span><span id="line-27"></span><span id="local-6989586621679203194"><span id="local-6989586621679203195"><span class="annot"><a href="Network.AWS.Presign.html#presignURL"><span class="hs-identifier hs-type">presignURL</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203195"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203194"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-29"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-30"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
+</span><span id="line-32"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
+</span><span id="line-34"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
+</span><span id="line-36"></span><span>  </span><span class="annot"><a href="#local-6989586621679203194"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-37"></span><span>  </span><span class="annot"><a href="#local-6989586621679203195"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span></span></span><span>
+</span><span id="line-38"></span><span id="presignURL"><span class="annot"><span class="annottext">presignURL :: Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ByteString
+</span><a href="Network.AWS.Presign.html#presignURL"><span class="hs-identifier hs-var hs-var">presignURL</span></a></span></span><span> </span><span id="local-6989586621679203192"><span class="annot"><span class="annottext">Auth
+</span><a href="#local-6989586621679203192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679203191"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679203191"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679203190"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679203190"><span class="hs-identifier hs-var">e</span></a></span></span><span> </span><span id="local-6989586621679203189"><span class="annot"><span class="annottext">Seconds
+</span><a href="#local-6989586621679203189"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-39"></span><span>  </span><span class="annot"><span class="annottext">(ClientRequest -&gt; ByteString) -&gt; m ClientRequest -&gt; m ByteString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-identifier hs-var">fmap</span></span><span> </span><span class="annot"><span class="annottext">ClientRequest -&gt; ByteString
+</span><a href="Network.AWS.Request.html#clientRequestURL"><span class="hs-identifier hs-var">clientRequestURL</span></a></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="annottext">(m ClientRequest -&gt; m ByteString)
+-&gt; (a -&gt; m ClientRequest) -&gt; a -&gt; m ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+forall (m :: * -&gt; *) a.
+(MonadIO m, AWSRequest a) =&gt;
+Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+</span><a href="Network.AWS.Presign.html#presign"><span class="hs-identifier hs-var">presign</span></a></span><span> </span><span class="annot"><span class="annottext">Auth
+</span><a href="#local-6989586621679203192"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679203191"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679203190"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><a href="#local-6989586621679203189"><span class="hs-identifier hs-var">ts</span></a></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- | Presign an HTTP request that is valid from the specified time until the</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- number of seconds expiry has elapsed.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- /See:/ 'presignWith', 'presignWithHeaders'</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679203242"><span id="local-6989586621679203244"><span class="annot"><a href="Network.AWS.Presign.html#presign"><span class="hs-identifier hs-type">presign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203244"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203242"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="#local-6989586621679203242"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="#local-6989586621679203244"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span></span></span><span>
+</span><span id="line-57"></span><span id="presign"><span class="annot"><span class="annottext">presign :: Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+</span><a href="Network.AWS.Presign.html#presign"><span class="hs-identifier hs-var hs-var">presign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">(Service -&gt; Service)
+-&gt; Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+forall (m :: * -&gt; *) a.
+(MonadIO m, AWSRequest a) =&gt;
+(Service -&gt; Service)
+-&gt; Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+</span><a href="Network.AWS.Presign.html#presignWith"><span class="hs-identifier hs-var">presignWith</span></a></span><span> </span><span class="annot"><span class="annottext">Service -&gt; Service
+forall a. a -&gt; a
+</span><span class="hs-identifier hs-var">id</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | A variant of 'presign' that allows modifying the default 'Service'</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- definition used to configure the request.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'presignWithHeaders'</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679203236"><span id="local-6989586621679203237"><span class="annot"><a href="Network.AWS.Presign.html#presignWith"><span class="hs-identifier hs-type">presignWith</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203237"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203236"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | Modify the default service configuration.</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="#local-6989586621679203236"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="#local-6989586621679203237"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span></span></span><span>
+</span><span id="line-77"></span><span id="presignWith"><span class="annot"><span class="annottext">presignWith :: (Service -&gt; Service)
+-&gt; Auth -&gt; Region -&gt; UTCTime -&gt; Seconds -&gt; a -&gt; m ClientRequest
+</span><a href="Network.AWS.Presign.html#presignWith"><span class="hs-identifier hs-var hs-var">presignWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">([Header] -&gt; [Header])
+-&gt; (Service -&gt; Service)
+-&gt; Auth
+-&gt; Region
+-&gt; UTCTime
+-&gt; Seconds
+-&gt; a
+-&gt; m ClientRequest
+forall (m :: * -&gt; *) a.
+(MonadIO m, AWSRequest a) =&gt;
+([Header] -&gt; [Header])
+-&gt; (Service -&gt; Service)
+-&gt; Auth
+-&gt; Region
+-&gt; UTCTime
+-&gt; Seconds
+-&gt; a
+-&gt; m ClientRequest
+</span><a href="Network.AWS.Presign.html#presignWithHeaders"><span class="hs-identifier hs-var">presignWithHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; [Header]
+</span><a href="Network.AWS.Presign.html#defaultHeaders"><span class="hs-identifier hs-var">defaultHeaders</span></a></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Modification to the headers that is applied by default (in 'presignWith');</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- removes the &quot;Expect&quot; header which is added to every 'PutObject'.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Presign.html#defaultHeaders"><span class="hs-identifier hs-type">defaultHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span id="defaultHeaders"><span class="annot"><span class="annottext">defaultHeaders :: [Header] -&gt; [Header]
+</span><a href="Network.AWS.Presign.html#defaultHeaders"><span class="hs-identifier hs-var hs-var">defaultHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Header -&gt; Bool) -&gt; [Header] -&gt; [Header]
+forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="hs-special">(</span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">/=</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="Network.AWS.Data.Headers.html#hExpect"><span class="hs-identifier hs-var">hExpect</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HeaderName -&gt; Bool) -&gt; (Header -&gt; HeaderName) -&gt; Header -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A variant of 'presign' that allows modifying the default 'Headers'</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- and the default 'Service' definition used to configure the request.</span><span>
+</span><span id="line-86"></span><span id="local-6989586621679203230"><span id="local-6989586621679203231"><span class="annot"><a href="Network.AWS.Presign.html#presignWithHeaders"><span class="hs-identifier hs-type">presignWithHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679203231"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#AWSRequest"><span class="hs-identifier hs-type">AWSRequest</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679203230"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | Modify the default headers.</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">(</span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Header</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | Modify the default service configuration.</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Auth"><span class="hs-identifier hs-type">Auth</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | Signing time.</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | Expiry time.</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Seconds"><span class="hs-identifier hs-type">Seconds</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | Request to presign.</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="#local-6989586621679203230"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="#local-6989586621679203231"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#ClientRequest"><span class="hs-identifier hs-type">ClientRequest</span></a></span></span></span><span>
+</span><span id="line-101"></span><span id="presignWithHeaders"><span class="annot"><span class="annottext">presignWithHeaders :: ([Header] -&gt; [Header])
+-&gt; (Service -&gt; Service)
+-&gt; Auth
+-&gt; Region
+-&gt; UTCTime
+-&gt; Seconds
+-&gt; a
+-&gt; m ClientRequest
+</span><a href="Network.AWS.Presign.html#presignWithHeaders"><span class="hs-identifier hs-var hs-var">presignWithHeaders</span></a></span></span><span> </span><span id="local-6989586621679203180"><span class="annot"><span class="annottext">[Header] -&gt; [Header]
+</span><a href="#local-6989586621679203180"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span id="local-6989586621679203179"><span class="annot"><span class="annottext">Service -&gt; Service
+</span><a href="#local-6989586621679203179"><span class="hs-identifier hs-var">g</span></a></span></span><span> </span><span id="local-6989586621679203178"><span class="annot"><span class="annottext">Auth
+</span><a href="#local-6989586621679203178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span id="local-6989586621679203177"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679203177"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679203176"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679203176"><span class="hs-identifier hs-var">ts</span></a></span></span><span> </span><span id="local-6989586621679203175"><span class="annot"><span class="annottext">Seconds
+</span><a href="#local-6989586621679203175"><span class="hs-identifier hs-var">ex</span></a></span></span><span> </span><span id="local-6989586621679203174"><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679203174"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">Auth -&gt; (AuthEnv -&gt; m ClientRequest) -&gt; m ClientRequest
+forall (m :: * -&gt; *) a.
+MonadIO m =&gt;
+Auth -&gt; (AuthEnv -&gt; m a) -&gt; m a
+</span><a href="Network.AWS.Types.html#withAuth"><span class="hs-identifier hs-var">withAuth</span></a></span><span> </span><span class="annot"><span class="annottext">Auth
+</span><a href="#local-6989586621679203178"><span class="hs-identifier hs-var">a</span></a></span><span> </span><span class="annot"><span class="annottext">((AuthEnv -&gt; m ClientRequest) -&gt; m ClientRequest)
+-&gt; (AuthEnv -&gt; m ClientRequest) -&gt; m ClientRequest
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203172"><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679203172"><span class="hs-identifier hs-var">ae</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ClientRequest -&gt; m ClientRequest
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">(ClientRequest -&gt; m ClientRequest)
+-&gt; ClientRequest -&gt; m ClientRequest
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$!</span></span><span> </span><span class="annot"><span class="annottext">Signed a -&gt; ClientRequest
+forall a. Signed a -&gt; ClientRequest
+</span><a href="Network.AWS.Types.html#%24sel%3AsignedRequest%3ASigned"><span class="hs-identifier hs-var hs-var">signedRequest</span></a></span><span> </span><span class="annot"><span class="annottext">(Signed a -&gt; ClientRequest) -&gt; Signed a -&gt; ClientRequest
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Seconds -&gt; Algorithm a
+forall a. Seconds -&gt; Algorithm a
+</span><a href="Network.AWS.Types.html#requestPresign"><span class="hs-identifier hs-var">requestPresign</span></a></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><a href="#local-6989586621679203175"><span class="hs-identifier hs-var">ex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a -&gt; Request a
+forall a. AWSRequest a =&gt; a -&gt; Request a
+</span><a href="Network.AWS.Types.html#request"><span class="hs-identifier hs-var">request</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><a href="#local-6989586621679203174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Request a -&gt; (Request a -&gt; Request a) -&gt; Request a
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">([Header] -&gt; Identity [Header])
+-&gt; Request a -&gt; Identity (Request a)
+forall a. Lens' (Request a) [Header]
+</span><a href="Network.AWS.Types.html#requestHeaders"><span class="hs-identifier hs-var">requestHeaders</span></a></span><span> </span><span class="annot"><span class="annottext">(([Header] -&gt; Identity [Header])
+ -&gt; Request a -&gt; Identity (Request a))
+-&gt; ([Header] -&gt; [Header]) -&gt; Request a -&gt; Request a
+forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; [Header]
+</span><a href="#local-6989586621679203180"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">Request a -&gt; (Request a -&gt; Request a) -&gt; Request a
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Service -&gt; Identity Service) -&gt; Request a -&gt; Identity (Request a)
+forall a. Lens' (Request a) Service
+</span><a href="Network.AWS.Types.html#requestService"><span class="hs-identifier hs-var">requestService</span></a></span><span> </span><span class="annot"><span class="annottext">((Service -&gt; Identity Service)
+ -&gt; Request a -&gt; Identity (Request a))
+-&gt; (Service -&gt; Service) -&gt; Request a -&gt; Request a
+forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; Service
+</span><a href="#local-6989586621679203179"><span class="hs-identifier hs-var">g</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">AuthEnv
+</span><a href="#local-6989586621679203172"><span class="hs-identifier hs-var">ae</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679203177"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679203176"><span class="hs-identifier hs-var">ts</span></a></span><span>
+</span><span id="line-105"></span></pre></body></html>

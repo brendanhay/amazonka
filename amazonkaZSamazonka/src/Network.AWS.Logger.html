@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Network.AWS.Logger</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-8"></span><span class="hs-comment">--</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Types and functions for constructing loggers and emitting log messages.</span><span>
+</span><span id="line-10"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Logger</span><span>
+</span><span id="line-11"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Constructing a Logger</span></span><span>
+</span><span id="line-12"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#Logger"><span class="hs-identifier">Logger</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-13"></span><span>    </span><span class="annot"><a href="Network.AWS.Logger.html#newLogger"><span class="hs-identifier">newLogger</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Levels</span></span><span>
+</span><span id="line-16"></span><span>    </span><span class="annot"><a href="Network.AWS.Types.html#LogLevel"><span class="hs-identifier">LogLevel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.Logger.html#logError"><span class="hs-identifier">logError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.Logger.html#logInfo"><span class="hs-identifier">logInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.Logger.html#logDebug"><span class="hs-identifier">logDebug</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.Logger.html#logTrace"><span class="hs-identifier">logTrace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Building Messages</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier">ToLog</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.Data.Log.html#buildLines"><span class="hs-identifier">buildLines</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Control.Monad</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Monad</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Builder</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Build</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Data.html"><span class="hs-identifier">Network.AWS.Data</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Prelude.html"><span class="hs-identifier">Network.AWS.Prelude</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Types.html"><span class="hs-identifier">Network.AWS.Types</span></a></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">System.IO</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">IO</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | This is a primitive logger which can be used to log builds to a 'Handle'.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /Note:/ A more sophisticated logging library such as</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/tinylog tinylog&gt; or</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/fast-logger fast-logger&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- should be used in production code.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679199761"><span class="annot"><a href="Network.AWS.Logger.html#newLogger"><span class="hs-identifier hs-type">newLogger</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679199761"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO.Handle</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679199761"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Logger"><span class="hs-identifier hs-type">Logger</span></a></span></span><span>
+</span><span id="line-42"></span><span id="newLogger"><span class="annot"><span class="annottext">newLogger :: LogLevel -&gt; Handle -&gt; m Logger
+</span><a href="Network.AWS.Logger.html#newLogger"><span class="hs-identifier hs-var hs-var">newLogger</span></a></span></span><span> </span><span id="local-6989586621679199760"><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679199760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679199759"><span class="annot"><span class="annottext">Handle
+</span><a href="#local-6989586621679199759"><span class="hs-identifier hs-var">hd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-43"></span><span>  </span><span class="annot"><span class="annottext">IO Logger -&gt; m Logger
+forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
+</span><span class="hs-identifier hs-var">liftIO</span></span><span> </span><span class="annot"><span class="annottext">(IO Logger -&gt; m Logger) -&gt; IO Logger -&gt; m Logger
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-keyword">do</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="annottext">Handle -&gt; BufferMode -&gt; IO ()
+</span><span class="hs-identifier hs-var">IO.hSetBuffering</span></span><span> </span><span class="annot"><span class="annottext">Handle
+</span><a href="#local-6989586621679199759"><span class="hs-identifier hs-var">hd</span></a></span><span> </span><span class="annot"><span class="annottext">BufferMode
+</span><span class="hs-identifier hs-var">IO.LineBuffering</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="annottext">Logger -&gt; IO Logger
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">(Logger -&gt; IO Logger) -&gt; Logger -&gt; IO Logger
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199755"><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679199755"><span class="hs-identifier hs-var">y</span></a></span></span><span> </span><span id="local-6989586621679199754"><span class="annot"><span class="annottext">Builder
+</span><a href="#local-6989586621679199754"><span class="hs-identifier hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">Bool -&gt; IO () -&gt; IO ()
+forall (f :: * -&gt; *). Applicative f =&gt; Bool -&gt; f () -&gt; f ()
+</span><span class="hs-identifier hs-var">Monad.when</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679199760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">LogLevel -&gt; LogLevel -&gt; Bool
+forall a. Ord a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">&gt;=</span></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="#local-6989586621679199755"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IO () -&gt; IO ()) -&gt; IO () -&gt; IO ()
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span>
+</span><span id="line-48"></span><span>        </span><span class="annot"><span class="annottext">Handle -&gt; Builder -&gt; IO ()
+</span><span class="hs-identifier hs-var">Build.hPutBuilder</span></span><span> </span><span class="annot"><span class="annottext">Handle
+</span><a href="#local-6989586621679199759"><span class="hs-identifier hs-var">hd</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Builder
+</span><a href="#local-6989586621679199754"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Builder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">Builder
+</span><span class="hs-string">&quot;\n&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679199750"><span id="local-6989586621679199751"><span class="annot"><a href="Network.AWS.Logger.html#logError"><span class="hs-identifier hs-type">logError</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Logger.html#logInfo"><span class="hs-identifier hs-type">logInfo</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Logger.html#logDebug"><span class="hs-identifier hs-type">logDebug</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Logger.html#logTrace"><span class="hs-identifier hs-type">logTrace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">MonadIO</span></span><span> </span><span class="annot"><a href="#local-6989586621679199751"><span class="hs-identifier hs-type">m</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679199750"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Logger"><span class="hs-identifier hs-type">Logger</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679199750"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679199751"><span class="hs-identifier hs-type">m</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-special">)</span></span></span><span>
+</span><span id="line-51"></span><span id="logError"><span class="annot"><span class="annottext">logError :: Logger -&gt; a -&gt; m ()
+</span><a href="Network.AWS.Logger.html#logError"><span class="hs-identifier hs-var hs-var">logError</span></a></span></span><span> </span><span id="local-6989586621679199749"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199749"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; m ()
+forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
+</span><span class="hs-identifier hs-var">liftIO</span></span><span> </span><span class="annot"><span class="annottext">(IO () -&gt; m ()) -&gt; (a -&gt; IO ()) -&gt; a -&gt; m ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199749"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="Network.AWS.Types.html#Error"><span class="hs-identifier hs-var">Error</span></a></span><span> </span><span class="annot"><span class="annottext">(Builder -&gt; IO ()) -&gt; (a -&gt; Builder) -&gt; a -&gt; IO ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Builder
+forall a. ToLog a =&gt; a -&gt; Builder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span>
+</span><span id="line-52"></span><span id="logInfo"><span class="annot"><span class="annottext">logInfo :: Logger -&gt; a -&gt; m ()
+</span><a href="Network.AWS.Logger.html#logInfo"><span class="hs-identifier hs-var hs-var">logInfo</span></a></span></span><span> </span><span id="local-6989586621679199745"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199745"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; m ()
+forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
+</span><span class="hs-identifier hs-var">liftIO</span></span><span> </span><span class="annot"><span class="annottext">(IO () -&gt; m ()) -&gt; (a -&gt; IO ()) -&gt; a -&gt; m ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199745"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="Network.AWS.Types.html#Info"><span class="hs-identifier hs-var">Info</span></a></span><span> </span><span class="annot"><span class="annottext">(Builder -&gt; IO ()) -&gt; (a -&gt; Builder) -&gt; a -&gt; IO ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Builder
+forall a. ToLog a =&gt; a -&gt; Builder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span>
+</span><span id="line-53"></span><span id="logDebug"><span class="annot"><span class="annottext">logDebug :: Logger -&gt; a -&gt; m ()
+</span><a href="Network.AWS.Logger.html#logDebug"><span class="hs-identifier hs-var hs-var">logDebug</span></a></span></span><span> </span><span id="local-6989586621679199743"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199743"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; m ()
+forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
+</span><span class="hs-identifier hs-var">liftIO</span></span><span> </span><span class="annot"><span class="annottext">(IO () -&gt; m ()) -&gt; (a -&gt; IO ()) -&gt; a -&gt; m ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199743"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="Network.AWS.Types.html#Debug"><span class="hs-identifier hs-var">Debug</span></a></span><span> </span><span class="annot"><span class="annottext">(Builder -&gt; IO ()) -&gt; (a -&gt; Builder) -&gt; a -&gt; IO ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Builder
+forall a. ToLog a =&gt; a -&gt; Builder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span>
+</span><span id="line-54"></span><span id="logTrace"><span class="annot"><span class="annottext">logTrace :: Logger -&gt; a -&gt; m ()
+</span><a href="Network.AWS.Logger.html#logTrace"><span class="hs-identifier hs-var hs-var">logTrace</span></a></span></span><span> </span><span id="local-6989586621679199741"><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199741"><span class="hs-identifier hs-var">f</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IO () -&gt; m ()
+forall (m :: * -&gt; *) a. MonadIO m =&gt; IO a -&gt; m a
+</span><span class="hs-identifier hs-var">liftIO</span></span><span> </span><span class="annot"><span class="annottext">(IO () -&gt; m ()) -&gt; (a -&gt; IO ()) -&gt; a -&gt; m ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Logger
+</span><a href="#local-6989586621679199741"><span class="hs-identifier hs-var">f</span></a></span><span> </span><span class="annot"><span class="annottext">LogLevel
+</span><a href="Network.AWS.Types.html#Trace"><span class="hs-identifier hs-var">Trace</span></a></span><span> </span><span class="annot"><span class="annottext">(Builder -&gt; IO ()) -&gt; (a -&gt; Builder) -&gt; a -&gt; IO ()
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Builder
+forall a. ToLog a =&gt; a -&gt; Builder
+</span><a href="Network.AWS.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span>
+</span><span id="line-55"></span></pre></body></html>

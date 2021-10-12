@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://brendanhay.github.io/amazonka/documentation/</loc>
+  </url><url>
+    <loc>https://brendanhay.github.io/amazonka/documentation/usage/</loc>
+  </url><url>
+    <loc>https://brendanhay.github.io/amazonka/documentation/examples/</loc>
+  </url><url>
+    <loc>https://brendanhay.github.io/amazonka/haddock/</loc>
+  </url><url>
+    <loc>https://brendanhay.github.io/amazonka/categories/</loc>
+  </url><url>
+    <loc>https://brendanhay.github.io/amazonka/</loc>
+  </url><url>
+    <loc>https://brendanhay.github.io/amazonka/tags/</loc>
+  </url>
+</urlset>

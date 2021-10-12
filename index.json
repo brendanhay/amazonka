@@ -1,0 +1,50 @@
+[
+{
+	"uri": "https://brendanhay.github.io/amazonka/documentation/",
+	"title": "Documentation",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://brendanhay.github.io/amazonka/documentation/usage/",
+	"title": "Usage",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://brendanhay.github.io/amazonka/documentation/examples/",
+	"title": "Examples",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://brendanhay.github.io/amazonka/haddock/",
+	"title": "Haddock",
+	"tags": [],
+	"description": "",
+	"content": "Auto-generated Haddock documentation.   amazonka   "
+},
+{
+	"uri": "https://brendanhay.github.io/amazonka/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://brendanhay.github.io/amazonka/",
+	"title": "Home",
+	"tags": [],
+	"description": "",
+	"content": "Haskell AWS SDK TODO\n "
+},
+{
+	"uri": "https://brendanhay.github.io/amazonka/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

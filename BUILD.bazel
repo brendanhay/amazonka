@@ -13,14 +13,15 @@ buildifier(
 )
 
 #
-# Gazelle/Cabal
+# Gazelle
 #
 
-load("@bazel_gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+load("@bazel_gazelle//:def.bzl", "gazelle", "gazelle_binary")
 
 # gazelle:cabal_extra_libraries z=@zlib.dev//:zlib
 # gazelle:cabal_haskell_package_repo stackage
 # gazelle:cabal_add_tags ci
+
 gazelle(
     name = "gazelle",
     data = ["@io_tweag_gazelle_cabal//cabalscan"],
@@ -41,7 +42,7 @@ gazelle(
 
 gazelle_binary(
     name = "gazelle_binary",
-    languages = DEFAULT_LANGUAGES + ["@io_tweag_gazelle_cabal//gazelle_cabal"],
+    languages = ["@io_tweag_gazelle_cabal//gazelle_cabal"],
 )
 
 #

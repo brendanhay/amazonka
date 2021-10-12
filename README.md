@@ -48,7 +48,7 @@ An Amazon Web Services SDK for Haskell with support for most public services. Pa
 
 Amazonka is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
 
-Parts of the code are derived from AWS service descriptions, licensed under Apache 2.0. Source files subject to this contain an additional licensing clause in their header.
+The AWS service descriptions are licensed under Apache 2.0. Source files derived from the service descriptions contain an additional licensing clause in their header.
 
 ## Supported Platforms and GHC Versions
 
@@ -140,7 +140,7 @@ The [gen](gen) Bazel package contains code generators for synthesising Haskell d
 
 Or, you can selectively run the generator on one or more services:
 
-```
+```bash
 ./scripts/generate ec2 s3 iam
 ```
 
@@ -156,6 +156,20 @@ Service configurations generated in this way are intended as examples only and t
 
 For pull requests which affect generated output please _do not include_ the regenerated `amazonka-*` packages, only commit updates to the build rules, documentation, generator, and related configuration. This ensures the Continuous Integration process is the single source of truth for the generated code and reduces noise in pull requests, keeping them reviewable and focused on actual generator code/logic changes.
 
+### Building the Documentation Site
+
+The [docs](docs) Bazel package contains the Haddock target and Hugo static site definition and markdown content. To build the site locally, run:
+
+```bash
+bazel build //docs:site
+```
+
+Alternatively, you can serve it on `http://localhost:1313/amazonka` by running:
+
+```bash
+bazel build //docs:serve
+```
+
 ### Code Formatting
 
 Please use `./scripts/format` frequently - it's OK, I hate 2 spaces too, we're in this together.
@@ -164,9 +178,9 @@ Please use `./scripts/format` frequently - it's OK, I hate 2 spaces too, we're i
 
 This repository is organised into the following directory structure:
 
+* [`amazonka`](amazonka): Actual operational logic, you'll need to import this to send requests etc.
 * `amazonka-*`: Data types for each of the individual Amazon Web Service libraries.
 * `amazonka-*/test`: Tests and fixtures for each respective library.
-* [`amazonka`](amazonka): Actual operational logic, you'll need to import this to send requests etc.
 * [`examples`](examples): The `amazonka-examples` library containing basic examples.
 * [`test`](test): The `amazonka-test` library containing common test functionality.
 * [`docs`](docs): The documentation website and related build code.

@@ -125,6 +125,7 @@ haskell_library(
         "@stackage//:lens",
         "@stackage//:memory",
         "@stackage//:mtl",
+        "@stackage//:regex-posix",
         "@stackage//:resourcet",
         "@stackage//:retry",
         "@stackage//:scientific",

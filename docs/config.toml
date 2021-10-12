@@ -51,16 +51,21 @@ custom_css = ["css/custom.css"]
 titleSeparator = "-"
 
 [[menu.shortcuts]]
-name = "<i class='fab fa-fw fa-github'></i> Source code"
+name = "<i class='fas fa-fw fa-angle-double-right'></i> Code"
 url = "https://github.com/brendanhay/amazonka"
 weight = 10
 
 [[menu.shortcuts]]
-name = "<i class='fab fa-fw fa-dot-circle-o'></i> Issues"
-url = "https://github.com/brendanhay/amazonka/issues"
+name = "<i class='far fa-fw fa-chart-bar'></i> Contributors"
+url = "https://github.com/brendanhay/amazonka/graphs/contributors"
 weight = 20
 
 [[menu.shortcuts]]
-name = "<i class='fab fa-fw fa-amazon'></i> AWS documentation"
+name = "<i class='far fa-fw fa-dot-circle'></i> Issues"
+url = "https://github.com/brendanhay/amazonka/issues"
+weight = 30
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-amazon'></i> AWS Documentation"
 url = "https://docs.aws.amazon.com"
 weight = 100

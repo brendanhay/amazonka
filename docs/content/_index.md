@@ -2,7 +2,7 @@
 title: Home
 ---
 
-# Haskell Amazon Web Services SDK
+# Haskell AWS SDK
 
 {{% notice info %}}
 TODO

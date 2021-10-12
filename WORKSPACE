@@ -22,14 +22,6 @@ versioned_http_archive(
 )
 
 versioned_http_archive(
-    name = "rules_pkg",
-    strip_prefix = "rules_pkg-{version}/pkg",
-    url = "https://github.com/bazelbuild/rules_pkg/archive/{version}.tar.gz",
-    version = "8d542763a3959db79175404758f46c7f3f385fa5",
-    sha256 = "dd13c5581146da6abdee49a1a2605cd1dd8fb39bea9a870e0089aa4066b260b6"
-)
-
-versioned_http_archive(
     name = "io_tweag_rules_nixpkgs",
     sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
     strip_prefix = "rules_nixpkgs-{version}",
@@ -83,10 +75,10 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_gazelle_cabal",
+    sha256 = "04c4b76c5fb3d8a8ffb283be8b35e73226bd5d985d3e0c07c83a737b146456f1",
     strip_prefix = "gazelle_cabal-{version}",
     url = "https://github.com/brendanhay/gazelle_cabal/archive/{version}.tar.gz",
     version = "41a3f831806d5ed8b875f6f34fd133017e156e12",
-    sha256 = "04c4b76c5fb3d8a8ffb283be8b35e73226bd5d985d3e0c07c83a737b146456f1"
 )
 
 versioned_http_archive(
@@ -307,8 +299,10 @@ stack_snapshot(
         "ede",
         "ede-0.3.2.0",  # keep
         "errors",  # keep
+        "exceptions",
         "filepath",  # keep
         "free",  # keep
+        "generic-lens",
         "ghc-prim",
         "groom",
         "hashable",  # keep
@@ -325,10 +319,13 @@ stack_snapshot(
         "path",  # keep
         "path-io",  # keep
         "process",
+        "quickcheck-instances",
         "quickcheck-unicode",
+        "regex-posix",
         "resourcet",
         "retry",
         "scientific",  # keep
+        "semigroups",
         "tagged",
         "tasty",
         "tasty-hunit",

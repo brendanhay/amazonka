@@ -1,4 +1,4 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
 # rule generated from amazonka-s3-encryption/amazonka-s3-encryption.cabal by gazelle_cabal
 haskell_library(
@@ -64,6 +64,42 @@ haskell_library(
         "@stackage//:mtl",
         "@stackage//:resourcet",
         "@stackage//:text",
+        "@stackage//:unordered-containers",
+    ],
+)
+
+# rule generated from amazonka-s3-encryption/amazonka-s3-encryption.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-s3-encryption-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/S3/Encryption/Envelope.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_s3_encryption=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    tags = ["ci"],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-s3-encryption",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:QuickCheck",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:conduit",
+        "@stackage//:cryptonite",
+        "@stackage//:mtl",
+        "@stackage//:quickcheck-instances",
+        "@stackage//:resourcet",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:tasty-quickcheck",
+        "@stackage//:text",
+        "@stackage//:time",
         "@stackage//:unordered-containers",
     ],
 )

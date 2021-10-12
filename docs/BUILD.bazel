@@ -1,25 +1,9 @@
 load("@rules_haskell//haskell:defs.bzl", "haskell_doc")
-load("@rules_pkg//:mappings.bzl", "pkg_files", "pkg_filegroup", "filter_directory", "strip_prefix")
-load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load(
     "@build_stack_rules_hugo//hugo:rules.bzl",
     "hugo_serve",
     "hugo_site",
     "hugo_theme",
-)
-
-pkg_files(
-    name = "amazonka-docs",
-    srcs = [":docs"],
-    strip_prefix = strip_prefix.from_pkg('/docs'),
-    prefix = "static",
-)
-
-pkg_filegroup(
-    name = "static",
-    srcs = [
-        ":amazonka-docs",
-    ],
 )
 
 # FIXME: automate, gazelle, genquery, etc.
@@ -29,7 +13,7 @@ haskell_doc(
     # Target name is important, otherwise `hugo_site` won't copy over the files
     # if they don't have an expected directory prefix. This could be made more
     # robust by using `rules_pkg/mappings.bzl:pkg_files` to assemble the directory.
-    name = "docs",
+    name = "static",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
@@ -178,7 +162,6 @@ haskell_doc(
     ],
 )
 
-
 genrule(
     name = "packages",
     srcs = [":static"],
@@ -215,15 +198,14 @@ hugo_site(
     hugo = "@nixpkgs_hugo//:bin/hugo",
     layouts = glob(["layouts/**/*"]),
     quiet = False,
-    static = [":static"] + glob(["static/**/*"]),
+    static = [":static"]  + glob(["static/**/*"]),
     theme = ":theme",
     verbose = True,
 )
 
-
 hugo_serve(
     name = "serve",
-    dep = [":docs"],
+    dep = [":site"],
     disable_fast_render = True,
     hugo = "@nixpkgs_hugo//:bin/hugo",
 )

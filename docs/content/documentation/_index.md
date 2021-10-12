@@ -4,4 +4,4 @@ weight: 10
 disableToc: true
 ---
 
-![Magic](/amazonka/images/magic.gif)
+![Magic](/amazonka/documentation/images/magic.gif)

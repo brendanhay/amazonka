@@ -25,7 +25,6 @@ import qualified Data.Conduit.Binary as Conduit
 import qualified Data.List as List
 import qualified Data.Ord as Ord
 import qualified Data.Text.Encoding as Text
-import Data.Time (UTCTime (..))
 import qualified Data.Yaml as YAML
 import Network.AWS.Core
 import Network.AWS.Prelude

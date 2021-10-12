@@ -1,3 +1,6 @@
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE DeriveLift #-}
+{-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -10,7 +13,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.TH where
 
-import Data.Time
+import Data.Time (Day (..), DiffTime, UTCTime (..))
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
 import Network.AWS.Core
@@ -22,17 +25,16 @@ mkTime x =
     Left e -> error (show e)
     Right t -> [|view _Time t|]
 
-instance Lift (Time a) where
-  lift (Time x) = AppE (ConE (mkName "Time")) <$> lift x
+deriving instance Lift (Time a)
 
-instance Lift UTCTime where
-  lift (UTCTime x y) = do
-    x' <- lift x
-    y' <- lift y
-    return $ AppE (AppE (ConE (mkName "UTCTime")) x') y'
+deriving instance Lift UTCTime
 
+deriving instance Lift Day
+
+-- DiffTime's constructor is not exported, so use a manual instance
 instance Lift DiffTime where
+#if MIN_VERSION_template_haskell(2,16,0)
+  liftTyped x = [||toEnum $$(liftTyped (fromEnum x))||]
+#else
   lift x = [|toEnum $(lift (fromEnum x))|]
-
-instance Lift Day where
-  lift x = [|toEnum $(lift (fromEnum x))|]
+#endif

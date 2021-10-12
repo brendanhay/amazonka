@@ -1,6 +1,6 @@
 title = "Amazonka"
 theme = "theme"
-baseURL = "https://brendanhay.github.io/amazonka"
+baseURL = "https://amazonka.brendanhay.nz"
 metaDataFormat = "yaml"
 defaultContentLanguage = "en"
 disablePathToLower = true

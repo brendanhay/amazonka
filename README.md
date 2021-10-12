@@ -18,7 +18,7 @@
 [cachix]: https://amazonka.cachix.org
 [cachix-badge]: https://img.shields.io/badge/cachix-amazonka-purple.svg
 
-[Amazonka]: https://brendanhay.github.io/amazonka
+[Amazonka]: https://www.brendanhay.nz/amazonka
 [Nix]: https://nixos.org/nix/
 [Bazel]: https://bazel.build
 [Bazel labels]: https://docs.bazel.build/versions/4.1.0/build-ref.html#labels
@@ -164,7 +164,7 @@ The [docs](docs) Bazel package contains the Haddock target and Hugo static site 
 bazel build //docs:site
 ```
 
-Alternatively, you can serve it on `http://localhost:1313/amazonka` by running:
+Alternatively, you can serve the documentation site locally on `http://localhost:1313` by running:
 
 ```bash
 bazel build //docs:serve
